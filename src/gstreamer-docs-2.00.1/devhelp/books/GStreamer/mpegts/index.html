@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<base href="..">
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<title>MPEG-TS helper library</title>
+
+<link rel="stylesheet" href="assets/css/dark-frontend.css" type="text/css" title="dark">
+<link rel="alternate stylesheet" href="assets/css/light-frontend.css" type="text/css" title="light">
+<link rel="stylesheet" href="assets/css/bootstrap-toc.min.css" type="text/css">
+<link rel="stylesheet" href="assets/css/jquery.mCustomScrollbar.min.css">
+<link rel="stylesheet" href="assets/js/search/enable_search.css" type="text/css">
+
+<link rel="stylesheet" href="assets/css/extra_frontend.css" type="text/css">
+<link rel="stylesheet" href="assets/css/devhelp.css" type="text/css">
+
+<link rel="stylesheet" href="assets/css/prism-tomorrow.css" type="text/css" title="dark">
+
+<link rel="alternate stylesheet" href="assets/css/prism.css" type="text/css" title="light">
+
+<script src="assets/js/mustache.min.js"></script>
+<script src="assets/js/jquery.js"></script>
+<script src="assets/js/bootstrap.js"></script>
+<script src="assets/js/scrollspy.js"></script>
+<script src="assets/js/typeahead.jquery.min.js"></script>
+<script src="assets/js/search.js"></script>
+<script src="assets/js/compare-versions.js"></script>
+<script src="assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="assets/js/bootstrap-toc.min.js"></script>
+<script src="assets/js/jquery.touchSwipe.min.js"></script>
+<script src="assets/js/anchor.min.js"></script>
+<script src="assets/js/tag_filtering.js"></script>
+<script src="assets/js/language_switching.js"></script>
+<script src="assets/js/styleswitcher.js"></script>
+
+<script src="assets/js/lines_around_headings.js"></script>
+
+<script src="assets/js/prism-core.js"></script>
+<script src="assets/js/prism-autoloader.js"></script>
+<script src="assets/js/prism_autoloader_path_override.js"></script>
+<script src="assets/js/trie.js"></script>
+
+<!-- generic -->
+<link rel="icon" type="image/png" href="assets/images/favicon-16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="assets/images/favicon-32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="assets/images/favicon-57.png" sizes="57x57">
+<link rel="icon" type="image/png" href="assets/images/favicon-64.png" sizes="64x64">
+<link rel="icon" type="image/png" href="assets/images/favicon-76.png" sizes="76x76">
+<link rel="icon" type="image/png" href="assets/images/favicon-96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="assets/images/favicon-128.png" sizes="128x128">
+<link rel="icon" type="image/png" href="assets/images/favicon-192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="assets/images/favicon-228.png" sizes="228x228">
+
+<!-- Android -->
+<link rel="shortcut icon" sizes="196x196" href="assets/images/favicon-196.png">
+
+<!-- iOS -->
+<link rel="apple-touch-icon" href="assets/images/favicon-120.png" sizes="120x120">
+<link rel="apple-touch-icon" href="assets/images/favicon-152.png" sizes="152x152">
+<link rel="apple-touch-icon" href="assets/images/favicon-180.png" sizes="180x180">
+
+</head>
+
+<body class="no-script
+">
+
+<script>
+$('body').removeClass('no-script');
+</script>
+
+<nav class="navbar navbar-fixed-top navbar-default" id="topnav">
+	<div class="container-fluid">
+		<div class="navbar-right">
+			<a id="toc-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-wrapper" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<span title="light mode switch" class="glyphicon glyphicon-sunglasses pull-right" id="lightmode-icon"></span>
+			<form class="navbar-form pull-right" id="navbar-search-form">
+                               <div class="form-group has-feedback">
+                                       <input type="text" class="form-control input-sm" name="search" id="sidenav-lookup-field" placeholder="search" disabled>
+				       <span class="glyphicon glyphicon-search form-control-feedback" id="search-mgn-glass"></span>
+                               </div>
+                        </form>
+		</div>
+		<div class="navbar-header">
+			<a id="sidenav-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<a id="home-link" href="index.html" class="hotdoc-navbar-brand">
+				<img src="assets/images/gstreamer-logo.svg" alt="Home">
+			</a>
+		</div>
+		<div class="navbar-collapse collapse" id="navbar-wrapper">
+			<ul class="nav navbar-nav" id="menu">
+				
+<li class="dropdown">
+    <a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        API References<span class="caret"></span>
+    </a>
+	<ul class="dropdown-menu" id="modules-menu">
+					<li>
+				<a href="gstreamer/gi-index.html">GStreamer core</a>
+			</li>
+					<li>
+				<a href="libs.html">GStreamer Libraries</a>
+			</li>
+					<li>
+				<a href="plugins_doc.html">GStreamer Plugins</a>
+			</li>
+		</ul>
+</li>
+
+<li>
+    <a href="application-development/index.html">Application manual</a>
+</li>
+
+
+<li>
+    <a href="tutorials/index.html">Tutorials</a>
+</li>
+
+			</ul>
+			<div class="hidden-xs hidden-sm navbar-text navbar-center">
+							</div>
+		</div>
+	</div>
+</nav>
+
+<main>
+<div data-extension="gi-extension" data-hotdoc-in-toplevel="False" data-hotdoc-project="mpegts" data-hotdoc-ref="index.html" class="page_container" id="page-wrapper" data-hotdoc-meta-gi-languages="['c', 'javascript', 'python']" data-hotdoc-meta-gi-language="c">
+<script src="assets/js/utils.js"></script>
+
+<div class="panel panel-collapse oc-collapsed" id="sidenav" data-hotdoc-role="navigation">
+	<script src="assets/js/full-width.js"></script>
+  <div id="sitenav-wrapper">
+    <iframe src="hotdoc-sitemap.html" id="sitenav-frame"></iframe>
+  </div>
+</div>
+
+<div id="body">
+	<div id="main">
+				    <div id="page-description" data-hotdoc-role="main">
+        <h1 id="mpegts-helper-library">MPEG-TS helper library</h1>
+<p>This library should be linked to by getting cflags and libs from
+gstreamer-plugins-bad-1.0
+.pc and adding
+-lgstmpegts-1.0
+to the library flags.</p>
+<blockquote>
+<p>NOTE: This library API is considered <em>unstable</em></p>
+</blockquote>
+<h2 id="purpose">Purpose</h2>
+<p>The MPEG-TS helper library provides a collection of definitions, object,
+enumerations and functions to assist with dealing with the base <em>MPEG 2
+Transport Stream</em> (MPEG-TS) format (as defined by <code>ISO/IEC 13818-1</code> and <code>ITU-T H.222.0</code>) and its derivates (<code>DVB</code>, <code>ATSC</code>, <code>SCTE</code>, <code>ARIB</code>, <code>Blu-ray</code>, <code>AVCHD</code>,
+...).</p>
+<p>This library provides helpers for dealing with:</p>
+<ul>
+<li>
+<p>The various Section Information (SI) and Program-Specific Information (SI),
+handled with the <a href="mpegts/gstmpegtssection.html#GstMpegtsSection" data-gi-href-javascript="mpegts/gstmpegtssection.html#GstMpegtsSection" data-gi-title-javascript="GstMpegts.Section" data-gi-href-python="mpegts/gstmpegtssection.html#GstMpegtsSection" data-gi-title-python="GstMpegts.Section">GstMpegtsSection</a> object and related
+functions.</p>
+</li>
+<li>
+<p>The various descriptors present in SI/PSI, handled with the
+<a href="mpegts/gstmpegtsdescriptor.html#GstMpegtsDescriptor" data-gi-href-javascript="mpegts/gstmpegtsdescriptor.html#GstMpegtsDescriptor" data-gi-title-javascript="GstMpegts.Descriptor" data-gi-href-python="mpegts/gstmpegtsdescriptor.html#GstMpegtsDescriptor" data-gi-title-python="GstMpegts.Descriptor">GstMpegtsDescriptor</a> object and related functions.</p>
+</li>
+</ul>
+<p>This library does not cover:</p>
+<ul>
+<li>
+<p>Parsing MPEG-TS packets (PSI or PES) and extracting the sections. One can use
+an existing demuxer/parser element for this, or parse the packets
+themselves.</p>
+</li>
+<li>
+<p>Generate and multiplex MPEG-TS packets and sections. One can use an existing
+muxer element for this.</p>
+</li>
+</ul>
+<p>Applications, or external elements, can interact with the existing MPEG-TS
+elements via <a href="mpegts/gstmpegtssection.html#gst_message_new_mpegts_section" data-gi-href-javascript="mpegts/gstmpegtssection.html#gst_message_new_mpegts_section" data-gi-title-javascript="GstMpegts.prototype.message_new_mpegts_section" data-gi-href-python="mpegts/gstmpegtssection.html#gst_message_new_mpegts_section" data-gi-title-python="GstMpegts.message_new_mpegts_section">messages</a> (to receive sections) or
+<a href="mpegts/gstmpegtssection.html#gst_mpegts_section_send_event" data-gi-href-javascript="mpegts/gstmpegtssection.html#gst_mpegts_section_send_event" data-gi-title-javascript="GstMpegts.Section.prototype.send_event" data-gi-href-python="mpegts/gstmpegtssection.html#gst_mpegts_section_send_event" data-gi-title-python="GstMpegts.Section.send_event">events</a> (to send sections).</p>
+<h2 id="specification-and-references">Specification and References</h2>
+<p>As much as possible, the information contained in this library is based on the
+official Specification and/or References listed below:</p>
+<h3 id="mpegts"><code>MPEG-TS</code></h3>
+<p>This is the base specification from which all variants are derived. It covers
+the basic sections (for program signalling) and descriptors. All variants must
+abide by this specification.</p>
+<ul>
+<li>
+<code>ISO/IEC 13818-1</code> and <code>ITU-T H.222.0</code>: <em>"Information technology – Generic
+coding of moving pictures and associated audio information: Systems"</em>. The two
+specifications are identical, the ITU one is more easily available (<em>nudge</em>).</li>
+</ul>
+<h3 id="smptera-smpte-registration-authority">
+<code>SMPTE-RA</code> : <em>SMPTE Registration Authority</em>
+</h3>
+<p>The official registration authority for MPEG-TS. This is used for the base
+<a href="mpegts/gstmpegtsdescriptor.html#gst_mpegts_descriptor_parse_registration" data-gi-href-javascript="mpegts/gstmpegtsdescriptor.html#gst_mpegts_descriptor_parse_registration" data-gi-title-javascript="GstMpegts.Descriptor.prototype.parse_registration" data-gi-href-python="mpegts/gstmpegtsdescriptor.html#gst_mpegts_descriptor_parse_registration" data-gi-title-python="GstMpegts.Descriptor.parse_registration">Registration Descriptor</a> which
+allows to unambiguously identify a stream when it is not specified in a standard
+(yet).</p>
+<ul>
+<li><a href="http://smpte-ra.org/">http://smpte-ra.org/</a></li>
+</ul>
+<h3 id="dvb-digital-video-broadcasting">
+<code>DVB</code> : <em>Digital Video Broadcasting</em>
+</h3>
+<p>This standards body covers the variant of MPEG-TS used in Europe, Oceania, and
+most of Asia and Africa. The standards are actually published by the <code>ETSI</code>
+(European Telecommunications Standards Institute).</p>
+<ul>
+<li>
+<code>ETSI EN 300 468</code>: <em>"Digital Video Broadcasting (DVB); Specification for
+Service Information (SI) in DVB systems"</em>. Covers all the sections and
+descriptors used in DVB variants.</li>
+<li>
+<code>ETSI EN 101 154</code>: <em>"Digital Video Broadcasting (DVB);Specification for the
+use of Video and Audio Coding in Broadcast and Broadband
+Applications"</em>. Provides more details about signalling/sectios for audio/video
+codecs.</li>
+</ul>
+<h3 id="atsc-advanced-television-systems-committee">
+<code>ATSC</code> : <em>Advanced Television Systems Committee</em>
+</h3>
+<p>This set of standards covers the variants of MPEG-TS used in North America.</p>
+<ul>
+<li>
+<code>ATSC A/53-3</code> : <em>"ATSC Digital Television Standard, Part 3 – Service Multiplex
+and Transport Subsystem Characteristics"</em>. How ATSC extends the base MPEG-TS.</li>
+<li>
+<code>ATSC A/65</code> : <em>"ATSC Standard:Program and System Information Protocol for
+Terrestrial Broadcast and Cable"</em>. Covers all sections and descriptors used in
+ATSC 1.0 variants.</li>
+<li>
+<code>ATSC A/90</code> : <em>"ATSC Data Broadcast Standard"</em>. Extensions for data transfer
+(i.e. DSM-CC).</li>
+<li>
+<code>ATSC A/107</code> : <em>"ATSC 2.0 Standard"</em>. Adds a few more descriptors.</li>
+<li>
+<code>ATSC Code Points Registry</code> : The list of stream types, decriptor types,
+etc... used by ATSC standards.</li>
+</ul>
+<h3 id="scte-society-of-cable-telecommunications-engineers">
+<code>SCTE</code> : <em>Society of Cable Telecommunications Engineers</em>
+</h3>
+<p>This set of standards evolved in parallel with ATSC in North-America. Most of it
+has been merged into ATSC and other standards since.</p>
+<ul>
+<li>
+<code>ANSI/SCTE 35</code> : <em>"Digital Program Insertion Cueing Message for Cable"</em>
+</li>
+</ul>
+<h3 id="dsmcc-digital-storage-media-command-control">
+<code>DSM-CC</code> : "Digital Storage Media - Command &amp; Control"</h3>
+<p>This ISO standard is the base for asynchronously carrying "files" over mpeg-ts.</p>
+<ul>
+<li>
+<code>ISO/IEC 13818-6</code> : <em>"Information technology — Generic coding of moving
+pictures and associated audio information — Part 6: Extensions for DSM-CC"</em>.</li>
+</ul>
+
+    </div>
+        
+
+
+
+
+		<div id="subpages">
+	<p><b>Subpages:</b></p>
+	<div class="thumb-subpages">
+																																																																									</div>
+							<p>
+			<a href="mpegts/gst-atsc-descriptor.html">ATSC variants of MPEG-TS descriptors</a>
+							– Descriptors for the various ATSC specifications
+						</p>
+									<p>
+			<a href="mpegts/gst-atsc-section.html">ATSC variants of MPEG-TS sections</a>
+							– Sections for the various ATSC specifications
+						</p>
+									<p>
+			<a href="mpegts/gstmpegtsdescriptor.html">Base MPEG-TS descriptors</a>
+							– Descriptors for ITU H.222.0 | ISO/IEC 13818-1
+						</p>
+									<p>
+			<a href="mpegts/gstmpegtssection.html">Base MPEG-TS sections</a>
+							– Sections for ITU H.222.0 | ISO/IEC 13818-1
+						</p>
+									<p>
+			<a href="mpegts/gst-dvb-descriptor.html">DVB variants of MPEG-TS descriptors</a>
+							– Descriptors for the various DVB specifications
+						</p>
+									<p>
+			<a href="mpegts/gst-dvb-section.html">DVB variants of MPEG-TS sections</a>
+							– Sections for the various DVB specifications
+						</p>
+									<p>
+			<a href="mpegts/gst-hdmv-section.html">HDMV variants of MPEG-TS (Bluray, AVCHD, ...)</a>
+							– Stream Types for the various Bluray specifications
+						</p>
+									<p>
+			<a href="mpegts/gstmpegts.html">Initialization</a>
+							– Initialization of the MPEG-TS helper library
+						</p>
+									<p>
+			<a href="mpegts/gst-isdb-descriptor.html">ISDB variants of MPEG-TS descriptors</a>
+							– Descriptors for the various ISDB specifications
+						</p>
+									<p>
+			<a href="mpegts/gst-scte-section.html">SCTE variants of MPEG-TS sections</a>
+							– Sections for the various SCTE specifications
+						</p>
+			</div>
+	</div>
+	<div id="search_results">
+		<p>The results of the search are</p>
+	</div>
+	<div id="footer">
+		    
+
+	</div>
+</div>
+
+<div id="toc-column">
+	
+		<div class="edit-button">
+		
+
+	</div>
+		<div id="toc-wrapper">
+		<nav id="toc"></nav>
+	</div>
+</div>
+</div>
+</main>
+
+
+<script src="assets/js/navbar_offset_scroller.js"></script>
+</body>
+</html>

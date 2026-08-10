@@ -1,0 +1,2072 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<base href="..">
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<title>GstVulkanMemory</title>
+
+<link rel="stylesheet" href="assets/css/dark-frontend.css" type="text/css" title="dark">
+<link rel="alternate stylesheet" href="assets/css/light-frontend.css" type="text/css" title="light">
+<link rel="stylesheet" href="assets/css/bootstrap-toc.min.css" type="text/css">
+<link rel="stylesheet" href="assets/css/jquery.mCustomScrollbar.min.css">
+<link rel="stylesheet" href="assets/js/search/enable_search.css" type="text/css">
+
+<link rel="stylesheet" href="assets/css/extra_frontend.css" type="text/css">
+<link rel="stylesheet" href="assets/css/devhelp.css" type="text/css">
+
+<link rel="stylesheet" href="assets/css/prism-tomorrow.css" type="text/css" title="dark">
+
+<link rel="alternate stylesheet" href="assets/css/prism.css" type="text/css" title="light">
+
+<script src="assets/js/mustache.min.js"></script>
+<script src="assets/js/jquery.js"></script>
+<script src="assets/js/bootstrap.js"></script>
+<script src="assets/js/scrollspy.js"></script>
+<script src="assets/js/typeahead.jquery.min.js"></script>
+<script src="assets/js/search.js"></script>
+<script src="assets/js/compare-versions.js"></script>
+<script src="assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="assets/js/bootstrap-toc.min.js"></script>
+<script src="assets/js/jquery.touchSwipe.min.js"></script>
+<script src="assets/js/anchor.min.js"></script>
+<script src="assets/js/tag_filtering.js"></script>
+<script src="assets/js/language_switching.js"></script>
+<script src="assets/js/styleswitcher.js"></script>
+
+<script src="assets/js/lines_around_headings.js"></script>
+
+<script src="assets/js/prism-core.js"></script>
+<script src="assets/js/prism-autoloader.js"></script>
+<script src="assets/js/prism_autoloader_path_override.js"></script>
+<script src="assets/js/trie.js"></script>
+
+<!-- generic -->
+<link rel="icon" type="image/png" href="assets/images/favicon-16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="assets/images/favicon-32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="assets/images/favicon-57.png" sizes="57x57">
+<link rel="icon" type="image/png" href="assets/images/favicon-64.png" sizes="64x64">
+<link rel="icon" type="image/png" href="assets/images/favicon-76.png" sizes="76x76">
+<link rel="icon" type="image/png" href="assets/images/favicon-96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="assets/images/favicon-128.png" sizes="128x128">
+<link rel="icon" type="image/png" href="assets/images/favicon-192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="assets/images/favicon-228.png" sizes="228x228">
+
+<!-- Android -->
+<link rel="shortcut icon" sizes="196x196" href="assets/images/favicon-196.png">
+
+<!-- iOS -->
+<link rel="apple-touch-icon" href="assets/images/favicon-120.png" sizes="120x120">
+<link rel="apple-touch-icon" href="assets/images/favicon-152.png" sizes="152x152">
+<link rel="apple-touch-icon" href="assets/images/favicon-180.png" sizes="180x180">
+
+</head>
+
+<body class="no-script
+">
+
+<script>
+$('body').removeClass('no-script');
+</script>
+
+<nav class="navbar navbar-fixed-top navbar-default" id="topnav">
+	<div class="container-fluid">
+		<div class="navbar-right">
+			<a id="toc-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-wrapper" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<span title="light mode switch" class="glyphicon glyphicon-sunglasses pull-right" id="lightmode-icon"></span>
+			<form class="navbar-form pull-right" id="navbar-search-form">
+                               <div class="form-group has-feedback">
+                                       <input type="text" class="form-control input-sm" name="search" id="sidenav-lookup-field" placeholder="search" disabled>
+				       <span class="glyphicon glyphicon-search form-control-feedback" id="search-mgn-glass"></span>
+                               </div>
+                        </form>
+		</div>
+		<div class="navbar-header">
+			<a id="sidenav-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<a id="home-link" href="index.html" class="hotdoc-navbar-brand">
+				<img src="assets/images/gstreamer-logo.svg" alt="Home">
+			</a>
+		</div>
+		<div class="navbar-collapse collapse" id="navbar-wrapper">
+			<ul class="nav navbar-nav" id="menu">
+				
+<li class="dropdown">
+    <a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        API References<span class="caret"></span>
+    </a>
+	<ul class="dropdown-menu" id="modules-menu">
+					<li>
+				<a href="gstreamer/gi-index.html">GStreamer core</a>
+			</li>
+					<li>
+				<a href="libs.html">GStreamer Libraries</a>
+			</li>
+					<li>
+				<a href="plugins_doc.html">GStreamer Plugins</a>
+			</li>
+		</ul>
+</li>
+
+<li>
+    <a href="application-development/index.html">Application manual</a>
+</li>
+
+
+<li>
+    <a href="tutorials/index.html">Tutorials</a>
+</li>
+
+			</ul>
+			<div class="hidden-xs hidden-sm navbar-text navbar-center">
+							</div>
+		</div>
+	</div>
+</nav>
+
+<main>
+<div data-extension="gi-extension" data-hotdoc-in-toplevel="False" data-hotdoc-project="vulkanlib" data-hotdoc-ref="vkmemory.html" class="page_container" id="page-wrapper" data-hotdoc-meta-gi-languages="['c', 'javascript', 'python']" data-hotdoc-meta-gi-language="c">
+<script src="assets/js/utils.js"></script>
+
+<div class="panel panel-collapse oc-collapsed" id="sidenav" data-hotdoc-role="navigation">
+	<script src="assets/js/full-width.js"></script>
+  <div id="sitenav-wrapper">
+    <iframe src="hotdoc-sitemap.html" id="sitenav-frame"></iframe>
+  </div>
+</div>
+
+<div id="body">
+	<div id="main">
+				    <div id="page-description" data-hotdoc-role="main">
+        <h1 id="gstvulkanmemory-page">GstVulkanMemory</h1>
+<p>GstVulkanMemory is a <a href="gstreamer/gstmemory.html#GstMemory" data-gi-href-javascript="gstreamer/gstmemory.html#GstMemory" data-gi-title-javascript="Gst.Memory" data-gi-href-python="gstreamer/gstmemory.html#GstMemory" data-gi-title-python="Gst.Memory">GstMemory</a> subclass providing support for the mapping of
+Vulkan device memory.</p>
+
+    </div>
+        
+        
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.18;" id="GstVulkanMemory">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h2 data-hotdoc-id="GstVulkanMemory">
+	<i>GstVulkanMemory</i>
+</h2>
+
+
+
+
+
+
+	<div class="members-container">
+		<h3>Members</h3>
+					
+<div class="symbol-detail" data-hotdoc-id="GstVulkanMemory.mem">
+	<div>
+		<i><em><code>mem</code></em></i>
+		(<a title="GstMemory" href="gstreamer/gstmemory.html#GstMemory">GstMemory</a>)
+		–
+	</div>
+			<p>the parent <a href="gstreamer/gstmemory.html#GstMemory">GstMemory</a></p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVulkanMemory.device">
+	<div>
+		<i><em><code>device</code></em></i>
+		(<a title="GstVulkanDevice" href="vulkanlib/vkdevice.html#GstVulkanDevice">GstVulkanDevice</a> *)
+		–
+	</div>
+			<p>the <a href="vulkanlib/vkdevice.html#GstVulkanDevice">GstVulkanDevice</a> this memory is allocated from</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVulkanMemory.mem_ptr">
+	<div>
+		<i><em><code>mem_ptr</code></em></i>
+		(VkDeviceMemory)
+		–
+	</div>
+			<p>the vulkan memory handle</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVulkanMemory.lock">
+	<div>
+		<i><em><code>lock</code></em></i>
+		(<a title="GMutex" href="https://docs.gtk.org/glib/union.Mutex.html">GMutex</a>)
+		–
+	</div>
+			<p>lock for accessing/changing memory informat</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVulkanMemory.map_count">
+	<div>
+		<i><em><code>map_count</code></em></i>
+		(<a title="guint" href="https://docs.gtk.org/glib/types.html#guint">guint</a>)
+		–
+	</div>
+			<p>number of times this memory is mapped</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVulkanMemory.mapping">
+	<div>
+		<i><em><code>mapping</code></em></i>
+		(<a title="gpointer" href="https://docs.gtk.org/glib/types.html#gpointer">gpointer</a>)
+		–
+	</div>
+			<p>internal pointer to already mapped memory</p>
+
+	</div>
+
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h2 data-hotdoc-id="GstVulkanMemory">
+	<i>GstVulkan.VulkanMemory</i>
+</h2>
+
+
+
+
+
+
+	<div class="members-container">
+		<h3>Members</h3>
+					
+<div class="symbol-detail" data-hotdoc-id="GstVulkanMemory.mem">
+	<div>
+		<i><em><code>mem</code></em></i>
+		(<a title="Gst.Memory" href="gstreamer/gstmemory.html#GstMemory">Gst.Memory</a>)
+		–
+	</div>
+			<p>the parent <a href="gstreamer/gstmemory.html#GstMemory">Gst.Memory</a></p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVulkanMemory.device">
+	<div>
+		<i><em><code>device</code></em></i>
+		(<a title="GstVulkan.VulkanDevice" href="vulkanlib/vkdevice.html#GstVulkanDevice">GstVulkan.VulkanDevice</a>)
+		–
+	</div>
+			<p>the <a href="vulkanlib/vkdevice.html#GstVulkanDevice">GstVulkan.VulkanDevice</a> this memory is allocated from</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVulkanMemory.mem_ptr">
+	<div>
+		<i><em><code>mem_ptr</code></em></i>
+		(Vulkan.DeviceMemory)
+		–
+	</div>
+			<p>the vulkan memory handle</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVulkanMemory.lock">
+	<div>
+		<i><em><code>lock</code></em></i>
+		(<a title="GLib.Mutex" href="https://docs.gtk.org/glib/union.Mutex.html">GLib.Mutex</a>)
+		–
+	</div>
+			<p>lock for accessing/changing memory informat</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVulkanMemory.map_count">
+	<div>
+		<i><em><code>map_count</code></em></i>
+		(<a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>)
+		–
+	</div>
+			<p>number of times this memory is mapped</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVulkanMemory.mapping">
+	<div>
+		<i><em><code>mapping</code></em></i>
+		(<a title="Object" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)
+		–
+	</div>
+			<p>internal pointer to already mapped memory</p>
+
+	</div>
+
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h2 data-hotdoc-id="GstVulkanMemory">
+	<i>GstVulkan.VulkanMemory</i>
+</h2>
+
+
+
+
+
+
+	<div class="members-container">
+		<h3>Members</h3>
+					
+<div class="symbol-detail" data-hotdoc-id="GstVulkanMemory.mem">
+	<div>
+		<i><em><code>mem</code></em></i>
+		(<a title="Gst.Memory" href="gstreamer/gstmemory.html#GstMemory">Gst.Memory</a>)
+		–
+	</div>
+			<p>the parent <a href="gstreamer/gstmemory.html#GstMemory">Gst.Memory</a></p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVulkanMemory.device">
+	<div>
+		<i><em><code>device</code></em></i>
+		(<a title="GstVulkan.VulkanDevice" href="vulkanlib/vkdevice.html#GstVulkanDevice">GstVulkan.VulkanDevice</a>)
+		–
+	</div>
+			<p>the <a href="vulkanlib/vkdevice.html#GstVulkanDevice">GstVulkan.VulkanDevice</a> this memory is allocated from</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVulkanMemory.mem_ptr">
+	<div>
+		<i><em><code>mem_ptr</code></em></i>
+		(Vulkan.DeviceMemory)
+		–
+	</div>
+			<p>the vulkan memory handle</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVulkanMemory.lock">
+	<div>
+		<i><em><code>lock</code></em></i>
+		(<a title="GLib.Mutex" href="https://docs.gtk.org/glib/union.Mutex.html">GLib.Mutex</a>)
+		–
+	</div>
+			<p>lock for accessing/changing memory informat</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVulkanMemory.map_count">
+	<div>
+		<i><em><code>map_count</code></em></i>
+		(<a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a>)
+		–
+	</div>
+			<p>number of times this memory is mapped</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVulkanMemory.mapping">
+	<div>
+		<i><em><code>mapping</code></em></i>
+		(<a title="object" href="https://docs.python.org/3/library/functions.html#object">object</a>)
+		–
+	</div>
+			<p>internal pointer to already mapped memory</p>
+
+	</div>
+
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+
+            <h3 class="symbol_section">Functions</h3>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.18;" id="gst_vulkan_memory_alloc">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_vulkan_memory_alloc">
+	<i>gst_vulkan_memory_alloc</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GstMemory" href="gstreamer/gstmemory.html#GstMemory">GstMemory</a> *
+gst_vulkan_memory_alloc (<a title="GstVulkanDevice" href="vulkanlib/vkdevice.html#GstVulkanDevice">GstVulkanDevice</a> * device,
+                         <a title="guint32" href="https://docs.gtk.org/glib/types.html#guint32">guint32</a> memory_type_index,
+                         <a title="GstAllocationParams" href="gstreamer/gstallocator.html#GstAllocationParams">GstAllocationParams</a> * params,
+                         <a title="gsize" href="https://docs.gtk.org/glib/types.html#gsize">gsize</a> size,
+                         VkMemoryPropertyFlags mem_prop_flags)</pre>
+
+<p>Allocated a new <a href="vulkanlib/vkmemory.html#GstVulkanMemory">GstVulkanMemory</a>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>device</code></em></i>
+–
+</div>
+<p>a <a href="vulkanlib/vkdevice.html#GstVulkanDevice">GstVulkanDevice</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>memory_type_index</code></em></i>
+–
+</div>
+<p>the Vulkan memory type index</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>params</code></em></i>
+–
+</div>
+<p>a <a href="gstreamer/gstallocator.html#GstAllocationParams">GstAllocationParams</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>size</code></em></i>
+–
+</div>
+<p>the size to allocate</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>mem_prop_flags</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p>a <a href="gstreamer/gstmemory.html#GstMemory">GstMemory</a> object backed by a vulkan device memory</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_vulkan_memory_alloc">
+	<i>GstVulkan.prototype.vulkan_memory_alloc</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstVulkan.prototype.vulkan_memory_alloc(device: <a title="GstVulkan.VulkanDevice" href="vulkanlib/vkdevice.html#GstVulkanDevice">GstVulkan.VulkanDevice</a>, memory_type_index: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>, params: <a title="Gst.AllocationParams" href="gstreamer/gstallocator.html#GstAllocationParams">Gst.AllocationParams</a>, size: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>, mem_prop_flags: Vulkan.MemoryPropertyFlags): {
+    // javascript wrapper for 'gst_vulkan_memory_alloc'
+}</code></pre>
+
+<p>Allocated a new <a href="vulkanlib/vkmemory.html#GstVulkanMemory">GstVulkan.VulkanMemory</a>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>device</code></em></i>
+<span>(</span><a title="GstVulkan.VulkanDevice" href="vulkanlib/vkdevice.html#GstVulkanDevice">GstVulkan.VulkanDevice</a><span>)</span>
+–
+</div>
+<p>a <a href="vulkanlib/vkdevice.html#GstVulkanDevice">GstVulkan.VulkanDevice</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>memory_type_index</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>the Vulkan memory type index</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>params</code></em></i>
+<span>(</span><a title="Gst.AllocationParams" href="gstreamer/gstallocator.html#GstAllocationParams">Gst.AllocationParams</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gstallocator.html#GstAllocationParams">Gst.AllocationParams</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>size</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>the size to allocate</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>mem_prop_flags</code></em></i>
+<span>(</span>Vulkan.MemoryPropertyFlags<span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Gst.Memory" href="gstreamer/gstmemory.html#GstMemory">Gst.Memory</a><span>)</span>
+–
+			</div>
+							<p>a <a href="gstreamer/gstmemory.html#GstMemory">Gst.Memory</a> object backed by a vulkan device memory</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_vulkan_memory_alloc">
+	<i>GstVulkan.vulkan_memory_alloc</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstVulkan.vulkan_memory_alloc (device, memory_type_index, params, size, mem_prop_flags):
+    #python wrapper for 'gst_vulkan_memory_alloc'</code></pre>
+
+<p>Allocated a new <a href="vulkanlib/vkmemory.html#GstVulkanMemory">GstVulkan.VulkanMemory</a>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>device</code></em></i>
+<span>(</span><a title="GstVulkan.VulkanDevice" href="vulkanlib/vkdevice.html#GstVulkanDevice">GstVulkan.VulkanDevice</a><span>)</span>
+–
+</div>
+<p>a <a href="vulkanlib/vkdevice.html#GstVulkanDevice">GstVulkan.VulkanDevice</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>memory_type_index</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<p>the Vulkan memory type index</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>params</code></em></i>
+<span>(</span><a title="Gst.AllocationParams" href="gstreamer/gstallocator.html#GstAllocationParams">Gst.AllocationParams</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gstallocator.html#GstAllocationParams">Gst.AllocationParams</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>size</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<p>the size to allocate</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>mem_prop_flags</code></em></i>
+<span>(</span>Vulkan.MemoryPropertyFlags<span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Gst.Memory" href="gstreamer/gstmemory.html#GstMemory">Gst.Memory</a><span>)</span>
+–
+			</div>
+							<p>a <a href="gstreamer/gstmemory.html#GstMemory">Gst.Memory</a> object backed by a vulkan device memory</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.24;" id="gst_vulkan_memory_find_memory_type_index_with_requirements">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_vulkan_memory_find_memory_type_index_with_requirements">
+	<i>gst_vulkan_memory_find_memory_type_index_with_requirements</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a>
+gst_vulkan_memory_find_memory_type_index_with_requirements (<a title="GstVulkanDevice" href="vulkanlib/vkdevice.html#GstVulkanDevice">GstVulkanDevice</a> * device,
+                                                            const VkMemoryRequirements* req,
+                                                            VkMemoryPropertyFlags properties,
+                                                            <a title="guint32" href="https://docs.gtk.org/glib/types.html#guint32">guint32</a> * type_index)</pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>device</code></em></i>
+–
+</div>
+<p>a <a href="vulkanlib/vkdevice.html#GstVulkanDevice">GstVulkanDevice</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>req</code></em></i>
+–
+</div>
+<p>memory requirements to look for</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>properties</code></em></i>
+–
+</div>
+<p>memory properties to search for</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>type_index</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="Parameter for returning results"><span class="acronym">out</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>resulting index of the memory type</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p>whether a valid memory type could be found</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_vulkan_memory_find_memory_type_index_with_requirements">
+	<i>GstVulkan.prototype.vulkan_memory_find_memory_type_index_with_requirements</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstVulkan.prototype.vulkan_memory_find_memory_type_index_with_requirements(device: <a title="GstVulkan.VulkanDevice" href="vulkanlib/vkdevice.html#GstVulkanDevice">GstVulkan.VulkanDevice</a>, req: Vulkan.MemoryRequirements, properties: Vulkan.MemoryPropertyFlags): {
+    // javascript wrapper for 'gst_vulkan_memory_find_memory_type_index_with_requirements'
+}</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>device</code></em></i>
+<span>(</span><a title="GstVulkan.VulkanDevice" href="vulkanlib/vkdevice.html#GstVulkanDevice">GstVulkan.VulkanDevice</a><span>)</span>
+–
+</div>
+<p>a <a href="vulkanlib/vkdevice.html#GstVulkanDevice">GstVulkan.VulkanDevice</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>req</code></em></i>
+<span>(</span>Vulkan.MemoryRequirements<span>)</span>
+–
+</div>
+<p>memory requirements to look for</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>properties</code></em></i>
+<span>(</span>Vulkan.MemoryPropertyFlags<span>)</span>
+–
+</div>
+<p>memory properties to search for</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<p><b>Returns a tuple made of:</b></p>
+				
+<div class="symbol-detail">
+	<div>
+		<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>
+<span>)</span>
+–
+	</div>
+			<p>whether a valid memory type could be found</p>
+
+	</div>
+
+				
+<div class="symbol-detail">
+	<div>
+				<i><em><code>type_index</code></em></i>
+		<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>
+<span>)</span>
+–
+	</div>
+			<p>whether a valid memory type could be found</p>
+
+	</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_vulkan_memory_find_memory_type_index_with_requirements">
+	<i>GstVulkan.vulkan_memory_find_memory_type_index_with_requirements</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstVulkan.vulkan_memory_find_memory_type_index_with_requirements (device, req, properties):
+    #python wrapper for 'gst_vulkan_memory_find_memory_type_index_with_requirements'</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>device</code></em></i>
+<span>(</span><a title="GstVulkan.VulkanDevice" href="vulkanlib/vkdevice.html#GstVulkanDevice">GstVulkan.VulkanDevice</a><span>)</span>
+–
+</div>
+<p>a <a href="vulkanlib/vkdevice.html#GstVulkanDevice">GstVulkan.VulkanDevice</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>req</code></em></i>
+<span>(</span>Vulkan.MemoryRequirements<span>)</span>
+–
+</div>
+<p>memory requirements to look for</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>properties</code></em></i>
+<span>(</span>Vulkan.MemoryPropertyFlags<span>)</span>
+–
+</div>
+<p>memory properties to search for</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<p><b>Returns a tuple made of:</b></p>
+				
+<div class="symbol-detail">
+	<div>
+		<span>(</span><a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a>
+<span>)</span>
+–
+	</div>
+			<p>whether a valid memory type could be found</p>
+
+	</div>
+
+				
+<div class="symbol-detail">
+	<div>
+				<i><em><code>type_index</code></em></i>
+		<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a>
+<span>)</span>
+–
+	</div>
+			<p>whether a valid memory type could be found</p>
+
+	</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.18;" id="gst_vulkan_memory_heap_flags_to_string">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_vulkan_memory_heap_flags_to_string">
+	<i>gst_vulkan_memory_heap_flags_to_string</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gchar" href="https://docs.gtk.org/glib/types.html#gchar">gchar</a> *
+gst_vulkan_memory_heap_flags_to_string (VkMemoryHeapFlags prop_bits)</pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>prop_bits</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_vulkan_memory_heap_flags_to_string">
+	<i>GstVulkan.prototype.vulkan_memory_heap_flags_to_string</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstVulkan.prototype.vulkan_memory_heap_flags_to_string(prop_bits: Vulkan.MemoryHeapFlags): {
+    // javascript wrapper for 'gst_vulkan_memory_heap_flags_to_string'
+}</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>prop_bits</code></em></i>
+<span>(</span>Vulkan.MemoryHeapFlags<span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a><span>)</span>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_vulkan_memory_heap_flags_to_string">
+	<i>GstVulkan.vulkan_memory_heap_flags_to_string</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstVulkan.vulkan_memory_heap_flags_to_string (prop_bits):
+    #python wrapper for 'gst_vulkan_memory_heap_flags_to_string'</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>prop_bits</code></em></i>
+<span>(</span>Vulkan.MemoryHeapFlags<span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="str" href="https://docs.python.org/3/library/functions.html#func-str">str</a><span>)</span>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.18;" id="gst_vulkan_memory_init_once">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_vulkan_memory_init_once">
+	<i>gst_vulkan_memory_init_once</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+gst_vulkan_memory_init_once ()</pre>
+
+<p>Initializes the Vulkan memory allocator. It is safe to call this function
+multiple times.  This must be called before any other <a href="vulkanlib/vkmemory.html#GstVulkanMemory">GstVulkanMemory</a> operation.</p>
+
+
+
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_vulkan_memory_init_once">
+	<i>GstVulkan.prototype.vulkan_memory_init_once</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstVulkan.prototype.vulkan_memory_init_once(): {
+    // javascript wrapper for 'gst_vulkan_memory_init_once'
+}</code></pre>
+
+<p>Initializes the Vulkan memory allocator. It is safe to call this function
+multiple times.  This must be called before any other <a href="vulkanlib/vkmemory.html#GstVulkanMemory">GstVulkan.VulkanMemory</a> operation.</p>
+
+
+
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_vulkan_memory_init_once">
+	<i>GstVulkan.vulkan_memory_init_once</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstVulkan.vulkan_memory_init_once ():
+    #python wrapper for 'gst_vulkan_memory_init_once'</code></pre>
+
+<p>Initializes the Vulkan memory allocator. It is safe to call this function
+multiple times.  This must be called before any other <a href="vulkanlib/vkmemory.html#GstVulkanMemory">GstVulkan.VulkanMemory</a> operation.</p>
+
+
+
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.18;" id="gst_vulkan_memory_property_flags_to_string">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_vulkan_memory_property_flags_to_string">
+	<i>gst_vulkan_memory_property_flags_to_string</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gchar" href="https://docs.gtk.org/glib/types.html#gchar">gchar</a> *
+gst_vulkan_memory_property_flags_to_string (VkMemoryPropertyFlags prop_bits)</pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>prop_bits</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_vulkan_memory_property_flags_to_string">
+	<i>GstVulkan.prototype.vulkan_memory_property_flags_to_string</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstVulkan.prototype.vulkan_memory_property_flags_to_string(prop_bits: Vulkan.MemoryPropertyFlags): {
+    // javascript wrapper for 'gst_vulkan_memory_property_flags_to_string'
+}</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>prop_bits</code></em></i>
+<span>(</span>Vulkan.MemoryPropertyFlags<span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a><span>)</span>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_vulkan_memory_property_flags_to_string">
+	<i>GstVulkan.vulkan_memory_property_flags_to_string</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstVulkan.vulkan_memory_property_flags_to_string (prop_bits):
+    #python wrapper for 'gst_vulkan_memory_property_flags_to_string'</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>prop_bits</code></em></i>
+<span>(</span>Vulkan.MemoryPropertyFlags<span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="str" href="https://docs.python.org/3/library/functions.html#func-str">str</a><span>)</span>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+
+        
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.18;" id="GstVulkanMemoryAllocator">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h2 data-hotdoc-id="GstVulkanMemoryAllocator">
+	<i>GstVulkanMemoryAllocator</i>
+</h2>
+
+
+<div class="hierarchy_container">
+	<div class="hierarchy_details">
+<pre>
+<a title="GObject" href="https://docs.gtk.org/gobject/class.Object.html">GObject</a>
+    <span class="lineart">╰──</span><a title="GInitiallyUnowned" href="https://docs.gtk.org/gobject/class.InitiallyUnowned.html">GInitiallyUnowned</a>
+        <span class="lineart">╰──</span><a title="GstObject" href="gstreamer/gstobject.html#GstObject">GstObject</a>
+            <span class="lineart">╰──</span><a title="GstAllocator" href="gstreamer/gstallocator.html#GstAllocator">GstAllocator</a>
+                <span class="lineart">╰──</span>GstVulkanMemoryAllocator
+</pre>
+
+</div>
+
+</div>
+
+<div class="class_details">
+	<p>Opaque <a href="vulkanlib/vkmemory.html#GstVulkanMemoryAllocator">GstVulkanMemoryAllocator</a> struct</p>
+
+</div>
+
+
+
+	<div class="members-container">
+		<h3>Members</h3>
+					
+<div class="symbol-detail" data-hotdoc-id="GstVulkanMemoryAllocator.parent">
+	<div>
+		<i><em><code>parent</code></em></i>
+		(<a title="GstAllocator" href="gstreamer/gstallocator.html#GstAllocator">GstAllocator</a>)
+		–
+	</div>
+			<p>the parent <a href="gstreamer/gstallocator.html#GstAllocator">GstAllocator</a></p>
+
+	</div>
+
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+<h3>Class structure</h3>
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstVulkanMemoryAllocatorClass">
+	<i>GstVulkanMemoryAllocatorClass</i>
+</h4>
+
+
+<p>The <a href="GstVulkanMemoryAllocatorClass">GstVulkanMemoryAllocatorClass</a> only contains private data</p>
+
+
+
+
+	<div class="members-container">
+		<h5>Fields</h5>
+					
+<div class="symbol-detail" data-hotdoc-id="GstVulkanMemoryAllocatorClass.parent_class">
+	<div>
+		<i><em><code>parent_class</code></em></i>
+		(<a title="GstAllocatorClass" href="GstAllocatorClass">GstAllocatorClass</a>)
+		–
+	</div>
+			<p>the parent <a href="GstAllocatorClass">GstAllocatorClass</a></p>
+
+	</div>
+
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3>
+	GstVulkan.VulkanMemoryAllocatorClass
+</h3>
+
+
+<p>The <a href="GstVulkanMemoryAllocatorClass">GstVulkan.VulkanMemoryAllocatorClass</a> only contains private data</p>
+
+
+
+
+	<div class="members-container">
+		<h5>Attributes</h5>
+					
+<div class="symbol-detail" data-hotdoc-id="GstVulkanMemoryAllocatorClass.parent_class">
+	<div>
+		<i><em><code>parent_class</code></em></i>
+		(<a title="Gst.AllocatorClass" href="GstAllocatorClass">Gst.AllocatorClass</a>)
+		–
+	</div>
+			<p>the parent <a href="GstAllocatorClass">Gst.AllocatorClass</a></p>
+
+	</div>
+
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3>
+	GstVulkan.VulkanMemoryAllocatorClass
+</h3>
+
+
+<p>The <a href="GstVulkanMemoryAllocatorClass">GstVulkan.VulkanMemoryAllocatorClass</a> only contains private data</p>
+
+
+
+
+	<div class="members-container">
+		<h5>Attributes</h5>
+					
+<div class="symbol-detail" data-hotdoc-id="GstVulkanMemoryAllocatorClass.parent_class">
+	<div>
+		<i><em><code>parent_class</code></em></i>
+		(<a title="Gst.AllocatorClass" href="GstAllocatorClass">Gst.AllocatorClass</a>)
+		–
+	</div>
+			<p>the parent <a href="GstAllocatorClass">Gst.AllocatorClass</a></p>
+
+	</div>
+
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h2 data-hotdoc-id="GstVulkanMemoryAllocator">
+	<i>GstVulkan.VulkanMemoryAllocator</i>
+</h2>
+
+
+<div class="hierarchy_container">
+	<div class="hierarchy_details">
+<pre>
+<a title="GObject.Object" href="https://docs.gtk.org/gobject/class.Object.html">GObject.Object</a>
+    <span class="lineart">╰──</span><a title="GObject.InitiallyUnowned" href="https://docs.gtk.org/gobject/class.InitiallyUnowned.html">GObject.InitiallyUnowned</a>
+        <span class="lineart">╰──</span><a title="Gst.Object" href="gstreamer/gstobject.html#GstObject">Gst.Object</a>
+            <span class="lineart">╰──</span><a title="Gst.Allocator" href="gstreamer/gstallocator.html#GstAllocator">Gst.Allocator</a>
+                <span class="lineart">╰──</span>GstVulkan.VulkanMemoryAllocator
+</pre>
+
+</div>
+
+</div>
+
+<div class="class_details">
+	<p>Opaque <a href="vulkanlib/vkmemory.html#GstVulkanMemoryAllocator">GstVulkan.VulkanMemoryAllocator</a> struct</p>
+
+</div>
+
+
+
+	<div class="members-container">
+		<h3>Members</h3>
+					
+<div class="symbol-detail" data-hotdoc-id="GstVulkanMemoryAllocator.parent">
+	<div>
+		<i><em><code>parent</code></em></i>
+		(<a title="Gst.Allocator" href="gstreamer/gstallocator.html#GstAllocator">Gst.Allocator</a>)
+		–
+	</div>
+			<p>the parent <a href="gstreamer/gstallocator.html#GstAllocator">Gst.Allocator</a></p>
+
+	</div>
+
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h2 data-hotdoc-id="GstVulkanMemoryAllocator">
+	<i>GstVulkan.VulkanMemoryAllocator</i>
+</h2>
+
+
+<div class="hierarchy_container">
+	<div class="hierarchy_details">
+<pre>
+<a title="GObject.Object" href="https://docs.gtk.org/gobject/class.Object.html">GObject.Object</a>
+    <span class="lineart">╰──</span><a title="GObject.InitiallyUnowned" href="https://docs.gtk.org/gobject/class.InitiallyUnowned.html">GObject.InitiallyUnowned</a>
+        <span class="lineart">╰──</span><a title="Gst.Object" href="gstreamer/gstobject.html#GstObject">Gst.Object</a>
+            <span class="lineart">╰──</span><a title="Gst.Allocator" href="gstreamer/gstallocator.html#GstAllocator">Gst.Allocator</a>
+                <span class="lineart">╰──</span>GstVulkan.VulkanMemoryAllocator
+</pre>
+
+</div>
+
+</div>
+
+<div class="class_details">
+	<p>Opaque <a href="vulkanlib/vkmemory.html#GstVulkanMemoryAllocator">GstVulkan.VulkanMemoryAllocator</a> struct</p>
+
+</div>
+
+
+
+	<div class="members-container">
+		<h3>Members</h3>
+					
+<div class="symbol-detail" data-hotdoc-id="GstVulkanMemoryAllocator.parent">
+	<div>
+		<i><em><code>parent</code></em></i>
+		(<a title="Gst.Allocator" href="gstreamer/gstallocator.html#GstAllocator">Gst.Allocator</a>)
+		–
+	</div>
+			<p>the parent <a href="gstreamer/gstallocator.html#GstAllocator">Gst.Allocator</a></p>
+
+	</div>
+
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+
+        
+
+            <h2 class="symbol_section">Functions</h2>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.18;" id="gst_is_vulkan_memory">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="gst_is_vulkan_memory">
+	<i>gst_is_vulkan_memory</i>
+</h3>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a>
+gst_is_vulkan_memory (<a title="GstMemory" href="gstreamer/gstmemory.html#GstMemory">GstMemory</a> * mem)</pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>mem</code></em></i>
+–
+</div>
+<p>a <a href="gstreamer/gstmemory.html#GstMemory">GstMemory</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p>whether the memory at <em>mem</em> is a <a href="vulkanlib/vkmemory.html#GstVulkanMemory">GstVulkanMemory</a></p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3 data-hotdoc-id="gst_is_vulkan_memory">
+	<i>GstVulkan.prototype.is_vulkan_memory</i>
+</h3>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstVulkan.prototype.is_vulkan_memory(mem: <a title="Gst.Memory" href="gstreamer/gstmemory.html#GstMemory">Gst.Memory</a>): {
+    // javascript wrapper for 'gst_is_vulkan_memory'
+}</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>mem</code></em></i>
+<span>(</span><a title="Gst.Memory" href="gstreamer/gstmemory.html#GstMemory">Gst.Memory</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gstmemory.html#GstMemory">Gst.Memory</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+			</div>
+							<p>whether the memory at <em>mem</em> is a <a href="vulkanlib/vkmemory.html#GstVulkanMemory">GstVulkan.VulkanMemory</a></p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3 data-hotdoc-id="gst_is_vulkan_memory">
+	<i>GstVulkan.is_vulkan_memory</i>
+</h3>
+
+
+<pre class="python-prototype language-python">
+<code>def GstVulkan.is_vulkan_memory (mem):
+    #python wrapper for 'gst_is_vulkan_memory'</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>mem</code></em></i>
+<span>(</span><a title="Gst.Memory" href="gstreamer/gstmemory.html#GstMemory">Gst.Memory</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gstmemory.html#GstMemory">Gst.Memory</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a><span>)</span>
+–
+			</div>
+							<p>whether the memory at <em>mem</em> is a <a href="vulkanlib/vkmemory.html#GstVulkanMemory">GstVulkan.VulkanMemory</a></p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+
+            <h2 class="symbol_section">Function Macros</h2>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.18;" id="GST_VULKAN_MEMORY_ALLOCATOR_CAST">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_VULKAN_MEMORY_ALLOCATOR_CAST">
+	<i>GST_VULKAN_MEMORY_ALLOCATOR_CAST</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_VULKAN_MEMORY_ALLOCATOR_CAST(obj)            ((GstVulkanMemoryAllocator *)(obj))
+</pre>
+
+
+
+
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+
+            <h2 class="symbol_section">Constants</h2>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.18;" id="GST_VULKAN_MEMORY_ALLOCATOR_NAME">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_VULKAN_MEMORY_ALLOCATOR_NAME">
+	<i>GST_VULKAN_MEMORY_ALLOCATOR_NAME</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_VULKAN_MEMORY_ALLOCATOR_NAME "Vulkan"
+</pre>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3 data-hotdoc-id="GST_VULKAN_MEMORY_ALLOCATOR_NAME">
+	<i>GstVulkan.VULKAN_MEMORY_ALLOCATOR_NAME</i>
+</h3>
+
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3 data-hotdoc-id="GST_VULKAN_MEMORY_ALLOCATOR_NAME">
+	<i>GstVulkan.VULKAN_MEMORY_ALLOCATOR_NAME</i>
+</h3>
+
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+
+
+
+
+
+		
+	</div>
+	<div id="search_results">
+		<p>The results of the search are</p>
+	</div>
+	<div id="footer">
+		    
+
+	</div>
+</div>
+
+<div id="toc-column">
+	
+		<div class="edit-button">
+		
+
+	</div>
+		<div id="toc-wrapper">
+		<nav id="toc"></nav>
+	</div>
+</div>
+</div>
+</main>
+
+
+<script src="assets/js/navbar_offset_scroller.js"></script>
+</body>
+</html>

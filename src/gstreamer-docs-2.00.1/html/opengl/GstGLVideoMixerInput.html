@@ -1,0 +1,1366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<base href="..">
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<title>GstGLVideoMixerInput</title>
+
+<link rel="stylesheet" href="assets/css/dark-frontend.css" type="text/css" title="dark">
+<link rel="alternate stylesheet" href="assets/css/light-frontend.css" type="text/css" title="light">
+<link rel="stylesheet" href="assets/css/bootstrap-toc.min.css" type="text/css">
+<link rel="stylesheet" href="assets/css/jquery.mCustomScrollbar.min.css">
+<link rel="stylesheet" href="assets/js/search/enable_search.css" type="text/css">
+
+<link rel="stylesheet" href="assets/css/extra_frontend.css" type="text/css">
+<link rel="stylesheet" href="assets/css/devhelp.css" type="text/css">
+
+<link rel="stylesheet" href="assets/css/prism-tomorrow.css" type="text/css" title="dark">
+
+<link rel="alternate stylesheet" href="assets/css/prism.css" type="text/css" title="light">
+
+<script src="assets/js/mustache.min.js"></script>
+<script src="assets/js/jquery.js"></script>
+<script src="assets/js/bootstrap.js"></script>
+<script src="assets/js/scrollspy.js"></script>
+<script src="assets/js/typeahead.jquery.min.js"></script>
+<script src="assets/js/search.js"></script>
+<script src="assets/js/compare-versions.js"></script>
+<script src="assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="assets/js/bootstrap-toc.min.js"></script>
+<script src="assets/js/jquery.touchSwipe.min.js"></script>
+<script src="assets/js/anchor.min.js"></script>
+<script src="assets/js/tag_filtering.js"></script>
+<script src="assets/js/language_switching.js"></script>
+<script src="assets/js/styleswitcher.js"></script>
+
+<script src="assets/js/lines_around_headings.js"></script>
+
+<script src="assets/js/prism-core.js"></script>
+<script src="assets/js/prism-autoloader.js"></script>
+<script src="assets/js/prism_autoloader_path_override.js"></script>
+<script src="assets/js/trie.js"></script>
+
+<!-- generic -->
+<link rel="icon" type="image/png" href="assets/images/favicon-16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="assets/images/favicon-32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="assets/images/favicon-57.png" sizes="57x57">
+<link rel="icon" type="image/png" href="assets/images/favicon-64.png" sizes="64x64">
+<link rel="icon" type="image/png" href="assets/images/favicon-76.png" sizes="76x76">
+<link rel="icon" type="image/png" href="assets/images/favicon-96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="assets/images/favicon-128.png" sizes="128x128">
+<link rel="icon" type="image/png" href="assets/images/favicon-192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="assets/images/favicon-228.png" sizes="228x228">
+
+<!-- Android -->
+<link rel="shortcut icon" sizes="196x196" href="assets/images/favicon-196.png">
+
+<!-- iOS -->
+<link rel="apple-touch-icon" href="assets/images/favicon-120.png" sizes="120x120">
+<link rel="apple-touch-icon" href="assets/images/favicon-152.png" sizes="152x152">
+<link rel="apple-touch-icon" href="assets/images/favicon-180.png" sizes="180x180">
+
+</head>
+
+<body class="no-script
+">
+
+<script>
+$('body').removeClass('no-script');
+</script>
+
+<nav class="navbar navbar-fixed-top navbar-default" id="topnav">
+	<div class="container-fluid">
+		<div class="navbar-right">
+			<a id="toc-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-wrapper" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<span title="light mode switch" class="glyphicon glyphicon-sunglasses pull-right" id="lightmode-icon"></span>
+			<form class="navbar-form pull-right" id="navbar-search-form">
+                               <div class="form-group has-feedback">
+                                       <input type="text" class="form-control input-sm" name="search" id="sidenav-lookup-field" placeholder="search" disabled>
+				       <span class="glyphicon glyphicon-search form-control-feedback" id="search-mgn-glass"></span>
+                               </div>
+                        </form>
+		</div>
+		<div class="navbar-header">
+			<a id="sidenav-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<a id="home-link" href="index.html" class="hotdoc-navbar-brand">
+				<img src="assets/images/gstreamer-logo.svg" alt="Home">
+			</a>
+		</div>
+		<div class="navbar-collapse collapse" id="navbar-wrapper">
+			<ul class="nav navbar-nav" id="menu">
+				
+<li class="dropdown">
+    <a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        API References<span class="caret"></span>
+    </a>
+	<ul class="dropdown-menu" id="modules-menu">
+					<li>
+				<a href="gstreamer/gi-index.html">GStreamer core</a>
+			</li>
+					<li>
+				<a href="libs.html">GStreamer Libraries</a>
+			</li>
+					<li>
+				<a href="plugins_doc.html">GStreamer Plugins</a>
+			</li>
+		</ul>
+</li>
+
+<li>
+    <a href="application-development/index.html">Application manual</a>
+</li>
+
+
+<li>
+    <a href="tutorials/index.html">Tutorials</a>
+</li>
+
+			</ul>
+			<div class="hidden-xs hidden-sm navbar-text navbar-center">
+							</div>
+		</div>
+	</div>
+</nav>
+
+<main>
+<div data-extension="gst-extension" data-hotdoc-in-toplevel="False" data-hotdoc-project="opengl" data-hotdoc-ref="GstGLVideoMixerInput.html" class="page_container" id="page-wrapper" data-hotdoc-meta-gi-languages="['c', 'javascript', 'python']">
+<script src="assets/js/utils.js"></script>
+
+<div class="panel panel-collapse oc-collapsed" id="sidenav" data-hotdoc-role="navigation">
+	<script src="assets/js/full-width.js"></script>
+  <div id="sitenav-wrapper">
+    <iframe src="hotdoc-sitemap.html" id="sitenav-frame"></iframe>
+  </div>
+</div>
+
+<div id="body">
+	<div id="main">
+				    <div id="page-description" data-hotdoc-role="main">
+    </div>
+        
+        
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstGLVideoMixerInput">
+	
+
+
+
+<h2 data-hotdoc-id="GstGLVideoMixerInput">
+	<i>GstGLVideoMixerInput</i>
+</h2>
+
+
+<div class="hierarchy_container">
+	<div class="hierarchy_details">
+<pre>
+<a title="GObject" href="https://docs.gtk.org/gobject/class.Object.html" data-gi-href-javascript="https://docs.gtk.org/gobject/class.Object.html" data-gi-title-javascript="GObject.Object" data-gi-href-python="https://docs.gtk.org/gobject/class.Object.html" data-gi-title-python="GObject.Object">GObject</a>
+    <span class="lineart">╰──</span><a title="GInitiallyUnowned" href="https://docs.gtk.org/gobject/class.InitiallyUnowned.html" data-gi-href-javascript="https://docs.gtk.org/gobject/class.InitiallyUnowned.html" data-gi-title-javascript="GObject.InitiallyUnowned" data-gi-href-python="https://docs.gtk.org/gobject/class.InitiallyUnowned.html" data-gi-title-python="GObject.InitiallyUnowned">GInitiallyUnowned</a>
+        <span class="lineart">╰──</span><a title="GstObject" href="gstreamer/gstobject.html#GstObject" data-gi-href-javascript="gstreamer/gstobject.html#GstObject" data-gi-title-javascript="Gst.Object" data-gi-href-python="gstreamer/gstobject.html#GstObject" data-gi-title-python="Gst.Object">GstObject</a>
+            <span class="lineart">╰──</span><a title="GstPad" href="gstreamer/gstpad.html#GstPad" data-gi-href-javascript="gstreamer/gstpad.html#GstPad" data-gi-title-javascript="Gst.Pad" data-gi-href-python="gstreamer/gstpad.html#GstPad" data-gi-title-python="Gst.Pad">GstPad</a>
+                <span class="lineart">╰──</span><a title="GstProxyPad" href="gstreamer/gstghostpad.html#GstProxyPad" data-gi-href-javascript="gstreamer/gstghostpad.html#GstProxyPad" data-gi-title-javascript="Gst.ProxyPad" data-gi-href-python="gstreamer/gstghostpad.html#GstProxyPad" data-gi-title-python="Gst.ProxyPad">GstProxyPad</a>
+                    <span class="lineart">╰──</span><a title="GstGhostPad" href="gstreamer/gstghostpad.html#GstGhostPad" data-gi-href-javascript="gstreamer/gstghostpad.html#GstGhostPad" data-gi-title-javascript="Gst.GhostPad" data-gi-href-python="gstreamer/gstghostpad.html#GstGhostPad" data-gi-title-python="Gst.GhostPad">GstGhostPad</a>
+                        <span class="lineart">╰──</span>GstGLVideoMixerInput
+</pre>
+
+</div>
+
+</div>
+
+
+
+
+
+
+
+<hr>
+
+</div>
+
+
+            <h3 class="symbol_section">Properties</h3>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstGLVideoMixerInput:alpha">
+	
+
+
+
+<h4 data-hotdoc-id="GstGLVideoMixerInput:alpha">
+	<i>alpha</i>
+</h4>
+
+
+<pre class="property_signature">
+“alpha” <span class="type"><a title="gdouble" href="https://docs.gtk.org/glib/types.html#gdouble" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#float" data-gi-title-python="float">gdouble</a></span>
+</pre>
+
+<p>Alpha of the picture</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	0
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstGLVideoMixerInput:blend-constant-color-alpha">
+	
+
+
+
+<h4 data-hotdoc-id="GstGLVideoMixerInput:blend-constant-color-alpha">
+	<i>blend-constant-color-alpha</i>
+</h4>
+
+
+<pre class="property_signature">
+“blend-constant-color-alpha” <span class="type"><a title="gdouble" href="https://docs.gtk.org/glib/types.html#gdouble" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#float" data-gi-title-python="float">gdouble</a></span>
+</pre>
+
+<p>Blend Constant Color Alpha</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	0
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstGLVideoMixerInput:blend-constant-color-blue">
+	
+
+
+
+<h4 data-hotdoc-id="GstGLVideoMixerInput:blend-constant-color-blue">
+	<i>blend-constant-color-blue</i>
+</h4>
+
+
+<pre class="property_signature">
+“blend-constant-color-blue” <span class="type"><a title="gdouble" href="https://docs.gtk.org/glib/types.html#gdouble" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#float" data-gi-title-python="float">gdouble</a></span>
+</pre>
+
+<p>Blend Constant Color Green</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	0
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstGLVideoMixerInput:blend-constant-color-green">
+	
+
+
+
+<h4 data-hotdoc-id="GstGLVideoMixerInput:blend-constant-color-green">
+	<i>blend-constant-color-green</i>
+</h4>
+
+
+<pre class="property_signature">
+“blend-constant-color-green” <span class="type"><a title="gdouble" href="https://docs.gtk.org/glib/types.html#gdouble" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#float" data-gi-title-python="float">gdouble</a></span>
+</pre>
+
+<p>Blend Constant Color Green</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	0
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstGLVideoMixerInput:blend-constant-color-red">
+	
+
+
+
+<h4 data-hotdoc-id="GstGLVideoMixerInput:blend-constant-color-red">
+	<i>blend-constant-color-red</i>
+</h4>
+
+
+<pre class="property_signature">
+“blend-constant-color-red” <span class="type"><a title="gdouble" href="https://docs.gtk.org/glib/types.html#gdouble" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#float" data-gi-title-python="float">gdouble</a></span>
+</pre>
+
+<p>Blend Constant Color Red</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	0
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstGLVideoMixerInput:blend-equation-alpha">
+	
+
+
+
+<h4 data-hotdoc-id="GstGLVideoMixerInput:blend-equation-alpha">
+	<i>blend-equation-alpha</i>
+</h4>
+
+
+<pre class="property_signature">
+“blend-equation-alpha” <span class="type"><a title="GstGLVideoMixerBlendEquation" href="opengl/GstGLVideoMixerInput.html#GstGLVideoMixerBlendEquation">GstGLVideoMixerBlendEquation</a> <span class="pointer-token">*</span></span>
+</pre>
+
+<p>Blend Equation for Alpha</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	add (0)
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstGLVideoMixerInput:blend-equation-rgb">
+	
+
+
+
+<h4 data-hotdoc-id="GstGLVideoMixerInput:blend-equation-rgb">
+	<i>blend-equation-rgb</i>
+</h4>
+
+
+<pre class="property_signature">
+“blend-equation-rgb” <span class="type"><a title="GstGLVideoMixerBlendEquation" href="opengl/GstGLVideoMixerInput.html#GstGLVideoMixerBlendEquation">GstGLVideoMixerBlendEquation</a> <span class="pointer-token">*</span></span>
+</pre>
+
+<p>Blend Equation for RGB</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	add (0)
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstGLVideoMixerInput:blend-function-dst-alpha">
+	
+
+
+
+<h4 data-hotdoc-id="GstGLVideoMixerInput:blend-function-dst-alpha">
+	<i>blend-function-dst-alpha</i>
+</h4>
+
+
+<pre class="property_signature">
+“blend-function-dst-alpha” <span class="type"><a title="GstGLVideoMixerBlendFunction" href="opengl/GstGLVideoMixerInput.html#GstGLVideoMixerBlendFunction">GstGLVideoMixerBlendFunction</a> <span class="pointer-token">*</span></span>
+</pre>
+
+<p>Blend Function for Destination Alpha</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	zero (0)
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstGLVideoMixerInput:blend-function-dst-rgb">
+	
+
+
+
+<h4 data-hotdoc-id="GstGLVideoMixerInput:blend-function-dst-rgb">
+	<i>blend-function-dst-rgb</i>
+</h4>
+
+
+<pre class="property_signature">
+“blend-function-dst-rgb” <span class="type"><a title="GstGLVideoMixerBlendFunction" href="opengl/GstGLVideoMixerInput.html#GstGLVideoMixerBlendFunction">GstGLVideoMixerBlendFunction</a> <span class="pointer-token">*</span></span>
+</pre>
+
+<p>Blend Function for Destination RGB</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	zero (0)
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstGLVideoMixerInput:blend-function-src-alpha">
+	
+
+
+
+<h4 data-hotdoc-id="GstGLVideoMixerInput:blend-function-src-alpha">
+	<i>blend-function-src-alpha</i>
+</h4>
+
+
+<pre class="property_signature">
+“blend-function-src-alpha” <span class="type"><a title="GstGLVideoMixerBlendFunction" href="opengl/GstGLVideoMixerInput.html#GstGLVideoMixerBlendFunction">GstGLVideoMixerBlendFunction</a> <span class="pointer-token">*</span></span>
+</pre>
+
+<p>Blend Function for Source Alpha</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	zero (0)
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstGLVideoMixerInput:blend-function-src-rgb">
+	
+
+
+
+<h4 data-hotdoc-id="GstGLVideoMixerInput:blend-function-src-rgb">
+	<i>blend-function-src-rgb</i>
+</h4>
+
+
+<pre class="property_signature">
+“blend-function-src-rgb” <span class="type"><a title="GstGLVideoMixerBlendFunction" href="opengl/GstGLVideoMixerInput.html#GstGLVideoMixerBlendFunction">GstGLVideoMixerBlendFunction</a> <span class="pointer-token">*</span></span>
+</pre>
+
+<p>Blend Function for Source RGB</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	zero (0)
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.22;" id="GstGLVideoMixerInput:crop-bottom">
+	
+
+
+
+<h4 data-hotdoc-id="GstGLVideoMixerInput:crop-bottom">
+	<i>crop-bottom</i>
+</h4>
+
+
+<pre class="property_signature">
+“crop-bottom” <span class="type"><a title="gint" href="https://docs.gtk.org/glib/types.html#gint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">gint</a></span>
+</pre>
+
+<p>Defines how many pixels of the input in input size should be cropped on
+the bottom side.</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	0
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.22
+		</p>
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.22;" id="GstGLVideoMixerInput:crop-left">
+	
+
+
+
+<h4 data-hotdoc-id="GstGLVideoMixerInput:crop-left">
+	<i>crop-left</i>
+</h4>
+
+
+<pre class="property_signature">
+“crop-left” <span class="type"><a title="gint" href="https://docs.gtk.org/glib/types.html#gint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">gint</a></span>
+</pre>
+
+<p>Defines how many pixels of the input in input size should be cropped on
+the left side.</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	0
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.22
+		</p>
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.22;" id="GstGLVideoMixerInput:crop-right">
+	
+
+
+
+<h4 data-hotdoc-id="GstGLVideoMixerInput:crop-right">
+	<i>crop-right</i>
+</h4>
+
+
+<pre class="property_signature">
+“crop-right” <span class="type"><a title="gint" href="https://docs.gtk.org/glib/types.html#gint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">gint</a></span>
+</pre>
+
+<p>Defines how many pixels of the input in input size should be cropped on
+the right side.</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	0
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.22
+		</p>
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.22;" id="GstGLVideoMixerInput:crop-top">
+	
+
+
+
+<h4 data-hotdoc-id="GstGLVideoMixerInput:crop-top">
+	<i>crop-top</i>
+</h4>
+
+
+<pre class="property_signature">
+“crop-top” <span class="type"><a title="gint" href="https://docs.gtk.org/glib/types.html#gint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">gint</a></span>
+</pre>
+
+<p>Defines how many pixels of the input in input size should be cropped on
+the top side.</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	0
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.22
+		</p>
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstGLVideoMixerInput:height">
+	
+
+
+
+<h4 data-hotdoc-id="GstGLVideoMixerInput:height">
+	<i>height</i>
+</h4>
+
+
+<pre class="property_signature">
+“height” <span class="type"><a title="gint" href="https://docs.gtk.org/glib/types.html#gint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">gint</a></span>
+</pre>
+
+<p>Height of the picture</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	0
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstGLVideoMixerInput:repeat-after-eos">
+	
+
+
+
+<h4 data-hotdoc-id="GstGLVideoMixerInput:repeat-after-eos">
+	<i>repeat-after-eos</i>
+</h4>
+
+
+<pre class="property_signature">
+“repeat-after-eos” <span class="type"><a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#bool" data-gi-title-python="bool">gboolean</a></span>
+</pre>
+
+<p>Aggregate the last frame on pads that are EOS till they are released</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	false
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.24;" id="GstGLVideoMixerInput:sizing-policy">
+	
+
+
+
+<h4 data-hotdoc-id="GstGLVideoMixerInput:sizing-policy">
+	<i>sizing-policy</i>
+</h4>
+
+
+<pre class="property_signature">
+“sizing-policy” <span class="type"><a title="GstGLVideoMixerSizingPolicy" href="opengl/GstGLVideoMixerPad.html#GstGLVideoMixerSizingPolicy">GstGLVideoMixerSizingPolicy</a> <span class="pointer-token">*</span></span>
+</pre>
+
+<p>Specifies sizing policy to use. Depending on selected sizing policy,
+scaled image might not fully cover the configured target rectangle area
+(e.g., "keep-aspect-ratio"). In that case, any uncovered area will be
+filled with background unless the uncovered area is drawn by other image.</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	none (0)
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstGLVideoMixerInput:width">
+	
+
+
+
+<h4 data-hotdoc-id="GstGLVideoMixerInput:width">
+	<i>width</i>
+</h4>
+
+
+<pre class="property_signature">
+“width” <span class="type"><a title="gint" href="https://docs.gtk.org/glib/types.html#gint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">gint</a></span>
+</pre>
+
+<p>Width of the picture</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	0
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.24;" id="GstGLVideoMixerInput:xalign">
+	
+
+
+
+<h4 data-hotdoc-id="GstGLVideoMixerInput:xalign">
+	<i>xalign</i>
+</h4>
+
+
+<pre class="property_signature">
+“xalign” <span class="type"><a title="gdouble" href="https://docs.gtk.org/glib/types.html#gdouble" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#float" data-gi-title-python="float">gdouble</a></span>
+</pre>
+
+<p>Defines the alignment of the input within the available horizontal space,
+relative to <a href="opengl/GstGLVideoMixerPad.html#GstGLVideoMixerPad:width">width</a> and <a href="opengl/GstGLVideoMixerPad.html#GstGLVideoMixerPad:height">height</a>.
+Values range from 0.0 (left) to 1.0 (right).</p>
+<p>The image is aligned in the available space as if the pivot point is
+matching the alignment. For example, setting the <code>xalign</code> property to 0.0
+will align the left edge of the image with the left edge of the bounding
+box; 0.5 aligns the horizontal center of the image with the horizontal
+center of the bounding box; 1.0 aligns the right edge of the image with the
+right edge of the bounding box; and so it goes.</p>
+<p>This property is only effective when <a href="opengl/GstGLVideoMixerInput.html#GstGLVideoMixerInput:sizing-policy">sizing-policy</a>
+is set to 'keep-aspect-ratio'.</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	0
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstGLVideoMixerInput:xpos">
+	
+
+
+
+<h4 data-hotdoc-id="GstGLVideoMixerInput:xpos">
+	<i>xpos</i>
+</h4>
+
+
+<pre class="property_signature">
+“xpos” <span class="type"><a title="gint" href="https://docs.gtk.org/glib/types.html#gint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">gint</a></span>
+</pre>
+
+<p>X Position of the picture</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	0
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.24;" id="GstGLVideoMixerInput:yalign">
+	
+
+
+
+<h4 data-hotdoc-id="GstGLVideoMixerInput:yalign">
+	<i>yalign</i>
+</h4>
+
+
+<pre class="property_signature">
+“yalign” <span class="type"><a title="gdouble" href="https://docs.gtk.org/glib/types.html#gdouble" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#float" data-gi-title-python="float">gdouble</a></span>
+</pre>
+
+<p>Defines the alignment of the input within the available vertical space,
+relative to <a href="opengl/GstGLVideoMixerPad.html#GstGLVideoMixerPad:width">width</a> and <a href="opengl/GstGLVideoMixerPad.html#GstGLVideoMixerPad:height">height</a>.
+Values range from 0.0 (top) to 1.0 (bottom).</p>
+<p>The image is aligned in the available space as if the pivot point is
+matching the alignment. For example, setting the <code>xalign</code> property to 0.0
+will align the left edge of the image with the left edge of the bounding
+box; 0.5 aligns the horizontal center of the image with the horizontal
+center of the bounding box; 1.0 aligns the right edge of the image with the
+right edge of the bounding box; and so it goes.</p>
+<p>This property is only effective when <a href="opengl/GstGLVideoMixerInput.html#GstGLVideoMixerInput:sizing-policy">sizing-policy</a>
+is set to 'keep-aspect-ratio'.</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	0
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstGLVideoMixerInput:ypos">
+	
+
+
+
+<h4 data-hotdoc-id="GstGLVideoMixerInput:ypos">
+	<i>ypos</i>
+</h4>
+
+
+<pre class="property_signature">
+“ypos” <span class="type"><a title="gint" href="https://docs.gtk.org/glib/types.html#gint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">gint</a></span>
+</pre>
+
+<p>Y Position of the picture</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	0
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstGLVideoMixerInput:zorder">
+	
+
+
+
+<h4 data-hotdoc-id="GstGLVideoMixerInput:zorder">
+	<i>zorder</i>
+</h4>
+
+
+<pre class="property_signature">
+“zorder” <span class="type"><a title="guint" href="https://docs.gtk.org/glib/types.html#guint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">guint</a></span>
+</pre>
+
+<p>Z Order of the picture</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	0
+</p>
+
+
+
+<hr>
+
+</div>
+
+
+            <h3 class="symbol_section">Named constants</h3>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstGLVideoMixerBlendEquation">
+	
+
+
+
+<h4 data-hotdoc-id="GstGLVideoMixerBlendEquation">
+	<i>GstGLVideoMixerBlendEquation</i>
+</h4>
+
+
+<p>The blending equation to use.  See the opengl specificition for
+glBlendEquationSeparate</p>
+
+
+
+
+	<div class="members-container">
+		<h5>Members</h5>
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstGLVideoMixerBlendEquation::add">
+        <code>add</code> (<i>0</i>) – Add
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstGLVideoMixerBlendEquation::subtract">
+        <code>subtract</code> (<i>1</i>) – Subtract
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstGLVideoMixerBlendEquation::reverse-subtract">
+        <code>reverse-subtract</code> (<i>2</i>) – Reverse Subtract
+        </div>
+    
+			</div>
+
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstGLVideoMixerBlendFunction">
+	
+
+
+
+<h4 data-hotdoc-id="GstGLVideoMixerBlendFunction">
+	<i>GstGLVideoMixerBlendFunction</i>
+</h4>
+
+
+<p>The blending function to use.  See the opengl specificition for
+glBlendFuncSeparate</p>
+
+
+
+
+	<div class="members-container">
+		<h5>Members</h5>
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstGLVideoMixerBlendFunction::zero">
+        <code>zero</code> (<i>0</i>) – Zero
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstGLVideoMixerBlendFunction::one">
+        <code>one</code> (<i>1</i>) – One
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstGLVideoMixerBlendFunction::src-color">
+        <code>src-color</code> (<i>2</i>) – Source Color
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstGLVideoMixerBlendFunction::one-minus-src-color">
+        <code>one-minus-src-color</code> (<i>3</i>) – One Minus Source Color
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstGLVideoMixerBlendFunction::dst-color">
+        <code>dst-color</code> (<i>4</i>) – Destination Color
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstGLVideoMixerBlendFunction::one-minus-dst-color">
+        <code>one-minus-dst-color</code> (<i>5</i>) – One Minus Destination Color
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstGLVideoMixerBlendFunction::src-alpha">
+        <code>src-alpha</code> (<i>6</i>) – Source Alpha
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstGLVideoMixerBlendFunction::one-minus-src-alpha">
+        <code>one-minus-src-alpha</code> (<i>7</i>) – One Minus Source Alpha
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstGLVideoMixerBlendFunction::dst-alpha">
+        <code>dst-alpha</code> (<i>8</i>) – Destination Alpha
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstGLVideoMixerBlendFunction::one-minus-dst-alpha">
+        <code>one-minus-dst-alpha</code> (<i>9</i>) – One Minus Destination Alpha
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstGLVideoMixerBlendFunction::constant-color">
+        <code>constant-color</code> (<i>10</i>) – Constant Color
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstGLVideoMixerBlendFunction::one-minus-contant-color">
+        <code>one-minus-contant-color</code> (<i>11</i>) – One Minus Constant Color
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstGLVideoMixerBlendFunction::constant-alpha">
+        <code>constant-alpha</code> (<i>12</i>) – Constant Alpha
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstGLVideoMixerBlendFunction::one-minus-contant-alpha">
+        <code>one-minus-contant-alpha</code> (<i>13</i>) – One Minus Constant Alpha
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstGLVideoMixerBlendFunction::src-alpha-saturate">
+        <code>src-alpha-saturate</code> (<i>14</i>) – Source Alpha Saturate
+        </div>
+    
+			</div>
+
+
+
+
+<hr>
+
+</div>
+
+
+
+
+
+
+		
+	</div>
+	<div id="search_results">
+		<p>The results of the search are</p>
+	</div>
+	<div id="footer">
+		    
+
+	</div>
+</div>
+
+<div id="toc-column">
+	
+		<div class="edit-button">
+		
+
+	</div>
+		<div id="toc-wrapper">
+		<nav id="toc"></nav>
+	</div>
+</div>
+</div>
+</main>
+
+
+<script src="assets/js/navbar_offset_scroller.js"></script>
+</body>
+</html>

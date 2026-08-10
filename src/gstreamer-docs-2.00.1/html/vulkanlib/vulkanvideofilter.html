@@ -1,0 +1,1229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<base href="..">
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<title>GstVulkanVideoFilter</title>
+
+<link rel="stylesheet" href="assets/css/dark-frontend.css" type="text/css" title="dark">
+<link rel="alternate stylesheet" href="assets/css/light-frontend.css" type="text/css" title="light">
+<link rel="stylesheet" href="assets/css/bootstrap-toc.min.css" type="text/css">
+<link rel="stylesheet" href="assets/css/jquery.mCustomScrollbar.min.css">
+<link rel="stylesheet" href="assets/js/search/enable_search.css" type="text/css">
+
+<link rel="stylesheet" href="assets/css/extra_frontend.css" type="text/css">
+<link rel="stylesheet" href="assets/css/devhelp.css" type="text/css">
+
+<link rel="stylesheet" href="assets/css/prism-tomorrow.css" type="text/css" title="dark">
+
+<link rel="alternate stylesheet" href="assets/css/prism.css" type="text/css" title="light">
+
+<script src="assets/js/mustache.min.js"></script>
+<script src="assets/js/jquery.js"></script>
+<script src="assets/js/bootstrap.js"></script>
+<script src="assets/js/scrollspy.js"></script>
+<script src="assets/js/typeahead.jquery.min.js"></script>
+<script src="assets/js/search.js"></script>
+<script src="assets/js/compare-versions.js"></script>
+<script src="assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="assets/js/bootstrap-toc.min.js"></script>
+<script src="assets/js/jquery.touchSwipe.min.js"></script>
+<script src="assets/js/anchor.min.js"></script>
+<script src="assets/js/tag_filtering.js"></script>
+<script src="assets/js/language_switching.js"></script>
+<script src="assets/js/styleswitcher.js"></script>
+
+<script src="assets/js/lines_around_headings.js"></script>
+
+<script src="assets/js/prism-core.js"></script>
+<script src="assets/js/prism-autoloader.js"></script>
+<script src="assets/js/prism_autoloader_path_override.js"></script>
+<script src="assets/js/trie.js"></script>
+
+<!-- generic -->
+<link rel="icon" type="image/png" href="assets/images/favicon-16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="assets/images/favicon-32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="assets/images/favicon-57.png" sizes="57x57">
+<link rel="icon" type="image/png" href="assets/images/favicon-64.png" sizes="64x64">
+<link rel="icon" type="image/png" href="assets/images/favicon-76.png" sizes="76x76">
+<link rel="icon" type="image/png" href="assets/images/favicon-96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="assets/images/favicon-128.png" sizes="128x128">
+<link rel="icon" type="image/png" href="assets/images/favicon-192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="assets/images/favicon-228.png" sizes="228x228">
+
+<!-- Android -->
+<link rel="shortcut icon" sizes="196x196" href="assets/images/favicon-196.png">
+
+<!-- iOS -->
+<link rel="apple-touch-icon" href="assets/images/favicon-120.png" sizes="120x120">
+<link rel="apple-touch-icon" href="assets/images/favicon-152.png" sizes="152x152">
+<link rel="apple-touch-icon" href="assets/images/favicon-180.png" sizes="180x180">
+
+</head>
+
+<body class="no-script
+">
+
+<script>
+$('body').removeClass('no-script');
+</script>
+
+<nav class="navbar navbar-fixed-top navbar-default" id="topnav">
+	<div class="container-fluid">
+		<div class="navbar-right">
+			<a id="toc-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-wrapper" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<span title="light mode switch" class="glyphicon glyphicon-sunglasses pull-right" id="lightmode-icon"></span>
+			<form class="navbar-form pull-right" id="navbar-search-form">
+                               <div class="form-group has-feedback">
+                                       <input type="text" class="form-control input-sm" name="search" id="sidenav-lookup-field" placeholder="search" disabled>
+				       <span class="glyphicon glyphicon-search form-control-feedback" id="search-mgn-glass"></span>
+                               </div>
+                        </form>
+		</div>
+		<div class="navbar-header">
+			<a id="sidenav-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<a id="home-link" href="index.html" class="hotdoc-navbar-brand">
+				<img src="assets/images/gstreamer-logo.svg" alt="Home">
+			</a>
+		</div>
+		<div class="navbar-collapse collapse" id="navbar-wrapper">
+			<ul class="nav navbar-nav" id="menu">
+				
+<li class="dropdown">
+    <a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        API References<span class="caret"></span>
+    </a>
+	<ul class="dropdown-menu" id="modules-menu">
+					<li>
+				<a href="gstreamer/gi-index.html">GStreamer core</a>
+			</li>
+					<li>
+				<a href="libs.html">GStreamer Libraries</a>
+			</li>
+					<li>
+				<a href="plugins_doc.html">GStreamer Plugins</a>
+			</li>
+		</ul>
+</li>
+
+<li>
+    <a href="application-development/index.html">Application manual</a>
+</li>
+
+
+<li>
+    <a href="tutorials/index.html">Tutorials</a>
+</li>
+
+			</ul>
+			<div class="hidden-xs hidden-sm navbar-text navbar-center">
+							</div>
+		</div>
+	</div>
+</nav>
+
+<main>
+<div data-extension="gi-extension" data-hotdoc-in-toplevel="False" data-hotdoc-project="vulkanlib" data-hotdoc-ref="vulkanvideofilter.html" class="page_container" id="page-wrapper" data-hotdoc-meta-gi-languages="['c', 'javascript', 'python']" data-hotdoc-meta-gi-language="c">
+<script src="assets/js/utils.js"></script>
+
+<div class="panel panel-collapse oc-collapsed" id="sidenav" data-hotdoc-role="navigation">
+	<script src="assets/js/full-width.js"></script>
+  <div id="sitenav-wrapper">
+    <iframe src="hotdoc-sitemap.html" id="sitenav-frame"></iframe>
+  </div>
+</div>
+
+<div id="body">
+	<div id="main">
+				    <div id="page-description" data-hotdoc-role="main">
+        <h1 id="gstvulkanvideofilter-page">GstVulkanVideoFilter</h1>
+<p><a href="vulkanlib/vulkanvideofilter.html#GstVulkanVideoFilter" data-gi-href-javascript="vulkanlib/vulkanvideofilter.html#GstVulkanVideoFilter" data-gi-title-javascript="GstVulkan.VulkanVideoFilter" data-gi-href-python="vulkanlib/vulkanvideofilter.html#GstVulkanVideoFilter" data-gi-title-python="GstVulkan.VulkanVideoFilter">GstVulkanVideoFilter</a> is a helper base class for retrieving and holding the
+<a href="vulkanlib/vkinstance.html#GstVulkanInstance" data-gi-href-javascript="vulkanlib/vkinstance.html#GstVulkanInstance" data-gi-title-javascript="GstVulkan.VulkanInstance" data-gi-href-python="vulkanlib/vkinstance.html#GstVulkanInstance" data-gi-title-python="GstVulkan.VulkanInstance">GstVulkanInstance</a>, <a href="vulkanlib/vkdevice.html#GstVulkanDevice" data-gi-href-javascript="vulkanlib/vkdevice.html#GstVulkanDevice" data-gi-title-javascript="GstVulkan.VulkanDevice" data-gi-href-python="vulkanlib/vkdevice.html#GstVulkanDevice" data-gi-title-python="GstVulkan.VulkanDevice">GstVulkanDevice</a> and <a href="vulkanlib/vkqueue.html#GstVulkanQueue" data-gi-href-javascript="vulkanlib/vkqueue.html#GstVulkanQueue" data-gi-title-javascript="GstVulkan.VulkanQueue" data-gi-href-python="vulkanlib/vkqueue.html#GstVulkanQueue" data-gi-title-python="GstVulkan.VulkanQueue">GstVulkanQueue</a> used by an element.</p>
+
+    </div>
+        
+        
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.18;" id="GstVulkanVideoFilter">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h2 data-hotdoc-id="GstVulkanVideoFilter">
+	<i>GstVulkanVideoFilter</i>
+</h2>
+
+
+<div class="hierarchy_container">
+	<div class="hierarchy_details">
+<pre>
+<a title="GObject" href="https://docs.gtk.org/gobject/class.Object.html">GObject</a>
+    <span class="lineart">╰──</span><a title="GInitiallyUnowned" href="https://docs.gtk.org/gobject/class.InitiallyUnowned.html">GInitiallyUnowned</a>
+        <span class="lineart">╰──</span><a title="GstObject" href="gstreamer/gstobject.html#GstObject">GstObject</a>
+            <span class="lineart">╰──</span><a title="GstElement" href="gstreamer/gstelement.html#GstElement">GstElement</a>
+                <span class="lineart">╰──</span><a title="GstBaseTransform" href="base/gstbasetransform.html#GstBaseTransform">GstBaseTransform</a>
+                    <span class="lineart">╰──</span>GstVulkanVideoFilter
+</pre>
+
+</div>
+
+</div>
+
+
+
+
+	<div class="members-container">
+		<h3>Members</h3>
+					
+<div class="symbol-detail" data-hotdoc-id="GstVulkanVideoFilter.parent">
+	<div>
+		<i><em><code>parent</code></em></i>
+		(<a title="GstBaseTransform" href="base/gstbasetransform.html#GstBaseTransform">GstBaseTransform</a>)
+		–
+	</div>
+			<p>the parent <a href="base/gstbasetransform.html#GstBaseTransform">GstBaseTransform</a></p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVulkanVideoFilter.instance">
+	<div>
+		<i><em><code>instance</code></em></i>
+		(<a title="GstVulkanInstance" href="vulkanlib/vkinstance.html#GstVulkanInstance">GstVulkanInstance</a> *)
+		–
+	</div>
+			<p>the configured <a href="vulkanlib/vkinstance.html#GstVulkanInstance">GstVulkanInstance</a></p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVulkanVideoFilter.device">
+	<div>
+		<i><em><code>device</code></em></i>
+		(<a title="GstVulkanDevice" href="vulkanlib/vkdevice.html#GstVulkanDevice">GstVulkanDevice</a> *)
+		–
+	</div>
+			<p>the configured <a href="vulkanlib/vkdevice.html#GstVulkanDevice">GstVulkanDevice</a></p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVulkanVideoFilter.queue">
+	<div>
+		<i><em><code>queue</code></em></i>
+		(<a title="GstVulkanQueue" href="vulkanlib/vkqueue.html#GstVulkanQueue">GstVulkanQueue</a> *)
+		–
+	</div>
+			<p>the configured <a href="vulkanlib/vkqueue.html#GstVulkanQueue">GstVulkanQueue</a></p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVulkanVideoFilter.in_caps">
+	<div>
+		<i><em><code>in_caps</code></em></i>
+		(<a title="GstCaps" href="gstreamer/gstcaps.html#GstCaps">GstCaps</a> *)
+		–
+	</div>
+			<p>the configured input <a href="gstreamer/gstcaps.html#GstCaps">GstCaps</a></p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVulkanVideoFilter.in_info">
+	<div>
+		<i><em><code>in_info</code></em></i>
+		(<a title="GstVideoInfo" href="video/video-info.html#GstVideoInfo">GstVideoInfo</a>)
+		–
+	</div>
+			<p>the configured input <a href="video/video-info.html#GstVideoInfo">GstVideoInfo</a></p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVulkanVideoFilter.out_caps">
+	<div>
+		<i><em><code>out_caps</code></em></i>
+		(<a title="GstCaps" href="gstreamer/gstcaps.html#GstCaps">GstCaps</a> *)
+		–
+	</div>
+			<p>the configured output <a href="gstreamer/gstcaps.html#GstCaps">GstCaps</a></p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVulkanVideoFilter.out_info">
+	<div>
+		<i><em><code>out_info</code></em></i>
+		(<a title="GstVideoInfo" href="video/video-info.html#GstVideoInfo">GstVideoInfo</a>)
+		–
+	</div>
+			<p>the configured output <a href="video/video-info.html#GstVideoInfo">GstVideoInfo</a></p>
+
+	</div>
+
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+<h3>Class structure</h3>
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstVulkanVideoFilterClass">
+	<i>GstVulkanVideoFilterClass</i>
+</h4>
+
+
+
+
+
+	<div class="members-container">
+		<h5>Fields</h5>
+					
+<div class="symbol-detail" data-hotdoc-id="GstVulkanVideoFilterClass.parent_class">
+	<div>
+		<i><em><code>parent_class</code></em></i>
+		(<a title="GstBaseTransformClass" href="GstBaseTransformClass">GstBaseTransformClass</a>)
+		–
+	</div>
+			<p>the parent <a href="GstBaseTransformClass">GstBaseTransformClass</a></p>
+
+	</div>
+
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3>
+	GstVulkan.VulkanVideoFilterClass
+</h3>
+
+
+
+
+
+	<div class="members-container">
+		<h5>Attributes</h5>
+					
+<div class="symbol-detail" data-hotdoc-id="GstVulkanVideoFilterClass.parent_class">
+	<div>
+		<i><em><code>parent_class</code></em></i>
+		(<a title="GstBase.BaseTransformClass" href="GstBaseTransformClass">GstBase.BaseTransformClass</a>)
+		–
+	</div>
+			<p>the parent <a href="GstBaseTransformClass">GstBase.BaseTransformClass</a></p>
+
+	</div>
+
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3>
+	GstVulkan.VulkanVideoFilterClass
+</h3>
+
+
+
+
+
+	<div class="members-container">
+		<h5>Attributes</h5>
+					
+<div class="symbol-detail" data-hotdoc-id="GstVulkanVideoFilterClass.parent_class">
+	<div>
+		<i><em><code>parent_class</code></em></i>
+		(<a title="GstBase.BaseTransformClass" href="GstBaseTransformClass">GstBase.BaseTransformClass</a>)
+		–
+	</div>
+			<p>the parent <a href="GstBaseTransformClass">GstBase.BaseTransformClass</a></p>
+
+	</div>
+
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h2 data-hotdoc-id="GstVulkanVideoFilter">
+	<i>GstVulkan.VulkanVideoFilter</i>
+</h2>
+
+
+<div class="hierarchy_container">
+	<div class="hierarchy_details">
+<pre>
+<a title="GObject.Object" href="https://docs.gtk.org/gobject/class.Object.html">GObject.Object</a>
+    <span class="lineart">╰──</span><a title="GObject.InitiallyUnowned" href="https://docs.gtk.org/gobject/class.InitiallyUnowned.html">GObject.InitiallyUnowned</a>
+        <span class="lineart">╰──</span><a title="Gst.Object" href="gstreamer/gstobject.html#GstObject">Gst.Object</a>
+            <span class="lineart">╰──</span><a title="Gst.Element" href="gstreamer/gstelement.html#GstElement">Gst.Element</a>
+                <span class="lineart">╰──</span><a title="GstBase.BaseTransform" href="base/gstbasetransform.html#GstBaseTransform">GstBase.BaseTransform</a>
+                    <span class="lineart">╰──</span>GstVulkan.VulkanVideoFilter
+</pre>
+
+</div>
+
+</div>
+
+
+
+
+	<div class="members-container">
+		<h3>Members</h3>
+					
+<div class="symbol-detail" data-hotdoc-id="GstVulkanVideoFilter.parent">
+	<div>
+		<i><em><code>parent</code></em></i>
+		(<a title="GstBase.BaseTransform" href="base/gstbasetransform.html#GstBaseTransform">GstBase.BaseTransform</a>)
+		–
+	</div>
+			<p>the parent <a href="base/gstbasetransform.html#GstBaseTransform">GstBase.BaseTransform</a></p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVulkanVideoFilter.instance">
+	<div>
+		<i><em><code>instance</code></em></i>
+		(<a title="GstVulkan.VulkanInstance" href="vulkanlib/vkinstance.html#GstVulkanInstance">GstVulkan.VulkanInstance</a>)
+		–
+	</div>
+			<p>the configured <a href="vulkanlib/vkinstance.html#GstVulkanInstance">GstVulkan.VulkanInstance</a></p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVulkanVideoFilter.device">
+	<div>
+		<i><em><code>device</code></em></i>
+		(<a title="GstVulkan.VulkanDevice" href="vulkanlib/vkdevice.html#GstVulkanDevice">GstVulkan.VulkanDevice</a>)
+		–
+	</div>
+			<p>the configured <a href="vulkanlib/vkdevice.html#GstVulkanDevice">GstVulkan.VulkanDevice</a></p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVulkanVideoFilter.queue">
+	<div>
+		<i><em><code>queue</code></em></i>
+		(<a title="GstVulkan.VulkanQueue" href="vulkanlib/vkqueue.html#GstVulkanQueue">GstVulkan.VulkanQueue</a>)
+		–
+	</div>
+			<p>the configured <a href="vulkanlib/vkqueue.html#GstVulkanQueue">GstVulkan.VulkanQueue</a></p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVulkanVideoFilter.in_caps">
+	<div>
+		<i><em><code>in_caps</code></em></i>
+		(<a title="Gst.Caps" href="gstreamer/gstcaps.html#GstCaps">Gst.Caps</a>)
+		–
+	</div>
+			<p>the configured input <a href="gstreamer/gstcaps.html#GstCaps">Gst.Caps</a></p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVulkanVideoFilter.in_info">
+	<div>
+		<i><em><code>in_info</code></em></i>
+		(<a title="GstVideo.VideoInfo" href="video/video-info.html#GstVideoInfo">GstVideo.VideoInfo</a>)
+		–
+	</div>
+			<p>the configured input <a href="video/video-info.html#GstVideoInfo">GstVideo.VideoInfo</a></p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVulkanVideoFilter.out_caps">
+	<div>
+		<i><em><code>out_caps</code></em></i>
+		(<a title="Gst.Caps" href="gstreamer/gstcaps.html#GstCaps">Gst.Caps</a>)
+		–
+	</div>
+			<p>the configured output <a href="gstreamer/gstcaps.html#GstCaps">Gst.Caps</a></p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVulkanVideoFilter.out_info">
+	<div>
+		<i><em><code>out_info</code></em></i>
+		(<a title="GstVideo.VideoInfo" href="video/video-info.html#GstVideoInfo">GstVideo.VideoInfo</a>)
+		–
+	</div>
+			<p>the configured output <a href="video/video-info.html#GstVideoInfo">GstVideo.VideoInfo</a></p>
+
+	</div>
+
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h2 data-hotdoc-id="GstVulkanVideoFilter">
+	<i>GstVulkan.VulkanVideoFilter</i>
+</h2>
+
+
+<div class="hierarchy_container">
+	<div class="hierarchy_details">
+<pre>
+<a title="GObject.Object" href="https://docs.gtk.org/gobject/class.Object.html">GObject.Object</a>
+    <span class="lineart">╰──</span><a title="GObject.InitiallyUnowned" href="https://docs.gtk.org/gobject/class.InitiallyUnowned.html">GObject.InitiallyUnowned</a>
+        <span class="lineart">╰──</span><a title="Gst.Object" href="gstreamer/gstobject.html#GstObject">Gst.Object</a>
+            <span class="lineart">╰──</span><a title="Gst.Element" href="gstreamer/gstelement.html#GstElement">Gst.Element</a>
+                <span class="lineart">╰──</span><a title="GstBase.BaseTransform" href="base/gstbasetransform.html#GstBaseTransform">GstBase.BaseTransform</a>
+                    <span class="lineart">╰──</span>GstVulkan.VulkanVideoFilter
+</pre>
+
+</div>
+
+</div>
+
+
+
+
+	<div class="members-container">
+		<h3>Members</h3>
+					
+<div class="symbol-detail" data-hotdoc-id="GstVulkanVideoFilter.parent">
+	<div>
+		<i><em><code>parent</code></em></i>
+		(<a title="GstBase.BaseTransform" href="base/gstbasetransform.html#GstBaseTransform">GstBase.BaseTransform</a>)
+		–
+	</div>
+			<p>the parent <a href="base/gstbasetransform.html#GstBaseTransform">GstBase.BaseTransform</a></p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVulkanVideoFilter.instance">
+	<div>
+		<i><em><code>instance</code></em></i>
+		(<a title="GstVulkan.VulkanInstance" href="vulkanlib/vkinstance.html#GstVulkanInstance">GstVulkan.VulkanInstance</a>)
+		–
+	</div>
+			<p>the configured <a href="vulkanlib/vkinstance.html#GstVulkanInstance">GstVulkan.VulkanInstance</a></p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVulkanVideoFilter.device">
+	<div>
+		<i><em><code>device</code></em></i>
+		(<a title="GstVulkan.VulkanDevice" href="vulkanlib/vkdevice.html#GstVulkanDevice">GstVulkan.VulkanDevice</a>)
+		–
+	</div>
+			<p>the configured <a href="vulkanlib/vkdevice.html#GstVulkanDevice">GstVulkan.VulkanDevice</a></p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVulkanVideoFilter.queue">
+	<div>
+		<i><em><code>queue</code></em></i>
+		(<a title="GstVulkan.VulkanQueue" href="vulkanlib/vkqueue.html#GstVulkanQueue">GstVulkan.VulkanQueue</a>)
+		–
+	</div>
+			<p>the configured <a href="vulkanlib/vkqueue.html#GstVulkanQueue">GstVulkan.VulkanQueue</a></p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVulkanVideoFilter.in_caps">
+	<div>
+		<i><em><code>in_caps</code></em></i>
+		(<a title="Gst.Caps" href="gstreamer/gstcaps.html#GstCaps">Gst.Caps</a>)
+		–
+	</div>
+			<p>the configured input <a href="gstreamer/gstcaps.html#GstCaps">Gst.Caps</a></p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVulkanVideoFilter.in_info">
+	<div>
+		<i><em><code>in_info</code></em></i>
+		(<a title="GstVideo.VideoInfo" href="video/video-info.html#GstVideoInfo">GstVideo.VideoInfo</a>)
+		–
+	</div>
+			<p>the configured input <a href="video/video-info.html#GstVideoInfo">GstVideo.VideoInfo</a></p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVulkanVideoFilter.out_caps">
+	<div>
+		<i><em><code>out_caps</code></em></i>
+		(<a title="Gst.Caps" href="gstreamer/gstcaps.html#GstCaps">Gst.Caps</a>)
+		–
+	</div>
+			<p>the configured output <a href="gstreamer/gstcaps.html#GstCaps">Gst.Caps</a></p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVulkanVideoFilter.out_info">
+	<div>
+		<i><em><code>out_info</code></em></i>
+		(<a title="GstVideo.VideoInfo" href="video/video-info.html#GstVideoInfo">GstVideo.VideoInfo</a>)
+		–
+	</div>
+			<p>the configured output <a href="video/video-info.html#GstVideoInfo">GstVideo.VideoInfo</a></p>
+
+	</div>
+
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+
+            <h3 class="symbol_section">Methods</h3>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.26;" id="gst_vulkan_video_filter_get_device">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_vulkan_video_filter_get_device">
+	<i>gst_vulkan_video_filter_get_device</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GstVulkanDevice" href="vulkanlib/vkdevice.html#GstVulkanDevice">GstVulkanDevice</a> *
+gst_vulkan_video_filter_get_device (<a title="GstVulkanVideoFilter" href="vulkanlib/vulkanvideofilter.html#GstVulkanVideoFilter">GstVulkanVideoFilter</a> * filter)</pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>filter</code></em></i>
+–
+</div>
+<p>a <a href="vulkanlib/vulkanvideofilter.html#GstVulkanVideoFilter">GstVulkanVideoFilter</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span>
+<span class="annotation">[<abbr title="Free data after the code is done"><span class="acronym">transfer: full</span></abbr>]</span><span class="annotation">[<abbr title="NULL may be passed to the value"><span class="acronym">nullable</span></abbr>]</span><span>)</span>
+–
+			</div>
+							<p>The currently configured
+<a href="vulkanlib/vkdevice.html#GstVulkanDevice">GstVulkanDevice</a></p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.26
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_vulkan_video_filter_get_device">
+	<i>GstVulkan.VulkanVideoFilter.prototype.get_device</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstVulkan.VulkanVideoFilter.prototype.get_device(): {
+    // javascript wrapper for 'gst_vulkan_video_filter_get_device'
+}</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>filter</code></em></i>
+<span>(</span><a title="GstVulkan.VulkanVideoFilter" href="vulkanlib/vulkanvideofilter.html#GstVulkanVideoFilter">GstVulkan.VulkanVideoFilter</a><span>)</span>
+–
+</div>
+<p>a <a href="vulkanlib/vulkanvideofilter.html#GstVulkanVideoFilter">GstVulkan.VulkanVideoFilter</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GstVulkan.VulkanDevice" href="vulkanlib/vkdevice.html#GstVulkanDevice">GstVulkan.VulkanDevice</a><span>)</span>
+–
+			</div>
+							<p>The currently configured
+<a href="vulkanlib/vkdevice.html#GstVulkanDevice">GstVulkan.VulkanDevice</a></p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.26
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_vulkan_video_filter_get_device">
+	<i>GstVulkan.VulkanVideoFilter.get_device</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstVulkan.VulkanVideoFilter.get_device (self):
+    #python wrapper for 'gst_vulkan_video_filter_get_device'</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>filter</code></em></i>
+<span>(</span><a title="GstVulkan.VulkanVideoFilter" href="vulkanlib/vulkanvideofilter.html#GstVulkanVideoFilter">GstVulkan.VulkanVideoFilter</a><span>)</span>
+–
+</div>
+<p>a <a href="vulkanlib/vulkanvideofilter.html#GstVulkanVideoFilter">GstVulkan.VulkanVideoFilter</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GstVulkan.VulkanDevice" href="vulkanlib/vkdevice.html#GstVulkanDevice">GstVulkan.VulkanDevice</a><span>)</span>
+–
+			</div>
+							<p>The currently configured
+<a href="vulkanlib/vkdevice.html#GstVulkanDevice">GstVulkan.VulkanDevice</a></p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.26
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.26;" id="gst_vulkan_video_filter_get_instance">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_vulkan_video_filter_get_instance">
+	<i>gst_vulkan_video_filter_get_instance</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GstVulkanInstance" href="vulkanlib/vkinstance.html#GstVulkanInstance">GstVulkanInstance</a> *
+gst_vulkan_video_filter_get_instance (<a title="GstVulkanVideoFilter" href="vulkanlib/vulkanvideofilter.html#GstVulkanVideoFilter">GstVulkanVideoFilter</a> * filter)</pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>filter</code></em></i>
+–
+</div>
+<p>a <a href="vulkanlib/vulkanvideofilter.html#GstVulkanVideoFilter">GstVulkanVideoFilter</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span>
+<span class="annotation">[<abbr title="Free data after the code is done"><span class="acronym">transfer: full</span></abbr>]</span><span class="annotation">[<abbr title="NULL may be passed to the value"><span class="acronym">nullable</span></abbr>]</span><span>)</span>
+–
+			</div>
+							<p>The currently configured
+<a href="vulkanlib/vkinstance.html#GstVulkanInstance">GstVulkanInstance</a></p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.26
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_vulkan_video_filter_get_instance">
+	<i>GstVulkan.VulkanVideoFilter.prototype.get_instance</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstVulkan.VulkanVideoFilter.prototype.get_instance(): {
+    // javascript wrapper for 'gst_vulkan_video_filter_get_instance'
+}</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>filter</code></em></i>
+<span>(</span><a title="GstVulkan.VulkanVideoFilter" href="vulkanlib/vulkanvideofilter.html#GstVulkanVideoFilter">GstVulkan.VulkanVideoFilter</a><span>)</span>
+–
+</div>
+<p>a <a href="vulkanlib/vulkanvideofilter.html#GstVulkanVideoFilter">GstVulkan.VulkanVideoFilter</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GstVulkan.VulkanInstance" href="vulkanlib/vkinstance.html#GstVulkanInstance">GstVulkan.VulkanInstance</a><span>)</span>
+–
+			</div>
+							<p>The currently configured
+<a href="vulkanlib/vkinstance.html#GstVulkanInstance">GstVulkan.VulkanInstance</a></p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.26
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_vulkan_video_filter_get_instance">
+	<i>GstVulkan.VulkanVideoFilter.get_instance</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstVulkan.VulkanVideoFilter.get_instance (self):
+    #python wrapper for 'gst_vulkan_video_filter_get_instance'</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>filter</code></em></i>
+<span>(</span><a title="GstVulkan.VulkanVideoFilter" href="vulkanlib/vulkanvideofilter.html#GstVulkanVideoFilter">GstVulkan.VulkanVideoFilter</a><span>)</span>
+–
+</div>
+<p>a <a href="vulkanlib/vulkanvideofilter.html#GstVulkanVideoFilter">GstVulkan.VulkanVideoFilter</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GstVulkan.VulkanInstance" href="vulkanlib/vkinstance.html#GstVulkanInstance">GstVulkan.VulkanInstance</a><span>)</span>
+–
+			</div>
+							<p>The currently configured
+<a href="vulkanlib/vkinstance.html#GstVulkanInstance">GstVulkan.VulkanInstance</a></p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.26
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.26;" id="gst_vulkan_video_filter_get_queue">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_vulkan_video_filter_get_queue">
+	<i>gst_vulkan_video_filter_get_queue</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GstVulkanQueue" href="vulkanlib/vkqueue.html#GstVulkanQueue">GstVulkanQueue</a> *
+gst_vulkan_video_filter_get_queue (<a title="GstVulkanVideoFilter" href="vulkanlib/vulkanvideofilter.html#GstVulkanVideoFilter">GstVulkanVideoFilter</a> * filter)</pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>filter</code></em></i>
+–
+</div>
+<p>a <a href="vulkanlib/vulkanvideofilter.html#GstVulkanVideoFilter">GstVulkanVideoFilter</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span>
+<span class="annotation">[<abbr title="Free data after the code is done"><span class="acronym">transfer: full</span></abbr>]</span><span class="annotation">[<abbr title="NULL may be passed to the value"><span class="acronym">nullable</span></abbr>]</span><span>)</span>
+–
+			</div>
+							<p>The currently configured
+<a href="vulkanlib/vkqueue.html#GstVulkanQueue">GstVulkanQueue</a></p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.26
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_vulkan_video_filter_get_queue">
+	<i>GstVulkan.VulkanVideoFilter.prototype.get_queue</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstVulkan.VulkanVideoFilter.prototype.get_queue(): {
+    // javascript wrapper for 'gst_vulkan_video_filter_get_queue'
+}</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>filter</code></em></i>
+<span>(</span><a title="GstVulkan.VulkanVideoFilter" href="vulkanlib/vulkanvideofilter.html#GstVulkanVideoFilter">GstVulkan.VulkanVideoFilter</a><span>)</span>
+–
+</div>
+<p>a <a href="vulkanlib/vulkanvideofilter.html#GstVulkanVideoFilter">GstVulkan.VulkanVideoFilter</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GstVulkan.VulkanQueue" href="vulkanlib/vkqueue.html#GstVulkanQueue">GstVulkan.VulkanQueue</a><span>)</span>
+–
+			</div>
+							<p>The currently configured
+<a href="vulkanlib/vkqueue.html#GstVulkanQueue">GstVulkan.VulkanQueue</a></p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.26
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_vulkan_video_filter_get_queue">
+	<i>GstVulkan.VulkanVideoFilter.get_queue</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstVulkan.VulkanVideoFilter.get_queue (self):
+    #python wrapper for 'gst_vulkan_video_filter_get_queue'</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>filter</code></em></i>
+<span>(</span><a title="GstVulkan.VulkanVideoFilter" href="vulkanlib/vulkanvideofilter.html#GstVulkanVideoFilter">GstVulkan.VulkanVideoFilter</a><span>)</span>
+–
+</div>
+<p>a <a href="vulkanlib/vulkanvideofilter.html#GstVulkanVideoFilter">GstVulkan.VulkanVideoFilter</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GstVulkan.VulkanQueue" href="vulkanlib/vkqueue.html#GstVulkanQueue">GstVulkan.VulkanQueue</a><span>)</span>
+–
+			</div>
+							<p>The currently configured
+<a href="vulkanlib/vkqueue.html#GstVulkanQueue">GstVulkan.VulkanQueue</a></p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.26
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+
+
+
+
+
+		
+	</div>
+	<div id="search_results">
+		<p>The results of the search are</p>
+	</div>
+	<div id="footer">
+		    
+
+	</div>
+</div>
+
+<div id="toc-column">
+	
+		<div class="edit-button">
+		
+
+	</div>
+		<div id="toc-wrapper">
+		<nav id="toc"></nav>
+	</div>
+</div>
+</div>
+</main>
+
+
+<script src="assets/js/navbar_offset_scroller.js"></script>
+</body>
+</html>

@@ -1,0 +1,1184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<base href="..">
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<title>GES action types</title>
+
+<link rel="stylesheet" href="assets/css/dark-frontend.css" type="text/css" title="dark">
+<link rel="alternate stylesheet" href="assets/css/light-frontend.css" type="text/css" title="light">
+<link rel="stylesheet" href="assets/css/bootstrap-toc.min.css" type="text/css">
+<link rel="stylesheet" href="assets/css/jquery.mCustomScrollbar.min.css">
+<link rel="stylesheet" href="assets/js/search/enable_search.css" type="text/css">
+
+<link rel="stylesheet" href="assets/css/extra_frontend.css" type="text/css">
+<link rel="stylesheet" href="assets/css/devhelp.css" type="text/css">
+
+<link rel="stylesheet" href="assets/css/prism-tomorrow.css" type="text/css" title="dark">
+
+<link rel="alternate stylesheet" href="assets/css/prism.css" type="text/css" title="light">
+
+<script src="assets/js/mustache.min.js"></script>
+<script src="assets/js/jquery.js"></script>
+<script src="assets/js/bootstrap.js"></script>
+<script src="assets/js/scrollspy.js"></script>
+<script src="assets/js/typeahead.jquery.min.js"></script>
+<script src="assets/js/search.js"></script>
+<script src="assets/js/compare-versions.js"></script>
+<script src="assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="assets/js/bootstrap-toc.min.js"></script>
+<script src="assets/js/jquery.touchSwipe.min.js"></script>
+<script src="assets/js/anchor.min.js"></script>
+<script src="assets/js/tag_filtering.js"></script>
+<script src="assets/js/language_switching.js"></script>
+<script src="assets/js/styleswitcher.js"></script>
+
+<script src="assets/js/lines_around_headings.js"></script>
+
+<script src="assets/js/prism-core.js"></script>
+<script src="assets/js/prism-autoloader.js"></script>
+<script src="assets/js/prism_autoloader_path_override.js"></script>
+<script src="assets/js/trie.js"></script>
+
+<!-- generic -->
+<link rel="icon" type="image/png" href="assets/images/favicon-16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="assets/images/favicon-32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="assets/images/favicon-57.png" sizes="57x57">
+<link rel="icon" type="image/png" href="assets/images/favicon-64.png" sizes="64x64">
+<link rel="icon" type="image/png" href="assets/images/favicon-76.png" sizes="76x76">
+<link rel="icon" type="image/png" href="assets/images/favicon-96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="assets/images/favicon-128.png" sizes="128x128">
+<link rel="icon" type="image/png" href="assets/images/favicon-192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="assets/images/favicon-228.png" sizes="228x228">
+
+<!-- Android -->
+<link rel="shortcut icon" sizes="196x196" href="assets/images/favicon-196.png">
+
+<!-- iOS -->
+<link rel="apple-touch-icon" href="assets/images/favicon-120.png" sizes="120x120">
+<link rel="apple-touch-icon" href="assets/images/favicon-152.png" sizes="152x152">
+<link rel="apple-touch-icon" href="assets/images/favicon-180.png" sizes="180x180">
+
+</head>
+
+<body class="no-script
+">
+
+<script>
+$('body').removeClass('no-script');
+</script>
+
+<nav class="navbar navbar-fixed-top navbar-default" id="topnav">
+	<div class="container-fluid">
+		<div class="navbar-right">
+			<a id="toc-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-wrapper" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<span title="light mode switch" class="glyphicon glyphicon-sunglasses pull-right" id="lightmode-icon"></span>
+			<form class="navbar-form pull-right" id="navbar-search-form">
+                               <div class="form-group has-feedback">
+                                       <input type="text" class="form-control input-sm" name="search" id="sidenav-lookup-field" placeholder="search" disabled>
+				       <span class="glyphicon glyphicon-search form-control-feedback" id="search-mgn-glass"></span>
+                               </div>
+                        </form>
+		</div>
+		<div class="navbar-header">
+			<a id="sidenav-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<a id="home-link" href="index.html" class="hotdoc-navbar-brand">
+				<img src="assets/images/gstreamer-logo.svg" alt="Home">
+			</a>
+		</div>
+		<div class="navbar-collapse collapse" id="navbar-wrapper">
+			<ul class="nav navbar-nav" id="menu">
+				
+<li class="dropdown">
+    <a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        API References<span class="caret"></span>
+    </a>
+	<ul class="dropdown-menu" id="modules-menu">
+					<li>
+				<a href="gstreamer/gi-index.html">GStreamer core</a>
+			</li>
+					<li>
+				<a href="libs.html">GStreamer Libraries</a>
+			</li>
+					<li>
+				<a href="plugins_doc.html">GStreamer Plugins</a>
+			</li>
+		</ul>
+</li>
+
+<li>
+    <a href="application-development/index.html">Application manual</a>
+</li>
+
+
+<li>
+    <a href="tutorials/index.html">Tutorials</a>
+</li>
+
+			</ul>
+			<div class="hidden-xs hidden-sm navbar-text navbar-center">
+							</div>
+		</div>
+	</div>
+</nav>
+
+<main>
+<div data-extension="core" data-hotdoc-in-toplevel="False" data-hotdoc-project="gst-devtools" data-hotdoc-ref="ges-validate-action-types.html" class="page_container" id="page-wrapper" data-hotdoc-meta-gi-languages="['c', 'javascript', 'python']">
+<script src="assets/js/utils.js"></script>
+
+<div class="panel panel-collapse oc-collapsed" id="sidenav" data-hotdoc-role="navigation">
+	<script src="assets/js/full-width.js"></script>
+  <div id="sitenav-wrapper">
+    <iframe src="hotdoc-sitemap.html" id="sitenav-frame"></iframe>
+  </div>
+</div>
+
+<div id="body">
+	<div id="main">
+				    <div id="page-description" data-hotdoc-role="main">
+        <h1 id="ges-action-types">GES action types</h1>
+<h2 id="editcontainer">edit-container</h2>
+<pre><code class="language-validate-scenario">edit-container,
+    [playback-time=(double,string)],
+    container-name=(string),
+    position=(double or string),
+    [edit-mode=(string)],
+    [edge=(string)],
+    [new-layer-priority=(int)];
+</code></pre>
+<p>Allows to edit a container (like a GESClip), for more details, have a look at:
+ges_container_edit documentation, Note that the timeline will
+be commited, and flushed so that the edition is taken into account</p>
+<ul>
+<li>Implementer namespace: ges</li>
+</ul>
+<h3 id="parameters">Parameters</h3>
+<p>Parameters:</p>
+<ul>
+<li>
+<p><code>playback-time</code>:(optional): The playback time at which the action will be executed</p>
+<p>Possible variables:</p>
+<ul>
+<li>
+<p><code>position</code>: The current position in the stream</p>
+</li>
+<li>
+<p><code>duration</code>: The duration of the stream</p>
+</li>
+</ul>
+<p>Possible types: <code>double,string</code></p>
+<p>Default: 0.0</p>
+</li>
+<li>
+<p><code>on-message</code>:(optional): Specify on what message type the action will be executed.
+If both 'playback-time' and 'on-message' is specified, the action will be executed
+on whatever happens first.</p>
+<p>Possible types: <code>string</code></p>
+<p>Default: (null)</p>
+</li>
+<li>
+<p><code>container-name</code>:(mandatory): The name of the GESContainer to edit</p>
+<p>Possible types: <code>string</code></p>
+</li>
+<li>
+<p><code>position</code>:(mandatory): The new position of the GESContainer</p>
+<p>Possible variables:</p>
+<ul>
+<li>
+<p>position: The current position in the stream</p>
+</li>
+<li>
+<p>duration: The duration of the stream</p>
+</li>
+</ul>
+<p>Possible types: <code>double or string</code></p>
+</li>
+<li>
+<p><code>edit-mode</code>:(optional): The GESEditMode to use to edit @container-name</p>
+<p>Possible types: <code>string</code></p>
+<p>Default: normal</p>
+</li>
+<li>
+<p><code>edge</code>:(optional): The GESEdge to use to edit @container-name
+should be in [ edge_start, edge_end, edge_none ]</p>
+<p>Possible types: <code>string</code></p>
+<p>Default: edge_none</p>
+</li>
+<li>
+<p><code>new-layer-priority</code>:(optional): The priority of the layer @container should land in.
+If the layer you're trying to move the container to doesn't exist, it will
+be created automatically. -1 means no move.</p>
+<p>Possible types: <code>int</code></p>
+<p>Default: -1</p>
+</li>
+</ul>
+<h2 id="addasset">add-asset</h2>
+<pre><code class="language-validate-scenario">add-asset,
+    [playback-time=(double,string)],
+    id,
+    type;
+</code></pre>
+<p>Allows to add an asset to the current project</p>
+<ul>
+<li>Implementer namespace: ges</li>
+</ul>
+<h3 id="parameters1">Parameters</h3>
+<p>Parameters:</p>
+<ul>
+<li>
+<p><code>playback-time</code>:(optional): The playback time at which the action will be executed</p>
+<p>Possible variables:</p>
+<ul>
+<li>
+<p><code>position</code>: The current position in the stream</p>
+</li>
+<li>
+<p><code>duration</code>: The duration of the stream</p>
+</li>
+</ul>
+<p>Possible types: <code>double,string</code></p>
+<p>Default: 0.0</p>
+</li>
+<li>
+<p><code>on-message</code>:(optional): Specify on what message type the action will be executed.
+If both 'playback-time' and 'on-message' is specified, the action will be executed
+on whatever happens first.</p>
+<p>Possible types: <code>string</code></p>
+<p>Default: (null)</p>
+</li>
+<li>
+<p><code>id</code>:(mandatory): Adds an asset to a project.</p>
+</li>
+<li>
+<p><code>type</code>:(mandatory): The type of asset to add</p>
+</li>
+</ul>
+<h2 id="removeasset">remove-asset</h2>
+<pre><code class="language-validate-scenario">remove-asset,
+    [playback-time=(double,string)],
+    id,
+    type;
+</code></pre>
+<p>Allows to remove an asset from the current project</p>
+<ul>
+<li>Implementer namespace: ges</li>
+</ul>
+<h3 id="parameters2">Parameters</h3>
+<p>Parameters:</p>
+<ul>
+<li>
+<p><code>playback-time</code>:(optional): The playback time at which the action will be executed</p>
+<p>Possible variables:</p>
+<ul>
+<li>
+<p><code>position</code>: The current position in the stream</p>
+</li>
+<li>
+<p><code>duration</code>: The duration of the stream</p>
+</li>
+</ul>
+<p>Possible types: <code>double,string</code></p>
+<p>Default: 0.0</p>
+</li>
+<li>
+<p><code>on-message</code>:(optional): Specify on what message type the action will be executed.
+If both 'playback-time' and 'on-message' is specified, the action will be executed
+on whatever happens first.</p>
+<p>Possible types: <code>string</code></p>
+<p>Default: (null)</p>
+</li>
+<li>
+<p><code>id</code>:(mandatory): The ID of the clip to remove</p>
+</li>
+<li>
+<p><code>type</code>:(mandatory): The type of asset to remove</p>
+</li>
+</ul>
+<h2 id="addlayer">add-layer</h2>
+<pre><code class="language-validate-scenario">add-layer,
+    [playback-time=(double,string)],
+    [priority];
+</code></pre>
+<p>Allows to add a layer to the current timeline</p>
+<ul>
+<li>Implementer namespace: ges</li>
+</ul>
+<h3 id="parameters3">Parameters</h3>
+<p>Parameters:</p>
+<ul>
+<li>
+<p><code>playback-time</code>:(optional): The playback time at which the action will be executed</p>
+<p>Possible variables:</p>
+<ul>
+<li>
+<p><code>position</code>: The current position in the stream</p>
+</li>
+<li>
+<p><code>duration</code>: The duration of the stream</p>
+</li>
+</ul>
+<p>Possible types: <code>double,string</code></p>
+<p>Default: 0.0</p>
+</li>
+<li>
+<p><code>on-message</code>:(optional): Specify on what message type the action will be executed.
+If both 'playback-time' and 'on-message' is specified, the action will be executed
+on whatever happens first.</p>
+<p>Possible types: <code>string</code></p>
+<p>Default: (null)</p>
+</li>
+<li>
+<p><code>priority</code>:(optional): The priority of the new layer to add,if not specified, the new layer will be appended to the timeline</p>
+<p>Default: (null)</p>
+</li>
+</ul>
+<h2 id="removelayer">remove-layer</h2>
+<pre><code class="language-validate-scenario">remove-layer,
+    [playback-time=(double,string)],
+    priority,
+    [auto-transition=(boolean)];
+</code></pre>
+<p>Allows to remove a layer from the current timeline</p>
+<ul>
+<li>Implementer namespace: ges</li>
+</ul>
+<h3 id="parameters4">Parameters</h3>
+<p>Parameters:</p>
+<ul>
+<li>
+<p><code>playback-time</code>:(optional): The playback time at which the action will be executed</p>
+<p>Possible variables:</p>
+<ul>
+<li>
+<p><code>position</code>: The current position in the stream</p>
+</li>
+<li>
+<p><code>duration</code>: The duration of the stream</p>
+</li>
+</ul>
+<p>Possible types: <code>double,string</code></p>
+<p>Default: 0.0</p>
+</li>
+<li>
+<p><code>on-message</code>:(optional): Specify on what message type the action will be executed.
+If both 'playback-time' and 'on-message' is specified, the action will be executed
+on whatever happens first.</p>
+<p>Possible types: <code>string</code></p>
+<p>Default: (null)</p>
+</li>
+<li>
+<p><code>priority</code>:(mandatory): The priority of the layer to remove</p>
+</li>
+<li>
+<p><code>auto-transition</code>:(optional): Wheter auto-transition is activated on the new layer.</p>
+<p>Possible types: <code>boolean</code></p>
+<p>Default: False</p>
+</li>
+</ul>
+<h2 id="addclip">add-clip</h2>
+<pre><code class="language-validate-scenario">add-clip,
+    [playback-time=(double,string)],
+    name=(string),
+    layer-priority=(int),
+    asset-id=(string),
+    type=(string),
+    [start=(double or string)],
+    [inpoint=(double or string)],
+    [duration=(double or string)];
+</code></pre>
+<p>Allows to add a clip to a given layer</p>
+<ul>
+<li>Implementer namespace: ges</li>
+</ul>
+<h3 id="parameters5">Parameters</h3>
+<p>Parameters:</p>
+<ul>
+<li>
+<p><code>playback-time</code>:(optional): The playback time at which the action will be executed</p>
+<p>Possible variables:</p>
+<ul>
+<li>
+<p><code>position</code>: The current position in the stream</p>
+</li>
+<li>
+<p><code>duration</code>: The duration of the stream</p>
+</li>
+</ul>
+<p>Possible types: <code>double,string</code></p>
+<p>Default: 0.0</p>
+</li>
+<li>
+<p><code>on-message</code>:(optional): Specify on what message type the action will be executed.
+If both 'playback-time' and 'on-message' is specified, the action will be executed
+on whatever happens first.</p>
+<p>Possible types: <code>string</code></p>
+<p>Default: (null)</p>
+</li>
+<li>
+<p><code>name</code>:(mandatory): The name of the clip to add</p>
+<p>Possible types: <code>string</code></p>
+</li>
+<li>
+<p><code>layer-priority</code>:(mandatory): The priority of the clip to add</p>
+<p>Possible types: <code>int</code></p>
+</li>
+<li>
+<p><code>asset-id</code>:(mandatory): The id of the asset from which to extract the clip</p>
+<p>Possible types: <code>string</code></p>
+</li>
+<li>
+<p><code>type</code>:(mandatory): The type of the clip to create</p>
+<p>Possible types: <code>string</code></p>
+</li>
+<li>
+<p><code>start</code>:(optional): The start value to set on the new GESClip.</p>
+<p>Possible types: <code>double or string</code></p>
+<p>Default: (null)</p>
+</li>
+<li>
+<p><code>inpoint</code>:(optional): The  inpoint value to set on the new GESClip</p>
+<p>Possible types: <code>double or string</code></p>
+<p>Default: (null)</p>
+</li>
+<li>
+<p><code>duration</code>:(optional): The  duration value to set on the new GESClip</p>
+<p>Possible types: <code>double or string</code></p>
+<p>Default: (null)</p>
+</li>
+</ul>
+<h2 id="removeclip">remove-clip</h2>
+<pre><code class="language-validate-scenario">remove-clip,
+    [playback-time=(double,string)],
+    name=(string);
+</code></pre>
+<p>Allows to remove a clip from a given layer</p>
+<ul>
+<li>Implementer namespace: ges</li>
+</ul>
+<h3 id="parameters6">Parameters</h3>
+<p>Parameters:</p>
+<ul>
+<li>
+<p><code>playback-time</code>:(optional): The playback time at which the action will be executed</p>
+<p>Possible variables:</p>
+<ul>
+<li>
+<p><code>position</code>: The current position in the stream</p>
+</li>
+<li>
+<p><code>duration</code>: The duration of the stream</p>
+</li>
+</ul>
+<p>Possible types: <code>double,string</code></p>
+<p>Default: 0.0</p>
+</li>
+<li>
+<p><code>on-message</code>:(optional): Specify on what message type the action will be executed.
+If both 'playback-time' and 'on-message' is specified, the action will be executed
+on whatever happens first.</p>
+<p>Possible types: <code>string</code></p>
+<p>Default: (null)</p>
+</li>
+<li>
+<p><code>name</code>:(mandatory): The name of the clip to remove</p>
+<p>Possible types: <code>string</code></p>
+</li>
+</ul>
+<h2 id="serializeproject">serialize-project</h2>
+<pre><code class="language-validate-scenario">serialize-project,
+    [playback-time=(double,string)],
+    uri=(string);
+</code></pre>
+<p>serializes a project</p>
+<ul>
+<li>Implementer namespace: ges</li>
+</ul>
+<h3 id="parameters7">Parameters</h3>
+<p>Parameters:</p>
+<ul>
+<li>
+<p><code>playback-time</code>:(optional): The playback time at which the action will be executed</p>
+<p>Possible variables:</p>
+<ul>
+<li>
+<p><code>position</code>: The current position in the stream</p>
+</li>
+<li>
+<p><code>duration</code>: The duration of the stream</p>
+</li>
+</ul>
+<p>Possible types: <code>double,string</code></p>
+<p>Default: 0.0</p>
+</li>
+<li>
+<p><code>on-message</code>:(optional): Specify on what message type the action will be executed.
+If both 'playback-time' and 'on-message' is specified, the action will be executed
+on whatever happens first.</p>
+<p>Possible types: <code>string</code></p>
+<p>Default: (null)</p>
+</li>
+<li>
+<p><code>uri</code>:(mandatory): The uri where to store the serialized project</p>
+<p>Possible types: <code>string</code></p>
+</li>
+</ul>
+<h2 id="setchildproperty">set-child-property</h2>
+<pre><code class="language-validate-scenario">set-child-property,
+    [playback-time=(double,string)],
+    element-name=(string),
+    property=(string),
+    value=(gvalue);
+</code></pre>
+<p>Allows to change child property of an object</p>
+<ul>
+<li>Implementer namespace: ges</li>
+</ul>
+<h3 id="parameters8">Parameters</h3>
+<p>Parameters:</p>
+<ul>
+<li>
+<p><code>playback-time</code>:(optional): The playback time at which the action will be executed</p>
+<p>Possible variables:</p>
+<ul>
+<li>
+<p><code>position</code>: The current position in the stream</p>
+</li>
+<li>
+<p><code>duration</code>: The duration of the stream</p>
+</li>
+</ul>
+<p>Possible types: <code>double,string</code></p>
+<p>Default: 0.0</p>
+</li>
+<li>
+<p><code>on-message</code>:(optional): Specify on what message type the action will be executed.
+If both 'playback-time' and 'on-message' is specified, the action will be executed
+on whatever happens first.</p>
+<p>Possible types: <code>string</code></p>
+<p>Default: (null)</p>
+</li>
+<li>
+<p><code>element-name</code>:(mandatory): The name of the element on which to modify the property</p>
+<p>Possible types: <code>string</code></p>
+</li>
+<li>
+<p><code>property</code>:(mandatory): The name of the property to modify</p>
+<p>Possible types: <code>string</code></p>
+</li>
+<li>
+<p><code>value</code>:(mandatory): The value of the property</p>
+<p>Possible types: <code>gvalue</code></p>
+</li>
+</ul>
+<h2 id="splitclip">split-clip</h2>
+<pre><code class="language-validate-scenario">split-clip,
+    [playback-time=(double,string)],
+    clip-name=(string),
+    position=(double or string);
+</code></pre>
+<p>Split a clip at a specified position.</p>
+<ul>
+<li>Implementer namespace: ges</li>
+</ul>
+<h3 id="parameters9">Parameters</h3>
+<p>Parameters:</p>
+<ul>
+<li>
+<p><code>playback-time</code>:(optional): The playback time at which the action will be executed</p>
+<p>Possible variables:</p>
+<ul>
+<li>
+<p><code>position</code>: The current position in the stream</p>
+</li>
+<li>
+<p><code>duration</code>: The duration of the stream</p>
+</li>
+</ul>
+<p>Possible types: <code>double,string</code></p>
+<p>Default: 0.0</p>
+</li>
+<li>
+<p><code>on-message</code>:(optional): Specify on what message type the action will be executed.
+If both 'playback-time' and 'on-message' is specified, the action will be executed
+on whatever happens first.</p>
+<p>Possible types: <code>string</code></p>
+<p>Default: (null)</p>
+</li>
+<li>
+<p><code>clip-name</code>:(mandatory): The name of the clip to split</p>
+<p>Possible types: <code>string</code></p>
+</li>
+<li>
+<p><code>position</code>:(mandatory): The position at which to split the clip</p>
+<p>Possible types: <code>double or string</code></p>
+</li>
+</ul>
+<h2 id="settrackrestrictioncaps">set-track-restriction-caps</h2>
+<pre><code class="language-validate-scenario">set-track-restriction-caps,
+    [playback-time=(double,string)],
+    track-type=(string),
+    caps=(string);
+</code></pre>
+<p>Sets restriction caps on tracks of a specific type.</p>
+<ul>
+<li>Implementer namespace: ges</li>
+</ul>
+<h3 id="parameters10">Parameters</h3>
+<p>Parameters:</p>
+<ul>
+<li>
+<p><code>playback-time</code>:(optional): The playback time at which the action will be executed</p>
+<p>Possible variables:</p>
+<ul>
+<li>
+<p><code>position</code>: The current position in the stream</p>
+</li>
+<li>
+<p><code>duration</code>: The duration of the stream</p>
+</li>
+</ul>
+<p>Possible types: <code>double,string</code></p>
+<p>Default: 0.0</p>
+</li>
+<li>
+<p><code>on-message</code>:(optional): Specify on what message type the action will be executed.
+If both 'playback-time' and 'on-message' is specified, the action will be executed
+on whatever happens first.</p>
+<p>Possible types: <code>string</code></p>
+<p>Default: (null)</p>
+</li>
+<li>
+<p><code>track-type</code>:(mandatory): The type of track to set restriction caps on</p>
+<p>Possible types: <code>string</code></p>
+</li>
+<li>
+<p><code>caps</code>:(mandatory): The caps to set on the track</p>
+<p>Possible types: <code>string</code></p>
+</li>
+</ul>
+<h2 id="elementsetasset">element-set-asset</h2>
+<pre><code class="language-validate-scenario">element-set-asset,
+    [playback-time=(double,string)],
+    element-name=(string),
+    asset-id=(string);
+</code></pre>
+<p>Sets restriction caps on tracks of a specific type.</p>
+<ul>
+<li>Implementer namespace: ges</li>
+</ul>
+<h3 id="parameters11">Parameters</h3>
+<p>Parameters:</p>
+<ul>
+<li>
+<p><code>playback-time</code>:(optional): The playback time at which the action will be executed</p>
+<p>Possible variables:</p>
+<ul>
+<li>
+<p><code>position</code>: The current position in the stream</p>
+</li>
+<li>
+<p><code>duration</code>: The duration of the stream</p>
+</li>
+</ul>
+<p>Possible types: <code>double,string</code></p>
+<p>Default: 0.0</p>
+</li>
+<li>
+<p><code>on-message</code>:(optional): Specify on what message type the action will be executed.
+If both 'playback-time' and 'on-message' is specified, the action will be executed
+on whatever happens first.</p>
+<p>Possible types: <code>string</code></p>
+<p>Default: (null)</p>
+</li>
+<li>
+<p><code>element-name</code>:(mandatory): The name of the TimelineElement to set an asset on</p>
+<p>Possible types: <code>string</code></p>
+</li>
+<li>
+<p><code>asset-id</code>:(mandatory): The id of the asset from which to extract the clip</p>
+<p>Possible types: <code>string</code></p>
+</li>
+</ul>
+<h2 id="containeraddchild">container-add-child</h2>
+<pre><code class="language-validate-scenario">container-add-child,
+    [playback-time=(double,string)],
+    container-name=(string),
+    [child-name=(string)],
+    asset-id=(string),
+    [child-type=(string)];
+</code></pre>
+<p>Add a child to @container-name. If asset-id and child-type are specified, the child will be created and added. Otherwize @child-name has to be specified and will be added to the container.</p>
+<ul>
+<li>Implementer namespace: ges</li>
+</ul>
+<h3 id="parameters12">Parameters</h3>
+<p>Parameters:</p>
+<ul>
+<li>
+<p><code>playback-time</code>:(optional): The playback time at which the action will be executed</p>
+<p>Possible variables:</p>
+<ul>
+<li>
+<p><code>position</code>: The current position in the stream</p>
+</li>
+<li>
+<p><code>duration</code>: The duration of the stream</p>
+</li>
+</ul>
+<p>Possible types: <code>double,string</code></p>
+<p>Default: 0.0</p>
+</li>
+<li>
+<p><code>on-message</code>:(optional): Specify on what message type the action will be executed.
+If both 'playback-time' and 'on-message' is specified, the action will be executed
+on whatever happens first.</p>
+<p>Possible types: <code>string</code></p>
+<p>Default: (null)</p>
+</li>
+<li>
+<p><code>container-name</code>:(mandatory): The name of the GESContainer to add a child to</p>
+<p>Possible types: <code>string</code></p>
+</li>
+<li>
+<p><code>child-name</code>:(optional): The name of the child to add to @container-name</p>
+<p>Possible types: <code>string</code></p>
+<p>Default: NULL</p>
+</li>
+<li>
+<p><code>asset-id</code>:(mandatory): The id of the asset from which to extract the child</p>
+<p>Possible types: <code>string</code></p>
+</li>
+<li>
+<p><code>child-type</code>:(optional): The type of the child to create</p>
+<p>Possible types: <code>string</code></p>
+<p>Default: NULL</p>
+</li>
+</ul>
+<h2 id="containerremovechild">container-remove-child</h2>
+<pre><code class="language-validate-scenario">container-remove-child,
+    [playback-time=(double,string)],
+    container-name=(string),
+    child-name=(string);
+</code></pre>
+<p>Remove a child from @container-name.</p>
+<ul>
+<li>Implementer namespace: ges</li>
+</ul>
+<h3 id="parameters13">Parameters</h3>
+<p>Parameters:</p>
+<ul>
+<li>
+<p><code>playback-time</code>:(optional): The playback time at which the action will be executed</p>
+<p>Possible variables:</p>
+<ul>
+<li>
+<p><code>position</code>: The current position in the stream</p>
+</li>
+<li>
+<p><code>duration</code>: The duration of the stream</p>
+</li>
+</ul>
+<p>Possible types: <code>double,string</code></p>
+<p>Default: 0.0</p>
+</li>
+<li>
+<p><code>on-message</code>:(optional): Specify on what message type the action will be executed.
+If both 'playback-time' and 'on-message' is specified, the action will be executed
+on whatever happens first.</p>
+<p>Possible types: <code>string</code></p>
+<p>Default: (null)</p>
+</li>
+<li>
+<p><code>container-name</code>:(mandatory): The name of the GESContainer to remove a child from</p>
+<p>Possible types: <code>string</code></p>
+</li>
+<li>
+<p><code>child-name</code>:(mandatory): The name of the child to reomve from @container-name</p>
+<p>Possible types: <code>string</code></p>
+</li>
+</ul>
+<h2 id="ungroupcontainer">ungroup-container</h2>
+<pre><code class="language-validate-scenario">ungroup-container,
+    [playback-time=(double,string)],
+    container-name=(string),
+    [recursive=(boolean)];
+</code></pre>
+<p>Ungroup children of @container-name.</p>
+<ul>
+<li>Implementer namespace: ges</li>
+</ul>
+<h3 id="parameters14">Parameters</h3>
+<p>Parameters:</p>
+<ul>
+<li>
+<p><code>playback-time</code>:(optional): The playback time at which the action will be executed</p>
+<p>Possible variables:</p>
+<ul>
+<li>
+<p><code>position</code>: The current position in the stream</p>
+</li>
+<li>
+<p><code>duration</code>: The duration of the stream</p>
+</li>
+</ul>
+<p>Possible types: <code>double,string</code></p>
+<p>Default: 0.0</p>
+</li>
+<li>
+<p><code>on-message</code>:(optional): Specify on what message type the action will be executed.
+If both 'playback-time' and 'on-message' is specified, the action will be executed
+on whatever happens first.</p>
+<p>Possible types: <code>string</code></p>
+<p>Default: (null)</p>
+</li>
+<li>
+<p><code>container-name</code>:(mandatory): The name of the GESContainer to ungroup children from</p>
+<p>Possible types: <code>string</code></p>
+</li>
+<li>
+<p><code>recursive</code>:(optional): Wether to recurse ungrouping or not.</p>
+<p>Possible types: <code>boolean</code></p>
+<p>Default: (null)</p>
+</li>
+</ul>
+<h2 id="setcontrolsource">set-control-source</h2>
+<pre><code class="language-validate-scenario">set-control-source,
+    [playback-time=(double,string)],
+    element-name=(string),
+    property-name=(string),
+    [binding-type=(string)],
+    [source-type=(string)],
+    [interpolation-mode=(string)];
+</code></pre>
+<p>Adds a GstControlSource on @element-name::@property-name allowing you to then add keyframes on that property.</p>
+<ul>
+<li>Implementer namespace: ges</li>
+</ul>
+<h3 id="parameters15">Parameters</h3>
+<p>Parameters:</p>
+<ul>
+<li>
+<p><code>playback-time</code>:(optional): The playback time at which the action will be executed</p>
+<p>Possible variables:</p>
+<ul>
+<li>
+<p><code>position</code>: The current position in the stream</p>
+</li>
+<li>
+<p><code>duration</code>: The duration of the stream</p>
+</li>
+</ul>
+<p>Possible types: <code>double,string</code></p>
+<p>Default: 0.0</p>
+</li>
+<li>
+<p><code>on-message</code>:(optional): Specify on what message type the action will be executed.
+If both 'playback-time' and 'on-message' is specified, the action will be executed
+on whatever happens first.</p>
+<p>Possible types: <code>string</code></p>
+<p>Default: (null)</p>
+</li>
+<li>
+<p><code>element-name</code>:(mandatory): The name of the GESTrackElement to set the control source on</p>
+<p>Possible types: <code>string</code></p>
+</li>
+<li>
+<p><code>property-name</code>:(mandatory): The name of the property for which to set a control source</p>
+<p>Possible types: <code>string</code></p>
+</li>
+<li>
+<p><code>binding-type</code>:(optional): The name of the type of binding to use</p>
+<p>Possible types: <code>string</code></p>
+<p>Default: direct</p>
+</li>
+<li>
+<p><code>source-type</code>:(optional): The name of the type of ControlSource to use</p>
+<p>Possible types: <code>string</code></p>
+<p>Default: interpolation</p>
+</li>
+<li>
+<p><code>interpolation-mode</code>:(optional): The name of the GstInterpolationMode to on the source</p>
+<p>Possible types: <code>string</code></p>
+<p>Default: linear</p>
+</li>
+</ul>
+<h2 id="addkeyframe">add-keyframe</h2>
+<pre><code class="language-validate-scenario">add-keyframe,
+    [playback-time=(double,string)],
+    element-name=(string),
+    property-name=(string),
+    timestamp=(string or float),
+    value=(float);
+</code></pre>
+<p>Remove a child from @container-name.</p>
+<ul>
+<li>Implementer namespace: ges</li>
+</ul>
+<h3 id="parameters16">Parameters</h3>
+<p>Parameters:</p>
+<ul>
+<li>
+<p><code>playback-time</code>:(optional): The playback time at which the action will be executed</p>
+<p>Possible variables:</p>
+<ul>
+<li>
+<p><code>position</code>: The current position in the stream</p>
+</li>
+<li>
+<p><code>duration</code>: The duration of the stream</p>
+</li>
+</ul>
+<p>Possible types: <code>double,string</code></p>
+<p>Default: 0.0</p>
+</li>
+<li>
+<p><code>on-message</code>:(optional): Specify on what message type the action will be executed.
+If both 'playback-time' and 'on-message' is specified, the action will be executed
+on whatever happens first.</p>
+<p>Possible types: <code>string</code></p>
+<p>Default: (null)</p>
+</li>
+<li>
+<p><code>element-name</code>:(mandatory): The name of the GESTrackElement to add a keyframe on</p>
+<p>Possible types: <code>string</code></p>
+</li>
+<li>
+<p><code>property-name</code>:(mandatory): The name of the property for which to add a keyframe on</p>
+<p>Possible types: <code>string</code></p>
+</li>
+<li>
+<p><code>timestamp</code>:(mandatory): The timestamp of the keyframe</p>
+<p>Possible types: <code>string or float</code></p>
+</li>
+<li>
+<p><code>value</code>:(mandatory): The value of the keyframe</p>
+<p>Possible types: <code>float</code></p>
+</li>
+</ul>
+<h2 id="copyelement">copy-element</h2>
+<pre><code class="language-validate-scenario">copy-element,
+    [playback-time=(double,string)],
+    element-name=(string),
+    [recurse=(boolean)],
+    position=(string or float),
+    [paste-name=(string)];
+</code></pre>
+<p>Remove a child from @container-name.</p>
+<ul>
+<li>Implementer namespace: ges</li>
+</ul>
+<h3 id="parameters17">Parameters</h3>
+<p>Parameters:</p>
+<ul>
+<li>
+<p><code>playback-time</code>:(optional): The playback time at which the action will be executed</p>
+<p>Possible variables:</p>
+<ul>
+<li>
+<p><code>position</code>: The current position in the stream</p>
+</li>
+<li>
+<p><code>duration</code>: The duration of the stream</p>
+</li>
+</ul>
+<p>Possible types: <code>double,string</code></p>
+<p>Default: 0.0</p>
+</li>
+<li>
+<p><code>on-message</code>:(optional): Specify on what message type the action will be executed.
+If both 'playback-time' and 'on-message' is specified, the action will be executed
+on whatever happens first.</p>
+<p>Possible types: <code>string</code></p>
+<p>Default: (null)</p>
+</li>
+<li>
+<p><code>element-name</code>:(mandatory): The name of the GESTtimelineElement to copy</p>
+<p>Possible types: <code>string</code></p>
+</li>
+<li>
+<p><code>recurse</code>:(optional): Copy recursively or not</p>
+<p>Possible types: <code>boolean</code></p>
+<p>Default: true</p>
+</li>
+<li>
+<p><code>position</code>:(mandatory): The time where to paste the element</p>
+<p>Possible types: <code>string or float</code></p>
+</li>
+<li>
+<p><code>paste-name</code>:(optional): The name of the copied element</p>
+<p>Possible types: <code>string</code></p>
+<p>Default: (null)</p>
+</li>
+</ul>
+<h2 id="removekeyframe">remove-keyframe</h2>
+<pre><code class="language-validate-scenario">remove-keyframe,
+    [playback-time=(double,string)],
+    element-name=(string),
+    property-name=(string),
+    timestamp=(string or float);
+</code></pre>
+<p>Remove a child from @container-name.</p>
+<ul>
+<li>Implementer namespace: ges</li>
+</ul>
+<h3 id="parameters18">Parameters</h3>
+<p>Parameters:</p>
+<ul>
+<li>
+<p><code>playback-time</code>:(optional): The playback time at which the action will be executed</p>
+<p>Possible variables:</p>
+<ul>
+<li>
+<p><code>position</code>: The current position in the stream</p>
+</li>
+<li>
+<p><code>duration</code>: The duration of the stream</p>
+</li>
+</ul>
+<p>Possible types: <code>double,string</code></p>
+<p>Default: 0.0</p>
+</li>
+<li>
+<p><code>on-message</code>:(optional): Specify on what message type the action will be executed.
+If both 'playback-time' and 'on-message' is specified, the action will be executed
+on whatever happens first.</p>
+<p>Possible types: <code>string</code></p>
+<p>Default: (null)</p>
+</li>
+<li>
+<p><code>element-name</code>:(mandatory): The name of the GESTrackElement to add a keyframe on</p>
+<p>Possible types: <code>string</code></p>
+</li>
+<li>
+<p><code>property-name</code>:(mandatory): The name of the property for which to add a keyframe on</p>
+<p>Possible types: <code>string</code></p>
+</li>
+<li>
+<p><code>timestamp</code>:(mandatory): The timestamp of the keyframe</p>
+<p>Possible types: <code>string or float</code></p>
+</li>
+</ul>
+<h2 id="loadproject">load-project</h2>
+<pre><code class="language-validate-scenario">load-project,
+    [playback-time=(double,string)],
+    serialized-content;
+</code></pre>
+<p>Loads a project either from its content passed in the serialized-content field.
+Note that it will completely clean the previous timeline</p>
+<ul>
+<li>Implementer namespace: ges</li>
+</ul>
+<h3 id="parameters19">Parameters</h3>
+<p>Parameters:</p>
+<ul>
+<li>
+<p><code>playback-time</code>:(optional): The playback time at which the action will be executed</p>
+<p>Possible variables:</p>
+<ul>
+<li>
+<p><code>position</code>: The current position in the stream</p>
+</li>
+<li>
+<p><code>duration</code>: The duration of the stream</p>
+</li>
+</ul>
+<p>Possible types: <code>double,string</code></p>
+<p>Default: 0.0</p>
+</li>
+<li>
+<p><code>on-message</code>:(optional): Specify on what message type the action will be executed.
+If both 'playback-time' and 'on-message' is specified, the action will be executed
+on whatever happens first.</p>
+<p>Possible types: <code>string</code></p>
+<p>Default: (null)</p>
+</li>
+<li>
+<p><code>serialized-content</code>:(mandatory): The full content of the XML describing project in XGES formet.</p>
+</li>
+</ul>
+<h2 id="commit">commit</h2>
+<pre><code class="language-validate-scenario">commit,
+    [playback-time=(double,string)];
+</code></pre>
+<p>Commit the timeline.</p>
+<ul>
+<li>Implementer namespace: ges</li>
+</ul>
+<h3 id="parameters20">Parameters</h3>
+<p>Parameters:</p>
+<ul>
+<li>
+<p><code>playback-time</code>:(optional): The playback time at which the action will be executed</p>
+<p>Possible variables:</p>
+<ul>
+<li>
+<p><code>position</code>: The current position in the stream</p>
+</li>
+<li>
+<p><code>duration</code>: The duration of the stream</p>
+</li>
+</ul>
+<p>Possible types: <code>double,string</code></p>
+<p>Default: 0.0</p>
+</li>
+<li>
+<p><code>on-message</code>:(optional): Specify on what message type the action will be executed.
+If both 'playback-time' and 'on-message' is specified, the action will be executed
+on whatever happens first.</p>
+<p>Possible types: <code>string</code></p>
+<p>Default: (null)</p>
+</li>
+</ul>
+
+    </div>
+        
+
+
+
+
+		
+	</div>
+	<div id="search_results">
+		<p>The results of the search are</p>
+	</div>
+	<div id="footer">
+		    
+
+	</div>
+</div>
+
+<div id="toc-column">
+	
+		<div class="edit-button">
+		
+
+	</div>
+		<div id="toc-wrapper">
+		<nav id="toc"></nav>
+	</div>
+</div>
+</div>
+</main>
+
+
+<script src="assets/js/navbar_offset_scroller.js"></script>
+</body>
+</html>

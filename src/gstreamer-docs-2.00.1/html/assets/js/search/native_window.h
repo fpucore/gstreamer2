@@ -1,0 +1,1 @@
+urls_downloaded_cb({"token":"native_window.h","urls":[{"url":"tutorials/android/video.html#a-video-surface-on-android-c-code","node_type":"p","page":"Android tutorial 3: Video","sections":["Android tutorial 3: Video","A video surface on Android [C code]"],"context":{"gi-language":["default"]}}]});

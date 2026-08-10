@@ -1,0 +1,1264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<base href="..">
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<title>webrtcdsp</title>
+
+<link rel="stylesheet" href="assets/css/dark-frontend.css" type="text/css" title="dark">
+<link rel="alternate stylesheet" href="assets/css/light-frontend.css" type="text/css" title="light">
+<link rel="stylesheet" href="assets/css/bootstrap-toc.min.css" type="text/css">
+<link rel="stylesheet" href="assets/css/jquery.mCustomScrollbar.min.css">
+<link rel="stylesheet" href="assets/js/search/enable_search.css" type="text/css">
+
+<link rel="stylesheet" href="assets/css/extra_frontend.css" type="text/css">
+<link rel="stylesheet" href="assets/css/devhelp.css" type="text/css">
+
+<link rel="stylesheet" href="assets/css/prism-tomorrow.css" type="text/css" title="dark">
+
+<link rel="alternate stylesheet" href="assets/css/prism.css" type="text/css" title="light">
+
+<script src="assets/js/mustache.min.js"></script>
+<script src="assets/js/jquery.js"></script>
+<script src="assets/js/bootstrap.js"></script>
+<script src="assets/js/scrollspy.js"></script>
+<script src="assets/js/typeahead.jquery.min.js"></script>
+<script src="assets/js/search.js"></script>
+<script src="assets/js/compare-versions.js"></script>
+<script src="assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="assets/js/bootstrap-toc.min.js"></script>
+<script src="assets/js/jquery.touchSwipe.min.js"></script>
+<script src="assets/js/anchor.min.js"></script>
+<script src="assets/js/tag_filtering.js"></script>
+<script src="assets/js/language_switching.js"></script>
+<script src="assets/js/styleswitcher.js"></script>
+
+<script src="assets/js/lines_around_headings.js"></script>
+
+<script src="assets/js/prism-core.js"></script>
+<script src="assets/js/prism-autoloader.js"></script>
+<script src="assets/js/prism_autoloader_path_override.js"></script>
+<script src="assets/js/trie.js"></script>
+
+<!-- generic -->
+<link rel="icon" type="image/png" href="assets/images/favicon-16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="assets/images/favicon-32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="assets/images/favicon-57.png" sizes="57x57">
+<link rel="icon" type="image/png" href="assets/images/favicon-64.png" sizes="64x64">
+<link rel="icon" type="image/png" href="assets/images/favicon-76.png" sizes="76x76">
+<link rel="icon" type="image/png" href="assets/images/favicon-96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="assets/images/favicon-128.png" sizes="128x128">
+<link rel="icon" type="image/png" href="assets/images/favicon-192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="assets/images/favicon-228.png" sizes="228x228">
+
+<!-- Android -->
+<link rel="shortcut icon" sizes="196x196" href="assets/images/favicon-196.png">
+
+<!-- iOS -->
+<link rel="apple-touch-icon" href="assets/images/favicon-120.png" sizes="120x120">
+<link rel="apple-touch-icon" href="assets/images/favicon-152.png" sizes="152x152">
+<link rel="apple-touch-icon" href="assets/images/favicon-180.png" sizes="180x180">
+
+</head>
+
+<body class="no-script
+">
+
+<script>
+$('body').removeClass('no-script');
+</script>
+
+<nav class="navbar navbar-fixed-top navbar-default" id="topnav">
+	<div class="container-fluid">
+		<div class="navbar-right">
+			<a id="toc-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-wrapper" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<span title="light mode switch" class="glyphicon glyphicon-sunglasses pull-right" id="lightmode-icon"></span>
+			<form class="navbar-form pull-right" id="navbar-search-form">
+                               <div class="form-group has-feedback">
+                                       <input type="text" class="form-control input-sm" name="search" id="sidenav-lookup-field" placeholder="search" disabled>
+				       <span class="glyphicon glyphicon-search form-control-feedback" id="search-mgn-glass"></span>
+                               </div>
+                        </form>
+		</div>
+		<div class="navbar-header">
+			<a id="sidenav-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<a id="home-link" href="index.html" class="hotdoc-navbar-brand">
+				<img src="assets/images/gstreamer-logo.svg" alt="Home">
+			</a>
+		</div>
+		<div class="navbar-collapse collapse" id="navbar-wrapper">
+			<ul class="nav navbar-nav" id="menu">
+				
+<li class="dropdown">
+    <a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        API References<span class="caret"></span>
+    </a>
+	<ul class="dropdown-menu" id="modules-menu">
+					<li>
+				<a href="gstreamer/gi-index.html">GStreamer core</a>
+			</li>
+					<li>
+				<a href="libs.html">GStreamer Libraries</a>
+			</li>
+					<li>
+				<a href="plugins_doc.html">GStreamer Plugins</a>
+			</li>
+		</ul>
+</li>
+
+<li>
+    <a href="application-development/index.html">Application manual</a>
+</li>
+
+
+<li>
+    <a href="tutorials/index.html">Tutorials</a>
+</li>
+
+			</ul>
+			<div class="hidden-xs hidden-sm navbar-text navbar-center">
+							</div>
+		</div>
+	</div>
+</nav>
+
+<main>
+<div data-extension="gst-extension" data-hotdoc-in-toplevel="False" data-hotdoc-project="webrtcdsp" data-hotdoc-ref="webrtcdsp.html" class="page_container" id="page-wrapper" data-hotdoc-meta-gi-languages="['c', 'javascript', 'python']">
+<script src="assets/js/utils.js"></script>
+
+<div class="panel panel-collapse oc-collapsed" id="sidenav" data-hotdoc-role="navigation">
+	<script src="assets/js/full-width.js"></script>
+  <div id="sitenav-wrapper">
+    <iframe src="hotdoc-sitemap.html" id="sitenav-frame"></iframe>
+  </div>
+</div>
+
+<div id="body">
+	<div id="main">
+				    <div id="page-description" data-hotdoc-role="main">
+        <h1 id="webrtcdsp-page">webrtcdsp</h1>
+<p>A voice enhancement filter based on WebRTC Audio Processing library. This
+library provides a whide variety of enhancement algorithms. This element
+tries to enable as much as possible. The currently enabled enhancements are
+High Pass Filter, Echo Canceller, Noise Suppression, Automatic Gain Control,
+and some extended filters.</p>
+<p>While webrtcdsp element can be used alone, there is an exception for the
+echo canceller. The audio canceller need to be aware of the far end streams
+that are played to loud speakers. For this, you must place a webrtcechoprobe
+element at that far end. Note that the sample rate must match between
+webrtcdsp and the webrtechoprobe. Though, the number of channels can differ.
+The probe is found by the DSP element using it's object name. By default,
+webrtcdsp looks for webrtcechoprobe0, which means it just work if you have
+a single probe and DSP.</p>
+<p>The probe can only be used within the same top level GstPipeline.
+Additionally, to simplify the code, the probe element must be created
+before the DSP sink pad is activated. It does not need to be in any
+particular state and does not even need to be added to the pipeline yet.</p>
+<h1 id="example-launch-line">Example launch line</h1>
+<p>As a convenience, the echo canceller can be tested using an echo loop. In
+this configuration, one would expect a single echo to be heard.</p>
+<pre><code class="language-["> gst-launch-1.0 pulsesrc ! webrtcdsp ! webrtcechoprobe ! pulsesink
+</code></pre>
+<p>In real environment, you'll place the probe before the playback, but only
+process the far end streams. The DSP should be placed as close as possible
+to the audio capture. The following pipeline is astracted and does not
+represent a real pipeline.</p>
+<pre><code class="language-["> gst-launch-1.0 far-end-src ! audio/x-raw,rate=48000 ! webrtcechoprobe ! pulsesink \
+                pulsesrc ! audio/x-raw,rate=48000 ! webrtcdsp ! far-end-sink
+</code></pre>
+
+    </div>
+        
+        
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="webrtcdsp">
+	
+        
+
+        <h2>Hierarchy</h2>
+            <div class="hierarchy_container">
+                <div class="hierarchy_details">
+<pre>
+<a title="GObject" href="https://docs.gtk.org/gobject/class.Object.html" data-gi-href-javascript="https://docs.gtk.org/gobject/class.Object.html" data-gi-title-javascript="GObject.Object" data-gi-href-python="https://docs.gtk.org/gobject/class.Object.html" data-gi-title-python="GObject.Object">GObject</a>
+    <span class="lineart">╰──</span><a title="GInitiallyUnowned" href="https://docs.gtk.org/gobject/class.InitiallyUnowned.html" data-gi-href-javascript="https://docs.gtk.org/gobject/class.InitiallyUnowned.html" data-gi-title-javascript="GObject.InitiallyUnowned" data-gi-href-python="https://docs.gtk.org/gobject/class.InitiallyUnowned.html" data-gi-title-python="GObject.InitiallyUnowned">GInitiallyUnowned</a>
+        <span class="lineart">╰──</span><a title="GstObject" href="gstreamer/gstobject.html#GstObject" data-gi-href-javascript="gstreamer/gstobject.html#GstObject" data-gi-title-javascript="Gst.Object" data-gi-href-python="gstreamer/gstobject.html#GstObject" data-gi-title-python="Gst.Object">GstObject</a>
+            <span class="lineart">╰──</span><a title="GstElement" href="gstreamer/gstelement.html#GstElement" data-gi-href-javascript="gstreamer/gstelement.html#GstElement" data-gi-title-javascript="Gst.Element" data-gi-href-python="gstreamer/gstelement.html#GstElement" data-gi-title-python="Gst.Element">GstElement</a>
+                <span class="lineart">╰──</span><a title="GstBaseTransform" href="base/gstbasetransform.html#GstBaseTransform" data-gi-href-javascript="base/gstbasetransform.html#GstBaseTransform" data-gi-title-javascript="GstBase.BaseTransform" data-gi-href-python="base/gstbasetransform.html#GstBaseTransform" data-gi-title-python="GstBase.BaseTransform">GstBaseTransform</a>
+                    <span class="lineart">╰──</span><a title="GstAudioFilter" href="audio/gstaudiofilter.html#GstAudioFilter" data-gi-href-javascript="audio/gstaudiofilter.html#GstAudioFilter" data-gi-title-javascript="GstAudio.AudioFilter" data-gi-href-python="audio/gstaudiofilter.html#GstAudioFilter" data-gi-title-python="GstAudio.AudioFilter">GstAudioFilter</a>
+                        <span class="lineart">╰──</span>webrtcdsp
+</pre>
+
+</div>
+
+            </div>
+        <h2 class="symbol_section">Factory details</h2>
+        <div class="symbol-detail">
+            <p><b>Authors:</b> – Nicolas Dufresne <nicolas.dufresne@collabora.com></nicolas.dufresne@collabora.com></p>
+            <p><b>Classification:</b> – <code>Generic/Audio</code></p>
+            <p><b>Rank</b> – none</p>
+            <p><b>Plugin</b> – webrtcdsp</p>
+            <p><b>Package</b> – GStreamer Bad Plug-ins</p>
+        </div>
+
+</div>
+
+
+            <h2 class="symbol_section">Pad Templates</h2>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstWebrtcDsp!sink">
+	
+
+
+
+        <h3><span><code>sink</code></span></h3>
+
+
+        <div>
+            
+            <pre class="language-yaml"><code class="language-yaml">audio/x-raw:
+         format: S16LE
+         layout: interleaved
+           rate: { (int)48000, (int)32000, (int)16000, (int)8000 }
+       channels: [ 1, 2147483647 ]
+audio/x-raw:
+         format: F32LE
+         layout: non-interleaved
+           rate: { (int)48000, (int)32000, (int)16000, (int)8000 }
+       channels: [ 1, 2147483647 ]
+</code></pre>
+            <div class="symbol-detail">
+                <p><b>Presence</b> – <i>always</i></p>
+                <p><b>Direction</b> – <i>sink</i></p>
+                    <p><b>Object type</b> – <a title="GstPad" href="gstreamer/gstpad.html#GstPad" data-gi-href-javascript="gstreamer/gstpad.html#GstPad" data-gi-title-javascript="Gst.Pad" data-gi-href-python="gstreamer/gstpad.html#GstPad" data-gi-title-python="Gst.Pad">GstPad</a></p>
+            </div>
+        </div>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstWebrtcDsp!src">
+	
+
+
+
+        <h3><span><code>src</code></span></h3>
+
+
+        <div>
+            
+            <pre class="language-yaml"><code class="language-yaml">audio/x-raw:
+         format: S16LE
+         layout: interleaved
+           rate: { (int)48000, (int)32000, (int)16000, (int)8000 }
+       channels: [ 1, 2147483647 ]
+audio/x-raw:
+         format: F32LE
+         layout: non-interleaved
+           rate: { (int)48000, (int)32000, (int)16000, (int)8000 }
+       channels: [ 1, 2147483647 ]
+</code></pre>
+            <div class="symbol-detail">
+                <p><b>Presence</b> – <i>always</i></p>
+                <p><b>Direction</b> – <i>src</i></p>
+                    <p><b>Object type</b> – <a title="GstPad" href="gstreamer/gstpad.html#GstPad" data-gi-href-javascript="gstreamer/gstpad.html#GstPad" data-gi-title-javascript="Gst.Pad" data-gi-href-python="gstreamer/gstpad.html#GstPad" data-gi-title-python="Gst.Pad">GstPad</a></p>
+            </div>
+        </div>
+
+
+
+<hr>
+
+</div>
+
+
+            <h2 class="symbol_section">Properties</h2>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="webrtcdsp:compression-gain-db">
+	
+
+
+
+<h3 data-hotdoc-id="webrtcdsp:compression-gain-db">
+	<i>compression-gain-db</i>
+</h3>
+
+
+<pre class="property_signature">
+“compression-gain-db” <span class="type"><a title="gint" href="https://docs.gtk.org/glib/types.html#gint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">gint</a></span>
+</pre>
+
+<p>Sets the maximum |gain| the digital compression stage may apply, in dB.</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+				/		
+				Construct
+			
+</p>
+<p>
+	Default value :	9
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="webrtcdsp:delay-agnostic">
+	
+
+
+
+<h3 data-hotdoc-id="webrtcdsp:delay-agnostic">
+	<i>delay-agnostic</i>
+</h3>
+
+
+<pre class="property_signature">
+“delay-agnostic” <span class="type"><a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#bool" data-gi-title-python="bool">gboolean</a></span>
+</pre>
+
+<p>Enable or disable the delay agnostic mode.</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+				/		
+				Construct
+			
+</p>
+<p>
+	Default value :	false
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="webrtcdsp:echo-cancel">
+	
+
+
+
+<h3 data-hotdoc-id="webrtcdsp:echo-cancel">
+	<i>echo-cancel</i>
+</h3>
+
+
+<pre class="property_signature">
+“echo-cancel” <span class="type"><a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#bool" data-gi-title-python="bool">gboolean</a></span>
+</pre>
+
+<p>Enable or disable echo canceller</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+				/		
+				Construct
+			
+</p>
+<p>
+	Default value :	true
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="webrtcdsp:echo-suppression-level">
+	
+
+
+
+<h3 data-hotdoc-id="webrtcdsp:echo-suppression-level">
+	<i>echo-suppression-level</i>
+</h3>
+
+
+<pre class="property_signature">
+“echo-suppression-level” <span class="type"><a title="Webrtc-echo-suppression-level" href="webrtcdsp/webrtcdsp.html#GstWebrtcEchoSuppressionLevel">Webrtc-echo-suppression-level</a> <span class="pointer-token">*</span></span>
+</pre>
+
+<p>Controls the aggressiveness of the suppressor. A higher level trades off double-talk performance for increased echo suppression.</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+				/		
+				Construct
+			
+</p>
+<p>
+	Default value :	moderate (2)
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="webrtcdsp:experimental-agc">
+	
+
+
+
+<h3 data-hotdoc-id="webrtcdsp:experimental-agc">
+	<i>experimental-agc</i>
+</h3>
+
+
+<pre class="property_signature">
+“experimental-agc” <span class="type"><a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#bool" data-gi-title-python="bool">gboolean</a></span>
+</pre>
+
+<p>Enable or disable experimental automatic gain control.</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+				/		
+				Construct
+			
+</p>
+<p>
+	Default value :	false
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="webrtcdsp:extended-filter">
+	
+
+
+
+<h3 data-hotdoc-id="webrtcdsp:extended-filter">
+	<i>extended-filter</i>
+</h3>
+
+
+<pre class="property_signature">
+“extended-filter” <span class="type"><a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#bool" data-gi-title-python="bool">gboolean</a></span>
+</pre>
+
+<p>Enable or disable the extended filter.</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+				/		
+				Construct
+			
+</p>
+<p>
+	Default value :	false
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="webrtcdsp:gain-control">
+	
+
+
+
+<h3 data-hotdoc-id="webrtcdsp:gain-control">
+	<i>gain-control</i>
+</h3>
+
+
+<pre class="property_signature">
+“gain-control” <span class="type"><a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#bool" data-gi-title-python="bool">gboolean</a></span>
+</pre>
+
+<p>Enable or disable automatic digital gain control</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+				/		
+				Construct
+			
+</p>
+<p>
+	Default value :	true
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="webrtcdsp:gain-control-mode">
+	
+
+
+
+<h3 data-hotdoc-id="webrtcdsp:gain-control-mode">
+	<i>gain-control-mode</i>
+</h3>
+
+
+<pre class="property_signature">
+“gain-control-mode” <span class="type"><a title="Webrtc-gain-control-mode" href="webrtcdsp/webrtcdsp.html#GstWebrtcGainControlMode">Webrtc-gain-control-mode</a> <span class="pointer-token">*</span></span>
+</pre>
+
+<p>Controls the mode of the compression stage</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+				/		
+				Construct
+			
+</p>
+<p>
+	Default value :	adaptive-digital (1)
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="webrtcdsp:high-pass-filter">
+	
+
+
+
+<h3 data-hotdoc-id="webrtcdsp:high-pass-filter">
+	<i>high-pass-filter</i>
+</h3>
+
+
+<pre class="property_signature">
+“high-pass-filter” <span class="type"><a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#bool" data-gi-title-python="bool">gboolean</a></span>
+</pre>
+
+<p>Enable or disable high pass filtering</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+				/		
+				Construct
+			
+</p>
+<p>
+	Default value :	true
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="webrtcdsp:limiter">
+	
+
+
+
+<h3 data-hotdoc-id="webrtcdsp:limiter">
+	<i>limiter</i>
+</h3>
+
+
+<pre class="property_signature">
+“limiter” <span class="type"><a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#bool" data-gi-title-python="bool">gboolean</a></span>
+</pre>
+
+<p>When enabled, the compression stage will hard limit the signal to the target level. Otherwise, the signal will be compressed but not limited above the target level.</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+				/		
+				Construct
+			
+</p>
+<p>
+	Default value :	true
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="webrtcdsp:noise-suppression">
+	
+
+
+
+<h3 data-hotdoc-id="webrtcdsp:noise-suppression">
+	<i>noise-suppression</i>
+</h3>
+
+
+<pre class="property_signature">
+“noise-suppression” <span class="type"><a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#bool" data-gi-title-python="bool">gboolean</a></span>
+</pre>
+
+<p>Enable or disable noise suppression</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+				/		
+				Construct
+			
+</p>
+<p>
+	Default value :	true
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="webrtcdsp:noise-suppression-level">
+	
+
+
+
+<h3 data-hotdoc-id="webrtcdsp:noise-suppression-level">
+	<i>noise-suppression-level</i>
+</h3>
+
+
+<pre class="property_signature">
+“noise-suppression-level” <span class="type"><a title="Webrtc-noise-suppression-level" href="webrtcdsp/webrtcdsp.html#GstWebrtcNoiseSuppressionLevel">Webrtc-noise-suppression-level</a> <span class="pointer-token">*</span></span>
+</pre>
+
+<p>Controls the aggressiveness of the suppression. Increasing the level will reduce the noise level at the expense of a higher speech distortion.</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+				/		
+				Construct
+			
+</p>
+<p>
+	Default value :	moderate (1)
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="webrtcdsp:probe">
+	
+
+
+
+<h3 data-hotdoc-id="webrtcdsp:probe">
+	<i>probe</i>
+</h3>
+
+
+<pre class="property_signature">
+“probe” <span class="type"><a title="gchararray" href="https://web.mit.edu/barnowl/share/gtk-doc/html/gobject/gobject-Standard-Parameter-and-Value-Types.html#gchararray" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" data-gi-title-javascript="String" data-gi-href-python="https://docs.python.org/3/library/functions.html#func-str" data-gi-title-python="str">gchararray</a></span>
+</pre>
+
+<p>The name of the webrtcechoprobe element that record the audio being played through loud speakers. Must be set before PAUSED state.</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+				/		
+				Construct
+			
+</p>
+<p>
+	Default value :	webrtcechoprobe0
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="webrtcdsp:startup-min-volume">
+	
+
+
+
+<h3 data-hotdoc-id="webrtcdsp:startup-min-volume">
+	<i>startup-min-volume</i>
+</h3>
+
+
+<pre class="property_signature">
+“startup-min-volume” <span class="type"><a title="gint" href="https://docs.gtk.org/glib/types.html#gint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">gint</a></span>
+</pre>
+
+<p>At startup the experimental AGC moves the microphone volume up to |startup_min_volume| if the current microphone volume is set too low. No effect if experimental-agc isn't enabled.</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+				/		
+				Construct
+			
+</p>
+<p>
+	Default value :	12
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="webrtcdsp:target-level-dbfs">
+	
+
+
+
+<h3 data-hotdoc-id="webrtcdsp:target-level-dbfs">
+	<i>target-level-dbfs</i>
+</h3>
+
+
+<pre class="property_signature">
+“target-level-dbfs” <span class="type"><a title="gint" href="https://docs.gtk.org/glib/types.html#gint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">gint</a></span>
+</pre>
+
+<p>Sets the target peak |level| (or envelope) of the gain control in dBFS (decibels from digital full-scale).</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+				/		
+				Construct
+			
+</p>
+<p>
+	Default value :	3
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="webrtcdsp:voice-detection">
+	
+
+
+
+<h3 data-hotdoc-id="webrtcdsp:voice-detection">
+	<i>voice-detection</i>
+</h3>
+
+
+<pre class="property_signature">
+“voice-detection” <span class="type"><a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#bool" data-gi-title-python="bool">gboolean</a></span>
+</pre>
+
+<p>Enable or disable the voice activity detector</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+				/		
+				Construct
+			
+</p>
+<p>
+	Default value :	false
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="webrtcdsp:voice-detection-frame-size-ms">
+	
+
+
+
+<h3 data-hotdoc-id="webrtcdsp:voice-detection-frame-size-ms">
+	<i>voice-detection-frame-size-ms</i>
+</h3>
+
+
+<pre class="property_signature">
+“voice-detection-frame-size-ms” <span class="type"><a title="gint" href="https://docs.gtk.org/glib/types.html#gint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">gint</a></span>
+</pre>
+
+<p>Sets the |size| of the frames in ms on which the VAD will operate. Larger frames will improve detection accuracy, but reduce the frequency of updates</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+				/		
+				Construct
+			
+</p>
+<p>
+	Default value :	0
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="webrtcdsp:voice-detection-likelihood">
+	
+
+
+
+<h3 data-hotdoc-id="webrtcdsp:voice-detection-likelihood">
+	<i>voice-detection-likelihood</i>
+</h3>
+
+
+<pre class="property_signature">
+“voice-detection-likelihood” <span class="type"><a title="Webrtc-voice-detection-likelihood" href="webrtcdsp/webrtcdsp.html#GstWebrtcVoiceDetectionLikelihood">Webrtc-voice-detection-likelihood</a> <span class="pointer-token">*</span></span>
+</pre>
+
+<p>Specifies the likelihood that a frame will be declared to contain voice.</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+				/		
+				Construct
+			
+</p>
+<p>
+	Default value :	low (2)
+</p>
+
+
+
+<hr>
+
+</div>
+
+
+            <h2 class="symbol_section">Named constants</h2>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstWebrtcEchoSuppressionLevel">
+	
+
+
+
+<h3 data-hotdoc-id="GstWebrtcEchoSuppressionLevel">
+	<i>Webrtc-echo-suppression-level</i>
+</h3>
+
+
+
+
+
+	<div class="members-container">
+		<h4>Members</h4>
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstWebrtcEchoSuppressionLevel::low">
+        <code>low</code> (<i>1</i>) – Low Suppression
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstWebrtcEchoSuppressionLevel::moderate">
+        <code>moderate</code> (<i>2</i>) – Moderate Suppression
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstWebrtcEchoSuppressionLevel::high">
+        <code>high</code> (<i>3</i>) – high Suppression
+        </div>
+    
+			</div>
+
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstWebrtcGainControlMode">
+	
+
+
+
+<h3 data-hotdoc-id="GstWebrtcGainControlMode">
+	<i>Webrtc-gain-control-mode</i>
+</h3>
+
+
+
+
+
+	<div class="members-container">
+		<h4>Members</h4>
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstWebrtcGainControlMode::adaptive-digital">
+        <code>adaptive-digital</code> (<i>1</i>) – Adaptive Digital
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstWebrtcGainControlMode::fixed-digital">
+        <code>fixed-digital</code> (<i>2</i>) – Fixed Digital
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstWebrtcGainControlMode::adaptive-analog">
+        <code>adaptive-analog</code> (<i>0</i>) – Adaptive Analog
+        </div>
+    
+			</div>
+
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstWebrtcNoiseSuppressionLevel">
+	
+
+
+
+<h3 data-hotdoc-id="GstWebrtcNoiseSuppressionLevel">
+	<i>Webrtc-noise-suppression-level</i>
+</h3>
+
+
+
+
+
+	<div class="members-container">
+		<h4>Members</h4>
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstWebrtcNoiseSuppressionLevel::low">
+        <code>low</code> (<i>0</i>) – Low Suppression
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstWebrtcNoiseSuppressionLevel::moderate">
+        <code>moderate</code> (<i>1</i>) – Moderate Suppression
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstWebrtcNoiseSuppressionLevel::high">
+        <code>high</code> (<i>2</i>) – High Suppression
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstWebrtcNoiseSuppressionLevel::very-high">
+        <code>very-high</code> (<i>3</i>) – Very High Suppression
+        </div>
+    
+			</div>
+
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstWebrtcVoiceDetectionLikelihood">
+	
+
+
+
+<h3 data-hotdoc-id="GstWebrtcVoiceDetectionLikelihood">
+	<i>Webrtc-voice-detection-likelihood</i>
+</h3>
+
+
+
+
+
+	<div class="members-container">
+		<h4>Members</h4>
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstWebrtcVoiceDetectionLikelihood::very-low">
+        <code>very-low</code> (<i>1</i>) – Very Low Likelihood
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstWebrtcVoiceDetectionLikelihood::low">
+        <code>low</code> (<i>2</i>) – Low Likelihood
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstWebrtcVoiceDetectionLikelihood::moderate">
+        <code>moderate</code> (<i>3</i>) – Moderate Likelihood
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstWebrtcVoiceDetectionLikelihood::high">
+        <code>high</code> (<i>4</i>) – High Likelihood
+        </div>
+    
+			</div>
+
+
+
+
+<hr>
+
+</div>
+
+
+
+
+
+
+		
+	</div>
+	<div id="search_results">
+		<p>The results of the search are</p>
+	</div>
+	<div id="footer">
+		    
+
+	</div>
+</div>
+
+<div id="toc-column">
+	
+		<div class="edit-button">
+		
+
+	</div>
+		<div id="toc-wrapper">
+		<nav id="toc"></nav>
+	</div>
+</div>
+</div>
+</main>
+
+
+<script src="assets/js/navbar_offset_scroller.js"></script>
+</body>
+</html>

@@ -1,0 +1,2814 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<base href="..">
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<title>gstcudacontext</title>
+
+<link rel="stylesheet" href="assets/css/dark-frontend.css" type="text/css" title="dark">
+<link rel="alternate stylesheet" href="assets/css/light-frontend.css" type="text/css" title="light">
+<link rel="stylesheet" href="assets/css/bootstrap-toc.min.css" type="text/css">
+<link rel="stylesheet" href="assets/css/jquery.mCustomScrollbar.min.css">
+<link rel="stylesheet" href="assets/js/search/enable_search.css" type="text/css">
+
+<link rel="stylesheet" href="assets/css/extra_frontend.css" type="text/css">
+<link rel="stylesheet" href="assets/css/devhelp.css" type="text/css">
+
+<link rel="stylesheet" href="assets/css/prism-tomorrow.css" type="text/css" title="dark">
+
+<link rel="alternate stylesheet" href="assets/css/prism.css" type="text/css" title="light">
+
+<script src="assets/js/mustache.min.js"></script>
+<script src="assets/js/jquery.js"></script>
+<script src="assets/js/bootstrap.js"></script>
+<script src="assets/js/scrollspy.js"></script>
+<script src="assets/js/typeahead.jquery.min.js"></script>
+<script src="assets/js/search.js"></script>
+<script src="assets/js/compare-versions.js"></script>
+<script src="assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="assets/js/bootstrap-toc.min.js"></script>
+<script src="assets/js/jquery.touchSwipe.min.js"></script>
+<script src="assets/js/anchor.min.js"></script>
+<script src="assets/js/tag_filtering.js"></script>
+<script src="assets/js/language_switching.js"></script>
+<script src="assets/js/styleswitcher.js"></script>
+
+<script src="assets/js/lines_around_headings.js"></script>
+
+<script src="assets/js/prism-core.js"></script>
+<script src="assets/js/prism-autoloader.js"></script>
+<script src="assets/js/prism_autoloader_path_override.js"></script>
+<script src="assets/js/trie.js"></script>
+
+<!-- generic -->
+<link rel="icon" type="image/png" href="assets/images/favicon-16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="assets/images/favicon-32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="assets/images/favicon-57.png" sizes="57x57">
+<link rel="icon" type="image/png" href="assets/images/favicon-64.png" sizes="64x64">
+<link rel="icon" type="image/png" href="assets/images/favicon-76.png" sizes="76x76">
+<link rel="icon" type="image/png" href="assets/images/favicon-96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="assets/images/favicon-128.png" sizes="128x128">
+<link rel="icon" type="image/png" href="assets/images/favicon-192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="assets/images/favicon-228.png" sizes="228x228">
+
+<!-- Android -->
+<link rel="shortcut icon" sizes="196x196" href="assets/images/favicon-196.png">
+
+<!-- iOS -->
+<link rel="apple-touch-icon" href="assets/images/favicon-120.png" sizes="120x120">
+<link rel="apple-touch-icon" href="assets/images/favicon-152.png" sizes="152x152">
+<link rel="apple-touch-icon" href="assets/images/favicon-180.png" sizes="180x180">
+
+</head>
+
+<body class="no-script
+">
+
+<script>
+$('body').removeClass('no-script');
+</script>
+
+<nav class="navbar navbar-fixed-top navbar-default" id="topnav">
+	<div class="container-fluid">
+		<div class="navbar-right">
+			<a id="toc-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-wrapper" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<span title="light mode switch" class="glyphicon glyphicon-sunglasses pull-right" id="lightmode-icon"></span>
+			<form class="navbar-form pull-right" id="navbar-search-form">
+                               <div class="form-group has-feedback">
+                                       <input type="text" class="form-control input-sm" name="search" id="sidenav-lookup-field" placeholder="search" disabled>
+				       <span class="glyphicon glyphicon-search form-control-feedback" id="search-mgn-glass"></span>
+                               </div>
+                        </form>
+		</div>
+		<div class="navbar-header">
+			<a id="sidenav-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<a id="home-link" href="index.html" class="hotdoc-navbar-brand">
+				<img src="assets/images/gstreamer-logo.svg" alt="Home">
+			</a>
+		</div>
+		<div class="navbar-collapse collapse" id="navbar-wrapper">
+			<ul class="nav navbar-nav" id="menu">
+				
+<li class="dropdown">
+    <a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        API References<span class="caret"></span>
+    </a>
+	<ul class="dropdown-menu" id="modules-menu">
+					<li>
+				<a href="gstreamer/gi-index.html">GStreamer core</a>
+			</li>
+					<li>
+				<a href="libs.html">GStreamer Libraries</a>
+			</li>
+					<li>
+				<a href="plugins_doc.html">GStreamer Plugins</a>
+			</li>
+		</ul>
+</li>
+
+<li>
+    <a href="application-development/index.html">Application manual</a>
+</li>
+
+
+<li>
+    <a href="tutorials/index.html">Tutorials</a>
+</li>
+
+			</ul>
+			<div class="hidden-xs hidden-sm navbar-text navbar-center">
+							</div>
+		</div>
+	</div>
+</nav>
+
+<main>
+<div data-extension="gi-extension" data-hotdoc-in-toplevel="False" data-hotdoc-project="cuda" data-hotdoc-ref="gstcudacontext.html" class="page_container" id="page-wrapper" data-hotdoc-meta-gi-languages="['c', 'javascript', 'python']" data-hotdoc-meta-gi-language="c">
+<script src="assets/js/utils.js"></script>
+
+<div class="panel panel-collapse oc-collapsed" id="sidenav" data-hotdoc-role="navigation">
+	<script src="assets/js/full-width.js"></script>
+  <div id="sitenav-wrapper">
+    <iframe src="hotdoc-sitemap.html" id="sitenav-frame"></iframe>
+  </div>
+</div>
+
+<div id="body">
+	<div id="main">
+				    <div id="page-description" data-hotdoc-role="main">
+    </div>
+        
+        
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.22;" id="GstCudaContext">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h2 data-hotdoc-id="GstCudaContext">
+	<i>GstCudaContext</i>
+</h2>
+
+
+<div class="hierarchy_container">
+	<div class="hierarchy_details">
+<pre>
+<a title="GObject" href="https://docs.gtk.org/gobject/class.Object.html">GObject</a>
+    <span class="lineart">╰──</span><a title="GInitiallyUnowned" href="https://docs.gtk.org/gobject/class.InitiallyUnowned.html">GInitiallyUnowned</a>
+        <span class="lineart">╰──</span><a title="GstObject" href="gstreamer/gstobject.html#GstObject">GstObject</a>
+            <span class="lineart">╰──</span>GstCudaContext
+</pre>
+
+</div>
+
+</div>
+
+
+
+
+	<div class="members-container">
+		<h3>Members</h3>
+					
+<div class="symbol-detail" data-hotdoc-id="GstCudaContext.object">
+	<div>
+		<i><em><code>object</code></em></i>
+		(<a title="GstObject" href="gstreamer/gstobject.html#GstObject">GstObject</a>)
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.22
+		</p>
+
+<hr>
+<h3>Class structure</h3>
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstCudaContextClass">
+	<i>GstCudaContextClass</i>
+</h4>
+
+
+
+
+
+	<div class="members-container">
+		<h5>Fields</h5>
+					
+<div class="symbol-detail" data-hotdoc-id="GstCudaContextClass.parent_class">
+	<div>
+		<i><em><code>parent_class</code></em></i>
+		(<a title="GstObjectClass" href="GstObjectClass">GstObjectClass</a>)
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+			</div>
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3>
+	GstCuda.CudaContextClass
+</h3>
+
+
+
+
+
+	<div class="members-container">
+		<h5>Attributes</h5>
+					
+<div class="symbol-detail" data-hotdoc-id="GstCudaContextClass.parent_class">
+	<div>
+		<i><em><code>parent_class</code></em></i>
+		(<a title="Gst.ObjectClass" href="GstObjectClass">Gst.ObjectClass</a>)
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+			</div>
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3>
+	GstCuda.CudaContextClass
+</h3>
+
+
+
+
+
+	<div class="members-container">
+		<h5>Attributes</h5>
+					
+<div class="symbol-detail" data-hotdoc-id="GstCudaContextClass.parent_class">
+	<div>
+		<i><em><code>parent_class</code></em></i>
+		(<a title="Gst.ObjectClass" href="GstObjectClass">Gst.ObjectClass</a>)
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+			</div>
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h2 data-hotdoc-id="GstCudaContext">
+	<i>GstCuda.CudaContext</i>
+</h2>
+
+
+<div class="hierarchy_container">
+	<div class="hierarchy_details">
+<pre>
+<a title="GObject.Object" href="https://docs.gtk.org/gobject/class.Object.html">GObject.Object</a>
+    <span class="lineart">╰──</span><a title="GObject.InitiallyUnowned" href="https://docs.gtk.org/gobject/class.InitiallyUnowned.html">GObject.InitiallyUnowned</a>
+        <span class="lineart">╰──</span><a title="Gst.Object" href="gstreamer/gstobject.html#GstObject">Gst.Object</a>
+            <span class="lineart">╰──</span>GstCuda.CudaContext
+</pre>
+
+</div>
+
+</div>
+
+
+
+
+	<div class="members-container">
+		<h3>Members</h3>
+					
+<div class="symbol-detail" data-hotdoc-id="GstCudaContext.object">
+	<div>
+		<i><em><code>object</code></em></i>
+		(<a title="Gst.Object" href="gstreamer/gstobject.html#GstObject">Gst.Object</a>)
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.22
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h2 data-hotdoc-id="GstCudaContext">
+	<i>GstCuda.CudaContext</i>
+</h2>
+
+
+<div class="hierarchy_container">
+	<div class="hierarchy_details">
+<pre>
+<a title="GObject.Object" href="https://docs.gtk.org/gobject/class.Object.html">GObject.Object</a>
+    <span class="lineart">╰──</span><a title="GObject.InitiallyUnowned" href="https://docs.gtk.org/gobject/class.InitiallyUnowned.html">GObject.InitiallyUnowned</a>
+        <span class="lineart">╰──</span><a title="Gst.Object" href="gstreamer/gstobject.html#GstObject">Gst.Object</a>
+            <span class="lineart">╰──</span>GstCuda.CudaContext
+</pre>
+
+</div>
+
+</div>
+
+
+
+
+	<div class="members-container">
+		<h3>Members</h3>
+					
+<div class="symbol-detail" data-hotdoc-id="GstCudaContext.object">
+	<div>
+		<i><em><code>object</code></em></i>
+		(<a title="Gst.Object" href="gstreamer/gstobject.html#GstObject">Gst.Object</a>)
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.22
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+
+            <h3 class="symbol_section">Constructors</h3>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.22;" id="gst_cuda_context_new">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_cuda_context_new">
+	<i>gst_cuda_context_new</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GstCudaContext" href="cuda/gstcudacontext.html#GstCudaContext">GstCudaContext</a> *
+gst_cuda_context_new (<a title="guint" href="https://docs.gtk.org/glib/types.html#guint">guint</a> device_id)</pre>
+
+<p>Create <a href="cuda/gstcudacontext.html#GstCudaContext">GstCudaContext</a> with given device_id</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>device_id</code></em></i>
+–
+</div>
+<p>device-id for creating <a href="cuda/gstcudacontext.html#GstCudaContext">GstCudaContext</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span>
+<span class="annotation">[<abbr title="Free data after the code is done"><span class="acronym">transfer: full</span></abbr>]</span><span class="annotation">[<abbr title="NULL may be passed to the value"><span class="acronym">nullable</span></abbr>]</span><span>)</span>
+–
+			</div>
+							<p>a new <a href="cuda/gstcudacontext.html#GstCudaContext">GstCudaContext</a> or <a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#NULL:CAPS">NULL</a> on
+failure</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.22
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_cuda_context_new">
+	<i>GstCuda.CudaContext.prototype.new</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstCuda.CudaContext.prototype.new(device_id: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>): {
+    // javascript wrapper for 'gst_cuda_context_new'
+}</code></pre>
+
+<p>Create <a href="cuda/gstcudacontext.html#GstCudaContext">GstCuda.CudaContext</a> with given device_id</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>device_id</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>device-id for creating <a href="cuda/gstcudacontext.html#GstCudaContext">GstCuda.CudaContext</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GstCuda.CudaContext" href="cuda/gstcudacontext.html#GstCudaContext">GstCuda.CudaContext</a><span>)</span>
+–
+			</div>
+							<p>a new <a href="cuda/gstcudacontext.html#GstCudaContext">GstCuda.CudaContext</a> or <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null">null</a> on
+failure</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.22
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_cuda_context_new">
+	<i>GstCuda.CudaContext.new</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstCuda.CudaContext.new (device_id):
+    #python wrapper for 'gst_cuda_context_new'</code></pre>
+
+<p>Create <a href="cuda/gstcudacontext.html#GstCudaContext">GstCuda.CudaContext</a> with given device_id</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>device_id</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<p>device-id for creating <a href="cuda/gstcudacontext.html#GstCudaContext">GstCuda.CudaContext</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GstCuda.CudaContext" href="cuda/gstcudacontext.html#GstCudaContext">GstCuda.CudaContext</a><span>)</span>
+–
+			</div>
+							<p>a new <a href="cuda/gstcudacontext.html#GstCudaContext">GstCuda.CudaContext</a> or <a href="https://docs.python.org/3/library/constants.html#None">None</a> on
+failure</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.22
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.22;" id="gst_cuda_context_new_wrapped">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_cuda_context_new_wrapped">
+	<i>gst_cuda_context_new_wrapped</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GstCudaContext" href="cuda/gstcudacontext.html#GstCudaContext">GstCudaContext</a> *
+gst_cuda_context_new_wrapped (CUcontext handler,
+                              CUdevice device)</pre>
+
+<p>Note: The caller is responsible for ensuring that the CUcontext and CUdevice
+represented by <em>handle</em> and <em>device</em> stay alive while the returned
+<a href="cuda/gstcudacontext.html#GstCudaContext">GstCudaContext</a> is active.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>handler</code></em></i>
+–
+</div>
+<p>A
+<a href="https://docs.nvidia.com/cuda/cuda-driver-api/group__CUDA__TYPES.html#group__CUDA__TYPES_1gf9f5bd81658f866613785b3a0bb7d7d9">CUcontext</a>
+to wrap</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>device</code></em></i>
+–
+</div>
+<p>A
+<a href="https://docs.nvidia.com/cuda/cuda-driver-api/group__CUDA__TYPES.html#group__CUDA__TYPES_1gf9f5bd81658f866613785b3a0bb7d7d9">CUDevice</a>
+to wrap</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span>
+<span class="annotation">[<abbr title="Free data after the code is done"><span class="acronym">transfer: full</span></abbr>]</span><span class="annotation">[<abbr title="NULL may be passed to the value"><span class="acronym">nullable</span></abbr>]</span><span>)</span>
+–
+			</div>
+							<p>A newly created <a href="cuda/gstcudacontext.html#GstCudaContext">GstCudaContext</a></p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.22
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_cuda_context_new_wrapped">
+	<i>GstCuda.CudaContext.prototype.new_wrapped</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstCuda.CudaContext.prototype.new_wrapped(handler: CudaGst.context, device: CudaGst.device): {
+    // javascript wrapper for 'gst_cuda_context_new_wrapped'
+}</code></pre>
+
+<p>Note: The caller is responsible for ensuring that the CUcontext and CUdevice
+represented by <em>handle</em> and <em>device</em> stay alive while the returned
+<a href="cuda/gstcudacontext.html#GstCudaContext">GstCuda.CudaContext</a> is active.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>handler</code></em></i>
+<span>(</span>CudaGst.context<span>)</span>
+–
+</div>
+<p>A
+<a href="https://docs.nvidia.com/cuda/cuda-driver-api/group__CUDA__TYPES.html#group__CUDA__TYPES_1gf9f5bd81658f866613785b3a0bb7d7d9">CUcontext</a>
+to wrap</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>device</code></em></i>
+<span>(</span>CudaGst.device<span>)</span>
+–
+</div>
+<p>A
+<a href="https://docs.nvidia.com/cuda/cuda-driver-api/group__CUDA__TYPES.html#group__CUDA__TYPES_1gf9f5bd81658f866613785b3a0bb7d7d9">CUDevice</a>
+to wrap</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GstCuda.CudaContext" href="cuda/gstcudacontext.html#GstCudaContext">GstCuda.CudaContext</a><span>)</span>
+–
+			</div>
+							<p>A newly created <a href="cuda/gstcudacontext.html#GstCudaContext">GstCuda.CudaContext</a></p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.22
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_cuda_context_new_wrapped">
+	<i>GstCuda.CudaContext.new_wrapped</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstCuda.CudaContext.new_wrapped (handler, device):
+    #python wrapper for 'gst_cuda_context_new_wrapped'</code></pre>
+
+<p>Note: The caller is responsible for ensuring that the CUcontext and CUdevice
+represented by <em>handle</em> and <em>device</em> stay alive while the returned
+<a href="cuda/gstcudacontext.html#GstCudaContext">GstCuda.CudaContext</a> is active.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>handler</code></em></i>
+<span>(</span>CudaGst.context<span>)</span>
+–
+</div>
+<p>A
+<a href="https://docs.nvidia.com/cuda/cuda-driver-api/group__CUDA__TYPES.html#group__CUDA__TYPES_1gf9f5bd81658f866613785b3a0bb7d7d9">CUcontext</a>
+to wrap</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>device</code></em></i>
+<span>(</span>CudaGst.device<span>)</span>
+–
+</div>
+<p>A
+<a href="https://docs.nvidia.com/cuda/cuda-driver-api/group__CUDA__TYPES.html#group__CUDA__TYPES_1gf9f5bd81658f866613785b3a0bb7d7d9">CUDevice</a>
+to wrap</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GstCuda.CudaContext" href="cuda/gstcudacontext.html#GstCudaContext">GstCuda.CudaContext</a><span>)</span>
+–
+			</div>
+							<p>A newly created <a href="cuda/gstcudacontext.html#GstCudaContext">GstCuda.CudaContext</a></p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.22
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+
+            <h3 class="symbol_section">Methods</h3>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.22;" id="gst_cuda_context_can_access_peer">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_cuda_context_can_access_peer">
+	<i>gst_cuda_context_can_access_peer</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a>
+gst_cuda_context_can_access_peer (<a title="GstCudaContext" href="cuda/gstcudacontext.html#GstCudaContext">GstCudaContext</a> * ctx,
+                                  <a title="GstCudaContext" href="cuda/gstcudacontext.html#GstCudaContext">GstCudaContext</a> * peer)</pre>
+
+<p>Query whether <em>ctx</em> can access any memory which belongs to <em>peer</em> directly.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>ctx</code></em></i>
+–
+</div>
+<p>a <a href="cuda/gstcudacontext.html#GstCudaContext">GstCudaContext</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>peer</code></em></i>
+–
+</div>
+<p>a <a href="cuda/gstcudacontext.html#GstCudaContext">GstCudaContext</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p><a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#TRUE:CAPS">TRUE</a> if <em>ctx</em> can access <em>peer</em> directly</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.22
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_cuda_context_can_access_peer">
+	<i>GstCuda.CudaContext.prototype.can_access_peer</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstCuda.CudaContext.prototype.can_access_peer(peer: <a title="GstCuda.CudaContext" href="cuda/gstcudacontext.html#GstCudaContext">GstCuda.CudaContext</a>): {
+    // javascript wrapper for 'gst_cuda_context_can_access_peer'
+}</code></pre>
+
+<p>Query whether <em>ctx</em> can access any memory which belongs to <em>peer</em> directly.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>ctx</code></em></i>
+<span>(</span><a title="GstCuda.CudaContext" href="cuda/gstcudacontext.html#GstCudaContext">GstCuda.CudaContext</a><span>)</span>
+–
+</div>
+<p>a <a href="cuda/gstcudacontext.html#GstCudaContext">GstCuda.CudaContext</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>peer</code></em></i>
+<span>(</span><a title="GstCuda.CudaContext" href="cuda/gstcudacontext.html#GstCudaContext">GstCuda.CudaContext</a><span>)</span>
+–
+</div>
+<p>a <a href="cuda/gstcudacontext.html#GstCudaContext">GstCuda.CudaContext</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+			</div>
+							<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">true</a> if <em>ctx</em> can access <em>peer</em> directly</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.22
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_cuda_context_can_access_peer">
+	<i>GstCuda.CudaContext.can_access_peer</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstCuda.CudaContext.can_access_peer (self, peer):
+    #python wrapper for 'gst_cuda_context_can_access_peer'</code></pre>
+
+<p>Query whether <em>ctx</em> can access any memory which belongs to <em>peer</em> directly.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>ctx</code></em></i>
+<span>(</span><a title="GstCuda.CudaContext" href="cuda/gstcudacontext.html#GstCudaContext">GstCuda.CudaContext</a><span>)</span>
+–
+</div>
+<p>a <a href="cuda/gstcudacontext.html#GstCudaContext">GstCuda.CudaContext</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>peer</code></em></i>
+<span>(</span><a title="GstCuda.CudaContext" href="cuda/gstcudacontext.html#GstCudaContext">GstCuda.CudaContext</a><span>)</span>
+–
+</div>
+<p>a <a href="cuda/gstcudacontext.html#GstCudaContext">GstCuda.CudaContext</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a><span>)</span>
+–
+			</div>
+							<p><a href="https://docs.python.org/3/library/constants.html#True">True</a> if <em>ctx</em> can access <em>peer</em> directly</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.22
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.22;" id="gst_cuda_context_get_handle">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_cuda_context_get_handle">
+	<i>gst_cuda_context_get_handle</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gpointer" href="https://docs.gtk.org/glib/types.html#gpointer">gpointer</a>
+gst_cuda_context_get_handle (<a title="GstCudaContext" href="cuda/gstcudacontext.html#GstCudaContext">GstCudaContext</a> * ctx)</pre>
+
+<p>Get CUDA device context. Caller must not modify and/or destroy
+returned device context.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>ctx</code></em></i>
+–
+</div>
+<p>a <a href="cuda/gstcudacontext.html#GstCudaContext">GstCudaContext</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p>the <code>CUcontext</code> of <em>ctx</em></p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.22
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_cuda_context_get_handle">
+	<i>GstCuda.CudaContext.prototype.get_handle</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstCuda.CudaContext.prototype.get_handle(): {
+    // javascript wrapper for 'gst_cuda_context_get_handle'
+}</code></pre>
+
+<p>Get CUDA device context. Caller must not modify and/or destroy
+returned device context.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>ctx</code></em></i>
+<span>(</span><a title="GstCuda.CudaContext" href="cuda/gstcudacontext.html#GstCudaContext">GstCuda.CudaContext</a><span>)</span>
+–
+</div>
+<p>a <a href="cuda/gstcudacontext.html#GstCudaContext">GstCuda.CudaContext</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Object" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a><span>)</span>
+–
+			</div>
+							<p>the <code>CUcontext</code> of <em>ctx</em></p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.22
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_cuda_context_get_handle">
+	<i>GstCuda.CudaContext.get_handle</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstCuda.CudaContext.get_handle (self):
+    #python wrapper for 'gst_cuda_context_get_handle'</code></pre>
+
+<p>Get CUDA device context. Caller must not modify and/or destroy
+returned device context.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>ctx</code></em></i>
+<span>(</span><a title="GstCuda.CudaContext" href="cuda/gstcudacontext.html#GstCudaContext">GstCuda.CudaContext</a><span>)</span>
+–
+</div>
+<p>a <a href="cuda/gstcudacontext.html#GstCudaContext">GstCuda.CudaContext</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="object" href="https://docs.python.org/3/library/functions.html#object">object</a><span>)</span>
+–
+			</div>
+							<p>the <code>CUcontext</code> of <em>ctx</em></p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.22
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.22;" id="gst_cuda_context_get_texture_alignment">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_cuda_context_get_texture_alignment">
+	<i>gst_cuda_context_get_texture_alignment</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gint" href="https://docs.gtk.org/glib/types.html#gint">gint</a>
+gst_cuda_context_get_texture_alignment (<a title="GstCudaContext" href="cuda/gstcudacontext.html#GstCudaContext">GstCudaContext</a> * ctx)</pre>
+
+<p>Get required texture alignment by device</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>ctx</code></em></i>
+–
+</div>
+<p>a <a href="cuda/gstcudacontext.html#GstCudaContext">GstCudaContext</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p>the <code>CUcontext</code> of <em>ctx</em></p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.22
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_cuda_context_get_texture_alignment">
+	<i>GstCuda.CudaContext.prototype.get_texture_alignment</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstCuda.CudaContext.prototype.get_texture_alignment(): {
+    // javascript wrapper for 'gst_cuda_context_get_texture_alignment'
+}</code></pre>
+
+<p>Get required texture alignment by device</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>ctx</code></em></i>
+<span>(</span><a title="GstCuda.CudaContext" href="cuda/gstcudacontext.html#GstCudaContext">GstCuda.CudaContext</a><span>)</span>
+–
+</div>
+<p>a <a href="cuda/gstcudacontext.html#GstCudaContext">GstCuda.CudaContext</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+			</div>
+							<p>the <code>CUcontext</code> of <em>ctx</em></p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.22
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_cuda_context_get_texture_alignment">
+	<i>GstCuda.CudaContext.get_texture_alignment</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstCuda.CudaContext.get_texture_alignment (self):
+    #python wrapper for 'gst_cuda_context_get_texture_alignment'</code></pre>
+
+<p>Get required texture alignment by device</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>ctx</code></em></i>
+<span>(</span><a title="GstCuda.CudaContext" href="cuda/gstcudacontext.html#GstCudaContext">GstCuda.CudaContext</a><span>)</span>
+–
+</div>
+<p>a <a href="cuda/gstcudacontext.html#GstCudaContext">GstCuda.CudaContext</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+			</div>
+							<p>the <code>CUcontext</code> of <em>ctx</em></p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.22
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.22;" id="gst_cuda_context_push">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_cuda_context_push">
+	<i>gst_cuda_context_push</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a>
+gst_cuda_context_push (<a title="GstCudaContext" href="cuda/gstcudacontext.html#GstCudaContext">GstCudaContext</a> * ctx)</pre>
+
+<p>Pushes the given <em>ctx</em> onto the CPU thread's stack of current contexts.
+The specified context becomes the CPU thread's current context,
+so all CUDA functions that operate on the current context are affected.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>ctx</code></em></i>
+–
+</div>
+<p>a <a href="cuda/gstcudacontext.html#GstCudaContext">GstCudaContext</a> to push current thread</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p><a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#TRUE:CAPS">TRUE</a> if <em>ctx</em> was pushed without error.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.22
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_cuda_context_push">
+	<i>GstCuda.CudaContext.prototype.push</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstCuda.CudaContext.prototype.push(): {
+    // javascript wrapper for 'gst_cuda_context_push'
+}</code></pre>
+
+<p>Pushes the given <em>ctx</em> onto the CPU thread's stack of current contexts.
+The specified context becomes the CPU thread's current context,
+so all CUDA functions that operate on the current context are affected.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>ctx</code></em></i>
+<span>(</span><a title="GstCuda.CudaContext" href="cuda/gstcudacontext.html#GstCudaContext">GstCuda.CudaContext</a><span>)</span>
+–
+</div>
+<p>a <a href="cuda/gstcudacontext.html#GstCudaContext">GstCuda.CudaContext</a> to push current thread</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+			</div>
+							<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">true</a> if <em>ctx</em> was pushed without error.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.22
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_cuda_context_push">
+	<i>GstCuda.CudaContext.push</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstCuda.CudaContext.push (self):
+    #python wrapper for 'gst_cuda_context_push'</code></pre>
+
+<p>Pushes the given <em>ctx</em> onto the CPU thread's stack of current contexts.
+The specified context becomes the CPU thread's current context,
+so all CUDA functions that operate on the current context are affected.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>ctx</code></em></i>
+<span>(</span><a title="GstCuda.CudaContext" href="cuda/gstcudacontext.html#GstCudaContext">GstCuda.CudaContext</a><span>)</span>
+–
+</div>
+<p>a <a href="cuda/gstcudacontext.html#GstCudaContext">GstCuda.CudaContext</a> to push current thread</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a><span>)</span>
+–
+			</div>
+							<p><a href="https://docs.python.org/3/library/constants.html#True">True</a> if <em>ctx</em> was pushed without error.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.22
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+
+            <h3 class="symbol_section">Functions</h3>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.28.2;" id="gst_cuda_context_find_dxgi_adapter_luid">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_cuda_context_find_dxgi_adapter_luid">
+	<i>gst_cuda_context_find_dxgi_adapter_luid</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gint64" href="https://docs.gtk.org/glib/types.html#gint64">gint64</a>
+gst_cuda_context_find_dxgi_adapter_luid (CUdevice cuda_device)</pre>
+
+<p>Finds the DXGI adapter LUID corresponding to the given CUDA device.
+This is useful for matching CUDA devices with Direct3D adapters on Windows.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>cuda_device</code></em></i>
+–
+</div>
+<p>a CUDA device index</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p>The DXGI adapter LUID or 0 if not found or on non-Windows platforms</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.28.2
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_cuda_context_find_dxgi_adapter_luid">
+	<i>GstCuda.CudaContext.prototype.find_dxgi_adapter_luid</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstCuda.CudaContext.prototype.find_dxgi_adapter_luid(cuda_device: CudaGst.device): {
+    // javascript wrapper for 'gst_cuda_context_find_dxgi_adapter_luid'
+}</code></pre>
+
+<p>Finds the DXGI adapter LUID corresponding to the given CUDA device.
+This is useful for matching CUDA devices with Direct3D adapters on Windows.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>cuda_device</code></em></i>
+<span>(</span>CudaGst.device<span>)</span>
+–
+</div>
+<p>a CUDA device index</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+			</div>
+							<p>The DXGI adapter LUID or 0 if not found or on non-Windows platforms</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.28.2
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_cuda_context_find_dxgi_adapter_luid">
+	<i>GstCuda.CudaContext.find_dxgi_adapter_luid</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstCuda.CudaContext.find_dxgi_adapter_luid (cuda_device):
+    #python wrapper for 'gst_cuda_context_find_dxgi_adapter_luid'</code></pre>
+
+<p>Finds the DXGI adapter LUID corresponding to the given CUDA device.
+This is useful for matching CUDA devices with Direct3D adapters on Windows.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>cuda_device</code></em></i>
+<span>(</span>CudaGst.device<span>)</span>
+–
+</div>
+<p>a CUDA device index</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+			</div>
+							<p>The DXGI adapter LUID or 0 if not found or on non-Windows platforms</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.28.2
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.22;" id="gst_cuda_context_pop">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_cuda_context_pop">
+	<i>gst_cuda_context_pop</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a>
+gst_cuda_context_pop (CUcontext* cuda_ctx)</pre>
+
+<p>Pops the current CUDA context from CPU thread</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>cuda_ctx</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p><a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#TRUE:CAPS">TRUE</a> if <em>ctx</em> was pushed without error.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.22
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_cuda_context_pop">
+	<i>GstCuda.CudaContext.prototype.pop</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstCuda.CudaContext.prototype.pop(cuda_ctx: CudaGst.context): {
+    // javascript wrapper for 'gst_cuda_context_pop'
+}</code></pre>
+
+<p>Pops the current CUDA context from CPU thread</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>cuda_ctx</code></em></i>
+<span>(</span>CudaGst.context<span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+			</div>
+							<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">true</a> if <em>ctx</em> was pushed without error.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.22
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_cuda_context_pop">
+	<i>GstCuda.CudaContext.pop</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstCuda.CudaContext.pop (cuda_ctx):
+    #python wrapper for 'gst_cuda_context_pop'</code></pre>
+
+<p>Pops the current CUDA context from CPU thread</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>cuda_ctx</code></em></i>
+<span>(</span>CudaGst.context<span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a><span>)</span>
+–
+			</div>
+							<p><a href="https://docs.python.org/3/library/constants.html#True">True</a> if <em>ctx</em> was pushed without error.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.22
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+
+            <h3 class="symbol_section">Properties</h3>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstCudaContext:cuda-device-id">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstCudaContext:cuda-device-id">
+	<i>cuda-device-id</i>
+</h4>
+
+
+<pre class="property_signature">
+“cuda-device-id” <span class="type"><a title="guint" href="https://docs.gtk.org/glib/types.html#guint">guint</a></span>
+</pre>
+
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+				/		
+				Construct Only
+			
+</p>
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GstCudaContext:cuda-device-id">
+	<i>cuda-device-id</i>
+</h4>
+
+
+<pre class="property_signature">
+“cuda-device-id” <span class="type"><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a></span>
+</pre>
+
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+				/		
+				Construct Only
+			
+</p>
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GstCudaContext:cuda-device-id">
+	<i>cuda_device_id</i>
+</h4>
+
+
+<pre class="property_signature">
+“self.props.cuda_device_id” <span class="type"><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a></span>
+</pre>
+
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+				/		
+				Construct Only
+			
+</p>
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.26;" id="GstCudaContext:default-gpu-stack-size">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstCudaContext:default-gpu-stack-size">
+	<i>default-gpu-stack-size</i>
+</h4>
+
+
+<pre class="property_signature">
+“default-gpu-stack-size” <span class="type"><a title="guint" href="https://docs.gtk.org/glib/types.html#guint">guint</a></span>
+</pre>
+
+<p>The default stack size for each GPU thread.</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.26
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GstCudaContext:default-gpu-stack-size">
+	<i>default-gpu-stack-size</i>
+</h4>
+
+
+<pre class="property_signature">
+“default-gpu-stack-size” <span class="type"><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a></span>
+</pre>
+
+<p>The default stack size for each GPU thread.</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.26
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GstCudaContext:default-gpu-stack-size">
+	<i>default_gpu_stack_size</i>
+</h4>
+
+
+<pre class="property_signature">
+“self.props.default_gpu_stack_size” <span class="type"><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a></span>
+</pre>
+
+<p>The default stack size for each GPU thread.</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.26
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.26;" id="GstCudaContext:external-resource-interop">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstCudaContext:external-resource-interop">
+	<i>external-resource-interop</i>
+</h4>
+
+
+<pre class="property_signature">
+“external-resource-interop” <span class="type"><a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a></span>
+</pre>
+
+<p>External resource interop API support</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.26
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GstCudaContext:external-resource-interop">
+	<i>external-resource-interop</i>
+</h4>
+
+
+<pre class="property_signature">
+“external-resource-interop” <span class="type"><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a></span>
+</pre>
+
+<p>External resource interop API support</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.26
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GstCudaContext:external-resource-interop">
+	<i>external_resource_interop</i>
+</h4>
+
+
+<pre class="property_signature">
+“self.props.external_resource_interop” <span class="type"><a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a></span>
+</pre>
+
+<p>External resource interop API support</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.26
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.24;" id="GstCudaContext:os-handle">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstCudaContext:os-handle">
+	<i>os-handle</i>
+</h4>
+
+
+<pre class="property_signature">
+“os-handle” <span class="type"><a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a></span>
+</pre>
+
+<p>OS handle supportability in virtual memory management</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GstCudaContext:os-handle">
+	<i>os-handle</i>
+</h4>
+
+
+<pre class="property_signature">
+“os-handle” <span class="type"><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a></span>
+</pre>
+
+<p>OS handle supportability in virtual memory management</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GstCudaContext:os-handle">
+	<i>os_handle</i>
+</h4>
+
+
+<pre class="property_signature">
+“self.props.os_handle” <span class="type"><a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a></span>
+</pre>
+
+<p>OS handle supportability in virtual memory management</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.26;" id="GstCudaContext:prefer-stream-ordered-alloc">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstCudaContext:prefer-stream-ordered-alloc">
+	<i>prefer-stream-ordered-alloc</i>
+</h4>
+
+
+<pre class="property_signature">
+“prefer-stream-ordered-alloc” <span class="type"><a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a></span>
+</pre>
+
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.26
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GstCudaContext:prefer-stream-ordered-alloc">
+	<i>prefer-stream-ordered-alloc</i>
+</h4>
+
+
+<pre class="property_signature">
+“prefer-stream-ordered-alloc” <span class="type"><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a></span>
+</pre>
+
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.26
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GstCudaContext:prefer-stream-ordered-alloc">
+	<i>prefer_stream_ordered_alloc</i>
+</h4>
+
+
+<pre class="property_signature">
+“self.props.prefer_stream_ordered_alloc” <span class="type"><a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a></span>
+</pre>
+
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.26
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.26;" id="GstCudaContext:stream-ordered-alloc">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstCudaContext:stream-ordered-alloc">
+	<i>stream-ordered-alloc</i>
+</h4>
+
+
+<pre class="property_signature">
+“stream-ordered-alloc” <span class="type"><a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a></span>
+</pre>
+
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.26
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GstCudaContext:stream-ordered-alloc">
+	<i>stream-ordered-alloc</i>
+</h4>
+
+
+<pre class="property_signature">
+“stream-ordered-alloc” <span class="type"><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a></span>
+</pre>
+
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.26
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GstCudaContext:stream-ordered-alloc">
+	<i>stream_ordered_alloc</i>
+</h4>
+
+
+<pre class="property_signature">
+“self.props.stream_ordered_alloc” <span class="type"><a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a></span>
+</pre>
+
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.26
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.24;" id="GstCudaContext:virtual-memory">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstCudaContext:virtual-memory">
+	<i>virtual-memory</i>
+</h4>
+
+
+<pre class="property_signature">
+“virtual-memory” <span class="type"><a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a></span>
+</pre>
+
+<p>Virtual memory management supportability</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GstCudaContext:virtual-memory">
+	<i>virtual-memory</i>
+</h4>
+
+
+<pre class="property_signature">
+“virtual-memory” <span class="type"><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a></span>
+</pre>
+
+<p>Virtual memory management supportability</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GstCudaContext:virtual-memory">
+	<i>virtual_memory</i>
+</h4>
+
+
+<pre class="property_signature">
+“self.props.virtual_memory” <span class="type"><a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a></span>
+</pre>
+
+<p>Virtual memory management supportability</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+
+        
+
+            <h2 class="symbol_section">Function Macros</h2>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.22;" id="GST_CUDA_CONTEXT_CAST">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_CUDA_CONTEXT_CAST">
+	<i>GST_CUDA_CONTEXT_CAST</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_CUDA_CONTEXT_CAST(obj)        ((GstCudaContext*)(obj))
+</pre>
+
+
+
+
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.22
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+
+            <h2 class="symbol_section">Constants</h2>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.22;" id="GST_CUDA_CONTEXT_TYPE">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_CUDA_CONTEXT_TYPE">
+	<i>GST_CUDA_CONTEXT_TYPE</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_CUDA_CONTEXT_TYPE "gst.cuda.context"
+</pre>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.22
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3 data-hotdoc-id="GST_CUDA_CONTEXT_TYPE">
+	<i>GstCuda.CUDA_CONTEXT_TYPE</i>
+</h3>
+
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.22
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3 data-hotdoc-id="GST_CUDA_CONTEXT_TYPE">
+	<i>GstCuda.CUDA_CONTEXT_TYPE</i>
+</h3>
+
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.22
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+
+
+
+
+
+		
+	</div>
+	<div id="search_results">
+		<p>The results of the search are</p>
+	</div>
+	<div id="footer">
+		    
+
+	</div>
+</div>
+
+<div id="toc-column">
+	
+		<div class="edit-button">
+		
+
+	</div>
+		<div id="toc-wrapper">
+		<nav id="toc"></nav>
+	</div>
+</div>
+</div>
+</main>
+
+
+<script src="assets/js/navbar_offset_scroller.js"></script>
+</body>
+</html>

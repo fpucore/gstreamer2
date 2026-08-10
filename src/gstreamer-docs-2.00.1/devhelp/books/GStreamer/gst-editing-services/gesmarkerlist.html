@@ -1,0 +1,2812 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<base href="..">
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<title>GESMarkerList</title>
+
+<link rel="stylesheet" href="assets/css/dark-frontend.css" type="text/css" title="dark">
+<link rel="alternate stylesheet" href="assets/css/light-frontend.css" type="text/css" title="light">
+<link rel="stylesheet" href="assets/css/bootstrap-toc.min.css" type="text/css">
+<link rel="stylesheet" href="assets/css/jquery.mCustomScrollbar.min.css">
+<link rel="stylesheet" href="assets/js/search/enable_search.css" type="text/css">
+
+<link rel="stylesheet" href="assets/css/extra_frontend.css" type="text/css">
+<link rel="stylesheet" href="assets/css/devhelp.css" type="text/css">
+
+<link rel="stylesheet" href="assets/css/prism-tomorrow.css" type="text/css" title="dark">
+
+<link rel="alternate stylesheet" href="assets/css/prism.css" type="text/css" title="light">
+
+<script src="assets/js/mustache.min.js"></script>
+<script src="assets/js/jquery.js"></script>
+<script src="assets/js/bootstrap.js"></script>
+<script src="assets/js/scrollspy.js"></script>
+<script src="assets/js/typeahead.jquery.min.js"></script>
+<script src="assets/js/search.js"></script>
+<script src="assets/js/compare-versions.js"></script>
+<script src="assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="assets/js/bootstrap-toc.min.js"></script>
+<script src="assets/js/jquery.touchSwipe.min.js"></script>
+<script src="assets/js/anchor.min.js"></script>
+<script src="assets/js/tag_filtering.js"></script>
+<script src="assets/js/language_switching.js"></script>
+<script src="assets/js/styleswitcher.js"></script>
+
+<script src="assets/js/lines_around_headings.js"></script>
+
+<script src="assets/js/prism-core.js"></script>
+<script src="assets/js/prism-autoloader.js"></script>
+<script src="assets/js/prism_autoloader_path_override.js"></script>
+<script src="assets/js/trie.js"></script>
+
+<!-- generic -->
+<link rel="icon" type="image/png" href="assets/images/favicon-16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="assets/images/favicon-32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="assets/images/favicon-57.png" sizes="57x57">
+<link rel="icon" type="image/png" href="assets/images/favicon-64.png" sizes="64x64">
+<link rel="icon" type="image/png" href="assets/images/favicon-76.png" sizes="76x76">
+<link rel="icon" type="image/png" href="assets/images/favicon-96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="assets/images/favicon-128.png" sizes="128x128">
+<link rel="icon" type="image/png" href="assets/images/favicon-192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="assets/images/favicon-228.png" sizes="228x228">
+
+<!-- Android -->
+<link rel="shortcut icon" sizes="196x196" href="assets/images/favicon-196.png">
+
+<!-- iOS -->
+<link rel="apple-touch-icon" href="assets/images/favicon-120.png" sizes="120x120">
+<link rel="apple-touch-icon" href="assets/images/favicon-152.png" sizes="152x152">
+<link rel="apple-touch-icon" href="assets/images/favicon-180.png" sizes="180x180">
+
+</head>
+
+<body class="no-script
+">
+
+<script>
+$('body').removeClass('no-script');
+</script>
+
+<nav class="navbar navbar-fixed-top navbar-default" id="topnav">
+	<div class="container-fluid">
+		<div class="navbar-right">
+			<a id="toc-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-wrapper" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<span title="light mode switch" class="glyphicon glyphicon-sunglasses pull-right" id="lightmode-icon"></span>
+			<form class="navbar-form pull-right" id="navbar-search-form">
+                               <div class="form-group has-feedback">
+                                       <input type="text" class="form-control input-sm" name="search" id="sidenav-lookup-field" placeholder="search" disabled>
+				       <span class="glyphicon glyphicon-search form-control-feedback" id="search-mgn-glass"></span>
+                               </div>
+                        </form>
+		</div>
+		<div class="navbar-header">
+			<a id="sidenav-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<a id="home-link" href="index.html" class="hotdoc-navbar-brand">
+				<img src="assets/images/gstreamer-logo.svg" alt="Home">
+			</a>
+		</div>
+		<div class="navbar-collapse collapse" id="navbar-wrapper">
+			<ul class="nav navbar-nav" id="menu">
+				
+<li class="dropdown">
+    <a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        API References<span class="caret"></span>
+    </a>
+	<ul class="dropdown-menu" id="modules-menu">
+					<li>
+				<a href="gstreamer/gi-index.html">GStreamer core</a>
+			</li>
+					<li>
+				<a href="libs.html">GStreamer Libraries</a>
+			</li>
+					<li>
+				<a href="plugins_doc.html">GStreamer Plugins</a>
+			</li>
+		</ul>
+</li>
+
+<li>
+    <a href="application-development/index.html">Application manual</a>
+</li>
+
+
+<li>
+    <a href="tutorials/index.html">Tutorials</a>
+</li>
+
+			</ul>
+			<div class="hidden-xs hidden-sm navbar-text navbar-center">
+							</div>
+		</div>
+	</div>
+</nav>
+
+<main>
+<div data-extension="gi-extension" data-hotdoc-in-toplevel="False" data-hotdoc-project="gst-editing-services" data-hotdoc-ref="gesmarkerlist.html" class="page_container" id="page-wrapper" data-hotdoc-meta-gi-languages="['c', 'javascript', 'python']" data-hotdoc-meta-gi-language="c">
+<script src="assets/js/utils.js"></script>
+
+<div class="panel panel-collapse oc-collapsed" id="sidenav" data-hotdoc-role="navigation">
+	<script src="assets/js/full-width.js"></script>
+  <div id="sitenav-wrapper">
+    <iframe src="hotdoc-sitemap.html" id="sitenav-frame"></iframe>
+  </div>
+</div>
+
+<div id="body">
+	<div id="main">
+				    <div id="page-description" data-hotdoc-role="main">
+        <h1 id="gesmarkerlist-page">GESMarkerList</h1>
+<p>A <a href="gst-editing-services/gesmarkerlist.html#GESMarker" data-gi-href-javascript="gst-editing-services/gesmarkerlist.html#GESMarker" data-gi-title-javascript="GES.Marker" data-gi-href-python="gst-editing-services/gesmarkerlist.html#GESMarker" data-gi-title-python="GES.Marker">GESMarker</a> can be colored by setting the <a href="gst-editing-services/gesmetacontainer.html#GES_META_MARKER_COLOR" data-gi-href-javascript="gst-editing-services/gesmetacontainer.html#GES_META_MARKER_COLOR" data-gi-title-javascript="GES.META_MARKER_COLOR" data-gi-href-python="gst-editing-services/gesmetacontainer.html#GES_META_MARKER_COLOR" data-gi-title-python="GES.META_MARKER_COLOR">GES_META_MARKER_COLOR</a> meta.</p>
+
+    </div>
+        
+        
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.18;" id="GESMarker">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h2 data-hotdoc-id="GESMarker">
+	<i>GESMarker</i>
+</h2>
+
+
+<div class="hierarchy_container">
+	<div class="hierarchy_details">
+<pre>
+<a title="GObject" href="https://docs.gtk.org/gobject/class.Object.html">GObject</a>
+    <span class="lineart">╰──</span>GESMarker
+</pre>
+
+</div>
+
+</div>
+
+<div class="class_details">
+	<p>A timed <a href="gst-editing-services/gesmetacontainer.html#GESMetaContainer">GESMetaContainer</a> object.</p>
+
+</div>
+
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+<h3>Class structure</h3>
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GESMarkerClass">
+	<i>GESMarkerClass</i>
+</h4>
+
+
+
+
+
+	<div class="members-container">
+		<h5>Fields</h5>
+					
+<div class="symbol-detail" data-hotdoc-id="GESMarkerClass.parent_class">
+	<div>
+		<i><em><code>parent_class</code></em></i>
+		(GObjectClass)
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+			</div>
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3>
+	GES.MarkerClass
+</h3>
+
+
+
+
+
+	<div class="members-container">
+		<h5>Attributes</h5>
+					
+<div class="symbol-detail" data-hotdoc-id="GESMarkerClass.parent_class">
+	<div>
+		<i><em><code>parent_class</code></em></i>
+		(GObject.ObjectClass)
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+			</div>
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3>
+	GES.MarkerClass
+</h3>
+
+
+
+
+
+	<div class="members-container">
+		<h5>Attributes</h5>
+					
+<div class="symbol-detail" data-hotdoc-id="GESMarkerClass.parent_class">
+	<div>
+		<i><em><code>parent_class</code></em></i>
+		(GObject.ObjectClass)
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+			</div>
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h2 data-hotdoc-id="GESMarker">
+	<i>GES.Marker</i>
+</h2>
+
+
+<div class="hierarchy_container">
+	<div class="hierarchy_details">
+<pre>
+<a title="GObject.Object" href="https://docs.gtk.org/gobject/class.Object.html">GObject.Object</a>
+    <span class="lineart">╰──</span>GES.Marker
+</pre>
+
+</div>
+
+</div>
+
+<div class="class_details">
+	<p>A timed <a href="gst-editing-services/gesmetacontainer.html#GESMetaContainer">GES.MetaContainer</a> object.</p>
+
+</div>
+
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h2 data-hotdoc-id="GESMarker">
+	<i>GES.Marker</i>
+</h2>
+
+
+<div class="hierarchy_container">
+	<div class="hierarchy_details">
+<pre>
+<a title="GObject.Object" href="https://docs.gtk.org/gobject/class.Object.html">GObject.Object</a>
+    <span class="lineart">╰──</span>GES.Marker
+</pre>
+
+</div>
+
+</div>
+
+<div class="class_details">
+	<p>A timed <a href="gst-editing-services/gesmetacontainer.html#GESMetaContainer">GES.MetaContainer</a> object.</p>
+
+</div>
+
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+
+            <h3 class="symbol_section">Properties</h3>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.18;" id="GESMarker:position">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GESMarker:position">
+	<i>position</i>
+</h4>
+
+
+<pre class="property_signature">
+“position” <span class="type"><a title="guint64" href="https://docs.gtk.org/glib/types.html#guint64">guint64</a></span>
+</pre>
+
+<p>Current position (in nanoseconds) of the <a href="gst-editing-services/gesmarkerlist.html#GESMarker">GESMarker</a></p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GESMarker:position">
+	<i>position</i>
+</h4>
+
+
+<pre class="property_signature">
+“position” <span class="type"><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a></span>
+</pre>
+
+<p>Current position (in nanoseconds) of the <a href="gst-editing-services/gesmarkerlist.html#GESMarker">GES.Marker</a></p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GESMarker:position">
+	<i>position</i>
+</h4>
+
+
+<pre class="property_signature">
+“self.props.position” <span class="type"><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a></span>
+</pre>
+
+<p>Current position (in nanoseconds) of the <a href="gst-editing-services/gesmarkerlist.html#GESMarker">GES.Marker</a></p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+
+        
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.18;" id="GESMarkerList">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h2 data-hotdoc-id="GESMarkerList">
+	<i>GESMarkerList</i>
+</h2>
+
+
+<div class="hierarchy_container">
+	<div class="hierarchy_details">
+<pre>
+<a title="GObject" href="https://docs.gtk.org/gobject/class.Object.html">GObject</a>
+    <span class="lineart">╰──</span>GESMarkerList
+</pre>
+
+</div>
+
+</div>
+
+<div class="class_details">
+	<p>A list of <a href="gst-editing-services/gesmarkerlist.html#GESMarker">GESMarker</a></p>
+
+</div>
+
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+<h3>Class structure</h3>
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GESMarkerListClass">
+	<i>GESMarkerListClass</i>
+</h4>
+
+
+
+
+
+	<div class="members-container">
+		<h5>Fields</h5>
+					
+<div class="symbol-detail" data-hotdoc-id="GESMarkerListClass.parent_class">
+	<div>
+		<i><em><code>parent_class</code></em></i>
+		(GObjectClass)
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+			</div>
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3>
+	GES.MarkerListClass
+</h3>
+
+
+
+
+
+	<div class="members-container">
+		<h5>Attributes</h5>
+					
+<div class="symbol-detail" data-hotdoc-id="GESMarkerListClass.parent_class">
+	<div>
+		<i><em><code>parent_class</code></em></i>
+		(GObject.ObjectClass)
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+			</div>
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3>
+	GES.MarkerListClass
+</h3>
+
+
+
+
+
+	<div class="members-container">
+		<h5>Attributes</h5>
+					
+<div class="symbol-detail" data-hotdoc-id="GESMarkerListClass.parent_class">
+	<div>
+		<i><em><code>parent_class</code></em></i>
+		(GObject.ObjectClass)
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+			</div>
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h2 data-hotdoc-id="GESMarkerList">
+	<i>GES.MarkerList</i>
+</h2>
+
+
+<div class="hierarchy_container">
+	<div class="hierarchy_details">
+<pre>
+<a title="GObject.Object" href="https://docs.gtk.org/gobject/class.Object.html">GObject.Object</a>
+    <span class="lineart">╰──</span>GES.MarkerList
+</pre>
+
+</div>
+
+</div>
+
+<div class="class_details">
+	<p>A list of <a href="gst-editing-services/gesmarkerlist.html#GESMarker">GES.Marker</a></p>
+
+</div>
+
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h2 data-hotdoc-id="GESMarkerList">
+	<i>GES.MarkerList</i>
+</h2>
+
+
+<div class="hierarchy_container">
+	<div class="hierarchy_details">
+<pre>
+<a title="GObject.Object" href="https://docs.gtk.org/gobject/class.Object.html">GObject.Object</a>
+    <span class="lineart">╰──</span>GES.MarkerList
+</pre>
+
+</div>
+
+</div>
+
+<div class="class_details">
+	<p>A list of <a href="gst-editing-services/gesmarkerlist.html#GESMarker">GES.Marker</a></p>
+
+</div>
+
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+
+            <h3 class="symbol_section">Constructors</h3>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.18;" id="ges_marker_list_new">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="ges_marker_list_new">
+	<i>ges_marker_list_new</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GESMarkerList" href="gst-editing-services/gesmarkerlist.html#GESMarkerList">GESMarkerList</a> *
+ges_marker_list_new ()</pre>
+
+<p>Creates a new <a href="gst-editing-services/gesmarkerlist.html#GESMarkerList">GESMarkerList</a>.</p>
+
+
+
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p>A new <a href="gst-editing-services/gesmarkerlist.html#GESMarkerList">GESMarkerList</a></p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="ges_marker_list_new">
+	<i>GES.MarkerList.prototype.new</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GES.MarkerList.prototype.new(): {
+    // javascript wrapper for 'ges_marker_list_new'
+}</code></pre>
+
+<p>Creates a new <a href="gst-editing-services/gesmarkerlist.html#GESMarkerList">GES.MarkerList</a>.</p>
+
+
+
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GES.MarkerList" href="gst-editing-services/gesmarkerlist.html#GESMarkerList">GES.MarkerList</a><span>)</span>
+–
+			</div>
+							<p>A new <a href="gst-editing-services/gesmarkerlist.html#GESMarkerList">GES.MarkerList</a></p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="ges_marker_list_new">
+	<i>GES.MarkerList.new</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GES.MarkerList.new ():
+    #python wrapper for 'ges_marker_list_new'</code></pre>
+
+<p>Creates a new <a href="gst-editing-services/gesmarkerlist.html#GESMarkerList">GES.MarkerList</a>.</p>
+
+
+
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GES.MarkerList" href="gst-editing-services/gesmarkerlist.html#GESMarkerList">GES.MarkerList</a><span>)</span>
+–
+			</div>
+							<p>A new <a href="gst-editing-services/gesmarkerlist.html#GESMarkerList">GES.MarkerList</a></p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+
+            <h3 class="symbol_section">Methods</h3>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.18;" id="ges_marker_list_add">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="ges_marker_list_add">
+	<i>ges_marker_list_add</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GESMarker" href="gst-editing-services/gesmarkerlist.html#GESMarker">GESMarker</a> *
+ges_marker_list_add (<a title="GESMarkerList" href="gst-editing-services/gesmarkerlist.html#GESMarkerList">GESMarkerList</a> * list,
+                     <a title="GstClockTime" href="gstreamer/gstclock.html#GstClockTime">GstClockTime</a> position)</pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>list</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>position</code></em></i>
+–
+</div>
+<p>The position of the new marker</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span>
+<span class="annotation">[<abbr title="Don't free data after the code is done"><span class="acronym">transfer: none</span></abbr>]</span><span>)</span>
+–
+			</div>
+							<p>The newly-added marker, the list keeps ownership
+of the marker</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="ges_marker_list_add">
+	<i>GES.MarkerList.prototype.add</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GES.MarkerList.prototype.add(position: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>): {
+    // javascript wrapper for 'ges_marker_list_add'
+}</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>list</code></em></i>
+<span>(</span><a title="GES.MarkerList" href="gst-editing-services/gesmarkerlist.html#GESMarkerList">GES.MarkerList</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>position</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>The position of the new marker</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GES.Marker" href="gst-editing-services/gesmarkerlist.html#GESMarker">GES.Marker</a><span>)</span>
+–
+			</div>
+							<p>The newly-added marker, the list keeps ownership
+of the marker</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="ges_marker_list_add">
+	<i>GES.MarkerList.add</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GES.MarkerList.add (self, position):
+    #python wrapper for 'ges_marker_list_add'</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>list</code></em></i>
+<span>(</span><a title="GES.MarkerList" href="gst-editing-services/gesmarkerlist.html#GESMarkerList">GES.MarkerList</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>position</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<p>The position of the new marker</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GES.Marker" href="gst-editing-services/gesmarkerlist.html#GESMarker">GES.Marker</a><span>)</span>
+–
+			</div>
+							<p>The newly-added marker, the list keeps ownership
+of the marker</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.18;" id="ges_marker_list_get_markers">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="ges_marker_list_get_markers">
+	<i>ges_marker_list_get_markers</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GList" href="https://docs.gtk.org/glib/struct.List.html">GList</a> *
+ges_marker_list_get_markers (<a title="GESMarkerList" href="gst-editing-services/gesmarkerlist.html#GESMarkerList">GESMarkerList</a> * list)</pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>list</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span>
+<span class="annotation">[<abbr title="Generic and defining element of containers and arrays"><span class="acronym">element-type</span></abbr> GESMarker]</span><span class="annotation">[<abbr title="Free data after the code is done"><span class="acronym">transfer: full</span></abbr>]</span><span>)</span>
+–
+			</div>
+							<p>a <a href="https://docs.gtk.org/glib/struct.List.html">GList</a>
+of the <a href="gst-editing-services/gesmarkerlist.html#GESMarker">GESMarker</a> within the GESMarkerList. The user will have
+to unref each <a href="gst-editing-services/gesmarkerlist.html#GESMarker">GESMarker</a> and free the <a href="https://docs.gtk.org/glib/struct.List.html">GList</a>.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="ges_marker_list_get_markers">
+	<i>GES.MarkerList.prototype.get_markers</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GES.MarkerList.prototype.get_markers(): {
+    // javascript wrapper for 'ges_marker_list_get_markers'
+}</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>list</code></em></i>
+<span>(</span><a title="GES.MarkerList" href="gst-editing-services/gesmarkerlist.html#GESMarkerList">GES.MarkerList</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span>[ <a title="GES.Marker" href="gst-editing-services/gesmarkerlist.html#GESMarker">GES.Marker</a> ]<span>)</span>
+–
+			</div>
+							<p>a <a href="https://docs.gtk.org/glib/struct.List.html">GLib.List</a>
+of the <a href="gst-editing-services/gesmarkerlist.html#GESMarker">GES.Marker</a> within the GESMarkerList. The user will have
+to unref each <a href="gst-editing-services/gesmarkerlist.html#GESMarker">GES.Marker</a> and free the <a href="https://docs.gtk.org/glib/struct.List.html">GLib.List</a>.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="ges_marker_list_get_markers">
+	<i>GES.MarkerList.get_markers</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GES.MarkerList.get_markers (self):
+    #python wrapper for 'ges_marker_list_get_markers'</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>list</code></em></i>
+<span>(</span><a title="GES.MarkerList" href="gst-editing-services/gesmarkerlist.html#GESMarkerList">GES.MarkerList</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span>[ <a title="GES.Marker" href="gst-editing-services/gesmarkerlist.html#GESMarker">GES.Marker</a> ]<span>)</span>
+–
+			</div>
+							<p>a <a href="https://docs.gtk.org/glib/struct.List.html">GLib.List</a>
+of the <a href="gst-editing-services/gesmarkerlist.html#GESMarker">GES.Marker</a> within the GESMarkerList. The user will have
+to unref each <a href="gst-editing-services/gesmarkerlist.html#GESMarker">GES.Marker</a> and free the <a href="https://docs.gtk.org/glib/struct.List.html">GLib.List</a>.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.18;" id="ges_marker_list_move">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="ges_marker_list_move">
+	<i>ges_marker_list_move</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a>
+ges_marker_list_move (<a title="GESMarkerList" href="gst-editing-services/gesmarkerlist.html#GESMarkerList">GESMarkerList</a> * list,
+                      <a title="GESMarker" href="gst-editing-services/gesmarkerlist.html#GESMarker">GESMarker</a> * marker,
+                      <a title="GstClockTime" href="gstreamer/gstclock.html#GstClockTime">GstClockTime</a> position)</pre>
+
+<p>Moves a <em>marker</em> in a <em>list</em> to a new <em>position</em></p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>list</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>marker</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>position</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p><a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#TRUE:CAPS">TRUE</a> if the marker could be moved, <a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#FALSE:CAPS">FALSE</a> otherwise
+(if the marker was not present in the list for example)</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="ges_marker_list_move">
+	<i>GES.MarkerList.prototype.move</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GES.MarkerList.prototype.move(marker: <a title="GES.Marker" href="gst-editing-services/gesmarkerlist.html#GESMarker">GES.Marker</a>, position: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>): {
+    // javascript wrapper for 'ges_marker_list_move'
+}</code></pre>
+
+<p>Moves a <em>marker</em> in a <em>list</em> to a new <em>position</em></p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>list</code></em></i>
+<span>(</span><a title="GES.MarkerList" href="gst-editing-services/gesmarkerlist.html#GESMarkerList">GES.MarkerList</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>marker</code></em></i>
+<span>(</span><a title="GES.Marker" href="gst-editing-services/gesmarkerlist.html#GESMarker">GES.Marker</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>position</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+			</div>
+							<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">true</a> if the marker could be moved, <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">false</a> otherwise
+(if the marker was not present in the list for example)</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="ges_marker_list_move">
+	<i>GES.MarkerList.move</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GES.MarkerList.move (self, marker, position):
+    #python wrapper for 'ges_marker_list_move'</code></pre>
+
+<p>Moves a <em>marker</em> in a <em>list</em> to a new <em>position</em></p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>list</code></em></i>
+<span>(</span><a title="GES.MarkerList" href="gst-editing-services/gesmarkerlist.html#GESMarkerList">GES.MarkerList</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>marker</code></em></i>
+<span>(</span><a title="GES.Marker" href="gst-editing-services/gesmarkerlist.html#GESMarker">GES.Marker</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>position</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a><span>)</span>
+–
+			</div>
+							<p><a href="https://docs.python.org/3/library/constants.html#True">True</a> if the marker could be moved, <a href="https://docs.python.org/3/library/constants.html#False">False</a> otherwise
+(if the marker was not present in the list for example)</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.18;" id="ges_marker_list_remove">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="ges_marker_list_remove">
+	<i>ges_marker_list_remove</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a>
+ges_marker_list_remove (<a title="GESMarkerList" href="gst-editing-services/gesmarkerlist.html#GESMarkerList">GESMarkerList</a> * list,
+                        <a title="GESMarker" href="gst-editing-services/gesmarkerlist.html#GESMarker">GESMarker</a> * marker)</pre>
+
+<p>Removes <em>marker</em> from <em>list</em>, this decreases the refcount of the
+marker by 1.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>list</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>marker</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p><a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#TRUE:CAPS">TRUE</a> if the marker could be removed, <a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#FALSE:CAPS">FALSE</a> otherwise
+(if the marker was not present in the list for example)</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="ges_marker_list_remove">
+	<i>GES.MarkerList.prototype.remove</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GES.MarkerList.prototype.remove(marker: <a title="GES.Marker" href="gst-editing-services/gesmarkerlist.html#GESMarker">GES.Marker</a>): {
+    // javascript wrapper for 'ges_marker_list_remove'
+}</code></pre>
+
+<p>Removes <em>marker</em> from <em>list</em>, this decreases the refcount of the
+marker by 1.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>list</code></em></i>
+<span>(</span><a title="GES.MarkerList" href="gst-editing-services/gesmarkerlist.html#GESMarkerList">GES.MarkerList</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>marker</code></em></i>
+<span>(</span><a title="GES.Marker" href="gst-editing-services/gesmarkerlist.html#GESMarker">GES.Marker</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+			</div>
+							<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">true</a> if the marker could be removed, <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">false</a> otherwise
+(if the marker was not present in the list for example)</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="ges_marker_list_remove">
+	<i>GES.MarkerList.remove</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GES.MarkerList.remove (self, marker):
+    #python wrapper for 'ges_marker_list_remove'</code></pre>
+
+<p>Removes <em>marker</em> from <em>list</em>, this decreases the refcount of the
+marker by 1.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>list</code></em></i>
+<span>(</span><a title="GES.MarkerList" href="gst-editing-services/gesmarkerlist.html#GESMarkerList">GES.MarkerList</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>marker</code></em></i>
+<span>(</span><a title="GES.Marker" href="gst-editing-services/gesmarkerlist.html#GESMarker">GES.Marker</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a><span>)</span>
+–
+			</div>
+							<p><a href="https://docs.python.org/3/library/constants.html#True">True</a> if the marker could be removed, <a href="https://docs.python.org/3/library/constants.html#False">False</a> otherwise
+(if the marker was not present in the list for example)</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.18;" id="ges_marker_list_size">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="ges_marker_list_size">
+	<i>ges_marker_list_size</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="guint" href="https://docs.gtk.org/glib/types.html#guint">guint</a>
+ges_marker_list_size (<a title="GESMarkerList" href="gst-editing-services/gesmarkerlist.html#GESMarkerList">GESMarkerList</a> * list)</pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>list</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p>The number of markers in <em>list</em></p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="ges_marker_list_size">
+	<i>GES.MarkerList.prototype.size</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GES.MarkerList.prototype.size(): {
+    // javascript wrapper for 'ges_marker_list_size'
+}</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>list</code></em></i>
+<span>(</span><a title="GES.MarkerList" href="gst-editing-services/gesmarkerlist.html#GESMarkerList">GES.MarkerList</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+			</div>
+							<p>The number of markers in <em>list</em></p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="ges_marker_list_size">
+	<i>GES.MarkerList.size</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GES.MarkerList.size (self):
+    #python wrapper for 'ges_marker_list_size'</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>list</code></em></i>
+<span>(</span><a title="GES.MarkerList" href="gst-editing-services/gesmarkerlist.html#GESMarkerList">GES.MarkerList</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+			</div>
+							<p>The number of markers in <em>list</em></p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+
+            <h3 class="symbol_section">Signals</h3>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.18;" id="GESMarkerList::marker-added">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GESMarkerList::marker-added">
+	<i>marker-added</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+marker_added_callback (<a title="GESMarkerList" href="gst-editing-services/gesmarkerlist.html#GESMarkerList">GESMarkerList</a> * self,
+                       <a title="guint64" href="https://docs.gtk.org/glib/types.html#guint64">guint64</a> position,
+                       <a title="GESMarker" href="gst-editing-services/gesmarkerlist.html#GESMarker">GESMarker</a> * marker,
+                       <a title="gpointer" href="https://docs.gtk.org/glib/types.html#gpointer">gpointer</a> user_data)</pre>
+
+<p>Will be emitted after the marker was added to the marker-list.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>position</code></em></i>
+–
+</div>
+<p>the position of the added marker</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>marker</code></em></i>
+–
+</div>
+<p>the <a href="gst-editing-services/gesmarkerlist.html#GESMarker">GESMarker</a> that was added.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>user_data</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+<p>
+	<b>Flags:</b>	
+	
+		
+				<a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-FIRST:CAPS">Run First</a>
+			
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GESMarkerList::marker-added">
+	<i>marker-added</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function marker_added_callback(self: <a title="GES.MarkerList" href="gst-editing-services/gesmarkerlist.html#GESMarkerList">GES.MarkerList</a>, position: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>, marker: <a title="GES.Marker" href="gst-editing-services/gesmarkerlist.html#GESMarker">GES.Marker</a>, user_data: <a title="Object" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>): {
+    // javascript callback for the 'marker-added' signal
+}</code></pre>
+
+<p>Will be emitted after the marker was added to the marker-list.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+<span>(</span><a title="GES.MarkerList" href="gst-editing-services/gesmarkerlist.html#GESMarkerList">GES.MarkerList</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>position</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>the position of the added marker</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>marker</code></em></i>
+<span>(</span><a title="GES.Marker" href="gst-editing-services/gesmarkerlist.html#GESMarker">GES.Marker</a><span>)</span>
+–
+</div>
+<p>the <a href="gst-editing-services/gesmarkerlist.html#GESMarker">GES.Marker</a> that was added.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>user_data</code></em></i>
+<span>(</span><a title="Object" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+<p>
+	<b>Flags:</b>	
+	
+		
+				<a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-FIRST:CAPS">Run First</a>
+			
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GESMarkerList::marker-added">
+	<i>marker-added</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def marker_added_callback (self, position, marker, *user_data):
+    #python callback for the 'marker-added' signal</code></pre>
+
+<p>Will be emitted after the marker was added to the marker-list.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+<span>(</span><a title="GES.MarkerList" href="gst-editing-services/gesmarkerlist.html#GESMarkerList">GES.MarkerList</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>position</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<p>the position of the added marker</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>marker</code></em></i>
+<span>(</span><a title="GES.Marker" href="gst-editing-services/gesmarkerlist.html#GESMarker">GES.Marker</a><span>)</span>
+–
+</div>
+<p>the <a href="gst-editing-services/gesmarkerlist.html#GESMarker">GES.Marker</a> that was added.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>user_data</code></em></i>
+<span>(</span><a title="variadic" href="https://docs.python.org/dev/tutorial/controlflow.html#arbitrary-argument-lists">variadic</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+<p>
+	<b>Flags:</b>	
+	
+		
+				<a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-FIRST:CAPS">Run First</a>
+			
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.18;" id="GESMarkerList::marker-moved">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GESMarkerList::marker-moved">
+	<i>marker-moved</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+marker_moved_callback (<a title="GESMarkerList" href="gst-editing-services/gesmarkerlist.html#GESMarkerList">GESMarkerList</a> * self,
+                       <a title="guint64" href="https://docs.gtk.org/glib/types.html#guint64">guint64</a> previous_position,
+                       <a title="guint64" href="https://docs.gtk.org/glib/types.html#guint64">guint64</a> new_position,
+                       <a title="GESMarker" href="gst-editing-services/gesmarkerlist.html#GESMarker">GESMarker</a> * marker,
+                       <a title="gpointer" href="https://docs.gtk.org/glib/types.html#gpointer">gpointer</a> user_data)</pre>
+
+<p>Will be emitted after the marker was moved to.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>previous_position</code></em></i>
+–
+</div>
+<p>the previous position of the marker</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>new_position</code></em></i>
+–
+</div>
+<p>the new position of the marker</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>marker</code></em></i>
+–
+</div>
+<p>the <a href="gst-editing-services/gesmarkerlist.html#GESMarker">GESMarker</a> that was moved.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>user_data</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+<p>
+	<b>Flags:</b>	
+	
+		
+				<a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-FIRST:CAPS">Run First</a>
+			
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GESMarkerList::marker-moved">
+	<i>marker-moved</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function marker_moved_callback(self: <a title="GES.MarkerList" href="gst-editing-services/gesmarkerlist.html#GESMarkerList">GES.MarkerList</a>, previous_position: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>, new_position: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>, marker: <a title="GES.Marker" href="gst-editing-services/gesmarkerlist.html#GESMarker">GES.Marker</a>, user_data: <a title="Object" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>): {
+    // javascript callback for the 'marker-moved' signal
+}</code></pre>
+
+<p>Will be emitted after the marker was moved to.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+<span>(</span><a title="GES.MarkerList" href="gst-editing-services/gesmarkerlist.html#GESMarkerList">GES.MarkerList</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>previous_position</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>the previous position of the marker</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>new_position</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>the new position of the marker</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>marker</code></em></i>
+<span>(</span><a title="GES.Marker" href="gst-editing-services/gesmarkerlist.html#GESMarker">GES.Marker</a><span>)</span>
+–
+</div>
+<p>the <a href="gst-editing-services/gesmarkerlist.html#GESMarker">GES.Marker</a> that was moved.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>user_data</code></em></i>
+<span>(</span><a title="Object" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+<p>
+	<b>Flags:</b>	
+	
+		
+				<a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-FIRST:CAPS">Run First</a>
+			
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GESMarkerList::marker-moved">
+	<i>marker-moved</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def marker_moved_callback (self, previous_position, new_position, marker, *user_data):
+    #python callback for the 'marker-moved' signal</code></pre>
+
+<p>Will be emitted after the marker was moved to.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+<span>(</span><a title="GES.MarkerList" href="gst-editing-services/gesmarkerlist.html#GESMarkerList">GES.MarkerList</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>previous_position</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<p>the previous position of the marker</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>new_position</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<p>the new position of the marker</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>marker</code></em></i>
+<span>(</span><a title="GES.Marker" href="gst-editing-services/gesmarkerlist.html#GESMarker">GES.Marker</a><span>)</span>
+–
+</div>
+<p>the <a href="gst-editing-services/gesmarkerlist.html#GESMarker">GES.Marker</a> that was moved.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>user_data</code></em></i>
+<span>(</span><a title="variadic" href="https://docs.python.org/dev/tutorial/controlflow.html#arbitrary-argument-lists">variadic</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+<p>
+	<b>Flags:</b>	
+	
+		
+				<a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-FIRST:CAPS">Run First</a>
+			
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.18;" id="GESMarkerList::marker-removed">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GESMarkerList::marker-removed">
+	<i>marker-removed</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+marker_removed_callback (<a title="GESMarkerList" href="gst-editing-services/gesmarkerlist.html#GESMarkerList">GESMarkerList</a> * self,
+                         <a title="GESMarker" href="gst-editing-services/gesmarkerlist.html#GESMarker">GESMarker</a> * marker,
+                         <a title="gpointer" href="https://docs.gtk.org/glib/types.html#gpointer">gpointer</a> user_data)</pre>
+
+<p>Will be emitted after the marker was removed the marker-list.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>marker</code></em></i>
+–
+</div>
+<p>the <a href="gst-editing-services/gesmarkerlist.html#GESMarker">GESMarker</a> that was removed.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>user_data</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+<p>
+	<b>Flags:</b>	
+	
+		
+				<a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-FIRST:CAPS">Run First</a>
+			
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GESMarkerList::marker-removed">
+	<i>marker-removed</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function marker_removed_callback(self: <a title="GES.MarkerList" href="gst-editing-services/gesmarkerlist.html#GESMarkerList">GES.MarkerList</a>, marker: <a title="GES.Marker" href="gst-editing-services/gesmarkerlist.html#GESMarker">GES.Marker</a>, user_data: <a title="Object" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>): {
+    // javascript callback for the 'marker-removed' signal
+}</code></pre>
+
+<p>Will be emitted after the marker was removed the marker-list.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+<span>(</span><a title="GES.MarkerList" href="gst-editing-services/gesmarkerlist.html#GESMarkerList">GES.MarkerList</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>marker</code></em></i>
+<span>(</span><a title="GES.Marker" href="gst-editing-services/gesmarkerlist.html#GESMarker">GES.Marker</a><span>)</span>
+–
+</div>
+<p>the <a href="gst-editing-services/gesmarkerlist.html#GESMarker">GES.Marker</a> that was removed.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>user_data</code></em></i>
+<span>(</span><a title="Object" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+<p>
+	<b>Flags:</b>	
+	
+		
+				<a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-FIRST:CAPS">Run First</a>
+			
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GESMarkerList::marker-removed">
+	<i>marker-removed</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def marker_removed_callback (self, marker, *user_data):
+    #python callback for the 'marker-removed' signal</code></pre>
+
+<p>Will be emitted after the marker was removed the marker-list.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+<span>(</span><a title="GES.MarkerList" href="gst-editing-services/gesmarkerlist.html#GESMarkerList">GES.MarkerList</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>marker</code></em></i>
+<span>(</span><a title="GES.Marker" href="gst-editing-services/gesmarkerlist.html#GESMarker">GES.Marker</a><span>)</span>
+–
+</div>
+<p>the <a href="gst-editing-services/gesmarkerlist.html#GESMarker">GES.Marker</a> that was removed.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>user_data</code></em></i>
+<span>(</span><a title="variadic" href="https://docs.python.org/dev/tutorial/controlflow.html#arbitrary-argument-lists">variadic</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+<p>
+	<b>Flags:</b>	
+	
+		
+				<a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-FIRST:CAPS">Run First</a>
+			
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+
+            <h3 class="symbol_section">Properties</h3>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="GESMarkerList:flags">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GESMarkerList:flags">
+	<i>flags</i>
+</h4>
+
+
+<pre class="property_signature">
+“flags” <span class="type"><a title="GESMarkerFlags" href="gst-editing-services/ges-enums.html#GESMarkerFlags">GESMarkerFlags</a> *</span>
+</pre>
+
+<p>Flags indicating how markers on the list should be treated.</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+				/		
+				Construct
+			
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GESMarkerList:flags">
+	<i>flags</i>
+</h4>
+
+
+<pre class="property_signature">
+“flags” <span class="type"><a title="GES.MarkerFlags" href="gst-editing-services/ges-enums.html#GESMarkerFlags">GES.MarkerFlags</a></span>
+</pre>
+
+<p>Flags indicating how markers on the list should be treated.</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+				/		
+				Construct
+			
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GESMarkerList:flags">
+	<i>flags</i>
+</h4>
+
+
+<pre class="property_signature">
+“self.props.flags” <span class="type"><a title="GES.MarkerFlags" href="gst-editing-services/ges-enums.html#GESMarkerFlags">GES.MarkerFlags</a></span>
+</pre>
+
+<p>Flags indicating how markers on the list should be treated.</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+				/		
+				Construct
+			
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+
+        
+
+            <h2 class="symbol_section">Constants</h2>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GES_TYPE_MARKER">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GES_TYPE_MARKER">
+	<i>GES_TYPE_MARKER</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GES_TYPE_MARKER ges_marker_get_type ()
+</pre>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GES_TYPE_MARKER_LIST">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GES_TYPE_MARKER_LIST">
+	<i>GES_TYPE_MARKER_LIST</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GES_TYPE_MARKER_LIST ges_marker_list_get_type ()
+</pre>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+
+
+
+
+
+		
+	</div>
+	<div id="search_results">
+		<p>The results of the search are</p>
+	</div>
+	<div id="footer">
+		    
+
+	</div>
+</div>
+
+<div id="toc-column">
+	
+		<div class="edit-button">
+		
+
+	</div>
+		<div id="toc-wrapper">
+		<nav id="toc"></nav>
+	</div>
+</div>
+</div>
+</main>
+
+
+<script src="assets/js/navbar_offset_scroller.js"></script>
+</body>
+</html>

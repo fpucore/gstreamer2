@@ -1,0 +1,6689 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<base href="..">
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<title>GstBus</title>
+
+<link rel="stylesheet" href="assets/css/dark-frontend.css" type="text/css" title="dark">
+<link rel="alternate stylesheet" href="assets/css/light-frontend.css" type="text/css" title="light">
+<link rel="stylesheet" href="assets/css/bootstrap-toc.min.css" type="text/css">
+<link rel="stylesheet" href="assets/css/jquery.mCustomScrollbar.min.css">
+<link rel="stylesheet" href="assets/js/search/enable_search.css" type="text/css">
+
+<link rel="stylesheet" href="assets/css/extra_frontend.css" type="text/css">
+<link rel="stylesheet" href="assets/css/devhelp.css" type="text/css">
+
+<link rel="stylesheet" href="assets/css/prism-tomorrow.css" type="text/css" title="dark">
+
+<link rel="alternate stylesheet" href="assets/css/prism.css" type="text/css" title="light">
+
+<script src="assets/js/mustache.min.js"></script>
+<script src="assets/js/jquery.js"></script>
+<script src="assets/js/bootstrap.js"></script>
+<script src="assets/js/scrollspy.js"></script>
+<script src="assets/js/typeahead.jquery.min.js"></script>
+<script src="assets/js/search.js"></script>
+<script src="assets/js/compare-versions.js"></script>
+<script src="assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="assets/js/bootstrap-toc.min.js"></script>
+<script src="assets/js/jquery.touchSwipe.min.js"></script>
+<script src="assets/js/anchor.min.js"></script>
+<script src="assets/js/tag_filtering.js"></script>
+<script src="assets/js/language_switching.js"></script>
+<script src="assets/js/styleswitcher.js"></script>
+
+<script src="assets/js/lines_around_headings.js"></script>
+
+<script src="assets/js/prism-core.js"></script>
+<script src="assets/js/prism-autoloader.js"></script>
+<script src="assets/js/prism_autoloader_path_override.js"></script>
+<script src="assets/js/trie.js"></script>
+
+<!-- generic -->
+<link rel="icon" type="image/png" href="assets/images/favicon-16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="assets/images/favicon-32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="assets/images/favicon-57.png" sizes="57x57">
+<link rel="icon" type="image/png" href="assets/images/favicon-64.png" sizes="64x64">
+<link rel="icon" type="image/png" href="assets/images/favicon-76.png" sizes="76x76">
+<link rel="icon" type="image/png" href="assets/images/favicon-96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="assets/images/favicon-128.png" sizes="128x128">
+<link rel="icon" type="image/png" href="assets/images/favicon-192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="assets/images/favicon-228.png" sizes="228x228">
+
+<!-- Android -->
+<link rel="shortcut icon" sizes="196x196" href="assets/images/favicon-196.png">
+
+<!-- iOS -->
+<link rel="apple-touch-icon" href="assets/images/favicon-120.png" sizes="120x120">
+<link rel="apple-touch-icon" href="assets/images/favicon-152.png" sizes="152x152">
+<link rel="apple-touch-icon" href="assets/images/favicon-180.png" sizes="180x180">
+
+</head>
+
+<body class="no-script
+">
+
+<script>
+$('body').removeClass('no-script');
+</script>
+
+<nav class="navbar navbar-fixed-top navbar-default" id="topnav">
+	<div class="container-fluid">
+		<div class="navbar-right">
+			<a id="toc-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-wrapper" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<span title="light mode switch" class="glyphicon glyphicon-sunglasses pull-right" id="lightmode-icon"></span>
+			<form class="navbar-form pull-right" id="navbar-search-form">
+                               <div class="form-group has-feedback">
+                                       <input type="text" class="form-control input-sm" name="search" id="sidenav-lookup-field" placeholder="search" disabled>
+				       <span class="glyphicon glyphicon-search form-control-feedback" id="search-mgn-glass"></span>
+                               </div>
+                        </form>
+		</div>
+		<div class="navbar-header">
+			<a id="sidenav-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<a id="home-link" href="index.html" class="hotdoc-navbar-brand">
+				<img src="assets/images/gstreamer-logo.svg" alt="Home">
+			</a>
+		</div>
+		<div class="navbar-collapse collapse" id="navbar-wrapper">
+			<ul class="nav navbar-nav" id="menu">
+				
+<li class="dropdown">
+    <a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        API References<span class="caret"></span>
+    </a>
+	<ul class="dropdown-menu" id="modules-menu">
+					<li>
+				<a href="gstreamer/gi-index.html">GStreamer core</a>
+			</li>
+					<li>
+				<a href="libs.html">GStreamer Libraries</a>
+			</li>
+					<li>
+				<a href="plugins_doc.html">GStreamer Plugins</a>
+			</li>
+		</ul>
+</li>
+
+<li>
+    <a href="application-development/index.html">Application manual</a>
+</li>
+
+
+<li>
+    <a href="tutorials/index.html">Tutorials</a>
+</li>
+
+			</ul>
+			<div class="hidden-xs hidden-sm navbar-text navbar-center">
+							</div>
+		</div>
+	</div>
+</nav>
+
+<main>
+<div data-extension="gi-extension" data-hotdoc-in-toplevel="False" data-hotdoc-project="gstreamer" data-hotdoc-ref="gstbus.html" class="page_container" id="page-wrapper" data-hotdoc-meta-gi-languages="['c', 'javascript', 'python']" data-hotdoc-meta-gi-language="c">
+<script src="assets/js/utils.js"></script>
+
+<div class="panel panel-collapse oc-collapsed" id="sidenav" data-hotdoc-role="navigation">
+	<script src="assets/js/full-width.js"></script>
+  <div id="sitenav-wrapper">
+    <iframe src="hotdoc-sitemap.html" id="sitenav-frame"></iframe>
+  </div>
+</div>
+
+<div id="body">
+	<div id="main">
+				    <div id="page-description" data-hotdoc-role="main">
+        <h1 id="gstbus-page">GstBus</h1>
+<p>The <a href="gstreamer/gstbus.html#GstBus" data-gi-href-javascript="gstreamer/gstbus.html#GstBus" data-gi-title-javascript="Gst.Bus" data-gi-href-python="gstreamer/gstbus.html#GstBus" data-gi-title-python="Gst.Bus">GstBus</a> is an object responsible for delivering <a href="gstreamer/gstmessage.html#GstMessage" data-gi-href-javascript="gstreamer/gstmessage.html#GstMessage" data-gi-title-javascript="Gst.Message" data-gi-href-python="gstreamer/gstmessage.html#GstMessage" data-gi-title-python="Gst.Message">GstMessage</a> packets in
+a first-in first-out way from the streaming threads (see <a href="gstreamer/gsttask.html#GstTask" data-gi-href-javascript="gstreamer/gsttask.html#GstTask" data-gi-title-javascript="Gst.Task" data-gi-href-python="gstreamer/gsttask.html#GstTask" data-gi-title-python="Gst.Task">GstTask</a>) to the
+application.</p>
+<p>Since the application typically only wants to deal with delivery of these
+messages from one thread, the GstBus will marshall the messages between
+different threads. This is important since the actual streaming of media
+is done in another thread than the application.</p>
+<p>The GstBus provides support for <a href="https://docs.gtk.org/glib/struct.Source.html" data-gi-href-javascript="https://docs.gtk.org/glib/struct.Source.html" data-gi-title-javascript="GSource (not introspectable)" data-gi-href-python="https://docs.gtk.org/glib/struct.Source.html" data-gi-title-python="GSource (not introspectable)">GSource</a> based notifications. This makes it
+possible to handle the delivery in the glib <a href="https://docs.gtk.org/glib/struct.MainLoop.html" data-gi-href-javascript="https://docs.gtk.org/glib/struct.MainLoop.html" data-gi-title-javascript="GMainLoop (not introspectable)" data-gi-href-python="https://docs.gtk.org/glib/struct.MainLoop.html" data-gi-title-python="GMainLoop (not introspectable)">GMainLoop</a>.</p>
+<p>The <a href="https://docs.gtk.org/glib/struct.Source.html" data-gi-href-javascript="https://docs.gtk.org/glib/struct.Source.html" data-gi-title-javascript="GSource (not introspectable)" data-gi-href-python="https://docs.gtk.org/glib/struct.Source.html" data-gi-title-python="GSource (not introspectable)">GSource</a> callback function <a href="gstreamer/gstbus.html#gst_bus_async_signal_func" data-gi-href-javascript="gstreamer/gstbus.html#gst_bus_async_signal_func" data-gi-title-javascript="Gst.Bus.prototype.async_signal_func" data-gi-href-python="gstreamer/gstbus.html#gst_bus_async_signal_func" data-gi-title-python="Gst.Bus.async_signal_func">gst_bus_async_signal_func</a> can be used to
+convert all bus messages into signal emissions.</p>
+<p>A message is posted on the bus with the <a href="gstreamer/gstbus.html#gst_bus_post" data-gi-href-javascript="gstreamer/gstbus.html#gst_bus_post" data-gi-title-javascript="Gst.Bus.prototype.post" data-gi-href-python="gstreamer/gstbus.html#gst_bus_post" data-gi-title-python="Gst.Bus.post">gst_bus_post</a> method. With the
+<a href="gstreamer/gstbus.html#gst_bus_peek" data-gi-href-javascript="gstreamer/gstbus.html#gst_bus_peek" data-gi-title-javascript="Gst.Bus.prototype.peek" data-gi-href-python="gstreamer/gstbus.html#gst_bus_peek" data-gi-title-python="Gst.Bus.peek">gst_bus_peek</a> and <a href="gstreamer/gstbus.html#gst_bus_pop" data-gi-href-javascript="gstreamer/gstbus.html#gst_bus_pop" data-gi-title-javascript="Gst.Bus.prototype.pop" data-gi-href-python="gstreamer/gstbus.html#gst_bus_pop" data-gi-title-python="Gst.Bus.pop">gst_bus_pop</a> methods one can look at or retrieve a
+previously posted message.</p>
+<p>The bus can be polled with the <a href="gstreamer/gstbus.html#gst_bus_poll" data-gi-href-javascript="gstreamer/gstbus.html#gst_bus_poll" data-gi-title-javascript="Gst.Bus.prototype.poll" data-gi-href-python="gstreamer/gstbus.html#gst_bus_poll" data-gi-title-python="Gst.Bus.poll">gst_bus_poll</a> method. This methods blocks
+up to the specified timeout value until one of the specified messages types
+is posted on the bus. The application can then <a href="gstreamer/gstbus.html#gst_bus_pop" data-gi-href-javascript="gstreamer/gstbus.html#gst_bus_pop" data-gi-title-javascript="Gst.Bus.prototype.pop" data-gi-href-python="gstreamer/gstbus.html#gst_bus_pop" data-gi-title-python="Gst.Bus.pop">gst_bus_pop</a> the messages
+from the bus to handle them.
+Alternatively the application can register an asynchronous bus function
+using <a href="gstreamer/gstbus.html#gst_bus_add_watch_full" data-gi-href-javascript="gstreamer/gstbus.html#gst_bus_add_watch_full" data-gi-title-javascript="Gst.Bus.prototype.add_watch_full" data-gi-href-python="gstreamer/gstbus.html#gst_bus_add_watch_full" data-gi-title-python="Gst.Bus.add_watch_full">gst_bus_add_watch_full</a> or <a href="gstreamer/gstbus.html#gst_bus_add_watch" data-gi-href-javascript="gstreamer/gstbus.html#gst_bus_add_watch" data-gi-title-javascript="gst_bus_add_watch (not introspectable)" data-gi-href-python="gstreamer/gstbus.html#gst_bus_add_watch" data-gi-title-python="gst_bus_add_watch (not introspectable)">gst_bus_add_watch</a>. This function will
+install a <a href="https://docs.gtk.org/glib/struct.Source.html" data-gi-href-javascript="https://docs.gtk.org/glib/struct.Source.html" data-gi-title-javascript="GSource (not introspectable)" data-gi-href-python="https://docs.gtk.org/glib/struct.Source.html" data-gi-title-python="GSource (not introspectable)">GSource</a> in the default glib main loop and will deliver messages
+a short while after they have been posted. Note that the main loop should
+be running for the asynchronous callbacks.</p>
+<p>It is also possible to get messages from the bus without any thread
+marshalling with the <a href="gstreamer/gstbus.html#gst_bus_set_sync_handler" data-gi-href-javascript="gstreamer/gstbus.html#gst_bus_set_sync_handler" data-gi-title-javascript="Gst.Bus.prototype.set_sync_handler" data-gi-href-python="gstreamer/gstbus.html#gst_bus_set_sync_handler" data-gi-title-python="Gst.Bus.set_sync_handler">gst_bus_set_sync_handler</a> method. This makes it
+possible to react to a message in the same thread that posted the
+message on the bus. This should only be used if the application is able
+to deal with messages from different threads.</p>
+<p>Every <a href="gstreamer/gstpipeline.html#GstPipeline" data-gi-href-javascript="gstreamer/gstpipeline.html#GstPipeline" data-gi-title-javascript="Gst.Pipeline" data-gi-href-python="gstreamer/gstpipeline.html#GstPipeline" data-gi-title-python="Gst.Pipeline">GstPipeline</a> has one bus.</p>
+<p>Note that a <a href="gstreamer/gstpipeline.html#GstPipeline" data-gi-href-javascript="gstreamer/gstpipeline.html#GstPipeline" data-gi-title-javascript="Gst.Pipeline" data-gi-href-python="gstreamer/gstpipeline.html#GstPipeline" data-gi-title-python="Gst.Pipeline">GstPipeline</a> will set its bus into flushing state when changing
+from READY to NULL state.</p>
+
+    </div>
+        
+        
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstBus">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h2 data-hotdoc-id="GstBus">
+	<i>GstBus</i>
+</h2>
+
+
+<div class="hierarchy_container">
+	<div class="hierarchy_details">
+<pre>
+<a title="GObject" href="https://docs.gtk.org/gobject/class.Object.html">GObject</a>
+    <span class="lineart">╰──</span><a title="GInitiallyUnowned" href="https://docs.gtk.org/gobject/class.InitiallyUnowned.html">GInitiallyUnowned</a>
+        <span class="lineart">╰──</span><a title="GstObject" href="gstreamer/gstobject.html#GstObject">GstObject</a>
+            <span class="lineart">╰──</span>GstBus
+</pre>
+
+</div>
+
+</div>
+
+<div class="class_details">
+	<p>The opaque <a href="gstreamer/gstbus.html#GstBus">GstBus</a> data structure.</p>
+
+</div>
+
+
+
+	<div class="members-container">
+		<h3>Members</h3>
+					
+<div class="symbol-detail" data-hotdoc-id="GstBus.object">
+	<div>
+		<i><em><code>object</code></em></i>
+		(<a title="GstObject" href="gstreamer/gstobject.html#GstObject">GstObject</a>)
+		–
+	</div>
+			<p>the parent structure</p>
+
+	</div>
+
+			</div>
+
+
+
+
+<hr>
+<h3>Class structure</h3>
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstBusClass">
+	<i>GstBusClass</i>
+</h4>
+
+
+<p>GStreamer bus class.</p>
+
+
+
+
+	<div class="members-container">
+		<h5>Fields</h5>
+					
+<div class="symbol-detail" data-hotdoc-id="GstBusClass.parent_class">
+	<div>
+		<i><em><code>parent_class</code></em></i>
+		(<a title="GstObjectClass" href="GstObjectClass">GstObjectClass</a>)
+		–
+	</div>
+			<p>the parent class structure</p>
+
+	</div>
+
+			</div>
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3>
+	Gst.BusClass
+</h3>
+
+
+<p>GStreamer bus class.</p>
+
+
+
+
+	<div class="members-container">
+		<h5>Attributes</h5>
+					
+<div class="symbol-detail" data-hotdoc-id="GstBusClass.parent_class">
+	<div>
+		<i><em><code>parent_class</code></em></i>
+		(<a title="Gst.ObjectClass" href="GstObjectClass">Gst.ObjectClass</a>)
+		–
+	</div>
+			<p>the parent class structure</p>
+
+	</div>
+
+			</div>
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3>
+	Gst.BusClass
+</h3>
+
+
+<p>GStreamer bus class.</p>
+
+
+
+
+	<div class="members-container">
+		<h5>Attributes</h5>
+					
+<div class="symbol-detail" data-hotdoc-id="GstBusClass.parent_class">
+	<div>
+		<i><em><code>parent_class</code></em></i>
+		(<a title="Gst.ObjectClass" href="GstObjectClass">Gst.ObjectClass</a>)
+		–
+	</div>
+			<p>the parent class structure</p>
+
+	</div>
+
+			</div>
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h2 data-hotdoc-id="GstBus">
+	<i>Gst.Bus</i>
+</h2>
+
+
+<div class="hierarchy_container">
+	<div class="hierarchy_details">
+<pre>
+<a title="GObject.Object" href="https://docs.gtk.org/gobject/class.Object.html">GObject.Object</a>
+    <span class="lineart">╰──</span><a title="GObject.InitiallyUnowned" href="https://docs.gtk.org/gobject/class.InitiallyUnowned.html">GObject.InitiallyUnowned</a>
+        <span class="lineart">╰──</span><a title="Gst.Object" href="gstreamer/gstobject.html#GstObject">Gst.Object</a>
+            <span class="lineart">╰──</span>Gst.Bus
+</pre>
+
+</div>
+
+</div>
+
+<div class="class_details">
+	<p>The opaque <a href="gstreamer/gstbus.html#GstBus">Gst.Bus</a> data structure.</p>
+
+</div>
+
+
+
+	<div class="members-container">
+		<h3>Members</h3>
+					
+<div class="symbol-detail" data-hotdoc-id="GstBus.object">
+	<div>
+		<i><em><code>object</code></em></i>
+		(<a title="Gst.Object" href="gstreamer/gstobject.html#GstObject">Gst.Object</a>)
+		–
+	</div>
+			<p>the parent structure</p>
+
+	</div>
+
+			</div>
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h2 data-hotdoc-id="GstBus">
+	<i>Gst.Bus</i>
+</h2>
+
+
+<div class="hierarchy_container">
+	<div class="hierarchy_details">
+<pre>
+<a title="GObject.Object" href="https://docs.gtk.org/gobject/class.Object.html">GObject.Object</a>
+    <span class="lineart">╰──</span><a title="GObject.InitiallyUnowned" href="https://docs.gtk.org/gobject/class.InitiallyUnowned.html">GObject.InitiallyUnowned</a>
+        <span class="lineart">╰──</span><a title="Gst.Object" href="gstreamer/gstobject.html#GstObject">Gst.Object</a>
+            <span class="lineart">╰──</span>Gst.Bus
+</pre>
+
+</div>
+
+</div>
+
+<div class="class_details">
+	<p>The opaque <a href="gstreamer/gstbus.html#GstBus">Gst.Bus</a> data structure.</p>
+
+</div>
+
+
+
+	<div class="members-container">
+		<h3>Members</h3>
+					
+<div class="symbol-detail" data-hotdoc-id="GstBus.object">
+	<div>
+		<i><em><code>object</code></em></i>
+		(<a title="Gst.Object" href="gstreamer/gstobject.html#GstObject">Gst.Object</a>)
+		–
+	</div>
+			<p>the parent structure</p>
+
+	</div>
+
+			</div>
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+
+            <h3 class="symbol_section">Constructors</h3>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_bus_new">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_bus_new">
+	<i>gst_bus_new</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GstBus" href="gstreamer/gstbus.html#GstBus">GstBus</a> *
+gst_bus_new ()</pre>
+
+<p>Creates a new <a href="gstreamer/gstbus.html#GstBus">GstBus</a> instance.</p>
+
+
+
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span>
+<span class="annotation">[<abbr title="Free data after the code is done"><span class="acronym">transfer: full</span></abbr>]</span><span>)</span>
+–
+			</div>
+							<p>a new <a href="gstreamer/gstbus.html#GstBus">GstBus</a> instance</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_bus_new">
+	<i>Gst.Bus.prototype.new</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function Gst.Bus.prototype.new(): {
+    // javascript wrapper for 'gst_bus_new'
+}</code></pre>
+
+<p>Creates a new <a href="gstreamer/gstbus.html#GstBus">Gst.Bus</a> instance.</p>
+
+
+
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Gst.Bus" href="gstreamer/gstbus.html#GstBus">Gst.Bus</a><span>)</span>
+–
+			</div>
+							<p>a new <a href="gstreamer/gstbus.html#GstBus">Gst.Bus</a> instance</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_bus_new">
+	<i>Gst.Bus.new</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def Gst.Bus.new ():
+    #python wrapper for 'gst_bus_new'</code></pre>
+
+<p>Creates a new <a href="gstreamer/gstbus.html#GstBus">Gst.Bus</a> instance.</p>
+
+
+
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Gst.Bus" href="gstreamer/gstbus.html#GstBus">Gst.Bus</a><span>)</span>
+–
+			</div>
+							<p>a new <a href="gstreamer/gstbus.html#GstBus">Gst.Bus</a> instance</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+
+            <h3 class="symbol_section">Methods</h3>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_bus_add_signal_watch">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_bus_add_signal_watch">
+	<i>gst_bus_add_signal_watch</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+gst_bus_add_signal_watch (<a title="GstBus" href="gstreamer/gstbus.html#GstBus">GstBus</a> * bus)</pre>
+
+<p>Adds a bus signal watch to the default main context with the default priority
+( <a href="https://docs.gtk.org/glib/const.PRIORITY_DEFAULT.html">G_PRIORITY_DEFAULT</a> ). It is also possible to use a non-default
+main context set up using <a href="https://docs.gtk.org/glib/method.MainContext.push_thread_default.html">g_main_context_push_thread_default</a> (before
+one had to create a bus watch source and attach it to the desired main
+context 'manually').</p>
+<p>After calling this statement, the bus will emit the "message" signal for each
+message posted on the bus.</p>
+<p>This function may be called multiple times. To clean up, the caller is
+responsible for calling <a href="gstreamer/gstbus.html#gst_bus_remove_signal_watch">gst_bus_remove_signal_watch</a> as many times as this
+function is called.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>bus</code></em></i>
+–
+</div>
+<p>a <a href="gstreamer/gstbus.html#GstBus">GstBus</a> on which you want to receive the "message" signal</p>
+
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_bus_add_signal_watch">
+	<i>Gst.Bus.prototype.add_signal_watch</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function Gst.Bus.prototype.add_signal_watch(): {
+    // javascript wrapper for 'gst_bus_add_signal_watch'
+}</code></pre>
+
+<p>Adds a bus signal watch to the default main context with the default priority
+( <a href="https://docs.gtk.org/glib/const.PRIORITY_DEFAULT.html">GLib.PRIORITY_DEFAULT</a> ). It is also possible to use a non-default
+main context set up using <a href="https://docs.gtk.org/glib/method.MainContext.push_thread_default.html">GLib.MainContext.prototype.push_thread_default</a> (before
+one had to create a bus watch source and attach it to the desired main
+context 'manually').</p>
+<p>After calling this statement, the bus will emit the "message" signal for each
+message posted on the bus.</p>
+<p>This function may be called multiple times. To clean up, the caller is
+responsible for calling <a href="gstreamer/gstbus.html#gst_bus_remove_signal_watch">Gst.Bus.prototype.remove_signal_watch</a> as many times as this
+function is called.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>bus</code></em></i>
+<span>(</span><a title="Gst.Bus" href="gstreamer/gstbus.html#GstBus">Gst.Bus</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gstbus.html#GstBus">Gst.Bus</a> on which you want to receive the "message" signal</p>
+
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_bus_add_signal_watch">
+	<i>Gst.Bus.add_signal_watch</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def Gst.Bus.add_signal_watch (self):
+    #python wrapper for 'gst_bus_add_signal_watch'</code></pre>
+
+<p>Adds a bus signal watch to the default main context with the default priority
+( <a href="https://docs.gtk.org/glib/const.PRIORITY_DEFAULT.html">GLib.PRIORITY_DEFAULT</a> ). It is also possible to use a non-default
+main context set up using <a href="https://docs.gtk.org/glib/method.MainContext.push_thread_default.html">GLib.MainContext.push_thread_default</a> (before
+one had to create a bus watch source and attach it to the desired main
+context 'manually').</p>
+<p>After calling this statement, the bus will emit the "message" signal for each
+message posted on the bus.</p>
+<p>This function may be called multiple times. To clean up, the caller is
+responsible for calling <a href="gstreamer/gstbus.html#gst_bus_remove_signal_watch">Gst.Bus.remove_signal_watch</a> as many times as this
+function is called.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>bus</code></em></i>
+<span>(</span><a title="Gst.Bus" href="gstreamer/gstbus.html#GstBus">Gst.Bus</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gstbus.html#GstBus">Gst.Bus</a> on which you want to receive the "message" signal</p>
+
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_bus_add_signal_watch_full">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_bus_add_signal_watch_full">
+	<i>gst_bus_add_signal_watch_full</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+gst_bus_add_signal_watch_full (<a title="GstBus" href="gstreamer/gstbus.html#GstBus">GstBus</a> * bus,
+                               <a title="gint" href="https://docs.gtk.org/glib/types.html#gint">gint</a> priority)</pre>
+
+<p>Adds a bus signal watch to the default main context with the given <em>priority</em>
+(e.g. <a href="https://docs.gtk.org/glib/const.PRIORITY_DEFAULT.html">G_PRIORITY_DEFAULT</a>). It is also possible to use a non-default main
+context set up using <a href="https://docs.gtk.org/glib/method.MainContext.push_thread_default.html">g_main_context_push_thread_default</a>
+(before one had to create a bus watch source and attach it to the desired
+main context 'manually').</p>
+<p>After calling this statement, the bus will emit the "message" signal for each
+message posted on the bus when the <a href="https://docs.gtk.org/glib/struct.MainLoop.html">GMainLoop</a> is running.</p>
+<p>This function may be called multiple times. To clean up, the caller is
+responsible for calling <a href="gstreamer/gstbus.html#gst_bus_remove_signal_watch">gst_bus_remove_signal_watch</a> as many times as this
+function is called.</p>
+<p>There can only be a single bus watch per bus, you must remove any signal
+watch before you can set another type of watch.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>bus</code></em></i>
+–
+</div>
+<p>a <a href="gstreamer/gstbus.html#GstBus">GstBus</a> on which you want to receive the "message" signal</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>priority</code></em></i>
+–
+</div>
+<p>The priority of the watch.</p>
+
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_bus_add_signal_watch_full">
+	<i>Gst.Bus.prototype.add_signal_watch_full</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function Gst.Bus.prototype.add_signal_watch_full(priority: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>): {
+    // javascript wrapper for 'gst_bus_add_signal_watch_full'
+}</code></pre>
+
+<p>Adds a bus signal watch to the default main context with the given <em>priority</em>
+(e.g. <a href="https://docs.gtk.org/glib/const.PRIORITY_DEFAULT.html">GLib.PRIORITY_DEFAULT</a>). It is also possible to use a non-default main
+context set up using <a href="https://docs.gtk.org/glib/method.MainContext.push_thread_default.html">GLib.MainContext.prototype.push_thread_default</a>
+(before one had to create a bus watch source and attach it to the desired
+main context 'manually').</p>
+<p>After calling this statement, the bus will emit the "message" signal for each
+message posted on the bus when the <a href="https://docs.gtk.org/glib/struct.MainLoop.html">GMainLoop (not introspectable)</a> is running.</p>
+<p>This function may be called multiple times. To clean up, the caller is
+responsible for calling <a href="gstreamer/gstbus.html#gst_bus_remove_signal_watch">Gst.Bus.prototype.remove_signal_watch</a> as many times as this
+function is called.</p>
+<p>There can only be a single bus watch per bus, you must remove any signal
+watch before you can set another type of watch.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>bus</code></em></i>
+<span>(</span><a title="Gst.Bus" href="gstreamer/gstbus.html#GstBus">Gst.Bus</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gstbus.html#GstBus">Gst.Bus</a> on which you want to receive the "message" signal</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>priority</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>The priority of the watch.</p>
+
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_bus_add_signal_watch_full">
+	<i>Gst.Bus.add_signal_watch_full</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def Gst.Bus.add_signal_watch_full (self, priority):
+    #python wrapper for 'gst_bus_add_signal_watch_full'</code></pre>
+
+<p>Adds a bus signal watch to the default main context with the given <em>priority</em>
+(e.g. <a href="https://docs.gtk.org/glib/const.PRIORITY_DEFAULT.html">GLib.PRIORITY_DEFAULT</a>). It is also possible to use a non-default main
+context set up using <a href="https://docs.gtk.org/glib/method.MainContext.push_thread_default.html">GLib.MainContext.push_thread_default</a>
+(before one had to create a bus watch source and attach it to the desired
+main context 'manually').</p>
+<p>After calling this statement, the bus will emit the "message" signal for each
+message posted on the bus when the <a href="https://docs.gtk.org/glib/struct.MainLoop.html">GMainLoop (not introspectable)</a> is running.</p>
+<p>This function may be called multiple times. To clean up, the caller is
+responsible for calling <a href="gstreamer/gstbus.html#gst_bus_remove_signal_watch">Gst.Bus.remove_signal_watch</a> as many times as this
+function is called.</p>
+<p>There can only be a single bus watch per bus, you must remove any signal
+watch before you can set another type of watch.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>bus</code></em></i>
+<span>(</span><a title="Gst.Bus" href="gstreamer/gstbus.html#GstBus">Gst.Bus</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gstbus.html#GstBus">Gst.Bus</a> on which you want to receive the "message" signal</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>priority</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<p>The priority of the watch.</p>
+
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_bus_add_watch">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_bus_add_watch">
+	<i>gst_bus_add_watch</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="guint" href="https://docs.gtk.org/glib/types.html#guint">guint</a>
+gst_bus_add_watch (<a title="GstBus" href="gstreamer/gstbus.html#GstBus">GstBus</a> * bus,
+                   <a title="GstBusFunc" href="gstreamer/gstbus.html#GstBusFunc">GstBusFunc</a> func,
+                   <a title="gpointer" href="https://docs.gtk.org/glib/types.html#gpointer">gpointer</a> user_data)</pre>
+
+<p>Adds a bus watch to the default main context with the default priority
+( <a href="https://docs.gtk.org/glib/const.PRIORITY_DEFAULT.html">G_PRIORITY_DEFAULT</a> ). It is also possible to use a non-default main
+context set up using <a href="https://docs.gtk.org/glib/method.MainContext.push_thread_default.html">g_main_context_push_thread_default</a> (before
+one had to create a bus watch source and attach it to the desired main
+context 'manually').</p>
+<p>This function is used to receive asynchronous messages in the main loop.
+There can only be a single bus watch per bus, you must remove it before you
+can set a new one.</p>
+<p>The bus watch will only work if a <a href="https://docs.gtk.org/glib/struct.MainLoop.html">GMainLoop</a> is being run.</p>
+<p>The watch can be removed using <a href="gstreamer/gstbus.html#gst_bus_remove_watch">gst_bus_remove_watch</a> or by returning <a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#FALSE:CAPS">FALSE</a>
+from <em>func</em>. If the watch was added to the default main context it is also
+possible to remove the watch using <a href="https://docs.gtk.org/glib/type_func.Source.remove.html">g_source_remove</a>.</p>
+<p>The bus watch will take its own reference to the <em>bus</em>, so it is safe to unref
+<em>bus</em> using <a href="gstreamer/gstobject.html#gst_object_unref">gst_object_unref</a> after setting the bus watch.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>bus</code></em></i>
+–
+</div>
+<p>a <a href="gstreamer/gstbus.html#GstBus">GstBus</a> to create the watch for</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>func</code></em></i>
+–
+</div>
+<p>A function to call when a message is received.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>user_data</code></em></i>
+–
+</div>
+<p>user data passed to <em>func</em>.</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p>The event source id or 0 if <em>bus</em> already got an event source.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_bus_add_watch_full">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_bus_add_watch_full">
+	<i>gst_bus_add_watch_full</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="guint" href="https://docs.gtk.org/glib/types.html#guint">guint</a>
+gst_bus_add_watch_full (<a title="GstBus" href="gstreamer/gstbus.html#GstBus">GstBus</a> * bus,
+                        <a title="gint" href="https://docs.gtk.org/glib/types.html#gint">gint</a> priority,
+                        <a title="GstBusFunc" href="gstreamer/gstbus.html#GstBusFunc">GstBusFunc</a> func,
+                        <a title="gpointer" href="https://docs.gtk.org/glib/types.html#gpointer">gpointer</a> user_data,
+                        <a title="GDestroyNotify" href="https://docs.gtk.org/glib/callback.DestroyNotify.html">GDestroyNotify</a> notify)</pre>
+
+<p>Adds a bus watch to the default main context with the given <em>priority</em> (e.g.
+<a href="https://docs.gtk.org/glib/const.PRIORITY_DEFAULT.html">G_PRIORITY_DEFAULT</a>). It is also possible to use a non-default  main
+context set up using <a href="https://docs.gtk.org/glib/method.MainContext.push_thread_default.html">g_main_context_push_thread_default</a> (before
+one had to create a bus watch source and attach it to the desired main
+context 'manually').</p>
+<p>This function is used to receive asynchronous messages in the main loop.
+There can only be a single bus watch per bus, you must remove it before you
+can set a new one.</p>
+<p>The bus watch will only work if a <a href="https://docs.gtk.org/glib/struct.MainLoop.html">GMainLoop</a> is being run.</p>
+<p>When <em>func</em> is called, the message belongs to the caller; if you want to
+keep a copy of it, call <a href="gstreamer/gstmessage.html#gst_message_ref">gst_message_ref</a> before leaving <em>func</em>.</p>
+<p>The watch can be removed using <a href="gstreamer/gstbus.html#gst_bus_remove_watch">gst_bus_remove_watch</a> or by returning <a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#FALSE:CAPS">FALSE</a>
+from <em>func</em>. If the watch was added to the default main context it is also
+possible to remove the watch using <a href="https://docs.gtk.org/glib/type_func.Source.remove.html">g_source_remove</a>.</p>
+<p>The bus watch will take its own reference to the <em>bus</em>, so it is safe to unref
+<em>bus</em> using <a href="gstreamer/gstobject.html#gst_object_unref">gst_object_unref</a> after setting the bus watch.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>bus</code></em></i>
+–
+</div>
+<p>a <a href="gstreamer/gstbus.html#GstBus">GstBus</a> to create the watch for.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>priority</code></em></i>
+–
+</div>
+<p>The priority of the watch.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>func</code></em></i>
+–
+</div>
+<p>A function to call when a message is received.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>user_data</code></em></i>
+–
+</div>
+<p>user data passed to <em>func</em>.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>notify</code></em></i>
+–
+</div>
+<p>the function to call when the source is removed.</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p>The event source id or 0 if <em>bus</em> already got an event source.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_bus_add_watch_full">
+	<i>Gst.Bus.prototype.add_watch_full</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function Gst.Bus.prototype.add_watch_full(priority: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>, func: <a title="Gst.BusFunc" href="gstreamer/gstbus.html#GstBusFunc">Gst.BusFunc</a>, user_data: <a title="Object" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>): {
+    // javascript wrapper for 'gst_bus_add_watch_full'
+}</code></pre>
+
+<p>Adds a bus watch to the default main context with the given <em>priority</em> (e.g.
+<a href="https://docs.gtk.org/glib/const.PRIORITY_DEFAULT.html">GLib.PRIORITY_DEFAULT</a>). It is also possible to use a non-default  main
+context set up using <a href="https://docs.gtk.org/glib/method.MainContext.push_thread_default.html">GLib.MainContext.prototype.push_thread_default</a> (before
+one had to create a bus watch source and attach it to the desired main
+context 'manually').</p>
+<p>This function is used to receive asynchronous messages in the main loop.
+There can only be a single bus watch per bus, you must remove it before you
+can set a new one.</p>
+<p>The bus watch will only work if a <a href="https://docs.gtk.org/glib/struct.MainLoop.html">GMainLoop (not introspectable)</a> is being run.</p>
+<p>When <em>func</em> is called, the message belongs to the caller; if you want to
+keep a copy of it, call <a href="gstreamer/gstmessage.html#gst_message_ref">gst_message_ref (not introspectable)</a> before leaving <em>func</em>.</p>
+<p>The watch can be removed using <a href="gstreamer/gstbus.html#gst_bus_remove_watch">Gst.Bus.prototype.remove_watch</a> or by returning <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">false</a>
+from <em>func</em>. If the watch was added to the default main context it is also
+possible to remove the watch using <a href="https://docs.gtk.org/glib/type_func.Source.remove.html">GLib.prototype.source_remove</a>.</p>
+<p>The bus watch will take its own reference to the <em>bus</em>, so it is safe to unref
+<em>bus</em> using <a href="gstreamer/gstobject.html#gst_object_unref">Gst.Object.prototype.unref</a> after setting the bus watch.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>bus</code></em></i>
+<span>(</span><a title="Gst.Bus" href="gstreamer/gstbus.html#GstBus">Gst.Bus</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gstbus.html#GstBus">Gst.Bus</a> to create the watch for.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>priority</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>The priority of the watch.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>func</code></em></i>
+<span>(</span><a title="Gst.BusFunc" href="gstreamer/gstbus.html#GstBusFunc">Gst.BusFunc</a><span>)</span>
+–
+</div>
+<p>A function to call when a message is received.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>user_data</code></em></i>
+<span>(</span><a title="Object" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a><span>)</span>
+–
+</div>
+<p>user data passed to <em>func</em>.</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+			</div>
+							<p>The event source id or 0 if <em>bus</em> already got an event source.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_bus_add_watch_full">
+	<i>Gst.Bus.add_watch_full</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def Gst.Bus.add_watch_full (self, priority, func, *user_data):
+    #python wrapper for 'gst_bus_add_watch_full'</code></pre>
+
+<p>Adds a bus watch to the default main context with the given <em>priority</em> (e.g.
+<a href="https://docs.gtk.org/glib/const.PRIORITY_DEFAULT.html">GLib.PRIORITY_DEFAULT</a>). It is also possible to use a non-default  main
+context set up using <a href="https://docs.gtk.org/glib/method.MainContext.push_thread_default.html">GLib.MainContext.push_thread_default</a> (before
+one had to create a bus watch source and attach it to the desired main
+context 'manually').</p>
+<p>This function is used to receive asynchronous messages in the main loop.
+There can only be a single bus watch per bus, you must remove it before you
+can set a new one.</p>
+<p>The bus watch will only work if a <a href="https://docs.gtk.org/glib/struct.MainLoop.html">GMainLoop (not introspectable)</a> is being run.</p>
+<p>When <em>func</em> is called, the message belongs to the caller; if you want to
+keep a copy of it, call <a href="gstreamer/gstmessage.html#gst_message_ref">gst_message_ref (not introspectable)</a> before leaving <em>func</em>.</p>
+<p>The watch can be removed using <a href="gstreamer/gstbus.html#gst_bus_remove_watch">Gst.Bus.remove_watch</a> or by returning <a href="https://docs.python.org/3/library/constants.html#False">False</a>
+from <em>func</em>. If the watch was added to the default main context it is also
+possible to remove the watch using <a href="https://docs.gtk.org/glib/type_func.Source.remove.html">GLib.source_remove</a>.</p>
+<p>The bus watch will take its own reference to the <em>bus</em>, so it is safe to unref
+<em>bus</em> using <a href="gstreamer/gstobject.html#gst_object_unref">Gst.Object.unref</a> after setting the bus watch.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>bus</code></em></i>
+<span>(</span><a title="Gst.Bus" href="gstreamer/gstbus.html#GstBus">Gst.Bus</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gstbus.html#GstBus">Gst.Bus</a> to create the watch for.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>priority</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<p>The priority of the watch.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>func</code></em></i>
+<span>(</span><a title="Gst.BusFunc" href="gstreamer/gstbus.html#GstBusFunc">Gst.BusFunc</a><span>)</span>
+–
+</div>
+<p>A function to call when a message is received.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>user_data</code></em></i>
+<span>(</span><a title="variadic" href="https://docs.python.org/dev/tutorial/controlflow.html#arbitrary-argument-lists">variadic</a><span>)</span>
+–
+</div>
+<p>user data passed to <em>func</em>.</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+			</div>
+							<p>The event source id or 0 if <em>bus</em> already got an event source.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_bus_async_signal_func">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_bus_async_signal_func">
+	<i>gst_bus_async_signal_func</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a>
+gst_bus_async_signal_func (<a title="GstBus" href="gstreamer/gstbus.html#GstBus">GstBus</a> * bus,
+                           <a title="GstMessage" href="gstreamer/gstmessage.html#GstMessage">GstMessage</a> * message,
+                           <a title="gpointer" href="https://docs.gtk.org/glib/types.html#gpointer">gpointer</a> data)</pre>
+
+<p>A helper <a href="gstreamer/gstbus.html#GstBusFunc">GstBusFunc</a> that can be used to convert all asynchronous messages
+into signals.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>bus</code></em></i>
+–
+</div>
+<p>a <a href="gstreamer/gstbus.html#GstBus">GstBus</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>message</code></em></i>
+–
+</div>
+<p>the <a href="gstreamer/gstmessage.html#GstMessage">GstMessage</a> received</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>data</code></em></i>
+–
+</div>
+<p>user data</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p><a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#TRUE:CAPS">TRUE</a></p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_bus_async_signal_func">
+	<i>Gst.Bus.prototype.async_signal_func</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function Gst.Bus.prototype.async_signal_func(message: <a title="Gst.Message" href="gstreamer/gstmessage.html#GstMessage">Gst.Message</a>, data: <a title="Object" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>): {
+    // javascript wrapper for 'gst_bus_async_signal_func'
+}</code></pre>
+
+<p>A helper <a href="gstreamer/gstbus.html#GstBusFunc">Gst.BusFunc</a> that can be used to convert all asynchronous messages
+into signals.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>bus</code></em></i>
+<span>(</span><a title="Gst.Bus" href="gstreamer/gstbus.html#GstBus">Gst.Bus</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gstbus.html#GstBus">Gst.Bus</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>message</code></em></i>
+<span>(</span><a title="Gst.Message" href="gstreamer/gstmessage.html#GstMessage">Gst.Message</a><span>)</span>
+–
+</div>
+<p>the <a href="gstreamer/gstmessage.html#GstMessage">Gst.Message</a> received</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>data</code></em></i>
+<span>(</span><a title="Object" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a><span>)</span>
+–
+</div>
+<p>user data</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+			</div>
+							<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">true</a></p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_bus_async_signal_func">
+	<i>Gst.Bus.async_signal_func</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def Gst.Bus.async_signal_func (self, message, data):
+    #python wrapper for 'gst_bus_async_signal_func'</code></pre>
+
+<p>A helper <a href="gstreamer/gstbus.html#GstBusFunc">Gst.BusFunc</a> that can be used to convert all asynchronous messages
+into signals.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>bus</code></em></i>
+<span>(</span><a title="Gst.Bus" href="gstreamer/gstbus.html#GstBus">Gst.Bus</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gstbus.html#GstBus">Gst.Bus</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>message</code></em></i>
+<span>(</span><a title="Gst.Message" href="gstreamer/gstmessage.html#GstMessage">Gst.Message</a><span>)</span>
+–
+</div>
+<p>the <a href="gstreamer/gstmessage.html#GstMessage">Gst.Message</a> received</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>data</code></em></i>
+<span>(</span><a title="object" href="https://docs.python.org/3/library/functions.html#object">object</a><span>)</span>
+–
+</div>
+<p>user data</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a><span>)</span>
+–
+			</div>
+							<p><a href="https://docs.python.org/3/library/constants.html#True">True</a></p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_bus_create_watch">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_bus_create_watch">
+	<i>gst_bus_create_watch</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GSource" href="https://docs.gtk.org/glib/struct.Source.html">GSource</a> *
+gst_bus_create_watch (<a title="GstBus" href="gstreamer/gstbus.html#GstBus">GstBus</a> * bus)</pre>
+
+<p>Create watch for this bus. The <a href="https://docs.gtk.org/glib/struct.Source.html">GSource</a> will be dispatched whenever
+a message is on the bus. After the GSource is dispatched, the
+message is popped off the bus and unreffed.</p>
+<p>As with other watches, there can only be one watch on the bus, including
+any signal watch added with <a href="gstreamer/gstbus.html#gst_bus_add_signal_watch">gst_bus_add_signal_watch</a>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>bus</code></em></i>
+–
+</div>
+<p>a <a href="gstreamer/gstbus.html#GstBus">GstBus</a> to create the watch for</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span>
+<span class="annotation">[<abbr title="Free data after the code is done"><span class="acronym">transfer: full</span></abbr>]</span><span class="annotation">[<abbr title="NULL may be passed to the value"><span class="acronym">nullable</span></abbr>]</span><span>)</span>
+–
+			</div>
+							<p>a <a href="https://docs.gtk.org/glib/struct.Source.html">GSource</a> that can be added to a <a href="https://docs.gtk.org/glib/struct.MainLoop.html">GMainLoop</a>.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_bus_create_watch">
+	<i>Gst.Bus.prototype.create_watch</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function Gst.Bus.prototype.create_watch(): {
+    // javascript wrapper for 'gst_bus_create_watch'
+}</code></pre>
+
+<p>Create watch for this bus. The <a href="https://docs.gtk.org/glib/struct.Source.html">GSource (not introspectable)</a> will be dispatched whenever
+a message is on the bus. After the GSource is dispatched, the
+message is popped off the bus and unreffed.</p>
+<p>As with other watches, there can only be one watch on the bus, including
+any signal watch added with <a href="gstreamer/gstbus.html#gst_bus_add_signal_watch">Gst.Bus.prototype.add_signal_watch</a>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>bus</code></em></i>
+<span>(</span><a title="Gst.Bus" href="gstreamer/gstbus.html#GstBus">Gst.Bus</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gstbus.html#GstBus">Gst.Bus</a> to create the watch for</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GSource (not introspectable)" href="https://docs.gtk.org/glib/struct.Source.html">GSource (not introspectable)</a><span>)</span>
+–
+			</div>
+							<p>a <a href="https://docs.gtk.org/glib/struct.Source.html">GSource (not introspectable)</a> that can be added to a <a href="https://docs.gtk.org/glib/struct.MainLoop.html">GMainLoop (not introspectable)</a>.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_bus_create_watch">
+	<i>Gst.Bus.create_watch</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def Gst.Bus.create_watch (self):
+    #python wrapper for 'gst_bus_create_watch'</code></pre>
+
+<p>Create watch for this bus. The <a href="https://docs.gtk.org/glib/struct.Source.html">GSource (not introspectable)</a> will be dispatched whenever
+a message is on the bus. After the GSource is dispatched, the
+message is popped off the bus and unreffed.</p>
+<p>As with other watches, there can only be one watch on the bus, including
+any signal watch added with <a href="gstreamer/gstbus.html#gst_bus_add_signal_watch">Gst.Bus.add_signal_watch</a>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>bus</code></em></i>
+<span>(</span><a title="Gst.Bus" href="gstreamer/gstbus.html#GstBus">Gst.Bus</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gstbus.html#GstBus">Gst.Bus</a> to create the watch for</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GSource (not introspectable)" href="https://docs.gtk.org/glib/struct.Source.html">GSource (not introspectable)</a><span>)</span>
+–
+			</div>
+							<p>a <a href="https://docs.gtk.org/glib/struct.Source.html">GSource (not introspectable)</a> that can be added to a <a href="https://docs.gtk.org/glib/struct.MainLoop.html">GMainLoop (not introspectable)</a>.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_bus_disable_sync_message_emission">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_bus_disable_sync_message_emission">
+	<i>gst_bus_disable_sync_message_emission</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+gst_bus_disable_sync_message_emission (<a title="GstBus" href="gstreamer/gstbus.html#GstBus">GstBus</a> * bus)</pre>
+
+<p>Instructs GStreamer to stop emitting the "sync-message" signal for this bus.
+See <a href="gstreamer/gstbus.html#gst_bus_enable_sync_message_emission">gst_bus_enable_sync_message_emission</a> for more information.</p>
+<p>In the event that multiple pieces of code have called
+<a href="gstreamer/gstbus.html#gst_bus_enable_sync_message_emission">gst_bus_enable_sync_message_emission</a>, the sync-message emissions will only
+be stopped after all calls to <a href="gstreamer/gstbus.html#gst_bus_enable_sync_message_emission">gst_bus_enable_sync_message_emission</a> were
+"cancelled" by calling this function. In this way the semantics are exactly
+the same as <a href="gstreamer/gstobject.html#gst_object_ref">gst_object_ref</a> that which calls enable should also call
+disable.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>bus</code></em></i>
+–
+</div>
+<p>a <a href="gstreamer/gstbus.html#GstBus">GstBus</a> on which you previously called
+<a href="gstreamer/gstbus.html#gst_bus_enable_sync_message_emission">gst_bus_enable_sync_message_emission</a></p>
+
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_bus_disable_sync_message_emission">
+	<i>Gst.Bus.prototype.disable_sync_message_emission</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function Gst.Bus.prototype.disable_sync_message_emission(): {
+    // javascript wrapper for 'gst_bus_disable_sync_message_emission'
+}</code></pre>
+
+<p>Instructs GStreamer to stop emitting the "sync-message" signal for this bus.
+See <a href="gstreamer/gstbus.html#gst_bus_enable_sync_message_emission">Gst.Bus.prototype.enable_sync_message_emission</a> for more information.</p>
+<p>In the event that multiple pieces of code have called
+<a href="gstreamer/gstbus.html#gst_bus_enable_sync_message_emission">Gst.Bus.prototype.enable_sync_message_emission</a>, the sync-message emissions will only
+be stopped after all calls to <a href="gstreamer/gstbus.html#gst_bus_enable_sync_message_emission">Gst.Bus.prototype.enable_sync_message_emission</a> were
+"cancelled" by calling this function. In this way the semantics are exactly
+the same as <a href="gstreamer/gstobject.html#gst_object_ref">Gst.Object.prototype.ref</a> that which calls enable should also call
+disable.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>bus</code></em></i>
+<span>(</span><a title="Gst.Bus" href="gstreamer/gstbus.html#GstBus">Gst.Bus</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gstbus.html#GstBus">Gst.Bus</a> on which you previously called
+<a href="gstreamer/gstbus.html#gst_bus_enable_sync_message_emission">Gst.Bus.prototype.enable_sync_message_emission</a></p>
+
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_bus_disable_sync_message_emission">
+	<i>Gst.Bus.disable_sync_message_emission</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def Gst.Bus.disable_sync_message_emission (self):
+    #python wrapper for 'gst_bus_disable_sync_message_emission'</code></pre>
+
+<p>Instructs GStreamer to stop emitting the "sync-message" signal for this bus.
+See <a href="gstreamer/gstbus.html#gst_bus_enable_sync_message_emission">Gst.Bus.enable_sync_message_emission</a> for more information.</p>
+<p>In the event that multiple pieces of code have called
+<a href="gstreamer/gstbus.html#gst_bus_enable_sync_message_emission">Gst.Bus.enable_sync_message_emission</a>, the sync-message emissions will only
+be stopped after all calls to <a href="gstreamer/gstbus.html#gst_bus_enable_sync_message_emission">Gst.Bus.enable_sync_message_emission</a> were
+"cancelled" by calling this function. In this way the semantics are exactly
+the same as <a href="gstreamer/gstobject.html#gst_object_ref">Gst.Object.ref</a> that which calls enable should also call
+disable.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>bus</code></em></i>
+<span>(</span><a title="Gst.Bus" href="gstreamer/gstbus.html#GstBus">Gst.Bus</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gstbus.html#GstBus">Gst.Bus</a> on which you previously called
+<a href="gstreamer/gstbus.html#gst_bus_enable_sync_message_emission">Gst.Bus.enable_sync_message_emission</a></p>
+
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_bus_enable_sync_message_emission">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_bus_enable_sync_message_emission">
+	<i>gst_bus_enable_sync_message_emission</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+gst_bus_enable_sync_message_emission (<a title="GstBus" href="gstreamer/gstbus.html#GstBus">GstBus</a> * bus)</pre>
+
+<p>Instructs GStreamer to emit the "sync-message" signal after running the bus's
+sync handler. This function is here so that code can ensure that they can
+synchronously receive messages without having to affect what the bin's sync
+handler is.</p>
+<p>This function may be called multiple times. To clean up, the caller is
+responsible for calling <a href="gstreamer/gstbus.html#gst_bus_disable_sync_message_emission">gst_bus_disable_sync_message_emission</a> as many times
+as this function is called.</p>
+<p>While this function looks similar to <a href="gstreamer/gstbus.html#gst_bus_add_signal_watch">gst_bus_add_signal_watch</a>, it is not
+exactly the same -- this function enables *synchronous* emission of
+signals when messages arrive; <a href="gstreamer/gstbus.html#gst_bus_add_signal_watch">gst_bus_add_signal_watch</a> adds an idle callback
+to pop messages off the bus <em>asynchronously</em>. The sync-message signal
+comes from the thread of whatever object posted the message; the "message"
+signal is marshalled to the main thread via the <a href="https://docs.gtk.org/glib/struct.MainLoop.html">GMainLoop</a>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>bus</code></em></i>
+–
+</div>
+<p>a <a href="gstreamer/gstbus.html#GstBus">GstBus</a> on which you want to receive the "sync-message" signal</p>
+
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_bus_enable_sync_message_emission">
+	<i>Gst.Bus.prototype.enable_sync_message_emission</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function Gst.Bus.prototype.enable_sync_message_emission(): {
+    // javascript wrapper for 'gst_bus_enable_sync_message_emission'
+}</code></pre>
+
+<p>Instructs GStreamer to emit the "sync-message" signal after running the bus's
+sync handler. This function is here so that code can ensure that they can
+synchronously receive messages without having to affect what the bin's sync
+handler is.</p>
+<p>This function may be called multiple times. To clean up, the caller is
+responsible for calling <a href="gstreamer/gstbus.html#gst_bus_disable_sync_message_emission">Gst.Bus.prototype.disable_sync_message_emission</a> as many times
+as this function is called.</p>
+<p>While this function looks similar to <a href="gstreamer/gstbus.html#gst_bus_add_signal_watch">Gst.Bus.prototype.add_signal_watch</a>, it is not
+exactly the same -- this function enables *synchronous* emission of
+signals when messages arrive; <a href="gstreamer/gstbus.html#gst_bus_add_signal_watch">Gst.Bus.prototype.add_signal_watch</a> adds an idle callback
+to pop messages off the bus <em>asynchronously</em>. The sync-message signal
+comes from the thread of whatever object posted the message; the "message"
+signal is marshalled to the main thread via the <a href="https://docs.gtk.org/glib/struct.MainLoop.html">GMainLoop (not introspectable)</a>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>bus</code></em></i>
+<span>(</span><a title="Gst.Bus" href="gstreamer/gstbus.html#GstBus">Gst.Bus</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gstbus.html#GstBus">Gst.Bus</a> on which you want to receive the "sync-message" signal</p>
+
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_bus_enable_sync_message_emission">
+	<i>Gst.Bus.enable_sync_message_emission</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def Gst.Bus.enable_sync_message_emission (self):
+    #python wrapper for 'gst_bus_enable_sync_message_emission'</code></pre>
+
+<p>Instructs GStreamer to emit the "sync-message" signal after running the bus's
+sync handler. This function is here so that code can ensure that they can
+synchronously receive messages without having to affect what the bin's sync
+handler is.</p>
+<p>This function may be called multiple times. To clean up, the caller is
+responsible for calling <a href="gstreamer/gstbus.html#gst_bus_disable_sync_message_emission">Gst.Bus.disable_sync_message_emission</a> as many times
+as this function is called.</p>
+<p>While this function looks similar to <a href="gstreamer/gstbus.html#gst_bus_add_signal_watch">Gst.Bus.add_signal_watch</a>, it is not
+exactly the same -- this function enables *synchronous* emission of
+signals when messages arrive; <a href="gstreamer/gstbus.html#gst_bus_add_signal_watch">Gst.Bus.add_signal_watch</a> adds an idle callback
+to pop messages off the bus <em>asynchronously</em>. The sync-message signal
+comes from the thread of whatever object posted the message; the "message"
+signal is marshalled to the main thread via the <a href="https://docs.gtk.org/glib/struct.MainLoop.html">GMainLoop (not introspectable)</a>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>bus</code></em></i>
+<span>(</span><a title="Gst.Bus" href="gstreamer/gstbus.html#GstBus">Gst.Bus</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gstbus.html#GstBus">Gst.Bus</a> on which you want to receive the "sync-message" signal</p>
+
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.14;" id="gst_bus_get_pollfd">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_bus_get_pollfd">
+	<i>gst_bus_get_pollfd</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+gst_bus_get_pollfd (<a title="GstBus" href="gstreamer/gstbus.html#GstBus">GstBus</a> * bus,
+                    <a title="GPollFD" href="https://docs.gtk.org/glib/struct.PollFD.html">GPollFD</a> * fd)</pre>
+
+<p>Gets the file descriptor from the bus which can be used to get notified about
+messages being available with functions like <a href="https://docs.gtk.org/glib/func.poll.html">g_poll</a>, and allows integration
+into other event loops based on file descriptors.
+Whenever a message is available, the POLLIN / <a href="https://docs.gtk.org/glib/flags.IOCondition.html">G_IO_IN</a> event is set.</p>
+<p>Warning: NEVER read or write anything to the returned fd but only use it
+for getting notifications via <a href="https://docs.gtk.org/glib/func.poll.html">g_poll</a> or similar and then use the normal
+GstBus API, e.g. <a href="gstreamer/gstbus.html#gst_bus_pop">gst_bus_pop</a>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>bus</code></em></i>
+–
+</div>
+<p>A <a href="gstreamer/gstbus.html#GstBus">GstBus</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>fd</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="Parameter for returning results"><span class="acronym">out</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>A GPollFD to fill</p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.14
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_bus_get_pollfd">
+	<i>Gst.Bus.prototype.get_pollfd</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function Gst.Bus.prototype.get_pollfd(): {
+    // javascript wrapper for 'gst_bus_get_pollfd'
+}</code></pre>
+
+<p>Gets the file descriptor from the bus which can be used to get notified about
+messages being available with functions like <a href="https://docs.gtk.org/glib/func.poll.html">GLib.prototype.poll</a>, and allows integration
+into other event loops based on file descriptors.
+Whenever a message is available, the POLLIN / <a href="https://docs.gtk.org/glib/flags.IOCondition.html">GObject.IOCondition.IN</a> event is set.</p>
+<p>Warning: NEVER read or write anything to the returned fd but only use it
+for getting notifications via <a href="https://docs.gtk.org/glib/func.poll.html">GLib.prototype.poll</a> or similar and then use the normal
+GstBus API, e.g. <a href="gstreamer/gstbus.html#gst_bus_pop">Gst.Bus.prototype.pop</a>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>bus</code></em></i>
+<span>(</span><a title="Gst.Bus" href="gstreamer/gstbus.html#GstBus">Gst.Bus</a><span>)</span>
+–
+</div>
+<p>A <a href="gstreamer/gstbus.html#GstBus">Gst.Bus</a></p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.14
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_bus_get_pollfd">
+	<i>Gst.Bus.get_pollfd</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def Gst.Bus.get_pollfd (self):
+    #python wrapper for 'gst_bus_get_pollfd'</code></pre>
+
+<p>Gets the file descriptor from the bus which can be used to get notified about
+messages being available with functions like <a href="https://docs.gtk.org/glib/func.poll.html">GLib.poll</a>, and allows integration
+into other event loops based on file descriptors.
+Whenever a message is available, the POLLIN / <a href="https://docs.gtk.org/glib/flags.IOCondition.html">GObject.IOCondition.IN</a> event is set.</p>
+<p>Warning: NEVER read or write anything to the returned fd but only use it
+for getting notifications via <a href="https://docs.gtk.org/glib/func.poll.html">GLib.poll</a> or similar and then use the normal
+GstBus API, e.g. <a href="gstreamer/gstbus.html#gst_bus_pop">Gst.Bus.pop</a>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>bus</code></em></i>
+<span>(</span><a title="Gst.Bus" href="gstreamer/gstbus.html#GstBus">Gst.Bus</a><span>)</span>
+–
+</div>
+<p>A <a href="gstreamer/gstbus.html#GstBus">Gst.Bus</a></p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.14
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_bus_have_pending">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_bus_have_pending">
+	<i>gst_bus_have_pending</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a>
+gst_bus_have_pending (<a title="GstBus" href="gstreamer/gstbus.html#GstBus">GstBus</a> * bus)</pre>
+
+<p>Checks if there are pending messages on the bus that
+should be handled.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>bus</code></em></i>
+–
+</div>
+<p>a <a href="gstreamer/gstbus.html#GstBus">GstBus</a> to check</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p><a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#TRUE:CAPS">TRUE</a> if there are messages on the bus to be handled, <a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#FALSE:CAPS">FALSE</a>
+otherwise.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_bus_have_pending">
+	<i>Gst.Bus.prototype.have_pending</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function Gst.Bus.prototype.have_pending(): {
+    // javascript wrapper for 'gst_bus_have_pending'
+}</code></pre>
+
+<p>Checks if there are pending messages on the bus that
+should be handled.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>bus</code></em></i>
+<span>(</span><a title="Gst.Bus" href="gstreamer/gstbus.html#GstBus">Gst.Bus</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gstbus.html#GstBus">Gst.Bus</a> to check</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+			</div>
+							<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">true</a> if there are messages on the bus to be handled, <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">false</a>
+otherwise.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_bus_have_pending">
+	<i>Gst.Bus.have_pending</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def Gst.Bus.have_pending (self):
+    #python wrapper for 'gst_bus_have_pending'</code></pre>
+
+<p>Checks if there are pending messages on the bus that
+should be handled.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>bus</code></em></i>
+<span>(</span><a title="Gst.Bus" href="gstreamer/gstbus.html#GstBus">Gst.Bus</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gstbus.html#GstBus">Gst.Bus</a> to check</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a><span>)</span>
+–
+			</div>
+							<p><a href="https://docs.python.org/3/library/constants.html#True">True</a> if there are messages on the bus to be handled, <a href="https://docs.python.org/3/library/constants.html#False">False</a>
+otherwise.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_bus_peek">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_bus_peek">
+	<i>gst_bus_peek</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GstMessage" href="gstreamer/gstmessage.html#GstMessage">GstMessage</a> *
+gst_bus_peek (<a title="GstBus" href="gstreamer/gstbus.html#GstBus">GstBus</a> * bus)</pre>
+
+<p>Peeks the message on the top of the bus' queue. The message will remain
+on the bus' message queue.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>bus</code></em></i>
+–
+</div>
+<p>a <a href="gstreamer/gstbus.html#GstBus">GstBus</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span>
+<span class="annotation">[<abbr title="Free data after the code is done"><span class="acronym">transfer: full</span></abbr>]</span><span class="annotation">[<abbr title="NULL may be passed to the value"><span class="acronym">nullable</span></abbr>]</span><span>)</span>
+–
+			</div>
+							<p>the <a href="gstreamer/gstmessage.html#GstMessage">GstMessage</a> that is on the
+bus, or <a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#NULL:CAPS">NULL</a> if the bus is empty.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_bus_peek">
+	<i>Gst.Bus.prototype.peek</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function Gst.Bus.prototype.peek(): {
+    // javascript wrapper for 'gst_bus_peek'
+}</code></pre>
+
+<p>Peeks the message on the top of the bus' queue. The message will remain
+on the bus' message queue.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>bus</code></em></i>
+<span>(</span><a title="Gst.Bus" href="gstreamer/gstbus.html#GstBus">Gst.Bus</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gstbus.html#GstBus">Gst.Bus</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Gst.Message" href="gstreamer/gstmessage.html#GstMessage">Gst.Message</a><span>)</span>
+–
+			</div>
+							<p>the <a href="gstreamer/gstmessage.html#GstMessage">Gst.Message</a> that is on the
+bus, or <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null">null</a> if the bus is empty.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_bus_peek">
+	<i>Gst.Bus.peek</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def Gst.Bus.peek (self):
+    #python wrapper for 'gst_bus_peek'</code></pre>
+
+<p>Peeks the message on the top of the bus' queue. The message will remain
+on the bus' message queue.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>bus</code></em></i>
+<span>(</span><a title="Gst.Bus" href="gstreamer/gstbus.html#GstBus">Gst.Bus</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gstbus.html#GstBus">Gst.Bus</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Gst.Message" href="gstreamer/gstmessage.html#GstMessage">Gst.Message</a><span>)</span>
+–
+			</div>
+							<p>the <a href="gstreamer/gstmessage.html#GstMessage">Gst.Message</a> that is on the
+bus, or <a href="https://docs.python.org/3/library/constants.html#None">None</a> if the bus is empty.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_bus_poll">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_bus_poll">
+	<i>gst_bus_poll</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GstMessage" href="gstreamer/gstmessage.html#GstMessage">GstMessage</a> *
+gst_bus_poll (<a title="GstBus" href="gstreamer/gstbus.html#GstBus">GstBus</a> * bus,
+              <a title="GstMessageType" href="gstreamer/gstmessage.html#GstMessageType">GstMessageType</a> events,
+              <a title="GstClockTime" href="gstreamer/gstclock.html#GstClockTime">GstClockTime</a> timeout)</pre>
+
+<p>Polls the bus for messages. Will block while waiting for messages to come.
+You can specify a maximum time to poll with the <em>timeout</em> parameter. If
+<em>timeout</em> is negative, this function will block indefinitely.</p>
+<p>All messages not in <em>events</em> will be popped off the bus and will be ignored.
+It is not possible to use message enums beyond <a href="gstreamer/gstmessage.html#GST_MESSAGE_EXTENDED">GST_MESSAGE_EXTENDED</a> in the
+<em>events</em> mask</p>
+<p>Because poll is implemented using the "message" signal enabled by
+<a href="gstreamer/gstbus.html#gst_bus_add_signal_watch">gst_bus_add_signal_watch</a>, calling <a href="gstreamer/gstbus.html#gst_bus_poll">gst_bus_poll</a> will cause the "message"
+signal to be emitted for every message that poll sees. Thus a "message"
+signal handler will see the same messages that this function sees -- neither
+will steal messages from the other.</p>
+<p>This function will run a <a href="https://docs.gtk.org/glib/struct.MainLoop.html">GMainLoop</a> from the default main context when
+polling.</p>
+<p>You should never use this function, since it is pure evil. This is
+especially true for GUI applications based on Gtk+ or Qt, but also for any
+other non-trivial application that uses the GLib main loop. As this function
+runs a GLib main loop, any callback attached to the default GLib main
+context may be invoked. This could be timeouts, GUI events, I/O events etc.;
+even if <a href="gstreamer/gstbus.html#gst_bus_poll">gst_bus_poll</a> is called with a 0 timeout. Any of these callbacks
+may do things you do not expect, e.g. destroy the main application window or
+some other resource; change other application state; display a dialog and
+run another main loop until the user clicks it away. In short, using this
+function may add a lot of complexity to your code through unexpected
+re-entrancy and unexpected changes to your application's state.</p>
+<p>For 0 timeouts use <a href="gstreamer/gstbus.html#gst_bus_pop_filtered">gst_bus_pop_filtered</a> instead of this function; for
+other short timeouts use <a href="gstreamer/gstbus.html#gst_bus_timed_pop_filtered">gst_bus_timed_pop_filtered</a>; everything else is
+better handled by setting up an asynchronous bus watch and doing things
+from there.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>bus</code></em></i>
+–
+</div>
+<p>a <a href="gstreamer/gstbus.html#GstBus">GstBus</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>events</code></em></i>
+–
+</div>
+<p>a mask of <a href="gstreamer/gstmessage.html#GstMessageType">GstMessageType</a>, representing the set of message types to
+poll for (note special handling of extended message types below)</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>timeout</code></em></i>
+–
+</div>
+<p>the poll timeout, as a <a href="gstreamer/gstclock.html#GstClockTime">GstClockTime</a>, or <a href="gstreamer/gstclock.html#GST_CLOCK_TIME_NONE">GST_CLOCK_TIME_NONE</a> to poll
+indefinitely.</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span>
+<span class="annotation">[<abbr title="Free data after the code is done"><span class="acronym">transfer: full</span></abbr>]</span><span class="annotation">[<abbr title="NULL may be passed to the value"><span class="acronym">nullable</span></abbr>]</span><span>)</span>
+–
+			</div>
+							<p>the message that was received,
+or <a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#NULL:CAPS">NULL</a> if the poll timed out.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_bus_poll">
+	<i>Gst.Bus.prototype.poll</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function Gst.Bus.prototype.poll(events: <a title="Gst.MessageType" href="gstreamer/gstmessage.html#GstMessageType">Gst.MessageType</a>, timeout: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>): {
+    // javascript wrapper for 'gst_bus_poll'
+}</code></pre>
+
+<p>Polls the bus for messages. Will block while waiting for messages to come.
+You can specify a maximum time to poll with the <em>timeout</em> parameter. If
+<em>timeout</em> is negative, this function will block indefinitely.</p>
+<p>All messages not in <em>events</em> will be popped off the bus and will be ignored.
+It is not possible to use message enums beyond <a href="gstreamer/gstmessage.html#GST_MESSAGE_EXTENDED">Gst.MessageType.EXTENDED</a> in the
+<em>events</em> mask</p>
+<p>Because poll is implemented using the "message" signal enabled by
+<a href="gstreamer/gstbus.html#gst_bus_add_signal_watch">Gst.Bus.prototype.add_signal_watch</a>, calling <a href="gstreamer/gstbus.html#gst_bus_poll">Gst.Bus.prototype.poll</a> will cause the "message"
+signal to be emitted for every message that poll sees. Thus a "message"
+signal handler will see the same messages that this function sees -- neither
+will steal messages from the other.</p>
+<p>This function will run a <a href="https://docs.gtk.org/glib/struct.MainLoop.html">GMainLoop (not introspectable)</a> from the default main context when
+polling.</p>
+<p>You should never use this function, since it is pure evil. This is
+especially true for GUI applications based on Gtk+ or Qt, but also for any
+other non-trivial application that uses the GLib main loop. As this function
+runs a GLib main loop, any callback attached to the default GLib main
+context may be invoked. This could be timeouts, GUI events, I/O events etc.;
+even if <a href="gstreamer/gstbus.html#gst_bus_poll">Gst.Bus.prototype.poll</a> is called with a 0 timeout. Any of these callbacks
+may do things you do not expect, e.g. destroy the main application window or
+some other resource; change other application state; display a dialog and
+run another main loop until the user clicks it away. In short, using this
+function may add a lot of complexity to your code through unexpected
+re-entrancy and unexpected changes to your application's state.</p>
+<p>For 0 timeouts use <a href="gstreamer/gstbus.html#gst_bus_pop_filtered">Gst.Bus.prototype.pop_filtered</a> instead of this function; for
+other short timeouts use <a href="gstreamer/gstbus.html#gst_bus_timed_pop_filtered">Gst.Bus.prototype.timed_pop_filtered</a>; everything else is
+better handled by setting up an asynchronous bus watch and doing things
+from there.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>bus</code></em></i>
+<span>(</span><a title="Gst.Bus" href="gstreamer/gstbus.html#GstBus">Gst.Bus</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gstbus.html#GstBus">Gst.Bus</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>events</code></em></i>
+<span>(</span><a title="Gst.MessageType" href="gstreamer/gstmessage.html#GstMessageType">Gst.MessageType</a><span>)</span>
+–
+</div>
+<p>a mask of <a href="gstreamer/gstmessage.html#GstMessageType">Gst.MessageType</a>, representing the set of message types to
+poll for (note special handling of extended message types below)</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>timeout</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>the poll timeout, as a <a href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>, or <a href="gstreamer/gstclock.html#GST_CLOCK_TIME_NONE">Gst.CLOCK_TIME_NONE</a> to poll
+indefinitely.</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Gst.Message" href="gstreamer/gstmessage.html#GstMessage">Gst.Message</a><span>)</span>
+–
+			</div>
+							<p>the message that was received,
+or <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null">null</a> if the poll timed out.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_bus_poll">
+	<i>Gst.Bus.poll</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def Gst.Bus.poll (self, events, timeout):
+    #python wrapper for 'gst_bus_poll'</code></pre>
+
+<p>Polls the bus for messages. Will block while waiting for messages to come.
+You can specify a maximum time to poll with the <em>timeout</em> parameter. If
+<em>timeout</em> is negative, this function will block indefinitely.</p>
+<p>All messages not in <em>events</em> will be popped off the bus and will be ignored.
+It is not possible to use message enums beyond <a href="gstreamer/gstmessage.html#GST_MESSAGE_EXTENDED">Gst.MessageType.EXTENDED</a> in the
+<em>events</em> mask</p>
+<p>Because poll is implemented using the "message" signal enabled by
+<a href="gstreamer/gstbus.html#gst_bus_add_signal_watch">Gst.Bus.add_signal_watch</a>, calling <a href="gstreamer/gstbus.html#gst_bus_poll">Gst.Bus.poll</a> will cause the "message"
+signal to be emitted for every message that poll sees. Thus a "message"
+signal handler will see the same messages that this function sees -- neither
+will steal messages from the other.</p>
+<p>This function will run a <a href="https://docs.gtk.org/glib/struct.MainLoop.html">GMainLoop (not introspectable)</a> from the default main context when
+polling.</p>
+<p>You should never use this function, since it is pure evil. This is
+especially true for GUI applications based on Gtk+ or Qt, but also for any
+other non-trivial application that uses the GLib main loop. As this function
+runs a GLib main loop, any callback attached to the default GLib main
+context may be invoked. This could be timeouts, GUI events, I/O events etc.;
+even if <a href="gstreamer/gstbus.html#gst_bus_poll">Gst.Bus.poll</a> is called with a 0 timeout. Any of these callbacks
+may do things you do not expect, e.g. destroy the main application window or
+some other resource; change other application state; display a dialog and
+run another main loop until the user clicks it away. In short, using this
+function may add a lot of complexity to your code through unexpected
+re-entrancy and unexpected changes to your application's state.</p>
+<p>For 0 timeouts use <a href="gstreamer/gstbus.html#gst_bus_pop_filtered">Gst.Bus.pop_filtered</a> instead of this function; for
+other short timeouts use <a href="gstreamer/gstbus.html#gst_bus_timed_pop_filtered">Gst.Bus.timed_pop_filtered</a>; everything else is
+better handled by setting up an asynchronous bus watch and doing things
+from there.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>bus</code></em></i>
+<span>(</span><a title="Gst.Bus" href="gstreamer/gstbus.html#GstBus">Gst.Bus</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gstbus.html#GstBus">Gst.Bus</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>events</code></em></i>
+<span>(</span><a title="Gst.MessageType" href="gstreamer/gstmessage.html#GstMessageType">Gst.MessageType</a><span>)</span>
+–
+</div>
+<p>a mask of <a href="gstreamer/gstmessage.html#GstMessageType">Gst.MessageType</a>, representing the set of message types to
+poll for (note special handling of extended message types below)</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>timeout</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<p>the poll timeout, as a <a href="https://docs.python.org/3/library/functions.html#int">int</a>, or <a href="gstreamer/gstclock.html#GST_CLOCK_TIME_NONE">Gst.CLOCK_TIME_NONE</a> to poll
+indefinitely.</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Gst.Message" href="gstreamer/gstmessage.html#GstMessage">Gst.Message</a><span>)</span>
+–
+			</div>
+							<p>the message that was received,
+or <a href="https://docs.python.org/3/library/constants.html#None">None</a> if the poll timed out.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_bus_pop">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_bus_pop">
+	<i>gst_bus_pop</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GstMessage" href="gstreamer/gstmessage.html#GstMessage">GstMessage</a> *
+gst_bus_pop (<a title="GstBus" href="gstreamer/gstbus.html#GstBus">GstBus</a> * bus)</pre>
+
+<p>Gets a message from the bus.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>bus</code></em></i>
+–
+</div>
+<p>a <a href="gstreamer/gstbus.html#GstBus">GstBus</a> to pop</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span>
+<span class="annotation">[<abbr title="Free data after the code is done"><span class="acronym">transfer: full</span></abbr>]</span><span class="annotation">[<abbr title="NULL may be passed to the value"><span class="acronym">nullable</span></abbr>]</span><span>)</span>
+–
+			</div>
+							<p>the <a href="gstreamer/gstmessage.html#GstMessage">GstMessage</a> that is on the
+bus, or <a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#NULL:CAPS">NULL</a> if the bus is empty.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_bus_pop">
+	<i>Gst.Bus.prototype.pop</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function Gst.Bus.prototype.pop(): {
+    // javascript wrapper for 'gst_bus_pop'
+}</code></pre>
+
+<p>Gets a message from the bus.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>bus</code></em></i>
+<span>(</span><a title="Gst.Bus" href="gstreamer/gstbus.html#GstBus">Gst.Bus</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gstbus.html#GstBus">Gst.Bus</a> to pop</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Gst.Message" href="gstreamer/gstmessage.html#GstMessage">Gst.Message</a><span>)</span>
+–
+			</div>
+							<p>the <a href="gstreamer/gstmessage.html#GstMessage">Gst.Message</a> that is on the
+bus, or <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null">null</a> if the bus is empty.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_bus_pop">
+	<i>Gst.Bus.pop</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def Gst.Bus.pop (self):
+    #python wrapper for 'gst_bus_pop'</code></pre>
+
+<p>Gets a message from the bus.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>bus</code></em></i>
+<span>(</span><a title="Gst.Bus" href="gstreamer/gstbus.html#GstBus">Gst.Bus</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gstbus.html#GstBus">Gst.Bus</a> to pop</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Gst.Message" href="gstreamer/gstmessage.html#GstMessage">Gst.Message</a><span>)</span>
+–
+			</div>
+							<p>the <a href="gstreamer/gstmessage.html#GstMessage">Gst.Message</a> that is on the
+bus, or <a href="https://docs.python.org/3/library/constants.html#None">None</a> if the bus is empty.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_bus_pop_filtered">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_bus_pop_filtered">
+	<i>gst_bus_pop_filtered</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GstMessage" href="gstreamer/gstmessage.html#GstMessage">GstMessage</a> *
+gst_bus_pop_filtered (<a title="GstBus" href="gstreamer/gstbus.html#GstBus">GstBus</a> * bus,
+                      <a title="GstMessageType" href="gstreamer/gstmessage.html#GstMessageType">GstMessageType</a> types)</pre>
+
+<p>Gets a message matching <em>type</em> from the bus.  Will discard all messages on
+the bus that do not match <em>type</em> and that have been posted before the first
+message that does match <em>type</em>.  If there is no message matching <em>type</em> on
+the bus, all messages will be discarded. It is not possible to use message
+enums beyond <a href="gstreamer/gstmessage.html#GST_MESSAGE_EXTENDED">GST_MESSAGE_EXTENDED</a> in the <em>events</em> mask.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>bus</code></em></i>
+–
+</div>
+<p>a <a href="gstreamer/gstbus.html#GstBus">GstBus</a> to pop</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>types</code></em></i>
+–
+</div>
+<p>message types to take into account</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span>
+<span class="annotation">[<abbr title="Free data after the code is done"><span class="acronym">transfer: full</span></abbr>]</span><span class="annotation">[<abbr title="NULL may be passed to the value"><span class="acronym">nullable</span></abbr>]</span><span>)</span>
+–
+			</div>
+							<p>the next <a href="gstreamer/gstmessage.html#GstMessage">GstMessage</a> matching
+<em>type</em> that is on the bus, or <a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#NULL:CAPS">NULL</a> if the bus is empty or there
+is no message matching <em>type</em>.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_bus_pop_filtered">
+	<i>Gst.Bus.prototype.pop_filtered</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function Gst.Bus.prototype.pop_filtered(types: <a title="Gst.MessageType" href="gstreamer/gstmessage.html#GstMessageType">Gst.MessageType</a>): {
+    // javascript wrapper for 'gst_bus_pop_filtered'
+}</code></pre>
+
+<p>Gets a message matching <em>type</em> from the bus.  Will discard all messages on
+the bus that do not match <em>type</em> and that have been posted before the first
+message that does match <em>type</em>.  If there is no message matching <em>type</em> on
+the bus, all messages will be discarded. It is not possible to use message
+enums beyond <a href="gstreamer/gstmessage.html#GST_MESSAGE_EXTENDED">Gst.MessageType.EXTENDED</a> in the <em>events</em> mask.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>bus</code></em></i>
+<span>(</span><a title="Gst.Bus" href="gstreamer/gstbus.html#GstBus">Gst.Bus</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gstbus.html#GstBus">Gst.Bus</a> to pop</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>types</code></em></i>
+<span>(</span><a title="Gst.MessageType" href="gstreamer/gstmessage.html#GstMessageType">Gst.MessageType</a><span>)</span>
+–
+</div>
+<p>message types to take into account</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Gst.Message" href="gstreamer/gstmessage.html#GstMessage">Gst.Message</a><span>)</span>
+–
+			</div>
+							<p>the next <a href="gstreamer/gstmessage.html#GstMessage">Gst.Message</a> matching
+<em>type</em> that is on the bus, or <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null">null</a> if the bus is empty or there
+is no message matching <em>type</em>.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_bus_pop_filtered">
+	<i>Gst.Bus.pop_filtered</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def Gst.Bus.pop_filtered (self, types):
+    #python wrapper for 'gst_bus_pop_filtered'</code></pre>
+
+<p>Gets a message matching <em>type</em> from the bus.  Will discard all messages on
+the bus that do not match <em>type</em> and that have been posted before the first
+message that does match <em>type</em>.  If there is no message matching <em>type</em> on
+the bus, all messages will be discarded. It is not possible to use message
+enums beyond <a href="gstreamer/gstmessage.html#GST_MESSAGE_EXTENDED">Gst.MessageType.EXTENDED</a> in the <em>events</em> mask.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>bus</code></em></i>
+<span>(</span><a title="Gst.Bus" href="gstreamer/gstbus.html#GstBus">Gst.Bus</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gstbus.html#GstBus">Gst.Bus</a> to pop</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>types</code></em></i>
+<span>(</span><a title="Gst.MessageType" href="gstreamer/gstmessage.html#GstMessageType">Gst.MessageType</a><span>)</span>
+–
+</div>
+<p>message types to take into account</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Gst.Message" href="gstreamer/gstmessage.html#GstMessage">Gst.Message</a><span>)</span>
+–
+			</div>
+							<p>the next <a href="gstreamer/gstmessage.html#GstMessage">Gst.Message</a> matching
+<em>type</em> that is on the bus, or <a href="https://docs.python.org/3/library/constants.html#None">None</a> if the bus is empty or there
+is no message matching <em>type</em>.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_bus_post">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_bus_post">
+	<i>gst_bus_post</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a>
+gst_bus_post (<a title="GstBus" href="gstreamer/gstbus.html#GstBus">GstBus</a> * bus,
+              <a title="GstMessage" href="gstreamer/gstmessage.html#GstMessage">GstMessage</a> * message)</pre>
+
+<p>Posts a message on the given bus. Ownership of the message
+is taken by the bus.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>bus</code></em></i>
+–
+</div>
+<p>a <a href="gstreamer/gstbus.html#GstBus">GstBus</a> to post on</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>message</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="Free data after the code is done"><span class="acronym">transfer: full</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>the <a href="gstreamer/gstmessage.html#GstMessage">GstMessage</a> to post</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p><a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#TRUE:CAPS">TRUE</a> if the message could be posted, <a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#FALSE:CAPS">FALSE</a> if the bus is flushing.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_bus_post">
+	<i>Gst.Bus.prototype.post</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function Gst.Bus.prototype.post(message: <a title="Gst.Message" href="gstreamer/gstmessage.html#GstMessage">Gst.Message</a>): {
+    // javascript wrapper for 'gst_bus_post'
+}</code></pre>
+
+<p>Posts a message on the given bus. Ownership of the message
+is taken by the bus.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>bus</code></em></i>
+<span>(</span><a title="Gst.Bus" href="gstreamer/gstbus.html#GstBus">Gst.Bus</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gstbus.html#GstBus">Gst.Bus</a> to post on</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>message</code></em></i>
+<span>(</span><a title="Gst.Message" href="gstreamer/gstmessage.html#GstMessage">Gst.Message</a><span>)</span>
+–
+</div>
+<p>the <a href="gstreamer/gstmessage.html#GstMessage">Gst.Message</a> to post</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+			</div>
+							<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">true</a> if the message could be posted, <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">false</a> if the bus is flushing.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_bus_post">
+	<i>Gst.Bus.post</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def Gst.Bus.post (self, message):
+    #python wrapper for 'gst_bus_post'</code></pre>
+
+<p>Posts a message on the given bus. Ownership of the message
+is taken by the bus.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>bus</code></em></i>
+<span>(</span><a title="Gst.Bus" href="gstreamer/gstbus.html#GstBus">Gst.Bus</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gstbus.html#GstBus">Gst.Bus</a> to post on</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>message</code></em></i>
+<span>(</span><a title="Gst.Message" href="gstreamer/gstmessage.html#GstMessage">Gst.Message</a><span>)</span>
+–
+</div>
+<p>the <a href="gstreamer/gstmessage.html#GstMessage">Gst.Message</a> to post</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a><span>)</span>
+–
+			</div>
+							<p><a href="https://docs.python.org/3/library/constants.html#True">True</a> if the message could be posted, <a href="https://docs.python.org/3/library/constants.html#False">False</a> if the bus is flushing.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_bus_remove_signal_watch">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_bus_remove_signal_watch">
+	<i>gst_bus_remove_signal_watch</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+gst_bus_remove_signal_watch (<a title="GstBus" href="gstreamer/gstbus.html#GstBus">GstBus</a> * bus)</pre>
+
+<p>Removes a signal watch previously added with <a href="gstreamer/gstbus.html#gst_bus_add_signal_watch">gst_bus_add_signal_watch</a>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>bus</code></em></i>
+–
+</div>
+<p>a <a href="gstreamer/gstbus.html#GstBus">GstBus</a> you previously added a signal watch to</p>
+
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_bus_remove_signal_watch">
+	<i>Gst.Bus.prototype.remove_signal_watch</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function Gst.Bus.prototype.remove_signal_watch(): {
+    // javascript wrapper for 'gst_bus_remove_signal_watch'
+}</code></pre>
+
+<p>Removes a signal watch previously added with <a href="gstreamer/gstbus.html#gst_bus_add_signal_watch">Gst.Bus.prototype.add_signal_watch</a>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>bus</code></em></i>
+<span>(</span><a title="Gst.Bus" href="gstreamer/gstbus.html#GstBus">Gst.Bus</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gstbus.html#GstBus">Gst.Bus</a> you previously added a signal watch to</p>
+
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_bus_remove_signal_watch">
+	<i>Gst.Bus.remove_signal_watch</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def Gst.Bus.remove_signal_watch (self):
+    #python wrapper for 'gst_bus_remove_signal_watch'</code></pre>
+
+<p>Removes a signal watch previously added with <a href="gstreamer/gstbus.html#gst_bus_add_signal_watch">Gst.Bus.add_signal_watch</a>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>bus</code></em></i>
+<span>(</span><a title="Gst.Bus" href="gstreamer/gstbus.html#GstBus">Gst.Bus</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gstbus.html#GstBus">Gst.Bus</a> you previously added a signal watch to</p>
+
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.6;" id="gst_bus_remove_watch">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_bus_remove_watch">
+	<i>gst_bus_remove_watch</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a>
+gst_bus_remove_watch (<a title="GstBus" href="gstreamer/gstbus.html#GstBus">GstBus</a> * bus)</pre>
+
+<p>Removes an installed bus watch from <em>bus</em>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>bus</code></em></i>
+–
+</div>
+<p>a <a href="gstreamer/gstbus.html#GstBus">GstBus</a> to remove the watch from.</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p><a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#TRUE:CAPS">TRUE</a> on success or <a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#FALSE:CAPS">FALSE</a> if <em>bus</em> has no event source.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.6
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_bus_remove_watch">
+	<i>Gst.Bus.prototype.remove_watch</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function Gst.Bus.prototype.remove_watch(): {
+    // javascript wrapper for 'gst_bus_remove_watch'
+}</code></pre>
+
+<p>Removes an installed bus watch from <em>bus</em>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>bus</code></em></i>
+<span>(</span><a title="Gst.Bus" href="gstreamer/gstbus.html#GstBus">Gst.Bus</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gstbus.html#GstBus">Gst.Bus</a> to remove the watch from.</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+			</div>
+							<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">true</a> on success or <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">false</a> if <em>bus</em> has no event source.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.6
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_bus_remove_watch">
+	<i>Gst.Bus.remove_watch</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def Gst.Bus.remove_watch (self):
+    #python wrapper for 'gst_bus_remove_watch'</code></pre>
+
+<p>Removes an installed bus watch from <em>bus</em>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>bus</code></em></i>
+<span>(</span><a title="Gst.Bus" href="gstreamer/gstbus.html#GstBus">Gst.Bus</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gstbus.html#GstBus">Gst.Bus</a> to remove the watch from.</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a><span>)</span>
+–
+			</div>
+							<p><a href="https://docs.python.org/3/library/constants.html#True">True</a> on success or <a href="https://docs.python.org/3/library/constants.html#False">False</a> if <em>bus</em> has no event source.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.6
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_bus_set_flushing">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_bus_set_flushing">
+	<i>gst_bus_set_flushing</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+gst_bus_set_flushing (<a title="GstBus" href="gstreamer/gstbus.html#GstBus">GstBus</a> * bus,
+                      <a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a> flushing)</pre>
+
+<p>If <em>flushing</em>, flushes out and unrefs any messages queued in the bus. Releases
+references to the message origin objects. Will flush future messages until
+<a href="gstreamer/gstbus.html#gst_bus_set_flushing">gst_bus_set_flushing</a> sets <em>flushing</em> to <a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#FALSE:CAPS">FALSE</a>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>bus</code></em></i>
+–
+</div>
+<p>a <a href="gstreamer/gstbus.html#GstBus">GstBus</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>flushing</code></em></i>
+–
+</div>
+<p>whether or not to flush the bus</p>
+
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_bus_set_flushing">
+	<i>Gst.Bus.prototype.set_flushing</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function Gst.Bus.prototype.set_flushing(flushing: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>): {
+    // javascript wrapper for 'gst_bus_set_flushing'
+}</code></pre>
+
+<p>If <em>flushing</em>, flushes out and unrefs any messages queued in the bus. Releases
+references to the message origin objects. Will flush future messages until
+<a href="gstreamer/gstbus.html#gst_bus_set_flushing">Gst.Bus.prototype.set_flushing</a> sets <em>flushing</em> to <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">false</a>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>bus</code></em></i>
+<span>(</span><a title="Gst.Bus" href="gstreamer/gstbus.html#GstBus">Gst.Bus</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gstbus.html#GstBus">Gst.Bus</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>flushing</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>whether or not to flush the bus</p>
+
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_bus_set_flushing">
+	<i>Gst.Bus.set_flushing</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def Gst.Bus.set_flushing (self, flushing):
+    #python wrapper for 'gst_bus_set_flushing'</code></pre>
+
+<p>If <em>flushing</em>, flushes out and unrefs any messages queued in the bus. Releases
+references to the message origin objects. Will flush future messages until
+<a href="gstreamer/gstbus.html#gst_bus_set_flushing">Gst.Bus.set_flushing</a> sets <em>flushing</em> to <a href="https://docs.python.org/3/library/constants.html#False">False</a>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>bus</code></em></i>
+<span>(</span><a title="Gst.Bus" href="gstreamer/gstbus.html#GstBus">Gst.Bus</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gstbus.html#GstBus">Gst.Bus</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>flushing</code></em></i>
+<span>(</span><a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a><span>)</span>
+–
+</div>
+<p>whether or not to flush the bus</p>
+
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_bus_set_sync_handler">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_bus_set_sync_handler">
+	<i>gst_bus_set_sync_handler</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+gst_bus_set_sync_handler (<a title="GstBus" href="gstreamer/gstbus.html#GstBus">GstBus</a> * bus,
+                          <a title="GstBusSyncHandler" href="gstreamer/gstbus.html#GstBusSyncHandler">GstBusSyncHandler</a> func,
+                          <a title="gpointer" href="https://docs.gtk.org/glib/types.html#gpointer">gpointer</a> user_data,
+                          <a title="GDestroyNotify" href="https://docs.gtk.org/glib/callback.DestroyNotify.html">GDestroyNotify</a> notify)</pre>
+
+<p>Sets the synchronous handler on the bus. The function will be called
+every time a new message is posted on the bus. Note that the function
+will be called in the same thread context as the posting object. This
+function is usually only called by the creator of the bus. Applications
+should handle messages asynchronously using the gst_bus watch and poll
+functions.</p>
+<p>Before 1.16.3 it was not possible to replace an existing handler and
+clearing an existing handler with <a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#NULL:CAPS">NULL</a> was not thread-safe.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>bus</code></em></i>
+–
+</div>
+<p>a <a href="gstreamer/gstbus.html#GstBus">GstBus</a> to install the handler on</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>func</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="NULL is OK, both for passing and returning"><span class="acronym">allow-none</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>The handler function to install</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>user_data</code></em></i>
+–
+</div>
+<p>User data that will be sent to the handler function.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>notify</code></em></i>
+–
+</div>
+<p>called when <em>user_data</em> becomes unused</p>
+
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_bus_set_sync_handler">
+	<i>Gst.Bus.prototype.set_sync_handler</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function Gst.Bus.prototype.set_sync_handler(func: <a title="Gst.BusSyncHandler" href="gstreamer/gstbus.html#GstBusSyncHandler">Gst.BusSyncHandler</a>, user_data: <a title="Object" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>): {
+    // javascript wrapper for 'gst_bus_set_sync_handler'
+}</code></pre>
+
+<p>Sets the synchronous handler on the bus. The function will be called
+every time a new message is posted on the bus. Note that the function
+will be called in the same thread context as the posting object. This
+function is usually only called by the creator of the bus. Applications
+should handle messages asynchronously using the gst_bus watch and poll
+functions.</p>
+<p>Before 1.16.3 it was not possible to replace an existing handler and
+clearing an existing handler with <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null">null</a> was not thread-safe.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>bus</code></em></i>
+<span>(</span><a title="Gst.Bus" href="gstreamer/gstbus.html#GstBus">Gst.Bus</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gstbus.html#GstBus">Gst.Bus</a> to install the handler on</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>func</code></em></i>
+<span>(</span><a title="Gst.BusSyncHandler" href="gstreamer/gstbus.html#GstBusSyncHandler">Gst.BusSyncHandler</a><span>)</span>
+–
+</div>
+<p>The handler function to install</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>user_data</code></em></i>
+<span>(</span><a title="Object" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a><span>)</span>
+–
+</div>
+<p>User data that will be sent to the handler function.</p>
+
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_bus_set_sync_handler">
+	<i>Gst.Bus.set_sync_handler</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def Gst.Bus.set_sync_handler (self, func, *user_data):
+    #python wrapper for 'gst_bus_set_sync_handler'</code></pre>
+
+<p>Sets the synchronous handler on the bus. The function will be called
+every time a new message is posted on the bus. Note that the function
+will be called in the same thread context as the posting object. This
+function is usually only called by the creator of the bus. Applications
+should handle messages asynchronously using the gst_bus watch and poll
+functions.</p>
+<p>Before 1.16.3 it was not possible to replace an existing handler and
+clearing an existing handler with <a href="https://docs.python.org/3/library/constants.html#None">None</a> was not thread-safe.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>bus</code></em></i>
+<span>(</span><a title="Gst.Bus" href="gstreamer/gstbus.html#GstBus">Gst.Bus</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gstbus.html#GstBus">Gst.Bus</a> to install the handler on</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>func</code></em></i>
+<span>(</span><a title="Gst.BusSyncHandler" href="gstreamer/gstbus.html#GstBusSyncHandler">Gst.BusSyncHandler</a><span>)</span>
+–
+</div>
+<p>The handler function to install</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>user_data</code></em></i>
+<span>(</span><a title="variadic" href="https://docs.python.org/dev/tutorial/controlflow.html#arbitrary-argument-lists">variadic</a><span>)</span>
+–
+</div>
+<p>User data that will be sent to the handler function.</p>
+
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_bus_sync_signal_handler">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_bus_sync_signal_handler">
+	<i>gst_bus_sync_signal_handler</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GstBusSyncReply" href="gstreamer/gstbus.html#GstBusSyncReply">GstBusSyncReply</a>
+gst_bus_sync_signal_handler (<a title="GstBus" href="gstreamer/gstbus.html#GstBus">GstBus</a> * bus,
+                             <a title="GstMessage" href="gstreamer/gstmessage.html#GstMessage">GstMessage</a> * message,
+                             <a title="gpointer" href="https://docs.gtk.org/glib/types.html#gpointer">gpointer</a> data)</pre>
+
+<p>A helper <a href="gstreamer/gstbus.html#GstBusSyncHandler">GstBusSyncHandler</a> that can be used to convert all synchronous
+messages into signals.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>bus</code></em></i>
+–
+</div>
+<p>a <a href="gstreamer/gstbus.html#GstBus">GstBus</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>message</code></em></i>
+–
+</div>
+<p>the <a href="gstreamer/gstmessage.html#GstMessage">GstMessage</a> received</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>data</code></em></i>
+–
+</div>
+<p>user data</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p><a href="gstreamer/gstbus.html#GST_BUS_PASS">GST_BUS_PASS</a></p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_bus_sync_signal_handler">
+	<i>Gst.Bus.prototype.sync_signal_handler</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function Gst.Bus.prototype.sync_signal_handler(message: <a title="Gst.Message" href="gstreamer/gstmessage.html#GstMessage">Gst.Message</a>, data: <a title="Object" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>): {
+    // javascript wrapper for 'gst_bus_sync_signal_handler'
+}</code></pre>
+
+<p>A helper <a href="gstreamer/gstbus.html#GstBusSyncHandler">Gst.BusSyncHandler</a> that can be used to convert all synchronous
+messages into signals.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>bus</code></em></i>
+<span>(</span><a title="Gst.Bus" href="gstreamer/gstbus.html#GstBus">Gst.Bus</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gstbus.html#GstBus">Gst.Bus</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>message</code></em></i>
+<span>(</span><a title="Gst.Message" href="gstreamer/gstmessage.html#GstMessage">Gst.Message</a><span>)</span>
+–
+</div>
+<p>the <a href="gstreamer/gstmessage.html#GstMessage">Gst.Message</a> received</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>data</code></em></i>
+<span>(</span><a title="Object" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a><span>)</span>
+–
+</div>
+<p>user data</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Gst.BusSyncReply" href="gstreamer/gstbus.html#GstBusSyncReply">Gst.BusSyncReply</a><span>)</span>
+–
+			</div>
+							<p><a href="gstreamer/gstbus.html#GST_BUS_PASS">Gst.BusSyncReply.PASS</a></p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_bus_sync_signal_handler">
+	<i>Gst.Bus.sync_signal_handler</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def Gst.Bus.sync_signal_handler (self, message, data):
+    #python wrapper for 'gst_bus_sync_signal_handler'</code></pre>
+
+<p>A helper <a href="gstreamer/gstbus.html#GstBusSyncHandler">Gst.BusSyncHandler</a> that can be used to convert all synchronous
+messages into signals.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>bus</code></em></i>
+<span>(</span><a title="Gst.Bus" href="gstreamer/gstbus.html#GstBus">Gst.Bus</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gstbus.html#GstBus">Gst.Bus</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>message</code></em></i>
+<span>(</span><a title="Gst.Message" href="gstreamer/gstmessage.html#GstMessage">Gst.Message</a><span>)</span>
+–
+</div>
+<p>the <a href="gstreamer/gstmessage.html#GstMessage">Gst.Message</a> received</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>data</code></em></i>
+<span>(</span><a title="object" href="https://docs.python.org/3/library/functions.html#object">object</a><span>)</span>
+–
+</div>
+<p>user data</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Gst.BusSyncReply" href="gstreamer/gstbus.html#GstBusSyncReply">Gst.BusSyncReply</a><span>)</span>
+–
+			</div>
+							<p><a href="gstreamer/gstbus.html#GST_BUS_PASS">Gst.BusSyncReply.PASS</a></p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_bus_timed_pop">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_bus_timed_pop">
+	<i>gst_bus_timed_pop</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GstMessage" href="gstreamer/gstmessage.html#GstMessage">GstMessage</a> *
+gst_bus_timed_pop (<a title="GstBus" href="gstreamer/gstbus.html#GstBus">GstBus</a> * bus,
+                   <a title="GstClockTime" href="gstreamer/gstclock.html#GstClockTime">GstClockTime</a> timeout)</pre>
+
+<p>Gets a message from the bus, waiting up to the specified timeout.</p>
+<p>If <em>timeout</em> is 0, this function behaves like <a href="gstreamer/gstbus.html#gst_bus_pop">gst_bus_pop</a>. If <em>timeout</em> is
+<a href="gstreamer/gstclock.html#GST_CLOCK_TIME_NONE">GST_CLOCK_TIME_NONE</a>, this function will block forever until a message was
+posted on the bus.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>bus</code></em></i>
+–
+</div>
+<p>a <a href="gstreamer/gstbus.html#GstBus">GstBus</a> to pop</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>timeout</code></em></i>
+–
+</div>
+<p>a timeout</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span>
+<span class="annotation">[<abbr title="Free data after the code is done"><span class="acronym">transfer: full</span></abbr>]</span><span class="annotation">[<abbr title="NULL may be passed to the value"><span class="acronym">nullable</span></abbr>]</span><span>)</span>
+–
+			</div>
+							<p>the <a href="gstreamer/gstmessage.html#GstMessage">GstMessage</a> that is on the
+bus after the specified timeout or <a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#NULL:CAPS">NULL</a> if the bus is empty
+after the timeout expired.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_bus_timed_pop">
+	<i>Gst.Bus.prototype.timed_pop</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function Gst.Bus.prototype.timed_pop(timeout: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>): {
+    // javascript wrapper for 'gst_bus_timed_pop'
+}</code></pre>
+
+<p>Gets a message from the bus, waiting up to the specified timeout.</p>
+<p>If <em>timeout</em> is 0, this function behaves like <a href="gstreamer/gstbus.html#gst_bus_pop">Gst.Bus.prototype.pop</a>. If <em>timeout</em> is
+<a href="gstreamer/gstclock.html#GST_CLOCK_TIME_NONE">Gst.CLOCK_TIME_NONE</a>, this function will block forever until a message was
+posted on the bus.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>bus</code></em></i>
+<span>(</span><a title="Gst.Bus" href="gstreamer/gstbus.html#GstBus">Gst.Bus</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gstbus.html#GstBus">Gst.Bus</a> to pop</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>timeout</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>a timeout</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Gst.Message" href="gstreamer/gstmessage.html#GstMessage">Gst.Message</a><span>)</span>
+–
+			</div>
+							<p>the <a href="gstreamer/gstmessage.html#GstMessage">Gst.Message</a> that is on the
+bus after the specified timeout or <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null">null</a> if the bus is empty
+after the timeout expired.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_bus_timed_pop">
+	<i>Gst.Bus.timed_pop</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def Gst.Bus.timed_pop (self, timeout):
+    #python wrapper for 'gst_bus_timed_pop'</code></pre>
+
+<p>Gets a message from the bus, waiting up to the specified timeout.</p>
+<p>If <em>timeout</em> is 0, this function behaves like <a href="gstreamer/gstbus.html#gst_bus_pop">Gst.Bus.pop</a>. If <em>timeout</em> is
+<a href="gstreamer/gstclock.html#GST_CLOCK_TIME_NONE">Gst.CLOCK_TIME_NONE</a>, this function will block forever until a message was
+posted on the bus.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>bus</code></em></i>
+<span>(</span><a title="Gst.Bus" href="gstreamer/gstbus.html#GstBus">Gst.Bus</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gstbus.html#GstBus">Gst.Bus</a> to pop</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>timeout</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<p>a timeout</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Gst.Message" href="gstreamer/gstmessage.html#GstMessage">Gst.Message</a><span>)</span>
+–
+			</div>
+							<p>the <a href="gstreamer/gstmessage.html#GstMessage">Gst.Message</a> that is on the
+bus after the specified timeout or <a href="https://docs.python.org/3/library/constants.html#None">None</a> if the bus is empty
+after the timeout expired.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_bus_timed_pop_filtered">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_bus_timed_pop_filtered">
+	<i>gst_bus_timed_pop_filtered</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GstMessage" href="gstreamer/gstmessage.html#GstMessage">GstMessage</a> *
+gst_bus_timed_pop_filtered (<a title="GstBus" href="gstreamer/gstbus.html#GstBus">GstBus</a> * bus,
+                            <a title="GstClockTime" href="gstreamer/gstclock.html#GstClockTime">GstClockTime</a> timeout,
+                            <a title="GstMessageType" href="gstreamer/gstmessage.html#GstMessageType">GstMessageType</a> types)</pre>
+
+<p>Gets a message from the bus whose type matches the message type mask <em>types</em>,
+waiting up to the specified timeout (and discarding any messages that do not
+match the mask provided).</p>
+<p>If <em>timeout</em> is 0, this function behaves like <a href="gstreamer/gstbus.html#gst_bus_pop_filtered">gst_bus_pop_filtered</a>. If
+<em>timeout</em> is <a href="gstreamer/gstclock.html#GST_CLOCK_TIME_NONE">GST_CLOCK_TIME_NONE</a>, this function will block forever until a
+matching message was posted on the bus.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>bus</code></em></i>
+–
+</div>
+<p>a <a href="gstreamer/gstbus.html#GstBus">GstBus</a> to pop from</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>timeout</code></em></i>
+–
+</div>
+<p>a timeout in nanoseconds, or <a href="gstreamer/gstclock.html#GST_CLOCK_TIME_NONE">GST_CLOCK_TIME_NONE</a> to wait forever</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>types</code></em></i>
+–
+</div>
+<p>message types to take into account, <a href="gstreamer/gstmessage.html#GST_MESSAGE_ANY">GST_MESSAGE_ANY</a> for any type</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span>
+<span class="annotation">[<abbr title="Free data after the code is done"><span class="acronym">transfer: full</span></abbr>]</span><span class="annotation">[<abbr title="NULL may be passed to the value"><span class="acronym">nullable</span></abbr>]</span><span>)</span>
+–
+			</div>
+							<p>a <a href="gstreamer/gstmessage.html#GstMessage">GstMessage</a> matching the
+filter in <em>types</em>, or <a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#NULL:CAPS">NULL</a> if no matching message was found on
+the bus until the timeout expired.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_bus_timed_pop_filtered">
+	<i>Gst.Bus.prototype.timed_pop_filtered</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function Gst.Bus.prototype.timed_pop_filtered(timeout: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>, types: <a title="Gst.MessageType" href="gstreamer/gstmessage.html#GstMessageType">Gst.MessageType</a>): {
+    // javascript wrapper for 'gst_bus_timed_pop_filtered'
+}</code></pre>
+
+<p>Gets a message from the bus whose type matches the message type mask <em>types</em>,
+waiting up to the specified timeout (and discarding any messages that do not
+match the mask provided).</p>
+<p>If <em>timeout</em> is 0, this function behaves like <a href="gstreamer/gstbus.html#gst_bus_pop_filtered">Gst.Bus.prototype.pop_filtered</a>. If
+<em>timeout</em> is <a href="gstreamer/gstclock.html#GST_CLOCK_TIME_NONE">Gst.CLOCK_TIME_NONE</a>, this function will block forever until a
+matching message was posted on the bus.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>bus</code></em></i>
+<span>(</span><a title="Gst.Bus" href="gstreamer/gstbus.html#GstBus">Gst.Bus</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gstbus.html#GstBus">Gst.Bus</a> to pop from</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>timeout</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>a timeout in nanoseconds, or <a href="gstreamer/gstclock.html#GST_CLOCK_TIME_NONE">Gst.CLOCK_TIME_NONE</a> to wait forever</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>types</code></em></i>
+<span>(</span><a title="Gst.MessageType" href="gstreamer/gstmessage.html#GstMessageType">Gst.MessageType</a><span>)</span>
+–
+</div>
+<p>message types to take into account, <a href="gstreamer/gstmessage.html#GST_MESSAGE_ANY">Gst.MessageType.ANY</a> for any type</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Gst.Message" href="gstreamer/gstmessage.html#GstMessage">Gst.Message</a><span>)</span>
+–
+			</div>
+							<p>a <a href="gstreamer/gstmessage.html#GstMessage">Gst.Message</a> matching the
+filter in <em>types</em>, or <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null">null</a> if no matching message was found on
+the bus until the timeout expired.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_bus_timed_pop_filtered">
+	<i>Gst.Bus.timed_pop_filtered</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def Gst.Bus.timed_pop_filtered (self, timeout, types):
+    #python wrapper for 'gst_bus_timed_pop_filtered'</code></pre>
+
+<p>Gets a message from the bus whose type matches the message type mask <em>types</em>,
+waiting up to the specified timeout (and discarding any messages that do not
+match the mask provided).</p>
+<p>If <em>timeout</em> is 0, this function behaves like <a href="gstreamer/gstbus.html#gst_bus_pop_filtered">Gst.Bus.pop_filtered</a>. If
+<em>timeout</em> is <a href="gstreamer/gstclock.html#GST_CLOCK_TIME_NONE">Gst.CLOCK_TIME_NONE</a>, this function will block forever until a
+matching message was posted on the bus.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>bus</code></em></i>
+<span>(</span><a title="Gst.Bus" href="gstreamer/gstbus.html#GstBus">Gst.Bus</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gstbus.html#GstBus">Gst.Bus</a> to pop from</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>timeout</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<p>a timeout in nanoseconds, or <a href="gstreamer/gstclock.html#GST_CLOCK_TIME_NONE">Gst.CLOCK_TIME_NONE</a> to wait forever</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>types</code></em></i>
+<span>(</span><a title="Gst.MessageType" href="gstreamer/gstmessage.html#GstMessageType">Gst.MessageType</a><span>)</span>
+–
+</div>
+<p>message types to take into account, <a href="gstreamer/gstmessage.html#GST_MESSAGE_ANY">Gst.MessageType.ANY</a> for any type</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Gst.Message" href="gstreamer/gstmessage.html#GstMessage">Gst.Message</a><span>)</span>
+–
+			</div>
+							<p>a <a href="gstreamer/gstmessage.html#GstMessage">Gst.Message</a> matching the
+filter in <em>types</em>, or <a href="https://docs.python.org/3/library/constants.html#None">None</a> if no matching message was found on
+the bus until the timeout expired.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+
+            <h3 class="symbol_section">Signals</h3>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstBus::message">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstBus::message">
+	<i>message</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+message_callback (<a title="GstBus" href="gstreamer/gstbus.html#GstBus">GstBus</a> * self,
+                  <a title="GstMessage" href="gstreamer/gstmessage.html#GstMessage">GstMessage</a> * message,
+                  <a title="gpointer" href="https://docs.gtk.org/glib/types.html#gpointer">gpointer</a> user_data)</pre>
+
+<p>A message has been posted on the bus. This signal is emitted from a
+<a href="https://docs.gtk.org/glib/struct.Source.html">GSource</a> added to the mainloop. this signal will only be emitted when
+there is a <a href="https://docs.gtk.org/glib/struct.MainLoop.html">GMainLoop</a> running.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+–
+</div>
+<p>the object which received the signal</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>message</code></em></i>
+–
+</div>
+<p>the message that has been posted asynchronously</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>user_data</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+<p>
+	<b>Flags:</b>	
+	
+		
+				<a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS">Run Last</a>
+			
+</p>
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GstBus::message">
+	<i>message</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function message_callback(self: <a title="Gst.Bus" href="gstreamer/gstbus.html#GstBus">Gst.Bus</a>, message: <a title="Gst.Message" href="gstreamer/gstmessage.html#GstMessage">Gst.Message</a>, user_data: <a title="Object" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>): {
+    // javascript callback for the 'message' signal
+}</code></pre>
+
+<p>A message has been posted on the bus. This signal is emitted from a
+<a href="https://docs.gtk.org/glib/struct.Source.html">GSource (not introspectable)</a> added to the mainloop. this signal will only be emitted when
+there is a <a href="https://docs.gtk.org/glib/struct.MainLoop.html">GMainLoop (not introspectable)</a> running.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+<span>(</span><a title="Gst.Bus" href="gstreamer/gstbus.html#GstBus">Gst.Bus</a><span>)</span>
+–
+</div>
+<p>the object which received the signal</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>message</code></em></i>
+<span>(</span><a title="Gst.Message" href="gstreamer/gstmessage.html#GstMessage">Gst.Message</a><span>)</span>
+–
+</div>
+<p>the message that has been posted asynchronously</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>user_data</code></em></i>
+<span>(</span><a title="Object" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+<p>
+	<b>Flags:</b>	
+	
+		
+				<a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS">Run Last</a>
+			
+</p>
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GstBus::message">
+	<i>message</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def message_callback (self, message, *user_data):
+    #python callback for the 'message' signal</code></pre>
+
+<p>A message has been posted on the bus. This signal is emitted from a
+<a href="https://docs.gtk.org/glib/struct.Source.html">GSource (not introspectable)</a> added to the mainloop. this signal will only be emitted when
+there is a <a href="https://docs.gtk.org/glib/struct.MainLoop.html">GMainLoop (not introspectable)</a> running.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+<span>(</span><a title="Gst.Bus" href="gstreamer/gstbus.html#GstBus">Gst.Bus</a><span>)</span>
+–
+</div>
+<p>the object which received the signal</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>message</code></em></i>
+<span>(</span><a title="Gst.Message" href="gstreamer/gstmessage.html#GstMessage">Gst.Message</a><span>)</span>
+–
+</div>
+<p>the message that has been posted asynchronously</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>user_data</code></em></i>
+<span>(</span><a title="variadic" href="https://docs.python.org/dev/tutorial/controlflow.html#arbitrary-argument-lists">variadic</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+<p>
+	<b>Flags:</b>	
+	
+		
+				<a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS">Run Last</a>
+			
+</p>
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstBus::sync-message">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstBus::sync-message">
+	<i>sync-message</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+sync_message_callback (<a title="GstBus" href="gstreamer/gstbus.html#GstBus">GstBus</a> * self,
+                       <a title="GstMessage" href="gstreamer/gstmessage.html#GstMessage">GstMessage</a> * message,
+                       <a title="gpointer" href="https://docs.gtk.org/glib/types.html#gpointer">gpointer</a> user_data)</pre>
+
+<p>A message has been posted on the bus. This signal is emitted from the
+thread that posted the message so one has to be careful with locking.</p>
+<p>This signal will not be emitted by default, you have to call
+<a href="gstreamer/gstbus.html#gst_bus_enable_sync_message_emission">gst_bus_enable_sync_message_emission</a> before.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+–
+</div>
+<p>the object which received the signal</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>message</code></em></i>
+–
+</div>
+<p>the message that has been posted synchronously</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>user_data</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+<p>
+	<b>Flags:</b>	
+	
+		
+				<a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS">Run Last</a>
+			
+</p>
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GstBus::sync-message">
+	<i>sync-message</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function sync_message_callback(self: <a title="Gst.Bus" href="gstreamer/gstbus.html#GstBus">Gst.Bus</a>, message: <a title="Gst.Message" href="gstreamer/gstmessage.html#GstMessage">Gst.Message</a>, user_data: <a title="Object" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>): {
+    // javascript callback for the 'sync-message' signal
+}</code></pre>
+
+<p>A message has been posted on the bus. This signal is emitted from the
+thread that posted the message so one has to be careful with locking.</p>
+<p>This signal will not be emitted by default, you have to call
+<a href="gstreamer/gstbus.html#gst_bus_enable_sync_message_emission">Gst.Bus.prototype.enable_sync_message_emission</a> before.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+<span>(</span><a title="Gst.Bus" href="gstreamer/gstbus.html#GstBus">Gst.Bus</a><span>)</span>
+–
+</div>
+<p>the object which received the signal</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>message</code></em></i>
+<span>(</span><a title="Gst.Message" href="gstreamer/gstmessage.html#GstMessage">Gst.Message</a><span>)</span>
+–
+</div>
+<p>the message that has been posted synchronously</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>user_data</code></em></i>
+<span>(</span><a title="Object" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+<p>
+	<b>Flags:</b>	
+	
+		
+				<a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS">Run Last</a>
+			
+</p>
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GstBus::sync-message">
+	<i>sync-message</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def sync_message_callback (self, message, *user_data):
+    #python callback for the 'sync-message' signal</code></pre>
+
+<p>A message has been posted on the bus. This signal is emitted from the
+thread that posted the message so one has to be careful with locking.</p>
+<p>This signal will not be emitted by default, you have to call
+<a href="gstreamer/gstbus.html#gst_bus_enable_sync_message_emission">Gst.Bus.enable_sync_message_emission</a> before.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+<span>(</span><a title="Gst.Bus" href="gstreamer/gstbus.html#GstBus">Gst.Bus</a><span>)</span>
+–
+</div>
+<p>the object which received the signal</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>message</code></em></i>
+<span>(</span><a title="Gst.Message" href="gstreamer/gstmessage.html#GstMessage">Gst.Message</a><span>)</span>
+–
+</div>
+<p>the message that has been posted synchronously</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>user_data</code></em></i>
+<span>(</span><a title="variadic" href="https://docs.python.org/dev/tutorial/controlflow.html#arbitrary-argument-lists">variadic</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+<p>
+	<b>Flags:</b>	
+	
+		
+				<a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS">Run Last</a>
+			
+</p>
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+
+            <h3 class="symbol_section">Properties</h3>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstBus:enable-async">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstBus:enable-async">
+	<i>enable-async</i>
+</h4>
+
+
+<pre class="property_signature">
+“enable-async” <span class="type"><a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a></span>
+</pre>
+
+<p>Enables async message delivery support for bus watches,
+<a href="gstreamer/gstbus.html#gst_bus_pop">gst_bus_pop</a> and similar API. Without this only the
+synchronous message handlers are called.</p>
+<p>This property is used to create the child element buses
+in <a href="gstreamer/gstbin.html#GstBin">GstBin</a>.</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+				/		
+				Construct Only
+			
+</p>
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GstBus:enable-async">
+	<i>enable-async</i>
+</h4>
+
+
+<pre class="property_signature">
+“enable-async” <span class="type"><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a></span>
+</pre>
+
+<p>Enables async message delivery support for bus watches,
+<a href="gstreamer/gstbus.html#gst_bus_pop">Gst.Bus.prototype.pop</a> and similar API. Without this only the
+synchronous message handlers are called.</p>
+<p>This property is used to create the child element buses
+in <a href="gstreamer/gstbin.html#GstBin">Gst.Bin</a>.</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+				/		
+				Construct Only
+			
+</p>
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GstBus:enable-async">
+	<i>enable_async</i>
+</h4>
+
+
+<pre class="property_signature">
+“self.props.enable_async” <span class="type"><a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a></span>
+</pre>
+
+<p>Enables async message delivery support for bus watches,
+<a href="gstreamer/gstbus.html#gst_bus_pop">Gst.Bus.pop</a> and similar API. Without this only the
+synchronous message handlers are called.</p>
+<p>This property is used to create the child element buses
+in <a href="gstreamer/gstbin.html#GstBin">Gst.Bin</a>.</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+				/		
+				Construct Only
+			
+</p>
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+
+            <h3 class="symbol_section">Virtual Methods</h3>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstBusClass::message">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstBusClass::message">
+	<i>message</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+message (<a title="GstBus" href="gstreamer/gstbus.html#GstBus">GstBus</a> * bus,
+         <a title="GstMessage" href="gstreamer/gstmessage.html#GstMessage">GstMessage</a> * message)</pre>
+
+<p>A message has been posted on the bus.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>bus</code></em></i>
+–
+</div>
+<p>the <a href="gstreamer/gstbus.html#GstBus">GstBus</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>message</code></em></i>
+–
+</div>
+<p>the message that has been posted asynchronously</p>
+
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GstBusClass::message">
+	<i>vfunc_message</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function vfunc_message(bus: <a title="Gst.Bus" href="gstreamer/gstbus.html#GstBus">Gst.Bus</a>, message: <a title="Gst.Message" href="gstreamer/gstmessage.html#GstMessage">Gst.Message</a>): {
+    // javascript implementation of the 'message' virtual method
+}</code></pre>
+
+<p>A message has been posted on the bus.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>bus</code></em></i>
+<span>(</span><a title="Gst.Bus" href="gstreamer/gstbus.html#GstBus">Gst.Bus</a><span>)</span>
+–
+</div>
+<p>the <a href="gstreamer/gstbus.html#GstBus">Gst.Bus</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>message</code></em></i>
+<span>(</span><a title="Gst.Message" href="gstreamer/gstmessage.html#GstMessage">Gst.Message</a><span>)</span>
+–
+</div>
+<p>the message that has been posted asynchronously</p>
+
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GstBusClass::message">
+	<i>do_message</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def do_message (bus, message):
+    #python implementation of the 'message' virtual method</code></pre>
+
+<p>A message has been posted on the bus.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>bus</code></em></i>
+<span>(</span><a title="Gst.Bus" href="gstreamer/gstbus.html#GstBus">Gst.Bus</a><span>)</span>
+–
+</div>
+<p>the <a href="gstreamer/gstbus.html#GstBus">Gst.Bus</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>message</code></em></i>
+<span>(</span><a title="Gst.Message" href="gstreamer/gstmessage.html#GstMessage">Gst.Message</a><span>)</span>
+–
+</div>
+<p>the message that has been posted asynchronously</p>
+
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstBusClass::sync_message">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstBusClass::sync_message">
+	<i>sync_message</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+sync_message (<a title="GstBus" href="gstreamer/gstbus.html#GstBus">GstBus</a> * bus,
+              <a title="GstMessage" href="gstreamer/gstmessage.html#GstMessage">GstMessage</a> * message)</pre>
+
+<p>A message has been posted on the bus.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>bus</code></em></i>
+–
+</div>
+<p>the <a href="gstreamer/gstbus.html#GstBus">GstBus</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>message</code></em></i>
+–
+</div>
+<p>the message that has been posted synchronously</p>
+
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GstBusClass::sync_message">
+	<i>vfunc_sync_message</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function vfunc_sync_message(bus: <a title="Gst.Bus" href="gstreamer/gstbus.html#GstBus">Gst.Bus</a>, message: <a title="Gst.Message" href="gstreamer/gstmessage.html#GstMessage">Gst.Message</a>): {
+    // javascript implementation of the 'sync_message' virtual method
+}</code></pre>
+
+<p>A message has been posted on the bus.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>bus</code></em></i>
+<span>(</span><a title="Gst.Bus" href="gstreamer/gstbus.html#GstBus">Gst.Bus</a><span>)</span>
+–
+</div>
+<p>the <a href="gstreamer/gstbus.html#GstBus">Gst.Bus</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>message</code></em></i>
+<span>(</span><a title="Gst.Message" href="gstreamer/gstmessage.html#GstMessage">Gst.Message</a><span>)</span>
+–
+</div>
+<p>the message that has been posted synchronously</p>
+
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GstBusClass::sync_message">
+	<i>do_sync_message</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def do_sync_message (bus, message):
+    #python implementation of the 'sync_message' virtual method</code></pre>
+
+<p>A message has been posted on the bus.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>bus</code></em></i>
+<span>(</span><a title="Gst.Bus" href="gstreamer/gstbus.html#GstBus">Gst.Bus</a><span>)</span>
+–
+</div>
+<p>the <a href="gstreamer/gstbus.html#GstBus">Gst.Bus</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>message</code></em></i>
+<span>(</span><a title="Gst.Message" href="gstreamer/gstmessage.html#GstMessage">Gst.Message</a><span>)</span>
+–
+</div>
+<p>the message that has been posted synchronously</p>
+
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+
+        
+
+            <h2 class="symbol_section">Function Macros</h2>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GST_BUS_CAST">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_BUS_CAST">
+	<i>GST_BUS_CAST</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_BUS_CAST(bus)         ((GstBus*)(bus))
+</pre>
+
+
+
+
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+
+            <h2 class="symbol_section">Enumerations</h2>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstBusFlags">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GstBusFlags">
+	<i>GstBusFlags</i>
+</h3>
+
+
+<p>The standard flags that a bus may have.</p>
+
+
+
+
+	<div class="members-container">
+		<h5>Members</h5>
+					
+<div class="symbol-detail" data-hotdoc-id="GST_BUS_FLUSHING">
+	<div>
+		<i><em><code>GST_BUS_FLUSHING</code></em></i>
+		(<span class="value">16</span>)
+		–
+	</div>
+			<p>The bus is currently dropping all messages</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_BUS_FLAG_LAST">
+	<div>
+		<i><em><code>GST_BUS_FLAG_LAST</code></em></i>
+		(<span class="value">32</span>)
+		–
+	</div>
+			<p>offset to define more flags</p>
+
+	</div>
+
+			</div>
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3 data-hotdoc-id="GstBusFlags">
+	<i>Gst.BusFlags</i>
+</h3>
+
+
+<p>The standard flags that a bus may have.</p>
+
+
+
+
+	<div class="members-container">
+		<h5>Members</h5>
+					
+<div class="symbol-detail" data-hotdoc-id="GST_BUS_FLUSHING">
+	<div>
+		<i><em><code>Gst.BusFlags.FLUSHING</code></em></i>
+		(<span class="value">16</span>)
+		–
+	</div>
+			<p>The bus is currently dropping all messages</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_BUS_FLAG_LAST">
+	<div>
+		<i><em><code>Gst.BusFlags.FLAG_LAST</code></em></i>
+		(<span class="value">32</span>)
+		–
+	</div>
+			<p>offset to define more flags</p>
+
+	</div>
+
+			</div>
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3 data-hotdoc-id="GstBusFlags">
+	<i>Gst.BusFlags</i>
+</h3>
+
+
+<p>The standard flags that a bus may have.</p>
+
+
+
+
+	<div class="members-container">
+		<h5>Members</h5>
+					
+<div class="symbol-detail" data-hotdoc-id="GST_BUS_FLUSHING">
+	<div>
+		<i><em><code>Gst.BusFlags.FLUSHING</code></em></i>
+		(<span class="value">16</span>)
+		–
+	</div>
+			<p>The bus is currently dropping all messages</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_BUS_FLAG_LAST">
+	<div>
+		<i><em><code>Gst.BusFlags.FLAG_LAST</code></em></i>
+		(<span class="value">32</span>)
+		–
+	</div>
+			<p>offset to define more flags</p>
+
+	</div>
+
+			</div>
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstBusSyncReply">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GstBusSyncReply">
+	<i>GstBusSyncReply</i>
+</h3>
+
+
+<p>The result values for a GstBusSyncHandler.</p>
+
+
+
+
+	<div class="members-container">
+		<h5>Members</h5>
+					
+<div class="symbol-detail" data-hotdoc-id="GST_BUS_DROP">
+	<div>
+		<i><em><code>GST_BUS_DROP</code></em></i>
+		(<span class="value">0</span>)
+		–
+	</div>
+			<p>drop the message</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_BUS_PASS">
+	<div>
+		<i><em><code>GST_BUS_PASS</code></em></i>
+		(<span class="value">1</span>)
+		–
+	</div>
+			<p>pass the message to the async queue</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_BUS_ASYNC">
+	<div>
+		<i><em><code>GST_BUS_ASYNC</code></em></i>
+		(<span class="value">2</span>)
+		–
+	</div>
+			<p>pass message to async queue, continue if message is handled</p>
+
+	</div>
+
+			</div>
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3 data-hotdoc-id="GstBusSyncReply">
+	<i>Gst.BusSyncReply</i>
+</h3>
+
+
+<p>The result values for a GstBusSyncHandler.</p>
+
+
+
+
+	<div class="members-container">
+		<h5>Members</h5>
+					
+<div class="symbol-detail" data-hotdoc-id="GST_BUS_DROP">
+	<div>
+		<i><em><code>Gst.BusSyncReply.DROP</code></em></i>
+		(<span class="value">0</span>)
+		–
+	</div>
+			<p>drop the message</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_BUS_PASS">
+	<div>
+		<i><em><code>Gst.BusSyncReply.PASS</code></em></i>
+		(<span class="value">1</span>)
+		–
+	</div>
+			<p>pass the message to the async queue</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_BUS_ASYNC">
+	<div>
+		<i><em><code>Gst.BusSyncReply.ASYNC</code></em></i>
+		(<span class="value">2</span>)
+		–
+	</div>
+			<p>pass message to async queue, continue if message is handled</p>
+
+	</div>
+
+			</div>
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3 data-hotdoc-id="GstBusSyncReply">
+	<i>Gst.BusSyncReply</i>
+</h3>
+
+
+<p>The result values for a GstBusSyncHandler.</p>
+
+
+
+
+	<div class="members-container">
+		<h5>Members</h5>
+					
+<div class="symbol-detail" data-hotdoc-id="GST_BUS_DROP">
+	<div>
+		<i><em><code>Gst.BusSyncReply.DROP</code></em></i>
+		(<span class="value">0</span>)
+		–
+	</div>
+			<p>drop the message</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_BUS_PASS">
+	<div>
+		<i><em><code>Gst.BusSyncReply.PASS</code></em></i>
+		(<span class="value">1</span>)
+		–
+	</div>
+			<p>pass the message to the async queue</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_BUS_ASYNC">
+	<div>
+		<i><em><code>Gst.BusSyncReply.ASYNC</code></em></i>
+		(<span class="value">2</span>)
+		–
+	</div>
+			<p>pass message to async queue, continue if message is handled</p>
+
+	</div>
+
+			</div>
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+
+            <h2 class="symbol_section">Callbacks</h2>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstBusFunc">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GstBusFunc">
+	<i>GstBusFunc</i>
+</h3>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a>
+(*GstBusFunc) (<a title="GstBus" href="gstreamer/gstbus.html#GstBus">GstBus</a> * bus,
+               <a title="GstMessage" href="gstreamer/gstmessage.html#GstMessage">GstMessage</a> * message,
+               <a title="gpointer" href="https://docs.gtk.org/glib/types.html#gpointer">gpointer</a> user_data)</pre>
+
+<p>Specifies the type of function passed to <a href="gstreamer/gstbus.html#gst_bus_add_watch">gst_bus_add_watch</a> or
+<a href="gstreamer/gstbus.html#gst_bus_add_watch_full">gst_bus_add_watch_full</a>, which is called from the mainloop when a message
+is available on the bus.</p>
+<p>The message passed to the function will be unreffed after execution of this
+function so it should not be freed in the function.</p>
+<p>Note that this function is used as a <a href="https://docs.gtk.org/glib/callback.SourceFunc.html">GSourceFunc</a> which means that returning
+<a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#FALSE:CAPS">FALSE</a> will remove the <a href="https://docs.gtk.org/glib/struct.Source.html">GSource</a> from the mainloop.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>bus</code></em></i>
+–
+</div>
+<p>the <a href="gstreamer/gstbus.html#GstBus">GstBus</a> that sent the message</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>message</code></em></i>
+–
+</div>
+<p>the <a href="gstreamer/gstmessage.html#GstMessage">GstMessage</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>user_data</code></em></i>
+–
+</div>
+<p>user data that has been given, when registering the handler</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p><a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#FALSE:CAPS">FALSE</a> if the event source should be removed.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3 data-hotdoc-id="GstBusFunc">
+	<i>Gst.BusFunc</i>
+</h3>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function Gst.BusFunc(bus: <a title="Gst.Bus" href="gstreamer/gstbus.html#GstBus">Gst.Bus</a>, message: <a title="Gst.Message" href="gstreamer/gstmessage.html#GstMessage">Gst.Message</a>, user_data: <a title="Object" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>): {
+    // javascript wrapper for 'GstBusFunc'
+}</code></pre>
+
+<p>Specifies the type of function passed to <a href="gstreamer/gstbus.html#gst_bus_add_watch">gst_bus_add_watch (not introspectable)</a> or
+<a href="gstreamer/gstbus.html#gst_bus_add_watch_full">Gst.Bus.prototype.add_watch_full</a>, which is called from the mainloop when a message
+is available on the bus.</p>
+<p>The message passed to the function will be unreffed after execution of this
+function so it should not be freed in the function.</p>
+<p>Note that this function is used as a <a href="https://docs.gtk.org/glib/callback.SourceFunc.html">GLib.SourceFunc</a> which means that returning
+<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">false</a> will remove the <a href="https://docs.gtk.org/glib/struct.Source.html">GSource (not introspectable)</a> from the mainloop.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>bus</code></em></i>
+<span>(</span><a title="Gst.Bus" href="gstreamer/gstbus.html#GstBus">Gst.Bus</a><span>)</span>
+–
+</div>
+<p>the <a href="gstreamer/gstbus.html#GstBus">Gst.Bus</a> that sent the message</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>message</code></em></i>
+<span>(</span><a title="Gst.Message" href="gstreamer/gstmessage.html#GstMessage">Gst.Message</a><span>)</span>
+–
+</div>
+<p>the <a href="gstreamer/gstmessage.html#GstMessage">Gst.Message</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>user_data</code></em></i>
+<span>(</span><a title="Object" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a><span>)</span>
+–
+</div>
+<p>user data that has been given, when registering the handler</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+			</div>
+							<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">false</a> if the event source should be removed.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3 data-hotdoc-id="GstBusFunc">
+	<i>Gst.BusFunc</i>
+</h3>
+
+
+<pre class="python-prototype language-python">
+<code>def Gst.BusFunc (bus, message, *user_data):
+    #python wrapper for 'GstBusFunc'</code></pre>
+
+<p>Specifies the type of function passed to <a href="gstreamer/gstbus.html#gst_bus_add_watch">gst_bus_add_watch (not introspectable)</a> or
+<a href="gstreamer/gstbus.html#gst_bus_add_watch_full">Gst.Bus.add_watch_full</a>, which is called from the mainloop when a message
+is available on the bus.</p>
+<p>The message passed to the function will be unreffed after execution of this
+function so it should not be freed in the function.</p>
+<p>Note that this function is used as a <a href="https://docs.gtk.org/glib/callback.SourceFunc.html">GLib.SourceFunc</a> which means that returning
+<a href="https://docs.python.org/3/library/constants.html#False">False</a> will remove the <a href="https://docs.gtk.org/glib/struct.Source.html">GSource (not introspectable)</a> from the mainloop.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>bus</code></em></i>
+<span>(</span><a title="Gst.Bus" href="gstreamer/gstbus.html#GstBus">Gst.Bus</a><span>)</span>
+–
+</div>
+<p>the <a href="gstreamer/gstbus.html#GstBus">Gst.Bus</a> that sent the message</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>message</code></em></i>
+<span>(</span><a title="Gst.Message" href="gstreamer/gstmessage.html#GstMessage">Gst.Message</a><span>)</span>
+–
+</div>
+<p>the <a href="gstreamer/gstmessage.html#GstMessage">Gst.Message</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>user_data</code></em></i>
+<span>(</span><a title="variadic" href="https://docs.python.org/dev/tutorial/controlflow.html#arbitrary-argument-lists">variadic</a><span>)</span>
+–
+</div>
+<p>user data that has been given, when registering the handler</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a><span>)</span>
+–
+			</div>
+							<p><a href="https://docs.python.org/3/library/constants.html#False">False</a> if the event source should be removed.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstBusSyncHandler">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GstBusSyncHandler">
+	<i>GstBusSyncHandler</i>
+</h3>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GstBusSyncReply" href="gstreamer/gstbus.html#GstBusSyncReply">GstBusSyncReply</a>
+(*GstBusSyncHandler) (<a title="GstBus" href="gstreamer/gstbus.html#GstBus">GstBus</a> * bus,
+                      <a title="GstMessage" href="gstreamer/gstmessage.html#GstMessage">GstMessage</a> * message,
+                      <a title="gpointer" href="https://docs.gtk.org/glib/types.html#gpointer">gpointer</a> user_data)</pre>
+
+<p>Handler will be invoked synchronously, when a new message has been injected
+into the bus. This function is mostly used internally. Only one sync handler
+can be attached to a given bus.</p>
+<p>If the handler returns <a href="gstreamer/gstbus.html#GST_BUS_DROP">GST_BUS_DROP</a>, it should unref the message, else the
+message should not be unreffed by the sync handler.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>bus</code></em></i>
+–
+</div>
+<p>the <a href="gstreamer/gstbus.html#GstBus">GstBus</a> that sent the message</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>message</code></em></i>
+–
+</div>
+<p>the <a href="gstreamer/gstmessage.html#GstMessage">GstMessage</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>user_data</code></em></i>
+–
+</div>
+<p>user data that has been given, when registering the handler</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p><a href="gstreamer/gstbus.html#GstBusSyncReply">GstBusSyncReply</a> stating what to do with the message</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3 data-hotdoc-id="GstBusSyncHandler">
+	<i>Gst.BusSyncHandler</i>
+</h3>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function Gst.BusSyncHandler(bus: <a title="Gst.Bus" href="gstreamer/gstbus.html#GstBus">Gst.Bus</a>, message: <a title="Gst.Message" href="gstreamer/gstmessage.html#GstMessage">Gst.Message</a>, user_data: <a title="Object" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>): {
+    // javascript wrapper for 'GstBusSyncHandler'
+}</code></pre>
+
+<p>Handler will be invoked synchronously, when a new message has been injected
+into the bus. This function is mostly used internally. Only one sync handler
+can be attached to a given bus.</p>
+<p>If the handler returns <a href="gstreamer/gstbus.html#GST_BUS_DROP">Gst.BusSyncReply.DROP</a>, it should unref the message, else the
+message should not be unreffed by the sync handler.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>bus</code></em></i>
+<span>(</span><a title="Gst.Bus" href="gstreamer/gstbus.html#GstBus">Gst.Bus</a><span>)</span>
+–
+</div>
+<p>the <a href="gstreamer/gstbus.html#GstBus">Gst.Bus</a> that sent the message</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>message</code></em></i>
+<span>(</span><a title="Gst.Message" href="gstreamer/gstmessage.html#GstMessage">Gst.Message</a><span>)</span>
+–
+</div>
+<p>the <a href="gstreamer/gstmessage.html#GstMessage">Gst.Message</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>user_data</code></em></i>
+<span>(</span><a title="Object" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a><span>)</span>
+–
+</div>
+<p>user data that has been given, when registering the handler</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Gst.BusSyncReply" href="gstreamer/gstbus.html#GstBusSyncReply">Gst.BusSyncReply</a><span>)</span>
+–
+			</div>
+							<p><a href="gstreamer/gstbus.html#GstBusSyncReply">Gst.BusSyncReply</a> stating what to do with the message</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3 data-hotdoc-id="GstBusSyncHandler">
+	<i>Gst.BusSyncHandler</i>
+</h3>
+
+
+<pre class="python-prototype language-python">
+<code>def Gst.BusSyncHandler (bus, message, *user_data):
+    #python wrapper for 'GstBusSyncHandler'</code></pre>
+
+<p>Handler will be invoked synchronously, when a new message has been injected
+into the bus. This function is mostly used internally. Only one sync handler
+can be attached to a given bus.</p>
+<p>If the handler returns <a href="gstreamer/gstbus.html#GST_BUS_DROP">Gst.BusSyncReply.DROP</a>, it should unref the message, else the
+message should not be unreffed by the sync handler.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>bus</code></em></i>
+<span>(</span><a title="Gst.Bus" href="gstreamer/gstbus.html#GstBus">Gst.Bus</a><span>)</span>
+–
+</div>
+<p>the <a href="gstreamer/gstbus.html#GstBus">Gst.Bus</a> that sent the message</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>message</code></em></i>
+<span>(</span><a title="Gst.Message" href="gstreamer/gstmessage.html#GstMessage">Gst.Message</a><span>)</span>
+–
+</div>
+<p>the <a href="gstreamer/gstmessage.html#GstMessage">Gst.Message</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>user_data</code></em></i>
+<span>(</span><a title="variadic" href="https://docs.python.org/dev/tutorial/controlflow.html#arbitrary-argument-lists">variadic</a><span>)</span>
+–
+</div>
+<p>user data that has been given, when registering the handler</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Gst.BusSyncReply" href="gstreamer/gstbus.html#GstBusSyncReply">Gst.BusSyncReply</a><span>)</span>
+–
+			</div>
+							<p><a href="gstreamer/gstbus.html#GstBusSyncReply">Gst.BusSyncReply</a> stating what to do with the message</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+
+
+
+
+
+		
+	</div>
+	<div id="search_results">
+		<p>The results of the search are</p>
+	</div>
+	<div id="footer">
+		    
+
+	</div>
+</div>
+
+<div id="toc-column">
+	
+		<div class="edit-button">
+		
+
+	</div>
+		<div id="toc-wrapper">
+		<nav id="toc"></nav>
+	</div>
+</div>
+</div>
+</main>
+
+
+<script src="assets/js/navbar_offset_scroller.js"></script>
+</body>
+</html>

@@ -1,0 +1,1 @@
+urls_downloaded_cb({"token":"basic-tutorial-3.c","urls":[{"url":"tutorials/basic/dynamic-pipelines.html#dynamic-hello-world","node_type":"p","page":"Basic tutorial 3: Dynamic pipelines","sections":["Basic tutorial 3: Dynamic pipelines","Dynamic Hello World"],"context":{"gi-language":["default"]}}]});

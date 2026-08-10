@@ -1,0 +1,2434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<base href="..">
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<title>GstVulkanFormat</title>
+
+<link rel="stylesheet" href="assets/css/dark-frontend.css" type="text/css" title="dark">
+<link rel="alternate stylesheet" href="assets/css/light-frontend.css" type="text/css" title="light">
+<link rel="stylesheet" href="assets/css/bootstrap-toc.min.css" type="text/css">
+<link rel="stylesheet" href="assets/css/jquery.mCustomScrollbar.min.css">
+<link rel="stylesheet" href="assets/js/search/enable_search.css" type="text/css">
+
+<link rel="stylesheet" href="assets/css/extra_frontend.css" type="text/css">
+<link rel="stylesheet" href="assets/css/devhelp.css" type="text/css">
+
+<link rel="stylesheet" href="assets/css/prism-tomorrow.css" type="text/css" title="dark">
+
+<link rel="alternate stylesheet" href="assets/css/prism.css" type="text/css" title="light">
+
+<script src="assets/js/mustache.min.js"></script>
+<script src="assets/js/jquery.js"></script>
+<script src="assets/js/bootstrap.js"></script>
+<script src="assets/js/scrollspy.js"></script>
+<script src="assets/js/typeahead.jquery.min.js"></script>
+<script src="assets/js/search.js"></script>
+<script src="assets/js/compare-versions.js"></script>
+<script src="assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="assets/js/bootstrap-toc.min.js"></script>
+<script src="assets/js/jquery.touchSwipe.min.js"></script>
+<script src="assets/js/anchor.min.js"></script>
+<script src="assets/js/tag_filtering.js"></script>
+<script src="assets/js/language_switching.js"></script>
+<script src="assets/js/styleswitcher.js"></script>
+
+<script src="assets/js/lines_around_headings.js"></script>
+
+<script src="assets/js/prism-core.js"></script>
+<script src="assets/js/prism-autoloader.js"></script>
+<script src="assets/js/prism_autoloader_path_override.js"></script>
+<script src="assets/js/trie.js"></script>
+
+<!-- generic -->
+<link rel="icon" type="image/png" href="assets/images/favicon-16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="assets/images/favicon-32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="assets/images/favicon-57.png" sizes="57x57">
+<link rel="icon" type="image/png" href="assets/images/favicon-64.png" sizes="64x64">
+<link rel="icon" type="image/png" href="assets/images/favicon-76.png" sizes="76x76">
+<link rel="icon" type="image/png" href="assets/images/favicon-96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="assets/images/favicon-128.png" sizes="128x128">
+<link rel="icon" type="image/png" href="assets/images/favicon-192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="assets/images/favicon-228.png" sizes="228x228">
+
+<!-- Android -->
+<link rel="shortcut icon" sizes="196x196" href="assets/images/favicon-196.png">
+
+<!-- iOS -->
+<link rel="apple-touch-icon" href="assets/images/favicon-120.png" sizes="120x120">
+<link rel="apple-touch-icon" href="assets/images/favicon-152.png" sizes="152x152">
+<link rel="apple-touch-icon" href="assets/images/favicon-180.png" sizes="180x180">
+
+</head>
+
+<body class="no-script
+">
+
+<script>
+$('body').removeClass('no-script');
+</script>
+
+<nav class="navbar navbar-fixed-top navbar-default" id="topnav">
+	<div class="container-fluid">
+		<div class="navbar-right">
+			<a id="toc-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-wrapper" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<span title="light mode switch" class="glyphicon glyphicon-sunglasses pull-right" id="lightmode-icon"></span>
+			<form class="navbar-form pull-right" id="navbar-search-form">
+                               <div class="form-group has-feedback">
+                                       <input type="text" class="form-control input-sm" name="search" id="sidenav-lookup-field" placeholder="search" disabled>
+				       <span class="glyphicon glyphicon-search form-control-feedback" id="search-mgn-glass"></span>
+                               </div>
+                        </form>
+		</div>
+		<div class="navbar-header">
+			<a id="sidenav-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<a id="home-link" href="index.html" class="hotdoc-navbar-brand">
+				<img src="assets/images/gstreamer-logo.svg" alt="Home">
+			</a>
+		</div>
+		<div class="navbar-collapse collapse" id="navbar-wrapper">
+			<ul class="nav navbar-nav" id="menu">
+				
+<li class="dropdown">
+    <a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        API References<span class="caret"></span>
+    </a>
+	<ul class="dropdown-menu" id="modules-menu">
+					<li>
+				<a href="gstreamer/gi-index.html">GStreamer core</a>
+			</li>
+					<li>
+				<a href="libs.html">GStreamer Libraries</a>
+			</li>
+					<li>
+				<a href="plugins_doc.html">GStreamer Plugins</a>
+			</li>
+		</ul>
+</li>
+
+<li>
+    <a href="application-development/index.html">Application manual</a>
+</li>
+
+
+<li>
+    <a href="tutorials/index.html">Tutorials</a>
+</li>
+
+			</ul>
+			<div class="hidden-xs hidden-sm navbar-text navbar-center">
+							</div>
+		</div>
+	</div>
+</nav>
+
+<main>
+<div data-extension="gi-extension" data-hotdoc-in-toplevel="False" data-hotdoc-project="vulkanlib" data-hotdoc-ref="vkformat.html" class="page_container" id="page-wrapper" data-hotdoc-meta-gi-languages="['c', 'javascript', 'python']" data-hotdoc-meta-gi-language="c">
+<script src="assets/js/utils.js"></script>
+
+<div class="panel panel-collapse oc-collapsed" id="sidenav" data-hotdoc-role="navigation">
+	<script src="assets/js/full-width.js"></script>
+  <div id="sitenav-wrapper">
+    <iframe src="hotdoc-sitemap.html" id="sitenav-frame"></iframe>
+  </div>
+</div>
+
+<div id="body">
+	<div id="main">
+				    <div id="page-description" data-hotdoc-role="main">
+        <h1 id="gstvulkanformat-page">GstVulkanFormat</h1>
+    </div>
+        
+        
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.18;" id="GstVulkanFormatInfo">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h2 data-hotdoc-id="GstVulkanFormatInfo">
+	<i>GstVulkanFormatInfo</i>
+</h2>
+
+
+
+
+
+
+	<div class="members-container">
+		<h3>Members</h3>
+					
+<div class="symbol-detail" data-hotdoc-id="GstVulkanFormatInfo.format">
+	<div>
+		<i><em><code>format</code></em></i>
+		(VkFormat)
+		–
+	</div>
+			<p>the Vulkan format being described</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVulkanFormatInfo.name">
+	<div>
+		<i><em><code>name</code></em></i>
+		(const <a title="gchar" href="https://docs.gtk.org/glib/types.html#gchar">gchar</a> *)
+		–
+	</div>
+			<p>name of this format</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVulkanFormatInfo.scaling">
+	<div>
+		<i><em><code>scaling</code></em></i>
+		(<a title="GstVulkanFormatScaling" href="vulkanlib/vkformat.html#GstVulkanFormatScaling">GstVulkanFormatScaling</a>)
+		–
+	</div>
+			<p>how raw data is interpreted and scaled</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVulkanFormatInfo.flags">
+	<div>
+		<i><em><code>flags</code></em></i>
+		(<a title="GstVulkanFormatFlags" href="vulkanlib/vkformat.html#GstVulkanFormatFlags">GstVulkanFormatFlags</a>)
+		–
+	</div>
+			<p>flags that apply to this format</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVulkanFormatInfo.bits">
+	<div>
+		<i><em><code>bits</code></em></i>
+		(<a title="guint" href="https://docs.gtk.org/glib/types.html#guint">guint</a>)
+		–
+	</div>
+			<p>The number of bits used to pack data items. This can be less than
+8 when multiple pixels are stored in a byte. for values &gt; 8 multiple
+bytes should be read according to the endianness flag before
+applying the shift and mask.
+<em>n_components</em>; number of components in this format</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVulkanFormatInfo.n_components">
+	<div>
+		<i><em><code>n_components</code></em></i>
+		(<a title="guint" href="https://docs.gtk.org/glib/types.html#guint">guint</a>)
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVulkanFormatInfo.shift">
+	<div>
+		<i><em><code>shift</code></em></i>
+		(<a title="guint8" href="https://docs.gtk.org/glib/types.html#guint8">guint8</a> *)
+		–
+	</div>
+			<p>the number of bits to shift away to get the component data</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVulkanFormatInfo.depth">
+	<div>
+		<i><em><code>depth</code></em></i>
+		(<a title="guint8" href="https://docs.gtk.org/glib/types.html#guint8">guint8</a> *)
+		–
+	</div>
+			<p>the depth in bits for each component</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVulkanFormatInfo.pixel_stride">
+	<div>
+		<i><em><code>pixel_stride</code></em></i>
+		(<a title="gint8" href="https://docs.gtk.org/glib/types.html#gint8">gint8</a> *)
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVulkanFormatInfo.n_planes">
+	<div>
+		<i><em><code>n_planes</code></em></i>
+		(<a title="guint" href="https://docs.gtk.org/glib/types.html#guint">guint</a>)
+		–
+	</div>
+			<p>the number of planes for this format. The number of planes can
+be less than the amount of components when multiple components
+are packed into one plane.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVulkanFormatInfo.plane">
+	<div>
+		<i><em><code>plane</code></em></i>
+		(<a title="guint8" href="https://docs.gtk.org/glib/types.html#guint8">guint8</a> *)
+		–
+	</div>
+			<p>the plane number where a component can be found</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVulkanFormatInfo.poffset">
+	<div>
+		<i><em><code>poffset</code></em></i>
+		(<a title="guint8" href="https://docs.gtk.org/glib/types.html#guint8">guint8</a> *)
+		–
+	</div>
+			<p>the offset in the plane where the first pixel of the components
+can be found.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVulkanFormatInfo.w_sub">
+	<div>
+		<i><em><code>w_sub</code></em></i>
+		(<a title="guint8" href="https://docs.gtk.org/glib/types.html#guint8">guint8</a> *)
+		–
+	</div>
+			<p>subsampling factor of the width for the component.
+Use GST_VIDEO_SUB_SCALE to scale a width.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVulkanFormatInfo.h_sub">
+	<div>
+		<i><em><code>h_sub</code></em></i>
+		(<a title="guint8" href="https://docs.gtk.org/glib/types.html#guint8">guint8</a> *)
+		–
+	</div>
+			<p>subsampling factor of the height for the component.
+Use GST_VIDEO_SUB_SCALE to scale a height.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVulkanFormatInfo.aspect">
+	<div>
+		<i><em><code>aspect</code></em></i>
+		(VkImageAspectFlags)
+		–
+	</div>
+			<p>image aspect of this format</p>
+
+	</div>
+
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h2 data-hotdoc-id="GstVulkanFormatInfo">
+	<i>GstVulkan.VulkanFormatInfo</i>
+</h2>
+
+
+
+
+
+
+	<div class="members-container">
+		<h3>Members</h3>
+					
+<div class="symbol-detail" data-hotdoc-id="GstVulkanFormatInfo.format">
+	<div>
+		<i><em><code>format</code></em></i>
+		(Vulkan.Format)
+		–
+	</div>
+			<p>the Vulkan format being described</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVulkanFormatInfo.name">
+	<div>
+		<i><em><code>name</code></em></i>
+		(<a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)
+		–
+	</div>
+			<p>name of this format</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVulkanFormatInfo.scaling">
+	<div>
+		<i><em><code>scaling</code></em></i>
+		(<a title="GstVulkan.VulkanFormatScaling" href="vulkanlib/vkformat.html#GstVulkanFormatScaling">GstVulkan.VulkanFormatScaling</a>)
+		–
+	</div>
+			<p>how raw data is interpreted and scaled</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVulkanFormatInfo.flags">
+	<div>
+		<i><em><code>flags</code></em></i>
+		(<a title="GstVulkan.VulkanFormatFlags" href="vulkanlib/vkformat.html#GstVulkanFormatFlags">GstVulkan.VulkanFormatFlags</a>)
+		–
+	</div>
+			<p>flags that apply to this format</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVulkanFormatInfo.bits">
+	<div>
+		<i><em><code>bits</code></em></i>
+		(<a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>)
+		–
+	</div>
+			<p>The number of bits used to pack data items. This can be less than
+8 when multiple pixels are stored in a byte. for values &gt; 8 multiple
+bytes should be read according to the endianness flag before
+applying the shift and mask.
+<em>n_components</em>; number of components in this format</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVulkanFormatInfo.n_components">
+	<div>
+		<i><em><code>n_components</code></em></i>
+		(<a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>)
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVulkanFormatInfo.shift">
+	<div>
+		<i><em><code>shift</code></em></i>
+		([ <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a> ])
+		–
+	</div>
+			<p>the number of bits to shift away to get the component data</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVulkanFormatInfo.depth">
+	<div>
+		<i><em><code>depth</code></em></i>
+		([ <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a> ])
+		–
+	</div>
+			<p>the depth in bits for each component</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVulkanFormatInfo.pixel_stride">
+	<div>
+		<i><em><code>pixel_stride</code></em></i>
+		([ <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a> ])
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVulkanFormatInfo.n_planes">
+	<div>
+		<i><em><code>n_planes</code></em></i>
+		(<a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>)
+		–
+	</div>
+			<p>the number of planes for this format. The number of planes can
+be less than the amount of components when multiple components
+are packed into one plane.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVulkanFormatInfo.plane">
+	<div>
+		<i><em><code>plane</code></em></i>
+		([ <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a> ])
+		–
+	</div>
+			<p>the plane number where a component can be found</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVulkanFormatInfo.poffset">
+	<div>
+		<i><em><code>poffset</code></em></i>
+		([ <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a> ])
+		–
+	</div>
+			<p>the offset in the plane where the first pixel of the components
+can be found.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVulkanFormatInfo.w_sub">
+	<div>
+		<i><em><code>w_sub</code></em></i>
+		([ <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a> ])
+		–
+	</div>
+			<p>subsampling factor of the width for the component.
+Use GST_VIDEO_SUB_SCALE to scale a width.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVulkanFormatInfo.h_sub">
+	<div>
+		<i><em><code>h_sub</code></em></i>
+		([ <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a> ])
+		–
+	</div>
+			<p>subsampling factor of the height for the component.
+Use GST_VIDEO_SUB_SCALE to scale a height.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVulkanFormatInfo.aspect">
+	<div>
+		<i><em><code>aspect</code></em></i>
+		(Vulkan.ImageAspectFlags)
+		–
+	</div>
+			<p>image aspect of this format</p>
+
+	</div>
+
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h2 data-hotdoc-id="GstVulkanFormatInfo">
+	<i>GstVulkan.VulkanFormatInfo</i>
+</h2>
+
+
+
+
+
+
+	<div class="members-container">
+		<h3>Members</h3>
+					
+<div class="symbol-detail" data-hotdoc-id="GstVulkanFormatInfo.format">
+	<div>
+		<i><em><code>format</code></em></i>
+		(Vulkan.Format)
+		–
+	</div>
+			<p>the Vulkan format being described</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVulkanFormatInfo.name">
+	<div>
+		<i><em><code>name</code></em></i>
+		(<a title="str" href="https://docs.python.org/3/library/functions.html#func-str">str</a>)
+		–
+	</div>
+			<p>name of this format</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVulkanFormatInfo.scaling">
+	<div>
+		<i><em><code>scaling</code></em></i>
+		(<a title="GstVulkan.VulkanFormatScaling" href="vulkanlib/vkformat.html#GstVulkanFormatScaling">GstVulkan.VulkanFormatScaling</a>)
+		–
+	</div>
+			<p>how raw data is interpreted and scaled</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVulkanFormatInfo.flags">
+	<div>
+		<i><em><code>flags</code></em></i>
+		(<a title="GstVulkan.VulkanFormatFlags" href="vulkanlib/vkformat.html#GstVulkanFormatFlags">GstVulkan.VulkanFormatFlags</a>)
+		–
+	</div>
+			<p>flags that apply to this format</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVulkanFormatInfo.bits">
+	<div>
+		<i><em><code>bits</code></em></i>
+		(<a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a>)
+		–
+	</div>
+			<p>The number of bits used to pack data items. This can be less than
+8 when multiple pixels are stored in a byte. for values &gt; 8 multiple
+bytes should be read according to the endianness flag before
+applying the shift and mask.
+<em>n_components</em>; number of components in this format</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVulkanFormatInfo.n_components">
+	<div>
+		<i><em><code>n_components</code></em></i>
+		(<a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a>)
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVulkanFormatInfo.shift">
+	<div>
+		<i><em><code>shift</code></em></i>
+		([ <a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a> ])
+		–
+	</div>
+			<p>the number of bits to shift away to get the component data</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVulkanFormatInfo.depth">
+	<div>
+		<i><em><code>depth</code></em></i>
+		([ <a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a> ])
+		–
+	</div>
+			<p>the depth in bits for each component</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVulkanFormatInfo.pixel_stride">
+	<div>
+		<i><em><code>pixel_stride</code></em></i>
+		([ <a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a> ])
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVulkanFormatInfo.n_planes">
+	<div>
+		<i><em><code>n_planes</code></em></i>
+		(<a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a>)
+		–
+	</div>
+			<p>the number of planes for this format. The number of planes can
+be less than the amount of components when multiple components
+are packed into one plane.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVulkanFormatInfo.plane">
+	<div>
+		<i><em><code>plane</code></em></i>
+		([ <a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a> ])
+		–
+	</div>
+			<p>the plane number where a component can be found</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVulkanFormatInfo.poffset">
+	<div>
+		<i><em><code>poffset</code></em></i>
+		([ <a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a> ])
+		–
+	</div>
+			<p>the offset in the plane where the first pixel of the components
+can be found.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVulkanFormatInfo.w_sub">
+	<div>
+		<i><em><code>w_sub</code></em></i>
+		([ <a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a> ])
+		–
+	</div>
+			<p>subsampling factor of the width for the component.
+Use GST_VIDEO_SUB_SCALE to scale a width.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVulkanFormatInfo.h_sub">
+	<div>
+		<i><em><code>h_sub</code></em></i>
+		([ <a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a> ])
+		–
+	</div>
+			<p>subsampling factor of the height for the component.
+Use GST_VIDEO_SUB_SCALE to scale a height.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVulkanFormatInfo.aspect">
+	<div>
+		<i><em><code>aspect</code></em></i>
+		(Vulkan.ImageAspectFlags)
+		–
+	</div>
+			<p>image aspect of this format</p>
+
+	</div>
+
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+
+        
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.26;" id="GstVulkanFormatMap">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h2 data-hotdoc-id="GstVulkanFormatMap">
+	<i>GstVulkanFormatMap</i>
+</h2>
+
+
+
+
+
+
+	<div class="members-container">
+		<h3>Members</h3>
+					
+<div class="symbol-detail" data-hotdoc-id="GstVulkanFormatMap.format">
+	<div>
+		<i><em><code>format</code></em></i>
+		(<a title="GstVideoFormat" href="video/video-format.html#GstVideoFormat">GstVideoFormat</a>)
+		–
+	</div>
+			<p>the GStreamer video format</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVulkanFormatMap.vkfrmt">
+	<div>
+		<i><em><code>vkfrmt</code></em></i>
+		(VkFormat)
+		–
+	</div>
+			<p>the Vulkan format with a single memory</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVulkanFormatMap.vkfrmts">
+	<div>
+		<i><em><code>vkfrmts</code></em></i>
+		(VkFormat*)
+		–
+	</div>
+			<p>Vulkan formats for multiple memories</p>
+
+	</div>
+
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.26
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h2 data-hotdoc-id="GstVulkanFormatMap">
+	<i>GstVulkan.VulkanFormatMap</i>
+</h2>
+
+
+
+
+
+
+	<div class="members-container">
+		<h3>Members</h3>
+					
+<div class="symbol-detail" data-hotdoc-id="GstVulkanFormatMap.format">
+	<div>
+		<i><em><code>format</code></em></i>
+		(<a title="GstVideo.VideoFormat" href="video/video-format.html#GstVideoFormat">GstVideo.VideoFormat</a>)
+		–
+	</div>
+			<p>the GStreamer video format</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVulkanFormatMap.vkfrmt">
+	<div>
+		<i><em><code>vkfrmt</code></em></i>
+		(Vulkan.Format)
+		–
+	</div>
+			<p>the Vulkan format with a single memory</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVulkanFormatMap.vkfrmts">
+	<div>
+		<i><em><code>vkfrmts</code></em></i>
+		([ Vulkan.Format])
+		–
+	</div>
+			<p>Vulkan formats for multiple memories</p>
+
+	</div>
+
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.26
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h2 data-hotdoc-id="GstVulkanFormatMap">
+	<i>GstVulkan.VulkanFormatMap</i>
+</h2>
+
+
+
+
+
+
+	<div class="members-container">
+		<h3>Members</h3>
+					
+<div class="symbol-detail" data-hotdoc-id="GstVulkanFormatMap.format">
+	<div>
+		<i><em><code>format</code></em></i>
+		(<a title="GstVideo.VideoFormat" href="video/video-format.html#GstVideoFormat">GstVideo.VideoFormat</a>)
+		–
+	</div>
+			<p>the GStreamer video format</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVulkanFormatMap.vkfrmt">
+	<div>
+		<i><em><code>vkfrmt</code></em></i>
+		(Vulkan.Format)
+		–
+	</div>
+			<p>the Vulkan format with a single memory</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVulkanFormatMap.vkfrmts">
+	<div>
+		<i><em><code>vkfrmts</code></em></i>
+		([ Vulkan.Format])
+		–
+	</div>
+			<p>Vulkan formats for multiple memories</p>
+
+	</div>
+
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.26
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+
+        
+
+            <h2 class="symbol_section">Functions</h2>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.18;" id="gst_vulkan_format_from_video_info">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="gst_vulkan_format_from_video_info">
+	<i>gst_vulkan_format_from_video_info</i>
+</h3>
+
+
+
+
+<pre class="c-prototype language-c">
+VkFormat
+gst_vulkan_format_from_video_info (<a title="GstVideoInfo" href="video/video-info.html#GstVideoInfo">GstVideoInfo</a> * v_info,
+                                   <a title="guint" href="https://docs.gtk.org/glib/types.html#guint">guint</a> plane)</pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>v_info</code></em></i>
+–
+</div>
+<p>the <a href="video/video-info.html#GstVideoInfo">GstVideoInfo</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>plane</code></em></i>
+–
+</div>
+<p>the plane</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p>the VkFormat to use for <em>v_format</em> and <em>plane</em></p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.24;" id="gst_vulkan_format_from_video_info_2">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="gst_vulkan_format_from_video_info_2">
+	<i>gst_vulkan_format_from_video_info_2</i>
+</h3>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a>
+gst_vulkan_format_from_video_info_2 (<a title="GstVulkanDevice" href="vulkanlib/vkdevice.html#GstVulkanDevice">GstVulkanDevice</a> * device,
+                                     <a title="GstVideoInfo" href="video/video-info.html#GstVideoInfo">GstVideoInfo</a> * info,
+                                     VkImageTiling tiling,
+                                     <a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a> no_multiplane,
+                                     VkImageUsageFlags requested_usage,
+                                     VkFormat* fmts,
+                                     int* n_imgs,
+                                     VkImageUsageFlags* usage)</pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>device</code></em></i>
+–
+</div>
+<p>a <a href="vulkanlib/vkdevice.html#GstVulkanDevice">GstVulkanDevice</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>info</code></em></i>
+–
+</div>
+<p>the <a href="video/video-info.html#GstVideoInfo">GstVideoInfo</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>tiling</code></em></i>
+–
+</div>
+<p>the tiling to use</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>no_multiplane</code></em></i>
+–
+</div>
+<p>query for vulkan formats without multiple images</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>requested_usage</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>fmts</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="Parameter for returning results"><span class="acronym">out</span></abbr>]</span><span class="annotation">[<abbr title="Parameter points to an array of items"><span class="acronym">array</span></abbr> fixed-size=4]</span><span>)</span>
+–
+</div>
+<p>Vulkan formats per image/plane</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>n_imgs</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="Parameter for returning results"><span class="acronym">out</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>number of images/planes used by the Vulkan format</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>usage</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="Parameter for returning results"><span class="acronym">out</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>The potential usage of the format</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p><a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#TRUE:CAPS">TRUE</a> if requested GStreamer format maps to a Vulkan format and its
+properties.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.24;" id="gst_vulkan_format_get_aspect">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="gst_vulkan_format_get_aspect">
+	<i>gst_vulkan_format_get_aspect</i>
+</h3>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="guint" href="https://docs.gtk.org/glib/types.html#guint">guint</a>
+gst_vulkan_format_get_aspect (VkFormat format)</pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>format</code></em></i>
+–
+</div>
+<p>Vulkan Format</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p>the <em>format</em> aspect</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3 data-hotdoc-id="gst_vulkan_format_get_aspect">
+	<i>GstVulkan.prototype.vulkan_format_get_aspect</i>
+</h3>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstVulkan.prototype.vulkan_format_get_aspect(format: Vulkan.Format): {
+    // javascript wrapper for 'gst_vulkan_format_get_aspect'
+}</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>format</code></em></i>
+<span>(</span>Vulkan.Format<span>)</span>
+–
+</div>
+<p>Vulkan Format</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+			</div>
+							<p>the <em>format</em> aspect</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3 data-hotdoc-id="gst_vulkan_format_get_aspect">
+	<i>GstVulkan.vulkan_format_get_aspect</i>
+</h3>
+
+
+<pre class="python-prototype language-python">
+<code>def GstVulkan.vulkan_format_get_aspect (format):
+    #python wrapper for 'gst_vulkan_format_get_aspect'</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>format</code></em></i>
+<span>(</span>Vulkan.Format<span>)</span>
+–
+</div>
+<p>Vulkan Format</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+			</div>
+							<p>the <em>format</em> aspect</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.18;" id="gst_vulkan_format_get_info">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="gst_vulkan_format_get_info">
+	<i>gst_vulkan_format_get_info</i>
+</h3>
+
+
+
+
+<pre class="c-prototype language-c">
+const <a title="GstVulkanFormatInfo" href="vulkanlib/vkformat.html#GstVulkanFormatInfo">GstVulkanFormatInfo</a> *
+gst_vulkan_format_get_info (VkFormat format)</pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>format</code></em></i>
+–
+</div>
+<p>a valid <code>VkFormat</code></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span>
+<span class="annotation">[<abbr title="NULL may be passed to the value"><span class="acronym">nullable</span></abbr>]</span><span>)</span>
+–
+			</div>
+							<p>the <a href="vulkanlib/vkformat.html#GstVulkanFormatInfo">GstVulkanFormatInfo</a> for <em>format</em> or <a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#NULL:CAPS">NULL</a></p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3 data-hotdoc-id="gst_vulkan_format_get_info">
+	<i>GstVulkan.prototype.vulkan_format_get_info</i>
+</h3>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstVulkan.prototype.vulkan_format_get_info(format: Vulkan.Format): {
+    // javascript wrapper for 'gst_vulkan_format_get_info'
+}</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>format</code></em></i>
+<span>(</span>Vulkan.Format<span>)</span>
+–
+</div>
+<p>a valid <code>VkFormat</code></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GstVulkan.VulkanFormatInfo" href="vulkanlib/vkformat.html#GstVulkanFormatInfo">GstVulkan.VulkanFormatInfo</a><span>)</span>
+–
+			</div>
+							<p>the <a href="vulkanlib/vkformat.html#GstVulkanFormatInfo">GstVulkan.VulkanFormatInfo</a> for <em>format</em> or <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null">null</a></p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3 data-hotdoc-id="gst_vulkan_format_get_info">
+	<i>GstVulkan.vulkan_format_get_info</i>
+</h3>
+
+
+<pre class="python-prototype language-python">
+<code>def GstVulkan.vulkan_format_get_info (format):
+    #python wrapper for 'gst_vulkan_format_get_info'</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>format</code></em></i>
+<span>(</span>Vulkan.Format<span>)</span>
+–
+</div>
+<p>a valid <code>VkFormat</code></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GstVulkan.VulkanFormatInfo" href="vulkanlib/vkformat.html#GstVulkanFormatInfo">GstVulkan.VulkanFormatInfo</a><span>)</span>
+–
+			</div>
+							<p>the <a href="vulkanlib/vkformat.html#GstVulkanFormatInfo">GstVulkan.VulkanFormatInfo</a> for <em>format</em> or <a href="https://docs.python.org/3/library/constants.html#None">None</a></p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.26;" id="gst_vulkan_format_get_map">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="gst_vulkan_format_get_map">
+	<i>gst_vulkan_format_get_map</i>
+</h3>
+
+
+
+
+<pre class="c-prototype language-c">
+const <a title="GstVulkanFormatMap" href="vulkanlib/vkformat.html#GstVulkanFormatMap">GstVulkanFormatMap</a> *
+gst_vulkan_format_get_map (<a title="GstVideoFormat" href="video/video-format.html#GstVideoFormat">GstVideoFormat</a> format)</pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>format</code></em></i>
+–
+</div>
+<p>the <a href="video/video-format.html#GstVideoFormat">GstVideoFormat</a> to get</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span>
+<span class="annotation">[<abbr title="NULL may be passed to the value"><span class="acronym">nullable</span></abbr>]</span><span>)</span>
+–
+			</div>
+							<p>the <a href="vulkanlib/vkformat.html#GstVulkanFormatMap">GstVulkanFormatMap</a> matching with <em>format</em></p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.26
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.24;" id="gst_vulkan_format_to_video_format">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="gst_vulkan_format_to_video_format">
+	<i>gst_vulkan_format_to_video_format</i>
+</h3>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GstVideoFormat" href="video/video-format.html#GstVideoFormat">GstVideoFormat</a>
+gst_vulkan_format_to_video_format (VkFormat vk_format)</pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>vk_format</code></em></i>
+–
+</div>
+<p>the Vulkan format to convert</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p>the <a href="video/video-format.html#GstVideoFormat">GstVideoFormat</a> that maps to <em>vk_format</em></p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3 data-hotdoc-id="gst_vulkan_format_to_video_format">
+	<i>GstVulkan.prototype.vulkan_format_to_video_format</i>
+</h3>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstVulkan.prototype.vulkan_format_to_video_format(vk_format: Vulkan.Format): {
+    // javascript wrapper for 'gst_vulkan_format_to_video_format'
+}</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>vk_format</code></em></i>
+<span>(</span>Vulkan.Format<span>)</span>
+–
+</div>
+<p>the Vulkan format to convert</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GstVideo.VideoFormat" href="video/video-format.html#GstVideoFormat">GstVideo.VideoFormat</a><span>)</span>
+–
+			</div>
+							<p>the <a href="video/video-format.html#GstVideoFormat">GstVideo.VideoFormat</a> that maps to <em>vk_format</em></p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3 data-hotdoc-id="gst_vulkan_format_to_video_format">
+	<i>GstVulkan.vulkan_format_to_video_format</i>
+</h3>
+
+
+<pre class="python-prototype language-python">
+<code>def GstVulkan.vulkan_format_to_video_format (vk_format):
+    #python wrapper for 'gst_vulkan_format_to_video_format'</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>vk_format</code></em></i>
+<span>(</span>Vulkan.Format<span>)</span>
+–
+</div>
+<p>the Vulkan format to convert</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GstVideo.VideoFormat" href="video/video-format.html#GstVideoFormat">GstVideo.VideoFormat</a><span>)</span>
+–
+			</div>
+							<p>the <a href="video/video-format.html#GstVideoFormat">GstVideo.VideoFormat</a> that maps to <em>vk_format</em></p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+
+            <h2 class="symbol_section">Enumerations</h2>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.18;" id="GstVulkanFormatFlags">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GstVulkanFormatFlags">
+	<i>GstVulkanFormatFlags</i>
+</h3>
+
+
+
+
+
+	<div class="members-container">
+		<h5>Members</h5>
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VULKAN_FORMAT_FLAG_YUV">
+	<div>
+		<i><em><code>GST_VULKAN_FORMAT_FLAG_YUV</code></em></i>
+		(<span class="value">1</span>)
+		–
+	</div>
+			<p>is a YUV format</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VULKAN_FORMAT_FLAG_RGB">
+	<div>
+		<i><em><code>GST_VULKAN_FORMAT_FLAG_RGB</code></em></i>
+		(<span class="value">2</span>)
+		–
+	</div>
+			<p>is a RGB format</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VULKAN_FORMAT_FLAG_ALPHA">
+	<div>
+		<i><em><code>GST_VULKAN_FORMAT_FLAG_ALPHA</code></em></i>
+		(<span class="value">4</span>)
+		–
+	</div>
+			<p>has an alpha channel</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VULKAN_FORMAT_FLAG_LE">
+	<div>
+		<i><em><code>GST_VULKAN_FORMAT_FLAG_LE</code></em></i>
+		(<span class="value">8</span>)
+		–
+	</div>
+			<p>data is stored in little-endiate byte order</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VULKAN_FORMAT_FLAG_COMPLEX">
+	<div>
+		<i><em><code>GST_VULKAN_FORMAT_FLAG_COMPLEX</code></em></i>
+		(<span class="value">16</span>)
+		–
+	</div>
+			<p>data is stored complex and cannot be read/write only using the information in the <a href="vulkanlib/vkformat.html#GstVulkanFormatInfo" data-gi-href-javascript="vulkanlib/vkformat.html#GstVulkanFormatInfo" data-gi-title-javascript="GstVulkan.VulkanFormatInfo" data-gi-href-python="vulkanlib/vkformat.html#GstVulkanFormatInfo" data-gi-title-python="GstVulkan.VulkanFormatInfo">GstVulkanFormatInfo</a></p>
+
+	</div>
+
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3 data-hotdoc-id="GstVulkanFormatFlags">
+	<i>GstVulkan.VulkanFormatFlags</i>
+</h3>
+
+
+
+
+
+	<div class="members-container">
+		<h5>Members</h5>
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VULKAN_FORMAT_FLAG_YUV">
+	<div>
+		<i><em><code>GstVulkan.VulkanFormatFlags.YUV</code></em></i>
+		(<span class="value">1</span>)
+		–
+	</div>
+			<p>is a YUV format</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VULKAN_FORMAT_FLAG_RGB">
+	<div>
+		<i><em><code>GstVulkan.VulkanFormatFlags.RGB</code></em></i>
+		(<span class="value">2</span>)
+		–
+	</div>
+			<p>is a RGB format</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VULKAN_FORMAT_FLAG_ALPHA">
+	<div>
+		<i><em><code>GstVulkan.VulkanFormatFlags.ALPHA</code></em></i>
+		(<span class="value">4</span>)
+		–
+	</div>
+			<p>has an alpha channel</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VULKAN_FORMAT_FLAG_LE">
+	<div>
+		<i><em><code>GstVulkan.VulkanFormatFlags.LE</code></em></i>
+		(<span class="value">8</span>)
+		–
+	</div>
+			<p>data is stored in little-endiate byte order</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VULKAN_FORMAT_FLAG_COMPLEX">
+	<div>
+		<i><em><code>GstVulkan.VulkanFormatFlags.COMPLEX</code></em></i>
+		(<span class="value">16</span>)
+		–
+	</div>
+			<p>data is stored complex and cannot be read/write only using the information in the <a href="vulkanlib/vkformat.html#GstVulkanFormatInfo" data-gi-href-javascript="vulkanlib/vkformat.html#GstVulkanFormatInfo" data-gi-title-javascript="GstVulkan.VulkanFormatInfo" data-gi-href-python="vulkanlib/vkformat.html#GstVulkanFormatInfo" data-gi-title-python="GstVulkan.VulkanFormatInfo">GstVulkan.VulkanFormatInfo</a></p>
+
+	</div>
+
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3 data-hotdoc-id="GstVulkanFormatFlags">
+	<i>GstVulkan.VulkanFormatFlags</i>
+</h3>
+
+
+
+
+
+	<div class="members-container">
+		<h5>Members</h5>
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VULKAN_FORMAT_FLAG_YUV">
+	<div>
+		<i><em><code>GstVulkan.VulkanFormatFlags.YUV</code></em></i>
+		(<span class="value">1</span>)
+		–
+	</div>
+			<p>is a YUV format</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VULKAN_FORMAT_FLAG_RGB">
+	<div>
+		<i><em><code>GstVulkan.VulkanFormatFlags.RGB</code></em></i>
+		(<span class="value">2</span>)
+		–
+	</div>
+			<p>is a RGB format</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VULKAN_FORMAT_FLAG_ALPHA">
+	<div>
+		<i><em><code>GstVulkan.VulkanFormatFlags.ALPHA</code></em></i>
+		(<span class="value">4</span>)
+		–
+	</div>
+			<p>has an alpha channel</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VULKAN_FORMAT_FLAG_LE">
+	<div>
+		<i><em><code>GstVulkan.VulkanFormatFlags.LE</code></em></i>
+		(<span class="value">8</span>)
+		–
+	</div>
+			<p>data is stored in little-endiate byte order</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VULKAN_FORMAT_FLAG_COMPLEX">
+	<div>
+		<i><em><code>GstVulkan.VulkanFormatFlags.COMPLEX</code></em></i>
+		(<span class="value">16</span>)
+		–
+	</div>
+			<p>data is stored complex and cannot be read/write only using the information in the <a href="vulkanlib/vkformat.html#GstVulkanFormatInfo" data-gi-href-javascript="vulkanlib/vkformat.html#GstVulkanFormatInfo" data-gi-title-javascript="GstVulkan.VulkanFormatInfo" data-gi-href-python="vulkanlib/vkformat.html#GstVulkanFormatInfo" data-gi-title-python="GstVulkan.VulkanFormatInfo">GstVulkan.VulkanFormatInfo</a></p>
+
+	</div>
+
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.18;" id="GstVulkanFormatScaling">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GstVulkanFormatScaling">
+	<i>GstVulkanFormatScaling</i>
+</h3>
+
+
+
+
+
+	<div class="members-container">
+		<h5>Members</h5>
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VULKAN_FORMAT_SCALING_UNORM">
+	<div>
+		<i><em><code>GST_VULKAN_FORMAT_SCALING_UNORM</code></em></i>
+		(<span class="value">1</span>)
+		–
+	</div>
+			<p>[0, 2^n - 1] -&gt; [0.0, 1.0]</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VULKAN_FORMAT_SCALING_SNORM">
+	<div>
+		<i><em><code>GST_VULKAN_FORMAT_SCALING_SNORM</code></em></i>
+		(<span class="value">2</span>)
+		–
+	</div>
+			<p>[-2^(n-1), 2^(n-1) - 1] -&gt; [-1.0, 1.0]</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VULKAN_FORMAT_SCALING_USCALED">
+	<div>
+		<i><em><code>GST_VULKAN_FORMAT_SCALING_USCALED</code></em></i>
+		(<span class="value">3</span>)
+		–
+	</div>
+			<p>[0, 2^n - 1] -&gt; [0.0, float(2^n - 1)]</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VULKAN_FORMAT_SCALING_SSCALED">
+	<div>
+		<i><em><code>GST_VULKAN_FORMAT_SCALING_SSCALED</code></em></i>
+		(<span class="value">4</span>)
+		–
+	</div>
+			<p>[-2^(n-1), 2^(n-1) - 1] -&gt; [float(-2^(n-1)), float(2^(n-1) - 1)]</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VULKAN_FORMAT_SCALING_UINT">
+	<div>
+		<i><em><code>GST_VULKAN_FORMAT_SCALING_UINT</code></em></i>
+		(<span class="value">5</span>)
+		–
+	</div>
+			<p>[0, 2^n - 1] -&gt; [0, 2^n - 1]</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VULKAN_FORMAT_SCALING_SINT">
+	<div>
+		<i><em><code>GST_VULKAN_FORMAT_SCALING_SINT</code></em></i>
+		(<span class="value">6</span>)
+		–
+	</div>
+			<p>[-2^(n-1), 2^(n-1) - 1] -&gt; [-2^(n-1), 2^(n-1) - 1]</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VULKAN_FORMAT_SCALING_SRGB">
+	<div>
+		<i><em><code>GST_VULKAN_FORMAT_SCALING_SRGB</code></em></i>
+		(<span class="value">7</span>)
+		–
+	</div>
+			<p><em>GST_VULKAN_FORMAT_SCALING_UNORM</em> but the first three components are gamma corrected for the sRGB colour space.</p>
+
+	</div>
+
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3 data-hotdoc-id="GstVulkanFormatScaling">
+	<i>GstVulkan.VulkanFormatScaling</i>
+</h3>
+
+
+
+
+
+	<div class="members-container">
+		<h5>Members</h5>
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VULKAN_FORMAT_SCALING_UNORM">
+	<div>
+		<i><em><code>GstVulkan.VulkanFormatScaling.UNORM</code></em></i>
+		(<span class="value">1</span>)
+		–
+	</div>
+			<p>[0, 2^n - 1] -&gt; [0.0, 1.0]</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VULKAN_FORMAT_SCALING_SNORM">
+	<div>
+		<i><em><code>GstVulkan.VulkanFormatScaling.SNORM</code></em></i>
+		(<span class="value">2</span>)
+		–
+	</div>
+			<p>[-2^(n-1), 2^(n-1) - 1] -&gt; [-1.0, 1.0]</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VULKAN_FORMAT_SCALING_USCALED">
+	<div>
+		<i><em><code>GstVulkan.VulkanFormatScaling.USCALED</code></em></i>
+		(<span class="value">3</span>)
+		–
+	</div>
+			<p>[0, 2^n - 1] -&gt; [0.0, float(2^n - 1)]</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VULKAN_FORMAT_SCALING_SSCALED">
+	<div>
+		<i><em><code>GstVulkan.VulkanFormatScaling.SSCALED</code></em></i>
+		(<span class="value">4</span>)
+		–
+	</div>
+			<p>[-2^(n-1), 2^(n-1) - 1] -&gt; [float(-2^(n-1)), float(2^(n-1) - 1)]</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VULKAN_FORMAT_SCALING_UINT">
+	<div>
+		<i><em><code>GstVulkan.VulkanFormatScaling.UINT</code></em></i>
+		(<span class="value">5</span>)
+		–
+	</div>
+			<p>[0, 2^n - 1] -&gt; [0, 2^n - 1]</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VULKAN_FORMAT_SCALING_SINT">
+	<div>
+		<i><em><code>GstVulkan.VulkanFormatScaling.SINT</code></em></i>
+		(<span class="value">6</span>)
+		–
+	</div>
+			<p>[-2^(n-1), 2^(n-1) - 1] -&gt; [-2^(n-1), 2^(n-1) - 1]</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VULKAN_FORMAT_SCALING_SRGB">
+	<div>
+		<i><em><code>GstVulkan.VulkanFormatScaling.SRGB</code></em></i>
+		(<span class="value">7</span>)
+		–
+	</div>
+			<p><em>GST_VULKAN_FORMAT_SCALING_UNORM</em> but the first three components are gamma corrected for the sRGB colour space.</p>
+
+	</div>
+
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3 data-hotdoc-id="GstVulkanFormatScaling">
+	<i>GstVulkan.VulkanFormatScaling</i>
+</h3>
+
+
+
+
+
+	<div class="members-container">
+		<h5>Members</h5>
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VULKAN_FORMAT_SCALING_UNORM">
+	<div>
+		<i><em><code>GstVulkan.VulkanFormatScaling.UNORM</code></em></i>
+		(<span class="value">1</span>)
+		–
+	</div>
+			<p>[0, 2^n - 1] -&gt; [0.0, 1.0]</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VULKAN_FORMAT_SCALING_SNORM">
+	<div>
+		<i><em><code>GstVulkan.VulkanFormatScaling.SNORM</code></em></i>
+		(<span class="value">2</span>)
+		–
+	</div>
+			<p>[-2^(n-1), 2^(n-1) - 1] -&gt; [-1.0, 1.0]</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VULKAN_FORMAT_SCALING_USCALED">
+	<div>
+		<i><em><code>GstVulkan.VulkanFormatScaling.USCALED</code></em></i>
+		(<span class="value">3</span>)
+		–
+	</div>
+			<p>[0, 2^n - 1] -&gt; [0.0, float(2^n - 1)]</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VULKAN_FORMAT_SCALING_SSCALED">
+	<div>
+		<i><em><code>GstVulkan.VulkanFormatScaling.SSCALED</code></em></i>
+		(<span class="value">4</span>)
+		–
+	</div>
+			<p>[-2^(n-1), 2^(n-1) - 1] -&gt; [float(-2^(n-1)), float(2^(n-1) - 1)]</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VULKAN_FORMAT_SCALING_UINT">
+	<div>
+		<i><em><code>GstVulkan.VulkanFormatScaling.UINT</code></em></i>
+		(<span class="value">5</span>)
+		–
+	</div>
+			<p>[0, 2^n - 1] -&gt; [0, 2^n - 1]</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VULKAN_FORMAT_SCALING_SINT">
+	<div>
+		<i><em><code>GstVulkan.VulkanFormatScaling.SINT</code></em></i>
+		(<span class="value">6</span>)
+		–
+	</div>
+			<p>[-2^(n-1), 2^(n-1) - 1] -&gt; [-2^(n-1), 2^(n-1) - 1]</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VULKAN_FORMAT_SCALING_SRGB">
+	<div>
+		<i><em><code>GstVulkan.VulkanFormatScaling.SRGB</code></em></i>
+		(<span class="value">7</span>)
+		–
+	</div>
+			<p><em>GST_VULKAN_FORMAT_SCALING_UNORM</em> but the first three components are gamma corrected for the sRGB colour space.</p>
+
+	</div>
+
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+
+            <h2 class="symbol_section">Constants</h2>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.18;" id="GST_VULKAN_MAX_COMPONENTS">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_VULKAN_MAX_COMPONENTS">
+	<i>GST_VULKAN_MAX_COMPONENTS</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_VULKAN_MAX_COMPONENTS 4
+</pre>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3 data-hotdoc-id="GST_VULKAN_MAX_COMPONENTS">
+	<i>GstVulkan.VULKAN_MAX_COMPONENTS</i>
+</h3>
+
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3 data-hotdoc-id="GST_VULKAN_MAX_COMPONENTS">
+	<i>GstVulkan.VULKAN_MAX_COMPONENTS</i>
+</h3>
+
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+
+
+
+
+
+		
+	</div>
+	<div id="search_results">
+		<p>The results of the search are</p>
+	</div>
+	<div id="footer">
+		    
+
+	</div>
+</div>
+
+<div id="toc-column">
+	
+		<div class="edit-button">
+		
+
+	</div>
+		<div id="toc-wrapper">
+		<nav id="toc"></nav>
+	</div>
+</div>
+</div>
+</main>
+
+
+<script src="assets/js/navbar_offset_scroller.js"></script>
+</body>
+</html>

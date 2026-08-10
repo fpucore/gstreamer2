@@ -1,0 +1,1 @@
+urls_downloaded_cb({"token":"Gst.BufferFlags.GAP","urls":[{"url":"base/gstbasetransform.html#gst_base_transform_set_gap_aware","node_type":"p","page":"GstBaseTransform","sections":["Methods"],"context":{"gi-language":["javascript","python"]}}]});

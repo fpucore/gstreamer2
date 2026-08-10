@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<base href="../..">
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<title>Adaptive Demuxers for DASH, HLS and Smooth Streaming</title>
+
+<link rel="stylesheet" href="assets/css/dark-frontend.css" type="text/css" title="dark">
+<link rel="alternate stylesheet" href="assets/css/light-frontend.css" type="text/css" title="light">
+<link rel="stylesheet" href="assets/css/bootstrap-toc.min.css" type="text/css">
+<link rel="stylesheet" href="assets/css/jquery.mCustomScrollbar.min.css">
+<link rel="stylesheet" href="assets/js/search/enable_search.css" type="text/css">
+
+<link rel="stylesheet" href="assets/css/extra_frontend.css" type="text/css">
+<link rel="stylesheet" href="assets/css/devhelp.css" type="text/css">
+
+<link rel="stylesheet" href="assets/css/prism-tomorrow.css" type="text/css" title="dark">
+
+<link rel="alternate stylesheet" href="assets/css/prism.css" type="text/css" title="light">
+
+<script src="assets/js/mustache.min.js"></script>
+<script src="assets/js/jquery.js"></script>
+<script src="assets/js/bootstrap.js"></script>
+<script src="assets/js/scrollspy.js"></script>
+<script src="assets/js/typeahead.jquery.min.js"></script>
+<script src="assets/js/search.js"></script>
+<script src="assets/js/compare-versions.js"></script>
+<script src="assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="assets/js/bootstrap-toc.min.js"></script>
+<script src="assets/js/jquery.touchSwipe.min.js"></script>
+<script src="assets/js/anchor.min.js"></script>
+<script src="assets/js/tag_filtering.js"></script>
+<script src="assets/js/language_switching.js"></script>
+<script src="assets/js/styleswitcher.js"></script>
+
+<script src="assets/js/lines_around_headings.js"></script>
+
+<script src="assets/js/prism-core.js"></script>
+<script src="assets/js/prism-autoloader.js"></script>
+<script src="assets/js/prism_autoloader_path_override.js"></script>
+<script src="assets/js/trie.js"></script>
+
+<!-- generic -->
+<link rel="icon" type="image/png" href="assets/images/favicon-16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="assets/images/favicon-32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="assets/images/favicon-57.png" sizes="57x57">
+<link rel="icon" type="image/png" href="assets/images/favicon-64.png" sizes="64x64">
+<link rel="icon" type="image/png" href="assets/images/favicon-76.png" sizes="76x76">
+<link rel="icon" type="image/png" href="assets/images/favicon-96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="assets/images/favicon-128.png" sizes="128x128">
+<link rel="icon" type="image/png" href="assets/images/favicon-192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="assets/images/favicon-228.png" sizes="228x228">
+
+<!-- Android -->
+<link rel="shortcut icon" sizes="196x196" href="assets/images/favicon-196.png">
+
+<!-- iOS -->
+<link rel="apple-touch-icon" href="assets/images/favicon-120.png" sizes="120x120">
+<link rel="apple-touch-icon" href="assets/images/favicon-152.png" sizes="152x152">
+<link rel="apple-touch-icon" href="assets/images/favicon-180.png" sizes="180x180">
+
+</head>
+
+<body class="no-script
+">
+
+<script>
+$('body').removeClass('no-script');
+</script>
+
+<nav class="navbar navbar-fixed-top navbar-default" id="topnav">
+	<div class="container-fluid">
+		<div class="navbar-right">
+			<a id="toc-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-wrapper" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<span title="light mode switch" class="glyphicon glyphicon-sunglasses pull-right" id="lightmode-icon"></span>
+			<form class="navbar-form pull-right" id="navbar-search-form">
+                               <div class="form-group has-feedback">
+                                       <input type="text" class="form-control input-sm" name="search" id="sidenav-lookup-field" placeholder="search" disabled>
+				       <span class="glyphicon glyphicon-search form-control-feedback" id="search-mgn-glass"></span>
+                               </div>
+                        </form>
+		</div>
+		<div class="navbar-header">
+			<a id="sidenav-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<a id="home-link" href="index.html" class="hotdoc-navbar-brand">
+				<img src="assets/images/gstreamer-logo.svg" alt="Home">
+			</a>
+		</div>
+		<div class="navbar-collapse collapse" id="navbar-wrapper">
+			<ul class="nav navbar-nav" id="menu">
+				
+<li class="dropdown">
+    <a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        API References<span class="caret"></span>
+    </a>
+	<ul class="dropdown-menu" id="modules-menu">
+					<li>
+				<a href="gstreamer/gi-index.html">GStreamer core</a>
+			</li>
+					<li>
+				<a href="libs.html">GStreamer Libraries</a>
+			</li>
+					<li>
+				<a href="plugins_doc.html">GStreamer Plugins</a>
+			</li>
+		</ul>
+</li>
+
+<li>
+    <a href="application-development/index.html">Application manual</a>
+</li>
+
+
+<li>
+    <a href="tutorials/index.html">Tutorials</a>
+</li>
+
+			</ul>
+			<div class="hidden-xs hidden-sm navbar-text navbar-center">
+							</div>
+		</div>
+	</div>
+</nav>
+
+<main>
+<div data-extension="gi-extension" data-hotdoc-in-toplevel="True" data-hotdoc-project="GStreamer" data-hotdoc-ref="additional/design/adaptive-demuxer.html" class="page_container" id="page-wrapper" data-hotdoc-meta-gi-languages="['c', 'javascript', 'python']" data-hotdoc-meta-gi-language="c">
+<script src="assets/js/utils.js"></script>
+
+<div class="panel panel-collapse oc-collapsed" id="sidenav" data-hotdoc-role="navigation">
+	<script src="assets/js/full-width.js"></script>
+  <div id="sitenav-wrapper">
+    <iframe src="hotdoc-sitemap.html" id="sitenav-frame"></iframe>
+  </div>
+</div>
+
+<div id="body">
+	<div id="main">
+				    <div id="page-description" data-hotdoc-role="main">
+        <h1 id="adaptive-demuxers-for-dash-hls-and-smooth-streaming">Adaptive Demuxers for DASH, HLS and Smooth Streaming</h1>
+<p>There are two sets of elements implementing client-side adaptive streaming
+(HLS, DASH, Microsoft Smooth Streaming) in GStreamer:</p>
+<ul>
+<li>
+<p>The old legacy elements <code>dashdemux</code>, <code>hlsdemux</code>, <code>mssdemux</code> in the
+gst-plugins-bad module.</p>
+</li>
+<li>
+<p>New <code>dashdemux2</code>, <code>hlsdemux2</code>, <code>mssdemux2</code> elements in gst-plugins-good
+(added in GStreamer 1.22).</p>
+</li>
+</ul>
+<p>The legacy adaptive streaming support in <code>gst-plugins-bad</code> had several pitfalls
+that prevented improving it easily. The legacy design used a model where an
+adaptive streaming element (<code>dashdemux</code>, <code>hlsdemux</code>) downloaded multiplexed
+fragments of media, but then relied on other components in the pipeline to
+provide download buffering, demuxing, elementary stream handling and decoding.</p>
+<p>The problems with the old design included:</p>
+<ol>
+<li>
+<p>An assumption that fragment streams (to download) are equal to output
+(elementary) streams.</p>
+<ul>
+<li>This made it hard to expose <code>GstStream</code> and <code>GstStreamCollection</code>
+describing the available media streams, and by extension made it
+difficult to provide efficient stream selection support</li>
+</ul>
+</li>
+<li>
+<p>By performing download buffering outside the adaptive streaming elements,
+the download scheduling had no visibility into the presentation timeline.</p>
+<ul>
+<li>This made it impossible to handle more efficient variant selection and
+download strategy</li>
+</ul>
+</li>
+<li>
+<p>Several issues with establishing accurate timing/duration of fragments due to
+not dealing with parsed data</p>
+<ul>
+<li>Especially with HLS, which does not provide detailed timing information
+about the underlying media streams to the same extent that DASH does.</li>
+</ul>
+</li>
+<li>
+<p>Aging design that grew organically since the initial adaptive demuxer
+implementation with a much more limited feature set, and misses a better
+understanding of how a feature-rich implementation should work nowadays.</p>
+<ul>
+<li>The code was complicated and interwoven in ways that were hard to follow
+and reason about.</li>
+</ul>
+</li>
+<li>
+<p>Use of GStreamer pipeline sources for downloading.</p>
+<ul>
+<li>An internal download pipeline that contained a <code>httpsrc -&gt; queue2 -&gt; src</code>
+chain made download management, bandwidth estimation and stream parsing
+more difficult, and used a new thread for each download.</li>
+</ul>
+</li>
+</ol>
+<h1 id="new-design">New design</h1>
+<p>The rest of this document describes the new adaptive streaming client
+implementation that landed in gst-plugins-good in GStreamer 1.22.</p>
+<p>The new elements only work in combination with the "streams-aware"
+<code>playbin3</code> and <code>uridecodebin3</code> elements that support advanced stream
+selection functionality, they won't work with the legacy <code>playbin</code>
+element.</p>
+<h2 id="highlevel-overview-of-the-new-internal-adaptivedemux2-base-class">High-level overview of the new internal AdaptiveDemux2 base class:</h2>
+<ul>
+<li>
+<p>Buffering is handled inside the adaptive streaming element, based on
+elementary streams (i.e. de-multiplexed from the downloaded fragments) and
+stored inside the <code>adaptivedemux</code>-based element.</p>
+</li>
+<li>
+<p>The download strategy has full visibility on bitrates, bandwidth, per-stream
+queueing level (in time and bytes), playback position, etc. This opens up the
+possibility of much more intelligent adaptive download strategies.</p>
+</li>
+<li>
+<p>Output pads are not handled directly by the subclasses. Instead subclasses
+specify which <code>tracks</code> of elementary streams they can provide and what
+"download streams" can provide contents for those tracks. The baseclass
+handles usage and activation of the <code>tracks</code> based on application
+<code>select-streams</code> requests, and activation of the <code>stream</code> needed to feed each
+selected <code>track</code>.</p>
+</li>
+<li>
+<p>Output is done from a single thread, with the various elementary streams
+packets being output in time order (i.e. behaving like a regular demuxer, with
+interleaving reduced to its minimum). There is minimal buffering downstream
+in the pipeline - only the amount required to perform decode and display.</p>
+</li>
+<li>
+<p>The adaptive streaming element only exposes <code>src</code> pads for the selected
+<code>GstStream</code>s. Typically, there will be one video track, one audio track and
+perhaps one subtitle track exposed at a time, for example.</p>
+</li>
+<li>
+<p>Stream selection is handled by the element directly. When switching on a
+new media stream, the output to the relevant source pad is switched once
+there is enough content buffered on the newly requested stream,
+providing rapid and seamless stream switching.</p>
+</li>
+<li>
+<p>Only 3 threads are used regardless of the number of streams/tracks. One is
+dedicated to download, one for output, and one for scheduling and feeding
+contents to the tracks.</p>
+</li>
+</ul>
+<p>The main components of the new adaptive demuxers are:</p>
+<ul>
+<li>
+<p><code>GstAdaptiveDemuxTrack</code> : end-user meaningful elementary streams. Those can be
+selected by the user. They are provided by the subclasses based on the
+manifest.</p>
+<ul>
+<li>They each correspond to a <code>GstStream</code> of a <code>GstStreamCollection</code>
+</li>
+<li>They are unique by <code>GstStreamType</code> and any other unique identifier specified
+by the manifest (ex: language)</li>
+<li>The caps <em>can</em> change through time</li>
+</ul>
+</li>
+<li>
+<p><code>OutputSlot</code> : A track being exposed via a source pad. This is handled by the
+parent class.</p>
+</li>
+<li>
+<p><code>GstAdaptiveDemuxStream</code> : implementation-specific download stream. This is
+linked to one or more <code>GstAdaptiveDemuxTrack</code>. The contents of that stream
+will be parsed (via <code>parsebin</code>) and fed to the target tracks.</p>
+<ul>
+<li>What tracks are provided by a given <code>GstAdaptiveDemuxStream</code> is specified by
+the subclass. But can also be discovered at runtime if the manifest did not
+provide enough information (for example with HLS).</li>
+</ul>
+</li>
+<li>
+<p>Download thread : Receives download requests from the scheduling thread that
+can be queried and interrupted. Performs all download servicing in a
+single dedicated thread that can estimate download bandwidth across all
+simultaneous requests.</p>
+</li>
+<li>
+<p>Scheduling thread : In charge of deciding what new downloads should be started
+based on overall position, track buffering levels, selected tracks, current
+time ... It is also in charge of handling completed downloads. Fragment
+downloads are sent to dedicated <code>parsebin</code> elements that feed the parsed
+elementary data to <code>GstAdaptiveDemuxTrack</code></p>
+</li>
+<li>
+<p>Output thread : In charge of deciding which track should be
+outputted/removed/switched (via <code>OutputSlot</code>) based on requested selection and
+track levels.</p>
+</li>
+</ul>
+<h2 id="tracks-and-streams">Track(s) and Stream(s)</h2>
+<p>Adaptive Demuxers provide one or more <em>Track</em> of elementary streams. They are
+each unique in terms of:</p>
+<ul>
+<li>Their type (audio, video, text, ..). Ex : <code>GST_STREAM_TYPE_AUDIO</code>
+</li>
+<li>Optional: Their codec. Ex : <code>video/x-h264</code>
+</li>
+<li>Optional: Their language. ex : <code>GST_TAG_LANGUAGE : "fr"</code>
+</li>
+<li>Optional: Their number of channels (ex: stereo vs 5.1). ex
+<code>audio/x-vorbis,channels=2</code>
+</li>
+<li>Any other feature which would make the stream "unique" either because of their
+nature (ex: video angle) or specified by the manifest as being "unique".</li>
+</ul>
+<p>But tracks can vary over time by:</p>
+<ul>
+<li>bitrate</li>
+<li>profile or level</li>
+<li>resolution</li>
+</ul>
+<p>They correspond to what an end-user might want to select (i.e. will be exposed
+in a <code>GstStreamCollection</code>). They are each identified by a <code>stream_id</code> provided
+by the subclass.</p>
+<blockquote>
+<p><strong>Note:</strong> A manifest <em>can</em> specify that tracks that would normally be separate
+based on the above rules (for example different codecs or channels) are
+actually the same "end-user selectable stream" (i.e. track). In such case only
+one track is provided and the nature of the elementary stream can change
+through time.</p>
+</blockquote>
+<p>Adaptive Demuxers subclasses also need to provide one or more <em>Download Stream</em>
+(<code>GstAdaptiveDemuxStream</code>) which are the implementation-/manifest-specific
+"streams" that each feed one or more <em>Track</em>. Those streams can also vary over
+time by bitrate/profile/resolution/... but always target the same tracks.</p>
+<p>The downloaded data from each of those <code>GstAdaptiveDemuxStream</code> is fed to a
+<code>parsebin</code> element which will put the output in the associated
+<code>GstAdaptiveDemuxTrack</code>.</p>
+<p>The tracks have some buffering capability, handled by the baseclass.</p>
+<p>This separation allows the base-class to:</p>
+<ul>
+<li>decide which download stream(s) should be (de)activated based on the current
+track selection</li>
+<li>decide when to (re)start download requests based on buffering levels, positions and
+external actions.</li>
+<li>Handle buffering, output and stream selection.</li>
+</ul>
+<p>The subclass is responsible for deciding:</p>
+<ul>
+<li>
+<em>Which</em> next download should be requested for that stream based on current
+playback position, the provided encoded bitrates, estimates of download
+bandwidth, buffering levels, etc..</li>
+</ul>
+<p>Subclasses can also decide, before passing the downloaded data over, to:</p>
+<ul>
+<li>
+<p>pre-parse specific headers (ex: ID3 and webvtt headers in HLS, MP4 fragment
+position, etc..).</p>
+</li>
+<li>
+<p>pre-parse actual content if needed because a position estimation is needed
+(ex: HLS missing accurate positioning of fragments in the overall timeline)</p>
+</li>
+<li>
+<p>rewrite the content altogether (for example webvtt fragments which require
+timing to be re-computed)</p>
+</li>
+</ul>
+<h2 id="timeline-position-playout">Timeline, position, playout</h2>
+<p>Adaptive Demuxers decide what to download based on a <em>Timeline</em> made of one or
+more <em>Tracks</em>.</p>
+<p>The output of that <em>Timeline</em> is synchronized (each <em>Track</em> pushes downstream at
+more or less the same position in time). That position is the "Global Output
+Position".</p>
+<p>The <em>Timeline</em> should have sufficient data in each track to allow all tracks to
+be decoded and played back downstream without introducing stalls. It is the goal
+of the <em>Scheduling thread</em> of adaptive demuxers to determine which fragment of
+data to download and at which moment, in order for:</p>
+<ul>
+<li>each track to have sufficient data for continuous playback downstream</li>
+<li>the overall buffering to not exceed specified limits (in time and/or bytes)</li>
+<li>the playback position to not stray away in case of live sources and
+low-latency scenarios.</li>
+</ul>
+<p>Which <em>Track</em> is selected on that <em>Timeline</em> is either:</p>
+<ul>
+<li>decided by the element (default choices)</li>
+<li>decided by the user (via <code>GST_EVENT_SELECT_STREAMS</code>)</li>
+</ul>
+<p>The goal of an Adaptive Demuxer is to establish <em>which</em> fragment to download and
+<em>when</em> based on:</p>
+<ul>
+<li>The selected <em>Tracks</em>
+</li>
+<li>The current <em>Timeline</em> output position</li>
+<li>The current <em>Track</em> download position (i.e. how much is buffered)</li>
+<li>The available bandwidth (calculated based on download speed)</li>
+<li>The bitrate of each fragment stream provided</li>
+<li>The current time (for live sources)</li>
+</ul>
+<p>In the future, an Adaptive Demuxer will be able to decide to discard a fragment
+if it estimates it can switch to a higher/lower variant in time to still satisfy
+the above requirements.</p>
+<h2 id="download-helper-and-thread">Download helper and thread</h2>
+<p>Based on the above, each Adaptive Demuxer implementation specifies to a
+<em>Download Loop</em> which fragment to download next and when.</p>
+<p>Multiple downloads can be requested at the same time on that thread. It is the
+responsibility of the <em>Scheduler thread</em> to decide what to do when a download is
+completed.</p>
+<p>Since all downloads are done in a dedicated thread without any blocking, it can
+estimate current bandwidth and latency, which the element can use to switch
+variants and improve buffering strategy.</p>
+<blockquote>
+<p><strong>Note</strong>: Unlike the old design, the <code>libsoup</code> library is used directly for
+downloading, and not via external GStreamer elements. In the future, this
+could be made modular so that other HTTP libraries can be used instead.</p>
+</blockquote>
+<h2 id="stream-selection">Stream Selection</h2>
+<p>When sending <code>GST_EVENT_STREAM_COLLECTION</code> downstream, the adaptive demuxer also
+specifies on the event that it can handle stream-selection. Downstream elements
+(i.e. <code>decodebin3</code>) won't attempt to do any selection but will
+handle/decode/expose all the streams provided by the adaptive demuxer (including
+streams that get added/removed at runtime).</p>
+<p>When handling a <code>GST_EVENT_SELECT_STREAMS</code>, the adaptive demuxer will:</p>
+<ul>
+<li>mark the requested tracks as <code>selected</code> (and no-longer requested ones as not
+selected)</li>
+<li>instruct the streams associated to no-longer selected tracks to stop</li>
+<li>set the current output position on streams associated to newly selected
+tracks and instruct them to be started</li>
+<li>return</li>
+</ul>
+<p>The actual changes in output (because of a stream selection change) are done in
+the output thread</p>
+<ul>
+<li>
+<p>If a track is no longer selected and there are no candidate replacement tracks
+of the same type, the associated output/pad is removed and the track is
+drained.</p>
+</li>
+<li>
+<p>If a track is selected and doesn't have a candidate replacement slot of the
+same type, a new output/pad is added for that track</p>
+</li>
+<li>
+<p>If a track is selected and has a candidate replacement slot, it will only be
+switched if the track it is replacing is empty <em>OR</em> when it has enough
+buffering so the switch can happen without re-triggering buffering.</p>
+</li>
+</ul>
+<h2 id="periods">Periods</h2>
+<p>The number and type of <code>GstAdaptiveDemuxTrack</code> and <code>GstAdaptiveDemuxStream</code> can
+not change once the initial manifests are parsed.</p>
+<p>In order to change that (for example in the case of a new DASH period), a new
+<code>GstAdaptiveDemuxPeriod</code> must be started.</p>
+<p>All the tracks and streams that are created at any given time are associated to
+the current <code>input period</code>. The streams of the input period are the ones that
+are active (i.e. downloading), and by extension the tracks of that input period
+are the ones that are being filled (if selected).</p>
+<p>That period <em>could</em> also be the <code>output period</code>. The (selected) tracks of that
+period are the ones that are used for output by the output thread.</p>
+<p>But due to buffering, the input and output period <em>could</em> be different, the
+baseclass will automatically handle switch over.</p>
+<p>The only requirement for subclasses is to ask the parent class to start a new
+period when needed and then create the new tracks and streams.</p>
+<h2 id="responsibility-split">Responsibility split</h2>
+<p>The <code>GstAdaptiveDemux2</code> base class is in charge of:</p>
+<ul>
+<li>helper for all downloads.</li>
+<li>helper for parsing (using <code>parsebin</code> and custom parsing functions) stream data.</li>
+<li>provides <em>parsed</em> elementary content for each fragment (note: could be more
+than one output stream for a given fragment)</li>
+<li>helper for providing <code>Tracks</code> that can be filled by subclasses.</li>
+<li>dealing with stream selection and output, including notifying subclasses which
+of those <em>are</em> active or not</li>
+<li>handling buffering and deciding when to request new data from associated stream</li>
+</ul>
+<p>Subclasses are in charge of:</p>
+<ul>
+<li>specifying which <code>GstAdaptiveDemuxTrack</code> and <code>GstAdaptiveDemuxStream</code> they
+provide (based on the manifest) and their relationship.</li>
+<li>when requested by the base class, specify which <code>GstAdaptiveDemuxFragment</code>
+should be downloaded next for a given (selected) stream.</li>
+</ul>
+
+    </div>
+        
+
+
+
+
+		
+	</div>
+	<div id="search_results">
+		<p>The results of the search are</p>
+	</div>
+	<div id="footer">
+		    
+
+	</div>
+</div>
+
+<div id="toc-column">
+	
+		<div class="edit-button">
+		<a href="https://gitlab.freedesktop.org/gstreamer/gst-docs//edit/master/subprojects/gst-docs/markdown/additional/design/adaptive-demuxer.md" data-hotdoc-role="edit-button">Edit on GitLab</a>
+
+	</div>
+		<div id="toc-wrapper">
+		<nav id="toc"></nav>
+	</div>
+</div>
+</div>
+</main>
+
+
+<script src="assets/js/navbar_offset_scroller.js"></script>
+</body>
+</html>

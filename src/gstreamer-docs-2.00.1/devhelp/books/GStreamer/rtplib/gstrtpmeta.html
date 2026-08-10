@@ -1,0 +1,1906 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<base href="..">
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<title>GstMeta for RTP</title>
+
+<link rel="stylesheet" href="assets/css/dark-frontend.css" type="text/css" title="dark">
+<link rel="alternate stylesheet" href="assets/css/light-frontend.css" type="text/css" title="light">
+<link rel="stylesheet" href="assets/css/bootstrap-toc.min.css" type="text/css">
+<link rel="stylesheet" href="assets/css/jquery.mCustomScrollbar.min.css">
+<link rel="stylesheet" href="assets/js/search/enable_search.css" type="text/css">
+
+<link rel="stylesheet" href="assets/css/extra_frontend.css" type="text/css">
+<link rel="stylesheet" href="assets/css/devhelp.css" type="text/css">
+
+<link rel="stylesheet" href="assets/css/prism-tomorrow.css" type="text/css" title="dark">
+
+<link rel="alternate stylesheet" href="assets/css/prism.css" type="text/css" title="light">
+
+<script src="assets/js/mustache.min.js"></script>
+<script src="assets/js/jquery.js"></script>
+<script src="assets/js/bootstrap.js"></script>
+<script src="assets/js/scrollspy.js"></script>
+<script src="assets/js/typeahead.jquery.min.js"></script>
+<script src="assets/js/search.js"></script>
+<script src="assets/js/compare-versions.js"></script>
+<script src="assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="assets/js/bootstrap-toc.min.js"></script>
+<script src="assets/js/jquery.touchSwipe.min.js"></script>
+<script src="assets/js/anchor.min.js"></script>
+<script src="assets/js/tag_filtering.js"></script>
+<script src="assets/js/language_switching.js"></script>
+<script src="assets/js/styleswitcher.js"></script>
+
+<script src="assets/js/lines_around_headings.js"></script>
+
+<script src="assets/js/prism-core.js"></script>
+<script src="assets/js/prism-autoloader.js"></script>
+<script src="assets/js/prism_autoloader_path_override.js"></script>
+<script src="assets/js/trie.js"></script>
+
+<!-- generic -->
+<link rel="icon" type="image/png" href="assets/images/favicon-16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="assets/images/favicon-32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="assets/images/favicon-57.png" sizes="57x57">
+<link rel="icon" type="image/png" href="assets/images/favicon-64.png" sizes="64x64">
+<link rel="icon" type="image/png" href="assets/images/favicon-76.png" sizes="76x76">
+<link rel="icon" type="image/png" href="assets/images/favicon-96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="assets/images/favicon-128.png" sizes="128x128">
+<link rel="icon" type="image/png" href="assets/images/favicon-192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="assets/images/favicon-228.png" sizes="228x228">
+
+<!-- Android -->
+<link rel="shortcut icon" sizes="196x196" href="assets/images/favicon-196.png">
+
+<!-- iOS -->
+<link rel="apple-touch-icon" href="assets/images/favicon-120.png" sizes="120x120">
+<link rel="apple-touch-icon" href="assets/images/favicon-152.png" sizes="152x152">
+<link rel="apple-touch-icon" href="assets/images/favicon-180.png" sizes="180x180">
+
+</head>
+
+<body class="no-script
+">
+
+<script>
+$('body').removeClass('no-script');
+</script>
+
+<nav class="navbar navbar-fixed-top navbar-default" id="topnav">
+	<div class="container-fluid">
+		<div class="navbar-right">
+			<a id="toc-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-wrapper" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<span title="light mode switch" class="glyphicon glyphicon-sunglasses pull-right" id="lightmode-icon"></span>
+			<form class="navbar-form pull-right" id="navbar-search-form">
+                               <div class="form-group has-feedback">
+                                       <input type="text" class="form-control input-sm" name="search" id="sidenav-lookup-field" placeholder="search" disabled>
+				       <span class="glyphicon glyphicon-search form-control-feedback" id="search-mgn-glass"></span>
+                               </div>
+                        </form>
+		</div>
+		<div class="navbar-header">
+			<a id="sidenav-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<a id="home-link" href="index.html" class="hotdoc-navbar-brand">
+				<img src="assets/images/gstreamer-logo.svg" alt="Home">
+			</a>
+		</div>
+		<div class="navbar-collapse collapse" id="navbar-wrapper">
+			<ul class="nav navbar-nav" id="menu">
+				
+<li class="dropdown">
+    <a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        API References<span class="caret"></span>
+    </a>
+	<ul class="dropdown-menu" id="modules-menu">
+					<li>
+				<a href="gstreamer/gi-index.html">GStreamer core</a>
+			</li>
+					<li>
+				<a href="libs.html">GStreamer Libraries</a>
+			</li>
+					<li>
+				<a href="plugins_doc.html">GStreamer Plugins</a>
+			</li>
+		</ul>
+</li>
+
+<li>
+    <a href="application-development/index.html">Application manual</a>
+</li>
+
+
+<li>
+    <a href="tutorials/index.html">Tutorials</a>
+</li>
+
+			</ul>
+			<div class="hidden-xs hidden-sm navbar-text navbar-center">
+							</div>
+		</div>
+	</div>
+</nav>
+
+<main>
+<div data-extension="gi-extension" data-hotdoc-in-toplevel="False" data-hotdoc-project="rtplib" data-hotdoc-ref="gstrtpmeta.html" class="page_container" id="page-wrapper" data-hotdoc-meta-gi-languages="['c', 'javascript', 'python']" data-hotdoc-meta-gi-language="c">
+<script src="assets/js/utils.js"></script>
+
+<div class="panel panel-collapse oc-collapsed" id="sidenav" data-hotdoc-role="navigation">
+	<script src="assets/js/full-width.js"></script>
+  <div id="sitenav-wrapper">
+    <iframe src="hotdoc-sitemap.html" id="sitenav-frame"></iframe>
+  </div>
+</div>
+
+<div id="body">
+	<div id="main">
+				    <div id="page-description" data-hotdoc-role="main">
+        <h1 id="gstmeta-for-rtp-page">GstMeta for RTP</h1>
+    </div>
+        
+        
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.16;" id="GstRTPSourceMeta">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h2 data-hotdoc-id="GstRTPSourceMeta">
+	<i>GstRTPSourceMeta</i>
+</h2>
+
+
+
+<div class="class_details">
+	<p>Meta describing the source(s) of the buffer.</p>
+
+</div>
+
+
+
+	<div class="members-container">
+		<h3>Members</h3>
+					
+<div class="symbol-detail" data-hotdoc-id="GstRTPSourceMeta.meta">
+	<div>
+		<i><em><code>meta</code></em></i>
+		(<a title="GstMeta" href="gstreamer/gstmeta.html#GstMeta">GstMeta</a>)
+		–
+	</div>
+			<p>parent <a href="gstreamer/gstmeta.html#GstMeta">GstMeta</a></p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstRTPSourceMeta.ssrc">
+	<div>
+		<i><em><code>ssrc</code></em></i>
+		(<a title="guint32" href="https://docs.gtk.org/glib/types.html#guint32">guint32</a>)
+		–
+	</div>
+			<p>the SSRC</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstRTPSourceMeta.ssrc_valid">
+	<div>
+		<i><em><code>ssrc_valid</code></em></i>
+		(<a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a>)
+		–
+	</div>
+			<p>whether <em>ssrc</em> is set and valid</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstRTPSourceMeta.csrc">
+	<div>
+		<i><em><code>csrc</code></em></i>
+		(<a title="guint32" href="https://docs.gtk.org/glib/types.html#guint32">guint32</a> *)
+		–
+	</div>
+			<p>pointer to the CSRCs</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstRTPSourceMeta.csrc_count">
+	<div>
+		<i><em><code>csrc_count</code></em></i>
+		(<a title="guint" href="https://docs.gtk.org/glib/types.html#guint">guint</a>)
+		–
+	</div>
+			<p>number of elements in <em>csrc</em></p>
+
+	</div>
+
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.16
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h2 data-hotdoc-id="GstRTPSourceMeta">
+	<i>GstRtp.RTPSourceMeta</i>
+</h2>
+
+
+
+<div class="class_details">
+	<p>Meta describing the source(s) of the buffer.</p>
+
+</div>
+
+
+
+	<div class="members-container">
+		<h3>Members</h3>
+					
+<div class="symbol-detail" data-hotdoc-id="GstRTPSourceMeta.meta">
+	<div>
+		<i><em><code>meta</code></em></i>
+		(<a title="Gst.Meta" href="gstreamer/gstmeta.html#GstMeta">Gst.Meta</a>)
+		–
+	</div>
+			<p>parent <a href="gstreamer/gstmeta.html#GstMeta">Gst.Meta</a></p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstRTPSourceMeta.ssrc">
+	<div>
+		<i><em><code>ssrc</code></em></i>
+		(<a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>)
+		–
+	</div>
+			<p>the SSRC</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstRTPSourceMeta.ssrc_valid">
+	<div>
+		<i><em><code>ssrc_valid</code></em></i>
+		(<a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>)
+		–
+	</div>
+			<p>whether <em>ssrc</em> is set and valid</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstRTPSourceMeta.csrc">
+	<div>
+		<i><em><code>csrc</code></em></i>
+		([ <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a> ])
+		–
+	</div>
+			<p>pointer to the CSRCs</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstRTPSourceMeta.csrc_count">
+	<div>
+		<i><em><code>csrc_count</code></em></i>
+		(<a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>)
+		–
+	</div>
+			<p>number of elements in <em>csrc</em></p>
+
+	</div>
+
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.16
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h2 data-hotdoc-id="GstRTPSourceMeta">
+	<i>GstRtp.RTPSourceMeta</i>
+</h2>
+
+
+
+<div class="class_details">
+	<p>Meta describing the source(s) of the buffer.</p>
+
+</div>
+
+
+
+	<div class="members-container">
+		<h3>Members</h3>
+					
+<div class="symbol-detail" data-hotdoc-id="GstRTPSourceMeta.meta">
+	<div>
+		<i><em><code>meta</code></em></i>
+		(<a title="Gst.Meta" href="gstreamer/gstmeta.html#GstMeta">Gst.Meta</a>)
+		–
+	</div>
+			<p>parent <a href="gstreamer/gstmeta.html#GstMeta">Gst.Meta</a></p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstRTPSourceMeta.ssrc">
+	<div>
+		<i><em><code>ssrc</code></em></i>
+		(<a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a>)
+		–
+	</div>
+			<p>the SSRC</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstRTPSourceMeta.ssrc_valid">
+	<div>
+		<i><em><code>ssrc_valid</code></em></i>
+		(<a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a>)
+		–
+	</div>
+			<p>whether <em>ssrc</em> is set and valid</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstRTPSourceMeta.csrc">
+	<div>
+		<i><em><code>csrc</code></em></i>
+		([ <a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a> ])
+		–
+	</div>
+			<p>pointer to the CSRCs</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstRTPSourceMeta.csrc_count">
+	<div>
+		<i><em><code>csrc_count</code></em></i>
+		(<a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a>)
+		–
+	</div>
+			<p>number of elements in <em>csrc</em></p>
+
+	</div>
+
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.16
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+
+            <h3 class="symbol_section">Methods</h3>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.16;" id="gst_rtp_source_meta_append_csrc">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_rtp_source_meta_append_csrc">
+	<i>gst_rtp_source_meta_append_csrc</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a>
+gst_rtp_source_meta_append_csrc (<a title="GstRTPSourceMeta" href="rtplib/gstrtpmeta.html#GstRTPSourceMeta">GstRTPSourceMeta</a> * meta,
+                                 const <a title="guint32" href="https://docs.gtk.org/glib/types.html#guint32">guint32</a> * csrc,
+                                 <a title="guint" href="https://docs.gtk.org/glib/types.html#guint">guint</a> csrc_count)</pre>
+
+<p>Appends <em>csrc</em> to the list of contributing sources in <em>meta</em>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>meta</code></em></i>
+–
+</div>
+<p>a <a href="rtplib/gstrtpmeta.html#GstRTPSourceMeta">GstRTPSourceMeta</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>csrc</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="Parameter points to an array of items"><span class="acronym">array</span></abbr> length=csrc_count]</span><span>)</span>
+–
+</div>
+<p>the csrcs to append</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>csrc_count</code></em></i>
+–
+</div>
+<p>number of elements in <em>csrc</em></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p><a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#TRUE:CAPS">TRUE</a> if all elements in <em>csrc</em> was added, <a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#FALSE:CAPS">FALSE</a> otherwise.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.16
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_rtp_source_meta_append_csrc">
+	<i>GstRtp.RTPSourceMeta.prototype.append_csrc</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstRtp.RTPSourceMeta.prototype.append_csrc(csrc: [ <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a> ], csrc_count: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>): {
+    // javascript wrapper for 'gst_rtp_source_meta_append_csrc'
+}</code></pre>
+
+<p>Appends <em>csrc</em> to the list of contributing sources in <em>meta</em>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>meta</code></em></i>
+<span>(</span><a title="GstRtp.RTPSourceMeta" href="rtplib/gstrtpmeta.html#GstRTPSourceMeta">GstRtp.RTPSourceMeta</a><span>)</span>
+–
+</div>
+<p>a <a href="rtplib/gstrtpmeta.html#GstRTPSourceMeta">GstRtp.RTPSourceMeta</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>csrc</code></em></i>
+<span>(</span>[ <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a> ]<span>)</span>
+–
+</div>
+<p>the csrcs to append</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>csrc_count</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>number of elements in <em>csrc</em></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+			</div>
+							<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">true</a> if all elements in <em>csrc</em> was added, <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">false</a> otherwise.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.16
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_rtp_source_meta_append_csrc">
+	<i>GstRtp.RTPSourceMeta.append_csrc</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstRtp.RTPSourceMeta.append_csrc (self, csrc, csrc_count):
+    #python wrapper for 'gst_rtp_source_meta_append_csrc'</code></pre>
+
+<p>Appends <em>csrc</em> to the list of contributing sources in <em>meta</em>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>meta</code></em></i>
+<span>(</span><a title="GstRtp.RTPSourceMeta" href="rtplib/gstrtpmeta.html#GstRTPSourceMeta">GstRtp.RTPSourceMeta</a><span>)</span>
+–
+</div>
+<p>a <a href="rtplib/gstrtpmeta.html#GstRTPSourceMeta">GstRtp.RTPSourceMeta</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>csrc</code></em></i>
+<span>(</span>[ <a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a> ]<span>)</span>
+–
+</div>
+<p>the csrcs to append</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>csrc_count</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<p>number of elements in <em>csrc</em></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a><span>)</span>
+–
+			</div>
+							<p><a href="https://docs.python.org/3/library/constants.html#True">True</a> if all elements in <em>csrc</em> was added, <a href="https://docs.python.org/3/library/constants.html#False">False</a> otherwise.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.16
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.16;" id="gst_rtp_source_meta_get_source_count">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_rtp_source_meta_get_source_count">
+	<i>gst_rtp_source_meta_get_source_count</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="guint" href="https://docs.gtk.org/glib/types.html#guint">guint</a>
+gst_rtp_source_meta_get_source_count (const <a title="GstRTPSourceMeta" href="rtplib/gstrtpmeta.html#GstRTPSourceMeta">GstRTPSourceMeta</a> * meta)</pre>
+
+<p>Count the total number of RTP sources found in <em>meta</em>, both SSRC and CSRC.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>meta</code></em></i>
+–
+</div>
+<p>a <a href="rtplib/gstrtpmeta.html#GstRTPSourceMeta">GstRTPSourceMeta</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p>The number of RTP sources</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.16
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_rtp_source_meta_get_source_count">
+	<i>GstRtp.RTPSourceMeta.prototype.get_source_count</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstRtp.RTPSourceMeta.prototype.get_source_count(): {
+    // javascript wrapper for 'gst_rtp_source_meta_get_source_count'
+}</code></pre>
+
+<p>Count the total number of RTP sources found in <em>meta</em>, both SSRC and CSRC.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>meta</code></em></i>
+<span>(</span><a title="GstRtp.RTPSourceMeta" href="rtplib/gstrtpmeta.html#GstRTPSourceMeta">GstRtp.RTPSourceMeta</a><span>)</span>
+–
+</div>
+<p>a <a href="rtplib/gstrtpmeta.html#GstRTPSourceMeta">GstRtp.RTPSourceMeta</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+			</div>
+							<p>The number of RTP sources</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.16
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_rtp_source_meta_get_source_count">
+	<i>GstRtp.RTPSourceMeta.get_source_count</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstRtp.RTPSourceMeta.get_source_count (self):
+    #python wrapper for 'gst_rtp_source_meta_get_source_count'</code></pre>
+
+<p>Count the total number of RTP sources found in <em>meta</em>, both SSRC and CSRC.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>meta</code></em></i>
+<span>(</span><a title="GstRtp.RTPSourceMeta" href="rtplib/gstrtpmeta.html#GstRTPSourceMeta">GstRtp.RTPSourceMeta</a><span>)</span>
+–
+</div>
+<p>a <a href="rtplib/gstrtpmeta.html#GstRTPSourceMeta">GstRtp.RTPSourceMeta</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+			</div>
+							<p>The number of RTP sources</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.16
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.16;" id="gst_rtp_source_meta_set_ssrc">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_rtp_source_meta_set_ssrc">
+	<i>gst_rtp_source_meta_set_ssrc</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a>
+gst_rtp_source_meta_set_ssrc (<a title="GstRTPSourceMeta" href="rtplib/gstrtpmeta.html#GstRTPSourceMeta">GstRTPSourceMeta</a> * meta,
+                              <a title="guint32" href="https://docs.gtk.org/glib/types.html#guint32">guint32</a> * ssrc)</pre>
+
+<p>Sets <em>ssrc</em> in <em>meta</em>. If <em>ssrc</em> is <a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#NULL:CAPS">NULL</a> the ssrc of <em>meta</em> will be unset.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>meta</code></em></i>
+–
+</div>
+<p>a <a href="rtplib/gstrtpmeta.html#GstRTPSourceMeta">GstRTPSourceMeta</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>ssrc</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="NULL may be passed to the value"><span class="acronym">nullable</span></abbr>]</span><span class="annotation">[<abbr title="Don't free data after the code is done"><span class="acronym">transfer: none</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>pointer to the SSRC</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p><a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#TRUE:CAPS">TRUE</a> on success, <a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#FALSE:CAPS">FALSE</a> otherwise.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.16
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_rtp_source_meta_set_ssrc">
+	<i>GstRtp.RTPSourceMeta.prototype.set_ssrc</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstRtp.RTPSourceMeta.prototype.set_ssrc(ssrc: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>): {
+    // javascript wrapper for 'gst_rtp_source_meta_set_ssrc'
+}</code></pre>
+
+<p>Sets <em>ssrc</em> in <em>meta</em>. If <em>ssrc</em> is <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null">null</a> the ssrc of <em>meta</em> will be unset.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>meta</code></em></i>
+<span>(</span><a title="GstRtp.RTPSourceMeta" href="rtplib/gstrtpmeta.html#GstRTPSourceMeta">GstRtp.RTPSourceMeta</a><span>)</span>
+–
+</div>
+<p>a <a href="rtplib/gstrtpmeta.html#GstRTPSourceMeta">GstRtp.RTPSourceMeta</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>ssrc</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>pointer to the SSRC</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+			</div>
+							<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">true</a> on success, <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">false</a> otherwise.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.16
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_rtp_source_meta_set_ssrc">
+	<i>GstRtp.RTPSourceMeta.set_ssrc</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstRtp.RTPSourceMeta.set_ssrc (self, ssrc):
+    #python wrapper for 'gst_rtp_source_meta_set_ssrc'</code></pre>
+
+<p>Sets <em>ssrc</em> in <em>meta</em>. If <em>ssrc</em> is <a href="https://docs.python.org/3/library/constants.html#None">None</a> the ssrc of <em>meta</em> will be unset.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>meta</code></em></i>
+<span>(</span><a title="GstRtp.RTPSourceMeta" href="rtplib/gstrtpmeta.html#GstRTPSourceMeta">GstRtp.RTPSourceMeta</a><span>)</span>
+–
+</div>
+<p>a <a href="rtplib/gstrtpmeta.html#GstRTPSourceMeta">GstRtp.RTPSourceMeta</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>ssrc</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<p>pointer to the SSRC</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a><span>)</span>
+–
+			</div>
+							<p><a href="https://docs.python.org/3/library/constants.html#True">True</a> on success, <a href="https://docs.python.org/3/library/constants.html#False">False</a> otherwise.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.16
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+
+            <h3 class="symbol_section">Functions</h3>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_rtp_source_meta_get_info">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_rtp_source_meta_get_info">
+	<i>gst_rtp_source_meta_get_info</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+const <a title="GstMetaInfo" href="gstreamer/gstmeta.html#GstMetaInfo">GstMetaInfo</a> *
+gst_rtp_source_meta_get_info ()</pre>
+
+
+
+
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_rtp_source_meta_get_info">
+	<i>GstRtp.RTPSourceMeta.prototype.get_info</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstRtp.RTPSourceMeta.prototype.get_info(): {
+    // javascript wrapper for 'gst_rtp_source_meta_get_info'
+}</code></pre>
+
+
+
+
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Gst.MetaInfo" href="gstreamer/gstmeta.html#GstMetaInfo">Gst.MetaInfo</a><span>)</span>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_rtp_source_meta_get_info">
+	<i>GstRtp.RTPSourceMeta.get_info</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstRtp.RTPSourceMeta.get_info ():
+    #python wrapper for 'gst_rtp_source_meta_get_info'</code></pre>
+
+
+
+
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Gst.MetaInfo" href="gstreamer/gstmeta.html#GstMetaInfo">Gst.MetaInfo</a><span>)</span>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+
+        
+
+            <h2 class="symbol_section">Functions</h2>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.16;" id="gst_buffer_add_rtp_source_meta">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="gst_buffer_add_rtp_source_meta">
+	<i>gst_buffer_add_rtp_source_meta</i>
+</h3>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GstRTPSourceMeta" href="rtplib/gstrtpmeta.html#GstRTPSourceMeta">GstRTPSourceMeta</a> *
+gst_buffer_add_rtp_source_meta (<a title="GstBuffer" href="gstreamer/gstbuffer.html#GstBuffer">GstBuffer</a> * buffer,
+                                const <a title="guint32" href="https://docs.gtk.org/glib/types.html#guint32">guint32</a> * ssrc,
+                                const <a title="guint32" href="https://docs.gtk.org/glib/types.html#guint32">guint32</a> * csrc,
+                                <a title="guint" href="https://docs.gtk.org/glib/types.html#guint">guint</a> csrc_count)</pre>
+
+<p>Attaches RTP source information to <em>buffer</em>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>buffer</code></em></i>
+–
+</div>
+<p>a <a href="gstreamer/gstbuffer.html#GstBuffer">GstBuffer</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>ssrc</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="NULL may be passed to the value"><span class="acronym">nullable</span></abbr>]</span><span class="annotation">[<abbr title="Don't free data after the code is done"><span class="acronym">transfer: none</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>pointer to the SSRC</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>csrc</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="NULL may be passed to the value"><span class="acronym">nullable</span></abbr>]</span><span class="annotation">[<abbr title="Don't free data after the code is done"><span class="acronym">transfer: none</span></abbr>]</span><span class="annotation">[<abbr title="Parameter points to an array of items"><span class="acronym">array</span></abbr> length=csrc_count]</span><span>)</span>
+–
+</div>
+<p>pointer to the CSRCs</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>csrc_count</code></em></i>
+–
+</div>
+<p>number of elements in <em>csrc</em></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span>
+<span class="annotation">[<abbr title="Don't free data after the code is done"><span class="acronym">transfer: none</span></abbr>]</span><span>)</span>
+–
+			</div>
+							<p>the <a href="rtplib/gstrtpmeta.html#GstRTPSourceMeta">GstRTPSourceMeta</a> on <em>buffer</em>.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.16
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3 data-hotdoc-id="gst_buffer_add_rtp_source_meta">
+	<i>GstRtp.prototype.buffer_add_rtp_source_meta</i>
+</h3>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstRtp.prototype.buffer_add_rtp_source_meta(buffer: <a title="Gst.Buffer" href="gstreamer/gstbuffer.html#GstBuffer">Gst.Buffer</a>, ssrc: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>, csrc: [ <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a> ], csrc_count: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>): {
+    // javascript wrapper for 'gst_buffer_add_rtp_source_meta'
+}</code></pre>
+
+<p>Attaches RTP source information to <em>buffer</em>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>buffer</code></em></i>
+<span>(</span><a title="Gst.Buffer" href="gstreamer/gstbuffer.html#GstBuffer">Gst.Buffer</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gstbuffer.html#GstBuffer">Gst.Buffer</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>ssrc</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>pointer to the SSRC</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>csrc</code></em></i>
+<span>(</span>[ <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a> ]<span>)</span>
+–
+</div>
+<p>pointer to the CSRCs</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>csrc_count</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>number of elements in <em>csrc</em></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GstRtp.RTPSourceMeta" href="rtplib/gstrtpmeta.html#GstRTPSourceMeta">GstRtp.RTPSourceMeta</a><span>)</span>
+–
+			</div>
+							<p>the <a href="rtplib/gstrtpmeta.html#GstRTPSourceMeta">GstRtp.RTPSourceMeta</a> on <em>buffer</em>.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.16
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3 data-hotdoc-id="gst_buffer_add_rtp_source_meta">
+	<i>GstRtp.buffer_add_rtp_source_meta</i>
+</h3>
+
+
+<pre class="python-prototype language-python">
+<code>def GstRtp.buffer_add_rtp_source_meta (buffer, ssrc, csrc, csrc_count):
+    #python wrapper for 'gst_buffer_add_rtp_source_meta'</code></pre>
+
+<p>Attaches RTP source information to <em>buffer</em>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>buffer</code></em></i>
+<span>(</span><a title="Gst.Buffer" href="gstreamer/gstbuffer.html#GstBuffer">Gst.Buffer</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gstbuffer.html#GstBuffer">Gst.Buffer</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>ssrc</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<p>pointer to the SSRC</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>csrc</code></em></i>
+<span>(</span>[ <a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a> ]<span>)</span>
+–
+</div>
+<p>pointer to the CSRCs</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>csrc_count</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<p>number of elements in <em>csrc</em></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GstRtp.RTPSourceMeta" href="rtplib/gstrtpmeta.html#GstRTPSourceMeta">GstRtp.RTPSourceMeta</a><span>)</span>
+–
+			</div>
+							<p>the <a href="rtplib/gstrtpmeta.html#GstRTPSourceMeta">GstRtp.RTPSourceMeta</a> on <em>buffer</em>.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.16
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.16;" id="gst_buffer_get_rtp_source_meta">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="gst_buffer_get_rtp_source_meta">
+	<i>gst_buffer_get_rtp_source_meta</i>
+</h3>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GstRTPSourceMeta" href="rtplib/gstrtpmeta.html#GstRTPSourceMeta">GstRTPSourceMeta</a> *
+gst_buffer_get_rtp_source_meta (<a title="GstBuffer" href="gstreamer/gstbuffer.html#GstBuffer">GstBuffer</a> * buffer)</pre>
+
+<p>Find the <a href="rtplib/gstrtpmeta.html#GstRTPSourceMeta">GstRTPSourceMeta</a> on <em>buffer</em>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>buffer</code></em></i>
+–
+</div>
+<p>a <a href="gstreamer/gstbuffer.html#GstBuffer">GstBuffer</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span>
+<span class="annotation">[<abbr title="Don't free data after the code is done"><span class="acronym">transfer: none</span></abbr>]</span><span class="annotation">[<abbr title="NULL may be passed to the value"><span class="acronym">nullable</span></abbr>]</span><span>)</span>
+–
+			</div>
+							<p>the <a href="rtplib/gstrtpmeta.html#GstRTPSourceMeta">GstRTPSourceMeta</a> or <a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#NULL:CAPS">NULL</a> when there
+is no such metadata on <em>buffer</em>.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.16
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3 data-hotdoc-id="gst_buffer_get_rtp_source_meta">
+	<i>GstRtp.prototype.buffer_get_rtp_source_meta</i>
+</h3>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstRtp.prototype.buffer_get_rtp_source_meta(buffer: <a title="Gst.Buffer" href="gstreamer/gstbuffer.html#GstBuffer">Gst.Buffer</a>): {
+    // javascript wrapper for 'gst_buffer_get_rtp_source_meta'
+}</code></pre>
+
+<p>Find the <a href="rtplib/gstrtpmeta.html#GstRTPSourceMeta">GstRtp.RTPSourceMeta</a> on <em>buffer</em>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>buffer</code></em></i>
+<span>(</span><a title="Gst.Buffer" href="gstreamer/gstbuffer.html#GstBuffer">Gst.Buffer</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gstbuffer.html#GstBuffer">Gst.Buffer</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GstRtp.RTPSourceMeta" href="rtplib/gstrtpmeta.html#GstRTPSourceMeta">GstRtp.RTPSourceMeta</a><span>)</span>
+–
+			</div>
+							<p>the <a href="rtplib/gstrtpmeta.html#GstRTPSourceMeta">GstRtp.RTPSourceMeta</a> or <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null">null</a> when there
+is no such metadata on <em>buffer</em>.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.16
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3 data-hotdoc-id="gst_buffer_get_rtp_source_meta">
+	<i>GstRtp.buffer_get_rtp_source_meta</i>
+</h3>
+
+
+<pre class="python-prototype language-python">
+<code>def GstRtp.buffer_get_rtp_source_meta (buffer):
+    #python wrapper for 'gst_buffer_get_rtp_source_meta'</code></pre>
+
+<p>Find the <a href="rtplib/gstrtpmeta.html#GstRTPSourceMeta">GstRtp.RTPSourceMeta</a> on <em>buffer</em>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>buffer</code></em></i>
+<span>(</span><a title="Gst.Buffer" href="gstreamer/gstbuffer.html#GstBuffer">Gst.Buffer</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gstbuffer.html#GstBuffer">Gst.Buffer</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GstRtp.RTPSourceMeta" href="rtplib/gstrtpmeta.html#GstRTPSourceMeta">GstRtp.RTPSourceMeta</a><span>)</span>
+–
+			</div>
+							<p>the <a href="rtplib/gstrtpmeta.html#GstRTPSourceMeta">GstRtp.RTPSourceMeta</a> or <a href="https://docs.python.org/3/library/constants.html#None">None</a> when there
+is no such metadata on <em>buffer</em>.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.16
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_rtp_source_meta_api_get_type">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="gst_rtp_source_meta_api_get_type">
+	<i>gst_rtp_source_meta_api_get_type</i>
+</h3>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GType" href="https://docs.gtk.org/gobject/alias.Type.html">GType</a>
+gst_rtp_source_meta_api_get_type ()</pre>
+
+
+
+
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3 data-hotdoc-id="gst_rtp_source_meta_api_get_type">
+	<i>GstRtp.prototype.rtp_source_meta_api_get_type</i>
+</h3>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstRtp.prototype.rtp_source_meta_api_get_type(): {
+    // javascript wrapper for 'gst_rtp_source_meta_api_get_type'
+}</code></pre>
+
+
+
+
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GObject.Type" href="https://developer.gnome.org/gobject/stable/gobject-Type-Information.html#GType">GObject.Type</a><span>)</span>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3 data-hotdoc-id="gst_rtp_source_meta_api_get_type">
+	<i>GstRtp.rtp_source_meta_api_get_type</i>
+</h3>
+
+
+<pre class="python-prototype language-python">
+<code>def GstRtp.rtp_source_meta_api_get_type ():
+    #python wrapper for 'gst_rtp_source_meta_api_get_type'</code></pre>
+
+
+
+
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GObject.Type" href="https://developer.gnome.org/gobject/stable/gobject-Type-Information.html#GType">GObject.Type</a><span>)</span>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+
+            <h2 class="symbol_section">Constants</h2>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GST_RTP_SOURCE_META_API_TYPE">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_RTP_SOURCE_META_API_TYPE">
+	<i>GST_RTP_SOURCE_META_API_TYPE</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_RTP_SOURCE_META_API_TYPE  (gst_rtp_source_meta_api_get_type())
+</pre>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GST_RTP_SOURCE_META_INFO">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_RTP_SOURCE_META_INFO">
+	<i>GST_RTP_SOURCE_META_INFO</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_RTP_SOURCE_META_INFO  (gst_rtp_source_meta_get_info())
+</pre>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GST_RTP_SOURCE_META_MAX_CSRC_COUNT">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_RTP_SOURCE_META_MAX_CSRC_COUNT">
+	<i>GST_RTP_SOURCE_META_MAX_CSRC_COUNT</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_RTP_SOURCE_META_MAX_CSRC_COUNT 15
+</pre>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3 data-hotdoc-id="GST_RTP_SOURCE_META_MAX_CSRC_COUNT">
+	<i>GstRtp.RTP_SOURCE_META_MAX_CSRC_COUNT</i>
+</h3>
+
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3 data-hotdoc-id="GST_RTP_SOURCE_META_MAX_CSRC_COUNT">
+	<i>GstRtp.RTP_SOURCE_META_MAX_CSRC_COUNT</i>
+</h3>
+
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+
+
+
+
+
+		
+	</div>
+	<div id="search_results">
+		<p>The results of the search are</p>
+	</div>
+	<div id="footer">
+		    
+
+	</div>
+</div>
+
+<div id="toc-column">
+	
+		<div class="edit-button">
+		
+
+	</div>
+		<div id="toc-wrapper">
+		<nav id="toc"></nav>
+	</div>
+</div>
+</div>
+</main>
+
+
+<script src="assets/js/navbar_offset_scroller.js"></script>
+</body>
+</html>

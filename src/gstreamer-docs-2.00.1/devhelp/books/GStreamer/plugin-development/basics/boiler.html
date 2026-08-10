@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<base href="../..">
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<title>Constructing the Boilerplate</title>
+
+<link rel="stylesheet" href="assets/css/dark-frontend.css" type="text/css" title="dark">
+<link rel="alternate stylesheet" href="assets/css/light-frontend.css" type="text/css" title="light">
+<link rel="stylesheet" href="assets/css/bootstrap-toc.min.css" type="text/css">
+<link rel="stylesheet" href="assets/css/jquery.mCustomScrollbar.min.css">
+<link rel="stylesheet" href="assets/js/search/enable_search.css" type="text/css">
+
+<link rel="stylesheet" href="assets/css/extra_frontend.css" type="text/css">
+<link rel="stylesheet" href="assets/css/devhelp.css" type="text/css">
+
+<link rel="stylesheet" href="assets/css/prism-tomorrow.css" type="text/css" title="dark">
+
+<link rel="alternate stylesheet" href="assets/css/prism.css" type="text/css" title="light">
+
+<script src="assets/js/mustache.min.js"></script>
+<script src="assets/js/jquery.js"></script>
+<script src="assets/js/bootstrap.js"></script>
+<script src="assets/js/scrollspy.js"></script>
+<script src="assets/js/typeahead.jquery.min.js"></script>
+<script src="assets/js/search.js"></script>
+<script src="assets/js/compare-versions.js"></script>
+<script src="assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="assets/js/bootstrap-toc.min.js"></script>
+<script src="assets/js/jquery.touchSwipe.min.js"></script>
+<script src="assets/js/anchor.min.js"></script>
+<script src="assets/js/tag_filtering.js"></script>
+<script src="assets/js/language_switching.js"></script>
+<script src="assets/js/styleswitcher.js"></script>
+
+<script src="assets/js/lines_around_headings.js"></script>
+
+<script src="assets/js/prism-core.js"></script>
+<script src="assets/js/prism-autoloader.js"></script>
+<script src="assets/js/prism_autoloader_path_override.js"></script>
+<script src="assets/js/trie.js"></script>
+
+<!-- generic -->
+<link rel="icon" type="image/png" href="assets/images/favicon-16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="assets/images/favicon-32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="assets/images/favicon-57.png" sizes="57x57">
+<link rel="icon" type="image/png" href="assets/images/favicon-64.png" sizes="64x64">
+<link rel="icon" type="image/png" href="assets/images/favicon-76.png" sizes="76x76">
+<link rel="icon" type="image/png" href="assets/images/favicon-96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="assets/images/favicon-128.png" sizes="128x128">
+<link rel="icon" type="image/png" href="assets/images/favicon-192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="assets/images/favicon-228.png" sizes="228x228">
+
+<!-- Android -->
+<link rel="shortcut icon" sizes="196x196" href="assets/images/favicon-196.png">
+
+<!-- iOS -->
+<link rel="apple-touch-icon" href="assets/images/favicon-120.png" sizes="120x120">
+<link rel="apple-touch-icon" href="assets/images/favicon-152.png" sizes="152x152">
+<link rel="apple-touch-icon" href="assets/images/favicon-180.png" sizes="180x180">
+
+</head>
+
+<body class="no-script
+">
+
+<script>
+$('body').removeClass('no-script');
+</script>
+
+<nav class="navbar navbar-fixed-top navbar-default" id="topnav">
+	<div class="container-fluid">
+		<div class="navbar-right">
+			<a id="toc-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-wrapper" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<span title="light mode switch" class="glyphicon glyphicon-sunglasses pull-right" id="lightmode-icon"></span>
+			<form class="navbar-form pull-right" id="navbar-search-form">
+                               <div class="form-group has-feedback">
+                                       <input type="text" class="form-control input-sm" name="search" id="sidenav-lookup-field" placeholder="search" disabled>
+				       <span class="glyphicon glyphicon-search form-control-feedback" id="search-mgn-glass"></span>
+                               </div>
+                        </form>
+		</div>
+		<div class="navbar-header">
+			<a id="sidenav-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<a id="home-link" href="index.html" class="hotdoc-navbar-brand">
+				<img src="assets/images/gstreamer-logo.svg" alt="Home">
+			</a>
+		</div>
+		<div class="navbar-collapse collapse" id="navbar-wrapper">
+			<ul class="nav navbar-nav" id="menu">
+				
+<li class="dropdown">
+    <a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        API References<span class="caret"></span>
+    </a>
+	<ul class="dropdown-menu" id="modules-menu">
+					<li>
+				<a href="gstreamer/gi-index.html">GStreamer core</a>
+			</li>
+					<li>
+				<a href="libs.html">GStreamer Libraries</a>
+			</li>
+					<li>
+				<a href="plugins_doc.html">GStreamer Plugins</a>
+			</li>
+		</ul>
+</li>
+
+<li>
+    <a href="application-development/index.html">Application manual</a>
+</li>
+
+
+<li>
+    <a href="tutorials/index.html">Tutorials</a>
+</li>
+
+			</ul>
+			<div class="hidden-xs hidden-sm navbar-text navbar-center">
+							</div>
+		</div>
+	</div>
+</nav>
+
+<main>
+<div data-extension="gi-extension" data-hotdoc-in-toplevel="True" data-hotdoc-project="GStreamer" data-hotdoc-ref="plugin-development/basics/boiler.html" class="page_container" id="page-wrapper" data-hotdoc-meta-gi-languages="['c', 'javascript', 'python']" data-hotdoc-meta-gi-language="c">
+<script src="assets/js/utils.js"></script>
+
+<div class="panel panel-collapse oc-collapsed" id="sidenav" data-hotdoc-role="navigation">
+	<script src="assets/js/full-width.js"></script>
+  <div id="sitenav-wrapper">
+    <iframe src="hotdoc-sitemap.html" id="sitenav-frame"></iframe>
+  </div>
+</div>
+
+<div id="body">
+	<div id="main">
+				    <div id="page-description" data-hotdoc-role="main">
+        <h1 id="constructing-the-boilerplate">Constructing the Boilerplate</h1>
+<p>In this chapter you will learn how to construct the bare minimum code
+for a new plugin. Starting from ground zero, you will see how to get the
+GStreamer template source. Then you will learn how to use a few basic
+tools to copy and modify a template plugin to create a new plugin. If
+you follow the examples here, then by the end of this chapter you will
+have a functional audio filter plugin that you can compile and use in
+GStreamer applications.</p>
+<h2 id="getting-the-gstreamer-plugin-templates">Getting the GStreamer Plugin Templates</h2>
+<p>There are currently two ways to develop a new plugin for GStreamer: You
+can write the entire plugin by hand, or you can copy an existing plugin
+template and write the plugin code you need. The second method is by far
+the simpler of the two, so the first method will not even be described
+here. (Errm, that is, “it is left as an exercise to the reader.”)</p>
+<p>The first step is to check out a copy of the <code>gst-template</code> git module
+to get an important tool and the source code template for a basic
+GStreamer plugin. To check out the <code>gst-template</code> module, make sure you
+are connected to the internet, and type the following commands at a
+command
+console:</p>
+<pre><code>shell $ git clone https://gitlab.freedesktop.org/gstreamer/gst-template.git
+Initialized empty Git repository in /some/path/gst-template/.git/
+remote: Counting objects: 373, done.
+remote: Compressing objects: 100% (114/114), done.
+remote: Total 373 (delta 240), reused 373 (delta 240)
+Receiving objects: 100% (373/373), 75.16 KiB | 78 KiB/s, done.
+Resolving deltas: 100% (240/240), done.
+
+</code></pre>
+<p>This command will check out a series of files and directories into
+<code>gst-template</code>. The template you will be using is in the
+<code>gst-template/gst-plugin/</code> directory. You should look over the files in
+that directory to get a general idea of the structure of a source tree
+for a plugin.</p>
+<p>If for some reason you can't access the git repository, you can also
+<a href="https://gitlab.freedesktop.org/gstreamer/gst-template">download a snapshot of the latest
+revision</a>
+via the gitlab web interface.</p>
+<h2 id="using-the-project-stamp">Using the Project Stamp</h2>
+<p>The first thing to do when making a new element is to specify some basic
+details about it: what its name is, who wrote it, what version number it
+is, etc. We also need to define an object to represent the element and
+to store the data the element needs. These details are collectively
+known as the <em>boilerplate</em>.</p>
+<p>The standard way of defining the boilerplate is simply to write some
+code, and fill in some structures. As mentioned in the previous section,
+the easiest way to do this is to copy a template and add functionality
+according to your needs. To help you do so, there is a tool in the
+<code>./gst-plugin/tools/</code> directory. This tool, <code>make_element</code>, is a command
+line utility that creates the boilerplate code for you.</p>
+<p>To use <code>make_element</code>, first open up a terminal window. Change to the
+<code>gst-template/gst-plugin/src</code> directory, and then run the <code>make_element</code>
+command. The arguments to the <code>make_element</code> are:</p>
+<ol>
+<li>
+<p>the name of the plugin, and</p>
+</li>
+<li>
+<p>the source file that the tool will use. By default, <code>gstplugin</code> is
+used.</p>
+</li>
+</ol>
+<p>For example, the following commands create the MyFilter plugin based on
+the plugin template and put the output files in the
+<code>gst-template/gst-plugin/src</code> directory:</p>
+<pre><code>shell $ cd gst-template/gst-plugin/src
+shell $ ../tools/make_element MyFilter
+
+</code></pre>
+<blockquote>
+<p><strong>Note</strong></p>
+<p>Capitalization is important for the name of the plugin. Keep in mind
+that under some operating systems, capitalization is also important
+when specifying directory and file names in general.</p>
+</blockquote>
+<p>The last command creates two files: <code>gstmyfilter.c</code> and <code>gstmyfilter.h</code>.</p>
+<blockquote>
+<p><strong>Note</strong></p>
+<p>It is recommended that you create a copy of the <code>gst-plugin</code> directory
+before continuing.</p>
+</blockquote>
+<p>Now one needs to run <code>meson setup build</code> from the parent directory to bootstrap the
+build environment. After that, the project can be built and installed using the
+well known <code>ninja -C build</code> commands.</p>
+<blockquote>
+<p><strong>Note</strong></p>
+<p>Be aware that by default <code>meson</code> will choose <code>/usr/local</code> as a default
+location. One would need to add <code>/usr/local/lib/gstreamer-1.0</code> to
+<code>GST_PLUGIN_PATH</code> in order to make the new plugin show up in a gstreamer
+that's been installed from packages.</p>
+</blockquote>
+<blockquote>
+<p><strong>Note</strong></p>
+<p>FIXME: this section is slightly outdated. gst-template is still useful
+as an example for a minimal plugin build system skeleton. However, for
+creating elements the tool gst-element-maker from gst-plugins-bad is
+recommended these days.</p>
+</blockquote>
+<h2 id="examining-the-basic-code">Examining the Basic Code</h2>
+<p>First we will examine the code you would be likely to place in a header
+file (although since the interface to the code is entirely defined by
+the plugin system, and doesn't depend on reading a header file, this is
+not crucial.)</p>
+<pre><code class="language-c">#include &lt;gst/gst.h&gt;
+
+/* Definition of structure storing data for this element. */
+typedef struct _GstMyFilter {
+  GstElement element;
+
+  GstPad *sinkpad, *srcpad;
+
+  gboolean silent;
+
+
+
+} GstMyFilter;
+
+/* Standard definition defining a class for this element. */
+typedef struct _GstMyFilterClass {
+  GstElementClass parent_class;
+} GstMyFilterClass;
+
+/* Standard macros for defining types for this element.  */
+#define GST_TYPE_MY_FILTER (gst_my_filter_get_type())
+#define GST_MY_FILTER(obj) \
+  (G_TYPE_CHECK_INSTANCE_CAST((obj),GST_TYPE_MY_FILTER,GstMyFilter))
+#define GST_MY_FILTER_CLASS(klass) \
+  (G_TYPE_CHECK_CLASS_CAST((klass),GST_TYPE_MY_FILTER,GstMyFilterClass))
+#define GST_IS_MY_FILTER(obj) \
+  (G_TYPE_CHECK_INSTANCE_TYPE((obj),GST_TYPE_MY_FILTER))
+#define GST_IS_MY_FILTER_CLASS(klass) \
+  (G_TYPE_CHECK_CLASS_TYPE((klass),GST_TYPE_MY_FILTER))
+
+/* Standard function returning type information. */
+GType gst_my_filter_get_type (void);
+
+GST_ELEMENT_REGISTER_DECLARE(my_filter)
+
+</code></pre>
+<p>Using this header file, you can use the following macros to setup the
+<code>Element</code> basics in your source file so that all functions will be
+called appropriately:</p>
+<pre><code class="language-c">#include "filter.h"
+
+G_DEFINE_TYPE (GstMyFilter, gst_my_filter, GST_TYPE_ELEMENT);
+GST_ELEMENT_REGISTER_DEFINE(my_filter, "my-filter", GST_RANK_NONE, GST_TYPE_MY_FILTER);
+
+</code></pre>
+<p>The macro <code>GST_ELEMENT_REGISTER_DEFINE</code> in combination with <code>GST_ELEMENT_REGISTER_DECLARE</code>
+allows to register the element from within the plugin or from any other plugin/application by calling
+<code>GST_ELEMENT_REGISTER (my_filter)</code>.</p>
+<h2 id="element-metadata">Element metadata</h2>
+<p>The Element metadata provides extra element information. It is
+configured with <code>gst_element_class_set_metadata</code> or
+<code>gst_element_class_set_static_metadata</code> which takes the following
+parameters:</p>
+<ul>
+<li>
+<p>A long, English, name for the element.</p>
+</li>
+<li>
+<p>The type of the element, see the docs/additional/design/draft-klass.txt
+document in the GStreamer core source tree for details and examples.</p>
+</li>
+<li>
+<p>A brief description of the purpose of the element.</p>
+</li>
+<li>
+<p>The name of the author of the element, optionally followed by a
+contact email address in angle brackets.</p>
+</li>
+</ul>
+<p>For example:</p>
+<pre><code class="language-c">gst_element_class_set_static_metadata (klass,
+  "An example plugin",
+  "Example/FirstExample",
+  "Shows the basic structure of a plugin",
+  "your name &lt;your.name@your.isp&gt;");
+
+</code></pre>
+<p>The element details are registered with the plugin during the
+<code>_class_init ()</code> function, which is part of the GObject system. The
+<code>_class_init ()</code> function should be set for this GObject in the function
+where you register the type with GLib.</p>
+<pre><code class="language-c">static void
+gst_my_filter_class_init (GstMyFilterClass * klass)
+{
+  GstElementClass *element_class = GST_ELEMENT_CLASS (klass);
+
+[..]
+  gst_element_class_set_static_metadata (element_class,
+    "An example plugin",
+    "Example/FirstExample",
+    "Shows the basic structure of a plugin",
+    "your name &lt;your.name@your.isp&gt;");
+
+}
+
+</code></pre>
+<h2 id="gststaticpadtemplate">GstStaticPadTemplate</h2>
+<p>A GstStaticPadTemplate is a description of a pad that the element will
+(or might) create and use. It contains:</p>
+<ul>
+<li>
+<p>A short name for the pad.</p>
+</li>
+<li>
+<p>Pad direction.</p>
+</li>
+<li>
+<p>Existence property. This indicates whether the pad exists always (an
+“always” pad), only in some cases (a “sometimes” pad) or only if the
+application requested such a pad (a “request” pad).</p>
+</li>
+<li>
+<p>Supported types by this element (capabilities).</p>
+</li>
+</ul>
+<p>For example:</p>
+<pre><code class="language-c">static GstStaticPadTemplate sink_factory =
+GST_STATIC_PAD_TEMPLATE (
+  "sink",
+  GST_PAD_SINK,
+  GST_PAD_ALWAYS,
+  GST_STATIC_CAPS ("ANY")
+);
+
+
+
+</code></pre>
+<p>Those pad templates are registered during the <code>_class_init ()</code> function
+with the <code>gst_element_class_add_pad_template ()</code>. For this function you
+need a handle to the <code>GstPadTemplate</code> which you can create from the static
+pad template with <code>gst_static_pad_template_get ()</code>. See below for more
+details on this.</p>
+<p>Pads are created from these static templates in the element's <code>_init ()</code>
+function using <code>gst_pad_new_from_static_template ()</code>. In order to create
+a new pad from this template using <code>gst_pad_new_from_static_template ()</code>, you will need to declare the pad template as a global variable. More on
+this subject in <a href="plugin-development/basics/pads.html">Specifying the pads</a>.</p>
+<pre><code class="language-c">static GstStaticPadTemplate sink_factory = [..],
+    src_factory = [..];
+
+static void
+gst_my_filter_class_init (GstMyFilterClass * klass)
+{
+  GstElementClass *element_class = GST_ELEMENT_CLASS (klass);
+[..]
+
+  gst_element_class_add_pad_template (element_class,
+    gst_static_pad_template_get (&amp;src_factory));
+  gst_element_class_add_pad_template (element_class,
+    gst_static_pad_template_get (&amp;sink_factory));
+}
+</code></pre>
+<p>The last argument in a template is its type or list of supported types.
+In this example, we use 'ANY', which means that this element will accept
+all input. In real-life situations, you would set a media type and
+optionally a set of properties to make sure that only supported input
+will come in. This representation should be a string that starts with a
+media type, then a set of comma-separates properties with their
+supported values. In case of an audio filter that supports raw integer
+16-bit audio, mono or stereo at any samplerate, the correct template
+would look like this:</p>
+<pre><code class="language-c">
+static GstStaticPadTemplate sink_factory =
+GST_STATIC_PAD_TEMPLATE (
+  "sink",
+  GST_PAD_SINK,
+  GST_PAD_ALWAYS,
+  GST_STATIC_CAPS (
+    "audio/x-raw, "
+      "format = (string) " GST_AUDIO_NE (S16) ", "
+      "channels = (int) { 1, 2 }, "
+      "rate = (int) [ 8000, 96000 ]"
+  )
+);
+
+
+</code></pre>
+<p>Values surrounded by curly brackets (“{” and “}”) are lists, values
+surrounded by square brackets (“[” and “]”) are ranges. Multiple sets
+of types are supported too, and should be separated by a semicolon
+(“;”). Later, in the chapter on pads, we will see how to use types
+to know the exact format of a stream: <a href="plugin-development/basics/pads.html">Specifying the pads</a>.</p>
+<h2 id="constructor-functions">Constructor Functions</h2>
+<p>Each element has two functions which are used for construction of an
+element. The <code>_class_init()</code> function, which is used to initialise the
+class only once (specifying what signals, arguments and virtual
+functions the class has and setting up global state); and the <code>_init()</code>
+function, which is used to initialise a specific instance of this type.</p>
+<h2 id="the-plugin_init-function">The plugin_init function</h2>
+<p>Once we have written code defining all the parts of the plugin, we need
+to write the plugin_init() function. This is a special function, which
+is called as soon as the plugin is loaded, and should return TRUE or
+FALSE depending on whether it loaded initialized any dependencies
+correctly. Also, in this function, any supported element type in the
+plugin should be registered.</p>
+<pre><code class="language-c">
+
+static gboolean
+plugin_init (GstPlugin *plugin)
+{
+  return GST_ELEMENT_REGISTER (my_filter, plugin);
+}
+
+GST_PLUGIN_DEFINE (
+  GST_VERSION_MAJOR,
+  GST_VERSION_MINOR,
+  my_filter,
+  "My filter plugin",
+  plugin_init,
+  VERSION,
+  "LGPL",
+  "GStreamer",
+  "http://gstreamer.net/"
+)
+
+
+
+</code></pre>
+<p>Note that the information returned by the plugin_init() function will
+be cached in a central registry. For this reason, it is important that
+the same information is always returned by the function: for example, it
+must not make element factories available based on runtime conditions.
+If an element can only work in certain conditions (for example, if the
+soundcard is not being used by some other process) this must be
+reflected by the element being unable to enter the READY state if
+unavailable, rather than the plugin attempting to deny existence of the
+plugin.</p>
+
+    </div>
+        
+
+
+
+
+		
+	</div>
+	<div id="search_results">
+		<p>The results of the search are</p>
+	</div>
+	<div id="footer">
+		    
+
+	</div>
+</div>
+
+<div id="toc-column">
+	
+		<div class="edit-button">
+		<a href="https://gitlab.freedesktop.org/gstreamer/gst-docs//edit/master/subprojects/gst-docs/markdown/plugin-development/basics/boiler.md" data-hotdoc-role="edit-button">Edit on GitLab</a>
+
+	</div>
+		<div id="toc-wrapper">
+		<nav id="toc"></nav>
+	</div>
+</div>
+</div>
+</main>
+
+
+<script src="assets/js/navbar_offset_scroller.js"></script>
+</body>
+</html>

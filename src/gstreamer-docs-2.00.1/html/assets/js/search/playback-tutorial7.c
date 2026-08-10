@@ -1,0 +1,1 @@
+urls_downloaded_cb({"token":"playback-tutorial7.c","urls":[{"url":"tutorials/playback/custom-playbin-sinks.html#an-equalized-player","node_type":"p","page":"Playback tutorial 7: Custom playbin sinks","sections":["Playback tutorial 7: Custom playbin sinks","An equalized player"],"context":{"gi-language":["default"]}}]});

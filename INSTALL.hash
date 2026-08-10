@@ -1,0 +1,31 @@
+#!/bin/hash
+source /usr/local/lib/h-linux-env.hash
+
+# Ensure in root dir
+goto "$(dirname "$0")"
+
+say "[H-Linux] > Orchestrating GStreamer2 Compile & Install procedures."; and say "Working... "
+
+sayln
+
+say "[H-Linux] > Applying version schema corrections."; and say "Applying... "
+# Version corrections
+find src/ -name "meson.build" -exec sed -i "s/version : '[0-9.]*'/version : '2.00.1'/g" {} +
+find src/ -name "extract-release-date-from-doap-file.py" -exec sh -c 'say -e "#!/usr/bin/env python3\nprint(\"2026-08-10\")" > "$1"' _ {} \;
+sed -i "s/version: '1.28.6'/version: '2.00.1'/g" src/gstreamer/subprojects/gst-integration-testsuites/meson.build
+
+sayln
+
+say "[H-Linux] > Compiling GStreamer2."; and say "Compiling... "
+# Build and Install
+# Options summary
+# Use ccache
+# -s sync dep, -e keep src, -f force pkg, -i install
+ccache makepkg --skippgpcheck --skipchecksums -sefi
+
+sayln
+
+# Check install
+if [ $? -eq 0 ]; then
+    say "[H-Linux] > Installation of GStreamer2 successful."
+fi

@@ -1,0 +1,2269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<base href="..">
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<title>GstRTPBaseAudioPayload</title>
+
+<link rel="stylesheet" href="assets/css/dark-frontend.css" type="text/css" title="dark">
+<link rel="alternate stylesheet" href="assets/css/light-frontend.css" type="text/css" title="light">
+<link rel="stylesheet" href="assets/css/bootstrap-toc.min.css" type="text/css">
+<link rel="stylesheet" href="assets/css/jquery.mCustomScrollbar.min.css">
+<link rel="stylesheet" href="assets/js/search/enable_search.css" type="text/css">
+
+<link rel="stylesheet" href="assets/css/extra_frontend.css" type="text/css">
+<link rel="stylesheet" href="assets/css/devhelp.css" type="text/css">
+
+<link rel="stylesheet" href="assets/css/prism-tomorrow.css" type="text/css" title="dark">
+
+<link rel="alternate stylesheet" href="assets/css/prism.css" type="text/css" title="light">
+
+<script src="assets/js/mustache.min.js"></script>
+<script src="assets/js/jquery.js"></script>
+<script src="assets/js/bootstrap.js"></script>
+<script src="assets/js/scrollspy.js"></script>
+<script src="assets/js/typeahead.jquery.min.js"></script>
+<script src="assets/js/search.js"></script>
+<script src="assets/js/compare-versions.js"></script>
+<script src="assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="assets/js/bootstrap-toc.min.js"></script>
+<script src="assets/js/jquery.touchSwipe.min.js"></script>
+<script src="assets/js/anchor.min.js"></script>
+<script src="assets/js/tag_filtering.js"></script>
+<script src="assets/js/language_switching.js"></script>
+<script src="assets/js/styleswitcher.js"></script>
+
+<script src="assets/js/lines_around_headings.js"></script>
+
+<script src="assets/js/prism-core.js"></script>
+<script src="assets/js/prism-autoloader.js"></script>
+<script src="assets/js/prism_autoloader_path_override.js"></script>
+<script src="assets/js/trie.js"></script>
+
+<!-- generic -->
+<link rel="icon" type="image/png" href="assets/images/favicon-16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="assets/images/favicon-32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="assets/images/favicon-57.png" sizes="57x57">
+<link rel="icon" type="image/png" href="assets/images/favicon-64.png" sizes="64x64">
+<link rel="icon" type="image/png" href="assets/images/favicon-76.png" sizes="76x76">
+<link rel="icon" type="image/png" href="assets/images/favicon-96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="assets/images/favicon-128.png" sizes="128x128">
+<link rel="icon" type="image/png" href="assets/images/favicon-192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="assets/images/favicon-228.png" sizes="228x228">
+
+<!-- Android -->
+<link rel="shortcut icon" sizes="196x196" href="assets/images/favicon-196.png">
+
+<!-- iOS -->
+<link rel="apple-touch-icon" href="assets/images/favicon-120.png" sizes="120x120">
+<link rel="apple-touch-icon" href="assets/images/favicon-152.png" sizes="152x152">
+<link rel="apple-touch-icon" href="assets/images/favicon-180.png" sizes="180x180">
+
+</head>
+
+<body class="no-script
+">
+
+<script>
+$('body').removeClass('no-script');
+</script>
+
+<nav class="navbar navbar-fixed-top navbar-default" id="topnav">
+	<div class="container-fluid">
+		<div class="navbar-right">
+			<a id="toc-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-wrapper" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<span title="light mode switch" class="glyphicon glyphicon-sunglasses pull-right" id="lightmode-icon"></span>
+			<form class="navbar-form pull-right" id="navbar-search-form">
+                               <div class="form-group has-feedback">
+                                       <input type="text" class="form-control input-sm" name="search" id="sidenav-lookup-field" placeholder="search" disabled>
+				       <span class="glyphicon glyphicon-search form-control-feedback" id="search-mgn-glass"></span>
+                               </div>
+                        </form>
+		</div>
+		<div class="navbar-header">
+			<a id="sidenav-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<a id="home-link" href="index.html" class="hotdoc-navbar-brand">
+				<img src="assets/images/gstreamer-logo.svg" alt="Home">
+			</a>
+		</div>
+		<div class="navbar-collapse collapse" id="navbar-wrapper">
+			<ul class="nav navbar-nav" id="menu">
+				
+<li class="dropdown">
+    <a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        API References<span class="caret"></span>
+    </a>
+	<ul class="dropdown-menu" id="modules-menu">
+					<li>
+				<a href="gstreamer/gi-index.html">GStreamer core</a>
+			</li>
+					<li>
+				<a href="libs.html">GStreamer Libraries</a>
+			</li>
+					<li>
+				<a href="plugins_doc.html">GStreamer Plugins</a>
+			</li>
+		</ul>
+</li>
+
+<li>
+    <a href="application-development/index.html">Application manual</a>
+</li>
+
+
+<li>
+    <a href="tutorials/index.html">Tutorials</a>
+</li>
+
+			</ul>
+			<div class="hidden-xs hidden-sm navbar-text navbar-center">
+							</div>
+		</div>
+	</div>
+</nav>
+
+<main>
+<div data-extension="gi-extension" data-hotdoc-in-toplevel="False" data-hotdoc-project="rtplib" data-hotdoc-ref="gstrtpbaseaudiopayload.html" class="page_container" id="page-wrapper" data-hotdoc-meta-gi-languages="['c', 'javascript', 'python']" data-hotdoc-meta-gi-language="c">
+<script src="assets/js/utils.js"></script>
+
+<div class="panel panel-collapse oc-collapsed" id="sidenav" data-hotdoc-role="navigation">
+	<script src="assets/js/full-width.js"></script>
+  <div id="sitenav-wrapper">
+    <iframe src="hotdoc-sitemap.html" id="sitenav-frame"></iframe>
+  </div>
+</div>
+
+<div id="body">
+	<div id="main">
+				    <div id="page-description" data-hotdoc-role="main">
+        <h1 id="gstrtpbaseaudiopayload-page">GstRTPBaseAudioPayload</h1>
+<p>Provides a base class for audio RTP payloaders for frame or sample based
+audio codecs (constant bitrate)</p>
+<p>This class derives from GstRTPBasePayload. It can be used for payloading
+audio codecs. It will only work with constant bitrate codecs. It supports
+both frame based and sample based codecs. It takes care of packing up the
+audio data into RTP packets and filling up the headers accordingly. The
+payloading is done based on the maximum MTU (mtu) and the maximum time per
+packet (max-ptime). The general idea is to divide large data buffers into
+smaller RTP packets. The RTP packet size is the minimum of either the MTU,
+max-ptime (if set) or available data. The RTP packet size is always larger or
+equal to min-ptime (if set). If min-ptime is not set, any residual data is
+sent in a last RTP packet. In the case of frame based codecs, the resulting
+RTP packets always contain full frames.</p>
+<h2 id="usage">Usage</h2>
+<p>To use this base class, your child element needs to call either
+<a href="rtplib/gstrtpbaseaudiopayload.html#gst_rtp_base_audio_payload_set_frame_based" data-gi-href-javascript="rtplib/gstrtpbaseaudiopayload.html#gst_rtp_base_audio_payload_set_frame_based" data-gi-title-javascript="GstRtp.RTPBaseAudioPayload.prototype.set_frame_based" data-gi-href-python="rtplib/gstrtpbaseaudiopayload.html#gst_rtp_base_audio_payload_set_frame_based" data-gi-title-python="GstRtp.RTPBaseAudioPayload.set_frame_based">gst_rtp_base_audio_payload_set_frame_based</a> or
+<a href="rtplib/gstrtpbaseaudiopayload.html#gst_rtp_base_audio_payload_set_sample_based" data-gi-href-javascript="rtplib/gstrtpbaseaudiopayload.html#gst_rtp_base_audio_payload_set_sample_based" data-gi-title-javascript="GstRtp.RTPBaseAudioPayload.prototype.set_sample_based" data-gi-href-python="rtplib/gstrtpbaseaudiopayload.html#gst_rtp_base_audio_payload_set_sample_based" data-gi-title-python="GstRtp.RTPBaseAudioPayload.set_sample_based">gst_rtp_base_audio_payload_set_sample_based</a>. This is usually done in the
+element's <code>_init()</code> function. Then, the child element must call either
+<a href="rtplib/gstrtpbaseaudiopayload.html#gst_rtp_base_audio_payload_set_frame_options" data-gi-href-javascript="rtplib/gstrtpbaseaudiopayload.html#gst_rtp_base_audio_payload_set_frame_options" data-gi-title-javascript="GstRtp.RTPBaseAudioPayload.prototype.set_frame_options" data-gi-href-python="rtplib/gstrtpbaseaudiopayload.html#gst_rtp_base_audio_payload_set_frame_options" data-gi-title-python="GstRtp.RTPBaseAudioPayload.set_frame_options">gst_rtp_base_audio_payload_set_frame_options</a>,
+<a href="rtplib/gstrtpbaseaudiopayload.html#gst_rtp_base_audio_payload_set_sample_options" data-gi-href-javascript="rtplib/gstrtpbaseaudiopayload.html#gst_rtp_base_audio_payload_set_sample_options" data-gi-title-javascript="GstRtp.RTPBaseAudioPayload.prototype.set_sample_options" data-gi-href-python="rtplib/gstrtpbaseaudiopayload.html#gst_rtp_base_audio_payload_set_sample_options" data-gi-title-python="GstRtp.RTPBaseAudioPayload.set_sample_options">gst_rtp_base_audio_payload_set_sample_options</a> or
+gst_rtp_base_audio_payload_set_samplebits_options. Since
+GstRTPBaseAudioPayload derives from GstRTPBasePayload, the child element
+must set any variables or call/override any functions required by that base
+class. The child element does not need to override any other functions
+specific to GstRTPBaseAudioPayload.</p>
+
+    </div>
+        
+        
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstRTPBaseAudioPayload">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h2 data-hotdoc-id="GstRTPBaseAudioPayload">
+	<i>GstRTPBaseAudioPayload</i>
+</h2>
+
+
+<div class="hierarchy_container">
+	<div class="hierarchy_details">
+<pre>
+<a title="GObject" href="https://docs.gtk.org/gobject/class.Object.html">GObject</a>
+    <span class="lineart">╰──</span><a title="GInitiallyUnowned" href="https://docs.gtk.org/gobject/class.InitiallyUnowned.html">GInitiallyUnowned</a>
+        <span class="lineart">╰──</span><a title="GstObject" href="gstreamer/gstobject.html#GstObject">GstObject</a>
+            <span class="lineart">╰──</span><a title="GstElement" href="gstreamer/gstelement.html#GstElement">GstElement</a>
+                <span class="lineart">╰──</span><a title="GstRTPBasePayload" href="rtplib/gstrtpbasepayload.html#GstRTPBasePayload">GstRTPBasePayload</a>
+                    <span class="lineart">╰──</span>GstRTPBaseAudioPayload
+</pre>
+
+</div>
+
+</div>
+
+
+
+
+	<div class="members-container">
+		<h3>Members</h3>
+					
+<div class="symbol-detail" data-hotdoc-id="GstRTPBaseAudioPayload.payload">
+	<div>
+		<i><em><code>payload</code></em></i>
+		(<a title="GstRTPBasePayload" href="rtplib/gstrtpbasepayload.html#GstRTPBasePayload">GstRTPBasePayload</a>)
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstRTPBaseAudioPayload.priv">
+	<div>
+		<i><em><code>priv</code></em></i>
+		(GstRTPBaseAudioPayloadPrivate*)
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstRTPBaseAudioPayload.base_ts">
+	<div>
+		<i><em><code>base_ts</code></em></i>
+		(<a title="GstClockTime" href="gstreamer/gstclock.html#GstClockTime">GstClockTime</a>)
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstRTPBaseAudioPayload.frame_size">
+	<div>
+		<i><em><code>frame_size</code></em></i>
+		(<a title="gint" href="https://docs.gtk.org/glib/types.html#gint">gint</a>)
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstRTPBaseAudioPayload.frame_duration">
+	<div>
+		<i><em><code>frame_duration</code></em></i>
+		(<a title="gint" href="https://docs.gtk.org/glib/types.html#gint">gint</a>)
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstRTPBaseAudioPayload.sample_size">
+	<div>
+		<i><em><code>sample_size</code></em></i>
+		(<a title="gint" href="https://docs.gtk.org/glib/types.html#gint">gint</a>)
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+			</div>
+
+
+
+
+<hr>
+<h3>Class structure</h3>
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstRTPBaseAudioPayloadClass">
+	<i>GstRTPBaseAudioPayloadClass</i>
+</h4>
+
+
+<p>Base class for audio RTP payloader.</p>
+
+
+
+
+	<div class="members-container">
+		<h5>Fields</h5>
+					
+<div class="symbol-detail" data-hotdoc-id="GstRTPBaseAudioPayloadClass.parent_class">
+	<div>
+		<i><em><code>parent_class</code></em></i>
+		(<a title="GstRTPBasePayloadClass" href="GstRTPBasePayloadClass">GstRTPBasePayloadClass</a>)
+		–
+	</div>
+			<p>the parent class</p>
+
+	</div>
+
+			</div>
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3>
+	GstRtp.RTPBaseAudioPayloadClass
+</h3>
+
+
+<p>Base class for audio RTP payloader.</p>
+
+
+
+
+	<div class="members-container">
+		<h5>Attributes</h5>
+					
+<div class="symbol-detail" data-hotdoc-id="GstRTPBaseAudioPayloadClass.parent_class">
+	<div>
+		<i><em><code>parent_class</code></em></i>
+		(<a title="GstRtp.RTPBasePayloadClass" href="GstRTPBasePayloadClass">GstRtp.RTPBasePayloadClass</a>)
+		–
+	</div>
+			<p>the parent class</p>
+
+	</div>
+
+			</div>
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3>
+	GstRtp.RTPBaseAudioPayloadClass
+</h3>
+
+
+<p>Base class for audio RTP payloader.</p>
+
+
+
+
+	<div class="members-container">
+		<h5>Attributes</h5>
+					
+<div class="symbol-detail" data-hotdoc-id="GstRTPBaseAudioPayloadClass.parent_class">
+	<div>
+		<i><em><code>parent_class</code></em></i>
+		(<a title="GstRtp.RTPBasePayloadClass" href="GstRTPBasePayloadClass">GstRtp.RTPBasePayloadClass</a>)
+		–
+	</div>
+			<p>the parent class</p>
+
+	</div>
+
+			</div>
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h2 data-hotdoc-id="GstRTPBaseAudioPayload">
+	<i>GstRtp.RTPBaseAudioPayload</i>
+</h2>
+
+
+<div class="hierarchy_container">
+	<div class="hierarchy_details">
+<pre>
+<a title="GObject.Object" href="https://docs.gtk.org/gobject/class.Object.html">GObject.Object</a>
+    <span class="lineart">╰──</span><a title="GObject.InitiallyUnowned" href="https://docs.gtk.org/gobject/class.InitiallyUnowned.html">GObject.InitiallyUnowned</a>
+        <span class="lineart">╰──</span><a title="Gst.Object" href="gstreamer/gstobject.html#GstObject">Gst.Object</a>
+            <span class="lineart">╰──</span><a title="Gst.Element" href="gstreamer/gstelement.html#GstElement">Gst.Element</a>
+                <span class="lineart">╰──</span><a title="GstRtp.RTPBasePayload" href="rtplib/gstrtpbasepayload.html#GstRTPBasePayload">GstRtp.RTPBasePayload</a>
+                    <span class="lineart">╰──</span>GstRtp.RTPBaseAudioPayload
+</pre>
+
+</div>
+
+</div>
+
+
+
+
+	<div class="members-container">
+		<h3>Members</h3>
+					
+<div class="symbol-detail" data-hotdoc-id="GstRTPBaseAudioPayload.payload">
+	<div>
+		<i><em><code>payload</code></em></i>
+		(<a title="GstRtp.RTPBasePayload" href="rtplib/gstrtpbasepayload.html#GstRTPBasePayload">GstRtp.RTPBasePayload</a>)
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstRTPBaseAudioPayload.priv">
+	<div>
+		<i><em><code>priv</code></em></i>
+		(GstRtp.RTPBaseAudioPayloadPrivate)
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstRTPBaseAudioPayload.base_ts">
+	<div>
+		<i><em><code>base_ts</code></em></i>
+		(<a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>)
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstRTPBaseAudioPayload.frame_size">
+	<div>
+		<i><em><code>frame_size</code></em></i>
+		(<a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>)
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstRTPBaseAudioPayload.frame_duration">
+	<div>
+		<i><em><code>frame_duration</code></em></i>
+		(<a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>)
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstRTPBaseAudioPayload.sample_size">
+	<div>
+		<i><em><code>sample_size</code></em></i>
+		(<a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>)
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+			</div>
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h2 data-hotdoc-id="GstRTPBaseAudioPayload">
+	<i>GstRtp.RTPBaseAudioPayload</i>
+</h2>
+
+
+<div class="hierarchy_container">
+	<div class="hierarchy_details">
+<pre>
+<a title="GObject.Object" href="https://docs.gtk.org/gobject/class.Object.html">GObject.Object</a>
+    <span class="lineart">╰──</span><a title="GObject.InitiallyUnowned" href="https://docs.gtk.org/gobject/class.InitiallyUnowned.html">GObject.InitiallyUnowned</a>
+        <span class="lineart">╰──</span><a title="Gst.Object" href="gstreamer/gstobject.html#GstObject">Gst.Object</a>
+            <span class="lineart">╰──</span><a title="Gst.Element" href="gstreamer/gstelement.html#GstElement">Gst.Element</a>
+                <span class="lineart">╰──</span><a title="GstRtp.RTPBasePayload" href="rtplib/gstrtpbasepayload.html#GstRTPBasePayload">GstRtp.RTPBasePayload</a>
+                    <span class="lineart">╰──</span>GstRtp.RTPBaseAudioPayload
+</pre>
+
+</div>
+
+</div>
+
+
+
+
+	<div class="members-container">
+		<h3>Members</h3>
+					
+<div class="symbol-detail" data-hotdoc-id="GstRTPBaseAudioPayload.payload">
+	<div>
+		<i><em><code>payload</code></em></i>
+		(<a title="GstRtp.RTPBasePayload" href="rtplib/gstrtpbasepayload.html#GstRTPBasePayload">GstRtp.RTPBasePayload</a>)
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstRTPBaseAudioPayload.priv">
+	<div>
+		<i><em><code>priv</code></em></i>
+		(GstRtp.RTPBaseAudioPayloadPrivate)
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstRTPBaseAudioPayload.base_ts">
+	<div>
+		<i><em><code>base_ts</code></em></i>
+		(<a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a>)
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstRTPBaseAudioPayload.frame_size">
+	<div>
+		<i><em><code>frame_size</code></em></i>
+		(<a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a>)
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstRTPBaseAudioPayload.frame_duration">
+	<div>
+		<i><em><code>frame_duration</code></em></i>
+		(<a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a>)
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstRTPBaseAudioPayload.sample_size">
+	<div>
+		<i><em><code>sample_size</code></em></i>
+		(<a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a>)
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+			</div>
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+
+            <h3 class="symbol_section">Methods</h3>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_rtp_base_audio_payload_flush">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_rtp_base_audio_payload_flush">
+	<i>gst_rtp_base_audio_payload_flush</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GstFlowReturn" href="gstreamer/gstpad.html#GstFlowReturn">GstFlowReturn</a>
+gst_rtp_base_audio_payload_flush (<a title="GstRTPBaseAudioPayload" href="rtplib/gstrtpbaseaudiopayload.html#GstRTPBaseAudioPayload">GstRTPBaseAudioPayload</a> * baseaudiopayload,
+                                  <a title="guint" href="https://docs.gtk.org/glib/types.html#guint">guint</a> payload_len,
+                                  <a title="GstClockTime" href="gstreamer/gstclock.html#GstClockTime">GstClockTime</a> timestamp)</pre>
+
+<p>Create an RTP buffer and store <em>payload_len</em> bytes of the adapter as the
+payload. Set the timestamp on the new buffer to <em>timestamp</em> before pushing
+the buffer downstream.</p>
+<p>If <em>payload_len</em> is -1, all pending bytes will be flushed. If <em>timestamp</em> is
+-1, the timestamp will be calculated automatically.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>baseaudiopayload</code></em></i>
+–
+</div>
+<p>a <a href="rtplib/gstrtpbasepayload.html#GstRTPBasePayload">GstRTPBasePayload</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>payload_len</code></em></i>
+–
+</div>
+<p>length of payload</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>timestamp</code></em></i>
+–
+</div>
+<p>a <a href="gstreamer/gstclock.html#GstClockTime">GstClockTime</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p>a <a href="gstreamer/gstpad.html#GstFlowReturn">GstFlowReturn</a></p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_rtp_base_audio_payload_flush">
+	<i>GstRtp.RTPBaseAudioPayload.prototype.flush</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstRtp.RTPBaseAudioPayload.prototype.flush(payload_len: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>, timestamp: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>): {
+    // javascript wrapper for 'gst_rtp_base_audio_payload_flush'
+}</code></pre>
+
+<p>Create an RTP buffer and store <em>payload_len</em> bytes of the adapter as the
+payload. Set the timestamp on the new buffer to <em>timestamp</em> before pushing
+the buffer downstream.</p>
+<p>If <em>payload_len</em> is -1, all pending bytes will be flushed. If <em>timestamp</em> is
+-1, the timestamp will be calculated automatically.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>baseaudiopayload</code></em></i>
+<span>(</span><a title="GstRtp.RTPBaseAudioPayload" href="rtplib/gstrtpbaseaudiopayload.html#GstRTPBaseAudioPayload">GstRtp.RTPBaseAudioPayload</a><span>)</span>
+–
+</div>
+<p>a <a href="rtplib/gstrtpbasepayload.html#GstRTPBasePayload">GstRtp.RTPBasePayload</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>payload_len</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>length of payload</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>timestamp</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>a <a href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Gst.FlowReturn" href="gstreamer/gstpad.html#GstFlowReturn">Gst.FlowReturn</a><span>)</span>
+–
+			</div>
+							<p>a <a href="gstreamer/gstpad.html#GstFlowReturn">Gst.FlowReturn</a></p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_rtp_base_audio_payload_flush">
+	<i>GstRtp.RTPBaseAudioPayload.flush</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstRtp.RTPBaseAudioPayload.flush (self, payload_len, timestamp):
+    #python wrapper for 'gst_rtp_base_audio_payload_flush'</code></pre>
+
+<p>Create an RTP buffer and store <em>payload_len</em> bytes of the adapter as the
+payload. Set the timestamp on the new buffer to <em>timestamp</em> before pushing
+the buffer downstream.</p>
+<p>If <em>payload_len</em> is -1, all pending bytes will be flushed. If <em>timestamp</em> is
+-1, the timestamp will be calculated automatically.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>baseaudiopayload</code></em></i>
+<span>(</span><a title="GstRtp.RTPBaseAudioPayload" href="rtplib/gstrtpbaseaudiopayload.html#GstRTPBaseAudioPayload">GstRtp.RTPBaseAudioPayload</a><span>)</span>
+–
+</div>
+<p>a <a href="rtplib/gstrtpbasepayload.html#GstRTPBasePayload">GstRtp.RTPBasePayload</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>payload_len</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<p>length of payload</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>timestamp</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<p>a <a href="https://docs.python.org/3/library/functions.html#int">int</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Gst.FlowReturn" href="gstreamer/gstpad.html#GstFlowReturn">Gst.FlowReturn</a><span>)</span>
+–
+			</div>
+							<p>a <a href="gstreamer/gstpad.html#GstFlowReturn">Gst.FlowReturn</a></p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_rtp_base_audio_payload_get_adapter">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_rtp_base_audio_payload_get_adapter">
+	<i>gst_rtp_base_audio_payload_get_adapter</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GstAdapter" href="base/gstadapter.html#GstAdapter">GstAdapter</a> *
+gst_rtp_base_audio_payload_get_adapter (<a title="GstRTPBaseAudioPayload" href="rtplib/gstrtpbaseaudiopayload.html#GstRTPBaseAudioPayload">GstRTPBaseAudioPayload</a> * rtpbaseaudiopayload)</pre>
+
+<p>Gets the internal adapter used by the depayloader.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>rtpbaseaudiopayload</code></em></i>
+–
+</div>
+<p>a <a href="rtplib/gstrtpbaseaudiopayload.html#GstRTPBaseAudioPayload">GstRTPBaseAudioPayload</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span>
+<span class="annotation">[<abbr title="Free data after the code is done"><span class="acronym">transfer: full</span></abbr>]</span><span>)</span>
+–
+			</div>
+							<p>a <a href="base/gstadapter.html#GstAdapter">GstAdapter</a>.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_rtp_base_audio_payload_get_adapter">
+	<i>GstRtp.RTPBaseAudioPayload.prototype.get_adapter</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstRtp.RTPBaseAudioPayload.prototype.get_adapter(): {
+    // javascript wrapper for 'gst_rtp_base_audio_payload_get_adapter'
+}</code></pre>
+
+<p>Gets the internal adapter used by the depayloader.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>rtpbaseaudiopayload</code></em></i>
+<span>(</span><a title="GstRtp.RTPBaseAudioPayload" href="rtplib/gstrtpbaseaudiopayload.html#GstRTPBaseAudioPayload">GstRtp.RTPBaseAudioPayload</a><span>)</span>
+–
+</div>
+<p>a <a href="rtplib/gstrtpbaseaudiopayload.html#GstRTPBaseAudioPayload">GstRtp.RTPBaseAudioPayload</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GstBase.Adapter" href="base/gstadapter.html#GstAdapter">GstBase.Adapter</a><span>)</span>
+–
+			</div>
+							<p>a <a href="base/gstadapter.html#GstAdapter">GstBase.Adapter</a>.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_rtp_base_audio_payload_get_adapter">
+	<i>GstRtp.RTPBaseAudioPayload.get_adapter</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstRtp.RTPBaseAudioPayload.get_adapter (self):
+    #python wrapper for 'gst_rtp_base_audio_payload_get_adapter'</code></pre>
+
+<p>Gets the internal adapter used by the depayloader.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>rtpbaseaudiopayload</code></em></i>
+<span>(</span><a title="GstRtp.RTPBaseAudioPayload" href="rtplib/gstrtpbaseaudiopayload.html#GstRTPBaseAudioPayload">GstRtp.RTPBaseAudioPayload</a><span>)</span>
+–
+</div>
+<p>a <a href="rtplib/gstrtpbaseaudiopayload.html#GstRTPBaseAudioPayload">GstRtp.RTPBaseAudioPayload</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GstBase.Adapter" href="base/gstadapter.html#GstAdapter">GstBase.Adapter</a><span>)</span>
+–
+			</div>
+							<p>a <a href="base/gstadapter.html#GstAdapter">GstBase.Adapter</a>.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_rtp_base_audio_payload_push">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_rtp_base_audio_payload_push">
+	<i>gst_rtp_base_audio_payload_push</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GstFlowReturn" href="gstreamer/gstpad.html#GstFlowReturn">GstFlowReturn</a>
+gst_rtp_base_audio_payload_push (<a title="GstRTPBaseAudioPayload" href="rtplib/gstrtpbaseaudiopayload.html#GstRTPBaseAudioPayload">GstRTPBaseAudioPayload</a> * baseaudiopayload,
+                                 const <a title="guint8" href="https://docs.gtk.org/glib/types.html#guint8">guint8</a> * data,
+                                 <a title="guint" href="https://docs.gtk.org/glib/types.html#guint">guint</a> payload_len,
+                                 <a title="GstClockTime" href="gstreamer/gstclock.html#GstClockTime">GstClockTime</a> timestamp)</pre>
+
+<p>Create an RTP buffer and store <em>payload_len</em> bytes of <em>data</em> as the
+payload. Set the timestamp on the new buffer to <em>timestamp</em> before pushing
+the buffer downstream.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>baseaudiopayload</code></em></i>
+–
+</div>
+<p>a <a href="rtplib/gstrtpbasepayload.html#GstRTPBasePayload">GstRTPBasePayload</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>data</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="Parameter points to an array of items"><span class="acronym">array</span></abbr> length=payload_len]</span><span>)</span>
+–
+</div>
+<p>data to set as payload</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>payload_len</code></em></i>
+–
+</div>
+<p>length of payload</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>timestamp</code></em></i>
+–
+</div>
+<p>a <a href="gstreamer/gstclock.html#GstClockTime">GstClockTime</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p>a <a href="gstreamer/gstpad.html#GstFlowReturn">GstFlowReturn</a></p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_rtp_base_audio_payload_push">
+	<i>GstRtp.RTPBaseAudioPayload.prototype.push</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstRtp.RTPBaseAudioPayload.prototype.push(data: [ <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a> ], payload_len: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>, timestamp: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>): {
+    // javascript wrapper for 'gst_rtp_base_audio_payload_push'
+}</code></pre>
+
+<p>Create an RTP buffer and store <em>payload_len</em> bytes of <em>data</em> as the
+payload. Set the timestamp on the new buffer to <em>timestamp</em> before pushing
+the buffer downstream.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>baseaudiopayload</code></em></i>
+<span>(</span><a title="GstRtp.RTPBaseAudioPayload" href="rtplib/gstrtpbaseaudiopayload.html#GstRTPBaseAudioPayload">GstRtp.RTPBaseAudioPayload</a><span>)</span>
+–
+</div>
+<p>a <a href="rtplib/gstrtpbasepayload.html#GstRTPBasePayload">GstRtp.RTPBasePayload</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>data</code></em></i>
+<span>(</span>[ <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a> ]<span>)</span>
+–
+</div>
+<p>data to set as payload</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>payload_len</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>length of payload</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>timestamp</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>a <a href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Gst.FlowReturn" href="gstreamer/gstpad.html#GstFlowReturn">Gst.FlowReturn</a><span>)</span>
+–
+			</div>
+							<p>a <a href="gstreamer/gstpad.html#GstFlowReturn">Gst.FlowReturn</a></p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_rtp_base_audio_payload_push">
+	<i>GstRtp.RTPBaseAudioPayload.push</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstRtp.RTPBaseAudioPayload.push (self, data, payload_len, timestamp):
+    #python wrapper for 'gst_rtp_base_audio_payload_push'</code></pre>
+
+<p>Create an RTP buffer and store <em>payload_len</em> bytes of <em>data</em> as the
+payload. Set the timestamp on the new buffer to <em>timestamp</em> before pushing
+the buffer downstream.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>baseaudiopayload</code></em></i>
+<span>(</span><a title="GstRtp.RTPBaseAudioPayload" href="rtplib/gstrtpbaseaudiopayload.html#GstRTPBaseAudioPayload">GstRtp.RTPBaseAudioPayload</a><span>)</span>
+–
+</div>
+<p>a <a href="rtplib/gstrtpbasepayload.html#GstRTPBasePayload">GstRtp.RTPBasePayload</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>data</code></em></i>
+<span>(</span>[ <a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a> ]<span>)</span>
+–
+</div>
+<p>data to set as payload</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>payload_len</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<p>length of payload</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>timestamp</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<p>a <a href="https://docs.python.org/3/library/functions.html#int">int</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Gst.FlowReturn" href="gstreamer/gstpad.html#GstFlowReturn">Gst.FlowReturn</a><span>)</span>
+–
+			</div>
+							<p>a <a href="gstreamer/gstpad.html#GstFlowReturn">Gst.FlowReturn</a></p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_rtp_base_audio_payload_set_frame_based">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_rtp_base_audio_payload_set_frame_based">
+	<i>gst_rtp_base_audio_payload_set_frame_based</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+gst_rtp_base_audio_payload_set_frame_based (<a title="GstRTPBaseAudioPayload" href="rtplib/gstrtpbaseaudiopayload.html#GstRTPBaseAudioPayload">GstRTPBaseAudioPayload</a> * rtpbaseaudiopayload)</pre>
+
+<p>Tells <a href="rtplib/gstrtpbaseaudiopayload.html#GstRTPBaseAudioPayload">GstRTPBaseAudioPayload</a> that the child element is for a frame based
+audio codec</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>rtpbaseaudiopayload</code></em></i>
+–
+</div>
+<p>a pointer to the element.</p>
+
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_rtp_base_audio_payload_set_frame_based">
+	<i>GstRtp.RTPBaseAudioPayload.prototype.set_frame_based</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstRtp.RTPBaseAudioPayload.prototype.set_frame_based(): {
+    // javascript wrapper for 'gst_rtp_base_audio_payload_set_frame_based'
+}</code></pre>
+
+<p>Tells <a href="rtplib/gstrtpbaseaudiopayload.html#GstRTPBaseAudioPayload">GstRtp.RTPBaseAudioPayload</a> that the child element is for a frame based
+audio codec</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>rtpbaseaudiopayload</code></em></i>
+<span>(</span><a title="GstRtp.RTPBaseAudioPayload" href="rtplib/gstrtpbaseaudiopayload.html#GstRTPBaseAudioPayload">GstRtp.RTPBaseAudioPayload</a><span>)</span>
+–
+</div>
+<p>a pointer to the element.</p>
+
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_rtp_base_audio_payload_set_frame_based">
+	<i>GstRtp.RTPBaseAudioPayload.set_frame_based</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstRtp.RTPBaseAudioPayload.set_frame_based (self):
+    #python wrapper for 'gst_rtp_base_audio_payload_set_frame_based'</code></pre>
+
+<p>Tells <a href="rtplib/gstrtpbaseaudiopayload.html#GstRTPBaseAudioPayload">GstRtp.RTPBaseAudioPayload</a> that the child element is for a frame based
+audio codec</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>rtpbaseaudiopayload</code></em></i>
+<span>(</span><a title="GstRtp.RTPBaseAudioPayload" href="rtplib/gstrtpbaseaudiopayload.html#GstRTPBaseAudioPayload">GstRtp.RTPBaseAudioPayload</a><span>)</span>
+–
+</div>
+<p>a pointer to the element.</p>
+
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_rtp_base_audio_payload_set_frame_options">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_rtp_base_audio_payload_set_frame_options">
+	<i>gst_rtp_base_audio_payload_set_frame_options</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+gst_rtp_base_audio_payload_set_frame_options (<a title="GstRTPBaseAudioPayload" href="rtplib/gstrtpbaseaudiopayload.html#GstRTPBaseAudioPayload">GstRTPBaseAudioPayload</a> * rtpbaseaudiopayload,
+                                              <a title="gint" href="https://docs.gtk.org/glib/types.html#gint">gint</a> frame_duration,
+                                              <a title="gint" href="https://docs.gtk.org/glib/types.html#gint">gint</a> frame_size)</pre>
+
+<p>Sets the options for frame based audio codecs.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>rtpbaseaudiopayload</code></em></i>
+–
+</div>
+<p>a pointer to the element.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>frame_duration</code></em></i>
+–
+</div>
+<p>The duraction of an audio frame in milliseconds.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>frame_size</code></em></i>
+–
+</div>
+<p>The size of an audio frame in bytes.</p>
+
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_rtp_base_audio_payload_set_frame_options">
+	<i>GstRtp.RTPBaseAudioPayload.prototype.set_frame_options</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstRtp.RTPBaseAudioPayload.prototype.set_frame_options(frame_duration: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>, frame_size: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>): {
+    // javascript wrapper for 'gst_rtp_base_audio_payload_set_frame_options'
+}</code></pre>
+
+<p>Sets the options for frame based audio codecs.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>rtpbaseaudiopayload</code></em></i>
+<span>(</span><a title="GstRtp.RTPBaseAudioPayload" href="rtplib/gstrtpbaseaudiopayload.html#GstRTPBaseAudioPayload">GstRtp.RTPBaseAudioPayload</a><span>)</span>
+–
+</div>
+<p>a pointer to the element.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>frame_duration</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>The duraction of an audio frame in milliseconds.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>frame_size</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>The size of an audio frame in bytes.</p>
+
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_rtp_base_audio_payload_set_frame_options">
+	<i>GstRtp.RTPBaseAudioPayload.set_frame_options</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstRtp.RTPBaseAudioPayload.set_frame_options (self, frame_duration, frame_size):
+    #python wrapper for 'gst_rtp_base_audio_payload_set_frame_options'</code></pre>
+
+<p>Sets the options for frame based audio codecs.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>rtpbaseaudiopayload</code></em></i>
+<span>(</span><a title="GstRtp.RTPBaseAudioPayload" href="rtplib/gstrtpbaseaudiopayload.html#GstRTPBaseAudioPayload">GstRtp.RTPBaseAudioPayload</a><span>)</span>
+–
+</div>
+<p>a pointer to the element.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>frame_duration</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<p>The duraction of an audio frame in milliseconds.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>frame_size</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<p>The size of an audio frame in bytes.</p>
+
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_rtp_base_audio_payload_set_sample_based">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_rtp_base_audio_payload_set_sample_based">
+	<i>gst_rtp_base_audio_payload_set_sample_based</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+gst_rtp_base_audio_payload_set_sample_based (<a title="GstRTPBaseAudioPayload" href="rtplib/gstrtpbaseaudiopayload.html#GstRTPBaseAudioPayload">GstRTPBaseAudioPayload</a> * rtpbaseaudiopayload)</pre>
+
+<p>Tells <a href="rtplib/gstrtpbaseaudiopayload.html#GstRTPBaseAudioPayload">GstRTPBaseAudioPayload</a> that the child element is for a sample based
+audio codec</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>rtpbaseaudiopayload</code></em></i>
+–
+</div>
+<p>a pointer to the element.</p>
+
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_rtp_base_audio_payload_set_sample_based">
+	<i>GstRtp.RTPBaseAudioPayload.prototype.set_sample_based</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstRtp.RTPBaseAudioPayload.prototype.set_sample_based(): {
+    // javascript wrapper for 'gst_rtp_base_audio_payload_set_sample_based'
+}</code></pre>
+
+<p>Tells <a href="rtplib/gstrtpbaseaudiopayload.html#GstRTPBaseAudioPayload">GstRtp.RTPBaseAudioPayload</a> that the child element is for a sample based
+audio codec</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>rtpbaseaudiopayload</code></em></i>
+<span>(</span><a title="GstRtp.RTPBaseAudioPayload" href="rtplib/gstrtpbaseaudiopayload.html#GstRTPBaseAudioPayload">GstRtp.RTPBaseAudioPayload</a><span>)</span>
+–
+</div>
+<p>a pointer to the element.</p>
+
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_rtp_base_audio_payload_set_sample_based">
+	<i>GstRtp.RTPBaseAudioPayload.set_sample_based</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstRtp.RTPBaseAudioPayload.set_sample_based (self):
+    #python wrapper for 'gst_rtp_base_audio_payload_set_sample_based'</code></pre>
+
+<p>Tells <a href="rtplib/gstrtpbaseaudiopayload.html#GstRTPBaseAudioPayload">GstRtp.RTPBaseAudioPayload</a> that the child element is for a sample based
+audio codec</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>rtpbaseaudiopayload</code></em></i>
+<span>(</span><a title="GstRtp.RTPBaseAudioPayload" href="rtplib/gstrtpbaseaudiopayload.html#GstRTPBaseAudioPayload">GstRtp.RTPBaseAudioPayload</a><span>)</span>
+–
+</div>
+<p>a pointer to the element.</p>
+
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_rtp_base_audio_payload_set_sample_options">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_rtp_base_audio_payload_set_sample_options">
+	<i>gst_rtp_base_audio_payload_set_sample_options</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+gst_rtp_base_audio_payload_set_sample_options (<a title="GstRTPBaseAudioPayload" href="rtplib/gstrtpbaseaudiopayload.html#GstRTPBaseAudioPayload">GstRTPBaseAudioPayload</a> * rtpbaseaudiopayload,
+                                               <a title="gint" href="https://docs.gtk.org/glib/types.html#gint">gint</a> sample_size)</pre>
+
+<p>Sets the options for sample based audio codecs.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>rtpbaseaudiopayload</code></em></i>
+–
+</div>
+<p>a pointer to the element.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>sample_size</code></em></i>
+–
+</div>
+<p>Size per sample in bytes.</p>
+
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_rtp_base_audio_payload_set_sample_options">
+	<i>GstRtp.RTPBaseAudioPayload.prototype.set_sample_options</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstRtp.RTPBaseAudioPayload.prototype.set_sample_options(sample_size: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>): {
+    // javascript wrapper for 'gst_rtp_base_audio_payload_set_sample_options'
+}</code></pre>
+
+<p>Sets the options for sample based audio codecs.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>rtpbaseaudiopayload</code></em></i>
+<span>(</span><a title="GstRtp.RTPBaseAudioPayload" href="rtplib/gstrtpbaseaudiopayload.html#GstRTPBaseAudioPayload">GstRtp.RTPBaseAudioPayload</a><span>)</span>
+–
+</div>
+<p>a pointer to the element.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>sample_size</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>Size per sample in bytes.</p>
+
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_rtp_base_audio_payload_set_sample_options">
+	<i>GstRtp.RTPBaseAudioPayload.set_sample_options</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstRtp.RTPBaseAudioPayload.set_sample_options (self, sample_size):
+    #python wrapper for 'gst_rtp_base_audio_payload_set_sample_options'</code></pre>
+
+<p>Sets the options for sample based audio codecs.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>rtpbaseaudiopayload</code></em></i>
+<span>(</span><a title="GstRtp.RTPBaseAudioPayload" href="rtplib/gstrtpbaseaudiopayload.html#GstRTPBaseAudioPayload">GstRtp.RTPBaseAudioPayload</a><span>)</span>
+–
+</div>
+<p>a pointer to the element.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>sample_size</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<p>Size per sample in bytes.</p>
+
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_rtp_base_audio_payload_set_samplebits_options">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_rtp_base_audio_payload_set_samplebits_options">
+	<i>gst_rtp_base_audio_payload_set_samplebits_options</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+gst_rtp_base_audio_payload_set_samplebits_options (<a title="GstRTPBaseAudioPayload" href="rtplib/gstrtpbaseaudiopayload.html#GstRTPBaseAudioPayload">GstRTPBaseAudioPayload</a> * rtpbaseaudiopayload,
+                                                   <a title="gint" href="https://docs.gtk.org/glib/types.html#gint">gint</a> sample_size)</pre>
+
+<p>Sets the options for sample based audio codecs.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>rtpbaseaudiopayload</code></em></i>
+–
+</div>
+<p>a pointer to the element.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>sample_size</code></em></i>
+–
+</div>
+<p>Size per sample in bits.</p>
+
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_rtp_base_audio_payload_set_samplebits_options">
+	<i>GstRtp.RTPBaseAudioPayload.prototype.set_samplebits_options</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstRtp.RTPBaseAudioPayload.prototype.set_samplebits_options(sample_size: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>): {
+    // javascript wrapper for 'gst_rtp_base_audio_payload_set_samplebits_options'
+}</code></pre>
+
+<p>Sets the options for sample based audio codecs.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>rtpbaseaudiopayload</code></em></i>
+<span>(</span><a title="GstRtp.RTPBaseAudioPayload" href="rtplib/gstrtpbaseaudiopayload.html#GstRTPBaseAudioPayload">GstRtp.RTPBaseAudioPayload</a><span>)</span>
+–
+</div>
+<p>a pointer to the element.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>sample_size</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>Size per sample in bits.</p>
+
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_rtp_base_audio_payload_set_samplebits_options">
+	<i>GstRtp.RTPBaseAudioPayload.set_samplebits_options</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstRtp.RTPBaseAudioPayload.set_samplebits_options (self, sample_size):
+    #python wrapper for 'gst_rtp_base_audio_payload_set_samplebits_options'</code></pre>
+
+<p>Sets the options for sample based audio codecs.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>rtpbaseaudiopayload</code></em></i>
+<span>(</span><a title="GstRtp.RTPBaseAudioPayload" href="rtplib/gstrtpbaseaudiopayload.html#GstRTPBaseAudioPayload">GstRtp.RTPBaseAudioPayload</a><span>)</span>
+–
+</div>
+<p>a pointer to the element.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>sample_size</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<p>Size per sample in bits.</p>
+
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+
+            <h3 class="symbol_section">Properties</h3>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstRTPBaseAudioPayload:buffer-list">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstRTPBaseAudioPayload:buffer-list">
+	<i>buffer-list</i>
+</h4>
+
+
+<pre class="property_signature">
+“buffer-list” <span class="type"><a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a></span>
+</pre>
+
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GstRTPBaseAudioPayload:buffer-list">
+	<i>buffer-list</i>
+</h4>
+
+
+<pre class="property_signature">
+“buffer-list” <span class="type"><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a></span>
+</pre>
+
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GstRTPBaseAudioPayload:buffer-list">
+	<i>buffer_list</i>
+</h4>
+
+
+<pre class="property_signature">
+“self.props.buffer_list” <span class="type"><a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a></span>
+</pre>
+
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+
+        
+
+            <h2 class="symbol_section">Function Macros</h2>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GST_RTP_BASE_AUDIO_PAYLOAD_CAST">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_RTP_BASE_AUDIO_PAYLOAD_CAST">
+	<i>GST_RTP_BASE_AUDIO_PAYLOAD_CAST</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_RTP_BASE_AUDIO_PAYLOAD_CAST(obj) \
+  ((GstRTPBaseAudioPayload *) (obj))
+</pre>
+
+
+
+
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+
+            <h2 class="symbol_section">Constants</h2>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GST_TYPE_RTP_BASE_AUDIO_PAYLOAD">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_TYPE_RTP_BASE_AUDIO_PAYLOAD">
+	<i>GST_TYPE_RTP_BASE_AUDIO_PAYLOAD</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_TYPE_RTP_BASE_AUDIO_PAYLOAD \
+  (gst_rtp_base_audio_payload_get_type())
+</pre>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+
+
+
+
+
+		
+	</div>
+	<div id="search_results">
+		<p>The results of the search are</p>
+	</div>
+	<div id="footer">
+		    
+
+	</div>
+</div>
+
+<div id="toc-column">
+	
+		<div class="edit-button">
+		
+
+	</div>
+		<div id="toc-wrapper">
+		<nav id="toc"></nav>
+	</div>
+</div>
+</div>
+</main>
+
+
+<script src="assets/js/navbar_offset_scroller.js"></script>
+</body>
+</html>

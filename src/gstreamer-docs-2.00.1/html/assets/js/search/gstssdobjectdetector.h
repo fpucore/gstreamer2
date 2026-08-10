@@ -1,0 +1,1 @@
+urls_downloaded_cb({"token":"gstssdobjectdetector.h","urls":[{"url":"onnx/index.html#example-launch-command","node_type":"p","page":"onnxinference","sections":["onnxinference","Example launch command:"],"context":{"gi-language":["default"]}}]});

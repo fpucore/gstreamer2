@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<base href="..">
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<title>Building from source using Cerbero</title>
+
+<link rel="stylesheet" href="assets/css/dark-frontend.css" type="text/css" title="dark">
+<link rel="alternate stylesheet" href="assets/css/light-frontend.css" type="text/css" title="light">
+<link rel="stylesheet" href="assets/css/bootstrap-toc.min.css" type="text/css">
+<link rel="stylesheet" href="assets/css/jquery.mCustomScrollbar.min.css">
+<link rel="stylesheet" href="assets/js/search/enable_search.css" type="text/css">
+
+<link rel="stylesheet" href="assets/css/extra_frontend.css" type="text/css">
+<link rel="stylesheet" href="assets/css/devhelp.css" type="text/css">
+
+<link rel="stylesheet" href="assets/css/prism-tomorrow.css" type="text/css" title="dark">
+
+<link rel="alternate stylesheet" href="assets/css/prism.css" type="text/css" title="light">
+
+<script src="assets/js/mustache.min.js"></script>
+<script src="assets/js/jquery.js"></script>
+<script src="assets/js/bootstrap.js"></script>
+<script src="assets/js/scrollspy.js"></script>
+<script src="assets/js/typeahead.jquery.min.js"></script>
+<script src="assets/js/search.js"></script>
+<script src="assets/js/compare-versions.js"></script>
+<script src="assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="assets/js/bootstrap-toc.min.js"></script>
+<script src="assets/js/jquery.touchSwipe.min.js"></script>
+<script src="assets/js/anchor.min.js"></script>
+<script src="assets/js/tag_filtering.js"></script>
+<script src="assets/js/language_switching.js"></script>
+<script src="assets/js/styleswitcher.js"></script>
+
+<script src="assets/js/lines_around_headings.js"></script>
+
+<script src="assets/js/prism-core.js"></script>
+<script src="assets/js/prism-autoloader.js"></script>
+<script src="assets/js/prism_autoloader_path_override.js"></script>
+<script src="assets/js/trie.js"></script>
+
+<!-- generic -->
+<link rel="icon" type="image/png" href="assets/images/favicon-16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="assets/images/favicon-32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="assets/images/favicon-57.png" sizes="57x57">
+<link rel="icon" type="image/png" href="assets/images/favicon-64.png" sizes="64x64">
+<link rel="icon" type="image/png" href="assets/images/favicon-76.png" sizes="76x76">
+<link rel="icon" type="image/png" href="assets/images/favicon-96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="assets/images/favicon-128.png" sizes="128x128">
+<link rel="icon" type="image/png" href="assets/images/favicon-192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="assets/images/favicon-228.png" sizes="228x228">
+
+<!-- Android -->
+<link rel="shortcut icon" sizes="196x196" href="assets/images/favicon-196.png">
+
+<!-- iOS -->
+<link rel="apple-touch-icon" href="assets/images/favicon-120.png" sizes="120x120">
+<link rel="apple-touch-icon" href="assets/images/favicon-152.png" sizes="152x152">
+<link rel="apple-touch-icon" href="assets/images/favicon-180.png" sizes="180x180">
+
+</head>
+
+<body class="no-script
+">
+
+<script>
+$('body').removeClass('no-script');
+</script>
+
+<nav class="navbar navbar-fixed-top navbar-default" id="topnav">
+	<div class="container-fluid">
+		<div class="navbar-right">
+			<a id="toc-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-wrapper" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<span title="light mode switch" class="glyphicon glyphicon-sunglasses pull-right" id="lightmode-icon"></span>
+			<form class="navbar-form pull-right" id="navbar-search-form">
+                               <div class="form-group has-feedback">
+                                       <input type="text" class="form-control input-sm" name="search" id="sidenav-lookup-field" placeholder="search" disabled>
+				       <span class="glyphicon glyphicon-search form-control-feedback" id="search-mgn-glass"></span>
+                               </div>
+                        </form>
+		</div>
+		<div class="navbar-header">
+			<a id="sidenav-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<a id="home-link" href="index.html" class="hotdoc-navbar-brand">
+				<img src="assets/images/gstreamer-logo.svg" alt="Home">
+			</a>
+		</div>
+		<div class="navbar-collapse collapse" id="navbar-wrapper">
+			<ul class="nav navbar-nav" id="menu">
+				
+<li class="dropdown">
+    <a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        API References<span class="caret"></span>
+    </a>
+	<ul class="dropdown-menu" id="modules-menu">
+					<li>
+				<a href="gstreamer/gi-index.html">GStreamer core</a>
+			</li>
+					<li>
+				<a href="libs.html">GStreamer Libraries</a>
+			</li>
+					<li>
+				<a href="plugins_doc.html">GStreamer Plugins</a>
+			</li>
+		</ul>
+</li>
+
+<li>
+    <a href="application-development/index.html">Application manual</a>
+</li>
+
+
+<li>
+    <a href="tutorials/index.html">Tutorials</a>
+</li>
+
+			</ul>
+			<div class="hidden-xs hidden-sm navbar-text navbar-center">
+							</div>
+		</div>
+	</div>
+</nav>
+
+<main>
+<div data-extension="gi-extension" data-hotdoc-in-toplevel="True" data-hotdoc-project="GStreamer" data-hotdoc-ref="installing/building-from-source-using-cerbero.html" class="page_container" id="page-wrapper" data-hotdoc-meta-gi-languages="['c', 'javascript', 'python']" data-hotdoc-meta-gi-language="c">
+<script src="assets/js/utils.js"></script>
+
+<div class="panel panel-collapse oc-collapsed" id="sidenav" data-hotdoc-role="navigation">
+	<script src="assets/js/full-width.js"></script>
+  <div id="sitenav-wrapper">
+    <iframe src="hotdoc-sitemap.html" id="sitenav-frame"></iframe>
+  </div>
+</div>
+
+<div id="body">
+	<div id="main">
+				    <div id="page-description" data-hotdoc-role="main">
+        <h1 id="building-from-source-using-cerbero">Building from source using Cerbero</h1>
+<p><strong>If you just want to use GStreamer, please visit <a href="https://gstreamer.freedesktop.org/download/">the download page</a>.
+We provide pre-built binaries for Windows, macOS, Android, and iOS</strong>.</p>
+<p>Cerbero is a cross-platform build aggregator for Open Source projects that
+builds and creates native packages for different platforms, architectures and
+distributions. It supports both native compilation and cross compilation and
+can run on macOS, Linux, and Windows.</p>
+<p>You should use Cerbero to build GStreamer if you:</p>
+<ol>
+<li>Want to do GStreamer development for Android, iOS, or UWP, or</li>
+<li>Have to build GStreamer packages for distribution or deployment, or</li>
+<li>Need plugins with external dependencies without Meson ports</li>
+</ol>
+<p>However, if you are a developer who wants to work on the GStreamer code itself
+on Linux, Windows, or macOS, it is much more convenient to use gst-build.
+Please refer to <a href="installing/building-from-source-using-meson.html">Building using Meson</a>.</p>
+<h2 id="minimum-requirements">Minimum Requirements</h2>
+<p>Cerbero provides bootstrapping facilities for all platforms, but it still needs a
+minimum base to bootstrap on top of.</p>
+<h3 id="linux-setup">Linux Setup</h3>
+<p>On Linux, you will only need a distribution with python &gt;= 3.6. Cerbero will
+use your package manager to install all other required packages during
+<a href="installing/building-from-source-using-cerbero.html#bootstrap-to-setup-environment">bootstrap</a>.</p>
+<h3 id="macos-setup">macOS Setup</h3>
+<p>On macOS we use the Python 3 that ships with Xcode, so you only need to install
+Xcode Command Line Tools.</p>
+<p>Cerbero will build all other required packages during
+<a href="installing/building-from-source-using-cerbero.html#bootstrap-to-setup-environment">bootstrap</a>. You do <strong>not</strong> need anything from
+Homebrew or MacPorts, and in fact having too many packages installed in either
+of those can cause problems.</p>
+<h3 id="windows-setup">Windows Setup</h3>
+<p>The initial setup on Windows is automated with an in-tree PowerShell script. It
+will auto-detect and installs the necessary tools with <a href="https://chocolatey.org/">Chocolatey</a>:</p>
+<ul>
+<li>Visual Studio 2019 or newer Build Tools</li>
+<li>CMake</li>
+<li>MSYS2</li>
+<li>Git</li>
+<li>Python 3.11 or newer</li>
+<li>WiX 5.0.1 or higher</li>
+</ul>
+<p>Start an admin PowerShell and run:</p>
+<pre><code class="language-powershell"># Enable running scripts
+$ Set-ExecutionPolicy -ExecutionPolicy Unrestricted
+
+# Run the bootstrap script
+$ .\tools\bootstrap-windows.ps1
+</code></pre>
+<p>You may specify the Visual Studio version to install by passing the <code>-VSVersion</code>
+parameter with either <code>2019</code> or <code>2022</code>. If not specified, you will be prompted to
+choose one during the bootstrap process.</p>
+<pre><code class="language-powershell"># Run the bootstrap script specifying Visual Studio 2022
+$ .\tools\bootstrap-windows.ps1 -VSVersion '2022'
+</code></pre>
+<p><strong>IMPORTANT:</strong> Using cerbero on Windows with the <a href="https://gitlab.freedesktop.org/gstreamer/cerbero/-/blob/master/docs/toolchains.md#windows">GCC/MinGW
+toolchain</a>
+requires a 64-bit operating system. The toolchain is only available for 64-bit
+and it can produce 32-bit or 64-bit binaries.</p>
+<h4 id="important-windowsspecific-notes">Important Windows-specific Notes</h4>
+<ul>
+<li>
+<p>You should add the cerbero git directory to the list of excluded folders in your
+anti-virus, or you will get random build failures when Autotools does file
+operations such as renames and deletions. It will also slow your build by
+about 3-4x.</p>
+</li>
+<li>
+<p>If you are using Windows 10, it is also highly recommended to enable "Developer
+Mode" in Windows Settings as shown below.</p>
+<p><img src="installing/images/cerbero/windows-settings-developer-mode.png" alt="Enable Developer Mode in Windows Settings" id="enable-developer-mode-in-windows-settings"></p>
+</li>
+</ul>
+<h2 id="download-the-sources">Download the sources</h2>
+<p>To build GStreamer using Cerbero, you first need to download <strong>Cerbero</strong>:</p>
+<pre><code class="language-sh">$ git clone https://gitlab.freedesktop.org/gstreamer/cerbero
+</code></pre>
+<p>This will build the latest unreleased GStreamer code.</p>
+<p>Despite the presence of <code>setup.py</code> this tool does not need installation. It is
+invoked via the <code>cerbero-uninstalled</code> script, which should be invoked as
+<code>./cerbero-uninstalled</code>, or you can create an alias to it in your <code>.bashrc</code>
+file.</p>
+<p>You can build a specific release by checking out that tag, for example <code>git checkout 1.18.4</code>. Building a release tag will cause Cerbero to use the release
+tarballs instead of git repositories when fetching gstreamer recipes for
+building.</p>
+<p>You can also build the latest unreleased 'stable branch' code, for instance for
+1.18 you'd do: <code>git checkout 1.18</code>, or <code>git clone -b 1.18 [...]</code>, which will
+fetch the corresponding stable branches when building gstreamer recipes.</p>
+<p>You can also use git worktrees, which may be more convenient when building
+several different versions of gstreamer since the build artefacts always go
+into the <code>build</code> directory inside the git repository.</p>
+<h1 id="running-cerbero">Running Cerbero</h1>
+<p>Despite the presence of <code>setup.py</code> this tool does not need installation. It is invoked via the
+cerbero-uninstalled script, which should be invoked as <code>./cerbero-uninstalled</code>, or you can add
+the cerbero directory in your path and invoke it as <code>cerbero-uninstalled</code>.</p>
+<p>On Windows, Cerbero supports running from CMD.EXE, Powershell, or an MSYS2 UCRT64 shell.</p>
+<h2 id="bootstrap-to-setup-environment">Bootstrap to setup environment</h2>
+<p>Before using cerbero for the first time, you will need to run the bootstrap
+command. This command installs the missing parts of the build system using the
+packages manager when available, and also downloads the necessary toolchains
+when building for Windows/MinGW or Android.</p>
+<p>Note that this will take a while (a couple hours or even more on Windows).</p>
+<pre><code class="language-sh">$ ./cerbero-uninstalled bootstrap
+</code></pre>
+<p>On Linux and macOS, this will use <code>sudo</code> to make changes to the system.</p>
+<p>The bootstrap process will then install or build all packages required to build
+GStreamer.</p>
+<h2 id="build-gstreamer">Build GStreamer</h2>
+<p>To generate GStreamer binaries, use the following command:</p>
+<pre><code class="language-sh">$ ./cerbero-uninstalled package gstreamer-1.0
+</code></pre>
+<p>This will fetch and build all required GStreamer components and create packages
+for your distribution, then place them in the Cerbero source directory.</p>
+<p>A list of supported packages to build can be retrieved using:</p>
+<pre><code class="language-sh">$ ./cerbero-uninstalled list-packages
+</code></pre>
+<p>Packages are composed of 0 (in case of a meta package) or more
+components that can be built separately if desired. The components are
+defined as individual recipes and can be listed with:</p>
+<pre><code class="language-sh">$ ./cerbero-uninstalled list
+</code></pre>
+<p>To build an individual recipe and its dependencies, do the following:</p>
+<pre><code class="language-sh">$ ./cerbero-uninstalled build &lt;recipe_name&gt;
+</code></pre>
+<p>Or to build or force a rebuild of a recipe without building its
+dependencies use:</p>
+<pre><code class="language-sh">$ ./cerbero-uninstalled buildone &lt;recipe_name&gt;
+</code></pre>
+<p>To wipe everything and start from scratch:</p>
+<pre><code class="language-sh">$ ./cerbero-uninstalled wipe
+</code></pre>
+<p>Once built, the binaries built by all the recipes will be installed inside
+a auto-detected prefix inside the <code>build</code> directory in the Cerbero source tree.</p>
+<h2 id="cross-compilation">Cross Compilation</h2>
+<p>If you're using Cerbero to cross-compile to iOS, Android, Cross-MinGW, or UWP,
+you must select the appropriate config file and pass it to all steps:
+bootstrap, build, package, etc.</p>
+<p>For example if you're on Linux and you want to build for Android Universal, you
+must run:</p>
+<pre><code class="language-sh"># Bootstrap for Android Universal on Linux
+$ ./cerbero-uninstalled -c config/cross-android-universal.cbc bootstrap
+
+# Build everything and package for Android Universal
+$ ./cerbero-uninstalled -c config/cross-android-universal.cbc package gstreamer-1.0
+</code></pre>
+<p>Here's a list of config files for each target machine:</p>
+<h4 id="linux-targets">Linux Targets</h4>
+<table>
+<thead>
+<tr>
+<th> Target</th>
+<th> Config file</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> MinGW 32-bit</td>
+<td> <code>cross-win32.cbc</code>
+</td>
+</tr>
+<tr>
+<td> MinGW 64-bit</td>
+<td> <code>cross-win64.cbc</code>
+</td>
+</tr>
+<tr>
+<td> Android Universal</td>
+<td> <code>cross-android-universal.cbc</code>
+</td>
+</tr>
+<tr>
+<td> Android ARM64</td>
+<td> <code>cross-android-arm64.cbc</code>
+</td>
+</tr>
+<tr>
+<td> Android ARMv7</td>
+<td> <code>cross-android-armv7.cbc</code>
+</td>
+</tr>
+<tr>
+<td> Android x86</td>
+<td> <code>cross-android-x86.cbc</code>
+</td>
+</tr>
+<tr>
+<td> Android x86_64</td>
+<td> <code>cross-android-x86-64.cbc</code>
+</td>
+</tr>
+</tbody>
+</table>
+<h4 id="macos-targets">macOS Targets</h4>
+<table>
+<thead>
+<tr>
+<th> Target</th>
+<th> Config file</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> macOS System Framework</td>
+<td> <code>osx-x86-64.cbc</code>
+</td>
+</tr>
+<tr>
+<td> iOS Universal</td>
+<td> <code>cross-ios-universal.cbc</code>
+</td>
+</tr>
+<tr>
+<td> iOS ARM64</td>
+<td> <code>cross-ios-arm64.cbc</code>
+</td>
+</tr>
+<tr>
+<td> iOS ARMv7</td>
+<td> <code>cross-ios-armv7.cbc</code>
+</td>
+</tr>
+<tr>
+<td> iOS x86</td>
+<td> <code>cross-ios-x86.cbc</code>
+</td>
+</tr>
+<tr>
+<td> iOS x86_64</td>
+<td> <code>cross-ios-x86-64.cbc</code>
+</td>
+</tr>
+</tbody>
+</table>
+<h4 id="windows-targets">Windows Targets</h4>
+<p>On Windows, config files are used to select the architecture and variants are
+used to select the toolchain (MinGW, MSVC, UWP):</p>
+<p>Target          | Config file               | Variant
+:---------------|:--------------------------|:-------
+MSVC x86        | <code>win32.cbc</code>               |
+MSVC x86_64     | <code>win64.cbc</code>               |
+MinGW x86       | <code>win32.cbc</code>               | mingw
+MinGW x86_64    | <code>win64.cbc</code>               | mingw
+UWP x86         | <code>win32.cbc</code>               | uwp
+UWP x86_64      | <code>win64.cbc</code>               | uwp
+UWP ARM64       | <code>cross-win-arm64.cbc</code>     | uwp
+UWP Universal   | <code>cross-uwp-universal.cbc</code> | (implicitly uwp)</p>
+<p>Example usage:</p>
+<pre><code class="language-sh"># Target MSVC 64-bit
+$ ./cerbero-uninstalled -c config/win64.cbc package gstreamer-1.0
+
+# Target MinGW 32-bit
+$ ./cerbero-uninstalled -c config/win32.cbc -v mingw package gstreamer-1.0
+
+# Target UWP, x86_64
+$ ./cerbero-uninstalled -c config/win64.cbc -v uwp package gstreamer-1.0
+
+# Target UWP, Cross ARM64
+$ ./cerbero-uninstalled -c config/cross-win-arm64.cbc -v uwp package gstreamer-1.0
+
+# Target UWP, All Supported Arches
+$ ./cerbero-uninstalled -c config/cross-uwp-universal.cbc package gstreamer-1.0
+</code></pre>
+<h2 id="tips-for-ci-setup">Tips for CI setup</h2>
+<p>Cerbero can split its bootstrap and package commands into stages which can be
+useful for CI setups. For example, you might want to do any system setup (such
+as installing packages) and also fetch all sources to cache them when building
+your CI image:</p>
+<pre><code class="language-sh">$ ./cerbero-uninstalled fetch-bootstrap
+$ ./cerbero-uninstalled fetch-package gstreamer-1.0
+# This will use "sudo"
+$ ./cerbero-uninstalled bootstrap --system=yes --toolchains=no --build-tools=no --offline
+</code></pre>
+<p>Then inside your CI job, you will not need root for the remaining steps:</p>
+<pre><code class="language-sh">$ ./cerbero-uninstalled bootstrap --system=no --toolchains=yes --build-tools=yes --offline
+# When building a non-tagged commit, this will update the git repos for all gstreamer recipes
+$ ./cerbero-uninstalled fetch-package gstreamer-1.0
+$ ./cerbero-uninstalled package gstreamer-1.0 --offline
+</code></pre>
+<p>For more inspiration, see <a href="https://gitlab.freedesktop.org/gstreamer/cerbero/.gitlab-ci.yml">GStreamer's GitLab CI setup</a>.</p>
+<h1 id="artifact-types">Artifact Types</h1>
+<p>Starting with the 1.28 release, Cerbero supports outputting various kinds of
+artifact types:</p>
+<ul>
+<li>Tarballs
+<ul>
+<li>Default for Android and Linux, available for all targets</li>
+<li>Prior to 1.28, this could be selected with the <code>-t/--tarball</code> option</li>
+</ul>
+</li>
+<li>Windows Installer Packages
+<ul>
+<li>Default for, and only available for Windows and cross-Windows targets</li>
+</ul>
+</li>
+<li>macOS Installer Packages
+<ul>
+<li>Default for, and only available for macOS and iOS targets</li>
+</ul>
+</li>
+<li>Python 3 Wheels
+<ul>
+<li>Available for macOS and Windows</li>
+<li>The minimum supported Python version for the wheel will be whatever Python
+version you build the wheel with. The oldest supported by Cerbero is 3.9.</li>
+</ul>
+</li>
+</ul>
+<p>The artifact to output can be controlled with the <code>--artifact</code> option. Valid
+choices are: <code>tarball</code> <code>msi</code> <code>pkg</code> <code>wheel</code>.</p>
+<h2 id="enabling-optional-features-with-variants">Enabling Optional Features with Variants</h2>
+<p>Cerbero controls optional and platform-specific features with <code>variants</code>. You
+can see a full list of available variants by running:</p>
+<pre><code class="language-sh">$ ./cerbero-uninstalled --list-variants
+</code></pre>
+<p>Some variants are enabled by default while others are not. You can enable
+a particular variant by doing one of the following:</p>
+<ul>
+<li>Either invoke <code>cerbero-uninstalled</code> with the <code>-v</code> argument, for example:</li>
+</ul>
+<pre><code class="language-sh">$ ./cerbero-uninstalled -v variantname [-c ...] package gstreamer-1.0
+</code></pre>
+<ul>
+<li>Or, edit <code>~/.cerbero/cerbero.cbc</code> and add <code>variants = ['variantname']</code> at the
+bottom. Create the file if it doesn't exist.</li>
+</ul>
+<p>Multiple variants can either be separated by a comma or with multiple <code>-v</code>
+arguments, for example the following are equivalent:</p>
+<pre><code class="language-sh">$ ./cerbero-uninstalled -v variantname1,variantname2 [-c ...] package gstreamer-1.0
+$ ./cerbero-uninstalled -v variantname1 -v variantname2 [-c ...] package gstreamer-1.0
+</code></pre>
+<p>To explicitly <strong>disable</strong> a variant, use <code>novariantname</code> instead,
+e.g. <code>-v norust</code> to disable Rust support and building of the Rust plugins.</p>
+<p>In the case of multiple enabling/disable of the same variant, then the last
+condition on the command line will take effect.  e.g. if novariantname is last
+then variantname is disabled.</p>
+<h3 id="enabling-qt5-or-qt6-support">Enabling Qt5 or Qt6 Support</h3>
+<p>Starting with version 1.15.2, Cerbero has built-in support for building the Qt5
+QML GStreamer plugin. You can toggle that on by
+<a href="installing/building-from-source-using-cerbero.html#enabling-optional-features-with-variants">enabling the <code>qt5</code> variant</a>.</p>
+<p>You must also tell Cerbero where your Qt5 installation prefix is. You can do it
+by setting the <code>QMAKE</code> environment variable to point to the <code>qmake</code> that you
+want to use, f.ex. <code>/path/to/Qt5.12.0/5.12.0/ios/bin/qmake</code></p>
+<p>When building for Android Universal with Qt &lt; 5.14, instead of <code>QMAKE</code>, you
+<strong>must</strong> set the <code>QT5_PREFIX</code> environment variable pointed to the directory
+inside your prefix which contains all the android targets, f.ex.
+<code>/path/to/Qt5.12.0/5.12.0</code>.</p>
+<p>Next, run <code>package</code>:</p>
+<pre><code class="language-sh">$ export QMAKE='/path/to/Qt5.12.0/5.12.0/&lt;target&gt;/bin/qmake'
+$ ./cerbero-uninstalled -v qt5 [-c ...] package gstreamer-1.0
+</code></pre>
+<p>This will try to build the Qt5 QML plugin and error out if Qt5 could not be
+found or if the plugin could not be built. The plugin will be automatically
+added to the package outputted.</p>
+<p>Similarly, if you set <code>QMAKE6</code> and enable the <code>qt6</code> variant, the same will be
+done for Qt6.</p>
+<p><strong>NOTE:</strong> The package outputted will not contain a copy of the Qt libraries in
+it. You must link to them while building your app yourself.</p>
+<h2 id="enabling-or-disabling-rust-cargo-support">Enabling or Disabling Rust / Cargo Support</h2>
+<p>Starting with version 1.22, Cerbero supports bootstrapping Rust toolchains, and
+can build Rust gstreamer plugins.</p>
+<p>This is enabled by default for the following configurations: native-linux,
+cross-macos-universal, native-win64 (msvc), native-win32 (msvc).</p>
+<p>More targets will be enabled in the future. If you want to force-enable the
+feature, you can use the <a href="installing/building-from-source-using-cerbero.html#enabling-optional-features-with-variants"><code>rust</code> variant</a>
+by invoking cerbero as follows:</p>
+<pre><code>$ ./cerbero-uninstalled -v rust &lt;command&gt;
+</code></pre>
+<p>To explicitly <strong>disable</strong> Rust support and building of the Rust plugins,
+pass <code>-v norust</code>.</p>
+<h2 id="enabling-hardware-codec-support">Enabling Hardware Codec Support</h2>
+<p>Starting with version 1.15.2, Cerbero has built-in support for building and
+packaging hardware codecs for Intel and Nvidia. If the appropriate variant is
+enabled, the plugin will either be built or Cerbero will error out if that's
+not possible.</p>
+<h3 id="intel-hardware-codecs">Intel Hardware Codecs</h3>
+<p>For Intel, the <a href="installing/building-from-source-using-cerbero.html#enabling-optional-features-with-variants">variant to enable</a>
+is <code>intelmsdk</code> which will build the <code>msdk</code> plugin.</p>
+<p>You must set the <code>INTELMEDIASDKROOT</code> env var to point to your <a href="https://software.intel.com/en-us/media-sdk">Intel Media
+SDK</a> prefix, or you must have the
+SDK's pkgconfig prefix in <code>PKG_CONFIG_PATH</code></p>
+<p>On Windows, <code>INTELMEDIASDKROOT</code> automatically set by the installer. On Linux,
+if you need to set this, you must set it to point to the directory that
+contains the mediasdk <code>include</code> and <code>lib64</code> dirs.</p>
+<p>For VA-API, the <a href="installing/building-from-source-using-cerbero.html#enabling-optional-features-with-variants">variant to enable</a>
+is <code>vaapi</code> which will build the va plugins from gst-plugins-bad.</p>
+<h2 id="customising-cerbero">Customising Cerbero</h2>
+<h3 id="how-to-build-a-custom-gstreamer-repository-or-branch">How to build a custom GStreamer repository or branch</h3>
+<p>Create a <code>localconf.cbc</code> file and add the following:</p>
+<pre><code># Set custom remote and branch for all gstreamer recipes
+recipes_remotes = {'gstreamer-1.0': {'custom-remote': '&lt;YOUR_GIT_REPO&gt;'}}
+recipes_commits = {'gstreamer-1.0': 'custom-remote/&lt;YOUR_GIT_BRANCH&gt;'}
+</code></pre>
+<p>You can then run Cerbero with e.g.:</p>
+<pre><code class="language-cmd">./cerbero-uninstalled -c localconf.cbc -c config/win64.cbc -v visualstudio package gstreamer-1.0
+</code></pre>
+<p>This works for all builds of course, not only the Windows one.</p>
+<h3 id="how-to-force-a-specific-visual-studio-version">How to force a specific Visual Studio version</h3>
+<p>Create a <code>localconf.cbc</code> file and add the following:</p>
+<pre><code># Specify Visual Studio install path and version
+vs_install_path = 'C:/Path/To/Install'
+
+# This is the Visual Studio Compiler toolset version, vs16 is for Visual Studio 2019. vs15 is 2017, and so on
+vs_install_version = 'vs16'
+</code></pre>
+<p>You can then run Cerbero with e.g.:</p>
+<pre><code class="language-cmd">./cerbero-uninstalled -c localconf.cbc -c config/win64.cbc -v visualstudio package gstreamer-1.0
+</code></pre>
+
+    </div>
+        
+
+
+
+
+		
+	</div>
+	<div id="search_results">
+		<p>The results of the search are</p>
+	</div>
+	<div id="footer">
+		    
+        
+<div class="copyrights-description">
+		<p>
+				© 								2021, 
+													       	Nirbheek Chauhan 				(<a href="mailto:nirbheek@centricular.com">nirbheek@centricular.com</a>)
+			</p>
+	</div>
+
+
+	</div>
+</div>
+
+<div id="toc-column">
+	
+		<div class="edit-button">
+		<a href="https://gitlab.freedesktop.org/gstreamer/gst-docs//edit/master/subprojects/gst-docs/markdown/installing/building-from-source-using-cerbero.md" data-hotdoc-role="edit-button">Edit on GitLab</a>
+
+	</div>
+		<div id="toc-wrapper">
+		<nav id="toc"></nav>
+	</div>
+</div>
+</div>
+</main>
+
+
+<script src="assets/js/navbar_offset_scroller.js"></script>
+</body>
+</html>

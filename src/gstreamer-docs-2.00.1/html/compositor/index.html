@@ -1,0 +1,1001 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<base href="..">
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<title>compositor</title>
+
+<link rel="stylesheet" href="assets/css/dark-frontend.css" type="text/css" title="dark">
+<link rel="alternate stylesheet" href="assets/css/light-frontend.css" type="text/css" title="light">
+<link rel="stylesheet" href="assets/css/bootstrap-toc.min.css" type="text/css">
+<link rel="stylesheet" href="assets/css/jquery.mCustomScrollbar.min.css">
+<link rel="stylesheet" href="assets/js/search/enable_search.css" type="text/css">
+
+<link rel="stylesheet" href="assets/css/extra_frontend.css" type="text/css">
+<link rel="stylesheet" href="assets/css/devhelp.css" type="text/css">
+
+<link rel="stylesheet" href="assets/css/prism-tomorrow.css" type="text/css" title="dark">
+
+<link rel="alternate stylesheet" href="assets/css/prism.css" type="text/css" title="light">
+
+<script src="assets/js/mustache.min.js"></script>
+<script src="assets/js/jquery.js"></script>
+<script src="assets/js/bootstrap.js"></script>
+<script src="assets/js/scrollspy.js"></script>
+<script src="assets/js/typeahead.jquery.min.js"></script>
+<script src="assets/js/search.js"></script>
+<script src="assets/js/compare-versions.js"></script>
+<script src="assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="assets/js/bootstrap-toc.min.js"></script>
+<script src="assets/js/jquery.touchSwipe.min.js"></script>
+<script src="assets/js/anchor.min.js"></script>
+<script src="assets/js/tag_filtering.js"></script>
+<script src="assets/js/language_switching.js"></script>
+<script src="assets/js/styleswitcher.js"></script>
+
+<script src="assets/js/lines_around_headings.js"></script>
+
+<script src="assets/js/prism-core.js"></script>
+<script src="assets/js/prism-autoloader.js"></script>
+<script src="assets/js/prism_autoloader_path_override.js"></script>
+<script src="assets/js/trie.js"></script>
+
+<!-- generic -->
+<link rel="icon" type="image/png" href="assets/images/favicon-16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="assets/images/favicon-32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="assets/images/favicon-57.png" sizes="57x57">
+<link rel="icon" type="image/png" href="assets/images/favicon-64.png" sizes="64x64">
+<link rel="icon" type="image/png" href="assets/images/favicon-76.png" sizes="76x76">
+<link rel="icon" type="image/png" href="assets/images/favicon-96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="assets/images/favicon-128.png" sizes="128x128">
+<link rel="icon" type="image/png" href="assets/images/favicon-192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="assets/images/favicon-228.png" sizes="228x228">
+
+<!-- Android -->
+<link rel="shortcut icon" sizes="196x196" href="assets/images/favicon-196.png">
+
+<!-- iOS -->
+<link rel="apple-touch-icon" href="assets/images/favicon-120.png" sizes="120x120">
+<link rel="apple-touch-icon" href="assets/images/favicon-152.png" sizes="152x152">
+<link rel="apple-touch-icon" href="assets/images/favicon-180.png" sizes="180x180">
+
+</head>
+
+<body class="no-script
+">
+
+<script>
+$('body').removeClass('no-script');
+</script>
+
+<nav class="navbar navbar-fixed-top navbar-default" id="topnav">
+	<div class="container-fluid">
+		<div class="navbar-right">
+			<a id="toc-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-wrapper" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<span title="light mode switch" class="glyphicon glyphicon-sunglasses pull-right" id="lightmode-icon"></span>
+			<form class="navbar-form pull-right" id="navbar-search-form">
+                               <div class="form-group has-feedback">
+                                       <input type="text" class="form-control input-sm" name="search" id="sidenav-lookup-field" placeholder="search" disabled>
+				       <span class="glyphicon glyphicon-search form-control-feedback" id="search-mgn-glass"></span>
+                               </div>
+                        </form>
+		</div>
+		<div class="navbar-header">
+			<a id="sidenav-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<a id="home-link" href="index.html" class="hotdoc-navbar-brand">
+				<img src="assets/images/gstreamer-logo.svg" alt="Home">
+			</a>
+		</div>
+		<div class="navbar-collapse collapse" id="navbar-wrapper">
+			<ul class="nav navbar-nav" id="menu">
+				
+<li class="dropdown">
+    <a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        API References<span class="caret"></span>
+    </a>
+	<ul class="dropdown-menu" id="modules-menu">
+					<li>
+				<a href="gstreamer/gi-index.html">GStreamer core</a>
+			</li>
+					<li>
+				<a href="libs.html">GStreamer Libraries</a>
+			</li>
+					<li>
+				<a href="plugins_doc.html">GStreamer Plugins</a>
+			</li>
+		</ul>
+</li>
+
+<li>
+    <a href="application-development/index.html">Application manual</a>
+</li>
+
+
+<li>
+    <a href="tutorials/index.html">Tutorials</a>
+</li>
+
+			</ul>
+			<div class="hidden-xs hidden-sm navbar-text navbar-center">
+							</div>
+		</div>
+	</div>
+</nav>
+
+<main>
+<div data-extension="gst-extension" data-hotdoc-in-toplevel="False" data-hotdoc-project="compositor" data-hotdoc-ref="index.html" class="page_container" id="page-wrapper" data-hotdoc-meta-gi-languages="['c', 'javascript', 'python']">
+<script src="assets/js/utils.js"></script>
+
+<div class="panel panel-collapse oc-collapsed" id="sidenav" data-hotdoc-role="navigation">
+	<script src="assets/js/full-width.js"></script>
+  <div id="sitenav-wrapper">
+    <iframe src="hotdoc-sitemap.html" id="sitenav-frame"></iframe>
+  </div>
+</div>
+
+<div id="body">
+	<div id="main">
+				    <div id="page-description" data-hotdoc-role="main">
+        <h1 id="compositor-page">compositor</h1>
+<p>Compositor can accept AYUV, VUYA, ARGB and BGRA video streams. For each of the requested
+sink pads it will compare the incoming geometry and framerate to define the
+output parameters. Indeed output video frames will have the geometry of the
+biggest incoming video stream and the framerate of the fastest incoming one.</p>
+<p>Compositor will do colorspace conversion.</p>
+<p>Individual parameters for each input stream can be configured on the
+<a href="compositor/index.html#GstCompositorPad">GstCompositorPad</a>:</p>
+<ul>
+<li>"xpos": The x-coordinate position of the top-left corner of the picture (#gint)</li>
+<li>"ypos": The y-coordinate position of the top-left corner of the picture (#gint)</li>
+<li>"width": The width of the picture; the input will be scaled if necessary (#gint)</li>
+<li>"height": The height of the picture; the input will be scaled if necessary (#gint)</li>
+<li>"alpha": The transparency of the picture; between 0.0 and 1.0. The blending
+is a simple copy when fully-transparent (0.0) and fully-opaque (1.0). (#gdouble)</li>
+<li>"zorder": The z-order position of the picture in the composition (#guint)</li>
+</ul>
+<h2 id="sample-pipelines">Sample pipelines</h2>
+<pre><code class="language-["> gst-launch-1.0 \
+   videotestsrc pattern=1 ! \
+   video/x-raw,format=AYUV,framerate=\(fraction\)10/1,width=100,height=100 ! \
+   videobox border-alpha=0 top=-70 bottom=-70 right=-220 ! \
+   compositor name=comp sink_0::alpha=0.7 sink_1::alpha=0.5 ! \
+   videoconvert ! xvimagesink \
+   videotestsrc ! \
+   video/x-raw,format=AYUV,framerate=\(fraction\)5/1,width=320,height=240 ! comp.
+</code></pre>
+<p>A pipeline to demonstrate compositor used together with videobox.
+This should show a 320x240 pixels video test source with some transparency
+showing the background checker pattern. Another video test source with just
+the snow pattern of 100x100 pixels is overlaid on top of the first one on
+the left vertically centered with a small transparency showing the first
+video test source behind and the checker pattern under it. Note that the
+framerate of the output video is 10 frames per second.</p>
+<pre><code class="language-["> gst-launch-1.0 videotestsrc pattern=1 ! \
+   video/x-raw, framerate=\(fraction\)10/1, width=100, height=100 ! \
+   compositor name=comp ! videoconvert ! ximagesink \
+   videotestsrc !  \
+   video/x-raw, framerate=\(fraction\)5/1, width=320, height=240 ! comp.
+</code></pre>
+<p>A pipeline to demonstrate bgra comping. (This does not demonstrate alpha blending).</p>
+<pre><code class="language-["> gst-launch-1.0 videotestsrc pattern=1 ! \
+   video/x-raw,format =I420, framerate=\(fraction\)10/1, width=100, height=100 ! \
+   compositor name=comp ! videoconvert ! ximagesink \
+   videotestsrc ! \
+   video/x-raw,format=I420, framerate=\(fraction\)5/1, width=320, height=240 ! comp.
+</code></pre>
+<p>A pipeline to test I420</p>
+<pre><code class="language-["> gst-launch-1.0 compositor name=comp sink_1::alpha=0.5 sink_1::xpos=50 sink_1::ypos=50 ! \
+   videoconvert ! ximagesink \
+   videotestsrc pattern=snow timestamp-offset=3000000000 ! \
+   "video/x-raw,format=AYUV,width=640,height=480,framerate=(fraction)30/1" ! \
+   timeoverlay ! queue2 ! comp. \
+   videotestsrc pattern=smpte ! \
+   "video/x-raw,format=AYUV,width=800,height=600,framerate=(fraction)10/1" ! \
+   timeoverlay ! queue2 ! comp.
+</code></pre>
+<p>A pipeline to demonstrate synchronized compositing (the second stream starts after 3 seconds)</p>
+
+    </div>
+        
+        
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="plugin-compositor">
+	
+        <div class="base_symbol_container">
+        </div>
+
+</div>
+
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="compositor">
+	
+        
+
+        <h2>Hierarchy</h2>
+            <div class="hierarchy_container">
+                <div class="hierarchy_details">
+<pre>
+<a title="GObject" href="https://docs.gtk.org/gobject/class.Object.html" data-gi-href-javascript="https://docs.gtk.org/gobject/class.Object.html" data-gi-title-javascript="GObject.Object" data-gi-href-python="https://docs.gtk.org/gobject/class.Object.html" data-gi-title-python="GObject.Object">GObject</a>
+    <span class="lineart">╰──</span><a title="GInitiallyUnowned" href="https://docs.gtk.org/gobject/class.InitiallyUnowned.html" data-gi-href-javascript="https://docs.gtk.org/gobject/class.InitiallyUnowned.html" data-gi-title-javascript="GObject.InitiallyUnowned" data-gi-href-python="https://docs.gtk.org/gobject/class.InitiallyUnowned.html" data-gi-title-python="GObject.InitiallyUnowned">GInitiallyUnowned</a>
+        <span class="lineart">╰──</span><a title="GstObject" href="gstreamer/gstobject.html#GstObject" data-gi-href-javascript="gstreamer/gstobject.html#GstObject" data-gi-title-javascript="Gst.Object" data-gi-href-python="gstreamer/gstobject.html#GstObject" data-gi-title-python="Gst.Object">GstObject</a>
+            <span class="lineart">╰──</span><a title="GstElement" href="gstreamer/gstelement.html#GstElement" data-gi-href-javascript="gstreamer/gstelement.html#GstElement" data-gi-title-javascript="Gst.Element" data-gi-href-python="gstreamer/gstelement.html#GstElement" data-gi-title-python="Gst.Element">GstElement</a>
+                <span class="lineart">╰──</span><a title="GstAggregator" href="base/gstaggregator.html#GstAggregator" data-gi-href-javascript="base/gstaggregator.html#GstAggregator" data-gi-title-javascript="GstBase.Aggregator" data-gi-href-python="base/gstaggregator.html#GstAggregator" data-gi-title-python="GstBase.Aggregator">GstAggregator</a>
+                    <span class="lineart">╰──</span><a title="GstVideoAggregator" href="video/gstvideoaggregator.html#GstVideoAggregator" data-gi-href-javascript="video/gstvideoaggregator.html#GstVideoAggregator" data-gi-title-javascript="GstVideo.VideoAggregator" data-gi-href-python="video/gstvideoaggregator.html#GstVideoAggregator" data-gi-title-python="GstVideo.VideoAggregator">GstVideoAggregator</a>
+                        <span class="lineart">╰──</span>compositor
+</pre>
+
+</div>
+
+            </div>
+            <h2>Implemented interfaces</h2>
+            <div>
+                <pre>
+<a title="GstChildProxy" href="gstreamer/gstchildproxy.html#GstChildProxy" data-gi-href-javascript="gstreamer/gstchildproxy.html#GstChildProxy" data-gi-title-javascript="Gst.ChildProxy" data-gi-href-python="gstreamer/gstchildproxy.html#GstChildProxy" data-gi-title-python="Gst.ChildProxy">GstChildProxy</a>
+</pre>
+            </div>
+        <h2 class="symbol_section">Factory details</h2>
+        <div class="symbol-detail">
+            <p><b>Authors:</b> – Wim Taymans <wim@fluendo.com>, Sebastian Dröge <sebastian.droege@collabora.co.uk></sebastian.droege@collabora.co.uk></wim@fluendo.com></p>
+            <p><b>Classification:</b> – <code>Filter/Editor/Video/Compositor</code></p>
+            <p><b>Rank</b> – primary + 1</p>
+            <p><b>Plugin</b> – compositor</p>
+            <p><b>Package</b> – GStreamer Base Plug-ins</p>
+        </div>
+
+</div>
+
+
+            <h2 class="symbol_section">Pad Templates</h2>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstCompositor!sink_%u">
+	
+
+
+
+        <h3><span><code>sink_%u</code></span></h3>
+
+
+        <div>
+            
+            <pre class="language-yaml"><code class="language-yaml">video/x-raw:
+         format: { A444_16LE, A444_16BE, Y416_LE, AYUV64, RGBA64_LE, ARGB64, ARGB64_LE, BGRA64_LE, ABGR64_LE, Y416_BE, RGBA64_BE, ARGB64_BE, BGRA64_BE, ABGR64_BE, A422_16LE, A422_16BE, A420_16LE, A420_16BE, A444_12LE, GBRA_12LE, A444_12BE, GBRA_12BE, Y412_LE, Y412_BE, A422_12LE, A422_12BE, A420_12LE, A420_12BE, A444_10LE, GBRA_10LE, A444_10BE, GBRA_10BE, A422_10LE, A422_10BE, A420_10LE, A420_10BE, BGR10A2_LE, RGB10A2_LE, Y410, A444, GBRA, AYUV, VUYA, RGBA, RBGA, ARGB, BGRA, ABGR, A422, A420, AV12, Y444_16LE, GBR_16LE, Y444_16BE, GBR_16BE, Y216_LE, Y216_BE, v216, P016_LE, P016_BE, Y444_12LE, GBR_12LE, Y444_12BE, GBR_12BE, I422_12LE, I422_12BE, Y212_LE, Y212_BE, I420_12LE, I420_12BE, P012_LE, P012_BE, Y444_10LE, GBR_10LE, Y444_10BE, GBR_10BE, BGR10x2_LE, RGB10x2_LE, r210, I422_10LE, I422_10BE, NV16_10LE40, NV16_10LE32, Y210, UYVP, v210, I420_10LE, I420_10BE, P010_10LE, NV12_10LE40, NV12_10LE32, P010_10BE, MT2110R, MT2110T, NV12_10BE_8L128, NV12_10LE40_4L4, Y444, BGRP, GBR, RGBP, NV24, v308, IYU2, RGBx, xRGB, BGRx, xBGR, RGB, BGR, Y42B, NV16, NV61, YUY2, YVYU, UYVY, VYUY, I420, YV12, NV12, NV21, NV12_16L32S, NV12_32L32, NV12_4L4, NV12_64Z32, NV12_8L128, Y41B, IYU1, YUV9, YVU9, BGR16, RGB16, BGR15, RGB15, RGB8P, GRAY16_LE, GRAY16_BE, GRAY10_LE16, GRAY10_LE32, GRAY8 }
+          width: [ 1, 2147483647 ]
+         height: [ 1, 2147483647 ]
+      framerate: [ 0/1, 2147483647/1 ]
+</code></pre>
+            <div class="symbol-detail">
+                <p><b>Presence</b> – <i>request</i></p>
+                <p><b>Direction</b> – <i>sink</i></p>
+                    <p><b>Object type</b> – <a title="GstCompositorPad" href="compositor/index.html#GstCompositorPad">GstCompositorPad</a></p>
+            </div>
+        </div>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstCompositor!src">
+	
+
+
+
+        <h3><span><code>src</code></span></h3>
+
+
+        <div>
+            
+            <pre class="language-yaml"><code class="language-yaml">video/x-raw:
+         format: { A444_16LE, A444_16BE, Y416_LE, AYUV64, RGBA64_LE, ARGB64, ARGB64_LE, BGRA64_LE, ABGR64_LE, Y416_BE, RGBA64_BE, ARGB64_BE, BGRA64_BE, ABGR64_BE, A422_16LE, A422_16BE, A420_16LE, A420_16BE, A444_12LE, GBRA_12LE, A444_12BE, GBRA_12BE, Y412_LE, Y412_BE, A422_12LE, A422_12BE, A420_12LE, A420_12BE, A444_10LE, GBRA_10LE, A444_10BE, GBRA_10BE, A422_10LE, A422_10BE, A420_10LE, A420_10BE, BGR10A2_LE, RGB10A2_LE, Y410, A444, GBRA, AYUV, VUYA, RGBA, RBGA, ARGB, BGRA, ABGR, A422, A420, AV12, Y444_16LE, GBR_16LE, Y444_16BE, GBR_16BE, Y216_LE, Y216_BE, v216, P016_LE, P016_BE, Y444_12LE, GBR_12LE, Y444_12BE, GBR_12BE, I422_12LE, I422_12BE, Y212_LE, Y212_BE, I420_12LE, I420_12BE, P012_LE, P012_BE, Y444_10LE, GBR_10LE, Y444_10BE, GBR_10BE, BGR10x2_LE, RGB10x2_LE, r210, I422_10LE, I422_10BE, NV16_10LE40, NV16_10LE32, Y210, UYVP, v210, I420_10LE, I420_10BE, P010_10LE, NV12_10LE40, NV12_10LE32, P010_10BE, MT2110R, MT2110T, NV12_10BE_8L128, NV12_10LE40_4L4, Y444, BGRP, GBR, RGBP, NV24, v308, IYU2, RGBx, xRGB, BGRx, xBGR, RGB, BGR, Y42B, NV16, NV61, YUY2, YVYU, UYVY, VYUY, I420, YV12, NV12, NV21, NV12_16L32S, NV12_32L32, NV12_4L4, NV12_64Z32, NV12_8L128, Y41B, IYU1, YUV9, YVU9, BGR16, RGB16, BGR15, RGB15, RGB8P, GRAY16_LE, GRAY16_BE, GRAY10_LE16, GRAY10_LE32, GRAY8 }
+          width: [ 1, 2147483647 ]
+         height: [ 1, 2147483647 ]
+      framerate: [ 0/1, 2147483647/1 ]
+</code></pre>
+            <div class="symbol-detail">
+                <p><b>Presence</b> – <i>always</i></p>
+                <p><b>Direction</b> – <i>src</i></p>
+                    <p><b>Object type</b> – <a title="GstAggregatorPad" href="base/gstaggregator.html#GstAggregatorPad" data-gi-href-javascript="base/gstaggregator.html#GstAggregatorPad" data-gi-title-javascript="GstBase.AggregatorPad" data-gi-href-python="base/gstaggregator.html#GstAggregatorPad" data-gi-title-python="GstBase.AggregatorPad">GstAggregatorPad</a></p>
+            </div>
+        </div>
+
+
+
+<hr>
+
+</div>
+
+
+            <h2 class="symbol_section">Properties</h2>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="compositor:background">
+	
+
+
+
+<h3 data-hotdoc-id="compositor:background">
+	<i>background</i>
+</h3>
+
+
+<pre class="property_signature">
+“background” <span class="type"><a title="GstCompositorBackground" href="compositor/index.html#GstCompositorBackground">GstCompositorBackground</a> <span class="pointer-token">*</span></span>
+</pre>
+
+<p>Background type</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	checker (0)
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="compositor:ignore-inactive-pads">
+	
+
+
+
+<h3 data-hotdoc-id="compositor:ignore-inactive-pads">
+	<i>ignore-inactive-pads</i>
+</h3>
+
+
+<pre class="property_signature">
+“ignore-inactive-pads” <span class="type"><a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#bool" data-gi-title-python="bool">gboolean</a></span>
+</pre>
+
+<p>Don't wait for inactive pads when live. An inactive pad
+is a pad that hasn't yet received a buffer, but that has
+been waited on at least once.</p>
+<p>The purpose of this property is to avoid aggregating on
+timeout when new pads are requested in advance of receiving
+data flow, for example the user may decide to connect it later,
+but wants to configure it already.</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	false
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="compositor:max-threads">
+	
+
+
+
+<h3 data-hotdoc-id="compositor:max-threads">
+	<i>max-threads</i>
+</h3>
+
+
+<pre class="property_signature">
+“max-threads” <span class="type"><a title="guint" href="https://docs.gtk.org/glib/types.html#guint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">guint</a></span>
+</pre>
+
+<p>Maximum number of blending/rendering worker threads to spawn (0 = auto)</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	0
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="compositor:zero-size-is-unscaled">
+	
+
+
+
+<h3 data-hotdoc-id="compositor:zero-size-is-unscaled">
+	<i>zero-size-is-unscaled</i>
+</h3>
+
+
+<pre class="property_signature">
+“zero-size-is-unscaled” <span class="type"><a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#bool" data-gi-title-python="bool">gboolean</a></span>
+</pre>
+
+<p>Whether a pad with height or width 0 should be left unscaled
+in that dimension, or simply not composited in. Setting it to
+<a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#FALSE:CAPS" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean" data-gi-title-javascript="false" data-gi-href-python="https://docs.python.org/3/library/constants.html#False" data-gi-title-python="False">FALSE</a> might be useful when animating those properties.</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	true
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+
+
+            <h2 class="symbol_section">Named constants</h2>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstCompositorBackground">
+	
+
+
+
+<h3 data-hotdoc-id="GstCompositorBackground">
+	<i>GstCompositorBackground</i>
+</h3>
+
+
+<p>The different backgrounds compositor can blend over.</p>
+
+
+
+
+	<div class="members-container">
+		<h4>Members</h4>
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstCompositorBackground::checker">
+        <code>checker</code> (<i>0</i>) – Checker pattern
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstCompositorBackground::black">
+        <code>black</code> (<i>1</i>) – Black
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstCompositorBackground::white">
+        <code>white</code> (<i>2</i>) – White
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstCompositorBackground::transparent">
+        <code>transparent</code> (<i>3</i>) – Transparent Background to enable further compositing
+        </div>
+    
+			</div>
+
+
+
+
+<hr>
+
+</div>
+
+
+        
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstCompositorPad">
+	
+
+
+
+<h2 data-hotdoc-id="GstCompositorPad">
+	<i>GstCompositorPad</i>
+</h2>
+
+
+<div class="hierarchy_container">
+	<div class="hierarchy_details">
+<pre>
+<a title="GObject" href="https://docs.gtk.org/gobject/class.Object.html" data-gi-href-javascript="https://docs.gtk.org/gobject/class.Object.html" data-gi-title-javascript="GObject.Object" data-gi-href-python="https://docs.gtk.org/gobject/class.Object.html" data-gi-title-python="GObject.Object">GObject</a>
+    <span class="lineart">╰──</span><a title="GInitiallyUnowned" href="https://docs.gtk.org/gobject/class.InitiallyUnowned.html" data-gi-href-javascript="https://docs.gtk.org/gobject/class.InitiallyUnowned.html" data-gi-title-javascript="GObject.InitiallyUnowned" data-gi-href-python="https://docs.gtk.org/gobject/class.InitiallyUnowned.html" data-gi-title-python="GObject.InitiallyUnowned">GInitiallyUnowned</a>
+        <span class="lineart">╰──</span><a title="GstObject" href="gstreamer/gstobject.html#GstObject" data-gi-href-javascript="gstreamer/gstobject.html#GstObject" data-gi-title-javascript="Gst.Object" data-gi-href-python="gstreamer/gstobject.html#GstObject" data-gi-title-python="Gst.Object">GstObject</a>
+            <span class="lineart">╰──</span><a title="GstPad" href="gstreamer/gstpad.html#GstPad" data-gi-href-javascript="gstreamer/gstpad.html#GstPad" data-gi-title-javascript="Gst.Pad" data-gi-href-python="gstreamer/gstpad.html#GstPad" data-gi-title-python="Gst.Pad">GstPad</a>
+                <span class="lineart">╰──</span><a title="GstAggregatorPad" href="base/gstaggregator.html#GstAggregatorPad" data-gi-href-javascript="base/gstaggregator.html#GstAggregatorPad" data-gi-title-javascript="GstBase.AggregatorPad" data-gi-href-python="base/gstaggregator.html#GstAggregatorPad" data-gi-title-python="GstBase.AggregatorPad">GstAggregatorPad</a>
+                    <span class="lineart">╰──</span><a title="GstVideoAggregatorPad" href="video/gstvideoaggregator.html#GstVideoAggregatorPad" data-gi-href-javascript="video/gstvideoaggregator.html#GstVideoAggregatorPad" data-gi-title-javascript="GstVideo.VideoAggregatorPad" data-gi-href-python="video/gstvideoaggregator.html#GstVideoAggregatorPad" data-gi-title-python="GstVideo.VideoAggregatorPad">GstVideoAggregatorPad</a>
+                        <span class="lineart">╰──</span><a title="GstVideoAggregatorConvertPad" href="video/gstvideoaggregator.html#GstVideoAggregatorConvertPad" data-gi-href-javascript="video/gstvideoaggregator.html#GstVideoAggregatorConvertPad" data-gi-title-javascript="GstVideo.VideoAggregatorConvertPad" data-gi-href-python="video/gstvideoaggregator.html#GstVideoAggregatorConvertPad" data-gi-title-python="GstVideo.VideoAggregatorConvertPad">GstVideoAggregatorConvertPad</a>
+                            <span class="lineart">╰──</span><a title="GstVideoAggregatorParallelConvertPad" href="video/gstvideoaggregator.html#GstVideoAggregatorParallelConvertPad" data-gi-href-javascript="video/gstvideoaggregator.html#GstVideoAggregatorParallelConvertPad" data-gi-title-javascript="GstVideo.VideoAggregatorParallelConvertPad" data-gi-href-python="video/gstvideoaggregator.html#GstVideoAggregatorParallelConvertPad" data-gi-title-python="GstVideo.VideoAggregatorParallelConvertPad">GstVideoAggregatorParallelConvertPad</a>
+                                <span class="lineart">╰──</span>GstCompositorPad
+</pre>
+
+</div>
+
+</div>
+
+<div class="class_details">
+	<p>The opaque <a href="compositor/index.html#GstCompositorPad">GstCompositorPad</a> structure.</p>
+
+</div>
+
+
+
+
+
+
+<hr>
+
+</div>
+
+
+            <h3 class="symbol_section">Properties</h3>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstCompositorPad:alpha">
+	
+
+
+
+<h4 data-hotdoc-id="GstCompositorPad:alpha">
+	<i>alpha</i>
+</h4>
+
+
+<pre class="property_signature">
+“alpha” <span class="type"><a title="gdouble" href="https://docs.gtk.org/glib/types.html#gdouble" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#float" data-gi-title-python="float">gdouble</a></span>
+</pre>
+
+<p>Alpha of the picture</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	1
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstCompositorPad:height">
+	
+
+
+
+<h4 data-hotdoc-id="GstCompositorPad:height">
+	<i>height</i>
+</h4>
+
+
+<pre class="property_signature">
+“height” <span class="type"><a title="gint" href="https://docs.gtk.org/glib/types.html#gint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">gint</a></span>
+</pre>
+
+<p>Height of the picture</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	-1
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstCompositorPad:operator">
+	
+
+
+
+<h4 data-hotdoc-id="GstCompositorPad:operator">
+	<i>operator</i>
+</h4>
+
+
+<pre class="property_signature">
+“operator” <span class="type"><a title="GstCompositorOperator" href="compositor/index.html#GstCompositorOperator">GstCompositorOperator</a> <span class="pointer-token">*</span></span>
+</pre>
+
+<p>Blending operator to use for blending this pad over the previous ones</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	over (1)
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="GstCompositorPad:sizing-policy">
+	
+
+
+
+<h4 data-hotdoc-id="GstCompositorPad:sizing-policy">
+	<i>sizing-policy</i>
+</h4>
+
+
+<pre class="property_signature">
+“sizing-policy” <span class="type"><a title="Compositor-sizing-policy" href="compositor/index.html#GstCompositorSizingPolicy">Compositor-sizing-policy</a> <span class="pointer-token">*</span></span>
+</pre>
+
+<p>Specifies sizing policy to use. Depending on selected sizing policy,
+scaled image might not fully cover the configured target rectangle area
+(e.g., "keep-aspect-ratio"). In that case, any uncovered area will be
+filled with background unless the uncovered area is drawn by other image.</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	none (0)
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstCompositorPad:width">
+	
+
+
+
+<h4 data-hotdoc-id="GstCompositorPad:width">
+	<i>width</i>
+</h4>
+
+
+<pre class="property_signature">
+“width” <span class="type"><a title="gint" href="https://docs.gtk.org/glib/types.html#gint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">gint</a></span>
+</pre>
+
+<p>Width of the picture</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	-1
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstCompositorPad:xpos">
+	
+
+
+
+<h4 data-hotdoc-id="GstCompositorPad:xpos">
+	<i>xpos</i>
+</h4>
+
+
+<pre class="property_signature">
+“xpos” <span class="type"><a title="gint" href="https://docs.gtk.org/glib/types.html#gint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">gint</a></span>
+</pre>
+
+<p>X Position of the picture</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	0
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstCompositorPad:ypos">
+	
+
+
+
+<h4 data-hotdoc-id="GstCompositorPad:ypos">
+	<i>ypos</i>
+</h4>
+
+
+<pre class="property_signature">
+“ypos” <span class="type"><a title="gint" href="https://docs.gtk.org/glib/types.html#gint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">gint</a></span>
+</pre>
+
+<p>Y Position of the picture</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	0
+</p>
+
+
+
+<hr>
+
+</div>
+
+
+            <h3 class="symbol_section">Named constants</h3>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstCompositorOperator">
+	
+
+
+
+<h4 data-hotdoc-id="GstCompositorOperator">
+	<i>GstCompositorOperator</i>
+</h4>
+
+
+<p>The different blending operators that can be used by compositor.</p>
+<p>See https://www.cairographics.org/operators/ for some explanation and
+visualizations.</p>
+
+
+
+
+	<div class="members-container">
+		<h5>Members</h5>
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstCompositorOperator::source">
+        <code>source</code> (<i>0</i>) – Source
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstCompositorOperator::over">
+        <code>over</code> (<i>1</i>) – Over
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstCompositorOperator::add">
+        <code>add</code> (<i>2</i>) – Add
+        </div>
+    
+			</div>
+
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="GstCompositorSizingPolicy">
+	
+
+
+
+<h4 data-hotdoc-id="GstCompositorSizingPolicy">
+	<i>Compositor-sizing-policy</i>
+</h4>
+
+
+
+
+
+	<div class="members-container">
+		<h5>Members</h5>
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstCompositorSizingPolicy::none">
+        <code>none</code> (<i>0</i>) – None: Image is scaled to fill configured destination rectangle without padding or keeping the aspect ratio
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstCompositorSizingPolicy::keep-aspect-ratio">
+        <code>keep-aspect-ratio</code> (<i>1</i>) – Keep Aspect Ratio: Image is scaled to fit destination rectangle specified by GstCompositorPad:{xpos, ypos, width, height} with preserved aspect ratio. Resulting image will be centered in the destination rectangle with padding if necessary
+        </div>
+    
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+
+
+
+
+
+
+		
+	</div>
+	<div id="search_results">
+		<p>The results of the search are</p>
+	</div>
+	<div id="footer">
+		    
+
+	</div>
+</div>
+
+<div id="toc-column">
+	
+		<div class="edit-button">
+		
+
+	</div>
+		<div id="toc-wrapper">
+		<nav id="toc"></nav>
+	</div>
+</div>
+</div>
+</main>
+
+
+<script src="assets/js/navbar_offset_scroller.js"></script>
+</body>
+</html>

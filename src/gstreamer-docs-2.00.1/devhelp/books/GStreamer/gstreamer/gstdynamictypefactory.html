@@ -1,0 +1,1028 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<base href="..">
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<title>GstDynamicTypeFactory</title>
+
+<link rel="stylesheet" href="assets/css/dark-frontend.css" type="text/css" title="dark">
+<link rel="alternate stylesheet" href="assets/css/light-frontend.css" type="text/css" title="light">
+<link rel="stylesheet" href="assets/css/bootstrap-toc.min.css" type="text/css">
+<link rel="stylesheet" href="assets/css/jquery.mCustomScrollbar.min.css">
+<link rel="stylesheet" href="assets/js/search/enable_search.css" type="text/css">
+
+<link rel="stylesheet" href="assets/css/extra_frontend.css" type="text/css">
+<link rel="stylesheet" href="assets/css/devhelp.css" type="text/css">
+
+<link rel="stylesheet" href="assets/css/prism-tomorrow.css" type="text/css" title="dark">
+
+<link rel="alternate stylesheet" href="assets/css/prism.css" type="text/css" title="light">
+
+<script src="assets/js/mustache.min.js"></script>
+<script src="assets/js/jquery.js"></script>
+<script src="assets/js/bootstrap.js"></script>
+<script src="assets/js/scrollspy.js"></script>
+<script src="assets/js/typeahead.jquery.min.js"></script>
+<script src="assets/js/search.js"></script>
+<script src="assets/js/compare-versions.js"></script>
+<script src="assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="assets/js/bootstrap-toc.min.js"></script>
+<script src="assets/js/jquery.touchSwipe.min.js"></script>
+<script src="assets/js/anchor.min.js"></script>
+<script src="assets/js/tag_filtering.js"></script>
+<script src="assets/js/language_switching.js"></script>
+<script src="assets/js/styleswitcher.js"></script>
+
+<script src="assets/js/lines_around_headings.js"></script>
+
+<script src="assets/js/prism-core.js"></script>
+<script src="assets/js/prism-autoloader.js"></script>
+<script src="assets/js/prism_autoloader_path_override.js"></script>
+<script src="assets/js/trie.js"></script>
+
+<!-- generic -->
+<link rel="icon" type="image/png" href="assets/images/favicon-16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="assets/images/favicon-32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="assets/images/favicon-57.png" sizes="57x57">
+<link rel="icon" type="image/png" href="assets/images/favicon-64.png" sizes="64x64">
+<link rel="icon" type="image/png" href="assets/images/favicon-76.png" sizes="76x76">
+<link rel="icon" type="image/png" href="assets/images/favicon-96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="assets/images/favicon-128.png" sizes="128x128">
+<link rel="icon" type="image/png" href="assets/images/favicon-192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="assets/images/favicon-228.png" sizes="228x228">
+
+<!-- Android -->
+<link rel="shortcut icon" sizes="196x196" href="assets/images/favicon-196.png">
+
+<!-- iOS -->
+<link rel="apple-touch-icon" href="assets/images/favicon-120.png" sizes="120x120">
+<link rel="apple-touch-icon" href="assets/images/favicon-152.png" sizes="152x152">
+<link rel="apple-touch-icon" href="assets/images/favicon-180.png" sizes="180x180">
+
+</head>
+
+<body class="no-script
+">
+
+<script>
+$('body').removeClass('no-script');
+</script>
+
+<nav class="navbar navbar-fixed-top navbar-default" id="topnav">
+	<div class="container-fluid">
+		<div class="navbar-right">
+			<a id="toc-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-wrapper" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<span title="light mode switch" class="glyphicon glyphicon-sunglasses pull-right" id="lightmode-icon"></span>
+			<form class="navbar-form pull-right" id="navbar-search-form">
+                               <div class="form-group has-feedback">
+                                       <input type="text" class="form-control input-sm" name="search" id="sidenav-lookup-field" placeholder="search" disabled>
+				       <span class="glyphicon glyphicon-search form-control-feedback" id="search-mgn-glass"></span>
+                               </div>
+                        </form>
+		</div>
+		<div class="navbar-header">
+			<a id="sidenav-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<a id="home-link" href="index.html" class="hotdoc-navbar-brand">
+				<img src="assets/images/gstreamer-logo.svg" alt="Home">
+			</a>
+		</div>
+		<div class="navbar-collapse collapse" id="navbar-wrapper">
+			<ul class="nav navbar-nav" id="menu">
+				
+<li class="dropdown">
+    <a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        API References<span class="caret"></span>
+    </a>
+	<ul class="dropdown-menu" id="modules-menu">
+					<li>
+				<a href="gstreamer/gi-index.html">GStreamer core</a>
+			</li>
+					<li>
+				<a href="libs.html">GStreamer Libraries</a>
+			</li>
+					<li>
+				<a href="plugins_doc.html">GStreamer Plugins</a>
+			</li>
+		</ul>
+</li>
+
+<li>
+    <a href="application-development/index.html">Application manual</a>
+</li>
+
+
+<li>
+    <a href="tutorials/index.html">Tutorials</a>
+</li>
+
+			</ul>
+			<div class="hidden-xs hidden-sm navbar-text navbar-center">
+							</div>
+		</div>
+	</div>
+</nav>
+
+<main>
+<div data-extension="gi-extension" data-hotdoc-in-toplevel="False" data-hotdoc-project="gstreamer" data-hotdoc-ref="gstdynamictypefactory.html" class="page_container" id="page-wrapper" data-hotdoc-meta-gi-languages="['c', 'javascript', 'python']" data-hotdoc-meta-gi-language="c">
+<script src="assets/js/utils.js"></script>
+
+<div class="panel panel-collapse oc-collapsed" id="sidenav" data-hotdoc-role="navigation">
+	<script src="assets/js/full-width.js"></script>
+  <div id="sitenav-wrapper">
+    <iframe src="hotdoc-sitemap.html" id="sitenav-frame"></iframe>
+  </div>
+</div>
+
+<div id="body">
+	<div id="main">
+				    <div id="page-description" data-hotdoc-role="main">
+        <h1 id="gstdynamictypefactory-page">GstDynamicTypeFactory</h1>
+<p><a href="gstreamer/gstdynamictypefactory.html#GstDynamicTypeFactory" data-gi-href-javascript="gstreamer/gstdynamictypefactory.html#GstDynamicTypeFactory" data-gi-title-javascript="Gst.DynamicTypeFactory" data-gi-href-python="gstreamer/gstdynamictypefactory.html#GstDynamicTypeFactory" data-gi-title-python="Gst.DynamicTypeFactory">GstDynamicTypeFactory</a> is used to represent a type that can be
+automatically loaded the first time it is used. For example,
+a non-standard type for use in caps fields.</p>
+<p>In general, applications and plugins don't need to use the factory
+beyond registering the type in a plugin init function. Once that is
+done, the type is stored in the registry, and ready as soon as the
+registry is loaded.</p>
+<h2 id="registering-a-type-for-dynamic-loading">Registering a type for dynamic loading</h2>
+<pre><code class="language-[&lt;!--">
+ static gboolean
+ plugin_init (GstPlugin * plugin)
+ {
+   return gst_dynamic_type_register (plugin, GST_TYPE_CUSTOM_CAPS_FIELD);
+ }
+</code></pre>
+
+    </div>
+        
+        
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.12;" id="GstDynamicTypeFactory">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h2 data-hotdoc-id="GstDynamicTypeFactory">
+	<i>GstDynamicTypeFactory</i>
+</h2>
+
+
+<div class="hierarchy_container">
+	<div class="hierarchy_details">
+<pre>
+<a title="GObject" href="https://docs.gtk.org/gobject/class.Object.html">GObject</a>
+    <span class="lineart">╰──</span><a title="GInitiallyUnowned" href="https://docs.gtk.org/gobject/class.InitiallyUnowned.html">GInitiallyUnowned</a>
+        <span class="lineart">╰──</span><a title="GstObject" href="gstreamer/gstobject.html#GstObject">GstObject</a>
+            <span class="lineart">╰──</span><a title="GstPluginFeature" href="gstreamer/gstpluginfeature.html#GstPluginFeature">GstPluginFeature</a>
+                <span class="lineart">╰──</span>GstDynamicTypeFactory
+</pre>
+
+</div>
+
+</div>
+
+<div class="class_details">
+	<p>The opaque <a href="gstreamer/gstdynamictypefactory.html#GstDynamicTypeFactory">GstDynamicTypeFactory</a> data structure.</p>
+
+</div>
+
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.12
+		</p>
+
+<hr>
+<h3>Class structure</h3>
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstDynamicTypeFactoryClass">
+	<i>GstDynamicTypeFactoryClass</i>
+</h4>
+
+
+
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3>
+	Gst.DynamicTypeFactoryClass
+</h3>
+
+
+
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3>
+	Gst.DynamicTypeFactoryClass
+</h3>
+
+
+
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h2 data-hotdoc-id="GstDynamicTypeFactory">
+	<i>Gst.DynamicTypeFactory</i>
+</h2>
+
+
+<div class="hierarchy_container">
+	<div class="hierarchy_details">
+<pre>
+<a title="GObject.Object" href="https://docs.gtk.org/gobject/class.Object.html">GObject.Object</a>
+    <span class="lineart">╰──</span><a title="GObject.InitiallyUnowned" href="https://docs.gtk.org/gobject/class.InitiallyUnowned.html">GObject.InitiallyUnowned</a>
+        <span class="lineart">╰──</span><a title="Gst.Object" href="gstreamer/gstobject.html#GstObject">Gst.Object</a>
+            <span class="lineart">╰──</span><a title="Gst.PluginFeature" href="gstreamer/gstpluginfeature.html#GstPluginFeature">Gst.PluginFeature</a>
+                <span class="lineart">╰──</span>Gst.DynamicTypeFactory
+</pre>
+
+</div>
+
+</div>
+
+<div class="class_details">
+	<p>The opaque <a href="gstreamer/gstdynamictypefactory.html#GstDynamicTypeFactory">Gst.DynamicTypeFactory</a> data structure.</p>
+
+</div>
+
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.12
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h2 data-hotdoc-id="GstDynamicTypeFactory">
+	<i>Gst.DynamicTypeFactory</i>
+</h2>
+
+
+<div class="hierarchy_container">
+	<div class="hierarchy_details">
+<pre>
+<a title="GObject.Object" href="https://docs.gtk.org/gobject/class.Object.html">GObject.Object</a>
+    <span class="lineart">╰──</span><a title="GObject.InitiallyUnowned" href="https://docs.gtk.org/gobject/class.InitiallyUnowned.html">GObject.InitiallyUnowned</a>
+        <span class="lineart">╰──</span><a title="Gst.Object" href="gstreamer/gstobject.html#GstObject">Gst.Object</a>
+            <span class="lineart">╰──</span><a title="Gst.PluginFeature" href="gstreamer/gstpluginfeature.html#GstPluginFeature">Gst.PluginFeature</a>
+                <span class="lineart">╰──</span>Gst.DynamicTypeFactory
+</pre>
+
+</div>
+
+</div>
+
+<div class="class_details">
+	<p>The opaque <a href="gstreamer/gstdynamictypefactory.html#GstDynamicTypeFactory">Gst.DynamicTypeFactory</a> data structure.</p>
+
+</div>
+
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.12
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+
+            <h3 class="symbol_section">Functions</h3>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_dynamic_type_factory_load">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_dynamic_type_factory_load">
+	<i>gst_dynamic_type_factory_load</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GType" href="https://docs.gtk.org/gobject/alias.Type.html">GType</a>
+gst_dynamic_type_factory_load (const <a title="gchar" href="https://docs.gtk.org/glib/types.html#gchar">gchar</a> * factoryname)</pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>factoryname</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_dynamic_type_factory_load">
+	<i>Gst.DynamicTypeFactory.prototype.load</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function Gst.DynamicTypeFactory.prototype.load(factoryname: <a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>): {
+    // javascript wrapper for 'gst_dynamic_type_factory_load'
+}</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>factoryname</code></em></i>
+<span>(</span><a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GObject.Type" href="https://developer.gnome.org/gobject/stable/gobject-Type-Information.html#GType">GObject.Type</a><span>)</span>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_dynamic_type_factory_load">
+	<i>Gst.DynamicTypeFactory.load</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def Gst.DynamicTypeFactory.load (factoryname):
+    #python wrapper for 'gst_dynamic_type_factory_load'</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>factoryname</code></em></i>
+<span>(</span><a title="str" href="https://docs.python.org/3/library/functions.html#func-str">str</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GObject.Type" href="https://developer.gnome.org/gobject/stable/gobject-Type-Information.html#GType">GObject.Type</a><span>)</span>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+
+        
+
+            <h2 class="symbol_section">Functions</h2>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.12;" id="gst_dynamic_type_register">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="gst_dynamic_type_register">
+	<i>gst_dynamic_type_register</i>
+</h3>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a>
+gst_dynamic_type_register (<a title="GstPlugin" href="gstreamer/gstplugin.html#GstPlugin">GstPlugin</a> * plugin,
+                           <a title="GType" href="https://docs.gtk.org/gobject/alias.Type.html">GType</a> type)</pre>
+
+<p>Registers a new <a href="gstreamer/gstdynamictypefactory.html#GstDynamicTypeFactory">GstDynamicTypeFactory</a> in the registry</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>plugin</code></em></i>
+–
+</div>
+<p>The <a href="gstreamer/gstplugin.html#GstPlugin">GstPlugin</a> to register <em>dyn_type</em> for</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>type</code></em></i>
+–
+</div>
+<p>The <a href="https://docs.gtk.org/gobject/alias.Type.html">GType</a> to register dynamically</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.12
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3 data-hotdoc-id="gst_dynamic_type_register">
+	<i>Gst.prototype.dynamic_type_register</i>
+</h3>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function Gst.prototype.dynamic_type_register(plugin: <a title="Gst.Plugin" href="gstreamer/gstplugin.html#GstPlugin">Gst.Plugin</a>, type: <a title="GObject.Type" href="https://developer.gnome.org/gobject/stable/gobject-Type-Information.html#GType">GObject.Type</a>): {
+    // javascript wrapper for 'gst_dynamic_type_register'
+}</code></pre>
+
+<p>Registers a new <a href="gstreamer/gstdynamictypefactory.html#GstDynamicTypeFactory">Gst.DynamicTypeFactory</a> in the registry</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>plugin</code></em></i>
+<span>(</span><a title="Gst.Plugin" href="gstreamer/gstplugin.html#GstPlugin">Gst.Plugin</a><span>)</span>
+–
+</div>
+<p>The <a href="gstreamer/gstplugin.html#GstPlugin">Gst.Plugin</a> to register <em>dyn_type</em> for</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>type</code></em></i>
+<span>(</span><a title="GObject.Type" href="https://developer.gnome.org/gobject/stable/gobject-Type-Information.html#GType">GObject.Type</a><span>)</span>
+–
+</div>
+<p>The <a href="https://developer.gnome.org/gobject/stable/gobject-Type-Information.html#GType">GObject.Type</a> to register dynamically</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.12
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3 data-hotdoc-id="gst_dynamic_type_register">
+	<i>Gst.dynamic_type_register</i>
+</h3>
+
+
+<pre class="python-prototype language-python">
+<code>def Gst.dynamic_type_register (plugin, type):
+    #python wrapper for 'gst_dynamic_type_register'</code></pre>
+
+<p>Registers a new <a href="gstreamer/gstdynamictypefactory.html#GstDynamicTypeFactory">Gst.DynamicTypeFactory</a> in the registry</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>plugin</code></em></i>
+<span>(</span><a title="Gst.Plugin" href="gstreamer/gstplugin.html#GstPlugin">Gst.Plugin</a><span>)</span>
+–
+</div>
+<p>The <a href="gstreamer/gstplugin.html#GstPlugin">Gst.Plugin</a> to register <em>dyn_type</em> for</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>type</code></em></i>
+<span>(</span><a title="GObject.Type" href="https://developer.gnome.org/gobject/stable/gobject-Type-Information.html#GType">GObject.Type</a><span>)</span>
+–
+</div>
+<p>The <a href="https://developer.gnome.org/gobject/stable/gobject-Type-Information.html#GType">GObject.Type</a> to register dynamically</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a><span>)</span>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.12
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+
+            <h2 class="symbol_section">Function Macros</h2>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GST_DYNAMIC_TYPE_CLASS">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_DYNAMIC_TYPE_CLASS">
+	<i>GST_DYNAMIC_TYPE_CLASS</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_DYNAMIC_TYPE_CLASS(klass)           (G_TYPE_CHECK_CLASS_CAST((klass),GST_TYPE_DYNAMIC_TYPE_FACTORY,\
+                                                 GstDynamicTypeFactoryClass))
+</pre>
+
+
+
+
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GST_DYNAMIC_TYPE_FACTORY_CAST">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_DYNAMIC_TYPE_FACTORY_CAST">
+	<i>GST_DYNAMIC_TYPE_FACTORY_CAST</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_DYNAMIC_TYPE_FACTORY_CAST(obj)      ((GstDynamicTypeFactory *)(obj))
+</pre>
+
+
+
+
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="GST_DYNAMIC_TYPE_REGISTER">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_DYNAMIC_TYPE_REGISTER">
+	<i>GST_DYNAMIC_TYPE_REGISTER</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_DYNAMIC_TYPE_REGISTER(t_n, plugin) G_PASTE(gst_dynamic_type_register_, t_n) (plugin)
+</pre>
+
+<p>This macro can be used to register a dynamic type into a <a href="gstreamer/gstplugin.html#GstPlugin">GstPlugin</a>.
+This method will be usually called in the plugin init function
+but can also be called with a NULL plugin.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>t_n</code></em></i>
+–
+</div>
+<p>The dynamic type name to register</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>plugin</code></em></i>
+–
+</div>
+<p>The <a href="gstreamer/gstplugin.html#GstPlugin">GstPlugin</a> where to register the dynamic type.</p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="GST_DYNAMIC_TYPE_REGISTER_DECLARE">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_DYNAMIC_TYPE_REGISTER_DECLARE">
+	<i>GST_DYNAMIC_TYPE_REGISTER_DECLARE</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_DYNAMIC_TYPE_REGISTER_DECLARE(t_n) \
+G_BEGIN_DECLS \
+gboolean G_PASTE(gst_dynamic_type_register_, t_n) (GstPlugin * plugin); \
+G_END_DECLS
+</pre>
+
+<p>This macro can be used to declare a new dynamic type.
+It has to be used in combination with <a href="gstreamer/gstdynamictypefactory.html#GST_DYNAMIC_TYPE_REGISTER_DEFINE">GST_DYNAMIC_TYPE_REGISTER_DEFINE</a> macro
+and must be placed outside any block to declare the type find registration
+function.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>t_f</code></em></i>
+–
+</div>
+<p>The dynamic type name in lower case, with words separated by '_'.</p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="GST_DYNAMIC_TYPE_REGISTER_DEFINE">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_DYNAMIC_TYPE_REGISTER_DEFINE">
+	<i>GST_DYNAMIC_TYPE_REGISTER_DEFINE</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_DYNAMIC_TYPE_REGISTER_DEFINE(t_n, t) \
+G_BEGIN_DECLS \
+gboolean G_PASTE (gst_dynamic_type_register_, t_n) (GstPlugin * plugin) \
+{ \
+  return gst_dynamic_type_register (plugin, t); \
+} \
+G_END_DECLS
+</pre>
+
+<p>A convenience macro to define the entry point of a
+dynamic type <code>gst_dynamic_type_register_*(GstPlugin* plugin)</code>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>t_n</code></em></i>
+–
+</div>
+<p>The dynamic type name in lower case, with words separated by '_'.
+Used to generate <code>gst_dynamic_type_register_*(GstPlugin* plugin)</code>.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>t</code></em></i>
+–
+</div>
+<p>The <a href="https://docs.gtk.org/gobject/alias.Type.html">GType</a> of the dynamic type</p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+
+
+
+
+
+		
+	</div>
+	<div id="search_results">
+		<p>The results of the search are</p>
+	</div>
+	<div id="footer">
+		    
+
+	</div>
+</div>
+
+<div id="toc-column">
+	
+		<div class="edit-button">
+		
+
+	</div>
+		<div id="toc-wrapper">
+		<nav id="toc"></nav>
+	</div>
+</div>
+</div>
+</main>
+
+
+<script src="assets/js/navbar_offset_scroller.js"></script>
+</body>
+</html>

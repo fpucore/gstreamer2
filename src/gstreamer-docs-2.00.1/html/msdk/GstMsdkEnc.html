@@ -1,0 +1,1297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<base href="..">
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<title>GstMsdkEnc</title>
+
+<link rel="stylesheet" href="assets/css/dark-frontend.css" type="text/css" title="dark">
+<link rel="alternate stylesheet" href="assets/css/light-frontend.css" type="text/css" title="light">
+<link rel="stylesheet" href="assets/css/bootstrap-toc.min.css" type="text/css">
+<link rel="stylesheet" href="assets/css/jquery.mCustomScrollbar.min.css">
+<link rel="stylesheet" href="assets/js/search/enable_search.css" type="text/css">
+
+<link rel="stylesheet" href="assets/css/extra_frontend.css" type="text/css">
+<link rel="stylesheet" href="assets/css/devhelp.css" type="text/css">
+
+<link rel="stylesheet" href="assets/css/prism-tomorrow.css" type="text/css" title="dark">
+
+<link rel="alternate stylesheet" href="assets/css/prism.css" type="text/css" title="light">
+
+<script src="assets/js/mustache.min.js"></script>
+<script src="assets/js/jquery.js"></script>
+<script src="assets/js/bootstrap.js"></script>
+<script src="assets/js/scrollspy.js"></script>
+<script src="assets/js/typeahead.jquery.min.js"></script>
+<script src="assets/js/search.js"></script>
+<script src="assets/js/compare-versions.js"></script>
+<script src="assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="assets/js/bootstrap-toc.min.js"></script>
+<script src="assets/js/jquery.touchSwipe.min.js"></script>
+<script src="assets/js/anchor.min.js"></script>
+<script src="assets/js/tag_filtering.js"></script>
+<script src="assets/js/language_switching.js"></script>
+<script src="assets/js/styleswitcher.js"></script>
+
+<script src="assets/js/lines_around_headings.js"></script>
+
+<script src="assets/js/prism-core.js"></script>
+<script src="assets/js/prism-autoloader.js"></script>
+<script src="assets/js/prism_autoloader_path_override.js"></script>
+<script src="assets/js/trie.js"></script>
+
+<!-- generic -->
+<link rel="icon" type="image/png" href="assets/images/favicon-16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="assets/images/favicon-32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="assets/images/favicon-57.png" sizes="57x57">
+<link rel="icon" type="image/png" href="assets/images/favicon-64.png" sizes="64x64">
+<link rel="icon" type="image/png" href="assets/images/favicon-76.png" sizes="76x76">
+<link rel="icon" type="image/png" href="assets/images/favicon-96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="assets/images/favicon-128.png" sizes="128x128">
+<link rel="icon" type="image/png" href="assets/images/favicon-192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="assets/images/favicon-228.png" sizes="228x228">
+
+<!-- Android -->
+<link rel="shortcut icon" sizes="196x196" href="assets/images/favicon-196.png">
+
+<!-- iOS -->
+<link rel="apple-touch-icon" href="assets/images/favicon-120.png" sizes="120x120">
+<link rel="apple-touch-icon" href="assets/images/favicon-152.png" sizes="152x152">
+<link rel="apple-touch-icon" href="assets/images/favicon-180.png" sizes="180x180">
+
+</head>
+
+<body class="no-script
+">
+
+<script>
+$('body').removeClass('no-script');
+</script>
+
+<nav class="navbar navbar-fixed-top navbar-default" id="topnav">
+	<div class="container-fluid">
+		<div class="navbar-right">
+			<a id="toc-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-wrapper" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<span title="light mode switch" class="glyphicon glyphicon-sunglasses pull-right" id="lightmode-icon"></span>
+			<form class="navbar-form pull-right" id="navbar-search-form">
+                               <div class="form-group has-feedback">
+                                       <input type="text" class="form-control input-sm" name="search" id="sidenav-lookup-field" placeholder="search" disabled>
+				       <span class="glyphicon glyphicon-search form-control-feedback" id="search-mgn-glass"></span>
+                               </div>
+                        </form>
+		</div>
+		<div class="navbar-header">
+			<a id="sidenav-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<a id="home-link" href="index.html" class="hotdoc-navbar-brand">
+				<img src="assets/images/gstreamer-logo.svg" alt="Home">
+			</a>
+		</div>
+		<div class="navbar-collapse collapse" id="navbar-wrapper">
+			<ul class="nav navbar-nav" id="menu">
+				
+<li class="dropdown">
+    <a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        API References<span class="caret"></span>
+    </a>
+	<ul class="dropdown-menu" id="modules-menu">
+					<li>
+				<a href="gstreamer/gi-index.html">GStreamer core</a>
+			</li>
+					<li>
+				<a href="libs.html">GStreamer Libraries</a>
+			</li>
+					<li>
+				<a href="plugins_doc.html">GStreamer Plugins</a>
+			</li>
+		</ul>
+</li>
+
+<li>
+    <a href="application-development/index.html">Application manual</a>
+</li>
+
+
+<li>
+    <a href="tutorials/index.html">Tutorials</a>
+</li>
+
+			</ul>
+			<div class="hidden-xs hidden-sm navbar-text navbar-center">
+							</div>
+		</div>
+	</div>
+</nav>
+
+<main>
+<div data-extension="gst-extension" data-hotdoc-in-toplevel="False" data-hotdoc-project="msdk" data-hotdoc-ref="GstMsdkEnc.html" class="page_container" id="page-wrapper" data-hotdoc-meta-gi-languages="['c', 'javascript', 'python']">
+<script src="assets/js/utils.js"></script>
+
+<div class="panel panel-collapse oc-collapsed" id="sidenav" data-hotdoc-role="navigation">
+	<script src="assets/js/full-width.js"></script>
+  <div id="sitenav-wrapper">
+    <iframe src="hotdoc-sitemap.html" id="sitenav-frame"></iframe>
+  </div>
+</div>
+
+<div id="body">
+	<div id="main">
+				    <div id="page-description" data-hotdoc-role="main">
+    </div>
+        
+        
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstMsdkEnc">
+	
+
+
+
+<h2 data-hotdoc-id="GstMsdkEnc">
+	<i>GstMsdkEnc</i>
+</h2>
+
+
+<div class="hierarchy_container">
+	<div class="hierarchy_details">
+<pre>
+<a title="GObject" href="https://docs.gtk.org/gobject/class.Object.html" data-gi-href-javascript="https://docs.gtk.org/gobject/class.Object.html" data-gi-title-javascript="GObject.Object" data-gi-href-python="https://docs.gtk.org/gobject/class.Object.html" data-gi-title-python="GObject.Object">GObject</a>
+    <span class="lineart">╰──</span><a title="GInitiallyUnowned" href="https://docs.gtk.org/gobject/class.InitiallyUnowned.html" data-gi-href-javascript="https://docs.gtk.org/gobject/class.InitiallyUnowned.html" data-gi-title-javascript="GObject.InitiallyUnowned" data-gi-href-python="https://docs.gtk.org/gobject/class.InitiallyUnowned.html" data-gi-title-python="GObject.InitiallyUnowned">GInitiallyUnowned</a>
+        <span class="lineart">╰──</span><a title="GstObject" href="gstreamer/gstobject.html#GstObject" data-gi-href-javascript="gstreamer/gstobject.html#GstObject" data-gi-title-javascript="Gst.Object" data-gi-href-python="gstreamer/gstobject.html#GstObject" data-gi-title-python="Gst.Object">GstObject</a>
+            <span class="lineart">╰──</span><a title="GstElement" href="gstreamer/gstelement.html#GstElement" data-gi-href-javascript="gstreamer/gstelement.html#GstElement" data-gi-title-javascript="Gst.Element" data-gi-href-python="gstreamer/gstelement.html#GstElement" data-gi-title-python="Gst.Element">GstElement</a>
+                <span class="lineart">╰──</span><a title="GstVideoEncoder" href="video/gstvideoencoder.html#GstVideoEncoder" data-gi-href-javascript="video/gstvideoencoder.html#GstVideoEncoder" data-gi-title-javascript="GstVideo.VideoEncoder" data-gi-href-python="video/gstvideoencoder.html#GstVideoEncoder" data-gi-title-python="GstVideo.VideoEncoder">GstVideoEncoder</a>
+                    <span class="lineart">╰──</span>GstMsdkEnc
+</pre>
+
+</div>
+
+</div>
+
+
+
+
+
+
+
+<hr>
+
+</div>
+
+
+            <h3 class="symbol_section">Properties</h3>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstMsdkEnc:accuracy">
+	
+
+
+
+<h4 data-hotdoc-id="GstMsdkEnc:accuracy">
+	<i>accuracy</i>
+</h4>
+
+
+<pre class="property_signature">
+“accuracy” <span class="type"><a title="guint" href="https://docs.gtk.org/glib/types.html#guint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">guint</a></span>
+</pre>
+
+<p>The AVBR Accuracy in the unit of tenth of percent</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	0
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstMsdkEnc:async-depth">
+	
+
+
+
+<h4 data-hotdoc-id="GstMsdkEnc:async-depth">
+	<i>async-depth</i>
+</h4>
+
+
+<pre class="property_signature">
+“async-depth” <span class="type"><a title="guint" href="https://docs.gtk.org/glib/types.html#guint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">guint</a></span>
+</pre>
+
+<p>Depth of asynchronous pipeline</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	4
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstMsdkEnc:b-adapt">
+	
+
+
+
+<h4 data-hotdoc-id="GstMsdkEnc:b-adapt">
+	<i>b-adapt</i>
+</h4>
+
+
+<pre class="property_signature">
+“b-adapt” <span class="type"><a title="Msdk-enc-adaptive-b" href="msdk/GstMsdkEnc.html#GstMsdkEncAdaptiveB">Msdk-enc-adaptive-b</a> <span class="pointer-token">*</span></span>
+</pre>
+
+<p>Adaptive B-Frame Insertion control</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	off (32)
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstMsdkEnc:b-frames">
+	
+
+
+
+<h4 data-hotdoc-id="GstMsdkEnc:b-frames">
+	<i>b-frames</i>
+</h4>
+
+
+<pre class="property_signature">
+“b-frames” <span class="type"><a title="guint" href="https://docs.gtk.org/glib/types.html#guint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">guint</a></span>
+</pre>
+
+<p>Number of B frames between I and P frames</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	0
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstMsdkEnc:bitrate">
+	
+
+
+
+<h4 data-hotdoc-id="GstMsdkEnc:bitrate">
+	<i>bitrate</i>
+</h4>
+
+
+<pre class="property_signature">
+“bitrate” <span class="type"><a title="guint" href="https://docs.gtk.org/glib/types.html#guint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">guint</a></span>
+</pre>
+
+<p>Bitrate in kbit/sec</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	2048
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstMsdkEnc:convergence">
+	
+
+
+
+<h4 data-hotdoc-id="GstMsdkEnc:convergence">
+	<i>convergence</i>
+</h4>
+
+
+<pre class="property_signature">
+“convergence” <span class="type"><a title="guint" href="https://docs.gtk.org/glib/types.html#guint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">guint</a></span>
+</pre>
+
+<p>The AVBR Convergence in the unit of 100 frames</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	0
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="GstMsdkEnc:ext-coding-props">
+	
+
+
+
+<h4 data-hotdoc-id="GstMsdkEnc:ext-coding-props">
+	<i>ext-coding-props</i>
+</h4>
+
+
+<pre class="property_signature">
+“ext-coding-props” <span class="type"><a title="GstStructure" href="gstreamer/gststructure.html#GstStructure" data-gi-href-javascript="gstreamer/gststructure.html#GstStructure" data-gi-title-javascript="Gst.Structure" data-gi-href-python="gstreamer/gststructure.html#GstStructure" data-gi-title-python="Gst.Structure">GstStructure</a> <span class="pointer-token">*</span></span>
+</pre>
+
+<p>The properties for the external coding.</p>
+<p>Supported properties:</p>
+<pre><code>extbrc         : External bitrate control
+                 String. Range: { auto, on, off } Default: off
+</code></pre>
+<p>Example:</p>
+<pre><code>ext-coding-props="props,extbrc=on"
+</code></pre>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstMsdkEnc:gop-size">
+	
+
+
+
+<h4 data-hotdoc-id="GstMsdkEnc:gop-size">
+	<i>gop-size</i>
+</h4>
+
+
+<pre class="property_signature">
+“gop-size” <span class="type"><a title="guint" href="https://docs.gtk.org/glib/types.html#guint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">guint</a></span>
+</pre>
+
+<p>GOP Size</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	256
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstMsdkEnc:hardware">
+	
+
+
+
+<h4 data-hotdoc-id="GstMsdkEnc:hardware">
+	<i>hardware</i>
+</h4>
+
+
+<pre class="property_signature">
+“hardware” <span class="type"><a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#bool" data-gi-title-python="bool">gboolean</a></span>
+</pre>
+
+<p>Enable hardware encoders</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	true
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstMsdkEnc:i-adapt">
+	
+
+
+
+<h4 data-hotdoc-id="GstMsdkEnc:i-adapt">
+	<i>i-adapt</i>
+</h4>
+
+
+<pre class="property_signature">
+“i-adapt” <span class="type"><a title="Msdk-enc-adaptive-i" href="msdk/GstMsdkEnc.html#GstMsdkEncAdaptiveI">Msdk-enc-adaptive-i</a> <span class="pointer-token">*</span></span>
+</pre>
+
+<p>Adaptive I-Frame Insertion control</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	off (32)
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstMsdkEnc:i-frames">
+	
+
+
+
+<h4 data-hotdoc-id="GstMsdkEnc:i-frames">
+	<i>i-frames</i>
+</h4>
+
+
+<pre class="property_signature">
+“i-frames” <span class="type"><a title="guint" href="https://docs.gtk.org/glib/types.html#guint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">guint</a></span>
+</pre>
+
+<p>Number of I frames between IDR frames</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	0
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstMsdkEnc:max-frame-size">
+	
+
+
+
+<h4 data-hotdoc-id="GstMsdkEnc:max-frame-size">
+	<i>max-frame-size</i>
+</h4>
+
+
+<pre class="property_signature">
+“max-frame-size” <span class="type"><a title="guint" href="https://docs.gtk.org/glib/types.html#guint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">guint</a></span>
+</pre>
+
+<p>Maximum possible size (in kbyte) of any compressed frames (0: auto-calculate)</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	0
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstMsdkEnc:max-vbv-bitrate">
+	
+
+
+
+<h4 data-hotdoc-id="GstMsdkEnc:max-vbv-bitrate">
+	<i>max-vbv-bitrate</i>
+</h4>
+
+
+<pre class="property_signature">
+“max-vbv-bitrate” <span class="type"><a title="guint" href="https://docs.gtk.org/glib/types.html#guint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">guint</a></span>
+</pre>
+
+<p>Maximum bitrate(kbit/sec) at which data enters Video Buffering Verifier (0: auto-calculate)</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	0
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstMsdkEnc:mbbrc">
+	
+
+
+
+<h4 data-hotdoc-id="GstMsdkEnc:mbbrc">
+	<i>mbbrc</i>
+</h4>
+
+
+<pre class="property_signature">
+“mbbrc” <span class="type"><a title="Msdk-enc-mb-bitrate-control" href="msdk/GstMsdkEnc.html#GstMsdkEncMbBitrateControl">Msdk-enc-mb-bitrate-control</a> <span class="pointer-token">*</span></span>
+</pre>
+
+<p>Macroblock level bitrate control</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	off (32)
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstMsdkEnc:num-slices">
+	
+
+
+
+<h4 data-hotdoc-id="GstMsdkEnc:num-slices">
+	<i>num-slices</i>
+</h4>
+
+
+<pre class="property_signature">
+“num-slices” <span class="type"><a title="guint" href="https://docs.gtk.org/glib/types.html#guint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">guint</a></span>
+</pre>
+
+<p>Number of slices per frame, Zero tells the encoder to choose any slice partitioning allowed by the codec standard</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	0
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstMsdkEnc:qpb">
+	
+
+
+
+<h4 data-hotdoc-id="GstMsdkEnc:qpb">
+	<i>qpb</i>
+</h4>
+
+
+<pre class="property_signature">
+“qpb” <span class="type"><a title="guint" href="https://docs.gtk.org/glib/types.html#guint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">guint</a></span>
+</pre>
+
+<p>Constant quantizer for B frames (0 unlimited)</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	0
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstMsdkEnc:qpi">
+	
+
+
+
+<h4 data-hotdoc-id="GstMsdkEnc:qpi">
+	<i>qpi</i>
+</h4>
+
+
+<pre class="property_signature">
+“qpi” <span class="type"><a title="guint" href="https://docs.gtk.org/glib/types.html#guint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">guint</a></span>
+</pre>
+
+<p>Constant quantizer for I frames (0 unlimited). Also used as ICQQuality or QVBRQuality for different RateControl methods</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	0
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstMsdkEnc:qpp">
+	
+
+
+
+<h4 data-hotdoc-id="GstMsdkEnc:qpp">
+	<i>qpp</i>
+</h4>
+
+
+<pre class="property_signature">
+“qpp” <span class="type"><a title="guint" href="https://docs.gtk.org/glib/types.html#guint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">guint</a></span>
+</pre>
+
+<p>Constant quantizer for P frames (0 unlimited)</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	0
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstMsdkEnc:rate-control">
+	
+
+
+
+<h4 data-hotdoc-id="GstMsdkEnc:rate-control">
+	<i>rate-control</i>
+</h4>
+
+
+<pre class="property_signature">
+“rate-control” <span class="type"><a title="Msdk-enc-rate-control" href="msdk/GstMsdkEnc.html#GstMsdkEncRateControl">Msdk-enc-rate-control</a> <span class="pointer-token">*</span></span>
+</pre>
+
+<p>Rate control method</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	cbr (1)
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstMsdkEnc:rc-lookahead">
+	
+
+
+
+<h4 data-hotdoc-id="GstMsdkEnc:rc-lookahead">
+	<i>rc-lookahead</i>
+</h4>
+
+
+<pre class="property_signature">
+“rc-lookahead” <span class="type"><a title="guint" href="https://docs.gtk.org/glib/types.html#guint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">guint</a></span>
+</pre>
+
+<p>Number of frames to look ahead for Rate control</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	10
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstMsdkEnc:ref-frames">
+	
+
+
+
+<h4 data-hotdoc-id="GstMsdkEnc:ref-frames">
+	<i>ref-frames</i>
+</h4>
+
+
+<pre class="property_signature">
+“ref-frames” <span class="type"><a title="guint" href="https://docs.gtk.org/glib/types.html#guint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">guint</a></span>
+</pre>
+
+<p>Number of reference frames</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	1
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstMsdkEnc:target-usage">
+	
+
+
+
+<h4 data-hotdoc-id="GstMsdkEnc:target-usage">
+	<i>target-usage</i>
+</h4>
+
+
+<pre class="property_signature">
+“target-usage” <span class="type"><a title="guint" href="https://docs.gtk.org/glib/types.html#guint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">guint</a></span>
+</pre>
+
+<p>1: Best quality, 4: Balanced, 7: Best speed</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	4
+</p>
+
+
+
+<hr>
+
+</div>
+
+
+            <h3 class="symbol_section">Named constants</h3>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstMsdkEncAdaptiveB">
+	
+
+
+
+<h4 data-hotdoc-id="GstMsdkEncAdaptiveB">
+	<i>Msdk-enc-adaptive-b</i>
+</h4>
+
+
+
+
+
+	<div class="members-container">
+		<h5>Members</h5>
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstMsdkEncAdaptiveB::auto">
+        <code>auto</code> (<i>0</i>) – SDK desides what to do
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstMsdkEncAdaptiveB::off">
+        <code>off</code> (<i>32</i>) – Disable Adaptive B-Frame insertion
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstMsdkEncAdaptiveB::on">
+        <code>on</code> (<i>16</i>) – Enable Aaptive B-Frame insertion
+        </div>
+    
+			</div>
+
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstMsdkEncAdaptiveI">
+	
+
+
+
+<h4 data-hotdoc-id="GstMsdkEncAdaptiveI">
+	<i>Msdk-enc-adaptive-i</i>
+</h4>
+
+
+
+
+
+	<div class="members-container">
+		<h5>Members</h5>
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstMsdkEncAdaptiveI::auto">
+        <code>auto</code> (<i>0</i>) – SDK desides what to do
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstMsdkEncAdaptiveI::off">
+        <code>off</code> (<i>32</i>) – Disable Adaptive I frame insertion
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstMsdkEncAdaptiveI::on">
+        <code>on</code> (<i>16</i>) – Enable Aaptive I frame insertion
+        </div>
+    
+			</div>
+
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstMsdkEncMbBitrateControl">
+	
+
+
+
+<h4 data-hotdoc-id="GstMsdkEncMbBitrateControl">
+	<i>Msdk-enc-mb-bitrate-control</i>
+</h4>
+
+
+
+
+
+	<div class="members-container">
+		<h5>Members</h5>
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstMsdkEncMbBitrateControl::auto">
+        <code>auto</code> (<i>0</i>) – SDK desides what to do
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstMsdkEncMbBitrateControl::off">
+        <code>off</code> (<i>32</i>) – Disable Macroblock level bit rate control
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstMsdkEncMbBitrateControl::on">
+        <code>on</code> (<i>16</i>) – Enable Macroblock level bit rate control
+        </div>
+    
+			</div>
+
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstMsdkEncRateControl">
+	
+
+
+
+<h4 data-hotdoc-id="GstMsdkEncRateControl">
+	<i>Msdk-enc-rate-control</i>
+</h4>
+
+
+
+
+
+	<div class="members-container">
+		<h5>Members</h5>
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstMsdkEncRateControl::cbr">
+        <code>cbr</code> (<i>1</i>) – Constant Bitrate
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstMsdkEncRateControl::vbr">
+        <code>vbr</code> (<i>2</i>) – Variable Bitrate
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstMsdkEncRateControl::cqp">
+        <code>cqp</code> (<i>3</i>) – Constant Quantizer
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstMsdkEncRateControl::avbr">
+        <code>avbr</code> (<i>4</i>) – Average Bitrate
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstMsdkEncRateControl::la_vbr">
+        <code>la_vbr</code> (<i>8</i>) – VBR with look ahead (Non HRD compliant)
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstMsdkEncRateControl::icq">
+        <code>icq</code> (<i>9</i>) – Intelligent CQP
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstMsdkEncRateControl::vcm">
+        <code>vcm</code> (<i>10</i>) – Video Conferencing Mode (Non HRD compliant)
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstMsdkEncRateControl::la_icq">
+        <code>la_icq</code> (<i>11</i>) – Intelligent CQP with LA (Non HRD compliant)
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstMsdkEncRateControl::la_hrd">
+        <code>la_hrd</code> (<i>13</i>) – HRD compliant LA
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstMsdkEncRateControl::qvbr">
+        <code>qvbr</code> (<i>14</i>) – VBR with CQP
+        </div>
+    
+			</div>
+
+
+
+
+<hr>
+
+</div>
+
+
+
+
+
+
+		
+	</div>
+	<div id="search_results">
+		<p>The results of the search are</p>
+	</div>
+	<div id="footer">
+		    
+
+	</div>
+</div>
+
+<div id="toc-column">
+	
+		<div class="edit-button">
+		
+
+	</div>
+		<div id="toc-wrapper">
+		<nav id="toc"></nav>
+	</div>
+</div>
+</div>
+</main>
+
+
+<script src="assets/js/navbar_offset_scroller.js"></script>
+</body>
+</html>

@@ -1,0 +1,1469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<base href="..">
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<title>v4l2src</title>
+
+<link rel="stylesheet" href="assets/css/dark-frontend.css" type="text/css" title="dark">
+<link rel="alternate stylesheet" href="assets/css/light-frontend.css" type="text/css" title="light">
+<link rel="stylesheet" href="assets/css/bootstrap-toc.min.css" type="text/css">
+<link rel="stylesheet" href="assets/css/jquery.mCustomScrollbar.min.css">
+<link rel="stylesheet" href="assets/js/search/enable_search.css" type="text/css">
+
+<link rel="stylesheet" href="assets/css/extra_frontend.css" type="text/css">
+<link rel="stylesheet" href="assets/css/devhelp.css" type="text/css">
+
+<link rel="stylesheet" href="assets/css/prism-tomorrow.css" type="text/css" title="dark">
+
+<link rel="alternate stylesheet" href="assets/css/prism.css" type="text/css" title="light">
+
+<script src="assets/js/mustache.min.js"></script>
+<script src="assets/js/jquery.js"></script>
+<script src="assets/js/bootstrap.js"></script>
+<script src="assets/js/scrollspy.js"></script>
+<script src="assets/js/typeahead.jquery.min.js"></script>
+<script src="assets/js/search.js"></script>
+<script src="assets/js/compare-versions.js"></script>
+<script src="assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="assets/js/bootstrap-toc.min.js"></script>
+<script src="assets/js/jquery.touchSwipe.min.js"></script>
+<script src="assets/js/anchor.min.js"></script>
+<script src="assets/js/tag_filtering.js"></script>
+<script src="assets/js/language_switching.js"></script>
+<script src="assets/js/styleswitcher.js"></script>
+
+<script src="assets/js/lines_around_headings.js"></script>
+
+<script src="assets/js/prism-core.js"></script>
+<script src="assets/js/prism-autoloader.js"></script>
+<script src="assets/js/prism_autoloader_path_override.js"></script>
+<script src="assets/js/trie.js"></script>
+
+<!-- generic -->
+<link rel="icon" type="image/png" href="assets/images/favicon-16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="assets/images/favicon-32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="assets/images/favicon-57.png" sizes="57x57">
+<link rel="icon" type="image/png" href="assets/images/favicon-64.png" sizes="64x64">
+<link rel="icon" type="image/png" href="assets/images/favicon-76.png" sizes="76x76">
+<link rel="icon" type="image/png" href="assets/images/favicon-96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="assets/images/favicon-128.png" sizes="128x128">
+<link rel="icon" type="image/png" href="assets/images/favicon-192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="assets/images/favicon-228.png" sizes="228x228">
+
+<!-- Android -->
+<link rel="shortcut icon" sizes="196x196" href="assets/images/favicon-196.png">
+
+<!-- iOS -->
+<link rel="apple-touch-icon" href="assets/images/favicon-120.png" sizes="120x120">
+<link rel="apple-touch-icon" href="assets/images/favicon-152.png" sizes="152x152">
+<link rel="apple-touch-icon" href="assets/images/favicon-180.png" sizes="180x180">
+
+</head>
+
+<body class="no-script
+">
+
+<script>
+$('body').removeClass('no-script');
+</script>
+
+<nav class="navbar navbar-fixed-top navbar-default" id="topnav">
+	<div class="container-fluid">
+		<div class="navbar-right">
+			<a id="toc-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-wrapper" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<span title="light mode switch" class="glyphicon glyphicon-sunglasses pull-right" id="lightmode-icon"></span>
+			<form class="navbar-form pull-right" id="navbar-search-form">
+                               <div class="form-group has-feedback">
+                                       <input type="text" class="form-control input-sm" name="search" id="sidenav-lookup-field" placeholder="search" disabled>
+				       <span class="glyphicon glyphicon-search form-control-feedback" id="search-mgn-glass"></span>
+                               </div>
+                        </form>
+		</div>
+		<div class="navbar-header">
+			<a id="sidenav-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<a id="home-link" href="index.html" class="hotdoc-navbar-brand">
+				<img src="assets/images/gstreamer-logo.svg" alt="Home">
+			</a>
+		</div>
+		<div class="navbar-collapse collapse" id="navbar-wrapper">
+			<ul class="nav navbar-nav" id="menu">
+				
+<li class="dropdown">
+    <a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        API References<span class="caret"></span>
+    </a>
+	<ul class="dropdown-menu" id="modules-menu">
+					<li>
+				<a href="gstreamer/gi-index.html">GStreamer core</a>
+			</li>
+					<li>
+				<a href="libs.html">GStreamer Libraries</a>
+			</li>
+					<li>
+				<a href="plugins_doc.html">GStreamer Plugins</a>
+			</li>
+		</ul>
+</li>
+
+<li>
+    <a href="application-development/index.html">Application manual</a>
+</li>
+
+
+<li>
+    <a href="tutorials/index.html">Tutorials</a>
+</li>
+
+			</ul>
+			<div class="hidden-xs hidden-sm navbar-text navbar-center">
+							</div>
+		</div>
+	</div>
+</nav>
+
+<main>
+<div data-extension="gst-extension" data-hotdoc-in-toplevel="False" data-hotdoc-project="video4linux2" data-hotdoc-ref="v4l2src.html" class="page_container" id="page-wrapper" data-hotdoc-meta-gi-languages="['c', 'javascript', 'python']">
+<script src="assets/js/utils.js"></script>
+
+<div class="panel panel-collapse oc-collapsed" id="sidenav" data-hotdoc-role="navigation">
+	<script src="assets/js/full-width.js"></script>
+  <div id="sitenav-wrapper">
+    <iframe src="hotdoc-sitemap.html" id="sitenav-frame"></iframe>
+  </div>
+</div>
+
+<div id="body">
+	<div id="main">
+				    <div id="page-description" data-hotdoc-role="main">
+        <h1 id="v4l2src-page">v4l2src</h1>
+<p>v4l2src can be used to capture video from v4l2 devices, like webcams and tv
+cards.</p>
+<h2 id="example-launch-lines">Example launch lines</h2>
+<pre><code class="language-["> gst-launch-1.0 v4l2src ! xvimagesink
+</code></pre>
+<p>This pipeline shows the video captured from /dev/video0 tv card and for
+webcams.</p>
+<pre><code class="language-["> gst-launch-1.0 v4l2src ! jpegdec ! xvimagesink
+</code></pre>
+<p>This pipeline shows the video captured from a webcam that delivers jpeg
+images.</p>
+<p>Since 1.14, the use of libv4l2 has been disabled due to major bugs in the
+emulation layer. To enable usage of this library, set the environment
+variable GST_V4L2_USE_LIBV4L2=1.</p>
+
+    </div>
+        
+        
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="v4l2src">
+	
+        
+
+        <h2>Hierarchy</h2>
+            <div class="hierarchy_container">
+                <div class="hierarchy_details">
+<pre>
+<a title="GObject" href="https://docs.gtk.org/gobject/class.Object.html" data-gi-href-javascript="https://docs.gtk.org/gobject/class.Object.html" data-gi-title-javascript="GObject.Object" data-gi-href-python="https://docs.gtk.org/gobject/class.Object.html" data-gi-title-python="GObject.Object">GObject</a>
+    <span class="lineart">╰──</span><a title="GInitiallyUnowned" href="https://docs.gtk.org/gobject/class.InitiallyUnowned.html" data-gi-href-javascript="https://docs.gtk.org/gobject/class.InitiallyUnowned.html" data-gi-title-javascript="GObject.InitiallyUnowned" data-gi-href-python="https://docs.gtk.org/gobject/class.InitiallyUnowned.html" data-gi-title-python="GObject.InitiallyUnowned">GInitiallyUnowned</a>
+        <span class="lineart">╰──</span><a title="GstObject" href="gstreamer/gstobject.html#GstObject" data-gi-href-javascript="gstreamer/gstobject.html#GstObject" data-gi-title-javascript="Gst.Object" data-gi-href-python="gstreamer/gstobject.html#GstObject" data-gi-title-python="Gst.Object">GstObject</a>
+            <span class="lineart">╰──</span><a title="GstElement" href="gstreamer/gstelement.html#GstElement" data-gi-href-javascript="gstreamer/gstelement.html#GstElement" data-gi-title-javascript="Gst.Element" data-gi-href-python="gstreamer/gstelement.html#GstElement" data-gi-title-python="Gst.Element">GstElement</a>
+                <span class="lineart">╰──</span><a title="GstBaseSrc" href="base/gstbasesrc.html#GstBaseSrc" data-gi-href-javascript="base/gstbasesrc.html#GstBaseSrc" data-gi-title-javascript="GstBase.BaseSrc" data-gi-href-python="base/gstbasesrc.html#GstBaseSrc" data-gi-title-python="GstBase.BaseSrc">GstBaseSrc</a>
+                    <span class="lineart">╰──</span><a title="GstPushSrc" href="base/gstpushsrc.html#GstPushSrc" data-gi-href-javascript="base/gstpushsrc.html#GstPushSrc" data-gi-title-javascript="GstBase.PushSrc" data-gi-href-python="base/gstpushsrc.html#GstPushSrc" data-gi-title-python="GstBase.PushSrc">GstPushSrc</a>
+                        <span class="lineart">╰──</span>v4l2src
+</pre>
+
+</div>
+
+            </div>
+            <h2>Implemented interfaces</h2>
+            <div>
+                <pre>
+<a title="GstURIHandler" href="gstreamer/gsturihandler.html#GstURIHandler" data-gi-href-javascript="gstreamer/gsturihandler.html#GstURIHandler" data-gi-title-javascript="Gst.URIHandler" data-gi-href-python="gstreamer/gsturihandler.html#GstURIHandler" data-gi-title-python="Gst.URIHandler">GstURIHandler</a>
+<a title="GstTuner" href="video4linux2/GstTuner.html#GstTuner">GstTuner</a>
+<a title="GstColorBalance" href="video/gstcolorbalance.html#GstColorBalance" data-gi-href-javascript="video/gstcolorbalance.html#GstColorBalance" data-gi-title-javascript="GstVideo.ColorBalance" data-gi-href-python="video/gstcolorbalance.html#GstColorBalance" data-gi-title-python="GstVideo.ColorBalance">GstColorBalance</a>
+<a title="GstVideoOrientation" href="video/gstvideoorientation.html#GstVideoOrientation" data-gi-href-javascript="video/gstvideoorientation.html#GstVideoOrientation" data-gi-title-javascript="GstVideo.VideoOrientation" data-gi-href-python="video/gstvideoorientation.html#GstVideoOrientation" data-gi-title-python="GstVideo.VideoOrientation">GstVideoOrientation</a>
+</pre>
+            </div>
+        <h2 class="symbol_section">Factory details</h2>
+        <div class="symbol-detail">
+            <p><b>Authors:</b> – Edgard Lima <edgard.lima@gmail.com>, Stefan Kost <ensonic@users.sf.net></ensonic@users.sf.net></edgard.lima@gmail.com></p>
+            <p><b>Classification:</b> – <code>Source/Video</code></p>
+            <p><b>Rank</b> – primary</p>
+            <p><b>Plugin</b> – video4linux2</p>
+            <p><b>Package</b> – GStreamer Good Plug-ins</p>
+        </div>
+
+</div>
+
+
+            <h2 class="symbol_section">Pad Templates</h2>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstV4l2Src!src">
+	
+
+
+
+        <h3><span><code>src</code></span></h3>
+
+
+        <div>
+            
+            <pre class="language-yaml"><code class="language-yaml">video/x-raw(memory:DMABuf):
+         format: DMA_DRM
+     drm-format: { (string)RGB8, (string)AR15, (string)XR15_BE, (string)AR15_BE, (string)RG16, (string)RG16_BE, (string)RG24, (string)BG24, (string)AR24, (string)RA24, (string)RX24, (string)AB24, (string)XB24, (string)BA24, (string)AR30, (string)"R8\ \ ", (string)"R4\ \ ", (string)"R10\ ", (string)"R12\ ", (string)"R16\ ", (string)"R16\ _BE", (string)GR88, (string)YUV9, (string)YVU9, (string)YUYV, (string)UYVY, (string)VYUY, (string)YU11, (string)NV12:0x0400000000000001, (string)NV24, (string)NV42, (string)NV12:0x0b00000000000001, (string)P010, (string)NV61, (string)NV16, (string)NV21, (string)NV12:0x0400000000000002, (string)NV12, (string)YU16, (string)YVYU, (string)YV12, (string)YU12, (string)BX24, (string)XR24, (string)XR15 }
+          width: [ 1, 32768 ]
+         height: [ 1, 32768 ]
+      framerate: [ 0/1, 2147483647/1 ]
+
+video/x-raw(memory:DMABuf, format:Interlaced):
+         format: DMA_DRM
+     drm-format: { (string)RGB8, (string)AR15, (string)XR15_BE, (string)AR15_BE, (string)RG16, (string)RG16_BE, (string)RG24, (string)BG24, (string)AR24, (string)RA24, (string)RX24, (string)AB24, (string)XB24, (string)BA24, (string)AR30, (string)"R8\ \ ", (string)"R4\ \ ", (string)"R10\ ", (string)"R12\ ", (string)"R16\ ", (string)"R16\ _BE", (string)GR88, (string)YUV9, (string)YVU9, (string)YUYV, (string)UYVY, (string)VYUY, (string)YU11, (string)NV12:0x0400000000000001, (string)NV24, (string)NV42, (string)NV12:0x0b00000000000001, (string)P010, (string)NV61, (string)NV16, (string)NV21, (string)NV12:0x0400000000000002, (string)NV12, (string)YU16, (string)YVYU, (string)YV12, (string)YU12, (string)BX24, (string)XR24, (string)XR15 }
+          width: [ 1, 32768 ]
+         height: [ 1, 32768 ]
+      framerate: [ 0/1, 2147483647/1 ]
+ interlace-mode: alternate
+image/jpeg:
+         parsed: true
+video/mpeg:
+    mpegversion: 4
+   systemstream: false
+video/mpeg:
+    mpegversion: { (int)1, (int)2 }
+video/mpegts:
+   systemstream: true
+video/x-av1:
+  stream-format: obu-stream
+      alignment: tu
+video/x-bayer:
+         format: { bggr, gbrg, grbg, rggb, bggr10le, gbrg10le, grbg10le, rggb10le, bggr12le, gbrg12le, grbg12le, rggb12le, bggr14le, gbrg14le, grbg14le, rggb14le, bggr16le, gbrg16le, grbg16le, rggb16le }
+          width: [ 1, 32768 ]
+         height: [ 1, 32768 ]
+      framerate: [ 0/1, 2147483647/1 ]
+video/x-dv:
+   systemstream: true
+video/x-fwht:
+video/x-h263:
+        variant: itu
+video/x-h264:
+  stream-format: { (string)byte-stream, (string)avc }
+      alignment: au
+video/x-h265:
+  stream-format: byte-stream
+      alignment: au
+video/x-pwc1:
+          width: [ 1, 32768 ]
+         height: [ 1, 32768 ]
+      framerate: [ 0/1, 2147483647/1 ]
+video/x-pwc2:
+          width: [ 1, 32768 ]
+         height: [ 1, 32768 ]
+      framerate: [ 0/1, 2147483647/1 ]
+video/x-raw:
+         format: { RGB16, BGR, RGB, ABGR, xBGR, RGBA, RGBx, BGR10A2_LE, BGR15, GRAY8, GRAY16_LE, GRAY16_BE, YUV9, YVU9, YUY2, YVYU, UYVY, VYUY, Y41B, NV12_64Z32, NV12_8L128, NV12_10BE_8L128, NV24, NV12_16L32S, P010_10LE, NV61, NV16, NV21, NV12, Y42B, YV12, I420, ARGB, xRGB, BGRA, BGRx, RGB15 }
+          width: [ 1, 32768 ]
+         height: [ 1, 32768 ]
+      framerate: [ 0/1, 2147483647/1 ]
+video/x-sonix:
+          width: [ 1, 32768 ]
+         height: [ 1, 32768 ]
+      framerate: [ 0/1, 2147483647/1 ]
+video/x-vp8:
+video/x-vp9:
+video/x-wmv:
+     wmvversion: 3
+         format: { WVC1, WMV3 }
+
+video/x-raw(format:Interlaced):
+         format: { RGB16, BGR, RGB, ABGR, xBGR, RGBA, RGBx, BGR10A2_LE, BGR15, GRAY8, GRAY16_LE, GRAY16_BE, YUV9, YVU9, YUY2, YVYU, UYVY, VYUY, Y41B, NV12_64Z32, NV12_8L128, NV12_10BE_8L128, NV24, NV12_16L32S, P010_10LE, NV61, NV16, NV21, NV12, Y42B, YV12, I420, ARGB, xRGB, BGRA, BGRx, RGB15 }
+          width: [ 1, 32768 ]
+         height: [ 1, 32768 ]
+      framerate: [ 0/1, 2147483647/1 ]
+ interlace-mode: alternate
+</code></pre>
+            <div class="symbol-detail">
+                <p><b>Presence</b> – <i>always</i></p>
+                <p><b>Direction</b> – <i>src</i></p>
+                    <p><b>Object type</b> – <a title="GstPad" href="gstreamer/gstpad.html#GstPad" data-gi-href-javascript="gstreamer/gstpad.html#GstPad" data-gi-title-javascript="Gst.Pad" data-gi-href-python="gstreamer/gstpad.html#GstPad" data-gi-title-python="Gst.Pad">GstPad</a></p>
+            </div>
+        </div>
+
+
+
+<hr>
+
+</div>
+
+
+            <h2 class="symbol_section">Signals</h2>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="v4l2src::prepare-format">
+	
+
+
+
+<h3 data-hotdoc-id="v4l2src::prepare-format">
+	<i>prepare-format</i>
+</h3>
+
+
+
+
+<pre class="c-prototype language-c">
+prepare_format_callback (<a title="GstElement" href="gstreamer/gstelement.html#GstElement" data-gi-href-javascript="gstreamer/gstelement.html#GstElement" data-gi-title-javascript="Gst.Element" data-gi-href-python="gstreamer/gstelement.html#GstElement" data-gi-title-python="Gst.Element">GstElement</a> <span class="pointer-token">*</span> v4l2src,
+                         <a title="gint" href="https://docs.gtk.org/glib/types.html#gint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">gint</a> fd,
+                         <a title="GstCaps" href="gstreamer/gstcaps.html#GstCaps" data-gi-href-javascript="gstreamer/gstcaps.html#GstCaps" data-gi-title-javascript="Gst.Caps" data-gi-href-python="gstreamer/gstcaps.html#GstCaps" data-gi-title-python="Gst.Caps">GstCaps</a> <span class="pointer-token">*</span> caps,
+                         <a title="gpointer" href="https://docs.gtk.org/glib/types.html#gpointer" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" data-gi-title-javascript="Object" data-gi-href-python="https://docs.python.org/3/library/functions.html#object" data-gi-title-python="object">gpointer</a> udata)</pre>
+<pre class="python-prototype language-python">
+<code>def prepare_format_callback (v4l2src, fd, caps, udata):
+    #python callback for the 'prepare-format' signal</code></pre>
+<pre class="javascript-prototype language-javascript">
+<code>function prepare_format_callback(v4l2src: <a title="GstElement" href="gstreamer/gstelement.html#GstElement" data-gi-href-javascript="gstreamer/gstelement.html#GstElement" data-gi-title-javascript="Gst.Element" data-gi-href-python="gstreamer/gstelement.html#GstElement" data-gi-title-python="Gst.Element">GstElement</a> <span class="pointer-token">*</span> v4l2src, fd: <a title="gint" href="https://docs.gtk.org/glib/types.html#gint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">gint</a> fd, caps: <a title="GstCaps" href="gstreamer/gstcaps.html#GstCaps" data-gi-href-javascript="gstreamer/gstcaps.html#GstCaps" data-gi-title-javascript="Gst.Caps" data-gi-href-python="gstreamer/gstcaps.html#GstCaps" data-gi-title-python="Gst.Caps">GstCaps</a> <span class="pointer-token">*</span> caps, udata: <a title="gpointer" href="https://docs.gtk.org/glib/types.html#gpointer" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" data-gi-title-javascript="Object" data-gi-href-python="https://docs.python.org/3/library/functions.html#object" data-gi-title-python="object">gpointer</a> udata): {
+    // javascript callback for the 'prepare-format' signal
+}</code></pre>
+
+<p>This signal gets emitted before calling the v4l2 VIDIOC_S_FMT ioctl
+(set format). This allows for any custom configuration of the device to
+happen prior to the format being set.
+This is mostly useful for UVC H264 encoding cameras which need the H264
+Probe &amp; Commit to happen prior to the normal Probe &amp; Commit.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>v4l2src</code></em></i>
+–
+</div>
+<p>the v4l2src instance</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>fd</code></em></i>
+–
+</div>
+<p>the file descriptor of the current device</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>caps</code></em></i>
+–
+</div>
+<p>the caps of the format being set</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>udata</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+<p>
+	<b>Flags:</b>	
+	
+		
+				<a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS">Run Last</a>
+			
+</p>
+
+
+
+<hr>
+
+</div>
+
+
+            <h2 class="symbol_section">Properties</h2>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="v4l2src:brightness">
+	
+
+
+
+<h3 data-hotdoc-id="v4l2src:brightness">
+	<i>brightness</i>
+</h3>
+
+
+<pre class="property_signature">
+“brightness” <span class="type"><a title="gint" href="https://docs.gtk.org/glib/types.html#gint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">gint</a></span>
+</pre>
+
+<p>Picture brightness, or more precisely, the black level</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	0
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="v4l2src:contrast">
+	
+
+
+
+<h3 data-hotdoc-id="v4l2src:contrast">
+	<i>contrast</i>
+</h3>
+
+
+<pre class="property_signature">
+“contrast” <span class="type"><a title="gint" href="https://docs.gtk.org/glib/types.html#gint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">gint</a></span>
+</pre>
+
+<p>Picture contrast or luma gain</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	0
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.22;" id="v4l2src:crop-bottom">
+	
+
+
+
+<h3 data-hotdoc-id="v4l2src:crop-bottom">
+	<i>crop-bottom</i>
+</h3>
+
+
+<pre class="property_signature">
+“crop-bottom” <span class="type"><a title="guint" href="https://docs.gtk.org/glib/types.html#guint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">guint</a></span>
+</pre>
+
+<p>Number of pixels to crop from the bottom edge of captured video
+stream</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	0
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.22
+		</p>
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.22;" id="v4l2src:crop-bounds">
+	
+
+
+
+<h3 data-hotdoc-id="v4l2src:crop-bounds">
+	<i>crop-bounds</i>
+</h3>
+
+
+<pre class="property_signature">
+“crop-bounds” <span class="type"><a title="GstValueArray" href="gstreamer/gstvalue.html#GstValueArray" data-gi-href-javascript="gstreamer/gstvalue.html#GstValueArray" data-gi-title-javascript="Gst.ValueArray" data-gi-href-python="gstreamer/gstvalue.html#GstValueArray" data-gi-title-python="Gst.ValueArray">GstValueArray</a> <span class="pointer-token">*</span></span>
+</pre>
+
+<p>Crop bounding region.  All crop regions must lie within this region.
+The bounds are represented as a four element array, that descibes the
+[x, y, width, height] of the area.</p>
+<p>The size and position of the crop
+bounds will only be known, once the v4l2 device is opened and the
+input source selected. Applications can connect to the
+"notify::crop-bounds" signal to be notified when the bounding region is
+updated, and set an appropriate crop region.</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.22
+		</p>
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.22;" id="v4l2src:crop-left">
+	
+
+
+
+<h3 data-hotdoc-id="v4l2src:crop-left">
+	<i>crop-left</i>
+</h3>
+
+
+<pre class="property_signature">
+“crop-left” <span class="type"><a title="guint" href="https://docs.gtk.org/glib/types.html#guint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">guint</a></span>
+</pre>
+
+<p>Number of pixels to crop from the left edge of captured video
+stream</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	0
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.22
+		</p>
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.22;" id="v4l2src:crop-right">
+	
+
+
+
+<h3 data-hotdoc-id="v4l2src:crop-right">
+	<i>crop-right</i>
+</h3>
+
+
+<pre class="property_signature">
+“crop-right” <span class="type"><a title="guint" href="https://docs.gtk.org/glib/types.html#guint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">guint</a></span>
+</pre>
+
+<p>Number of pixels to crop from the right edge of captured video
+stream</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	0
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.22
+		</p>
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.22;" id="v4l2src:crop-top">
+	
+
+
+
+<h3 data-hotdoc-id="v4l2src:crop-top">
+	<i>crop-top</i>
+</h3>
+
+
+<pre class="property_signature">
+“crop-top” <span class="type"><a title="guint" href="https://docs.gtk.org/glib/types.html#guint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">guint</a></span>
+</pre>
+
+<p>Number of pixels to crop from the top edge of captured video
+stream</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	0
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.22
+		</p>
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="v4l2src:device">
+	
+
+
+
+<h3 data-hotdoc-id="v4l2src:device">
+	<i>device</i>
+</h3>
+
+
+<pre class="property_signature">
+“device” <span class="type"><a title="gchararray" href="https://web.mit.edu/barnowl/share/gtk-doc/html/gobject/gobject-Standard-Parameter-and-Value-Types.html#gchararray" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" data-gi-title-javascript="String" data-gi-href-python="https://docs.python.org/3/library/functions.html#func-str" data-gi-title-python="str">gchararray</a></span>
+</pre>
+
+<p>Device location</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	/dev/video0
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="v4l2src:device-fd">
+	
+
+
+
+<h3 data-hotdoc-id="v4l2src:device-fd">
+	<i>device-fd</i>
+</h3>
+
+
+<pre class="property_signature">
+“device-fd” <span class="type"><a title="gint" href="https://docs.gtk.org/glib/types.html#gint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">gint</a></span>
+</pre>
+
+<p>File descriptor of the device</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+</p>
+<p>
+	Default value :	-1
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="v4l2src:device-name">
+	
+
+
+
+<h3 data-hotdoc-id="v4l2src:device-name">
+	<i>device-name</i>
+</h3>
+
+
+<pre class="property_signature">
+“device-name” <span class="type"><a title="gchararray" href="https://web.mit.edu/barnowl/share/gtk-doc/html/gobject/gobject-Standard-Parameter-and-Value-Types.html#gchararray" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" data-gi-title-javascript="String" data-gi-href-python="https://docs.python.org/3/library/functions.html#func-str" data-gi-title-python="str">gchararray</a></span>
+</pre>
+
+<p>Name of the device</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+</p>
+<p>
+	Default value :	NULL
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.2;" id="v4l2src:extra-controls">
+	
+
+
+
+<h3 data-hotdoc-id="v4l2src:extra-controls">
+	<i>extra-controls</i>
+</h3>
+
+
+<pre class="property_signature">
+“extra-controls” <span class="type"><a title="GstStructure" href="gstreamer/gststructure.html#GstStructure" data-gi-href-javascript="gstreamer/gststructure.html#GstStructure" data-gi-title-javascript="Gst.Structure" data-gi-href-python="gstreamer/gststructure.html#GstStructure" data-gi-title-python="Gst.Structure">GstStructure</a> <span class="pointer-token">*</span></span>
+</pre>
+
+<p>Additional v4l2 controls for the device. The controls are identified
+by the control name (lowercase with '_' for any non-alphanumeric
+characters).</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.2
+		</p>
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="v4l2src:flags">
+	
+
+
+
+<h3 data-hotdoc-id="v4l2src:flags">
+	<i>flags</i>
+</h3>
+
+
+<pre class="property_signature">
+“flags” <span class="type"><a title="GstV4l2DeviceTypeFlags" href="video4linux2/v4l2src.html#GstV4l2DeviceTypeFlags">GstV4l2DeviceTypeFlags</a> <span class="pointer-token">*</span></span>
+</pre>
+
+<p>Device type flags</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+</p>
+<p>
+	Default value :	(none)
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.2;" id="v4l2src:force-aspect-ratio">
+	
+
+
+
+<h3 data-hotdoc-id="v4l2src:force-aspect-ratio">
+	<i>force-aspect-ratio</i>
+</h3>
+
+
+<pre class="property_signature">
+“force-aspect-ratio” <span class="type"><a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#bool" data-gi-title-python="bool">gboolean</a></span>
+</pre>
+
+<p>When enabled, the pixel aspect ratio queried from the device or set
+with the pixel-aspect-ratio property will be enforced.</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	true
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.2
+		</p>
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="v4l2src:hue">
+	
+
+
+
+<h3 data-hotdoc-id="v4l2src:hue">
+	<i>hue</i>
+</h3>
+
+
+<pre class="property_signature">
+“hue” <span class="type"><a title="gint" href="https://docs.gtk.org/glib/types.html#gint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">gint</a></span>
+</pre>
+
+<p>Hue or color balance</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	0
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="v4l2src:io-mode">
+	
+
+
+
+<h3 data-hotdoc-id="v4l2src:io-mode">
+	<i>io-mode</i>
+</h3>
+
+
+<pre class="property_signature">
+“io-mode” <span class="type"><a title="GstV4l2IOMode" href="video4linux2/v4l2src.html#GstV4l2IOMode">GstV4l2IOMode</a> <span class="pointer-token">*</span></span>
+</pre>
+
+<p>IO Mode</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	auto (0)
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="v4l2src:norm">
+	
+
+
+
+<h3 data-hotdoc-id="v4l2src:norm">
+	<i>norm</i>
+</h3>
+
+
+<pre class="property_signature">
+“norm” <span class="type"><a title="V4L2_TV_norms" href="video4linux2/v4l2src.html#V4L2_TV_norms">V4L2_TV_norms</a> <span class="pointer-token">*</span></span>
+</pre>
+
+<p>TV norm</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	none (0)
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.2;" id="v4l2src:pixel-aspect-ratio">
+	
+
+
+
+<h3 data-hotdoc-id="v4l2src:pixel-aspect-ratio">
+	<i>pixel-aspect-ratio</i>
+</h3>
+
+
+<pre class="property_signature">
+“pixel-aspect-ratio” <span class="type"><a title="gchararray" href="https://web.mit.edu/barnowl/share/gtk-doc/html/gobject/gobject-Standard-Parameter-and-Value-Types.html#gchararray" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" data-gi-title-javascript="String" data-gi-href-python="https://docs.python.org/3/library/functions.html#func-str" data-gi-title-python="str">gchararray</a></span>
+</pre>
+
+<p>The pixel aspect ratio of the device. This overwrites the pixel aspect
+ratio queried from the device.</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	NULL
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.2
+		</p>
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="v4l2src:saturation">
+	
+
+
+
+<h3 data-hotdoc-id="v4l2src:saturation">
+	<i>saturation</i>
+</h3>
+
+
+<pre class="property_signature">
+“saturation” <span class="type"><a title="gint" href="https://docs.gtk.org/glib/types.html#gint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">gint</a></span>
+</pre>
+
+<p>Picture color saturation or chroma gain</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	0
+</p>
+
+
+
+<hr>
+
+</div>
+
+
+            <h2 class="symbol_section">Named constants</h2>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstV4l2DeviceTypeFlags">
+	
+
+
+
+<h3 data-hotdoc-id="GstV4l2DeviceTypeFlags">
+	<i>GstV4l2DeviceTypeFlags</i>
+</h3>
+
+
+
+
+
+	<div class="members-container">
+		<h4>Members</h4>
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstV4l2DeviceTypeFlags::capture">
+        <code>capture</code> (<i>0x00000001</i>) – Device supports video capture
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstV4l2DeviceTypeFlags::output">
+        <code>output</code> (<i>0x00000002</i>) – Device supports video playback
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstV4l2DeviceTypeFlags::overlay">
+        <code>overlay</code> (<i>0x00000004</i>) – Device supports video overlay
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstV4l2DeviceTypeFlags::vbi-capture">
+        <code>vbi-capture</code> (<i>0x00000010</i>) – Device supports the VBI capture
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstV4l2DeviceTypeFlags::vbi-output">
+        <code>vbi-output</code> (<i>0x00000020</i>) – Device supports the VBI output
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstV4l2DeviceTypeFlags::tuner">
+        <code>tuner</code> (<i>0x00010000</i>) – Device has a tuner or modulator
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstV4l2DeviceTypeFlags::audio">
+        <code>audio</code> (<i>0x00020000</i>) – Device has audio inputs or outputs
+        </div>
+    
+			</div>
+
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstV4l2IOMode">
+	
+
+
+
+<h3 data-hotdoc-id="GstV4l2IOMode">
+	<i>GstV4l2IOMode</i>
+</h3>
+
+
+
+
+
+	<div class="members-container">
+		<h4>Members</h4>
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstV4l2IOMode::auto">
+        <code>auto</code> (<i>0</i>) – GST_V4L2_IO_AUTO
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstV4l2IOMode::rw">
+        <code>rw</code> (<i>1</i>) – GST_V4L2_IO_RW
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstV4l2IOMode::mmap">
+        <code>mmap</code> (<i>2</i>) – GST_V4L2_IO_MMAP
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstV4l2IOMode::userptr">
+        <code>userptr</code> (<i>3</i>) – GST_V4L2_IO_USERPTR
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstV4l2IOMode::dmabuf">
+        <code>dmabuf</code> (<i>4</i>) – GST_V4L2_IO_DMABUF
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstV4l2IOMode::dmabuf-import">
+        <code>dmabuf-import</code> (<i>5</i>) – GST_V4L2_IO_DMABUF_IMPORT
+        </div>
+    
+			</div>
+
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="V4L2_TV_norms">
+	
+
+
+
+<h3 data-hotdoc-id="V4L2_TV_norms">
+	<i>V4L2_TV_norms</i>
+</h3>
+
+
+
+
+
+	<div class="members-container">
+		<h4>Members</h4>
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="V4L2_TV_norms::none">
+        <code>none</code> (<i>0</i>) – none
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="V4L2_TV_norms::NTSC">
+        <code>NTSC</code> (<i>45056</i>) – NTSC
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="V4L2_TV_norms::NTSC-M">
+        <code>NTSC-M</code> (<i>4096</i>) – NTSC-M
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="V4L2_TV_norms::NTSC-M-JP">
+        <code>NTSC-M-JP</code> (<i>8192</i>) – NTSC-M-JP
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="V4L2_TV_norms::NTSC-M-KR">
+        <code>NTSC-M-KR</code> (<i>32768</i>) – NTSC-M-KR
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="V4L2_TV_norms::NTSC-443">
+        <code>NTSC-443</code> (<i>16384</i>) – NTSC-443
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="V4L2_TV_norms::PAL">
+        <code>PAL</code> (<i>255</i>) – PAL
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="V4L2_TV_norms::PAL-BG">
+        <code>PAL-BG</code> (<i>7</i>) – PAL-BG
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="V4L2_TV_norms::PAL-B">
+        <code>PAL-B</code> (<i>1</i>) – PAL-B
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="V4L2_TV_norms::PAL-B1">
+        <code>PAL-B1</code> (<i>2</i>) – PAL-B1
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="V4L2_TV_norms::PAL-G">
+        <code>PAL-G</code> (<i>4</i>) – PAL-G
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="V4L2_TV_norms::PAL-H">
+        <code>PAL-H</code> (<i>8</i>) – PAL-H
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="V4L2_TV_norms::PAL-I">
+        <code>PAL-I</code> (<i>16</i>) – PAL-I
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="V4L2_TV_norms::PAL-DK">
+        <code>PAL-DK</code> (<i>224</i>) – PAL-DK
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="V4L2_TV_norms::PAL-D">
+        <code>PAL-D</code> (<i>32</i>) – PAL-D
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="V4L2_TV_norms::PAL-D1">
+        <code>PAL-D1</code> (<i>64</i>) – PAL-D1
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="V4L2_TV_norms::PAL-K">
+        <code>PAL-K</code> (<i>128</i>) – PAL-K
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="V4L2_TV_norms::PAL-M">
+        <code>PAL-M</code> (<i>256</i>) – PAL-M
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="V4L2_TV_norms::PAL-N">
+        <code>PAL-N</code> (<i>512</i>) – PAL-N
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="V4L2_TV_norms::PAL-Nc">
+        <code>PAL-Nc</code> (<i>1024</i>) – PAL-Nc
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="V4L2_TV_norms::PAL-60">
+        <code>PAL-60</code> (<i>2048</i>) – PAL-60
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="V4L2_TV_norms::SECAM">
+        <code>SECAM</code> (<i>16711680</i>) – SECAM
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="V4L2_TV_norms::SECAM-B">
+        <code>SECAM-B</code> (<i>65536</i>) – SECAM-B
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="V4L2_TV_norms::SECAM-G">
+        <code>SECAM-G</code> (<i>262144</i>) – SECAM-G
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="V4L2_TV_norms::SECAM-H">
+        <code>SECAM-H</code> (<i>524288</i>) – SECAM-H
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="V4L2_TV_norms::SECAM-DK">
+        <code>SECAM-DK</code> (<i>3276800</i>) – SECAM-DK
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="V4L2_TV_norms::SECAM-D">
+        <code>SECAM-D</code> (<i>131072</i>) – SECAM-D
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="V4L2_TV_norms::SECAM-K">
+        <code>SECAM-K</code> (<i>1048576</i>) – SECAM-K
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="V4L2_TV_norms::SECAM-K1">
+        <code>SECAM-K1</code> (<i>2097152</i>) – SECAM-K1
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="V4L2_TV_norms::SECAM-L">
+        <code>SECAM-L</code> (<i>4194304</i>) – SECAM-L
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="V4L2_TV_norms::SECAM-Lc">
+        <code>SECAM-Lc</code> (<i>8388608</i>) – SECAM-Lc
+        </div>
+    
+			</div>
+
+
+
+
+<hr>
+
+</div>
+
+
+
+
+
+
+		
+	</div>
+	<div id="search_results">
+		<p>The results of the search are</p>
+	</div>
+	<div id="footer">
+		    
+
+	</div>
+</div>
+
+<div id="toc-column">
+	
+		<div class="edit-button">
+		
+
+	</div>
+		<div id="toc-wrapper">
+		<nav id="toc"></nav>
+	</div>
+</div>
+</div>
+</main>
+
+
+<script src="assets/js/navbar_offset_scroller.js"></script>
+</body>
+</html>

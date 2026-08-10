@@ -1,0 +1,6956 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<base href="..">
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<title>gstvideotimecode</title>
+
+<link rel="stylesheet" href="assets/css/dark-frontend.css" type="text/css" title="dark">
+<link rel="alternate stylesheet" href="assets/css/light-frontend.css" type="text/css" title="light">
+<link rel="stylesheet" href="assets/css/bootstrap-toc.min.css" type="text/css">
+<link rel="stylesheet" href="assets/css/jquery.mCustomScrollbar.min.css">
+<link rel="stylesheet" href="assets/js/search/enable_search.css" type="text/css">
+
+<link rel="stylesheet" href="assets/css/extra_frontend.css" type="text/css">
+<link rel="stylesheet" href="assets/css/devhelp.css" type="text/css">
+
+<link rel="stylesheet" href="assets/css/prism-tomorrow.css" type="text/css" title="dark">
+
+<link rel="alternate stylesheet" href="assets/css/prism.css" type="text/css" title="light">
+
+<script src="assets/js/mustache.min.js"></script>
+<script src="assets/js/jquery.js"></script>
+<script src="assets/js/bootstrap.js"></script>
+<script src="assets/js/scrollspy.js"></script>
+<script src="assets/js/typeahead.jquery.min.js"></script>
+<script src="assets/js/search.js"></script>
+<script src="assets/js/compare-versions.js"></script>
+<script src="assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="assets/js/bootstrap-toc.min.js"></script>
+<script src="assets/js/jquery.touchSwipe.min.js"></script>
+<script src="assets/js/anchor.min.js"></script>
+<script src="assets/js/tag_filtering.js"></script>
+<script src="assets/js/language_switching.js"></script>
+<script src="assets/js/styleswitcher.js"></script>
+
+<script src="assets/js/lines_around_headings.js"></script>
+
+<script src="assets/js/prism-core.js"></script>
+<script src="assets/js/prism-autoloader.js"></script>
+<script src="assets/js/prism_autoloader_path_override.js"></script>
+<script src="assets/js/trie.js"></script>
+
+<!-- generic -->
+<link rel="icon" type="image/png" href="assets/images/favicon-16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="assets/images/favicon-32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="assets/images/favicon-57.png" sizes="57x57">
+<link rel="icon" type="image/png" href="assets/images/favicon-64.png" sizes="64x64">
+<link rel="icon" type="image/png" href="assets/images/favicon-76.png" sizes="76x76">
+<link rel="icon" type="image/png" href="assets/images/favicon-96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="assets/images/favicon-128.png" sizes="128x128">
+<link rel="icon" type="image/png" href="assets/images/favicon-192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="assets/images/favicon-228.png" sizes="228x228">
+
+<!-- Android -->
+<link rel="shortcut icon" sizes="196x196" href="assets/images/favicon-196.png">
+
+<!-- iOS -->
+<link rel="apple-touch-icon" href="assets/images/favicon-120.png" sizes="120x120">
+<link rel="apple-touch-icon" href="assets/images/favicon-152.png" sizes="152x152">
+<link rel="apple-touch-icon" href="assets/images/favicon-180.png" sizes="180x180">
+
+</head>
+
+<body class="no-script
+">
+
+<script>
+$('body').removeClass('no-script');
+</script>
+
+<nav class="navbar navbar-fixed-top navbar-default" id="topnav">
+	<div class="container-fluid">
+		<div class="navbar-right">
+			<a id="toc-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-wrapper" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<span title="light mode switch" class="glyphicon glyphicon-sunglasses pull-right" id="lightmode-icon"></span>
+			<form class="navbar-form pull-right" id="navbar-search-form">
+                               <div class="form-group has-feedback">
+                                       <input type="text" class="form-control input-sm" name="search" id="sidenav-lookup-field" placeholder="search" disabled>
+				       <span class="glyphicon glyphicon-search form-control-feedback" id="search-mgn-glass"></span>
+                               </div>
+                        </form>
+		</div>
+		<div class="navbar-header">
+			<a id="sidenav-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<a id="home-link" href="index.html" class="hotdoc-navbar-brand">
+				<img src="assets/images/gstreamer-logo.svg" alt="Home">
+			</a>
+		</div>
+		<div class="navbar-collapse collapse" id="navbar-wrapper">
+			<ul class="nav navbar-nav" id="menu">
+				
+<li class="dropdown">
+    <a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        API References<span class="caret"></span>
+    </a>
+	<ul class="dropdown-menu" id="modules-menu">
+					<li>
+				<a href="gstreamer/gi-index.html">GStreamer core</a>
+			</li>
+					<li>
+				<a href="libs.html">GStreamer Libraries</a>
+			</li>
+					<li>
+				<a href="plugins_doc.html">GStreamer Plugins</a>
+			</li>
+		</ul>
+</li>
+
+<li>
+    <a href="application-development/index.html">Application manual</a>
+</li>
+
+
+<li>
+    <a href="tutorials/index.html">Tutorials</a>
+</li>
+
+			</ul>
+			<div class="hidden-xs hidden-sm navbar-text navbar-center">
+							</div>
+		</div>
+	</div>
+</nav>
+
+<main>
+<div data-extension="gi-extension" data-hotdoc-in-toplevel="False" data-hotdoc-project="video" data-hotdoc-ref="gstvideotimecode.html" class="page_container" id="page-wrapper" data-hotdoc-meta-gi-languages="['c', 'javascript', 'python']" data-hotdoc-meta-gi-language="c">
+<script src="assets/js/utils.js"></script>
+
+<div class="panel panel-collapse oc-collapsed" id="sidenav" data-hotdoc-role="navigation">
+	<script src="assets/js/full-width.js"></script>
+  <div id="sitenav-wrapper">
+    <iframe src="hotdoc-sitemap.html" id="sitenav-frame"></iframe>
+  </div>
+</div>
+
+<div id="body">
+	<div id="main">
+				    <div id="page-description" data-hotdoc-role="main">
+    </div>
+        
+        
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.10;" id="GstVideoTimeCode">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h2 data-hotdoc-id="GstVideoTimeCode">
+	<i>GstVideoTimeCode</i>
+</h2>
+
+
+
+<div class="class_details">
+	<p><em>field_count</em> must be 0 for progressive video and 1 or 2 for interlaced.</p>
+<p>A representation of a SMPTE time code.</p>
+<p><em>hours</em> must be positive and less than 24. Will wrap around otherwise.
+<em>minutes</em> and <em>seconds</em> must be positive and less than 60.
+<em>frames</em> must be less than or equal to <em>config</em>.fps_n / <em>config</em>.fps_d
+These values are <em>NOT</em> automatically normalized.</p>
+
+</div>
+
+
+
+	<div class="members-container">
+		<h3>Members</h3>
+					
+<div class="symbol-detail" data-hotdoc-id="GstVideoTimeCode.config">
+	<div>
+		<i><em><code>config</code></em></i>
+		(<a title="GstVideoTimeCodeConfig" href="video/gstvideotimecode.html#GstVideoTimeCodeConfig">GstVideoTimeCodeConfig</a>)
+		–
+	</div>
+			<p>the corresponding <a href="video/gstvideotimecode.html#GstVideoTimeCodeConfig">GstVideoTimeCodeConfig</a></p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVideoTimeCode.hours">
+	<div>
+		<i><em><code>hours</code></em></i>
+		(<a title="guint" href="https://docs.gtk.org/glib/types.html#guint">guint</a>)
+		–
+	</div>
+			<p>the hours field of <a href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideoTimeCode</a></p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVideoTimeCode.minutes">
+	<div>
+		<i><em><code>minutes</code></em></i>
+		(<a title="guint" href="https://docs.gtk.org/glib/types.html#guint">guint</a>)
+		–
+	</div>
+			<p>the minutes field of <a href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideoTimeCode</a></p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVideoTimeCode.seconds">
+	<div>
+		<i><em><code>seconds</code></em></i>
+		(<a title="guint" href="https://docs.gtk.org/glib/types.html#guint">guint</a>)
+		–
+	</div>
+			<p>the seconds field of <a href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideoTimeCode</a></p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVideoTimeCode.frames">
+	<div>
+		<i><em><code>frames</code></em></i>
+		(<a title="guint" href="https://docs.gtk.org/glib/types.html#guint">guint</a>)
+		–
+	</div>
+			<p>the frames field of <a href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideoTimeCode</a></p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVideoTimeCode.field_count">
+	<div>
+		<i><em><code>field_count</code></em></i>
+		(<a title="guint" href="https://docs.gtk.org/glib/types.html#guint">guint</a>)
+		–
+	</div>
+			<p>Interlaced video field count</p>
+
+	</div>
+
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.10
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h2 data-hotdoc-id="GstVideoTimeCode">
+	<i>GstVideo.VideoTimeCode</i>
+</h2>
+
+
+
+<div class="class_details">
+	<p><em>field_count</em> must be 0 for progressive video and 1 or 2 for interlaced.</p>
+<p>A representation of a SMPTE time code.</p>
+<p><em>hours</em> must be positive and less than 24. Will wrap around otherwise.
+<em>minutes</em> and <em>seconds</em> must be positive and less than 60.
+<em>frames</em> must be less than or equal to <em>config</em>.fps_n / <em>config</em>.fps_d
+These values are <em>NOT</em> automatically normalized.</p>
+
+</div>
+
+
+
+	<div class="members-container">
+		<h3>Members</h3>
+					
+<div class="symbol-detail" data-hotdoc-id="GstVideoTimeCode.config">
+	<div>
+		<i><em><code>config</code></em></i>
+		(<a title="GstVideo.VideoTimeCodeConfig" href="video/gstvideotimecode.html#GstVideoTimeCodeConfig">GstVideo.VideoTimeCodeConfig</a>)
+		–
+	</div>
+			<p>the corresponding <a href="video/gstvideotimecode.html#GstVideoTimeCodeConfig">GstVideo.VideoTimeCodeConfig</a></p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVideoTimeCode.hours">
+	<div>
+		<i><em><code>hours</code></em></i>
+		(<a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>)
+		–
+	</div>
+			<p>the hours field of <a href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideo.VideoTimeCode</a></p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVideoTimeCode.minutes">
+	<div>
+		<i><em><code>minutes</code></em></i>
+		(<a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>)
+		–
+	</div>
+			<p>the minutes field of <a href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideo.VideoTimeCode</a></p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVideoTimeCode.seconds">
+	<div>
+		<i><em><code>seconds</code></em></i>
+		(<a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>)
+		–
+	</div>
+			<p>the seconds field of <a href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideo.VideoTimeCode</a></p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVideoTimeCode.frames">
+	<div>
+		<i><em><code>frames</code></em></i>
+		(<a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>)
+		–
+	</div>
+			<p>the frames field of <a href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideo.VideoTimeCode</a></p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVideoTimeCode.field_count">
+	<div>
+		<i><em><code>field_count</code></em></i>
+		(<a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>)
+		–
+	</div>
+			<p>Interlaced video field count</p>
+
+	</div>
+
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.10
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h2 data-hotdoc-id="GstVideoTimeCode">
+	<i>GstVideo.VideoTimeCode</i>
+</h2>
+
+
+
+<div class="class_details">
+	<p><em>field_count</em> must be 0 for progressive video and 1 or 2 for interlaced.</p>
+<p>A representation of a SMPTE time code.</p>
+<p><em>hours</em> must be positive and less than 24. Will wrap around otherwise.
+<em>minutes</em> and <em>seconds</em> must be positive and less than 60.
+<em>frames</em> must be less than or equal to <em>config</em>.fps_n / <em>config</em>.fps_d
+These values are <em>NOT</em> automatically normalized.</p>
+
+</div>
+
+
+
+	<div class="members-container">
+		<h3>Members</h3>
+					
+<div class="symbol-detail" data-hotdoc-id="GstVideoTimeCode.config">
+	<div>
+		<i><em><code>config</code></em></i>
+		(<a title="GstVideo.VideoTimeCodeConfig" href="video/gstvideotimecode.html#GstVideoTimeCodeConfig">GstVideo.VideoTimeCodeConfig</a>)
+		–
+	</div>
+			<p>the corresponding <a href="video/gstvideotimecode.html#GstVideoTimeCodeConfig">GstVideo.VideoTimeCodeConfig</a></p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVideoTimeCode.hours">
+	<div>
+		<i><em><code>hours</code></em></i>
+		(<a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a>)
+		–
+	</div>
+			<p>the hours field of <a href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideo.VideoTimeCode</a></p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVideoTimeCode.minutes">
+	<div>
+		<i><em><code>minutes</code></em></i>
+		(<a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a>)
+		–
+	</div>
+			<p>the minutes field of <a href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideo.VideoTimeCode</a></p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVideoTimeCode.seconds">
+	<div>
+		<i><em><code>seconds</code></em></i>
+		(<a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a>)
+		–
+	</div>
+			<p>the seconds field of <a href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideo.VideoTimeCode</a></p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVideoTimeCode.frames">
+	<div>
+		<i><em><code>frames</code></em></i>
+		(<a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a>)
+		–
+	</div>
+			<p>the frames field of <a href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideo.VideoTimeCode</a></p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVideoTimeCode.field_count">
+	<div>
+		<i><em><code>field_count</code></em></i>
+		(<a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a>)
+		–
+	</div>
+			<p>Interlaced video field count</p>
+
+	</div>
+
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.10
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+
+            <h3 class="symbol_section">Constructors</h3>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.10;" id="gst_video_time_code_new">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_video_time_code_new">
+	<i>gst_video_time_code_new</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GstVideoTimeCode" href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideoTimeCode</a> *
+gst_video_time_code_new (<a title="guint" href="https://docs.gtk.org/glib/types.html#guint">guint</a> fps_n,
+                         <a title="guint" href="https://docs.gtk.org/glib/types.html#guint">guint</a> fps_d,
+                         <a title="GDateTime" href="https://docs.gtk.org/glib/struct.DateTime.html">GDateTime</a> * latest_daily_jam,
+                         <a title="GstVideoTimeCodeFlags" href="video/gstvideotimecode.html#GstVideoTimeCodeFlags">GstVideoTimeCodeFlags</a> flags,
+                         <a title="guint" href="https://docs.gtk.org/glib/types.html#guint">guint</a> hours,
+                         <a title="guint" href="https://docs.gtk.org/glib/types.html#guint">guint</a> minutes,
+                         <a title="guint" href="https://docs.gtk.org/glib/types.html#guint">guint</a> seconds,
+                         <a title="guint" href="https://docs.gtk.org/glib/types.html#guint">guint</a> frames,
+                         <a title="guint" href="https://docs.gtk.org/glib/types.html#guint">guint</a> field_count)</pre>
+
+<p><em>field_count</em> is 0 for progressive, 1 or 2 for interlaced.
+<em>latest_daiy_jam</em> reference is stolen from caller.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>fps_n</code></em></i>
+–
+</div>
+<p>Numerator of the frame rate</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>fps_d</code></em></i>
+–
+</div>
+<p>Denominator of the frame rate</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>latest_daily_jam</code></em></i>
+–
+</div>
+<p>The latest daily jam of the <a href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideoTimeCode</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>flags</code></em></i>
+–
+</div>
+<p><a href="video/gstvideotimecode.html#GstVideoTimeCodeFlags">GstVideoTimeCodeFlags</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>hours</code></em></i>
+–
+</div>
+<p>the hours field of <a href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideoTimeCode</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>minutes</code></em></i>
+–
+</div>
+<p>the minutes field of <a href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideoTimeCode</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>seconds</code></em></i>
+–
+</div>
+<p>the seconds field of <a href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideoTimeCode</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>frames</code></em></i>
+–
+</div>
+<p>the frames field of <a href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideoTimeCode</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>field_count</code></em></i>
+–
+</div>
+<p>Interlaced video field count</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p>a new <a href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideoTimeCode</a> with the given values.
+The values are not checked for being in a valid range. To see if your
+timecode actually has valid content, use <a href="video/gstvideotimecode.html#gst_video_time_code_is_valid">gst_video_time_code_is_valid</a>.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.10
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_video_time_code_new">
+	<i>GstVideo.VideoTimeCode.prototype.new</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstVideo.VideoTimeCode.prototype.new(fps_n: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>, fps_d: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>, latest_daily_jam: <a title="GDateTime (not introspectable)" href="https://docs.gtk.org/glib/struct.DateTime.html">GDateTime (not introspectable)</a>, flags: <a title="GstVideo.VideoTimeCodeFlags" href="video/gstvideotimecode.html#GstVideoTimeCodeFlags">GstVideo.VideoTimeCodeFlags</a>, hours: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>, minutes: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>, seconds: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>, frames: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>, field_count: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>): {
+    // javascript wrapper for 'gst_video_time_code_new'
+}</code></pre>
+
+<p><em>field_count</em> is 0 for progressive, 1 or 2 for interlaced.
+<em>latest_daiy_jam</em> reference is stolen from caller.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>fps_n</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>Numerator of the frame rate</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>fps_d</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>Denominator of the frame rate</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>latest_daily_jam</code></em></i>
+<span>(</span><a title="GDateTime (not introspectable)" href="https://docs.gtk.org/glib/struct.DateTime.html">GDateTime (not introspectable)</a><span>)</span>
+–
+</div>
+<p>The latest daily jam of the <a href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideo.VideoTimeCode</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>flags</code></em></i>
+<span>(</span><a title="GstVideo.VideoTimeCodeFlags" href="video/gstvideotimecode.html#GstVideoTimeCodeFlags">GstVideo.VideoTimeCodeFlags</a><span>)</span>
+–
+</div>
+<p><a href="video/gstvideotimecode.html#GstVideoTimeCodeFlags">GstVideo.VideoTimeCodeFlags</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>hours</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>the hours field of <a href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideo.VideoTimeCode</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>minutes</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>the minutes field of <a href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideo.VideoTimeCode</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>seconds</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>the seconds field of <a href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideo.VideoTimeCode</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>frames</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>the frames field of <a href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideo.VideoTimeCode</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>field_count</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>Interlaced video field count</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GstVideo.VideoTimeCode" href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideo.VideoTimeCode</a><span>)</span>
+–
+			</div>
+							<p>a new <a href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideo.VideoTimeCode</a> with the given values.
+The values are not checked for being in a valid range. To see if your
+timecode actually has valid content, use <a href="video/gstvideotimecode.html#gst_video_time_code_is_valid">GstVideo.VideoTimeCode.prototype.is_valid</a>.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.10
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_video_time_code_new">
+	<i>GstVideo.VideoTimeCode.new</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstVideo.VideoTimeCode.new (fps_n, fps_d, latest_daily_jam, flags, hours, minutes, seconds, frames, field_count):
+    #python wrapper for 'gst_video_time_code_new'</code></pre>
+
+<p><em>field_count</em> is 0 for progressive, 1 or 2 for interlaced.
+<em>latest_daiy_jam</em> reference is stolen from caller.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>fps_n</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<p>Numerator of the frame rate</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>fps_d</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<p>Denominator of the frame rate</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>latest_daily_jam</code></em></i>
+<span>(</span><a title="GDateTime (not introspectable)" href="https://docs.gtk.org/glib/struct.DateTime.html">GDateTime (not introspectable)</a><span>)</span>
+–
+</div>
+<p>The latest daily jam of the <a href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideo.VideoTimeCode</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>flags</code></em></i>
+<span>(</span><a title="GstVideo.VideoTimeCodeFlags" href="video/gstvideotimecode.html#GstVideoTimeCodeFlags">GstVideo.VideoTimeCodeFlags</a><span>)</span>
+–
+</div>
+<p><a href="video/gstvideotimecode.html#GstVideoTimeCodeFlags">GstVideo.VideoTimeCodeFlags</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>hours</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<p>the hours field of <a href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideo.VideoTimeCode</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>minutes</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<p>the minutes field of <a href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideo.VideoTimeCode</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>seconds</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<p>the seconds field of <a href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideo.VideoTimeCode</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>frames</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<p>the frames field of <a href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideo.VideoTimeCode</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>field_count</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<p>Interlaced video field count</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GstVideo.VideoTimeCode" href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideo.VideoTimeCode</a><span>)</span>
+–
+			</div>
+							<p>a new <a href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideo.VideoTimeCode</a> with the given values.
+The values are not checked for being in a valid range. To see if your
+timecode actually has valid content, use <a href="video/gstvideotimecode.html#gst_video_time_code_is_valid">GstVideo.VideoTimeCode.is_valid</a>.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.10
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.10;" id="gst_video_time_code_new_empty">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_video_time_code_new_empty">
+	<i>gst_video_time_code_new_empty</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GstVideoTimeCode" href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideoTimeCode</a> *
+gst_video_time_code_new_empty ()</pre>
+
+
+
+
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p>a new empty, invalid <a href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideoTimeCode</a></p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.10
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_video_time_code_new_empty">
+	<i>GstVideo.VideoTimeCode.prototype.new_empty</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstVideo.VideoTimeCode.prototype.new_empty(): {
+    // javascript wrapper for 'gst_video_time_code_new_empty'
+}</code></pre>
+
+
+
+
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GstVideo.VideoTimeCode" href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideo.VideoTimeCode</a><span>)</span>
+–
+			</div>
+							<p>a new empty, invalid <a href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideo.VideoTimeCode</a></p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.10
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_video_time_code_new_empty">
+	<i>GstVideo.VideoTimeCode.new_empty</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstVideo.VideoTimeCode.new_empty ():
+    #python wrapper for 'gst_video_time_code_new_empty'</code></pre>
+
+
+
+
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GstVideo.VideoTimeCode" href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideo.VideoTimeCode</a><span>)</span>
+–
+			</div>
+							<p>a new empty, invalid <a href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideo.VideoTimeCode</a></p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.10
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.12;" id="gst_video_time_code_new_from_date_time">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_video_time_code_new_from_date_time">
+	<i>gst_video_time_code_new_from_date_time</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GstVideoTimeCode" href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideoTimeCode</a> *
+gst_video_time_code_new_from_date_time (<a title="guint" href="https://docs.gtk.org/glib/types.html#guint">guint</a> fps_n,
+                                        <a title="guint" href="https://docs.gtk.org/glib/types.html#guint">guint</a> fps_d,
+                                        <a title="GDateTime" href="https://docs.gtk.org/glib/struct.DateTime.html">GDateTime</a> * dt,
+                                        <a title="GstVideoTimeCodeFlags" href="video/gstvideotimecode.html#GstVideoTimeCodeFlags">GstVideoTimeCodeFlags</a> flags,
+                                        <a title="guint" href="https://docs.gtk.org/glib/types.html#guint">guint</a> field_count)</pre>
+
+<p>The resulting config-&gt;latest_daily_jam is set to
+midnight, and timecode is set to the given time.</p>
+<p>This might return a completely invalid timecode, use
+<a href="video/gstvideotimecode.html#gst_video_time_code_new_from_date_time_full">gst_video_time_code_new_from_date_time_full</a> to ensure
+that you would get <a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#NULL:CAPS">NULL</a> instead in that case.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>fps_n</code></em></i>
+–
+</div>
+<p>Numerator of the frame rate</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>fps_d</code></em></i>
+–
+</div>
+<p>Denominator of the frame rate</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>dt</code></em></i>
+–
+</div>
+<p><a href="https://docs.gtk.org/glib/struct.DateTime.html">GDateTime</a> to convert</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>flags</code></em></i>
+–
+</div>
+<p><a href="video/gstvideotimecode.html#GstVideoTimeCodeFlags">GstVideoTimeCodeFlags</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>field_count</code></em></i>
+–
+</div>
+<p>Interlaced video field count</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p>the <a href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideoTimeCode</a> representation of <em>dt</em>.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.12
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_video_time_code_new_from_date_time">
+	<i>GstVideo.VideoTimeCode.prototype.new_from_date_time</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstVideo.VideoTimeCode.prototype.new_from_date_time(fps_n: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>, fps_d: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>, dt: <a title="GDateTime (not introspectable)" href="https://docs.gtk.org/glib/struct.DateTime.html">GDateTime (not introspectable)</a>, flags: <a title="GstVideo.VideoTimeCodeFlags" href="video/gstvideotimecode.html#GstVideoTimeCodeFlags">GstVideo.VideoTimeCodeFlags</a>, field_count: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>): {
+    // javascript wrapper for 'gst_video_time_code_new_from_date_time'
+}</code></pre>
+
+<p>The resulting config-&gt;latest_daily_jam is set to
+midnight, and timecode is set to the given time.</p>
+<p>This might return a completely invalid timecode, use
+<a href="video/gstvideotimecode.html#gst_video_time_code_new_from_date_time_full">GstVideo.VideoTimeCode.prototype.new_from_date_time_full</a> to ensure
+that you would get <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null">null</a> instead in that case.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>fps_n</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>Numerator of the frame rate</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>fps_d</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>Denominator of the frame rate</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>dt</code></em></i>
+<span>(</span><a title="GDateTime (not introspectable)" href="https://docs.gtk.org/glib/struct.DateTime.html">GDateTime (not introspectable)</a><span>)</span>
+–
+</div>
+<p><a href="https://docs.gtk.org/glib/struct.DateTime.html">GDateTime (not introspectable)</a> to convert</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>flags</code></em></i>
+<span>(</span><a title="GstVideo.VideoTimeCodeFlags" href="video/gstvideotimecode.html#GstVideoTimeCodeFlags">GstVideo.VideoTimeCodeFlags</a><span>)</span>
+–
+</div>
+<p><a href="video/gstvideotimecode.html#GstVideoTimeCodeFlags">GstVideo.VideoTimeCodeFlags</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>field_count</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>Interlaced video field count</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GstVideo.VideoTimeCode" href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideo.VideoTimeCode</a><span>)</span>
+–
+			</div>
+							<p>the <a href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideo.VideoTimeCode</a> representation of <em>dt</em>.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.12
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_video_time_code_new_from_date_time">
+	<i>GstVideo.VideoTimeCode.new_from_date_time</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstVideo.VideoTimeCode.new_from_date_time (fps_n, fps_d, dt, flags, field_count):
+    #python wrapper for 'gst_video_time_code_new_from_date_time'</code></pre>
+
+<p>The resulting config-&gt;latest_daily_jam is set to
+midnight, and timecode is set to the given time.</p>
+<p>This might return a completely invalid timecode, use
+<a href="video/gstvideotimecode.html#gst_video_time_code_new_from_date_time_full">GstVideo.VideoTimeCode.new_from_date_time_full</a> to ensure
+that you would get <a href="https://docs.python.org/3/library/constants.html#None">None</a> instead in that case.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>fps_n</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<p>Numerator of the frame rate</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>fps_d</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<p>Denominator of the frame rate</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>dt</code></em></i>
+<span>(</span><a title="GDateTime (not introspectable)" href="https://docs.gtk.org/glib/struct.DateTime.html">GDateTime (not introspectable)</a><span>)</span>
+–
+</div>
+<p><a href="https://docs.gtk.org/glib/struct.DateTime.html">GDateTime (not introspectable)</a> to convert</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>flags</code></em></i>
+<span>(</span><a title="GstVideo.VideoTimeCodeFlags" href="video/gstvideotimecode.html#GstVideoTimeCodeFlags">GstVideo.VideoTimeCodeFlags</a><span>)</span>
+–
+</div>
+<p><a href="video/gstvideotimecode.html#GstVideoTimeCodeFlags">GstVideo.VideoTimeCodeFlags</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>field_count</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<p>Interlaced video field count</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GstVideo.VideoTimeCode" href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideo.VideoTimeCode</a><span>)</span>
+–
+			</div>
+							<p>the <a href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideo.VideoTimeCode</a> representation of <em>dt</em>.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.12
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.16;" id="gst_video_time_code_new_from_date_time_full">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_video_time_code_new_from_date_time_full">
+	<i>gst_video_time_code_new_from_date_time_full</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GstVideoTimeCode" href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideoTimeCode</a> *
+gst_video_time_code_new_from_date_time_full (<a title="guint" href="https://docs.gtk.org/glib/types.html#guint">guint</a> fps_n,
+                                             <a title="guint" href="https://docs.gtk.org/glib/types.html#guint">guint</a> fps_d,
+                                             <a title="GDateTime" href="https://docs.gtk.org/glib/struct.DateTime.html">GDateTime</a> * dt,
+                                             <a title="GstVideoTimeCodeFlags" href="video/gstvideotimecode.html#GstVideoTimeCodeFlags">GstVideoTimeCodeFlags</a> flags,
+                                             <a title="guint" href="https://docs.gtk.org/glib/types.html#guint">guint</a> field_count)</pre>
+
+<p>The resulting config-&gt;latest_daily_jam is set to
+midnight, and timecode is set to the given time.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>fps_n</code></em></i>
+–
+</div>
+<p>Numerator of the frame rate</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>fps_d</code></em></i>
+–
+</div>
+<p>Denominator of the frame rate</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>dt</code></em></i>
+–
+</div>
+<p><a href="https://docs.gtk.org/glib/struct.DateTime.html">GDateTime</a> to convert</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>flags</code></em></i>
+–
+</div>
+<p><a href="video/gstvideotimecode.html#GstVideoTimeCodeFlags">GstVideoTimeCodeFlags</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>field_count</code></em></i>
+–
+</div>
+<p>Interlaced video field count</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span>
+<span class="annotation">[<abbr title="NULL may be passed to the value"><span class="acronym">nullable</span></abbr>]</span><span>)</span>
+–
+			</div>
+							<p>the <a href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideoTimeCode</a> representation of <em>dt</em>, or <a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#NULL:CAPS">NULL</a> if
+no valid timecode could be created.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.16
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_video_time_code_new_from_date_time_full">
+	<i>GstVideo.VideoTimeCode.prototype.new_from_date_time_full</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstVideo.VideoTimeCode.prototype.new_from_date_time_full(fps_n: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>, fps_d: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>, dt: <a title="GDateTime (not introspectable)" href="https://docs.gtk.org/glib/struct.DateTime.html">GDateTime (not introspectable)</a>, flags: <a title="GstVideo.VideoTimeCodeFlags" href="video/gstvideotimecode.html#GstVideoTimeCodeFlags">GstVideo.VideoTimeCodeFlags</a>, field_count: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>): {
+    // javascript wrapper for 'gst_video_time_code_new_from_date_time_full'
+}</code></pre>
+
+<p>The resulting config-&gt;latest_daily_jam is set to
+midnight, and timecode is set to the given time.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>fps_n</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>Numerator of the frame rate</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>fps_d</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>Denominator of the frame rate</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>dt</code></em></i>
+<span>(</span><a title="GDateTime (not introspectable)" href="https://docs.gtk.org/glib/struct.DateTime.html">GDateTime (not introspectable)</a><span>)</span>
+–
+</div>
+<p><a href="https://docs.gtk.org/glib/struct.DateTime.html">GDateTime (not introspectable)</a> to convert</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>flags</code></em></i>
+<span>(</span><a title="GstVideo.VideoTimeCodeFlags" href="video/gstvideotimecode.html#GstVideoTimeCodeFlags">GstVideo.VideoTimeCodeFlags</a><span>)</span>
+–
+</div>
+<p><a href="video/gstvideotimecode.html#GstVideoTimeCodeFlags">GstVideo.VideoTimeCodeFlags</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>field_count</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>Interlaced video field count</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GstVideo.VideoTimeCode" href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideo.VideoTimeCode</a><span>)</span>
+–
+			</div>
+							<p>the <a href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideo.VideoTimeCode</a> representation of <em>dt</em>, or <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null">null</a> if
+no valid timecode could be created.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.16
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_video_time_code_new_from_date_time_full">
+	<i>GstVideo.VideoTimeCode.new_from_date_time_full</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstVideo.VideoTimeCode.new_from_date_time_full (fps_n, fps_d, dt, flags, field_count):
+    #python wrapper for 'gst_video_time_code_new_from_date_time_full'</code></pre>
+
+<p>The resulting config-&gt;latest_daily_jam is set to
+midnight, and timecode is set to the given time.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>fps_n</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<p>Numerator of the frame rate</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>fps_d</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<p>Denominator of the frame rate</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>dt</code></em></i>
+<span>(</span><a title="GDateTime (not introspectable)" href="https://docs.gtk.org/glib/struct.DateTime.html">GDateTime (not introspectable)</a><span>)</span>
+–
+</div>
+<p><a href="https://docs.gtk.org/glib/struct.DateTime.html">GDateTime (not introspectable)</a> to convert</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>flags</code></em></i>
+<span>(</span><a title="GstVideo.VideoTimeCodeFlags" href="video/gstvideotimecode.html#GstVideoTimeCodeFlags">GstVideo.VideoTimeCodeFlags</a><span>)</span>
+–
+</div>
+<p><a href="video/gstvideotimecode.html#GstVideoTimeCodeFlags">GstVideo.VideoTimeCodeFlags</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>field_count</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<p>Interlaced video field count</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GstVideo.VideoTimeCode" href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideo.VideoTimeCode</a><span>)</span>
+–
+			</div>
+							<p>the <a href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideo.VideoTimeCode</a> representation of <em>dt</em>, or <a href="https://docs.python.org/3/library/constants.html#None">None</a> if
+no valid timecode could be created.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.16
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.12;" id="gst_video_time_code_new_from_string">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_video_time_code_new_from_string">
+	<i>gst_video_time_code_new_from_string</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GstVideoTimeCode" href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideoTimeCode</a> *
+gst_video_time_code_new_from_string (const <a title="gchar" href="https://docs.gtk.org/glib/types.html#gchar">gchar</a> * tc_str)</pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>tc_str</code></em></i>
+–
+</div>
+<p>The string that represents the <a href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideoTimeCode</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span>
+<span class="annotation">[<abbr title="NULL may be passed to the value"><span class="acronym">nullable</span></abbr>]</span><span>)</span>
+–
+			</div>
+							<p>a new <a href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideoTimeCode</a> from the given string or <a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#NULL:CAPS">NULL</a>
+if the string could not be passed.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.12
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_video_time_code_new_from_string">
+	<i>GstVideo.VideoTimeCode.prototype.new_from_string</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstVideo.VideoTimeCode.prototype.new_from_string(tc_str: <a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>): {
+    // javascript wrapper for 'gst_video_time_code_new_from_string'
+}</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>tc_str</code></em></i>
+<span>(</span><a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a><span>)</span>
+–
+</div>
+<p>The string that represents the <a href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideo.VideoTimeCode</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GstVideo.VideoTimeCode" href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideo.VideoTimeCode</a><span>)</span>
+–
+			</div>
+							<p>a new <a href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideo.VideoTimeCode</a> from the given string or <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null">null</a>
+if the string could not be passed.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.12
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_video_time_code_new_from_string">
+	<i>GstVideo.VideoTimeCode.new_from_string</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstVideo.VideoTimeCode.new_from_string (tc_str):
+    #python wrapper for 'gst_video_time_code_new_from_string'</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>tc_str</code></em></i>
+<span>(</span><a title="str" href="https://docs.python.org/3/library/functions.html#func-str">str</a><span>)</span>
+–
+</div>
+<p>The string that represents the <a href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideo.VideoTimeCode</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GstVideo.VideoTimeCode" href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideo.VideoTimeCode</a><span>)</span>
+–
+			</div>
+							<p>a new <a href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideo.VideoTimeCode</a> from the given string or <a href="https://docs.python.org/3/library/constants.html#None">None</a>
+if the string could not be passed.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.12
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+
+            <h3 class="symbol_section">Methods</h3>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.10;" id="gst_video_time_code_add_frames">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_video_time_code_add_frames">
+	<i>gst_video_time_code_add_frames</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+gst_video_time_code_add_frames (<a title="GstVideoTimeCode" href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideoTimeCode</a> * tc,
+                                <a title="gint64" href="https://docs.gtk.org/glib/types.html#gint64">gint64</a> frames)</pre>
+
+<p>Adds or subtracts <em>frames</em> amount of frames to <em>tc</em>. tc needs to
+contain valid data, as verified by <a href="video/gstvideotimecode.html#gst_video_time_code_is_valid">gst_video_time_code_is_valid</a>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>tc</code></em></i>
+–
+</div>
+<p>a valid <a href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideoTimeCode</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>frames</code></em></i>
+–
+</div>
+<p>How many frames to add or subtract</p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.10
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_video_time_code_add_frames">
+	<i>GstVideo.VideoTimeCode.prototype.add_frames</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstVideo.VideoTimeCode.prototype.add_frames(frames: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>): {
+    // javascript wrapper for 'gst_video_time_code_add_frames'
+}</code></pre>
+
+<p>Adds or subtracts <em>frames</em> amount of frames to <em>tc</em>. tc needs to
+contain valid data, as verified by <a href="video/gstvideotimecode.html#gst_video_time_code_is_valid">GstVideo.VideoTimeCode.prototype.is_valid</a>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>tc</code></em></i>
+<span>(</span><a title="GstVideo.VideoTimeCode" href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideo.VideoTimeCode</a><span>)</span>
+–
+</div>
+<p>a valid <a href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideo.VideoTimeCode</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>frames</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>How many frames to add or subtract</p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.10
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_video_time_code_add_frames">
+	<i>GstVideo.VideoTimeCode.add_frames</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstVideo.VideoTimeCode.add_frames (self, frames):
+    #python wrapper for 'gst_video_time_code_add_frames'</code></pre>
+
+<p>Adds or subtracts <em>frames</em> amount of frames to <em>tc</em>. tc needs to
+contain valid data, as verified by <a href="video/gstvideotimecode.html#gst_video_time_code_is_valid">GstVideo.VideoTimeCode.is_valid</a>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>tc</code></em></i>
+<span>(</span><a title="GstVideo.VideoTimeCode" href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideo.VideoTimeCode</a><span>)</span>
+–
+</div>
+<p>a valid <a href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideo.VideoTimeCode</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>frames</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<p>How many frames to add or subtract</p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.10
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.12;" id="gst_video_time_code_add_interval">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_video_time_code_add_interval">
+	<i>gst_video_time_code_add_interval</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GstVideoTimeCode" href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideoTimeCode</a> *
+gst_video_time_code_add_interval (const <a title="GstVideoTimeCode" href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideoTimeCode</a> * tc,
+                                  const <a title="GstVideoTimeCodeInterval" href="video/gstvideotimecode.html#GstVideoTimeCodeInterval">GstVideoTimeCodeInterval</a> * tc_inter)</pre>
+
+<p>This makes a component-wise addition of <em>tc_inter</em> to <em>tc</em>. For example,
+adding ("01:02:03:04", "00:01:00:00") will return "01:03:03:04".
+When it comes to drop-frame timecodes,
+adding ("00:00:00;00", "00:01:00:00") will return "00:01:00;02"
+because of drop-frame oddities. However,
+adding ("00:09:00;02", "00:01:00:00") will return "00:10:00;00"
+because this time we can have an exact minute.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>tc</code></em></i>
+–
+</div>
+<p>The <a href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideoTimeCode</a> where the diff should be added. This
+must contain valid timecode values.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>tc_inter</code></em></i>
+–
+</div>
+<p>The <a href="video/gstvideotimecode.html#GstVideoTimeCodeInterval">GstVideoTimeCodeInterval</a> to add to <em>tc</em>.
+The interval must contain valid values, except that for drop-frame
+timecode, it may also contain timecodes which would normally
+be dropped. These are then corrected to the next reasonable timecode.</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span>
+<span class="annotation">[<abbr title="NULL may be passed to the value"><span class="acronym">nullable</span></abbr>]</span><span>)</span>
+–
+			</div>
+							<p>A new <a href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideoTimeCode</a> with <em>tc_inter</em> added or <a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#NULL:CAPS">NULL</a>
+if the interval can't be added.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.12
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_video_time_code_add_interval">
+	<i>GstVideo.VideoTimeCode.prototype.add_interval</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstVideo.VideoTimeCode.prototype.add_interval(tc_inter: <a title="GstVideo.VideoTimeCodeInterval" href="video/gstvideotimecode.html#GstVideoTimeCodeInterval">GstVideo.VideoTimeCodeInterval</a>): {
+    // javascript wrapper for 'gst_video_time_code_add_interval'
+}</code></pre>
+
+<p>This makes a component-wise addition of <em>tc_inter</em> to <em>tc</em>. For example,
+adding ("01:02:03:04", "00:01:00:00") will return "01:03:03:04".
+When it comes to drop-frame timecodes,
+adding ("00:00:00;00", "00:01:00:00") will return "00:01:00;02"
+because of drop-frame oddities. However,
+adding ("00:09:00;02", "00:01:00:00") will return "00:10:00;00"
+because this time we can have an exact minute.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>tc</code></em></i>
+<span>(</span><a title="GstVideo.VideoTimeCode" href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideo.VideoTimeCode</a><span>)</span>
+–
+</div>
+<p>The <a href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideo.VideoTimeCode</a> where the diff should be added. This
+must contain valid timecode values.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>tc_inter</code></em></i>
+<span>(</span><a title="GstVideo.VideoTimeCodeInterval" href="video/gstvideotimecode.html#GstVideoTimeCodeInterval">GstVideo.VideoTimeCodeInterval</a><span>)</span>
+–
+</div>
+<p>The <a href="video/gstvideotimecode.html#GstVideoTimeCodeInterval">GstVideo.VideoTimeCodeInterval</a> to add to <em>tc</em>.
+The interval must contain valid values, except that for drop-frame
+timecode, it may also contain timecodes which would normally
+be dropped. These are then corrected to the next reasonable timecode.</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GstVideo.VideoTimeCode" href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideo.VideoTimeCode</a><span>)</span>
+–
+			</div>
+							<p>A new <a href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideo.VideoTimeCode</a> with <em>tc_inter</em> added or <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null">null</a>
+if the interval can't be added.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.12
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_video_time_code_add_interval">
+	<i>GstVideo.VideoTimeCode.add_interval</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstVideo.VideoTimeCode.add_interval (self, tc_inter):
+    #python wrapper for 'gst_video_time_code_add_interval'</code></pre>
+
+<p>This makes a component-wise addition of <em>tc_inter</em> to <em>tc</em>. For example,
+adding ("01:02:03:04", "00:01:00:00") will return "01:03:03:04".
+When it comes to drop-frame timecodes,
+adding ("00:00:00;00", "00:01:00:00") will return "00:01:00;02"
+because of drop-frame oddities. However,
+adding ("00:09:00;02", "00:01:00:00") will return "00:10:00;00"
+because this time we can have an exact minute.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>tc</code></em></i>
+<span>(</span><a title="GstVideo.VideoTimeCode" href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideo.VideoTimeCode</a><span>)</span>
+–
+</div>
+<p>The <a href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideo.VideoTimeCode</a> where the diff should be added. This
+must contain valid timecode values.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>tc_inter</code></em></i>
+<span>(</span><a title="GstVideo.VideoTimeCodeInterval" href="video/gstvideotimecode.html#GstVideoTimeCodeInterval">GstVideo.VideoTimeCodeInterval</a><span>)</span>
+–
+</div>
+<p>The <a href="video/gstvideotimecode.html#GstVideoTimeCodeInterval">GstVideo.VideoTimeCodeInterval</a> to add to <em>tc</em>.
+The interval must contain valid values, except that for drop-frame
+timecode, it may also contain timecodes which would normally
+be dropped. These are then corrected to the next reasonable timecode.</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GstVideo.VideoTimeCode" href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideo.VideoTimeCode</a><span>)</span>
+–
+			</div>
+							<p>A new <a href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideo.VideoTimeCode</a> with <em>tc_inter</em> added or <a href="https://docs.python.org/3/library/constants.html#None">None</a>
+if the interval can't be added.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.12
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.10;" id="gst_video_time_code_clear">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_video_time_code_clear">
+	<i>gst_video_time_code_clear</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+gst_video_time_code_clear (<a title="GstVideoTimeCode" href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideoTimeCode</a> * tc)</pre>
+
+<p>Initializes <em>tc</em> with empty/zero/NULL values and frees any memory
+it might currently use.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>tc</code></em></i>
+–
+</div>
+<p>a <a href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideoTimeCode</a></p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.10
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_video_time_code_clear">
+	<i>GstVideo.VideoTimeCode.prototype.clear</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstVideo.VideoTimeCode.prototype.clear(): {
+    // javascript wrapper for 'gst_video_time_code_clear'
+}</code></pre>
+
+<p>Initializes <em>tc</em> with empty/zero/NULL values and frees any memory
+it might currently use.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>tc</code></em></i>
+<span>(</span><a title="GstVideo.VideoTimeCode" href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideo.VideoTimeCode</a><span>)</span>
+–
+</div>
+<p>a <a href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideo.VideoTimeCode</a></p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.10
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_video_time_code_clear">
+	<i>GstVideo.VideoTimeCode.clear</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstVideo.VideoTimeCode.clear (self):
+    #python wrapper for 'gst_video_time_code_clear'</code></pre>
+
+<p>Initializes <em>tc</em> with empty/zero/NULL values and frees any memory
+it might currently use.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>tc</code></em></i>
+<span>(</span><a title="GstVideo.VideoTimeCode" href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideo.VideoTimeCode</a><span>)</span>
+–
+</div>
+<p>a <a href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideo.VideoTimeCode</a></p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.10
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.10;" id="gst_video_time_code_compare">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_video_time_code_compare">
+	<i>gst_video_time_code_compare</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gint" href="https://docs.gtk.org/glib/types.html#gint">gint</a>
+gst_video_time_code_compare (const <a title="GstVideoTimeCode" href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideoTimeCode</a> * tc1,
+                             const <a title="GstVideoTimeCode" href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideoTimeCode</a> * tc2)</pre>
+
+<p>Compares <em>tc1</em> and <em>tc2</em>. If both have latest daily jam information, it is
+taken into account. Otherwise, it is assumed that the daily jam of both
+<em>tc1</em> and <em>tc2</em> was at the same time. Both time codes must be valid.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>tc1</code></em></i>
+–
+</div>
+<p>a valid <a href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideoTimeCode</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>tc2</code></em></i>
+–
+</div>
+<p>another valid <a href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideoTimeCode</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p>1 if <em>tc1</em> is after <em>tc2</em>, -1 if <em>tc1</em> is before <em>tc2</em>, 0 otherwise.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.10
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_video_time_code_compare">
+	<i>GstVideo.VideoTimeCode.prototype.compare</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstVideo.VideoTimeCode.prototype.compare(tc2: <a title="GstVideo.VideoTimeCode" href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideo.VideoTimeCode</a>): {
+    // javascript wrapper for 'gst_video_time_code_compare'
+}</code></pre>
+
+<p>Compares <em>tc1</em> and <em>tc2</em>. If both have latest daily jam information, it is
+taken into account. Otherwise, it is assumed that the daily jam of both
+<em>tc1</em> and <em>tc2</em> was at the same time. Both time codes must be valid.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>tc1</code></em></i>
+<span>(</span><a title="GstVideo.VideoTimeCode" href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideo.VideoTimeCode</a><span>)</span>
+–
+</div>
+<p>a valid <a href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideo.VideoTimeCode</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>tc2</code></em></i>
+<span>(</span><a title="GstVideo.VideoTimeCode" href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideo.VideoTimeCode</a><span>)</span>
+–
+</div>
+<p>another valid <a href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideo.VideoTimeCode</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+			</div>
+							<p>1 if <em>tc1</em> is after <em>tc2</em>, -1 if <em>tc1</em> is before <em>tc2</em>, 0 otherwise.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.10
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_video_time_code_compare">
+	<i>GstVideo.VideoTimeCode.compare</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstVideo.VideoTimeCode.compare (self, tc2):
+    #python wrapper for 'gst_video_time_code_compare'</code></pre>
+
+<p>Compares <em>tc1</em> and <em>tc2</em>. If both have latest daily jam information, it is
+taken into account. Otherwise, it is assumed that the daily jam of both
+<em>tc1</em> and <em>tc2</em> was at the same time. Both time codes must be valid.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>tc1</code></em></i>
+<span>(</span><a title="GstVideo.VideoTimeCode" href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideo.VideoTimeCode</a><span>)</span>
+–
+</div>
+<p>a valid <a href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideo.VideoTimeCode</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>tc2</code></em></i>
+<span>(</span><a title="GstVideo.VideoTimeCode" href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideo.VideoTimeCode</a><span>)</span>
+–
+</div>
+<p>another valid <a href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideo.VideoTimeCode</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+			</div>
+							<p>1 if <em>tc1</em> is after <em>tc2</em>, -1 if <em>tc1</em> is before <em>tc2</em>, 0 otherwise.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.10
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.10;" id="gst_video_time_code_copy">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_video_time_code_copy">
+	<i>gst_video_time_code_copy</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GstVideoTimeCode" href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideoTimeCode</a> *
+gst_video_time_code_copy (const <a title="GstVideoTimeCode" href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideoTimeCode</a> * tc)</pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>tc</code></em></i>
+–
+</div>
+<p>a <a href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideoTimeCode</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p>a new <a href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideoTimeCode</a> with the same values as <em>tc</em>.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.10
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_video_time_code_copy">
+	<i>GstVideo.VideoTimeCode.prototype.copy</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstVideo.VideoTimeCode.prototype.copy(): {
+    // javascript wrapper for 'gst_video_time_code_copy'
+}</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>tc</code></em></i>
+<span>(</span><a title="GstVideo.VideoTimeCode" href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideo.VideoTimeCode</a><span>)</span>
+–
+</div>
+<p>a <a href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideo.VideoTimeCode</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GstVideo.VideoTimeCode" href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideo.VideoTimeCode</a><span>)</span>
+–
+			</div>
+							<p>a new <a href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideo.VideoTimeCode</a> with the same values as <em>tc</em>.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.10
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_video_time_code_copy">
+	<i>GstVideo.VideoTimeCode.copy</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstVideo.VideoTimeCode.copy (self):
+    #python wrapper for 'gst_video_time_code_copy'</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>tc</code></em></i>
+<span>(</span><a title="GstVideo.VideoTimeCode" href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideo.VideoTimeCode</a><span>)</span>
+–
+</div>
+<p>a <a href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideo.VideoTimeCode</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GstVideo.VideoTimeCode" href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideo.VideoTimeCode</a><span>)</span>
+–
+			</div>
+							<p>a new <a href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideo.VideoTimeCode</a> with the same values as <em>tc</em>.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.10
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.10;" id="gst_video_time_code_frames_since_daily_jam">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_video_time_code_frames_since_daily_jam">
+	<i>gst_video_time_code_frames_since_daily_jam</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="guint64" href="https://docs.gtk.org/glib/types.html#guint64">guint64</a>
+gst_video_time_code_frames_since_daily_jam (const <a title="GstVideoTimeCode" href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideoTimeCode</a> * tc)</pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>tc</code></em></i>
+–
+</div>
+<p>a valid <a href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideoTimeCode</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p>how many frames have passed since the daily jam of <em>tc</em>.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.10
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_video_time_code_frames_since_daily_jam">
+	<i>GstVideo.VideoTimeCode.prototype.frames_since_daily_jam</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstVideo.VideoTimeCode.prototype.frames_since_daily_jam(): {
+    // javascript wrapper for 'gst_video_time_code_frames_since_daily_jam'
+}</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>tc</code></em></i>
+<span>(</span><a title="GstVideo.VideoTimeCode" href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideo.VideoTimeCode</a><span>)</span>
+–
+</div>
+<p>a valid <a href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideo.VideoTimeCode</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+			</div>
+							<p>how many frames have passed since the daily jam of <em>tc</em>.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.10
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_video_time_code_frames_since_daily_jam">
+	<i>GstVideo.VideoTimeCode.frames_since_daily_jam</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstVideo.VideoTimeCode.frames_since_daily_jam (self):
+    #python wrapper for 'gst_video_time_code_frames_since_daily_jam'</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>tc</code></em></i>
+<span>(</span><a title="GstVideo.VideoTimeCode" href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideo.VideoTimeCode</a><span>)</span>
+–
+</div>
+<p>a valid <a href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideo.VideoTimeCode</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+			</div>
+							<p>how many frames have passed since the daily jam of <em>tc</em>.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.10
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.10;" id="gst_video_time_code_free">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_video_time_code_free">
+	<i>gst_video_time_code_free</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+gst_video_time_code_free (<a title="GstVideoTimeCode" href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideoTimeCode</a> * tc)</pre>
+
+<p>Frees <em>tc</em>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>tc</code></em></i>
+–
+</div>
+<p>a <a href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideoTimeCode</a></p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.10
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_video_time_code_free">
+	<i>GstVideo.VideoTimeCode.prototype.free</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstVideo.VideoTimeCode.prototype.free(): {
+    // javascript wrapper for 'gst_video_time_code_free'
+}</code></pre>
+
+<p>Frees <em>tc</em>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>tc</code></em></i>
+<span>(</span><a title="GstVideo.VideoTimeCode" href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideo.VideoTimeCode</a><span>)</span>
+–
+</div>
+<p>a <a href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideo.VideoTimeCode</a></p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.10
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_video_time_code_free">
+	<i>GstVideo.VideoTimeCode.free</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstVideo.VideoTimeCode.free (self):
+    #python wrapper for 'gst_video_time_code_free'</code></pre>
+
+<p>Frees <em>tc</em>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>tc</code></em></i>
+<span>(</span><a title="GstVideo.VideoTimeCode" href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideo.VideoTimeCode</a><span>)</span>
+–
+</div>
+<p>a <a href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideo.VideoTimeCode</a></p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.10
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.10;" id="gst_video_time_code_increment_frame">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_video_time_code_increment_frame">
+	<i>gst_video_time_code_increment_frame</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+gst_video_time_code_increment_frame (<a title="GstVideoTimeCode" href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideoTimeCode</a> * tc)</pre>
+
+<p>Adds one frame to <em>tc</em>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>tc</code></em></i>
+–
+</div>
+<p>a valid <a href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideoTimeCode</a></p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.10
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_video_time_code_increment_frame">
+	<i>GstVideo.VideoTimeCode.prototype.increment_frame</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstVideo.VideoTimeCode.prototype.increment_frame(): {
+    // javascript wrapper for 'gst_video_time_code_increment_frame'
+}</code></pre>
+
+<p>Adds one frame to <em>tc</em>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>tc</code></em></i>
+<span>(</span><a title="GstVideo.VideoTimeCode" href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideo.VideoTimeCode</a><span>)</span>
+–
+</div>
+<p>a valid <a href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideo.VideoTimeCode</a></p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.10
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_video_time_code_increment_frame">
+	<i>GstVideo.VideoTimeCode.increment_frame</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstVideo.VideoTimeCode.increment_frame (self):
+    #python wrapper for 'gst_video_time_code_increment_frame'</code></pre>
+
+<p>Adds one frame to <em>tc</em>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>tc</code></em></i>
+<span>(</span><a title="GstVideo.VideoTimeCode" href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideo.VideoTimeCode</a><span>)</span>
+–
+</div>
+<p>a valid <a href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideo.VideoTimeCode</a></p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.10
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.10;" id="gst_video_time_code_init">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_video_time_code_init">
+	<i>gst_video_time_code_init</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+gst_video_time_code_init (<a title="GstVideoTimeCode" href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideoTimeCode</a> * tc,
+                          <a title="guint" href="https://docs.gtk.org/glib/types.html#guint">guint</a> fps_n,
+                          <a title="guint" href="https://docs.gtk.org/glib/types.html#guint">guint</a> fps_d,
+                          <a title="GDateTime" href="https://docs.gtk.org/glib/struct.DateTime.html">GDateTime</a> * latest_daily_jam,
+                          <a title="GstVideoTimeCodeFlags" href="video/gstvideotimecode.html#GstVideoTimeCodeFlags">GstVideoTimeCodeFlags</a> flags,
+                          <a title="guint" href="https://docs.gtk.org/glib/types.html#guint">guint</a> hours,
+                          <a title="guint" href="https://docs.gtk.org/glib/types.html#guint">guint</a> minutes,
+                          <a title="guint" href="https://docs.gtk.org/glib/types.html#guint">guint</a> seconds,
+                          <a title="guint" href="https://docs.gtk.org/glib/types.html#guint">guint</a> frames,
+                          <a title="guint" href="https://docs.gtk.org/glib/types.html#guint">guint</a> field_count)</pre>
+
+<p><em>field_count</em> is 0 for progressive, 1 or 2 for interlaced.
+<em>latest_daiy_jam</em> reference is stolen from caller.</p>
+<p>Initializes <em>tc</em> with the given values.
+The values are not checked for being in a valid range. To see if your
+timecode actually has valid content, use <a href="video/gstvideotimecode.html#gst_video_time_code_is_valid">gst_video_time_code_is_valid</a>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>tc</code></em></i>
+–
+</div>
+<p>a <a href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideoTimeCode</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>fps_n</code></em></i>
+–
+</div>
+<p>Numerator of the frame rate</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>fps_d</code></em></i>
+–
+</div>
+<p>Denominator of the frame rate</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>latest_daily_jam</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="NULL is OK, both for passing and returning"><span class="acronym">allow-none</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>The latest daily jam of the <a href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideoTimeCode</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>flags</code></em></i>
+–
+</div>
+<p><a href="video/gstvideotimecode.html#GstVideoTimeCodeFlags">GstVideoTimeCodeFlags</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>hours</code></em></i>
+–
+</div>
+<p>the hours field of <a href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideoTimeCode</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>minutes</code></em></i>
+–
+</div>
+<p>the minutes field of <a href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideoTimeCode</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>seconds</code></em></i>
+–
+</div>
+<p>the seconds field of <a href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideoTimeCode</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>frames</code></em></i>
+–
+</div>
+<p>the frames field of <a href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideoTimeCode</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>field_count</code></em></i>
+–
+</div>
+<p>Interlaced video field count</p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.10
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_video_time_code_init">
+	<i>GstVideo.VideoTimeCode.prototype.init</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstVideo.VideoTimeCode.prototype.init(fps_n: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>, fps_d: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>, latest_daily_jam: <a title="GDateTime (not introspectable)" href="https://docs.gtk.org/glib/struct.DateTime.html">GDateTime (not introspectable)</a>, flags: <a title="GstVideo.VideoTimeCodeFlags" href="video/gstvideotimecode.html#GstVideoTimeCodeFlags">GstVideo.VideoTimeCodeFlags</a>, hours: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>, minutes: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>, seconds: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>, frames: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>, field_count: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>): {
+    // javascript wrapper for 'gst_video_time_code_init'
+}</code></pre>
+
+<p><em>field_count</em> is 0 for progressive, 1 or 2 for interlaced.
+<em>latest_daiy_jam</em> reference is stolen from caller.</p>
+<p>Initializes <em>tc</em> with the given values.
+The values are not checked for being in a valid range. To see if your
+timecode actually has valid content, use <a href="video/gstvideotimecode.html#gst_video_time_code_is_valid">GstVideo.VideoTimeCode.prototype.is_valid</a>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>tc</code></em></i>
+<span>(</span><a title="GstVideo.VideoTimeCode" href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideo.VideoTimeCode</a><span>)</span>
+–
+</div>
+<p>a <a href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideo.VideoTimeCode</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>fps_n</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>Numerator of the frame rate</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>fps_d</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>Denominator of the frame rate</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>latest_daily_jam</code></em></i>
+<span>(</span><a title="GDateTime (not introspectable)" href="https://docs.gtk.org/glib/struct.DateTime.html">GDateTime (not introspectable)</a><span>)</span>
+–
+</div>
+<p>The latest daily jam of the <a href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideo.VideoTimeCode</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>flags</code></em></i>
+<span>(</span><a title="GstVideo.VideoTimeCodeFlags" href="video/gstvideotimecode.html#GstVideoTimeCodeFlags">GstVideo.VideoTimeCodeFlags</a><span>)</span>
+–
+</div>
+<p><a href="video/gstvideotimecode.html#GstVideoTimeCodeFlags">GstVideo.VideoTimeCodeFlags</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>hours</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>the hours field of <a href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideo.VideoTimeCode</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>minutes</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>the minutes field of <a href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideo.VideoTimeCode</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>seconds</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>the seconds field of <a href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideo.VideoTimeCode</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>frames</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>the frames field of <a href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideo.VideoTimeCode</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>field_count</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>Interlaced video field count</p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.10
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_video_time_code_init">
+	<i>GstVideo.VideoTimeCode.init</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstVideo.VideoTimeCode.init (self, fps_n, fps_d, latest_daily_jam, flags, hours, minutes, seconds, frames, field_count):
+    #python wrapper for 'gst_video_time_code_init'</code></pre>
+
+<p><em>field_count</em> is 0 for progressive, 1 or 2 for interlaced.
+<em>latest_daiy_jam</em> reference is stolen from caller.</p>
+<p>Initializes <em>tc</em> with the given values.
+The values are not checked for being in a valid range. To see if your
+timecode actually has valid content, use <a href="video/gstvideotimecode.html#gst_video_time_code_is_valid">GstVideo.VideoTimeCode.is_valid</a>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>tc</code></em></i>
+<span>(</span><a title="GstVideo.VideoTimeCode" href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideo.VideoTimeCode</a><span>)</span>
+–
+</div>
+<p>a <a href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideo.VideoTimeCode</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>fps_n</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<p>Numerator of the frame rate</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>fps_d</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<p>Denominator of the frame rate</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>latest_daily_jam</code></em></i>
+<span>(</span><a title="GDateTime (not introspectable)" href="https://docs.gtk.org/glib/struct.DateTime.html">GDateTime (not introspectable)</a><span>)</span>
+–
+</div>
+<p>The latest daily jam of the <a href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideo.VideoTimeCode</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>flags</code></em></i>
+<span>(</span><a title="GstVideo.VideoTimeCodeFlags" href="video/gstvideotimecode.html#GstVideoTimeCodeFlags">GstVideo.VideoTimeCodeFlags</a><span>)</span>
+–
+</div>
+<p><a href="video/gstvideotimecode.html#GstVideoTimeCodeFlags">GstVideo.VideoTimeCodeFlags</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>hours</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<p>the hours field of <a href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideo.VideoTimeCode</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>minutes</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<p>the minutes field of <a href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideo.VideoTimeCode</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>seconds</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<p>the seconds field of <a href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideo.VideoTimeCode</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>frames</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<p>the frames field of <a href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideo.VideoTimeCode</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>field_count</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<p>Interlaced video field count</p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.10
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.12;" id="gst_video_time_code_init_from_date_time">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_video_time_code_init_from_date_time">
+	<i>gst_video_time_code_init_from_date_time</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+gst_video_time_code_init_from_date_time (<a title="GstVideoTimeCode" href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideoTimeCode</a> * tc,
+                                         <a title="guint" href="https://docs.gtk.org/glib/types.html#guint">guint</a> fps_n,
+                                         <a title="guint" href="https://docs.gtk.org/glib/types.html#guint">guint</a> fps_d,
+                                         <a title="GDateTime" href="https://docs.gtk.org/glib/struct.DateTime.html">GDateTime</a> * dt,
+                                         <a title="GstVideoTimeCodeFlags" href="video/gstvideotimecode.html#GstVideoTimeCodeFlags">GstVideoTimeCodeFlags</a> flags,
+                                         <a title="guint" href="https://docs.gtk.org/glib/types.html#guint">guint</a> field_count)</pre>
+
+<p>The resulting config-&gt;latest_daily_jam is set to midnight, and timecode is
+set to the given time.</p>
+<p>Will assert on invalid parameters, use <a href="video/gstvideotimecode.html#gst_video_time_code_init_from_date_time_full">gst_video_time_code_init_from_date_time_full</a>
+for being able to handle invalid parameters.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>tc</code></em></i>
+–
+</div>
+<p>an uninitialized <a href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideoTimeCode</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>fps_n</code></em></i>
+–
+</div>
+<p>Numerator of the frame rate</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>fps_d</code></em></i>
+–
+</div>
+<p>Denominator of the frame rate</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>dt</code></em></i>
+–
+</div>
+<p><a href="https://docs.gtk.org/glib/struct.DateTime.html">GDateTime</a> to convert</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>flags</code></em></i>
+–
+</div>
+<p><a href="video/gstvideotimecode.html#GstVideoTimeCodeFlags">GstVideoTimeCodeFlags</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>field_count</code></em></i>
+–
+</div>
+<p>Interlaced video field count</p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.12
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_video_time_code_init_from_date_time">
+	<i>GstVideo.VideoTimeCode.prototype.init_from_date_time</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstVideo.VideoTimeCode.prototype.init_from_date_time(fps_n: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>, fps_d: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>, dt: <a title="GDateTime (not introspectable)" href="https://docs.gtk.org/glib/struct.DateTime.html">GDateTime (not introspectable)</a>, flags: <a title="GstVideo.VideoTimeCodeFlags" href="video/gstvideotimecode.html#GstVideoTimeCodeFlags">GstVideo.VideoTimeCodeFlags</a>, field_count: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>): {
+    // javascript wrapper for 'gst_video_time_code_init_from_date_time'
+}</code></pre>
+
+<p>The resulting config-&gt;latest_daily_jam is set to midnight, and timecode is
+set to the given time.</p>
+<p>Will assert on invalid parameters, use <a href="video/gstvideotimecode.html#gst_video_time_code_init_from_date_time_full">GstVideo.VideoTimeCode.prototype.init_from_date_time_full</a>
+for being able to handle invalid parameters.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>tc</code></em></i>
+<span>(</span><a title="GstVideo.VideoTimeCode" href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideo.VideoTimeCode</a><span>)</span>
+–
+</div>
+<p>an uninitialized <a href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideo.VideoTimeCode</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>fps_n</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>Numerator of the frame rate</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>fps_d</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>Denominator of the frame rate</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>dt</code></em></i>
+<span>(</span><a title="GDateTime (not introspectable)" href="https://docs.gtk.org/glib/struct.DateTime.html">GDateTime (not introspectable)</a><span>)</span>
+–
+</div>
+<p><a href="https://docs.gtk.org/glib/struct.DateTime.html">GDateTime (not introspectable)</a> to convert</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>flags</code></em></i>
+<span>(</span><a title="GstVideo.VideoTimeCodeFlags" href="video/gstvideotimecode.html#GstVideoTimeCodeFlags">GstVideo.VideoTimeCodeFlags</a><span>)</span>
+–
+</div>
+<p><a href="video/gstvideotimecode.html#GstVideoTimeCodeFlags">GstVideo.VideoTimeCodeFlags</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>field_count</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>Interlaced video field count</p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.12
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_video_time_code_init_from_date_time">
+	<i>GstVideo.VideoTimeCode.init_from_date_time</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstVideo.VideoTimeCode.init_from_date_time (self, fps_n, fps_d, dt, flags, field_count):
+    #python wrapper for 'gst_video_time_code_init_from_date_time'</code></pre>
+
+<p>The resulting config-&gt;latest_daily_jam is set to midnight, and timecode is
+set to the given time.</p>
+<p>Will assert on invalid parameters, use <a href="video/gstvideotimecode.html#gst_video_time_code_init_from_date_time_full">GstVideo.VideoTimeCode.init_from_date_time_full</a>
+for being able to handle invalid parameters.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>tc</code></em></i>
+<span>(</span><a title="GstVideo.VideoTimeCode" href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideo.VideoTimeCode</a><span>)</span>
+–
+</div>
+<p>an uninitialized <a href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideo.VideoTimeCode</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>fps_n</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<p>Numerator of the frame rate</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>fps_d</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<p>Denominator of the frame rate</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>dt</code></em></i>
+<span>(</span><a title="GDateTime (not introspectable)" href="https://docs.gtk.org/glib/struct.DateTime.html">GDateTime (not introspectable)</a><span>)</span>
+–
+</div>
+<p><a href="https://docs.gtk.org/glib/struct.DateTime.html">GDateTime (not introspectable)</a> to convert</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>flags</code></em></i>
+<span>(</span><a title="GstVideo.VideoTimeCodeFlags" href="video/gstvideotimecode.html#GstVideoTimeCodeFlags">GstVideo.VideoTimeCodeFlags</a><span>)</span>
+–
+</div>
+<p><a href="video/gstvideotimecode.html#GstVideoTimeCodeFlags">GstVideo.VideoTimeCodeFlags</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>field_count</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<p>Interlaced video field count</p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.12
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.16;" id="gst_video_time_code_init_from_date_time_full">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_video_time_code_init_from_date_time_full">
+	<i>gst_video_time_code_init_from_date_time_full</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a>
+gst_video_time_code_init_from_date_time_full (<a title="GstVideoTimeCode" href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideoTimeCode</a> * tc,
+                                              <a title="guint" href="https://docs.gtk.org/glib/types.html#guint">guint</a> fps_n,
+                                              <a title="guint" href="https://docs.gtk.org/glib/types.html#guint">guint</a> fps_d,
+                                              <a title="GDateTime" href="https://docs.gtk.org/glib/struct.DateTime.html">GDateTime</a> * dt,
+                                              <a title="GstVideoTimeCodeFlags" href="video/gstvideotimecode.html#GstVideoTimeCodeFlags">GstVideoTimeCodeFlags</a> flags,
+                                              <a title="guint" href="https://docs.gtk.org/glib/types.html#guint">guint</a> field_count)</pre>
+
+<p>The resulting config-&gt;latest_daily_jam is set to
+midnight, and timecode is set to the given time.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>tc</code></em></i>
+–
+</div>
+<p>a <a href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideoTimeCode</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>fps_n</code></em></i>
+–
+</div>
+<p>Numerator of the frame rate</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>fps_d</code></em></i>
+–
+</div>
+<p>Denominator of the frame rate</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>dt</code></em></i>
+–
+</div>
+<p><a href="https://docs.gtk.org/glib/struct.DateTime.html">GDateTime</a> to convert</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>flags</code></em></i>
+–
+</div>
+<p><a href="video/gstvideotimecode.html#GstVideoTimeCodeFlags">GstVideoTimeCodeFlags</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>field_count</code></em></i>
+–
+</div>
+<p>Interlaced video field count</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p><a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#TRUE:CAPS">TRUE</a> if <em>tc</em> could be correctly initialized to a valid timecode</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.16
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_video_time_code_init_from_date_time_full">
+	<i>GstVideo.VideoTimeCode.prototype.init_from_date_time_full</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstVideo.VideoTimeCode.prototype.init_from_date_time_full(fps_n: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>, fps_d: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>, dt: <a title="GDateTime (not introspectable)" href="https://docs.gtk.org/glib/struct.DateTime.html">GDateTime (not introspectable)</a>, flags: <a title="GstVideo.VideoTimeCodeFlags" href="video/gstvideotimecode.html#GstVideoTimeCodeFlags">GstVideo.VideoTimeCodeFlags</a>, field_count: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>): {
+    // javascript wrapper for 'gst_video_time_code_init_from_date_time_full'
+}</code></pre>
+
+<p>The resulting config-&gt;latest_daily_jam is set to
+midnight, and timecode is set to the given time.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>tc</code></em></i>
+<span>(</span><a title="GstVideo.VideoTimeCode" href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideo.VideoTimeCode</a><span>)</span>
+–
+</div>
+<p>a <a href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideo.VideoTimeCode</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>fps_n</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>Numerator of the frame rate</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>fps_d</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>Denominator of the frame rate</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>dt</code></em></i>
+<span>(</span><a title="GDateTime (not introspectable)" href="https://docs.gtk.org/glib/struct.DateTime.html">GDateTime (not introspectable)</a><span>)</span>
+–
+</div>
+<p><a href="https://docs.gtk.org/glib/struct.DateTime.html">GDateTime (not introspectable)</a> to convert</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>flags</code></em></i>
+<span>(</span><a title="GstVideo.VideoTimeCodeFlags" href="video/gstvideotimecode.html#GstVideoTimeCodeFlags">GstVideo.VideoTimeCodeFlags</a><span>)</span>
+–
+</div>
+<p><a href="video/gstvideotimecode.html#GstVideoTimeCodeFlags">GstVideo.VideoTimeCodeFlags</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>field_count</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>Interlaced video field count</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+			</div>
+							<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">true</a> if <em>tc</em> could be correctly initialized to a valid timecode</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.16
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_video_time_code_init_from_date_time_full">
+	<i>GstVideo.VideoTimeCode.init_from_date_time_full</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstVideo.VideoTimeCode.init_from_date_time_full (self, fps_n, fps_d, dt, flags, field_count):
+    #python wrapper for 'gst_video_time_code_init_from_date_time_full'</code></pre>
+
+<p>The resulting config-&gt;latest_daily_jam is set to
+midnight, and timecode is set to the given time.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>tc</code></em></i>
+<span>(</span><a title="GstVideo.VideoTimeCode" href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideo.VideoTimeCode</a><span>)</span>
+–
+</div>
+<p>a <a href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideo.VideoTimeCode</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>fps_n</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<p>Numerator of the frame rate</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>fps_d</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<p>Denominator of the frame rate</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>dt</code></em></i>
+<span>(</span><a title="GDateTime (not introspectable)" href="https://docs.gtk.org/glib/struct.DateTime.html">GDateTime (not introspectable)</a><span>)</span>
+–
+</div>
+<p><a href="https://docs.gtk.org/glib/struct.DateTime.html">GDateTime (not introspectable)</a> to convert</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>flags</code></em></i>
+<span>(</span><a title="GstVideo.VideoTimeCodeFlags" href="video/gstvideotimecode.html#GstVideoTimeCodeFlags">GstVideo.VideoTimeCodeFlags</a><span>)</span>
+–
+</div>
+<p><a href="video/gstvideotimecode.html#GstVideoTimeCodeFlags">GstVideo.VideoTimeCodeFlags</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>field_count</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<p>Interlaced video field count</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a><span>)</span>
+–
+			</div>
+							<p><a href="https://docs.python.org/3/library/constants.html#True">True</a> if <em>tc</em> could be correctly initialized to a valid timecode</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.16
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.10;" id="gst_video_time_code_is_valid">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_video_time_code_is_valid">
+	<i>gst_video_time_code_is_valid</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a>
+gst_video_time_code_is_valid (const <a title="GstVideoTimeCode" href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideoTimeCode</a> * tc)</pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>tc</code></em></i>
+–
+</div>
+<p><a href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideoTimeCode</a> to check</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p>whether <em>tc</em> is a valid timecode (supported frame rate,
+hours/minutes/seconds/frames not overflowing)</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.10
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_video_time_code_is_valid">
+	<i>GstVideo.VideoTimeCode.prototype.is_valid</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstVideo.VideoTimeCode.prototype.is_valid(): {
+    // javascript wrapper for 'gst_video_time_code_is_valid'
+}</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>tc</code></em></i>
+<span>(</span><a title="GstVideo.VideoTimeCode" href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideo.VideoTimeCode</a><span>)</span>
+–
+</div>
+<p><a href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideo.VideoTimeCode</a> to check</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+			</div>
+							<p>whether <em>tc</em> is a valid timecode (supported frame rate,
+hours/minutes/seconds/frames not overflowing)</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.10
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_video_time_code_is_valid">
+	<i>GstVideo.VideoTimeCode.is_valid</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstVideo.VideoTimeCode.is_valid (self):
+    #python wrapper for 'gst_video_time_code_is_valid'</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>tc</code></em></i>
+<span>(</span><a title="GstVideo.VideoTimeCode" href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideo.VideoTimeCode</a><span>)</span>
+–
+</div>
+<p><a href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideo.VideoTimeCode</a> to check</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a><span>)</span>
+–
+			</div>
+							<p>whether <em>tc</em> is a valid timecode (supported frame rate,
+hours/minutes/seconds/frames not overflowing)</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.10
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.10;" id="gst_video_time_code_nsec_since_daily_jam">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_video_time_code_nsec_since_daily_jam">
+	<i>gst_video_time_code_nsec_since_daily_jam</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="guint64" href="https://docs.gtk.org/glib/types.html#guint64">guint64</a>
+gst_video_time_code_nsec_since_daily_jam (const <a title="GstVideoTimeCode" href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideoTimeCode</a> * tc)</pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>tc</code></em></i>
+–
+</div>
+<p>a valid <a href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideoTimeCode</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p>how many nsec have passed since the daily jam of <em>tc</em>.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.10
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_video_time_code_nsec_since_daily_jam">
+	<i>GstVideo.VideoTimeCode.prototype.nsec_since_daily_jam</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstVideo.VideoTimeCode.prototype.nsec_since_daily_jam(): {
+    // javascript wrapper for 'gst_video_time_code_nsec_since_daily_jam'
+}</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>tc</code></em></i>
+<span>(</span><a title="GstVideo.VideoTimeCode" href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideo.VideoTimeCode</a><span>)</span>
+–
+</div>
+<p>a valid <a href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideo.VideoTimeCode</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+			</div>
+							<p>how many nsec have passed since the daily jam of <em>tc</em>.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.10
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_video_time_code_nsec_since_daily_jam">
+	<i>GstVideo.VideoTimeCode.nsec_since_daily_jam</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstVideo.VideoTimeCode.nsec_since_daily_jam (self):
+    #python wrapper for 'gst_video_time_code_nsec_since_daily_jam'</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>tc</code></em></i>
+<span>(</span><a title="GstVideo.VideoTimeCode" href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideo.VideoTimeCode</a><span>)</span>
+–
+</div>
+<p>a valid <a href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideo.VideoTimeCode</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+			</div>
+							<p>how many nsec have passed since the daily jam of <em>tc</em>.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.10
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.10;" id="gst_video_time_code_to_date_time">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_video_time_code_to_date_time">
+	<i>gst_video_time_code_to_date_time</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GDateTime" href="https://docs.gtk.org/glib/struct.DateTime.html">GDateTime</a> *
+gst_video_time_code_to_date_time (const <a title="GstVideoTimeCode" href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideoTimeCode</a> * tc)</pre>
+
+<p>The <em>tc</em>.config-&gt;latest_daily_jam is required to be non-NULL.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>tc</code></em></i>
+–
+</div>
+<p>A valid <a href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideoTimeCode</a> to convert</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span>
+<span class="annotation">[<abbr title="NULL may be passed to the value"><span class="acronym">nullable</span></abbr>]</span><span>)</span>
+–
+			</div>
+							<p>the <a href="https://docs.gtk.org/glib/struct.DateTime.html">GDateTime</a> representation of <em>tc</em> or <a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#NULL:CAPS">NULL</a> if <em>tc</em>
+has no daily jam.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.10
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_video_time_code_to_date_time">
+	<i>GstVideo.VideoTimeCode.prototype.to_date_time</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstVideo.VideoTimeCode.prototype.to_date_time(): {
+    // javascript wrapper for 'gst_video_time_code_to_date_time'
+}</code></pre>
+
+<p>The <em>tc</em>.config-&gt;latest_daily_jam is required to be non-NULL.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>tc</code></em></i>
+<span>(</span><a title="GstVideo.VideoTimeCode" href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideo.VideoTimeCode</a><span>)</span>
+–
+</div>
+<p>A valid <a href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideo.VideoTimeCode</a> to convert</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GDateTime (not introspectable)" href="https://docs.gtk.org/glib/struct.DateTime.html">GDateTime (not introspectable)</a><span>)</span>
+–
+			</div>
+							<p>the <a href="https://docs.gtk.org/glib/struct.DateTime.html">GDateTime (not introspectable)</a> representation of <em>tc</em> or <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null">null</a> if <em>tc</em>
+has no daily jam.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.10
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_video_time_code_to_date_time">
+	<i>GstVideo.VideoTimeCode.to_date_time</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstVideo.VideoTimeCode.to_date_time (self):
+    #python wrapper for 'gst_video_time_code_to_date_time'</code></pre>
+
+<p>The <em>tc</em>.config-&gt;latest_daily_jam is required to be non-NULL.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>tc</code></em></i>
+<span>(</span><a title="GstVideo.VideoTimeCode" href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideo.VideoTimeCode</a><span>)</span>
+–
+</div>
+<p>A valid <a href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideo.VideoTimeCode</a> to convert</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GDateTime (not introspectable)" href="https://docs.gtk.org/glib/struct.DateTime.html">GDateTime (not introspectable)</a><span>)</span>
+–
+			</div>
+							<p>the <a href="https://docs.gtk.org/glib/struct.DateTime.html">GDateTime (not introspectable)</a> representation of <em>tc</em> or <a href="https://docs.python.org/3/library/constants.html#None">None</a> if <em>tc</em>
+has no daily jam.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.10
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.10;" id="gst_video_time_code_to_string">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_video_time_code_to_string">
+	<i>gst_video_time_code_to_string</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gchar" href="https://docs.gtk.org/glib/types.html#gchar">gchar</a> *
+gst_video_time_code_to_string (const <a title="GstVideoTimeCode" href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideoTimeCode</a> * tc)</pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>tc</code></em></i>
+–
+</div>
+<p>A <a href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideoTimeCode</a> to convert</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p>the SMPTE ST 2059-1:2015 string representation of <em>tc</em>. That will
+take the form hh:mm:ss:ff. The last separator (between seconds and frames)
+may vary:</p>
+<p>';' for drop-frame, non-interlaced content and for drop-frame interlaced
+field 2
+',' for drop-frame interlaced field 1
+':' for non-drop-frame, non-interlaced content and for non-drop-frame
+interlaced field 2
+'.' for non-drop-frame interlaced field 1</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.10
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_video_time_code_to_string">
+	<i>GstVideo.VideoTimeCode.prototype.to_string</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstVideo.VideoTimeCode.prototype.to_string(): {
+    // javascript wrapper for 'gst_video_time_code_to_string'
+}</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>tc</code></em></i>
+<span>(</span><a title="GstVideo.VideoTimeCode" href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideo.VideoTimeCode</a><span>)</span>
+–
+</div>
+<p>A <a href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideo.VideoTimeCode</a> to convert</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a><span>)</span>
+–
+			</div>
+							<p>the SMPTE ST 2059-1:2015 string representation of <em>tc</em>. That will
+take the form hh:mm:ss:ff. The last separator (between seconds and frames)
+may vary:</p>
+<p>';' for drop-frame, non-interlaced content and for drop-frame interlaced
+field 2
+',' for drop-frame interlaced field 1
+':' for non-drop-frame, non-interlaced content and for non-drop-frame
+interlaced field 2
+'.' for non-drop-frame interlaced field 1</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.10
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_video_time_code_to_string">
+	<i>GstVideo.VideoTimeCode.to_string</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstVideo.VideoTimeCode.to_string (self):
+    #python wrapper for 'gst_video_time_code_to_string'</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>tc</code></em></i>
+<span>(</span><a title="GstVideo.VideoTimeCode" href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideo.VideoTimeCode</a><span>)</span>
+–
+</div>
+<p>A <a href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideo.VideoTimeCode</a> to convert</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="str" href="https://docs.python.org/3/library/functions.html#func-str">str</a><span>)</span>
+–
+			</div>
+							<p>the SMPTE ST 2059-1:2015 string representation of <em>tc</em>. That will
+take the form hh:mm:ss:ff. The last separator (between seconds and frames)
+may vary:</p>
+<p>';' for drop-frame, non-interlaced content and for drop-frame interlaced
+field 2
+',' for drop-frame interlaced field 1
+':' for non-drop-frame, non-interlaced content and for non-drop-frame
+interlaced field 2
+'.' for non-drop-frame interlaced field 1</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.10
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+
+        
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.10;" id="GstVideoTimeCodeConfig">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h2 data-hotdoc-id="GstVideoTimeCodeConfig">
+	<i>GstVideoTimeCodeConfig</i>
+</h2>
+
+
+
+<div class="class_details">
+	<p>Supported frame rates: 30000/1001, 60000/1001 (both with and without drop
+frame), and integer frame rates e.g. 25/1, 30/1, 50/1, 60/1.</p>
+<p>The configuration of the time code.</p>
+
+</div>
+
+
+
+	<div class="members-container">
+		<h3>Members</h3>
+					
+<div class="symbol-detail" data-hotdoc-id="GstVideoTimeCodeConfig.fps_n">
+	<div>
+		<i><em><code>fps_n</code></em></i>
+		(<a title="guint" href="https://docs.gtk.org/glib/types.html#guint">guint</a>)
+		–
+	</div>
+			<p>Numerator of the frame rate</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVideoTimeCodeConfig.fps_d">
+	<div>
+		<i><em><code>fps_d</code></em></i>
+		(<a title="guint" href="https://docs.gtk.org/glib/types.html#guint">guint</a>)
+		–
+	</div>
+			<p>Denominator of the frame rate</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVideoTimeCodeConfig.flags">
+	<div>
+		<i><em><code>flags</code></em></i>
+		(<a title="GstVideoTimeCodeFlags" href="video/gstvideotimecode.html#GstVideoTimeCodeFlags">GstVideoTimeCodeFlags</a>)
+		–
+	</div>
+			<p>the corresponding <a href="video/gstvideotimecode.html#GstVideoTimeCodeFlags">GstVideoTimeCodeFlags</a></p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVideoTimeCodeConfig.latest_daily_jam">
+	<div>
+		<i><em><code>latest_daily_jam</code></em></i>
+		(<a title="GDateTime" href="https://docs.gtk.org/glib/struct.DateTime.html">GDateTime</a> *)
+		–
+	</div>
+			<p>The latest daily jam information, if present, or NULL</p>
+
+	</div>
+
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.10
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h2 data-hotdoc-id="GstVideoTimeCodeConfig">
+	<i>GstVideo.VideoTimeCodeConfig</i>
+</h2>
+
+
+
+<div class="class_details">
+	<p>Supported frame rates: 30000/1001, 60000/1001 (both with and without drop
+frame), and integer frame rates e.g. 25/1, 30/1, 50/1, 60/1.</p>
+<p>The configuration of the time code.</p>
+
+</div>
+
+
+
+	<div class="members-container">
+		<h3>Members</h3>
+					
+<div class="symbol-detail" data-hotdoc-id="GstVideoTimeCodeConfig.fps_n">
+	<div>
+		<i><em><code>fps_n</code></em></i>
+		(<a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>)
+		–
+	</div>
+			<p>Numerator of the frame rate</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVideoTimeCodeConfig.fps_d">
+	<div>
+		<i><em><code>fps_d</code></em></i>
+		(<a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>)
+		–
+	</div>
+			<p>Denominator of the frame rate</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVideoTimeCodeConfig.flags">
+	<div>
+		<i><em><code>flags</code></em></i>
+		(<a title="GstVideo.VideoTimeCodeFlags" href="video/gstvideotimecode.html#GstVideoTimeCodeFlags">GstVideo.VideoTimeCodeFlags</a>)
+		–
+	</div>
+			<p>the corresponding <a href="video/gstvideotimecode.html#GstVideoTimeCodeFlags">GstVideo.VideoTimeCodeFlags</a></p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVideoTimeCodeConfig.latest_daily_jam">
+	<div>
+		<i><em><code>latest_daily_jam</code></em></i>
+		(<a title="GDateTime (not introspectable)" href="https://docs.gtk.org/glib/struct.DateTime.html">GDateTime (not introspectable)</a>)
+		–
+	</div>
+			<p>The latest daily jam information, if present, or NULL</p>
+
+	</div>
+
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.10
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h2 data-hotdoc-id="GstVideoTimeCodeConfig">
+	<i>GstVideo.VideoTimeCodeConfig</i>
+</h2>
+
+
+
+<div class="class_details">
+	<p>Supported frame rates: 30000/1001, 60000/1001 (both with and without drop
+frame), and integer frame rates e.g. 25/1, 30/1, 50/1, 60/1.</p>
+<p>The configuration of the time code.</p>
+
+</div>
+
+
+
+	<div class="members-container">
+		<h3>Members</h3>
+					
+<div class="symbol-detail" data-hotdoc-id="GstVideoTimeCodeConfig.fps_n">
+	<div>
+		<i><em><code>fps_n</code></em></i>
+		(<a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a>)
+		–
+	</div>
+			<p>Numerator of the frame rate</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVideoTimeCodeConfig.fps_d">
+	<div>
+		<i><em><code>fps_d</code></em></i>
+		(<a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a>)
+		–
+	</div>
+			<p>Denominator of the frame rate</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVideoTimeCodeConfig.flags">
+	<div>
+		<i><em><code>flags</code></em></i>
+		(<a title="GstVideo.VideoTimeCodeFlags" href="video/gstvideotimecode.html#GstVideoTimeCodeFlags">GstVideo.VideoTimeCodeFlags</a>)
+		–
+	</div>
+			<p>the corresponding <a href="video/gstvideotimecode.html#GstVideoTimeCodeFlags">GstVideo.VideoTimeCodeFlags</a></p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVideoTimeCodeConfig.latest_daily_jam">
+	<div>
+		<i><em><code>latest_daily_jam</code></em></i>
+		(<a title="GDateTime (not introspectable)" href="https://docs.gtk.org/glib/struct.DateTime.html">GDateTime (not introspectable)</a>)
+		–
+	</div>
+			<p>The latest daily jam information, if present, or NULL</p>
+
+	</div>
+
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.10
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+
+        
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.12;" id="GstVideoTimeCodeInterval">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h2 data-hotdoc-id="GstVideoTimeCodeInterval">
+	<i>GstVideoTimeCodeInterval</i>
+</h2>
+
+
+
+<div class="class_details">
+	<p>A representation of a difference between two <a href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideoTimeCode</a> instances.
+Will not necessarily correspond to a real timecode (e.g. 00:00:10;00)</p>
+
+</div>
+
+
+
+	<div class="members-container">
+		<h3>Members</h3>
+					
+<div class="symbol-detail" data-hotdoc-id="GstVideoTimeCodeInterval.hours">
+	<div>
+		<i><em><code>hours</code></em></i>
+		(<a title="guint" href="https://docs.gtk.org/glib/types.html#guint">guint</a>)
+		–
+	</div>
+			<p>the hours field of <a href="video/gstvideotimecode.html#GstVideoTimeCodeInterval">GstVideoTimeCodeInterval</a></p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVideoTimeCodeInterval.minutes">
+	<div>
+		<i><em><code>minutes</code></em></i>
+		(<a title="guint" href="https://docs.gtk.org/glib/types.html#guint">guint</a>)
+		–
+	</div>
+			<p>the minutes field of <a href="video/gstvideotimecode.html#GstVideoTimeCodeInterval">GstVideoTimeCodeInterval</a></p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVideoTimeCodeInterval.seconds">
+	<div>
+		<i><em><code>seconds</code></em></i>
+		(<a title="guint" href="https://docs.gtk.org/glib/types.html#guint">guint</a>)
+		–
+	</div>
+			<p>the seconds field of <a href="video/gstvideotimecode.html#GstVideoTimeCodeInterval">GstVideoTimeCodeInterval</a></p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVideoTimeCodeInterval.frames">
+	<div>
+		<i><em><code>frames</code></em></i>
+		(<a title="guint" href="https://docs.gtk.org/glib/types.html#guint">guint</a>)
+		–
+	</div>
+			<p>the frames field of <a href="video/gstvideotimecode.html#GstVideoTimeCodeInterval">GstVideoTimeCodeInterval</a></p>
+
+	</div>
+
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.12
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h2 data-hotdoc-id="GstVideoTimeCodeInterval">
+	<i>GstVideo.VideoTimeCodeInterval</i>
+</h2>
+
+
+
+<div class="class_details">
+	<p>A representation of a difference between two <a href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideo.VideoTimeCode</a> instances.
+Will not necessarily correspond to a real timecode (e.g. 00:00:10;00)</p>
+
+</div>
+
+
+
+	<div class="members-container">
+		<h3>Members</h3>
+					
+<div class="symbol-detail" data-hotdoc-id="GstVideoTimeCodeInterval.hours">
+	<div>
+		<i><em><code>hours</code></em></i>
+		(<a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>)
+		–
+	</div>
+			<p>the hours field of <a href="video/gstvideotimecode.html#GstVideoTimeCodeInterval">GstVideo.VideoTimeCodeInterval</a></p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVideoTimeCodeInterval.minutes">
+	<div>
+		<i><em><code>minutes</code></em></i>
+		(<a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>)
+		–
+	</div>
+			<p>the minutes field of <a href="video/gstvideotimecode.html#GstVideoTimeCodeInterval">GstVideo.VideoTimeCodeInterval</a></p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVideoTimeCodeInterval.seconds">
+	<div>
+		<i><em><code>seconds</code></em></i>
+		(<a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>)
+		–
+	</div>
+			<p>the seconds field of <a href="video/gstvideotimecode.html#GstVideoTimeCodeInterval">GstVideo.VideoTimeCodeInterval</a></p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVideoTimeCodeInterval.frames">
+	<div>
+		<i><em><code>frames</code></em></i>
+		(<a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>)
+		–
+	</div>
+			<p>the frames field of <a href="video/gstvideotimecode.html#GstVideoTimeCodeInterval">GstVideo.VideoTimeCodeInterval</a></p>
+
+	</div>
+
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.12
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h2 data-hotdoc-id="GstVideoTimeCodeInterval">
+	<i>GstVideo.VideoTimeCodeInterval</i>
+</h2>
+
+
+
+<div class="class_details">
+	<p>A representation of a difference between two <a href="video/gstvideotimecode.html#GstVideoTimeCode">GstVideo.VideoTimeCode</a> instances.
+Will not necessarily correspond to a real timecode (e.g. 00:00:10;00)</p>
+
+</div>
+
+
+
+	<div class="members-container">
+		<h3>Members</h3>
+					
+<div class="symbol-detail" data-hotdoc-id="GstVideoTimeCodeInterval.hours">
+	<div>
+		<i><em><code>hours</code></em></i>
+		(<a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a>)
+		–
+	</div>
+			<p>the hours field of <a href="video/gstvideotimecode.html#GstVideoTimeCodeInterval">GstVideo.VideoTimeCodeInterval</a></p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVideoTimeCodeInterval.minutes">
+	<div>
+		<i><em><code>minutes</code></em></i>
+		(<a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a>)
+		–
+	</div>
+			<p>the minutes field of <a href="video/gstvideotimecode.html#GstVideoTimeCodeInterval">GstVideo.VideoTimeCodeInterval</a></p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVideoTimeCodeInterval.seconds">
+	<div>
+		<i><em><code>seconds</code></em></i>
+		(<a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a>)
+		–
+	</div>
+			<p>the seconds field of <a href="video/gstvideotimecode.html#GstVideoTimeCodeInterval">GstVideo.VideoTimeCodeInterval</a></p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVideoTimeCodeInterval.frames">
+	<div>
+		<i><em><code>frames</code></em></i>
+		(<a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a>)
+		–
+	</div>
+			<p>the frames field of <a href="video/gstvideotimecode.html#GstVideoTimeCodeInterval">GstVideo.VideoTimeCodeInterval</a></p>
+
+	</div>
+
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.12
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+
+            <h3 class="symbol_section">Constructors</h3>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.12;" id="gst_video_time_code_interval_new">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_video_time_code_interval_new">
+	<i>gst_video_time_code_interval_new</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GstVideoTimeCodeInterval" href="video/gstvideotimecode.html#GstVideoTimeCodeInterval">GstVideoTimeCodeInterval</a> *
+gst_video_time_code_interval_new (<a title="guint" href="https://docs.gtk.org/glib/types.html#guint">guint</a> hours,
+                                  <a title="guint" href="https://docs.gtk.org/glib/types.html#guint">guint</a> minutes,
+                                  <a title="guint" href="https://docs.gtk.org/glib/types.html#guint">guint</a> seconds,
+                                  <a title="guint" href="https://docs.gtk.org/glib/types.html#guint">guint</a> frames)</pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>hours</code></em></i>
+–
+</div>
+<p>the hours field of <a href="video/gstvideotimecode.html#GstVideoTimeCodeInterval">GstVideoTimeCodeInterval</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>minutes</code></em></i>
+–
+</div>
+<p>the minutes field of <a href="video/gstvideotimecode.html#GstVideoTimeCodeInterval">GstVideoTimeCodeInterval</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>seconds</code></em></i>
+–
+</div>
+<p>the seconds field of <a href="video/gstvideotimecode.html#GstVideoTimeCodeInterval">GstVideoTimeCodeInterval</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>frames</code></em></i>
+–
+</div>
+<p>the frames field of <a href="video/gstvideotimecode.html#GstVideoTimeCodeInterval">GstVideoTimeCodeInterval</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p>a new <a href="video/gstvideotimecode.html#GstVideoTimeCodeInterval">GstVideoTimeCodeInterval</a> with the given values.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.12
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_video_time_code_interval_new">
+	<i>GstVideo.VideoTimeCodeInterval.prototype.new</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstVideo.VideoTimeCodeInterval.prototype.new(hours: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>, minutes: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>, seconds: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>, frames: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>): {
+    // javascript wrapper for 'gst_video_time_code_interval_new'
+}</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>hours</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>the hours field of <a href="video/gstvideotimecode.html#GstVideoTimeCodeInterval">GstVideo.VideoTimeCodeInterval</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>minutes</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>the minutes field of <a href="video/gstvideotimecode.html#GstVideoTimeCodeInterval">GstVideo.VideoTimeCodeInterval</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>seconds</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>the seconds field of <a href="video/gstvideotimecode.html#GstVideoTimeCodeInterval">GstVideo.VideoTimeCodeInterval</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>frames</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>the frames field of <a href="video/gstvideotimecode.html#GstVideoTimeCodeInterval">GstVideo.VideoTimeCodeInterval</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GstVideo.VideoTimeCodeInterval" href="video/gstvideotimecode.html#GstVideoTimeCodeInterval">GstVideo.VideoTimeCodeInterval</a><span>)</span>
+–
+			</div>
+							<p>a new <a href="video/gstvideotimecode.html#GstVideoTimeCodeInterval">GstVideo.VideoTimeCodeInterval</a> with the given values.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.12
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_video_time_code_interval_new">
+	<i>GstVideo.VideoTimeCodeInterval.new</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstVideo.VideoTimeCodeInterval.new (hours, minutes, seconds, frames):
+    #python wrapper for 'gst_video_time_code_interval_new'</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>hours</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<p>the hours field of <a href="video/gstvideotimecode.html#GstVideoTimeCodeInterval">GstVideo.VideoTimeCodeInterval</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>minutes</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<p>the minutes field of <a href="video/gstvideotimecode.html#GstVideoTimeCodeInterval">GstVideo.VideoTimeCodeInterval</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>seconds</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<p>the seconds field of <a href="video/gstvideotimecode.html#GstVideoTimeCodeInterval">GstVideo.VideoTimeCodeInterval</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>frames</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<p>the frames field of <a href="video/gstvideotimecode.html#GstVideoTimeCodeInterval">GstVideo.VideoTimeCodeInterval</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GstVideo.VideoTimeCodeInterval" href="video/gstvideotimecode.html#GstVideoTimeCodeInterval">GstVideo.VideoTimeCodeInterval</a><span>)</span>
+–
+			</div>
+							<p>a new <a href="video/gstvideotimecode.html#GstVideoTimeCodeInterval">GstVideo.VideoTimeCodeInterval</a> with the given values.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.12
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.12;" id="gst_video_time_code_interval_new_from_string">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_video_time_code_interval_new_from_string">
+	<i>gst_video_time_code_interval_new_from_string</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GstVideoTimeCodeInterval" href="video/gstvideotimecode.html#GstVideoTimeCodeInterval">GstVideoTimeCodeInterval</a> *
+gst_video_time_code_interval_new_from_string (const <a title="gchar" href="https://docs.gtk.org/glib/types.html#gchar">gchar</a> * tc_inter_str)</pre>
+
+<p><em>tc_inter_str</em> must only have ":" as separators.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>tc_inter_str</code></em></i>
+–
+</div>
+<p>The string that represents the <a href="video/gstvideotimecode.html#GstVideoTimeCodeInterval">GstVideoTimeCodeInterval</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span>
+<span class="annotation">[<abbr title="NULL may be passed to the value"><span class="acronym">nullable</span></abbr>]</span><span>)</span>
+–
+			</div>
+							<p>a new <a href="video/gstvideotimecode.html#GstVideoTimeCodeInterval">GstVideoTimeCodeInterval</a> from the given string
+or <a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#NULL:CAPS">NULL</a> if the string could not be passed.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.12
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_video_time_code_interval_new_from_string">
+	<i>GstVideo.VideoTimeCodeInterval.prototype.new_from_string</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstVideo.VideoTimeCodeInterval.prototype.new_from_string(tc_inter_str: <a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>): {
+    // javascript wrapper for 'gst_video_time_code_interval_new_from_string'
+}</code></pre>
+
+<p><em>tc_inter_str</em> must only have ":" as separators.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>tc_inter_str</code></em></i>
+<span>(</span><a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a><span>)</span>
+–
+</div>
+<p>The string that represents the <a href="video/gstvideotimecode.html#GstVideoTimeCodeInterval">GstVideo.VideoTimeCodeInterval</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GstVideo.VideoTimeCodeInterval" href="video/gstvideotimecode.html#GstVideoTimeCodeInterval">GstVideo.VideoTimeCodeInterval</a><span>)</span>
+–
+			</div>
+							<p>a new <a href="video/gstvideotimecode.html#GstVideoTimeCodeInterval">GstVideo.VideoTimeCodeInterval</a> from the given string
+or <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null">null</a> if the string could not be passed.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.12
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_video_time_code_interval_new_from_string">
+	<i>GstVideo.VideoTimeCodeInterval.new_from_string</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstVideo.VideoTimeCodeInterval.new_from_string (tc_inter_str):
+    #python wrapper for 'gst_video_time_code_interval_new_from_string'</code></pre>
+
+<p><em>tc_inter_str</em> must only have ":" as separators.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>tc_inter_str</code></em></i>
+<span>(</span><a title="str" href="https://docs.python.org/3/library/functions.html#func-str">str</a><span>)</span>
+–
+</div>
+<p>The string that represents the <a href="video/gstvideotimecode.html#GstVideoTimeCodeInterval">GstVideo.VideoTimeCodeInterval</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GstVideo.VideoTimeCodeInterval" href="video/gstvideotimecode.html#GstVideoTimeCodeInterval">GstVideo.VideoTimeCodeInterval</a><span>)</span>
+–
+			</div>
+							<p>a new <a href="video/gstvideotimecode.html#GstVideoTimeCodeInterval">GstVideo.VideoTimeCodeInterval</a> from the given string
+or <a href="https://docs.python.org/3/library/constants.html#None">None</a> if the string could not be passed.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.12
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+
+            <h3 class="symbol_section">Methods</h3>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.12;" id="gst_video_time_code_interval_clear">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_video_time_code_interval_clear">
+	<i>gst_video_time_code_interval_clear</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+gst_video_time_code_interval_clear (<a title="GstVideoTimeCodeInterval" href="video/gstvideotimecode.html#GstVideoTimeCodeInterval">GstVideoTimeCodeInterval</a> * tc)</pre>
+
+<p>Initializes <em>tc</em> with empty/zero/NULL values.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>tc</code></em></i>
+–
+</div>
+<p>a <a href="video/gstvideotimecode.html#GstVideoTimeCodeInterval">GstVideoTimeCodeInterval</a></p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.12
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_video_time_code_interval_clear">
+	<i>GstVideo.VideoTimeCodeInterval.prototype.clear</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstVideo.VideoTimeCodeInterval.prototype.clear(): {
+    // javascript wrapper for 'gst_video_time_code_interval_clear'
+}</code></pre>
+
+<p>Initializes <em>tc</em> with empty/zero/NULL values.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>tc</code></em></i>
+<span>(</span><a title="GstVideo.VideoTimeCodeInterval" href="video/gstvideotimecode.html#GstVideoTimeCodeInterval">GstVideo.VideoTimeCodeInterval</a><span>)</span>
+–
+</div>
+<p>a <a href="video/gstvideotimecode.html#GstVideoTimeCodeInterval">GstVideo.VideoTimeCodeInterval</a></p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.12
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_video_time_code_interval_clear">
+	<i>GstVideo.VideoTimeCodeInterval.clear</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstVideo.VideoTimeCodeInterval.clear (self):
+    #python wrapper for 'gst_video_time_code_interval_clear'</code></pre>
+
+<p>Initializes <em>tc</em> with empty/zero/NULL values.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>tc</code></em></i>
+<span>(</span><a title="GstVideo.VideoTimeCodeInterval" href="video/gstvideotimecode.html#GstVideoTimeCodeInterval">GstVideo.VideoTimeCodeInterval</a><span>)</span>
+–
+</div>
+<p>a <a href="video/gstvideotimecode.html#GstVideoTimeCodeInterval">GstVideo.VideoTimeCodeInterval</a></p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.12
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.12;" id="gst_video_time_code_interval_copy">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_video_time_code_interval_copy">
+	<i>gst_video_time_code_interval_copy</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GstVideoTimeCodeInterval" href="video/gstvideotimecode.html#GstVideoTimeCodeInterval">GstVideoTimeCodeInterval</a> *
+gst_video_time_code_interval_copy (const <a title="GstVideoTimeCodeInterval" href="video/gstvideotimecode.html#GstVideoTimeCodeInterval">GstVideoTimeCodeInterval</a> * tc)</pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>tc</code></em></i>
+–
+</div>
+<p>a <a href="video/gstvideotimecode.html#GstVideoTimeCodeInterval">GstVideoTimeCodeInterval</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p>a new <a href="video/gstvideotimecode.html#GstVideoTimeCodeInterval">GstVideoTimeCodeInterval</a> with the same values as <em>tc</em>.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.12
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_video_time_code_interval_copy">
+	<i>GstVideo.VideoTimeCodeInterval.prototype.copy</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstVideo.VideoTimeCodeInterval.prototype.copy(): {
+    // javascript wrapper for 'gst_video_time_code_interval_copy'
+}</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>tc</code></em></i>
+<span>(</span><a title="GstVideo.VideoTimeCodeInterval" href="video/gstvideotimecode.html#GstVideoTimeCodeInterval">GstVideo.VideoTimeCodeInterval</a><span>)</span>
+–
+</div>
+<p>a <a href="video/gstvideotimecode.html#GstVideoTimeCodeInterval">GstVideo.VideoTimeCodeInterval</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GstVideo.VideoTimeCodeInterval" href="video/gstvideotimecode.html#GstVideoTimeCodeInterval">GstVideo.VideoTimeCodeInterval</a><span>)</span>
+–
+			</div>
+							<p>a new <a href="video/gstvideotimecode.html#GstVideoTimeCodeInterval">GstVideo.VideoTimeCodeInterval</a> with the same values as <em>tc</em>.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.12
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_video_time_code_interval_copy">
+	<i>GstVideo.VideoTimeCodeInterval.copy</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstVideo.VideoTimeCodeInterval.copy (self):
+    #python wrapper for 'gst_video_time_code_interval_copy'</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>tc</code></em></i>
+<span>(</span><a title="GstVideo.VideoTimeCodeInterval" href="video/gstvideotimecode.html#GstVideoTimeCodeInterval">GstVideo.VideoTimeCodeInterval</a><span>)</span>
+–
+</div>
+<p>a <a href="video/gstvideotimecode.html#GstVideoTimeCodeInterval">GstVideo.VideoTimeCodeInterval</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GstVideo.VideoTimeCodeInterval" href="video/gstvideotimecode.html#GstVideoTimeCodeInterval">GstVideo.VideoTimeCodeInterval</a><span>)</span>
+–
+			</div>
+							<p>a new <a href="video/gstvideotimecode.html#GstVideoTimeCodeInterval">GstVideo.VideoTimeCodeInterval</a> with the same values as <em>tc</em>.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.12
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.12;" id="gst_video_time_code_interval_free">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_video_time_code_interval_free">
+	<i>gst_video_time_code_interval_free</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+gst_video_time_code_interval_free (<a title="GstVideoTimeCodeInterval" href="video/gstvideotimecode.html#GstVideoTimeCodeInterval">GstVideoTimeCodeInterval</a> * tc)</pre>
+
+<p>Frees <em>tc</em>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>tc</code></em></i>
+–
+</div>
+<p>a <a href="video/gstvideotimecode.html#GstVideoTimeCodeInterval">GstVideoTimeCodeInterval</a></p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.12
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_video_time_code_interval_free">
+	<i>GstVideo.VideoTimeCodeInterval.prototype.free</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstVideo.VideoTimeCodeInterval.prototype.free(): {
+    // javascript wrapper for 'gst_video_time_code_interval_free'
+}</code></pre>
+
+<p>Frees <em>tc</em>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>tc</code></em></i>
+<span>(</span><a title="GstVideo.VideoTimeCodeInterval" href="video/gstvideotimecode.html#GstVideoTimeCodeInterval">GstVideo.VideoTimeCodeInterval</a><span>)</span>
+–
+</div>
+<p>a <a href="video/gstvideotimecode.html#GstVideoTimeCodeInterval">GstVideo.VideoTimeCodeInterval</a></p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.12
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_video_time_code_interval_free">
+	<i>GstVideo.VideoTimeCodeInterval.free</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstVideo.VideoTimeCodeInterval.free (self):
+    #python wrapper for 'gst_video_time_code_interval_free'</code></pre>
+
+<p>Frees <em>tc</em>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>tc</code></em></i>
+<span>(</span><a title="GstVideo.VideoTimeCodeInterval" href="video/gstvideotimecode.html#GstVideoTimeCodeInterval">GstVideo.VideoTimeCodeInterval</a><span>)</span>
+–
+</div>
+<p>a <a href="video/gstvideotimecode.html#GstVideoTimeCodeInterval">GstVideo.VideoTimeCodeInterval</a></p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.12
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.12;" id="gst_video_time_code_interval_init">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_video_time_code_interval_init">
+	<i>gst_video_time_code_interval_init</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+gst_video_time_code_interval_init (<a title="GstVideoTimeCodeInterval" href="video/gstvideotimecode.html#GstVideoTimeCodeInterval">GstVideoTimeCodeInterval</a> * tc,
+                                   <a title="guint" href="https://docs.gtk.org/glib/types.html#guint">guint</a> hours,
+                                   <a title="guint" href="https://docs.gtk.org/glib/types.html#guint">guint</a> minutes,
+                                   <a title="guint" href="https://docs.gtk.org/glib/types.html#guint">guint</a> seconds,
+                                   <a title="guint" href="https://docs.gtk.org/glib/types.html#guint">guint</a> frames)</pre>
+
+<p>Initializes <em>tc</em> with the given values.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>tc</code></em></i>
+–
+</div>
+<p>a <a href="video/gstvideotimecode.html#GstVideoTimeCodeInterval">GstVideoTimeCodeInterval</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>hours</code></em></i>
+–
+</div>
+<p>the hours field of <a href="video/gstvideotimecode.html#GstVideoTimeCodeInterval">GstVideoTimeCodeInterval</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>minutes</code></em></i>
+–
+</div>
+<p>the minutes field of <a href="video/gstvideotimecode.html#GstVideoTimeCodeInterval">GstVideoTimeCodeInterval</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>seconds</code></em></i>
+–
+</div>
+<p>the seconds field of <a href="video/gstvideotimecode.html#GstVideoTimeCodeInterval">GstVideoTimeCodeInterval</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>frames</code></em></i>
+–
+</div>
+<p>the frames field of <a href="video/gstvideotimecode.html#GstVideoTimeCodeInterval">GstVideoTimeCodeInterval</a></p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.12
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_video_time_code_interval_init">
+	<i>GstVideo.VideoTimeCodeInterval.prototype.init</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstVideo.VideoTimeCodeInterval.prototype.init(hours: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>, minutes: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>, seconds: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>, frames: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>): {
+    // javascript wrapper for 'gst_video_time_code_interval_init'
+}</code></pre>
+
+<p>Initializes <em>tc</em> with the given values.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>tc</code></em></i>
+<span>(</span><a title="GstVideo.VideoTimeCodeInterval" href="video/gstvideotimecode.html#GstVideoTimeCodeInterval">GstVideo.VideoTimeCodeInterval</a><span>)</span>
+–
+</div>
+<p>a <a href="video/gstvideotimecode.html#GstVideoTimeCodeInterval">GstVideo.VideoTimeCodeInterval</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>hours</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>the hours field of <a href="video/gstvideotimecode.html#GstVideoTimeCodeInterval">GstVideo.VideoTimeCodeInterval</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>minutes</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>the minutes field of <a href="video/gstvideotimecode.html#GstVideoTimeCodeInterval">GstVideo.VideoTimeCodeInterval</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>seconds</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>the seconds field of <a href="video/gstvideotimecode.html#GstVideoTimeCodeInterval">GstVideo.VideoTimeCodeInterval</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>frames</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>the frames field of <a href="video/gstvideotimecode.html#GstVideoTimeCodeInterval">GstVideo.VideoTimeCodeInterval</a></p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.12
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_video_time_code_interval_init">
+	<i>GstVideo.VideoTimeCodeInterval.init</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstVideo.VideoTimeCodeInterval.init (self, hours, minutes, seconds, frames):
+    #python wrapper for 'gst_video_time_code_interval_init'</code></pre>
+
+<p>Initializes <em>tc</em> with the given values.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>tc</code></em></i>
+<span>(</span><a title="GstVideo.VideoTimeCodeInterval" href="video/gstvideotimecode.html#GstVideoTimeCodeInterval">GstVideo.VideoTimeCodeInterval</a><span>)</span>
+–
+</div>
+<p>a <a href="video/gstvideotimecode.html#GstVideoTimeCodeInterval">GstVideo.VideoTimeCodeInterval</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>hours</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<p>the hours field of <a href="video/gstvideotimecode.html#GstVideoTimeCodeInterval">GstVideo.VideoTimeCodeInterval</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>minutes</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<p>the minutes field of <a href="video/gstvideotimecode.html#GstVideoTimeCodeInterval">GstVideo.VideoTimeCodeInterval</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>seconds</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<p>the seconds field of <a href="video/gstvideotimecode.html#GstVideoTimeCodeInterval">GstVideo.VideoTimeCodeInterval</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>frames</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<p>the frames field of <a href="video/gstvideotimecode.html#GstVideoTimeCodeInterval">GstVideo.VideoTimeCodeInterval</a></p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.12
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+
+        
+
+            <h2 class="symbol_section">Enumerations</h2>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.10;" id="GstVideoTimeCodeFlags">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GstVideoTimeCodeFlags">
+	<i>GstVideoTimeCodeFlags</i>
+</h3>
+
+
+<p>Flags related to the time code information.
+For drop frame, only 30000/1001 and 60000/1001 frame rates are supported.</p>
+
+
+
+
+	<div class="members-container">
+		<h5>Members</h5>
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VIDEO_TIME_CODE_FLAGS_NONE">
+	<div>
+		<i><em><code>GST_VIDEO_TIME_CODE_FLAGS_NONE</code></em></i>
+		(<span class="value">0</span>)
+		–
+	</div>
+			<p>No flags</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VIDEO_TIME_CODE_FLAGS_DROP_FRAME">
+	<div>
+		<i><em><code>GST_VIDEO_TIME_CODE_FLAGS_DROP_FRAME</code></em></i>
+		(<span class="value">1</span>)
+		–
+	</div>
+			<p>Whether we have drop frame rate</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VIDEO_TIME_CODE_FLAGS_INTERLACED">
+	<div>
+		<i><em><code>GST_VIDEO_TIME_CODE_FLAGS_INTERLACED</code></em></i>
+		(<span class="value">2</span>)
+		–
+	</div>
+			<p>Whether we have interlaced video</p>
+
+	</div>
+
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.10
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3 data-hotdoc-id="GstVideoTimeCodeFlags">
+	<i>GstVideo.VideoTimeCodeFlags</i>
+</h3>
+
+
+<p>Flags related to the time code information.
+For drop frame, only 30000/1001 and 60000/1001 frame rates are supported.</p>
+
+
+
+
+	<div class="members-container">
+		<h5>Members</h5>
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VIDEO_TIME_CODE_FLAGS_NONE">
+	<div>
+		<i><em><code>GstVideo.VideoTimeCodeFlags.NONE</code></em></i>
+		(<span class="value">0</span>)
+		–
+	</div>
+			<p>No flags</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VIDEO_TIME_CODE_FLAGS_DROP_FRAME">
+	<div>
+		<i><em><code>GstVideo.VideoTimeCodeFlags.DROP_FRAME</code></em></i>
+		(<span class="value">1</span>)
+		–
+	</div>
+			<p>Whether we have drop frame rate</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VIDEO_TIME_CODE_FLAGS_INTERLACED">
+	<div>
+		<i><em><code>GstVideo.VideoTimeCodeFlags.INTERLACED</code></em></i>
+		(<span class="value">2</span>)
+		–
+	</div>
+			<p>Whether we have interlaced video</p>
+
+	</div>
+
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.10
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3 data-hotdoc-id="GstVideoTimeCodeFlags">
+	<i>GstVideo.VideoTimeCodeFlags</i>
+</h3>
+
+
+<p>Flags related to the time code information.
+For drop frame, only 30000/1001 and 60000/1001 frame rates are supported.</p>
+
+
+
+
+	<div class="members-container">
+		<h5>Members</h5>
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VIDEO_TIME_CODE_FLAGS_NONE">
+	<div>
+		<i><em><code>GstVideo.VideoTimeCodeFlags.NONE</code></em></i>
+		(<span class="value">0</span>)
+		–
+	</div>
+			<p>No flags</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VIDEO_TIME_CODE_FLAGS_DROP_FRAME">
+	<div>
+		<i><em><code>GstVideo.VideoTimeCodeFlags.DROP_FRAME</code></em></i>
+		(<span class="value">1</span>)
+		–
+	</div>
+			<p>Whether we have drop frame rate</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VIDEO_TIME_CODE_FLAGS_INTERLACED">
+	<div>
+		<i><em><code>GstVideo.VideoTimeCodeFlags.INTERLACED</code></em></i>
+		(<span class="value">2</span>)
+		–
+	</div>
+			<p>Whether we have interlaced video</p>
+
+	</div>
+
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.10
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+
+            <h2 class="symbol_section">Constants</h2>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GST_VIDEO_TIME_CODE_INIT">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_VIDEO_TIME_CODE_INIT">
+	<i>GST_VIDEO_TIME_CODE_INIT</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_VIDEO_TIME_CODE_INIT { {0, 0, 0, NULL}, 0, 0, 0, 0, 0 }
+</pre>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+
+
+
+
+
+		
+	</div>
+	<div id="search_results">
+		<p>The results of the search are</p>
+	</div>
+	<div id="footer">
+		    
+
+	</div>
+</div>
+
+<div id="toc-column">
+	
+		<div class="edit-button">
+		
+
+	</div>
+		<div id="toc-wrapper">
+		<nav id="toc"></nav>
+	</div>
+</div>
+</div>
+</main>
+
+
+<script src="assets/js/navbar_offset_scroller.js"></script>
+</body>
+</html>

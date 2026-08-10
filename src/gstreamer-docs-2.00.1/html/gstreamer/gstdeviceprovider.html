@@ -1,0 +1,5328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<base href="..">
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<title>GstDeviceProvider</title>
+
+<link rel="stylesheet" href="assets/css/dark-frontend.css" type="text/css" title="dark">
+<link rel="alternate stylesheet" href="assets/css/light-frontend.css" type="text/css" title="light">
+<link rel="stylesheet" href="assets/css/bootstrap-toc.min.css" type="text/css">
+<link rel="stylesheet" href="assets/css/jquery.mCustomScrollbar.min.css">
+<link rel="stylesheet" href="assets/js/search/enable_search.css" type="text/css">
+
+<link rel="stylesheet" href="assets/css/extra_frontend.css" type="text/css">
+<link rel="stylesheet" href="assets/css/devhelp.css" type="text/css">
+
+<link rel="stylesheet" href="assets/css/prism-tomorrow.css" type="text/css" title="dark">
+
+<link rel="alternate stylesheet" href="assets/css/prism.css" type="text/css" title="light">
+
+<script src="assets/js/mustache.min.js"></script>
+<script src="assets/js/jquery.js"></script>
+<script src="assets/js/bootstrap.js"></script>
+<script src="assets/js/scrollspy.js"></script>
+<script src="assets/js/typeahead.jquery.min.js"></script>
+<script src="assets/js/search.js"></script>
+<script src="assets/js/compare-versions.js"></script>
+<script src="assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="assets/js/bootstrap-toc.min.js"></script>
+<script src="assets/js/jquery.touchSwipe.min.js"></script>
+<script src="assets/js/anchor.min.js"></script>
+<script src="assets/js/tag_filtering.js"></script>
+<script src="assets/js/language_switching.js"></script>
+<script src="assets/js/styleswitcher.js"></script>
+
+<script src="assets/js/lines_around_headings.js"></script>
+
+<script src="assets/js/prism-core.js"></script>
+<script src="assets/js/prism-autoloader.js"></script>
+<script src="assets/js/prism_autoloader_path_override.js"></script>
+<script src="assets/js/trie.js"></script>
+
+<!-- generic -->
+<link rel="icon" type="image/png" href="assets/images/favicon-16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="assets/images/favicon-32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="assets/images/favicon-57.png" sizes="57x57">
+<link rel="icon" type="image/png" href="assets/images/favicon-64.png" sizes="64x64">
+<link rel="icon" type="image/png" href="assets/images/favicon-76.png" sizes="76x76">
+<link rel="icon" type="image/png" href="assets/images/favicon-96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="assets/images/favicon-128.png" sizes="128x128">
+<link rel="icon" type="image/png" href="assets/images/favicon-192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="assets/images/favicon-228.png" sizes="228x228">
+
+<!-- Android -->
+<link rel="shortcut icon" sizes="196x196" href="assets/images/favicon-196.png">
+
+<!-- iOS -->
+<link rel="apple-touch-icon" href="assets/images/favicon-120.png" sizes="120x120">
+<link rel="apple-touch-icon" href="assets/images/favicon-152.png" sizes="152x152">
+<link rel="apple-touch-icon" href="assets/images/favicon-180.png" sizes="180x180">
+
+</head>
+
+<body class="no-script
+">
+
+<script>
+$('body').removeClass('no-script');
+</script>
+
+<nav class="navbar navbar-fixed-top navbar-default" id="topnav">
+	<div class="container-fluid">
+		<div class="navbar-right">
+			<a id="toc-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-wrapper" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<span title="light mode switch" class="glyphicon glyphicon-sunglasses pull-right" id="lightmode-icon"></span>
+			<form class="navbar-form pull-right" id="navbar-search-form">
+                               <div class="form-group has-feedback">
+                                       <input type="text" class="form-control input-sm" name="search" id="sidenav-lookup-field" placeholder="search" disabled>
+				       <span class="glyphicon glyphicon-search form-control-feedback" id="search-mgn-glass"></span>
+                               </div>
+                        </form>
+		</div>
+		<div class="navbar-header">
+			<a id="sidenav-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<a id="home-link" href="index.html" class="hotdoc-navbar-brand">
+				<img src="assets/images/gstreamer-logo.svg" alt="Home">
+			</a>
+		</div>
+		<div class="navbar-collapse collapse" id="navbar-wrapper">
+			<ul class="nav navbar-nav" id="menu">
+				
+<li class="dropdown">
+    <a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        API References<span class="caret"></span>
+    </a>
+	<ul class="dropdown-menu" id="modules-menu">
+					<li>
+				<a href="gstreamer/gi-index.html">GStreamer core</a>
+			</li>
+					<li>
+				<a href="libs.html">GStreamer Libraries</a>
+			</li>
+					<li>
+				<a href="plugins_doc.html">GStreamer Plugins</a>
+			</li>
+		</ul>
+</li>
+
+<li>
+    <a href="application-development/index.html">Application manual</a>
+</li>
+
+
+<li>
+    <a href="tutorials/index.html">Tutorials</a>
+</li>
+
+			</ul>
+			<div class="hidden-xs hidden-sm navbar-text navbar-center">
+							</div>
+		</div>
+	</div>
+</nav>
+
+<main>
+<div data-extension="gi-extension" data-hotdoc-in-toplevel="False" data-hotdoc-project="gstreamer" data-hotdoc-ref="gstdeviceprovider.html" class="page_container" id="page-wrapper" data-hotdoc-meta-gi-languages="['c', 'javascript', 'python']" data-hotdoc-meta-gi-language="c">
+<script src="assets/js/utils.js"></script>
+
+<div class="panel panel-collapse oc-collapsed" id="sidenav" data-hotdoc-role="navigation">
+	<script src="assets/js/full-width.js"></script>
+  <div id="sitenav-wrapper">
+    <iframe src="hotdoc-sitemap.html" id="sitenav-frame"></iframe>
+  </div>
+</div>
+
+<div id="body">
+	<div id="main">
+				    <div id="page-description" data-hotdoc-role="main">
+        <h1 id="gstdeviceprovider-page">GstDeviceProvider</h1>
+<p>A <a href="gstreamer/gstdeviceprovider.html#GstDeviceProvider" data-gi-href-javascript="gstreamer/gstdeviceprovider.html#GstDeviceProvider" data-gi-title-javascript="Gst.DeviceProvider" data-gi-href-python="gstreamer/gstdeviceprovider.html#GstDeviceProvider" data-gi-title-python="Gst.DeviceProvider">GstDeviceProvider</a> subclass is provided by a plugin that handles devices
+if there is a way to programmatically list connected devices. It can also
+optionally provide updates to the list of connected devices.</p>
+<p>Each <a href="gstreamer/gstdeviceprovider.html#GstDeviceProvider" data-gi-href-javascript="gstreamer/gstdeviceprovider.html#GstDeviceProvider" data-gi-title-javascript="Gst.DeviceProvider" data-gi-href-python="gstreamer/gstdeviceprovider.html#GstDeviceProvider" data-gi-title-python="Gst.DeviceProvider">GstDeviceProvider</a> subclass is a singleton, a plugin should
+normally provide a single subclass for all devices.</p>
+<p>Applications would normally use a <a href="gstreamer/gstdevicemonitor.html#GstDeviceMonitor" data-gi-href-javascript="gstreamer/gstdevicemonitor.html#GstDeviceMonitor" data-gi-title-javascript="Gst.DeviceMonitor" data-gi-href-python="gstreamer/gstdevicemonitor.html#GstDeviceMonitor" data-gi-title-python="Gst.DeviceMonitor">GstDeviceMonitor</a> to monitor devices
+from all relevant providers.</p>
+
+    </div>
+        
+        
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.4;" id="GstDeviceProvider">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h2 data-hotdoc-id="GstDeviceProvider">
+	<i>GstDeviceProvider</i>
+</h2>
+
+
+<div class="hierarchy_container">
+	<div class="hierarchy_details">
+<pre>
+<a title="GObject" href="https://docs.gtk.org/gobject/class.Object.html">GObject</a>
+    <span class="lineart">╰──</span><a title="GInitiallyUnowned" href="https://docs.gtk.org/gobject/class.InitiallyUnowned.html">GInitiallyUnowned</a>
+        <span class="lineart">╰──</span><a title="GstObject" href="gstreamer/gstobject.html#GstObject">GstObject</a>
+            <span class="lineart">╰──</span>GstDeviceProvider
+</pre>
+
+</div>
+
+</div>
+
+<div class="class_details">
+	<p>The structure of the base <a href="gstreamer/gstdeviceprovider.html#GstDeviceProvider">GstDeviceProvider</a></p>
+
+</div>
+
+
+
+	<div class="members-container">
+		<h3>Members</h3>
+					
+<div class="symbol-detail" data-hotdoc-id="GstDeviceProvider.parent">
+	<div>
+		<i><em><code>parent</code></em></i>
+		(<a title="GstObject" href="gstreamer/gstobject.html#GstObject">GstObject</a>)
+		–
+	</div>
+			<p>The parent <a href="gstreamer/gstobject.html#GstObject">GstObject</a></p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstDeviceProvider.devices">
+	<div>
+		<i><em><code>devices</code></em></i>
+		(<a title="GList" href="https://docs.gtk.org/glib/struct.List.html">GList</a> *)
+		–
+	</div>
+			<p>a <a href="https://docs.gtk.org/glib/struct.List.html">GList</a> of the <a href="gstreamer/gstdevice.html#GstDevice">GstDevice</a> objects</p>
+
+	</div>
+
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.4
+		</p>
+
+<hr>
+<h3>Class structure</h3>
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstDeviceProviderClass">
+	<i>GstDeviceProviderClass</i>
+</h4>
+
+
+<p>The structure of the base <a href="GstDeviceProviderClass">GstDeviceProviderClass</a></p>
+
+
+
+
+	<div class="members-container">
+		<h5>Fields</h5>
+					
+<div class="symbol-detail" data-hotdoc-id="GstDeviceProviderClass.parent_class">
+	<div>
+		<i><em><code>parent_class</code></em></i>
+		(<a title="GstObjectClass" href="GstObjectClass">GstObjectClass</a>)
+		–
+	</div>
+			<p>the parent <a href="GstObjectClass">GstObjectClass</a> structure</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstDeviceProviderClass.factory">
+	<div>
+		<i><em><code>factory</code></em></i>
+		(<a title="GstDeviceProviderFactory" href="gstreamer/gstdeviceproviderfactory.html#GstDeviceProviderFactory">GstDeviceProviderFactory</a> *)
+		–
+	</div>
+			<p>a pointer to the <a href="gstreamer/gstdeviceproviderfactory.html#GstDeviceProviderFactory">GstDeviceProviderFactory</a> that creates this
+provider</p>
+
+	</div>
+
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.4
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3>
+	Gst.DeviceProviderClass
+</h3>
+
+
+<p>The structure of the base <a href="GstDeviceProviderClass">Gst.DeviceProviderClass</a></p>
+
+
+
+
+	<div class="members-container">
+		<h5>Attributes</h5>
+					
+<div class="symbol-detail" data-hotdoc-id="GstDeviceProviderClass.parent_class">
+	<div>
+		<i><em><code>parent_class</code></em></i>
+		(<a title="Gst.ObjectClass" href="GstObjectClass">Gst.ObjectClass</a>)
+		–
+	</div>
+			<p>the parent <a href="GstObjectClass">Gst.ObjectClass</a> structure</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstDeviceProviderClass.factory">
+	<div>
+		<i><em><code>factory</code></em></i>
+		(<a title="Gst.DeviceProviderFactory" href="gstreamer/gstdeviceproviderfactory.html#GstDeviceProviderFactory">Gst.DeviceProviderFactory</a>)
+		–
+	</div>
+			<p>a pointer to the <a href="gstreamer/gstdeviceproviderfactory.html#GstDeviceProviderFactory">Gst.DeviceProviderFactory</a> that creates this
+provider</p>
+
+	</div>
+
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.4
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3>
+	Gst.DeviceProviderClass
+</h3>
+
+
+<p>The structure of the base <a href="GstDeviceProviderClass">Gst.DeviceProviderClass</a></p>
+
+
+
+
+	<div class="members-container">
+		<h5>Attributes</h5>
+					
+<div class="symbol-detail" data-hotdoc-id="GstDeviceProviderClass.parent_class">
+	<div>
+		<i><em><code>parent_class</code></em></i>
+		(<a title="Gst.ObjectClass" href="GstObjectClass">Gst.ObjectClass</a>)
+		–
+	</div>
+			<p>the parent <a href="GstObjectClass">Gst.ObjectClass</a> structure</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstDeviceProviderClass.factory">
+	<div>
+		<i><em><code>factory</code></em></i>
+		(<a title="Gst.DeviceProviderFactory" href="gstreamer/gstdeviceproviderfactory.html#GstDeviceProviderFactory">Gst.DeviceProviderFactory</a>)
+		–
+	</div>
+			<p>a pointer to the <a href="gstreamer/gstdeviceproviderfactory.html#GstDeviceProviderFactory">Gst.DeviceProviderFactory</a> that creates this
+provider</p>
+
+	</div>
+
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.4
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h2 data-hotdoc-id="GstDeviceProvider">
+	<i>Gst.DeviceProvider</i>
+</h2>
+
+
+<div class="hierarchy_container">
+	<div class="hierarchy_details">
+<pre>
+<a title="GObject.Object" href="https://docs.gtk.org/gobject/class.Object.html">GObject.Object</a>
+    <span class="lineart">╰──</span><a title="GObject.InitiallyUnowned" href="https://docs.gtk.org/gobject/class.InitiallyUnowned.html">GObject.InitiallyUnowned</a>
+        <span class="lineart">╰──</span><a title="Gst.Object" href="gstreamer/gstobject.html#GstObject">Gst.Object</a>
+            <span class="lineart">╰──</span>Gst.DeviceProvider
+</pre>
+
+</div>
+
+</div>
+
+<div class="class_details">
+	<p>The structure of the base <a href="gstreamer/gstdeviceprovider.html#GstDeviceProvider">Gst.DeviceProvider</a></p>
+
+</div>
+
+
+
+	<div class="members-container">
+		<h3>Members</h3>
+					
+<div class="symbol-detail" data-hotdoc-id="GstDeviceProvider.parent">
+	<div>
+		<i><em><code>parent</code></em></i>
+		(<a title="Gst.Object" href="gstreamer/gstobject.html#GstObject">Gst.Object</a>)
+		–
+	</div>
+			<p>The parent <a href="gstreamer/gstobject.html#GstObject">Gst.Object</a></p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstDeviceProvider.devices">
+	<div>
+		<i><em><code>devices</code></em></i>
+		([ <a title="Object" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a> ])
+		–
+	</div>
+			<p>a <a href="https://docs.gtk.org/glib/struct.List.html">GLib.List</a> of the <a href="gstreamer/gstdevice.html#GstDevice">Gst.Device</a> objects</p>
+
+	</div>
+
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.4
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h2 data-hotdoc-id="GstDeviceProvider">
+	<i>Gst.DeviceProvider</i>
+</h2>
+
+
+<div class="hierarchy_container">
+	<div class="hierarchy_details">
+<pre>
+<a title="GObject.Object" href="https://docs.gtk.org/gobject/class.Object.html">GObject.Object</a>
+    <span class="lineart">╰──</span><a title="GObject.InitiallyUnowned" href="https://docs.gtk.org/gobject/class.InitiallyUnowned.html">GObject.InitiallyUnowned</a>
+        <span class="lineart">╰──</span><a title="Gst.Object" href="gstreamer/gstobject.html#GstObject">Gst.Object</a>
+            <span class="lineart">╰──</span>Gst.DeviceProvider
+</pre>
+
+</div>
+
+</div>
+
+<div class="class_details">
+	<p>The structure of the base <a href="gstreamer/gstdeviceprovider.html#GstDeviceProvider">Gst.DeviceProvider</a></p>
+
+</div>
+
+
+
+	<div class="members-container">
+		<h3>Members</h3>
+					
+<div class="symbol-detail" data-hotdoc-id="GstDeviceProvider.parent">
+	<div>
+		<i><em><code>parent</code></em></i>
+		(<a title="Gst.Object" href="gstreamer/gstobject.html#GstObject">Gst.Object</a>)
+		–
+	</div>
+			<p>The parent <a href="gstreamer/gstobject.html#GstObject">Gst.Object</a></p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstDeviceProvider.devices">
+	<div>
+		<i><em><code>devices</code></em></i>
+		([ <a title="object" href="https://docs.python.org/3/library/functions.html#object">object</a> ])
+		–
+	</div>
+			<p>a <a href="https://docs.gtk.org/glib/struct.List.html">GLib.List</a> of the <a href="gstreamer/gstdevice.html#GstDevice">Gst.Device</a> objects</p>
+
+	</div>
+
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.4
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+
+            <h3 class="symbol_section">Methods</h3>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_device_provider_can_monitor">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_device_provider_can_monitor">
+	<i>gst_device_provider_can_monitor</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a>
+gst_device_provider_can_monitor (<a title="GstDeviceProvider" href="gstreamer/gstdeviceprovider.html#GstDeviceProvider">GstDeviceProvider</a> * provider)</pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>provider</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_device_provider_can_monitor">
+	<i>Gst.DeviceProvider.prototype.can_monitor</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function Gst.DeviceProvider.prototype.can_monitor(): {
+    // javascript wrapper for 'gst_device_provider_can_monitor'
+}</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>provider</code></em></i>
+<span>(</span><a title="Gst.DeviceProvider" href="gstreamer/gstdeviceprovider.html#GstDeviceProvider">Gst.DeviceProvider</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_device_provider_can_monitor">
+	<i>Gst.DeviceProvider.can_monitor</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def Gst.DeviceProvider.can_monitor (self):
+    #python wrapper for 'gst_device_provider_can_monitor'</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>provider</code></em></i>
+<span>(</span><a title="Gst.DeviceProvider" href="gstreamer/gstdeviceprovider.html#GstDeviceProvider">Gst.DeviceProvider</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a><span>)</span>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.4;" id="gst_device_provider_device_add">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_device_provider_device_add">
+	<i>gst_device_provider_device_add</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+gst_device_provider_device_add (<a title="GstDeviceProvider" href="gstreamer/gstdeviceprovider.html#GstDeviceProvider">GstDeviceProvider</a> * provider,
+                                <a title="GstDevice" href="gstreamer/gstdevice.html#GstDevice">GstDevice</a> * device)</pre>
+
+<p>Posts a message on the provider's <a href="gstreamer/gstbus.html#GstBus">GstBus</a> to inform applications that
+a new device has been added.</p>
+<p>This is for use by subclasses.</p>
+<p><em>device</em>'s reference count will be incremented, and any floating reference
+will be removed (see <a href="gstreamer/gstobject.html#gst_object_ref_sink">gst_object_ref_sink</a>).</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>provider</code></em></i>
+–
+</div>
+<p>a <a href="gstreamer/gstdeviceprovider.html#GstDeviceProvider">GstDeviceProvider</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>device</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="Alias for transfer none, used for objects with floating refs"><span class="acronym">transfer: floating</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gstdevice.html#GstDevice">GstDevice</a> that has been added</p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.4
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_device_provider_device_add">
+	<i>Gst.DeviceProvider.prototype.device_add</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function Gst.DeviceProvider.prototype.device_add(device: <a title="Gst.Device" href="gstreamer/gstdevice.html#GstDevice">Gst.Device</a>): {
+    // javascript wrapper for 'gst_device_provider_device_add'
+}</code></pre>
+
+<p>Posts a message on the provider's <a href="gstreamer/gstbus.html#GstBus">Gst.Bus</a> to inform applications that
+a new device has been added.</p>
+<p>This is for use by subclasses.</p>
+<p><em>device</em>'s reference count will be incremented, and any floating reference
+will be removed (see <a href="gstreamer/gstobject.html#gst_object_ref_sink">gst_object_ref_sink (not introspectable)</a>).</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>provider</code></em></i>
+<span>(</span><a title="Gst.DeviceProvider" href="gstreamer/gstdeviceprovider.html#GstDeviceProvider">Gst.DeviceProvider</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gstdeviceprovider.html#GstDeviceProvider">Gst.DeviceProvider</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>device</code></em></i>
+<span>(</span><a title="Gst.Device" href="gstreamer/gstdevice.html#GstDevice">Gst.Device</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gstdevice.html#GstDevice">Gst.Device</a> that has been added</p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.4
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_device_provider_device_add">
+	<i>Gst.DeviceProvider.device_add</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def Gst.DeviceProvider.device_add (self, device):
+    #python wrapper for 'gst_device_provider_device_add'</code></pre>
+
+<p>Posts a message on the provider's <a href="gstreamer/gstbus.html#GstBus">Gst.Bus</a> to inform applications that
+a new device has been added.</p>
+<p>This is for use by subclasses.</p>
+<p><em>device</em>'s reference count will be incremented, and any floating reference
+will be removed (see <a href="gstreamer/gstobject.html#gst_object_ref_sink">gst_object_ref_sink (not introspectable)</a>).</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>provider</code></em></i>
+<span>(</span><a title="Gst.DeviceProvider" href="gstreamer/gstdeviceprovider.html#GstDeviceProvider">Gst.DeviceProvider</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gstdeviceprovider.html#GstDeviceProvider">Gst.DeviceProvider</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>device</code></em></i>
+<span>(</span><a title="Gst.Device" href="gstreamer/gstdevice.html#GstDevice">Gst.Device</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gstdevice.html#GstDevice">Gst.Device</a> that has been added</p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.4
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.16;" id="gst_device_provider_device_changed">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_device_provider_device_changed">
+	<i>gst_device_provider_device_changed</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+gst_device_provider_device_changed (<a title="GstDeviceProvider" href="gstreamer/gstdeviceprovider.html#GstDeviceProvider">GstDeviceProvider</a> * provider,
+                                    <a title="GstDevice" href="gstreamer/gstdevice.html#GstDevice">GstDevice</a> * device,
+                                    <a title="GstDevice" href="gstreamer/gstdevice.html#GstDevice">GstDevice</a> * changed_device)</pre>
+
+<p>This function is used when <em>changed_device</em> was modified into its new form
+<em>device</em>. This will post a <code>DEVICE_CHANGED</code> message on the bus to let
+the application know that the device was modified. <a href="gstreamer/gstdevice.html#GstDevice">GstDevice</a> is immutable
+for MT. safety purposes so this is an "atomic" way of letting the application
+know when a device was modified.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>provider</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>device</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="Don't free data after the code is done"><span class="acronym">transfer: none</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>the new version of <em>changed_device</em></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>changed_device</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="Alias for transfer none, used for objects with floating refs"><span class="acronym">transfer: floating</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>the old version of the device that has been updated</p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.16
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_device_provider_device_changed">
+	<i>Gst.DeviceProvider.prototype.device_changed</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function Gst.DeviceProvider.prototype.device_changed(device: <a title="Gst.Device" href="gstreamer/gstdevice.html#GstDevice">Gst.Device</a>, changed_device: <a title="Gst.Device" href="gstreamer/gstdevice.html#GstDevice">Gst.Device</a>): {
+    // javascript wrapper for 'gst_device_provider_device_changed'
+}</code></pre>
+
+<p>This function is used when <em>changed_device</em> was modified into its new form
+<em>device</em>. This will post a <code>DEVICE_CHANGED</code> message on the bus to let
+the application know that the device was modified. <a href="gstreamer/gstdevice.html#GstDevice">Gst.Device</a> is immutable
+for MT. safety purposes so this is an "atomic" way of letting the application
+know when a device was modified.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>provider</code></em></i>
+<span>(</span><a title="Gst.DeviceProvider" href="gstreamer/gstdeviceprovider.html#GstDeviceProvider">Gst.DeviceProvider</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>device</code></em></i>
+<span>(</span><a title="Gst.Device" href="gstreamer/gstdevice.html#GstDevice">Gst.Device</a><span>)</span>
+–
+</div>
+<p>the new version of <em>changed_device</em></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>changed_device</code></em></i>
+<span>(</span><a title="Gst.Device" href="gstreamer/gstdevice.html#GstDevice">Gst.Device</a><span>)</span>
+–
+</div>
+<p>the old version of the device that has been updated</p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.16
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_device_provider_device_changed">
+	<i>Gst.DeviceProvider.device_changed</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def Gst.DeviceProvider.device_changed (self, device, changed_device):
+    #python wrapper for 'gst_device_provider_device_changed'</code></pre>
+
+<p>This function is used when <em>changed_device</em> was modified into its new form
+<em>device</em>. This will post a <code>DEVICE_CHANGED</code> message on the bus to let
+the application know that the device was modified. <a href="gstreamer/gstdevice.html#GstDevice">Gst.Device</a> is immutable
+for MT. safety purposes so this is an "atomic" way of letting the application
+know when a device was modified.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>provider</code></em></i>
+<span>(</span><a title="Gst.DeviceProvider" href="gstreamer/gstdeviceprovider.html#GstDeviceProvider">Gst.DeviceProvider</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>device</code></em></i>
+<span>(</span><a title="Gst.Device" href="gstreamer/gstdevice.html#GstDevice">Gst.Device</a><span>)</span>
+–
+</div>
+<p>the new version of <em>changed_device</em></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>changed_device</code></em></i>
+<span>(</span><a title="Gst.Device" href="gstreamer/gstdevice.html#GstDevice">Gst.Device</a><span>)</span>
+–
+</div>
+<p>the old version of the device that has been updated</p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.16
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.4;" id="gst_device_provider_device_remove">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_device_provider_device_remove">
+	<i>gst_device_provider_device_remove</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+gst_device_provider_device_remove (<a title="GstDeviceProvider" href="gstreamer/gstdeviceprovider.html#GstDeviceProvider">GstDeviceProvider</a> * provider,
+                                   <a title="GstDevice" href="gstreamer/gstdevice.html#GstDevice">GstDevice</a> * device)</pre>
+
+<p>Posts a message on the provider's <a href="gstreamer/gstbus.html#GstBus">GstBus</a> to inform applications that
+a device has been removed.</p>
+<p>This is for use by subclasses.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>provider</code></em></i>
+–
+</div>
+<p>a <a href="gstreamer/gstdeviceprovider.html#GstDeviceProvider">GstDeviceProvider</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>device</code></em></i>
+–
+</div>
+<p>a <a href="gstreamer/gstdevice.html#GstDevice">GstDevice</a> that has been removed</p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.4
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_device_provider_device_remove">
+	<i>Gst.DeviceProvider.prototype.device_remove</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function Gst.DeviceProvider.prototype.device_remove(device: <a title="Gst.Device" href="gstreamer/gstdevice.html#GstDevice">Gst.Device</a>): {
+    // javascript wrapper for 'gst_device_provider_device_remove'
+}</code></pre>
+
+<p>Posts a message on the provider's <a href="gstreamer/gstbus.html#GstBus">Gst.Bus</a> to inform applications that
+a device has been removed.</p>
+<p>This is for use by subclasses.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>provider</code></em></i>
+<span>(</span><a title="Gst.DeviceProvider" href="gstreamer/gstdeviceprovider.html#GstDeviceProvider">Gst.DeviceProvider</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gstdeviceprovider.html#GstDeviceProvider">Gst.DeviceProvider</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>device</code></em></i>
+<span>(</span><a title="Gst.Device" href="gstreamer/gstdevice.html#GstDevice">Gst.Device</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gstdevice.html#GstDevice">Gst.Device</a> that has been removed</p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.4
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_device_provider_device_remove">
+	<i>Gst.DeviceProvider.device_remove</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def Gst.DeviceProvider.device_remove (self, device):
+    #python wrapper for 'gst_device_provider_device_remove'</code></pre>
+
+<p>Posts a message on the provider's <a href="gstreamer/gstbus.html#GstBus">Gst.Bus</a> to inform applications that
+a device has been removed.</p>
+<p>This is for use by subclasses.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>provider</code></em></i>
+<span>(</span><a title="Gst.DeviceProvider" href="gstreamer/gstdeviceprovider.html#GstDeviceProvider">Gst.DeviceProvider</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gstdeviceprovider.html#GstDeviceProvider">Gst.DeviceProvider</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>device</code></em></i>
+<span>(</span><a title="Gst.Device" href="gstreamer/gstdevice.html#GstDevice">Gst.Device</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gstdevice.html#GstDevice">Gst.Device</a> that has been removed</p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.4
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.4;" id="gst_device_provider_get_bus">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_device_provider_get_bus">
+	<i>gst_device_provider_get_bus</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GstBus" href="gstreamer/gstbus.html#GstBus">GstBus</a> *
+gst_device_provider_get_bus (<a title="GstDeviceProvider" href="gstreamer/gstdeviceprovider.html#GstDeviceProvider">GstDeviceProvider</a> * provider)</pre>
+
+<p>Gets the <a href="gstreamer/gstbus.html#GstBus">GstBus</a> of this <a href="gstreamer/gstdeviceprovider.html#GstDeviceProvider">GstDeviceProvider</a></p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>provider</code></em></i>
+–
+</div>
+<p>a <a href="gstreamer/gstdeviceprovider.html#GstDeviceProvider">GstDeviceProvider</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span>
+<span class="annotation">[<abbr title="Free data after the code is done"><span class="acronym">transfer: full</span></abbr>]</span><span>)</span>
+–
+			</div>
+							<p>a <a href="gstreamer/gstbus.html#GstBus">GstBus</a></p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.4
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_device_provider_get_bus">
+	<i>Gst.DeviceProvider.prototype.get_bus</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function Gst.DeviceProvider.prototype.get_bus(): {
+    // javascript wrapper for 'gst_device_provider_get_bus'
+}</code></pre>
+
+<p>Gets the <a href="gstreamer/gstbus.html#GstBus">Gst.Bus</a> of this <a href="gstreamer/gstdeviceprovider.html#GstDeviceProvider">Gst.DeviceProvider</a></p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>provider</code></em></i>
+<span>(</span><a title="Gst.DeviceProvider" href="gstreamer/gstdeviceprovider.html#GstDeviceProvider">Gst.DeviceProvider</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gstdeviceprovider.html#GstDeviceProvider">Gst.DeviceProvider</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Gst.Bus" href="gstreamer/gstbus.html#GstBus">Gst.Bus</a><span>)</span>
+–
+			</div>
+							<p>a <a href="gstreamer/gstbus.html#GstBus">Gst.Bus</a></p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.4
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_device_provider_get_bus">
+	<i>Gst.DeviceProvider.get_bus</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def Gst.DeviceProvider.get_bus (self):
+    #python wrapper for 'gst_device_provider_get_bus'</code></pre>
+
+<p>Gets the <a href="gstreamer/gstbus.html#GstBus">Gst.Bus</a> of this <a href="gstreamer/gstdeviceprovider.html#GstDeviceProvider">Gst.DeviceProvider</a></p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>provider</code></em></i>
+<span>(</span><a title="Gst.DeviceProvider" href="gstreamer/gstdeviceprovider.html#GstDeviceProvider">Gst.DeviceProvider</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gstdeviceprovider.html#GstDeviceProvider">Gst.DeviceProvider</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Gst.Bus" href="gstreamer/gstbus.html#GstBus">Gst.Bus</a><span>)</span>
+–
+			</div>
+							<p>a <a href="gstreamer/gstbus.html#GstBus">Gst.Bus</a></p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.4
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.4;" id="gst_device_provider_get_devices">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_device_provider_get_devices">
+	<i>gst_device_provider_get_devices</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GList" href="https://docs.gtk.org/glib/struct.List.html">GList</a> *
+gst_device_provider_get_devices (<a title="GstDeviceProvider" href="gstreamer/gstdeviceprovider.html#GstDeviceProvider">GstDeviceProvider</a> * provider)</pre>
+
+<p>Gets a list of devices that this provider understands. This may actually
+probe the hardware if the provider is not currently started.</p>
+<p>If the provider has been started, this will return the same <a href="gstreamer/gstdevice.html#GstDevice">GstDevice</a>
+objects that have been returned by the <a href="gstreamer/gstmessage.html#GST_MESSAGE_DEVICE_ADDED">GST_MESSAGE_DEVICE_ADDED</a> messages.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>provider</code></em></i>
+–
+</div>
+<p>A <a href="gstreamer/gstdeviceprovider.html#GstDeviceProvider">GstDeviceProvider</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span>
+<span class="annotation">[<abbr title="Free data after the code is done"><span class="acronym">transfer: full</span></abbr>]</span><span class="annotation">[<abbr title="Generic and defining element of containers and arrays"><span class="acronym">element-type</span></abbr> GstDevice]</span><span>)</span>
+–
+			</div>
+							<p>a <a href="https://docs.gtk.org/glib/struct.List.html">GList</a> of
+<a href="gstreamer/gstdevice.html#GstDevice">GstDevice</a></p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.4
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_device_provider_get_devices">
+	<i>Gst.DeviceProvider.prototype.get_devices</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function Gst.DeviceProvider.prototype.get_devices(): {
+    // javascript wrapper for 'gst_device_provider_get_devices'
+}</code></pre>
+
+<p>Gets a list of devices that this provider understands. This may actually
+probe the hardware if the provider is not currently started.</p>
+<p>If the provider has been started, this will return the same <a href="gstreamer/gstdevice.html#GstDevice">Gst.Device</a>
+objects that have been returned by the <a href="gstreamer/gstmessage.html#GST_MESSAGE_DEVICE_ADDED">Gst.MessageType.DEVICE_ADDED</a> messages.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>provider</code></em></i>
+<span>(</span><a title="Gst.DeviceProvider" href="gstreamer/gstdeviceprovider.html#GstDeviceProvider">Gst.DeviceProvider</a><span>)</span>
+–
+</div>
+<p>A <a href="gstreamer/gstdeviceprovider.html#GstDeviceProvider">Gst.DeviceProvider</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span>[ <a title="Gst.Device" href="gstreamer/gstdevice.html#GstDevice">Gst.Device</a> ]<span>)</span>
+–
+			</div>
+							<p>a <a href="https://docs.gtk.org/glib/struct.List.html">GLib.List</a> of
+<a href="gstreamer/gstdevice.html#GstDevice">Gst.Device</a></p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.4
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_device_provider_get_devices">
+	<i>Gst.DeviceProvider.get_devices</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def Gst.DeviceProvider.get_devices (self):
+    #python wrapper for 'gst_device_provider_get_devices'</code></pre>
+
+<p>Gets a list of devices that this provider understands. This may actually
+probe the hardware if the provider is not currently started.</p>
+<p>If the provider has been started, this will return the same <a href="gstreamer/gstdevice.html#GstDevice">Gst.Device</a>
+objects that have been returned by the <a href="gstreamer/gstmessage.html#GST_MESSAGE_DEVICE_ADDED">Gst.MessageType.DEVICE_ADDED</a> messages.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>provider</code></em></i>
+<span>(</span><a title="Gst.DeviceProvider" href="gstreamer/gstdeviceprovider.html#GstDeviceProvider">Gst.DeviceProvider</a><span>)</span>
+–
+</div>
+<p>A <a href="gstreamer/gstdeviceprovider.html#GstDeviceProvider">Gst.DeviceProvider</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span>[ <a title="Gst.Device" href="gstreamer/gstdevice.html#GstDevice">Gst.Device</a> ]<span>)</span>
+–
+			</div>
+							<p>a <a href="https://docs.gtk.org/glib/struct.List.html">GLib.List</a> of
+<a href="gstreamer/gstdevice.html#GstDevice">Gst.Device</a></p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.4
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.4;" id="gst_device_provider_get_factory">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_device_provider_get_factory">
+	<i>gst_device_provider_get_factory</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GstDeviceProviderFactory" href="gstreamer/gstdeviceproviderfactory.html#GstDeviceProviderFactory">GstDeviceProviderFactory</a> *
+gst_device_provider_get_factory (<a title="GstDeviceProvider" href="gstreamer/gstdeviceprovider.html#GstDeviceProvider">GstDeviceProvider</a> * provider)</pre>
+
+<p>Retrieves the factory that was used to create this device provider.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>provider</code></em></i>
+–
+</div>
+<p>a <a href="gstreamer/gstdeviceprovider.html#GstDeviceProvider">GstDeviceProvider</a> to request the device provider factory of.</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span>
+<span class="annotation">[<abbr title="Don't free data after the code is done"><span class="acronym">transfer: none</span></abbr>]</span><span class="annotation">[<abbr title="NULL may be passed to the value"><span class="acronym">nullable</span></abbr>]</span><span>)</span>
+–
+			</div>
+							<p>the <a href="gstreamer/gstdeviceproviderfactory.html#GstDeviceProviderFactory">GstDeviceProviderFactory</a> used for
+creating this device provider. no refcounting is needed.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.4
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_device_provider_get_factory">
+	<i>Gst.DeviceProvider.prototype.get_factory</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function Gst.DeviceProvider.prototype.get_factory(): {
+    // javascript wrapper for 'gst_device_provider_get_factory'
+}</code></pre>
+
+<p>Retrieves the factory that was used to create this device provider.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>provider</code></em></i>
+<span>(</span><a title="Gst.DeviceProvider" href="gstreamer/gstdeviceprovider.html#GstDeviceProvider">Gst.DeviceProvider</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gstdeviceprovider.html#GstDeviceProvider">Gst.DeviceProvider</a> to request the device provider factory of.</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Gst.DeviceProviderFactory" href="gstreamer/gstdeviceproviderfactory.html#GstDeviceProviderFactory">Gst.DeviceProviderFactory</a><span>)</span>
+–
+			</div>
+							<p>the <a href="gstreamer/gstdeviceproviderfactory.html#GstDeviceProviderFactory">Gst.DeviceProviderFactory</a> used for
+creating this device provider. no refcounting is needed.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.4
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_device_provider_get_factory">
+	<i>Gst.DeviceProvider.get_factory</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def Gst.DeviceProvider.get_factory (self):
+    #python wrapper for 'gst_device_provider_get_factory'</code></pre>
+
+<p>Retrieves the factory that was used to create this device provider.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>provider</code></em></i>
+<span>(</span><a title="Gst.DeviceProvider" href="gstreamer/gstdeviceprovider.html#GstDeviceProvider">Gst.DeviceProvider</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gstdeviceprovider.html#GstDeviceProvider">Gst.DeviceProvider</a> to request the device provider factory of.</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Gst.DeviceProviderFactory" href="gstreamer/gstdeviceproviderfactory.html#GstDeviceProviderFactory">Gst.DeviceProviderFactory</a><span>)</span>
+–
+			</div>
+							<p>the <a href="gstreamer/gstdeviceproviderfactory.html#GstDeviceProviderFactory">Gst.DeviceProviderFactory</a> used for
+creating this device provider. no refcounting is needed.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.4
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.6;" id="gst_device_provider_get_hidden_providers">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_device_provider_get_hidden_providers">
+	<i>gst_device_provider_get_hidden_providers</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gchar" href="https://docs.gtk.org/glib/types.html#gchar">gchar</a> **
+gst_device_provider_get_hidden_providers (<a title="GstDeviceProvider" href="gstreamer/gstdeviceprovider.html#GstDeviceProvider">GstDeviceProvider</a> * provider)</pre>
+
+<p>Get the provider factory names of the <a href="gstreamer/gstdeviceprovider.html#GstDeviceProvider">GstDeviceProvider</a> instances that
+are hidden by <em>provider</em>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>provider</code></em></i>
+–
+</div>
+<p>a <a href="gstreamer/gstdeviceprovider.html#GstDeviceProvider">GstDeviceProvider</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p>(transfer full) (array zero-terminated=1) (element-type gchar*):
+a list of hidden providers factory names or <a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#NULL:CAPS">NULL</a> when
+nothing is hidden by <em>provider</em>. Free with g_strfreev.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.6
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_device_provider_get_hidden_providers">
+	<i>Gst.DeviceProvider.prototype.get_hidden_providers</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function Gst.DeviceProvider.prototype.get_hidden_providers(): {
+    // javascript wrapper for 'gst_device_provider_get_hidden_providers'
+}</code></pre>
+
+<p>Get the provider factory names of the <a href="gstreamer/gstdeviceprovider.html#GstDeviceProvider">Gst.DeviceProvider</a> instances that
+are hidden by <em>provider</em>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>provider</code></em></i>
+<span>(</span><a title="Gst.DeviceProvider" href="gstreamer/gstdeviceprovider.html#GstDeviceProvider">Gst.DeviceProvider</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gstdeviceprovider.html#GstDeviceProvider">Gst.DeviceProvider</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span>[ <a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a> ]<span>)</span>
+–
+			</div>
+							<p>(transfer full) (array zero-terminated=1) (element-type gchar*):
+a list of hidden providers factory names or <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null">null</a> when
+nothing is hidden by <em>provider</em>. Free with g_strfreev.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.6
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_device_provider_get_hidden_providers">
+	<i>Gst.DeviceProvider.get_hidden_providers</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def Gst.DeviceProvider.get_hidden_providers (self):
+    #python wrapper for 'gst_device_provider_get_hidden_providers'</code></pre>
+
+<p>Get the provider factory names of the <a href="gstreamer/gstdeviceprovider.html#GstDeviceProvider">Gst.DeviceProvider</a> instances that
+are hidden by <em>provider</em>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>provider</code></em></i>
+<span>(</span><a title="Gst.DeviceProvider" href="gstreamer/gstdeviceprovider.html#GstDeviceProvider">Gst.DeviceProvider</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gstdeviceprovider.html#GstDeviceProvider">Gst.DeviceProvider</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span>[ <a title="str" href="https://docs.python.org/3/library/functions.html#func-str">str</a> ]<span>)</span>
+–
+			</div>
+							<p>(transfer full) (array zero-terminated=1) (element-type gchar*):
+a list of hidden providers factory names or <a href="https://docs.python.org/3/library/constants.html#None">None</a> when
+nothing is hidden by <em>provider</em>. Free with g_strfreev.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.6
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.14;" id="gst_device_provider_get_metadata">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_device_provider_get_metadata">
+	<i>gst_device_provider_get_metadata</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+const <a title="gchar" href="https://docs.gtk.org/glib/types.html#gchar">gchar</a> *
+gst_device_provider_get_metadata (<a title="GstDeviceProvider" href="gstreamer/gstdeviceprovider.html#GstDeviceProvider">GstDeviceProvider</a> * provider,
+                                  const <a title="gchar" href="https://docs.gtk.org/glib/types.html#gchar">gchar</a> * key)</pre>
+
+<p>Get metadata with <em>key</em> in <em>provider</em>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>provider</code></em></i>
+–
+</div>
+<p>provider to get metadata for</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>key</code></em></i>
+–
+</div>
+<p>the key to get</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p>the metadata for <em>key</em>.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.14
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_device_provider_get_metadata">
+	<i>Gst.DeviceProvider.prototype.get_metadata</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function Gst.DeviceProvider.prototype.get_metadata(key: <a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>): {
+    // javascript wrapper for 'gst_device_provider_get_metadata'
+}</code></pre>
+
+<p>Get metadata with <em>key</em> in <em>provider</em>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>provider</code></em></i>
+<span>(</span><a title="Gst.DeviceProvider" href="gstreamer/gstdeviceprovider.html#GstDeviceProvider">Gst.DeviceProvider</a><span>)</span>
+–
+</div>
+<p>provider to get metadata for</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>key</code></em></i>
+<span>(</span><a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a><span>)</span>
+–
+</div>
+<p>the key to get</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a><span>)</span>
+–
+			</div>
+							<p>the metadata for <em>key</em>.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.14
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_device_provider_get_metadata">
+	<i>Gst.DeviceProvider.get_metadata</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def Gst.DeviceProvider.get_metadata (self, key):
+    #python wrapper for 'gst_device_provider_get_metadata'</code></pre>
+
+<p>Get metadata with <em>key</em> in <em>provider</em>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>provider</code></em></i>
+<span>(</span><a title="Gst.DeviceProvider" href="gstreamer/gstdeviceprovider.html#GstDeviceProvider">Gst.DeviceProvider</a><span>)</span>
+–
+</div>
+<p>provider to get metadata for</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>key</code></em></i>
+<span>(</span><a title="str" href="https://docs.python.org/3/library/functions.html#func-str">str</a><span>)</span>
+–
+</div>
+<p>the key to get</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="str" href="https://docs.python.org/3/library/functions.html#func-str">str</a><span>)</span>
+–
+			</div>
+							<p>the metadata for <em>key</em>.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.14
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.6;" id="gst_device_provider_hide_provider">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_device_provider_hide_provider">
+	<i>gst_device_provider_hide_provider</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+gst_device_provider_hide_provider (<a title="GstDeviceProvider" href="gstreamer/gstdeviceprovider.html#GstDeviceProvider">GstDeviceProvider</a> * provider,
+                                   const <a title="gchar" href="https://docs.gtk.org/glib/types.html#gchar">gchar</a> * name)</pre>
+
+<p>Make <em>provider</em> hide the devices from the factory with <em>name</em>.</p>
+<p>This function is used when <em>provider</em> will also provide the devices reported
+by provider factory <em>name</em>. A monitor should stop monitoring the
+device provider with <em>name</em> to avoid duplicate devices.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>provider</code></em></i>
+–
+</div>
+<p>a <a href="gstreamer/gstdeviceprovider.html#GstDeviceProvider">GstDeviceProvider</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>name</code></em></i>
+–
+</div>
+<p>a provider factory name</p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.6
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_device_provider_hide_provider">
+	<i>Gst.DeviceProvider.prototype.hide_provider</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function Gst.DeviceProvider.prototype.hide_provider(name: <a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>): {
+    // javascript wrapper for 'gst_device_provider_hide_provider'
+}</code></pre>
+
+<p>Make <em>provider</em> hide the devices from the factory with <em>name</em>.</p>
+<p>This function is used when <em>provider</em> will also provide the devices reported
+by provider factory <em>name</em>. A monitor should stop monitoring the
+device provider with <em>name</em> to avoid duplicate devices.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>provider</code></em></i>
+<span>(</span><a title="Gst.DeviceProvider" href="gstreamer/gstdeviceprovider.html#GstDeviceProvider">Gst.DeviceProvider</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gstdeviceprovider.html#GstDeviceProvider">Gst.DeviceProvider</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>name</code></em></i>
+<span>(</span><a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a><span>)</span>
+–
+</div>
+<p>a provider factory name</p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.6
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_device_provider_hide_provider">
+	<i>Gst.DeviceProvider.hide_provider</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def Gst.DeviceProvider.hide_provider (self, name):
+    #python wrapper for 'gst_device_provider_hide_provider'</code></pre>
+
+<p>Make <em>provider</em> hide the devices from the factory with <em>name</em>.</p>
+<p>This function is used when <em>provider</em> will also provide the devices reported
+by provider factory <em>name</em>. A monitor should stop monitoring the
+device provider with <em>name</em> to avoid duplicate devices.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>provider</code></em></i>
+<span>(</span><a title="Gst.DeviceProvider" href="gstreamer/gstdeviceprovider.html#GstDeviceProvider">Gst.DeviceProvider</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gstdeviceprovider.html#GstDeviceProvider">Gst.DeviceProvider</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>name</code></em></i>
+<span>(</span><a title="str" href="https://docs.python.org/3/library/functions.html#func-str">str</a><span>)</span>
+–
+</div>
+<p>a provider factory name</p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.6
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="gst_device_provider_is_started">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_device_provider_is_started">
+	<i>gst_device_provider_is_started</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a>
+gst_device_provider_is_started (<a title="GstDeviceProvider" href="gstreamer/gstdeviceprovider.html#GstDeviceProvider">GstDeviceProvider</a> * provider)</pre>
+
+<p>This function can be used to know if the <em>provider</em> was successfully started.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>provider</code></em></i>
+–
+</div>
+<p>a <a href="gstreamer/gstdeviceprovider.html#GstDeviceProvider">GstDeviceProvider</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_device_provider_is_started">
+	<i>Gst.DeviceProvider.prototype.is_started</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function Gst.DeviceProvider.prototype.is_started(): {
+    // javascript wrapper for 'gst_device_provider_is_started'
+}</code></pre>
+
+<p>This function can be used to know if the <em>provider</em> was successfully started.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>provider</code></em></i>
+<span>(</span><a title="Gst.DeviceProvider" href="gstreamer/gstdeviceprovider.html#GstDeviceProvider">Gst.DeviceProvider</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gstdeviceprovider.html#GstDeviceProvider">Gst.DeviceProvider</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_device_provider_is_started">
+	<i>Gst.DeviceProvider.is_started</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def Gst.DeviceProvider.is_started (self):
+    #python wrapper for 'gst_device_provider_is_started'</code></pre>
+
+<p>This function can be used to know if the <em>provider</em> was successfully started.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>provider</code></em></i>
+<span>(</span><a title="Gst.DeviceProvider" href="gstreamer/gstdeviceprovider.html#GstDeviceProvider">Gst.DeviceProvider</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gstdeviceprovider.html#GstDeviceProvider">Gst.DeviceProvider</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a><span>)</span>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.4;" id="gst_device_provider_start">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_device_provider_start">
+	<i>gst_device_provider_start</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a>
+gst_device_provider_start (<a title="GstDeviceProvider" href="gstreamer/gstdeviceprovider.html#GstDeviceProvider">GstDeviceProvider</a> * provider)</pre>
+
+<p>Starts providering the devices. This will cause <a href="gstreamer/gstmessage.html#GST_MESSAGE_DEVICE_ADDED">GST_MESSAGE_DEVICE_ADDED</a>
+and <a href="gstreamer/gstmessage.html#GST_MESSAGE_DEVICE_REMOVED">GST_MESSAGE_DEVICE_REMOVED</a> messages to be posted on the provider's bus
+when devices are added or removed from the system.</p>
+<p>Since the <a href="gstreamer/gstdeviceprovider.html#GstDeviceProvider">GstDeviceProvider</a> is a singleton,
+<a href="gstreamer/gstdeviceprovider.html#gst_device_provider_start">gst_device_provider_start</a> may already have been called by another
+user of the object, <a href="gstreamer/gstdeviceprovider.html#gst_device_provider_stop">gst_device_provider_stop</a> needs to be called the same
+number of times.</p>
+<p>After this function has been called, <a href="gstreamer/gstdeviceprovider.html#gst_device_provider_get_devices">gst_device_provider_get_devices</a> will
+return the same objects that have been received from the
+<a href="gstreamer/gstmessage.html#GST_MESSAGE_DEVICE_ADDED">GST_MESSAGE_DEVICE_ADDED</a> messages and will no longer probe.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>provider</code></em></i>
+–
+</div>
+<p>A <a href="gstreamer/gstdeviceprovider.html#GstDeviceProvider">GstDeviceProvider</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p><a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#TRUE:CAPS">TRUE</a> if the device providering could be started</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.4
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_device_provider_start">
+	<i>Gst.DeviceProvider.prototype.start</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function Gst.DeviceProvider.prototype.start(): {
+    // javascript wrapper for 'gst_device_provider_start'
+}</code></pre>
+
+<p>Starts providering the devices. This will cause <a href="gstreamer/gstmessage.html#GST_MESSAGE_DEVICE_ADDED">Gst.MessageType.DEVICE_ADDED</a>
+and <a href="gstreamer/gstmessage.html#GST_MESSAGE_DEVICE_REMOVED">Gst.MessageType.DEVICE_REMOVED</a> messages to be posted on the provider's bus
+when devices are added or removed from the system.</p>
+<p>Since the <a href="gstreamer/gstdeviceprovider.html#GstDeviceProvider">Gst.DeviceProvider</a> is a singleton,
+<a href="gstreamer/gstdeviceprovider.html#gst_device_provider_start">Gst.DeviceProvider.prototype.start</a> may already have been called by another
+user of the object, <a href="gstreamer/gstdeviceprovider.html#gst_device_provider_stop">Gst.DeviceProvider.prototype.stop</a> needs to be called the same
+number of times.</p>
+<p>After this function has been called, <a href="gstreamer/gstdeviceprovider.html#gst_device_provider_get_devices">Gst.DeviceProvider.prototype.get_devices</a> will
+return the same objects that have been received from the
+<a href="gstreamer/gstmessage.html#GST_MESSAGE_DEVICE_ADDED">Gst.MessageType.DEVICE_ADDED</a> messages and will no longer probe.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>provider</code></em></i>
+<span>(</span><a title="Gst.DeviceProvider" href="gstreamer/gstdeviceprovider.html#GstDeviceProvider">Gst.DeviceProvider</a><span>)</span>
+–
+</div>
+<p>A <a href="gstreamer/gstdeviceprovider.html#GstDeviceProvider">Gst.DeviceProvider</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+			</div>
+							<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">true</a> if the device providering could be started</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.4
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_device_provider_start">
+	<i>Gst.DeviceProvider.start</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def Gst.DeviceProvider.start (self):
+    #python wrapper for 'gst_device_provider_start'</code></pre>
+
+<p>Starts providering the devices. This will cause <a href="gstreamer/gstmessage.html#GST_MESSAGE_DEVICE_ADDED">Gst.MessageType.DEVICE_ADDED</a>
+and <a href="gstreamer/gstmessage.html#GST_MESSAGE_DEVICE_REMOVED">Gst.MessageType.DEVICE_REMOVED</a> messages to be posted on the provider's bus
+when devices are added or removed from the system.</p>
+<p>Since the <a href="gstreamer/gstdeviceprovider.html#GstDeviceProvider">Gst.DeviceProvider</a> is a singleton,
+<a href="gstreamer/gstdeviceprovider.html#gst_device_provider_start">Gst.DeviceProvider.start</a> may already have been called by another
+user of the object, <a href="gstreamer/gstdeviceprovider.html#gst_device_provider_stop">Gst.DeviceProvider.stop</a> needs to be called the same
+number of times.</p>
+<p>After this function has been called, <a href="gstreamer/gstdeviceprovider.html#gst_device_provider_get_devices">Gst.DeviceProvider.get_devices</a> will
+return the same objects that have been received from the
+<a href="gstreamer/gstmessage.html#GST_MESSAGE_DEVICE_ADDED">Gst.MessageType.DEVICE_ADDED</a> messages and will no longer probe.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>provider</code></em></i>
+<span>(</span><a title="Gst.DeviceProvider" href="gstreamer/gstdeviceprovider.html#GstDeviceProvider">Gst.DeviceProvider</a><span>)</span>
+–
+</div>
+<p>A <a href="gstreamer/gstdeviceprovider.html#GstDeviceProvider">Gst.DeviceProvider</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a><span>)</span>
+–
+			</div>
+							<p><a href="https://docs.python.org/3/library/constants.html#True">True</a> if the device providering could be started</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.4
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.4;" id="gst_device_provider_stop">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_device_provider_stop">
+	<i>gst_device_provider_stop</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+gst_device_provider_stop (<a title="GstDeviceProvider" href="gstreamer/gstdeviceprovider.html#GstDeviceProvider">GstDeviceProvider</a> * provider)</pre>
+
+<p>Decreases the use-count by one. If the use count reaches zero, this
+<a href="gstreamer/gstdeviceprovider.html#GstDeviceProvider">GstDeviceProvider</a> will stop providering the devices. This needs to be
+called the same number of times that <a href="gstreamer/gstdeviceprovider.html#gst_device_provider_start">gst_device_provider_start</a> was called.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>provider</code></em></i>
+–
+</div>
+<p>A <a href="gstreamer/gstdeviceprovider.html#GstDeviceProvider">GstDeviceProvider</a></p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.4
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_device_provider_stop">
+	<i>Gst.DeviceProvider.prototype.stop</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function Gst.DeviceProvider.prototype.stop(): {
+    // javascript wrapper for 'gst_device_provider_stop'
+}</code></pre>
+
+<p>Decreases the use-count by one. If the use count reaches zero, this
+<a href="gstreamer/gstdeviceprovider.html#GstDeviceProvider">Gst.DeviceProvider</a> will stop providering the devices. This needs to be
+called the same number of times that <a href="gstreamer/gstdeviceprovider.html#gst_device_provider_start">Gst.DeviceProvider.prototype.start</a> was called.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>provider</code></em></i>
+<span>(</span><a title="Gst.DeviceProvider" href="gstreamer/gstdeviceprovider.html#GstDeviceProvider">Gst.DeviceProvider</a><span>)</span>
+–
+</div>
+<p>A <a href="gstreamer/gstdeviceprovider.html#GstDeviceProvider">Gst.DeviceProvider</a></p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.4
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_device_provider_stop">
+	<i>Gst.DeviceProvider.stop</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def Gst.DeviceProvider.stop (self):
+    #python wrapper for 'gst_device_provider_stop'</code></pre>
+
+<p>Decreases the use-count by one. If the use count reaches zero, this
+<a href="gstreamer/gstdeviceprovider.html#GstDeviceProvider">Gst.DeviceProvider</a> will stop providering the devices. This needs to be
+called the same number of times that <a href="gstreamer/gstdeviceprovider.html#gst_device_provider_start">Gst.DeviceProvider.start</a> was called.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>provider</code></em></i>
+<span>(</span><a title="Gst.DeviceProvider" href="gstreamer/gstdeviceprovider.html#GstDeviceProvider">Gst.DeviceProvider</a><span>)</span>
+–
+</div>
+<p>A <a href="gstreamer/gstdeviceprovider.html#GstDeviceProvider">Gst.DeviceProvider</a></p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.4
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.6;" id="gst_device_provider_unhide_provider">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_device_provider_unhide_provider">
+	<i>gst_device_provider_unhide_provider</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+gst_device_provider_unhide_provider (<a title="GstDeviceProvider" href="gstreamer/gstdeviceprovider.html#GstDeviceProvider">GstDeviceProvider</a> * provider,
+                                     const <a title="gchar" href="https://docs.gtk.org/glib/types.html#gchar">gchar</a> * name)</pre>
+
+<p>Make <em>provider</em> unhide the devices from factory <em>name</em>.</p>
+<p>This function is used when <em>provider</em> will no longer provide the devices
+reported by provider factory <em>name</em>. A monitor should start
+monitoring the devices from provider factory <em>name</em> in order to see
+all devices again.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>provider</code></em></i>
+–
+</div>
+<p>a <a href="gstreamer/gstdeviceprovider.html#GstDeviceProvider">GstDeviceProvider</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>name</code></em></i>
+–
+</div>
+<p>a provider factory name</p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.6
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_device_provider_unhide_provider">
+	<i>Gst.DeviceProvider.prototype.unhide_provider</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function Gst.DeviceProvider.prototype.unhide_provider(name: <a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>): {
+    // javascript wrapper for 'gst_device_provider_unhide_provider'
+}</code></pre>
+
+<p>Make <em>provider</em> unhide the devices from factory <em>name</em>.</p>
+<p>This function is used when <em>provider</em> will no longer provide the devices
+reported by provider factory <em>name</em>. A monitor should start
+monitoring the devices from provider factory <em>name</em> in order to see
+all devices again.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>provider</code></em></i>
+<span>(</span><a title="Gst.DeviceProvider" href="gstreamer/gstdeviceprovider.html#GstDeviceProvider">Gst.DeviceProvider</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gstdeviceprovider.html#GstDeviceProvider">Gst.DeviceProvider</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>name</code></em></i>
+<span>(</span><a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a><span>)</span>
+–
+</div>
+<p>a provider factory name</p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.6
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_device_provider_unhide_provider">
+	<i>Gst.DeviceProvider.unhide_provider</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def Gst.DeviceProvider.unhide_provider (self, name):
+    #python wrapper for 'gst_device_provider_unhide_provider'</code></pre>
+
+<p>Make <em>provider</em> unhide the devices from factory <em>name</em>.</p>
+<p>This function is used when <em>provider</em> will no longer provide the devices
+reported by provider factory <em>name</em>. A monitor should start
+monitoring the devices from provider factory <em>name</em> in order to see
+all devices again.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>provider</code></em></i>
+<span>(</span><a title="Gst.DeviceProvider" href="gstreamer/gstdeviceprovider.html#GstDeviceProvider">Gst.DeviceProvider</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gstdeviceprovider.html#GstDeviceProvider">Gst.DeviceProvider</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>name</code></em></i>
+<span>(</span><a title="str" href="https://docs.python.org/3/library/functions.html#func-str">str</a><span>)</span>
+–
+</div>
+<p>a provider factory name</p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.6
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+
+            <h3 class="symbol_section">Class Methods</h3>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.4;" id="gst_device_provider_class_add_metadata">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_device_provider_class_add_metadata">
+	<i>gst_device_provider_class_add_metadata</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+gst_device_provider_class_add_metadata (<a title="GstDeviceProviderClass" href="GstDeviceProviderClass">GstDeviceProviderClass</a> * klass,
+                                        const <a title="gchar" href="https://docs.gtk.org/glib/types.html#gchar">gchar</a> * key,
+                                        const <a title="gchar" href="https://docs.gtk.org/glib/types.html#gchar">gchar</a> * value)</pre>
+
+<p>Set <em>key</em> with <em>value</em> as metadata in <em>klass</em>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>klass</code></em></i>
+–
+</div>
+<p>class to set metadata for</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>key</code></em></i>
+–
+</div>
+<p>the key to set</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>value</code></em></i>
+–
+</div>
+<p>the value to set</p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.4
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_device_provider_class_add_metadata">
+	<i>Gst.DeviceProviderClass.prototype.add_metadata</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function Gst.DeviceProviderClass.prototype.add_metadata(klass: <a title="Gst.DeviceProviderClass" href="GstDeviceProviderClass">Gst.DeviceProviderClass</a>, key: <a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>, value: <a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>): {
+    // javascript wrapper for 'gst_device_provider_class_add_metadata'
+}</code></pre>
+
+<p>Set <em>key</em> with <em>value</em> as metadata in <em>klass</em>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>klass</code></em></i>
+<span>(</span><a title="Gst.DeviceProviderClass" href="GstDeviceProviderClass">Gst.DeviceProviderClass</a><span>)</span>
+–
+</div>
+<p>class to set metadata for</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>key</code></em></i>
+<span>(</span><a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a><span>)</span>
+–
+</div>
+<p>the key to set</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>value</code></em></i>
+<span>(</span><a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a><span>)</span>
+–
+</div>
+<p>the value to set</p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.4
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.4;" id="gst_device_provider_class_add_static_metadata">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_device_provider_class_add_static_metadata">
+	<i>gst_device_provider_class_add_static_metadata</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+gst_device_provider_class_add_static_metadata (<a title="GstDeviceProviderClass" href="GstDeviceProviderClass">GstDeviceProviderClass</a> * klass,
+                                               const <a title="gchar" href="https://docs.gtk.org/glib/types.html#gchar">gchar</a> * key,
+                                               const <a title="gchar" href="https://docs.gtk.org/glib/types.html#gchar">gchar</a> * value)</pre>
+
+<p>Set <em>key</em> with <em>value</em> as metadata in <em>klass</em>.</p>
+<p>Same as <a href="gstreamer/gstdeviceprovider.html#gst_device_provider_class_add_metadata">gst_device_provider_class_add_metadata</a>, but <em>value</em> must be a static string
+or an inlined string, as it will not be copied. (GStreamer plugins will
+be made resident once loaded, so this function can be used even from
+dynamically loaded plugins.)</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>klass</code></em></i>
+–
+</div>
+<p>class to set metadata for</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>key</code></em></i>
+–
+</div>
+<p>the key to set</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>value</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="Free data after the code is done"><span class="acronym">transfer: full</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>the value to set</p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.4
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_device_provider_class_add_static_metadata">
+	<i>Gst.DeviceProviderClass.prototype.add_static_metadata</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function Gst.DeviceProviderClass.prototype.add_static_metadata(klass: <a title="Gst.DeviceProviderClass" href="GstDeviceProviderClass">Gst.DeviceProviderClass</a>, key: <a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>, value: <a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>): {
+    // javascript wrapper for 'gst_device_provider_class_add_static_metadata'
+}</code></pre>
+
+<p>Set <em>key</em> with <em>value</em> as metadata in <em>klass</em>.</p>
+<p>Same as <a href="gstreamer/gstdeviceprovider.html#gst_device_provider_class_add_metadata">Gst.DeviceProviderClass.prototype.add_metadata</a>, but <em>value</em> must be a static string
+or an inlined string, as it will not be copied. (GStreamer plugins will
+be made resident once loaded, so this function can be used even from
+dynamically loaded plugins.)</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>klass</code></em></i>
+<span>(</span><a title="Gst.DeviceProviderClass" href="GstDeviceProviderClass">Gst.DeviceProviderClass</a><span>)</span>
+–
+</div>
+<p>class to set metadata for</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>key</code></em></i>
+<span>(</span><a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a><span>)</span>
+–
+</div>
+<p>the key to set</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>value</code></em></i>
+<span>(</span><a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a><span>)</span>
+–
+</div>
+<p>the value to set</p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.4
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.4;" id="gst_device_provider_class_get_metadata">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_device_provider_class_get_metadata">
+	<i>gst_device_provider_class_get_metadata</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+const <a title="gchar" href="https://docs.gtk.org/glib/types.html#gchar">gchar</a> *
+gst_device_provider_class_get_metadata (<a title="GstDeviceProviderClass" href="GstDeviceProviderClass">GstDeviceProviderClass</a> * klass,
+                                        const <a title="gchar" href="https://docs.gtk.org/glib/types.html#gchar">gchar</a> * key)</pre>
+
+<p>Get metadata with <em>key</em> in <em>klass</em>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>klass</code></em></i>
+–
+</div>
+<p>class to get metadata for</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>key</code></em></i>
+–
+</div>
+<p>the key to get</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span>
+<span class="annotation">[<abbr title="NULL may be passed to the value"><span class="acronym">nullable</span></abbr>]</span><span>)</span>
+–
+			</div>
+							<p>the metadata for <em>key</em>.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.4
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_device_provider_class_get_metadata">
+	<i>Gst.DeviceProviderClass.prototype.get_metadata</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function Gst.DeviceProviderClass.prototype.get_metadata(klass: <a title="Gst.DeviceProviderClass" href="GstDeviceProviderClass">Gst.DeviceProviderClass</a>, key: <a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>): {
+    // javascript wrapper for 'gst_device_provider_class_get_metadata'
+}</code></pre>
+
+<p>Get metadata with <em>key</em> in <em>klass</em>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>klass</code></em></i>
+<span>(</span><a title="Gst.DeviceProviderClass" href="GstDeviceProviderClass">Gst.DeviceProviderClass</a><span>)</span>
+–
+</div>
+<p>class to get metadata for</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>key</code></em></i>
+<span>(</span><a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a><span>)</span>
+–
+</div>
+<p>the key to get</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a><span>)</span>
+–
+			</div>
+							<p>the metadata for <em>key</em>.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.4
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.4;" id="gst_device_provider_class_set_metadata">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_device_provider_class_set_metadata">
+	<i>gst_device_provider_class_set_metadata</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+gst_device_provider_class_set_metadata (<a title="GstDeviceProviderClass" href="GstDeviceProviderClass">GstDeviceProviderClass</a> * klass,
+                                        const <a title="gchar" href="https://docs.gtk.org/glib/types.html#gchar">gchar</a> * longname,
+                                        const <a title="gchar" href="https://docs.gtk.org/glib/types.html#gchar">gchar</a> * classification,
+                                        const <a title="gchar" href="https://docs.gtk.org/glib/types.html#gchar">gchar</a> * description,
+                                        const <a title="gchar" href="https://docs.gtk.org/glib/types.html#gchar">gchar</a> * author)</pre>
+
+<p>Sets the detailed information for a <a href="GstDeviceProviderClass">GstDeviceProviderClass</a>.</p>
+<blockquote>
+<p>This function is for use in _class_init functions only.</p>
+</blockquote>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>klass</code></em></i>
+–
+</div>
+<p>class to set metadata for</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>longname</code></em></i>
+–
+</div>
+<p>The long English name of the device provider. E.g. "File Sink"</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>classification</code></em></i>
+–
+</div>
+<p>String describing the type of device provider, as an
+unordered list separated with slashes ('/'). See draft-klass.txt of the
+design docs
+for more details and common types. E.g: "Sink/File"</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>description</code></em></i>
+–
+</div>
+<p>Sentence describing the purpose of the device provider.
+E.g: "Write stream to a file"</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>author</code></em></i>
+–
+</div>
+<p>Name and contact details of the author(s). Use \n to separate
+multiple author metadata. E.g: "Joe Bloggs &lt;joe.blogs at foo.com&gt;"</p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.4
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_device_provider_class_set_metadata">
+	<i>Gst.DeviceProviderClass.prototype.set_metadata</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function Gst.DeviceProviderClass.prototype.set_metadata(klass: <a title="Gst.DeviceProviderClass" href="GstDeviceProviderClass">Gst.DeviceProviderClass</a>, longname: <a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>, classification: <a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>, description: <a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>, author: <a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>): {
+    // javascript wrapper for 'gst_device_provider_class_set_metadata'
+}</code></pre>
+
+<p>Sets the detailed information for a <a href="GstDeviceProviderClass">Gst.DeviceProviderClass</a>.</p>
+<blockquote>
+<p>This function is for use in _class_init functions only.</p>
+</blockquote>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>klass</code></em></i>
+<span>(</span><a title="Gst.DeviceProviderClass" href="GstDeviceProviderClass">Gst.DeviceProviderClass</a><span>)</span>
+–
+</div>
+<p>class to set metadata for</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>longname</code></em></i>
+<span>(</span><a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a><span>)</span>
+–
+</div>
+<p>The long English name of the device provider. E.g. "File Sink"</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>classification</code></em></i>
+<span>(</span><a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a><span>)</span>
+–
+</div>
+<p>String describing the type of device provider, as an
+unordered list separated with slashes ('/'). See draft-klass.txt of the
+design docs
+for more details and common types. E.g: "Sink/File"</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>description</code></em></i>
+<span>(</span><a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a><span>)</span>
+–
+</div>
+<p>Sentence describing the purpose of the device provider.
+E.g: "Write stream to a file"</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>author</code></em></i>
+<span>(</span><a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a><span>)</span>
+–
+</div>
+<p>Name and contact details of the author(s). Use \n to separate
+multiple author metadata. E.g: "Joe Bloggs &lt;joe.blogs at foo.com&gt;"</p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.4
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.4;" id="gst_device_provider_class_set_static_metadata">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_device_provider_class_set_static_metadata">
+	<i>gst_device_provider_class_set_static_metadata</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+gst_device_provider_class_set_static_metadata (<a title="GstDeviceProviderClass" href="GstDeviceProviderClass">GstDeviceProviderClass</a> * klass,
+                                               const <a title="gchar" href="https://docs.gtk.org/glib/types.html#gchar">gchar</a> * longname,
+                                               const <a title="gchar" href="https://docs.gtk.org/glib/types.html#gchar">gchar</a> * classification,
+                                               const <a title="gchar" href="https://docs.gtk.org/glib/types.html#gchar">gchar</a> * description,
+                                               const <a title="gchar" href="https://docs.gtk.org/glib/types.html#gchar">gchar</a> * author)</pre>
+
+<p>Sets the detailed information for a <a href="GstDeviceProviderClass">GstDeviceProviderClass</a>.</p>
+<blockquote>
+<p>This function is for use in _class_init functions only.</p>
+</blockquote>
+<p>Same as <a href="gstreamer/gstdeviceprovider.html#gst_device_provider_class_set_metadata">gst_device_provider_class_set_metadata</a>, but <em>longname</em>, <em>classification</em>,
+<em>description</em>, and <em>author</em> must be static strings or inlined strings, as
+they will not be copied. (GStreamer plugins will be made resident once
+loaded, so this function can be used even from dynamically loaded plugins.)</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>klass</code></em></i>
+–
+</div>
+<p>class to set metadata for</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>longname</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="Free data after the code is done"><span class="acronym">transfer: full</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>The long English name of the element. E.g. "File Sink"</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>classification</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="Free data after the code is done"><span class="acronym">transfer: full</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>String describing the type of element, as
+an unordered list separated with slashes ('/'). See draft-klass.txt of the
+design docs for more details and common types. E.g: "Sink/File"</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>description</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="Free data after the code is done"><span class="acronym">transfer: full</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>Sentence describing the purpose of the
+element.  E.g: "Write stream to a file"</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>author</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="Free data after the code is done"><span class="acronym">transfer: full</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>Name and contact details of the author(s). Use \n
+to separate multiple author metadata. E.g: "Joe Bloggs &lt;joe.blogs at
+foo.com&gt;"</p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.4
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_device_provider_class_set_static_metadata">
+	<i>Gst.DeviceProviderClass.prototype.set_static_metadata</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function Gst.DeviceProviderClass.prototype.set_static_metadata(klass: <a title="Gst.DeviceProviderClass" href="GstDeviceProviderClass">Gst.DeviceProviderClass</a>, longname: <a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>, classification: <a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>, description: <a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>, author: <a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>): {
+    // javascript wrapper for 'gst_device_provider_class_set_static_metadata'
+}</code></pre>
+
+<p>Sets the detailed information for a <a href="GstDeviceProviderClass">Gst.DeviceProviderClass</a>.</p>
+<blockquote>
+<p>This function is for use in _class_init functions only.</p>
+</blockquote>
+<p>Same as <a href="gstreamer/gstdeviceprovider.html#gst_device_provider_class_set_metadata">Gst.DeviceProviderClass.prototype.set_metadata</a>, but <em>longname</em>, <em>classification</em>,
+<em>description</em>, and <em>author</em> must be static strings or inlined strings, as
+they will not be copied. (GStreamer plugins will be made resident once
+loaded, so this function can be used even from dynamically loaded plugins.)</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>klass</code></em></i>
+<span>(</span><a title="Gst.DeviceProviderClass" href="GstDeviceProviderClass">Gst.DeviceProviderClass</a><span>)</span>
+–
+</div>
+<p>class to set metadata for</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>longname</code></em></i>
+<span>(</span><a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a><span>)</span>
+–
+</div>
+<p>The long English name of the element. E.g. "File Sink"</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>classification</code></em></i>
+<span>(</span><a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a><span>)</span>
+–
+</div>
+<p>String describing the type of element, as
+an unordered list separated with slashes ('/'). See draft-klass.txt of the
+design docs for more details and common types. E.g: "Sink/File"</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>description</code></em></i>
+<span>(</span><a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a><span>)</span>
+–
+</div>
+<p>Sentence describing the purpose of the
+element.  E.g: "Write stream to a file"</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>author</code></em></i>
+<span>(</span><a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a><span>)</span>
+–
+</div>
+<p>Name and contact details of the author(s). Use \n
+to separate multiple author metadata. E.g: "Joe Bloggs &lt;joe.blogs at
+foo.com&gt;"</p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.4
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+
+            <h3 class="symbol_section">Functions</h3>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.4;" id="gst_device_provider_register">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_device_provider_register">
+	<i>gst_device_provider_register</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a>
+gst_device_provider_register (<a title="GstPlugin" href="gstreamer/gstplugin.html#GstPlugin">GstPlugin</a> * plugin,
+                              const <a title="gchar" href="https://docs.gtk.org/glib/types.html#gchar">gchar</a> * name,
+                              <a title="guint" href="https://docs.gtk.org/glib/types.html#guint">guint</a> rank,
+                              <a title="GType" href="https://docs.gtk.org/gobject/alias.Type.html">GType</a> type)</pre>
+
+<p>Create a new device providerfactory capable of instantiating objects of the
+<em>type</em> and add the factory to <em>plugin</em>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>plugin</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="NULL is OK, both for passing and returning"><span class="acronym">allow-none</span></abbr>]</span><span>)</span>
+–
+</div>
+<p><a href="gstreamer/gstplugin.html#GstPlugin">GstPlugin</a> to register the device provider with, or <a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#NULL:CAPS">NULL</a> for
+a static device provider.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>name</code></em></i>
+–
+</div>
+<p>name of device providers of this type</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>rank</code></em></i>
+–
+</div>
+<p>rank of device provider (higher rank means more importance when autoplugging)</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>type</code></em></i>
+–
+</div>
+<p>GType of device provider to register</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p><a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#TRUE:CAPS">TRUE</a>, if the registering succeeded, <a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#FALSE:CAPS">FALSE</a> on error</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.4
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_device_provider_register">
+	<i>Gst.DeviceProvider.prototype.register</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function Gst.DeviceProvider.prototype.register(plugin: <a title="Gst.Plugin" href="gstreamer/gstplugin.html#GstPlugin">Gst.Plugin</a>, name: <a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>, rank: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>, type: <a title="GObject.Type" href="https://developer.gnome.org/gobject/stable/gobject-Type-Information.html#GType">GObject.Type</a>): {
+    // javascript wrapper for 'gst_device_provider_register'
+}</code></pre>
+
+<p>Create a new device providerfactory capable of instantiating objects of the
+<em>type</em> and add the factory to <em>plugin</em>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>plugin</code></em></i>
+<span>(</span><a title="Gst.Plugin" href="gstreamer/gstplugin.html#GstPlugin">Gst.Plugin</a><span>)</span>
+–
+</div>
+<p><a href="gstreamer/gstplugin.html#GstPlugin">Gst.Plugin</a> to register the device provider with, or <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null">null</a> for
+a static device provider.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>name</code></em></i>
+<span>(</span><a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a><span>)</span>
+–
+</div>
+<p>name of device providers of this type</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>rank</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>rank of device provider (higher rank means more importance when autoplugging)</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>type</code></em></i>
+<span>(</span><a title="GObject.Type" href="https://developer.gnome.org/gobject/stable/gobject-Type-Information.html#GType">GObject.Type</a><span>)</span>
+–
+</div>
+<p>GType of device provider to register</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+			</div>
+							<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">true</a>, if the registering succeeded, <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">false</a> on error</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.4
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_device_provider_register">
+	<i>Gst.DeviceProvider.register</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def Gst.DeviceProvider.register (plugin, name, rank, type):
+    #python wrapper for 'gst_device_provider_register'</code></pre>
+
+<p>Create a new device providerfactory capable of instantiating objects of the
+<em>type</em> and add the factory to <em>plugin</em>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>plugin</code></em></i>
+<span>(</span><a title="Gst.Plugin" href="gstreamer/gstplugin.html#GstPlugin">Gst.Plugin</a><span>)</span>
+–
+</div>
+<p><a href="gstreamer/gstplugin.html#GstPlugin">Gst.Plugin</a> to register the device provider with, or <a href="https://docs.python.org/3/library/constants.html#None">None</a> for
+a static device provider.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>name</code></em></i>
+<span>(</span><a title="str" href="https://docs.python.org/3/library/functions.html#func-str">str</a><span>)</span>
+–
+</div>
+<p>name of device providers of this type</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>rank</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<p>rank of device provider (higher rank means more importance when autoplugging)</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>type</code></em></i>
+<span>(</span><a title="GObject.Type" href="https://developer.gnome.org/gobject/stable/gobject-Type-Information.html#GType">GObject.Type</a><span>)</span>
+–
+</div>
+<p>GType of device provider to register</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a><span>)</span>
+–
+			</div>
+							<p><a href="https://docs.python.org/3/library/constants.html#True">True</a>, if the registering succeeded, <a href="https://docs.python.org/3/library/constants.html#False">False</a> on error</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.4
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+
+            <h3 class="symbol_section">Signals</h3>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstDeviceProvider::provider-hidden">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstDeviceProvider::provider-hidden">
+	<i>provider-hidden</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+provider_hidden_callback (<a title="GstDeviceProvider" href="gstreamer/gstdeviceprovider.html#GstDeviceProvider">GstDeviceProvider</a> * self,
+                          <a title="gchar" href="https://docs.gtk.org/glib/types.html#gchar">gchar</a> * object,
+                          <a title="gpointer" href="https://docs.gtk.org/glib/types.html#gpointer">gpointer</a> user_data)</pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>object</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>user_data</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+<p>
+	<b>Flags:</b>	
+	
+		
+				<a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-FIRST:CAPS">Run First</a>
+			
+</p>
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GstDeviceProvider::provider-hidden">
+	<i>provider-hidden</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function provider_hidden_callback(self: <a title="Gst.DeviceProvider" href="gstreamer/gstdeviceprovider.html#GstDeviceProvider">Gst.DeviceProvider</a>, object: <a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>, user_data: <a title="Object" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>): {
+    // javascript callback for the 'provider-hidden' signal
+}</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+<span>(</span><a title="Gst.DeviceProvider" href="gstreamer/gstdeviceprovider.html#GstDeviceProvider">Gst.DeviceProvider</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>object</code></em></i>
+<span>(</span><a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>user_data</code></em></i>
+<span>(</span><a title="Object" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+<p>
+	<b>Flags:</b>	
+	
+		
+				<a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-FIRST:CAPS">Run First</a>
+			
+</p>
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GstDeviceProvider::provider-hidden">
+	<i>provider-hidden</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def provider_hidden_callback (self, object, *user_data):
+    #python callback for the 'provider-hidden' signal</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+<span>(</span><a title="Gst.DeviceProvider" href="gstreamer/gstdeviceprovider.html#GstDeviceProvider">Gst.DeviceProvider</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>object</code></em></i>
+<span>(</span><a title="str" href="https://docs.python.org/3/library/functions.html#func-str">str</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>user_data</code></em></i>
+<span>(</span><a title="variadic" href="https://docs.python.org/dev/tutorial/controlflow.html#arbitrary-argument-lists">variadic</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+<p>
+	<b>Flags:</b>	
+	
+		
+				<a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-FIRST:CAPS">Run First</a>
+			
+</p>
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstDeviceProvider::provider-unhidden">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstDeviceProvider::provider-unhidden">
+	<i>provider-unhidden</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+provider_unhidden_callback (<a title="GstDeviceProvider" href="gstreamer/gstdeviceprovider.html#GstDeviceProvider">GstDeviceProvider</a> * self,
+                            <a title="gchar" href="https://docs.gtk.org/glib/types.html#gchar">gchar</a> * object,
+                            <a title="gpointer" href="https://docs.gtk.org/glib/types.html#gpointer">gpointer</a> user_data)</pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>object</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>user_data</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+<p>
+	<b>Flags:</b>	
+	
+		
+				<a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-FIRST:CAPS">Run First</a>
+			
+</p>
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GstDeviceProvider::provider-unhidden">
+	<i>provider-unhidden</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function provider_unhidden_callback(self: <a title="Gst.DeviceProvider" href="gstreamer/gstdeviceprovider.html#GstDeviceProvider">Gst.DeviceProvider</a>, object: <a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>, user_data: <a title="Object" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>): {
+    // javascript callback for the 'provider-unhidden' signal
+}</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+<span>(</span><a title="Gst.DeviceProvider" href="gstreamer/gstdeviceprovider.html#GstDeviceProvider">Gst.DeviceProvider</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>object</code></em></i>
+<span>(</span><a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>user_data</code></em></i>
+<span>(</span><a title="Object" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+<p>
+	<b>Flags:</b>	
+	
+		
+				<a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-FIRST:CAPS">Run First</a>
+			
+</p>
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GstDeviceProvider::provider-unhidden">
+	<i>provider-unhidden</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def provider_unhidden_callback (self, object, *user_data):
+    #python callback for the 'provider-unhidden' signal</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+<span>(</span><a title="Gst.DeviceProvider" href="gstreamer/gstdeviceprovider.html#GstDeviceProvider">Gst.DeviceProvider</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>object</code></em></i>
+<span>(</span><a title="str" href="https://docs.python.org/3/library/functions.html#func-str">str</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>user_data</code></em></i>
+<span>(</span><a title="variadic" href="https://docs.python.org/dev/tutorial/controlflow.html#arbitrary-argument-lists">variadic</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+<p>
+	<b>Flags:</b>	
+	
+		
+				<a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-FIRST:CAPS">Run First</a>
+			
+</p>
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+
+            <h3 class="symbol_section">Virtual Methods</h3>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstDeviceProviderClass::probe">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstDeviceProviderClass::probe">
+	<i>probe</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GList" href="https://docs.gtk.org/glib/struct.List.html">GList</a> *
+probe (<a title="GstDeviceProvider" href="gstreamer/gstdeviceprovider.html#GstDeviceProvider">GstDeviceProvider</a> * provider)</pre>
+
+<p>Returns a list of devices that are currently available.
+This should never block. The devices should not have a parent and should
+be floating.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>provider</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstDeviceProviderClass::start">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstDeviceProviderClass::start">
+	<i>start</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a>
+start (<a title="GstDeviceProvider" href="gstreamer/gstdeviceprovider.html#GstDeviceProvider">GstDeviceProvider</a> * provider)</pre>
+
+<p>Starts monitoring for new devices. Only subclasses that can know
+that devices have been added or remove need to implement this method.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>provider</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GstDeviceProviderClass::start">
+	<i>vfunc_start</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function vfunc_start(provider: <a title="Gst.DeviceProvider" href="gstreamer/gstdeviceprovider.html#GstDeviceProvider">Gst.DeviceProvider</a>): {
+    // javascript implementation of the 'start' virtual method
+}</code></pre>
+
+<p>Starts monitoring for new devices. Only subclasses that can know
+that devices have been added or remove need to implement this method.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>provider</code></em></i>
+<span>(</span><a title="Gst.DeviceProvider" href="gstreamer/gstdeviceprovider.html#GstDeviceProvider">Gst.DeviceProvider</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GstDeviceProviderClass::start">
+	<i>do_start</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def do_start (provider):
+    #python implementation of the 'start' virtual method</code></pre>
+
+<p>Starts monitoring for new devices. Only subclasses that can know
+that devices have been added or remove need to implement this method.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>provider</code></em></i>
+<span>(</span><a title="Gst.DeviceProvider" href="gstreamer/gstdeviceprovider.html#GstDeviceProvider">Gst.DeviceProvider</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a><span>)</span>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstDeviceProviderClass::stop">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstDeviceProviderClass::stop">
+	<i>stop</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+stop (<a title="GstDeviceProvider" href="gstreamer/gstdeviceprovider.html#GstDeviceProvider">GstDeviceProvider</a> * provider)</pre>
+
+<p>Stops monitoring for new devices. Only subclasses that implement
+the start method need to implement this method.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>provider</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GstDeviceProviderClass::stop">
+	<i>vfunc_stop</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function vfunc_stop(provider: <a title="Gst.DeviceProvider" href="gstreamer/gstdeviceprovider.html#GstDeviceProvider">Gst.DeviceProvider</a>): {
+    // javascript implementation of the 'stop' virtual method
+}</code></pre>
+
+<p>Stops monitoring for new devices. Only subclasses that implement
+the start method need to implement this method.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>provider</code></em></i>
+<span>(</span><a title="Gst.DeviceProvider" href="gstreamer/gstdeviceprovider.html#GstDeviceProvider">Gst.DeviceProvider</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GstDeviceProviderClass::stop">
+	<i>do_stop</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def do_stop (provider):
+    #python implementation of the 'stop' virtual method</code></pre>
+
+<p>Stops monitoring for new devices. Only subclasses that implement
+the start method need to implement this method.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>provider</code></em></i>
+<span>(</span><a title="Gst.DeviceProvider" href="gstreamer/gstdeviceprovider.html#GstDeviceProvider">Gst.DeviceProvider</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+
+        
+
+            <h2 class="symbol_section">Function Macros</h2>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GST_DEVICE_PROVIDER_CAST">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_DEVICE_PROVIDER_CAST">
+	<i>GST_DEVICE_PROVIDER_CAST</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_DEVICE_PROVIDER_CAST(obj)            ((GstDeviceProvider *)(obj))
+</pre>
+
+
+
+
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="GST_DEVICE_PROVIDER_REGISTER">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_DEVICE_PROVIDER_REGISTER">
+	<i>GST_DEVICE_PROVIDER_REGISTER</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_DEVICE_PROVIDER_REGISTER(d_p, plugin) G_PASTE(gst_device_provider_register_, d_p) (plugin)
+</pre>
+
+<p>This macro can be used to register a device provider into a <a href="gstreamer/gstplugin.html#GstPlugin">GstPlugin</a>.
+This method will be usually called in the plugin init function
+but can also be called with a NULL plugin.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>d_p</code></em></i>
+–
+</div>
+<p>The device provider name in lower case, with words separated by '_'.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>plugin</code></em></i>
+–
+</div>
+<p>The <a href="gstreamer/gstplugin.html#GstPlugin">GstPlugin</a> where to register the device provider.</p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="GST_DEVICE_PROVIDER_REGISTER_DECLARE">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_DEVICE_PROVIDER_REGISTER_DECLARE">
+	<i>GST_DEVICE_PROVIDER_REGISTER_DECLARE</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_DEVICE_PROVIDER_REGISTER_DECLARE(d_p) \
+G_BEGIN_DECLS \
+gboolean G_PASTE(gst_device_provider_register_, d_p) (GstPlugin * plugin); \
+G_END_DECLS
+</pre>
+
+<p>This macro can be used to declare a new device provider.
+It has to be used in combination with <a href="gstreamer/gstdeviceprovider.html#GST_DEVICE_PROVIDER_REGISTER_DEFINE">GST_DEVICE_PROVIDER_REGISTER_DEFINE</a> macro
+and must be placed outside any block to declare the device provider registration
+function.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>d_p</code></em></i>
+–
+</div>
+<p>The device provider name in lower case, with words separated by '_'.</p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="GST_DEVICE_PROVIDER_REGISTER_DEFINE">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_DEVICE_PROVIDER_REGISTER_DEFINE">
+	<i>GST_DEVICE_PROVIDER_REGISTER_DEFINE</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_DEVICE_PROVIDER_REGISTER_DEFINE(d_p, d_p_n, r, t) \
+G_BEGIN_DECLS \
+gboolean G_PASTE (gst_device_provider_register_, d_p) (GstPlugin * plugin) \
+{ \
+  return gst_device_provider_register (plugin, d_p_n, r, t); \
+} \
+G_END_DECLS
+</pre>
+
+<p>A convenience macro to define the entry point of a
+device provider <code>gst_device_provider_register_*(GstPlugin* plugin)</code>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>d_p</code></em></i>
+–
+</div>
+<p>The device provider name in lower case, with words separated by '_'.
+Used to generate <code>gst_device_provider_register_*(GstPlugin* plugin)</code>.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>d_p_n</code></em></i>
+–
+</div>
+<p>The public name of the device provider</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>r</code></em></i>
+–
+</div>
+<p>The <a href="gstreamer/gstpluginfeature.html#GstRank">GstRank</a> of the device provider (higher rank means more importance when autoplugging, see <a href="gstreamer/gstpluginfeature.html#GstRank">GstRank</a>)</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>t</code></em></i>
+–
+</div>
+<p>The <a href="https://docs.gtk.org/gobject/alias.Type.html">GType</a> of the device provider.</p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="GST_DEVICE_PROVIDER_REGISTER_DEFINE_CUSTOM">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_DEVICE_PROVIDER_REGISTER_DEFINE_CUSTOM">
+	<i>GST_DEVICE_PROVIDER_REGISTER_DEFINE_CUSTOM</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_DEVICE_PROVIDER_REGISTER_DEFINE_CUSTOM(d_p, register_func) \
+G_BEGIN_DECLS \
+gboolean G_PASTE (gst_device_provider_register_, d_p) (GstPlugin * plugin) \
+{ \
+  return register_func (plugin); \
+} \
+G_END_DECLS
+</pre>
+
+<p>A convenience macro to define the entry point of a
+device provider <code>gst_device_provider_register_*(GstPlugin* plugin)</code> which uses
+register_func as the main registration method for the device provider.
+As an example, you may define the device provider named "device-provider"
+with the namespace <code>my</code> as following using <code>device_provider_register_custom</code>:</p>
+<pre><code>
+gboolean my_device_provider_register_custom (GstPlugin * plugin)
+{
+   gboolean ret = FALSE;
+   ret |= gst_device_provider_register (plugin, "my-device-provider",
+        GST_RANK_PRIMARY, GST_TYPE_MY_DEVICE_PROVIDER);
+   return TRUE;
+}
+
+GST_DEVICE_PROVIDER_REGISTER_DEFINE_CUSTOM (my_device_provider, my_device_provider_register_custom)
+</code></pre>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>d_p</code></em></i>
+–
+</div>
+<p>The device provider name in lower case, with words separated by '_'.
+Used to generate <code>gst_device_provider_register_*(GstPlugin* plugin)</code>.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>register_func</code></em></i>
+–
+</div>
+<p>pointer to a method with the format: <code>gboolean register_func (GstPlugin* plugin);</code></p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+
+
+
+
+
+		
+	</div>
+	<div id="search_results">
+		<p>The results of the search are</p>
+	</div>
+	<div id="footer">
+		    
+
+	</div>
+</div>
+
+<div id="toc-column">
+	
+		<div class="edit-button">
+		
+
+	</div>
+		<div id="toc-wrapper">
+		<nav id="toc"></nav>
+	</div>
+</div>
+</div>
+</main>
+
+
+<script src="assets/js/navbar_offset_scroller.js"></script>
+</body>
+</html>

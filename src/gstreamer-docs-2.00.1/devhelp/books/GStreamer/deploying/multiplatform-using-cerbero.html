@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<base href="..">
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<title>Multiplatform deployment using Cerbero</title>
+
+<link rel="stylesheet" href="assets/css/dark-frontend.css" type="text/css" title="dark">
+<link rel="alternate stylesheet" href="assets/css/light-frontend.css" type="text/css" title="light">
+<link rel="stylesheet" href="assets/css/bootstrap-toc.min.css" type="text/css">
+<link rel="stylesheet" href="assets/css/jquery.mCustomScrollbar.min.css">
+<link rel="stylesheet" href="assets/js/search/enable_search.css" type="text/css">
+
+<link rel="stylesheet" href="assets/css/extra_frontend.css" type="text/css">
+<link rel="stylesheet" href="assets/css/devhelp.css" type="text/css">
+
+<link rel="stylesheet" href="assets/css/prism-tomorrow.css" type="text/css" title="dark">
+
+<link rel="alternate stylesheet" href="assets/css/prism.css" type="text/css" title="light">
+
+<script src="assets/js/mustache.min.js"></script>
+<script src="assets/js/jquery.js"></script>
+<script src="assets/js/bootstrap.js"></script>
+<script src="assets/js/scrollspy.js"></script>
+<script src="assets/js/typeahead.jquery.min.js"></script>
+<script src="assets/js/search.js"></script>
+<script src="assets/js/compare-versions.js"></script>
+<script src="assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="assets/js/bootstrap-toc.min.js"></script>
+<script src="assets/js/jquery.touchSwipe.min.js"></script>
+<script src="assets/js/anchor.min.js"></script>
+<script src="assets/js/tag_filtering.js"></script>
+<script src="assets/js/language_switching.js"></script>
+<script src="assets/js/styleswitcher.js"></script>
+
+<script src="assets/js/lines_around_headings.js"></script>
+
+<script src="assets/js/prism-core.js"></script>
+<script src="assets/js/prism-autoloader.js"></script>
+<script src="assets/js/prism_autoloader_path_override.js"></script>
+<script src="assets/js/trie.js"></script>
+
+<!-- generic -->
+<link rel="icon" type="image/png" href="assets/images/favicon-16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="assets/images/favicon-32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="assets/images/favicon-57.png" sizes="57x57">
+<link rel="icon" type="image/png" href="assets/images/favicon-64.png" sizes="64x64">
+<link rel="icon" type="image/png" href="assets/images/favicon-76.png" sizes="76x76">
+<link rel="icon" type="image/png" href="assets/images/favicon-96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="assets/images/favicon-128.png" sizes="128x128">
+<link rel="icon" type="image/png" href="assets/images/favicon-192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="assets/images/favicon-228.png" sizes="228x228">
+
+<!-- Android -->
+<link rel="shortcut icon" sizes="196x196" href="assets/images/favicon-196.png">
+
+<!-- iOS -->
+<link rel="apple-touch-icon" href="assets/images/favicon-120.png" sizes="120x120">
+<link rel="apple-touch-icon" href="assets/images/favicon-152.png" sizes="152x152">
+<link rel="apple-touch-icon" href="assets/images/favicon-180.png" sizes="180x180">
+
+</head>
+
+<body class="no-script
+">
+
+<script>
+$('body').removeClass('no-script');
+</script>
+
+<nav class="navbar navbar-fixed-top navbar-default" id="topnav">
+	<div class="container-fluid">
+		<div class="navbar-right">
+			<a id="toc-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-wrapper" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<span title="light mode switch" class="glyphicon glyphicon-sunglasses pull-right" id="lightmode-icon"></span>
+			<form class="navbar-form pull-right" id="navbar-search-form">
+                               <div class="form-group has-feedback">
+                                       <input type="text" class="form-control input-sm" name="search" id="sidenav-lookup-field" placeholder="search" disabled>
+				       <span class="glyphicon glyphicon-search form-control-feedback" id="search-mgn-glass"></span>
+                               </div>
+                        </form>
+		</div>
+		<div class="navbar-header">
+			<a id="sidenav-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<a id="home-link" href="index.html" class="hotdoc-navbar-brand">
+				<img src="assets/images/gstreamer-logo.svg" alt="Home">
+			</a>
+		</div>
+		<div class="navbar-collapse collapse" id="navbar-wrapper">
+			<ul class="nav navbar-nav" id="menu">
+				
+<li class="dropdown">
+    <a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        API References<span class="caret"></span>
+    </a>
+	<ul class="dropdown-menu" id="modules-menu">
+					<li>
+				<a href="gstreamer/gi-index.html">GStreamer core</a>
+			</li>
+					<li>
+				<a href="libs.html">GStreamer Libraries</a>
+			</li>
+					<li>
+				<a href="plugins_doc.html">GStreamer Plugins</a>
+			</li>
+		</ul>
+</li>
+
+<li>
+    <a href="application-development/index.html">Application manual</a>
+</li>
+
+
+<li>
+    <a href="tutorials/index.html">Tutorials</a>
+</li>
+
+			</ul>
+			<div class="hidden-xs hidden-sm navbar-text navbar-center">
+							</div>
+		</div>
+	</div>
+</nav>
+
+<main>
+<div data-extension="gi-extension" data-hotdoc-in-toplevel="True" data-hotdoc-project="GStreamer" data-hotdoc-ref="deploying/multiplatform-using-cerbero.html" class="page_container" id="page-wrapper" data-hotdoc-meta-gi-languages="['c', 'javascript', 'python']" data-hotdoc-meta-gi-language="c">
+<script src="assets/js/utils.js"></script>
+
+<div class="panel panel-collapse oc-collapsed" id="sidenav" data-hotdoc-role="navigation">
+	<script src="assets/js/full-width.js"></script>
+  <div id="sitenav-wrapper">
+    <iframe src="hotdoc-sitemap.html" id="sitenav-frame"></iframe>
+  </div>
+</div>
+
+<div id="body">
+	<div id="main">
+				    <div id="page-description" data-hotdoc-role="main">
+        <h1 id="multiplatform-deployment-using-cerbero">Multiplatform deployment using Cerbero</h1>
+<p>Cerbero is the build and packaging system used to construct
+GStreamer. It uses “recipe” files that indicate how to build
+particular projects, and on what other projects they depend.
+Moreover, the built projects can be combined into packages for
+distribution. These packages are, depending on the target platform,
+Windows or OS X installers or Linux packages.</p>
+<p>To use Cerbero to build and package your application, you just need to
+add a recipe explaining how to build you application and make it depend
+on the needed recipes. Then Cerbero can take care of building
+your application and its dependencies and package them all together.</p>
+<p>Read <a href="installing/building-from-source-using-cerbero.html">Building from source using Cerbero</a> to learn how
+to install and use Cerbero.</p>
+<p>At this point, after reading the Build from source section in
+<a href="installing/building-from-source-using-cerbero.html">Building from source using Cerbero</a>, you should be able to
+build GStreamer from source and are ready to create recipe and package
+files for your application.</p>
+<p>In the Cerbero installation directory you will find the
+<code>cerbero-uninstalled</code> script. Execute it without parameters to see the
+list of commands it accepts:</p>
+<pre><code class="language-bash">./cerbero-uninstalled
+</code></pre>
+<h2 id="adding-a-recipe-for-your-application">Adding a recipe for your application</h2>
+<p>The first step is to create an empty recipe that you can then tailor to
+your needs:</p>
+<pre><code class="language-bash">./cerbero-uninstalled add-recipe my-app 1.0
+</code></pre>
+<p>This will create an initial recipe file in <code>recipes/my-app.recipe</code>,
+which contains the smallest necessary recipe. This file is a Python
+script; set the following attributes to describe your application:</p>
+<pre><code>+-------------------+-----------------------+----------+----------------------+
+| Attribute Name    | Description           | Required | Example              |
+|-------------------|-----------------------|----------|----------------------|
+| name              | The recipe name       | Yes      | name = 'my-app'      |
+|                   |                       |          |                      |
+| version           | The software version  | Yes      | version = '1.0'      |
+|                   |                       |          |                      |
+| licenses          | A list of licenses of | Yes      | licenses =           |
+|                   | the software [1]      |          | [License.LGPLv2Plus] |
+|                   |                       |          |                      |
+| deps              | A list of build       | No       | deps = ['other',     |
+|                   | dependencies of the   |          | 'recipe', 'names']   |
+|                   | software as recipe    |          |                      |
+|                   | names.                |          |                      |
+|                   |                       |          |                      |
+| platform_deps     | Platform specific     | No       | platform_deps =      |
+|                   | build dependencies    |          | {Platform.LINUX:     |
+|                   |                       |          | ['some-recipe'],     |
+|                   |                       |          | Platform.WINDOWS:    |
+|                   |                       |          | ['another-recipe']}  |
+|                   |                       |          |                      |
+| remotes           | Dictionary specifying | No       | remotes = {'origin': |
+|                   | the git remote URLs   |          | '&lt;git://somewhere&gt;'} |
+|                   | where sources are     |          |                      |
+|                   | pulled from           |          |                      |
+|                   |                       |          |                      |
+| commit            | The git commit, tag or| No       | commit =             |
+|                   | branch to use,        |          | 'my-app-branch'      |
+|                   | defaulting to         |          |                      |
+|                   | "sdk-*`version`*"     |          |                      |
+|                   |                       |          |                      |
+| config_sh         | Used to select the    | No       | config_sh =          |
+|                   | configuration script  |          | 'autoreconf -fiv &amp;&amp;  |
+|                   |                       |          | sh ./configure'      |
+|                   |                       |          |                      |
+| configure_options | Additional options    | No       | configure_options =  |
+|                   | that should be passed |          | '--enable-something' |
+|                   | to the `configure`    |          |                      |
+|                   | script                |          |                      |
+|                   |                       |          |                      |
+| use_system_libs   | Whether to use system | No       | use_system_libs =    |
+|                   | provided libs         |          | True                 |
+|                   |                       |          |                      |
+| btype             | The build type        | No       | btype =              |
+|                   |                       |          | BuildType.CUSTOM     |
+|                   |                       |          |                      |
+| stype             | The source type       | No       | stype =              |
+|                   |                       |          | SourceType.CUSTOM    |
+|                   |                       |          |                      |
+| files_category    | A list of files that  | Yes      | files_bins =         |
+|                   | should be shipped with|          | ['some-binary']      |
+|                   | packages including    |          | files_libs =         |
+|                   | this recipe *category*|          | ['libsomelib']       |
+|                   | [5]                   |          | files_devel =        |
+|                   |                       |          | ['include/something']|
+|                   |                       |          | files_python =       |
+|                   |                       |          | ['site-packages/     |
+|                   |                       |          | some/pythonfile%(pext|
+|                   |                       |          | )s']                 |
+|                   |                       |          | files_lang = ['foo'] |
+|                   |                       |          |                      |
+| platform_files_   | Same as files_category| No       | platform_files_some_ |
+| category          | but for platform      |          | category =           |
+|                   | specific files        |          | {Platform.LINUX:     |
+|                   |                       |          | ['/some/file']}      |
++-------------------+-----------------------+----------+----------------------+
+
+[1] See cerbero/enums.py:License for allowed licenses
+[2] See cerbero/enums.py:Platform for allowed platforms
+[3] See cerbero/build/build.py:BuildType for allowed build types
+[4] See cerbero/build/source.py:SourceType for allowed source types
+[5] Cerbero comes with some predefined categories that should be used if the
+files being installed match a category criteria. The predefined categories are: `libs` (for libraries), `bins` (for binaries), `devel` (for development files:
+header, pkgconfig files, etc), `python` (for python files) and `lang` (for
+language files). Note that for the `bins` and `libs` categories there is no need
+to specify the files extensions as Cerbero will do it for you.
+</code></pre>
+<blockquote>
+<p><img src="deploying/images/icons/emoticons/warning.svg" alt="warning" id="warning"> At least one “files” category should be set.</p>
+</blockquote>
+<p>Apart from the attributes listed above, it is also possible to override
+some Recipe methods. For example the <code>prepare</code> method can be overridden
+to do anything before the software is built, or the <code>install</code> and
+<code>post_install</code> methods for overriding what should be done during or
+after installation. Take a look at the existing recipes in
+<code>cerbero/recipes</code> for example.</p>
+<p>Alternatively, you can pass some options to <code>cerbero-uninstalled</code> so some
+of these attributes are already set for you. For example:</p>
+<pre><code>./cerbero-uninstalled add-recipe --licenses "LGPL" --deps "glib" --origin "git://git.my-app.com" --commit "git-commit-to-use" my-app 1.0
+</code></pre>
+<p>See <code>./cerbero-uninstalled add-recipe -h</code> for help.</p>
+<p>As an example, this is the recipe used to build the Pitivi video editor:</p>
+<pre><code>class Recipe(recipe.Recipe):
+    name = 'pitivi'
+    version = '0.95'
+    licenses = [License.GPLv2Plus]
+    remotes = {'origin': 'git://git.gnome.org/pitivi'}
+    config_sh = 'sh ./autogen.sh --noconfigure &amp;&amp; ./configure'
+    configure_options = "--disable-help"
+    commit = 'origin/master'
+    deps = ['gst-editing-services-1.0',
+            'gst-python-1.0',
+            'gst-libav-1.0',
+            'gst-plugins-bad-1.0',
+            'gst-plugins-ugly-1.0',
+            'gst-transcoder',
+            'numpy',
+            'matplotlib',
+            'gnome-icon-theme',
+            'gnome-icon-theme-symbolic',
+            'shared-mime-info'] # brings in gtk+
+
+    files_libs = ['libpitivi-1.0']
+    files_typelibs = [
+        'Pitivi-1.0',
+    ]
+    use_system_libs = True
+    files_bins = ['pitivi']
+    files_lang = ['pitivi']
+    files_pitivi = ['lib/pitivi/python/pitivi',
+                    'share/pitivi/',
+                    'share/applications/pitivi.desktop']
+</code></pre>
+<p>Cerbero gets the software sources to build from a GIT repository, which
+is specified via the <code>git_root</code> configuration variable from the Cerbero
+configuration file (see the "Build from software" section in <a href="installing/on-linux.html">Installing
+on Linux</a>) and can be overridden by the
+<code>remotes</code> attribute inside the recipes (if setting the <code>origin</code> remote).
+In this case where no “commit” attribute is specified, Cerbero will use
+the commit named “sdk-0.2+git” from the GIT repository when building
+Snappy.</p>
+<p>Once the recipe is ready, instruct Cerbero to build it:</p>
+<pre><code class="language-bash">./cerbero-uninstalled build my-app
+</code></pre>
+<h2 id="adding-a-package-for-you-software">Adding a package for you software</h2>
+<p>To distribute your software with GStreamer it is necessary to put it into
+a package or installer, depending on the target platform. This is done
+by selecting the files that should be included. To add a package you
+have to create a package file in <code>cerbero/packages</code>. The package files
+are Python scripts too and there are already many examples of package
+files in <code>cerbero/packages</code>.</p>
+<p>Now, to create an empty package, do:</p>
+<pre><code class="language-bash">./cerbero-uninstalled add-package my-app 1.0
+</code></pre>
+<p>This will create an initial package file in <code>packages/my-app.package</code>.</p>
+<p>The following Package attributes are used to describe your package:</p>
+<pre><code>+---------------------+--------------------+----------+------------------------+
+| Attribute Name      | Description        | Required | Example                |
+|---------------------|--------------------|----------|------------------------|
+| name                | The package name   | Yes      | name = 'my-app'        |
+|                     |                    |          |                        |
+| shortdesc           | A short description| No       | shortdesc = 'some-short|
+|                     | of the package     |          | -desc'                 |
+|                     |                    |          |                        |
+| longdesc            | A long description | No       | longdesc = 'Some Longer|
+|                     |                    |          | Description'           |
+|                     |                    |          |                        |
+| codename            | Release codename.  | No       | codename =             |
+|                     |                    |          | 'MyAppReleaseName'     |
+|                     |                    |          |                        |
+| vendor              | Package Vendor     | No       | vendor = 'MyCompany'   |
+|                     |                    |          |                        |
+| url                 | Package URL        | No       | url =                  |
+|                     |                    |          |'http://www.my-app.com' |
+|                     |                    |          |                        |
+| version             | Package version    | Yes      | version = '1.0'        |
+|                     |                    |          |                        |
+| license             | Package license [1]| Yes      | license =              |
+|                     |                    |          | License.LGPLv2Plus     |
+|                     |                    |          |                        |
+| uuid                | Package unique id  | Yes      | uuid =                 |
+|                     |                    |          | '6cd161c2-4535-411f-82'|
+|                     |                    |          |                        |
+| deps                | List of package    | No       | deps = ['other',       |
+|                     | dependencies as    |          | 'package', 'names']    |
+|                     | package names      |          |                        |
+|                     |                    |          |                        |
+| sys_deps            | System dependencies| No       | sys_deps=              |
+|                     | for this package   |          | {Distro.DEBIAN:        |
+|                     |                    |          | ['python']}            |
+|                     |                    |          |                        |
+| files               | A list of files    | Yes      | files = ['my-app']     |
+|                     | included in the    |          | files = ['my-app:      |
+|                     | runtime package in |          | category1']            |
+|                     | the form           |          |                        |
+|                     | "recipe_name:      |          |                        |
+|                     | category1:category2|          |                        |
+|                     | :..." [2]          |          |                        |
+|                     |                    |          |                        |
+| files_devel         | A list of files    | Yes      | files_devel =          |
+|                     | included in the    |          | ['my-app:category_devel|
+|                     | devel package. Same|          | ']                     |
+|                     | format as above    |          |                        |
+|                     |                    |          |                        |
+| platform_files      | Same as *files* but| Yes      | platform_files =       |
+|                     | allowing to specify|          | {Platform.WINDOWS:     |
+|                     | different files for|          | ['my-app:              |
+|                     | different platforms|          | windows_only_category']|
+|                     |                    |          | }                      |
+|                     |                    |          |                        |
+| platform_files_devel| As above but for   | Yes      | platform_files_devel = |
+|                     | files_devel        |          | {Platform.WINDOWS:     |
+|                     |                    |          | ['my-app:windows_only_c|
+|                     |                    |          | ategory_devel']}       |
++---------------------+--------------------+----------+------------------------+
+
+[1] See cerbero/enums.py:License for allowed licenses.
+[2] If the recipe category is omitted, all categories are included.
+
+</code></pre>
+<blockquote>
+<p><img src="deploying/images/icons/emoticons/warning.svg" alt="warning" id="warning1"> At least one of the “files” attributes should be set.</p>
+</blockquote>
+<p>Alternatively you can also pass some options to <code>cerbero-uninstalled</code>,
+for example:</p>
+<pre><code class="language-bash">./cerbero-uninstalled add-package my-app 1.0 --license "LGPL" --codename MyApp --vendor MyAppVendor --url "http://www.my-app.com" --files=my-app:bins:libs --files-devel=my-app:devel --platform-files=linux:my-app:linux_specific --platform-files-devel=linux:my-app:linux_specific_devel,windows:my-app:windows_specific_devel --deps base-system --includes gstreamer-core
+</code></pre>
+<p>See <code>./cerbero-uninstalled add-package -h</code> for help.</p>
+<p>As an example, this is the package file that is used for packaging the
+<code>gstreamer-core</code> package:</p>
+<pre><code>class Package(package.Package):
+
+    name = 'gstreamer-1.0-codecs'
+    shortdesc = 'GStreamer 1.0 codecs'
+    longdesc = 'GStreamer 1.0 codecs'
+    version = '1.9.0.1'
+    url = "http://gstreamer.freedesktop.org"
+    license = License.LGPL
+    vendor = 'GStreamer Project'
+    org = 'org.freedesktop.gstreamer'
+    uuid = 'a2e545d5-7819-4636-9e86-3660542f08e5'
+    deps = ['gstreamer-1.0-core', 'base-crypto']
+
+    files = ['flac:libs', 'libkate:libs', 'libdv:libs',
+            'libogg:libs', 'schroedinger:libs', 'speex:libs',
+            'libtheora:libs', 'wavpack:libs', 'libvpx:libs',
+            'taglib:libs', 'opus:libs', 'libvorbis:libs',
+            'openjpeg:libs', 'openh264:libs', 'spandsp:libs',
+            'gst-plugins-base-1.0:plugins_codecs',
+            'gst-plugins-good-1.0:plugins_codecs',
+            'gst-plugins-bad-1.0:plugins_codecs',
+            'gst-plugins-ugly-1.0:plugins_codecs']
+    files_devel = ['gst-plugins-base-1.0-static:plugins_codecs_devel',
+            'gst-plugins-good-1.0-static:plugins_codecs_devel',
+            'gst-plugins-bad-1.0-static:plugins_codecs_devel',
+            'gst-plugins-ugly-1.0-static:plugins_codecs_devel',
+            'gst-plugins-bad-1.0-static:codecs_devel']
+    platform_files = {
+            Platform.ANDROID: ['tremor:libs'],
+            Platform.IOS: ['tremor:libs']
+    }
+</code></pre>
+<p>At this point you have two main options: you could either have a single
+package that contains everything your software needs, or depend on a
+shared version of GStreamer.</p>
+<h3 id="having-a-private-version-of-gstreamer">Having a private version of GStreamer</h3>
+<p>To have a private version of GStreamer included in a single package you
+don't have to add the <code>deps</code> variable to the package file but instead
+list all files you need in the <code>files</code> variables. If you decide to go
+this road you must make sure that you use a different prefix than
+GStreamer in the Cerbero configuration file, otherwise your package
+will have file conflicts with GStreamer.</p>
+<h3 id="having-a-shared-version-of-gstreamer">Having a shared version of GStreamer</h3>
+<p>If you decide to use a shared version of GStreamer you can create a
+package file like the other package files in GStreamer. Just
+list all packages you need in the <code>deps</code> variable and put the files your
+software needs inside the <code>files</code> variables. When building a package
+this way you must make sure that you use the same prefix and
+<code>packages_prefix</code> as the ones in your Cerbero configuration file.</p>
+<p>Finally, build your package by using:</p>
+<pre><code class="language-bash">./cerbero-uninstalled package your-package
+</code></pre>
+<p>Where <code>your-package</code> is the name of the <code>.package</code> file that you created
+in the <code>packages</code> directory. This command will build your software and
+all its dependencies, and then make individual packages for them (both
+the dependencies and your software). The resulting files will be in the
+current working directory.</p>
+
+    </div>
+        
+
+
+
+
+		
+	</div>
+	<div id="search_results">
+		<p>The results of the search are</p>
+	</div>
+	<div id="footer">
+		    
+
+	</div>
+</div>
+
+<div id="toc-column">
+	
+		<div class="edit-button">
+		<a href="https://gitlab.freedesktop.org/gstreamer/gst-docs//edit/master/subprojects/gst-docs/markdown/deploying/multiplatform-using-cerbero.md" data-hotdoc-role="edit-button">Edit on GitLab</a>
+
+	</div>
+		<div id="toc-wrapper">
+		<nav id="toc"></nav>
+	</div>
+</div>
+</div>
+</main>
+
+
+<script src="assets/js/navbar_offset_scroller.js"></script>
+</body>
+</html>

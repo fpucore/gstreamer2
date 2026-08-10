@@ -1,0 +1,3168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<base href="..">
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<title>GstPlanarAudioAdapter</title>
+
+<link rel="stylesheet" href="assets/css/dark-frontend.css" type="text/css" title="dark">
+<link rel="alternate stylesheet" href="assets/css/light-frontend.css" type="text/css" title="light">
+<link rel="stylesheet" href="assets/css/bootstrap-toc.min.css" type="text/css">
+<link rel="stylesheet" href="assets/css/jquery.mCustomScrollbar.min.css">
+<link rel="stylesheet" href="assets/js/search/enable_search.css" type="text/css">
+
+<link rel="stylesheet" href="assets/css/extra_frontend.css" type="text/css">
+<link rel="stylesheet" href="assets/css/devhelp.css" type="text/css">
+
+<link rel="stylesheet" href="assets/css/prism-tomorrow.css" type="text/css" title="dark">
+
+<link rel="alternate stylesheet" href="assets/css/prism.css" type="text/css" title="light">
+
+<script src="assets/js/mustache.min.js"></script>
+<script src="assets/js/jquery.js"></script>
+<script src="assets/js/bootstrap.js"></script>
+<script src="assets/js/scrollspy.js"></script>
+<script src="assets/js/typeahead.jquery.min.js"></script>
+<script src="assets/js/search.js"></script>
+<script src="assets/js/compare-versions.js"></script>
+<script src="assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="assets/js/bootstrap-toc.min.js"></script>
+<script src="assets/js/jquery.touchSwipe.min.js"></script>
+<script src="assets/js/anchor.min.js"></script>
+<script src="assets/js/tag_filtering.js"></script>
+<script src="assets/js/language_switching.js"></script>
+<script src="assets/js/styleswitcher.js"></script>
+
+<script src="assets/js/lines_around_headings.js"></script>
+
+<script src="assets/js/prism-core.js"></script>
+<script src="assets/js/prism-autoloader.js"></script>
+<script src="assets/js/prism_autoloader_path_override.js"></script>
+<script src="assets/js/trie.js"></script>
+
+<!-- generic -->
+<link rel="icon" type="image/png" href="assets/images/favicon-16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="assets/images/favicon-32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="assets/images/favicon-57.png" sizes="57x57">
+<link rel="icon" type="image/png" href="assets/images/favicon-64.png" sizes="64x64">
+<link rel="icon" type="image/png" href="assets/images/favicon-76.png" sizes="76x76">
+<link rel="icon" type="image/png" href="assets/images/favicon-96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="assets/images/favicon-128.png" sizes="128x128">
+<link rel="icon" type="image/png" href="assets/images/favicon-192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="assets/images/favicon-228.png" sizes="228x228">
+
+<!-- Android -->
+<link rel="shortcut icon" sizes="196x196" href="assets/images/favicon-196.png">
+
+<!-- iOS -->
+<link rel="apple-touch-icon" href="assets/images/favicon-120.png" sizes="120x120">
+<link rel="apple-touch-icon" href="assets/images/favicon-152.png" sizes="152x152">
+<link rel="apple-touch-icon" href="assets/images/favicon-180.png" sizes="180x180">
+
+</head>
+
+<body class="no-script
+">
+
+<script>
+$('body').removeClass('no-script');
+</script>
+
+<nav class="navbar navbar-fixed-top navbar-default" id="topnav">
+	<div class="container-fluid">
+		<div class="navbar-right">
+			<a id="toc-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-wrapper" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<span title="light mode switch" class="glyphicon glyphicon-sunglasses pull-right" id="lightmode-icon"></span>
+			<form class="navbar-form pull-right" id="navbar-search-form">
+                               <div class="form-group has-feedback">
+                                       <input type="text" class="form-control input-sm" name="search" id="sidenav-lookup-field" placeholder="search" disabled>
+				       <span class="glyphicon glyphicon-search form-control-feedback" id="search-mgn-glass"></span>
+                               </div>
+                        </form>
+		</div>
+		<div class="navbar-header">
+			<a id="sidenav-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<a id="home-link" href="index.html" class="hotdoc-navbar-brand">
+				<img src="assets/images/gstreamer-logo.svg" alt="Home">
+			</a>
+		</div>
+		<div class="navbar-collapse collapse" id="navbar-wrapper">
+			<ul class="nav navbar-nav" id="menu">
+				
+<li class="dropdown">
+    <a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        API References<span class="caret"></span>
+    </a>
+	<ul class="dropdown-menu" id="modules-menu">
+					<li>
+				<a href="gstreamer/gi-index.html">GStreamer core</a>
+			</li>
+					<li>
+				<a href="libs.html">GStreamer Libraries</a>
+			</li>
+					<li>
+				<a href="plugins_doc.html">GStreamer Plugins</a>
+			</li>
+		</ul>
+</li>
+
+<li>
+    <a href="application-development/index.html">Application manual</a>
+</li>
+
+
+<li>
+    <a href="tutorials/index.html">Tutorials</a>
+</li>
+
+			</ul>
+			<div class="hidden-xs hidden-sm navbar-text navbar-center">
+							</div>
+		</div>
+	</div>
+</nav>
+
+<main>
+<div data-extension="gi-extension" data-hotdoc-in-toplevel="False" data-hotdoc-project="bad-audio" data-hotdoc-ref="gstplanaraudioadapter.html" class="page_container" id="page-wrapper" data-hotdoc-meta-gi-languages="['c', 'javascript', 'python']" data-hotdoc-meta-gi-language="c">
+<script src="assets/js/utils.js"></script>
+
+<div class="panel panel-collapse oc-collapsed" id="sidenav" data-hotdoc-role="navigation">
+	<script src="assets/js/full-width.js"></script>
+  <div id="sitenav-wrapper">
+    <iframe src="hotdoc-sitemap.html" id="sitenav-frame"></iframe>
+  </div>
+</div>
+
+<div id="body">
+	<div id="main">
+				    <div id="page-description" data-hotdoc-role="main">
+        <h1 id="gstplanaraudioadapter-page">GstPlanarAudioAdapter</h1>
+<p>This class is similar to GstAdapter, but it is made to work with
+non-interleaved (planar) audio buffers. Before using, an audio format
+must be configured with <a href="bad-audio/gstplanaraudioadapter.html#gst_planar_audio_adapter_configure" data-gi-href-javascript="bad-audio/gstplanaraudioadapter.html#gst_planar_audio_adapter_configure" data-gi-title-javascript="GstBadAudio.PlanarAudioAdapter.prototype.configure" data-gi-href-python="bad-audio/gstplanaraudioadapter.html#gst_planar_audio_adapter_configure" data-gi-title-python="GstBadAudio.PlanarAudioAdapter.configure">gst_planar_audio_adapter_configure</a></p>
+
+    </div>
+        
+        
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstPlanarAudioAdapter">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h2 data-hotdoc-id="GstPlanarAudioAdapter">
+	<i>GstPlanarAudioAdapter</i>
+</h2>
+
+
+<div class="hierarchy_container">
+	<div class="hierarchy_details">
+<pre>
+<a title="GObject" href="https://docs.gtk.org/gobject/class.Object.html">GObject</a>
+    <span class="lineart">╰──</span>GstPlanarAudioAdapter
+</pre>
+
+</div>
+
+</div>
+
+<div class="class_details">
+	<p>The opaque <a href="bad-audio/gstplanaraudioadapter.html#GstPlanarAudioAdapter">GstPlanarAudioAdapter</a> data structure.</p>
+
+</div>
+
+
+
+
+
+
+<hr>
+<h3>Class structure</h3>
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstPlanarAudioAdapterClass">
+	<i>GstPlanarAudioAdapterClass</i>
+</h4>
+
+
+
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3>
+	GstBadAudio.PlanarAudioAdapterClass
+</h3>
+
+
+
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3>
+	GstBadAudio.PlanarAudioAdapterClass
+</h3>
+
+
+
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h2 data-hotdoc-id="GstPlanarAudioAdapter">
+	<i>GstBadAudio.PlanarAudioAdapter</i>
+</h2>
+
+
+<div class="hierarchy_container">
+	<div class="hierarchy_details">
+<pre>
+<a title="GObject.Object" href="https://docs.gtk.org/gobject/class.Object.html">GObject.Object</a>
+    <span class="lineart">╰──</span>GstBadAudio.PlanarAudioAdapter
+</pre>
+
+</div>
+
+</div>
+
+<div class="class_details">
+	<p>The opaque <a href="bad-audio/gstplanaraudioadapter.html#GstPlanarAudioAdapter">GstBadAudio.PlanarAudioAdapter</a> data structure.</p>
+
+</div>
+
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h2 data-hotdoc-id="GstPlanarAudioAdapter">
+	<i>GstBadAudio.PlanarAudioAdapter</i>
+</h2>
+
+
+<div class="hierarchy_container">
+	<div class="hierarchy_details">
+<pre>
+<a title="GObject.Object" href="https://docs.gtk.org/gobject/class.Object.html">GObject.Object</a>
+    <span class="lineart">╰──</span>GstBadAudio.PlanarAudioAdapter
+</pre>
+
+</div>
+
+</div>
+
+<div class="class_details">
+	<p>The opaque <a href="bad-audio/gstplanaraudioadapter.html#GstPlanarAudioAdapter">GstBadAudio.PlanarAudioAdapter</a> data structure.</p>
+
+</div>
+
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+
+            <h3 class="symbol_section">Constructors</h3>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_planar_audio_adapter_new">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_planar_audio_adapter_new">
+	<i>gst_planar_audio_adapter_new</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GstPlanarAudioAdapter" href="bad-audio/gstplanaraudioadapter.html#GstPlanarAudioAdapter">GstPlanarAudioAdapter</a> *
+gst_planar_audio_adapter_new ()</pre>
+
+<p>Creates a new <a href="bad-audio/gstplanaraudioadapter.html#GstPlanarAudioAdapter">GstPlanarAudioAdapter</a>. Free with <a href="https://docs.gtk.org/gobject/method.Object.unref.html">g_object_unref</a>.</p>
+
+
+
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span>
+<span class="annotation">[<abbr title="Free data after the code is done"><span class="acronym">transfer: full</span></abbr>]</span><span>)</span>
+–
+			</div>
+							<p>a new <a href="bad-audio/gstplanaraudioadapter.html#GstPlanarAudioAdapter">GstPlanarAudioAdapter</a></p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_planar_audio_adapter_new">
+	<i>GstBadAudio.PlanarAudioAdapter.prototype.new</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstBadAudio.PlanarAudioAdapter.prototype.new(): {
+    // javascript wrapper for 'gst_planar_audio_adapter_new'
+}</code></pre>
+
+<p>Creates a new <a href="bad-audio/gstplanaraudioadapter.html#GstPlanarAudioAdapter">GstBadAudio.PlanarAudioAdapter</a>. Free with <a href="https://docs.gtk.org/gobject/method.Object.unref.html">GObject.Object.prototype.unref</a>.</p>
+
+
+
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GstBadAudio.PlanarAudioAdapter" href="bad-audio/gstplanaraudioadapter.html#GstPlanarAudioAdapter">GstBadAudio.PlanarAudioAdapter</a><span>)</span>
+–
+			</div>
+							<p>a new <a href="bad-audio/gstplanaraudioadapter.html#GstPlanarAudioAdapter">GstBadAudio.PlanarAudioAdapter</a></p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_planar_audio_adapter_new">
+	<i>GstBadAudio.PlanarAudioAdapter.new</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstBadAudio.PlanarAudioAdapter.new ():
+    #python wrapper for 'gst_planar_audio_adapter_new'</code></pre>
+
+<p>Creates a new <a href="bad-audio/gstplanaraudioadapter.html#GstPlanarAudioAdapter">GstBadAudio.PlanarAudioAdapter</a>. Free with <a href="https://docs.gtk.org/gobject/method.Object.unref.html">GObject.Object.unref</a>.</p>
+
+
+
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GstBadAudio.PlanarAudioAdapter" href="bad-audio/gstplanaraudioadapter.html#GstPlanarAudioAdapter">GstBadAudio.PlanarAudioAdapter</a><span>)</span>
+–
+			</div>
+							<p>a new <a href="bad-audio/gstplanaraudioadapter.html#GstPlanarAudioAdapter">GstBadAudio.PlanarAudioAdapter</a></p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+
+            <h3 class="symbol_section">Methods</h3>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_planar_audio_adapter_available">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_planar_audio_adapter_available">
+	<i>gst_planar_audio_adapter_available</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gsize" href="https://docs.gtk.org/glib/types.html#gsize">gsize</a>
+gst_planar_audio_adapter_available (<a title="GstPlanarAudioAdapter" href="bad-audio/gstplanaraudioadapter.html#GstPlanarAudioAdapter">GstPlanarAudioAdapter</a> * adapter)</pre>
+
+<p>Gets the maximum amount of samples available, that is it returns the maximum
+value that can be supplied to <a href="bad-audio/gstplanaraudioadapter.html#gst_planar_audio_adapter_get_buffer">gst_planar_audio_adapter_get_buffer</a> without
+that function returning <a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#NULL:CAPS">NULL</a>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>adapter</code></em></i>
+–
+</div>
+<p>a <a href="bad-audio/gstplanaraudioadapter.html#GstPlanarAudioAdapter">GstPlanarAudioAdapter</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p>number of samples available in <em>adapter</em></p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_planar_audio_adapter_available">
+	<i>GstBadAudio.PlanarAudioAdapter.prototype.available</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstBadAudio.PlanarAudioAdapter.prototype.available(): {
+    // javascript wrapper for 'gst_planar_audio_adapter_available'
+}</code></pre>
+
+<p>Gets the maximum amount of samples available, that is it returns the maximum
+value that can be supplied to <a href="bad-audio/gstplanaraudioadapter.html#gst_planar_audio_adapter_get_buffer">GstBadAudio.PlanarAudioAdapter.prototype.get_buffer</a> without
+that function returning <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null">null</a>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>adapter</code></em></i>
+<span>(</span><a title="GstBadAudio.PlanarAudioAdapter" href="bad-audio/gstplanaraudioadapter.html#GstPlanarAudioAdapter">GstBadAudio.PlanarAudioAdapter</a><span>)</span>
+–
+</div>
+<p>a <a href="bad-audio/gstplanaraudioadapter.html#GstPlanarAudioAdapter">GstBadAudio.PlanarAudioAdapter</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+			</div>
+							<p>number of samples available in <em>adapter</em></p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_planar_audio_adapter_available">
+	<i>GstBadAudio.PlanarAudioAdapter.available</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstBadAudio.PlanarAudioAdapter.available (self):
+    #python wrapper for 'gst_planar_audio_adapter_available'</code></pre>
+
+<p>Gets the maximum amount of samples available, that is it returns the maximum
+value that can be supplied to <a href="bad-audio/gstplanaraudioadapter.html#gst_planar_audio_adapter_get_buffer">GstBadAudio.PlanarAudioAdapter.get_buffer</a> without
+that function returning <a href="https://docs.python.org/3/library/constants.html#None">None</a>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>adapter</code></em></i>
+<span>(</span><a title="GstBadAudio.PlanarAudioAdapter" href="bad-audio/gstplanaraudioadapter.html#GstPlanarAudioAdapter">GstBadAudio.PlanarAudioAdapter</a><span>)</span>
+–
+</div>
+<p>a <a href="bad-audio/gstplanaraudioadapter.html#GstPlanarAudioAdapter">GstBadAudio.PlanarAudioAdapter</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+			</div>
+							<p>number of samples available in <em>adapter</em></p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_planar_audio_adapter_clear">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_planar_audio_adapter_clear">
+	<i>gst_planar_audio_adapter_clear</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+gst_planar_audio_adapter_clear (<a title="GstPlanarAudioAdapter" href="bad-audio/gstplanaraudioadapter.html#GstPlanarAudioAdapter">GstPlanarAudioAdapter</a> * adapter)</pre>
+
+<p>Removes all buffers from <em>adapter</em>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>adapter</code></em></i>
+–
+</div>
+<p>a <a href="bad-audio/gstplanaraudioadapter.html#GstPlanarAudioAdapter">GstPlanarAudioAdapter</a></p>
+
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_planar_audio_adapter_clear">
+	<i>GstBadAudio.PlanarAudioAdapter.prototype.clear</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstBadAudio.PlanarAudioAdapter.prototype.clear(): {
+    // javascript wrapper for 'gst_planar_audio_adapter_clear'
+}</code></pre>
+
+<p>Removes all buffers from <em>adapter</em>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>adapter</code></em></i>
+<span>(</span><a title="GstBadAudio.PlanarAudioAdapter" href="bad-audio/gstplanaraudioadapter.html#GstPlanarAudioAdapter">GstBadAudio.PlanarAudioAdapter</a><span>)</span>
+–
+</div>
+<p>a <a href="bad-audio/gstplanaraudioadapter.html#GstPlanarAudioAdapter">GstBadAudio.PlanarAudioAdapter</a></p>
+
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_planar_audio_adapter_clear">
+	<i>GstBadAudio.PlanarAudioAdapter.clear</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstBadAudio.PlanarAudioAdapter.clear (self):
+    #python wrapper for 'gst_planar_audio_adapter_clear'</code></pre>
+
+<p>Removes all buffers from <em>adapter</em>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>adapter</code></em></i>
+<span>(</span><a title="GstBadAudio.PlanarAudioAdapter" href="bad-audio/gstplanaraudioadapter.html#GstPlanarAudioAdapter">GstBadAudio.PlanarAudioAdapter</a><span>)</span>
+–
+</div>
+<p>a <a href="bad-audio/gstplanaraudioadapter.html#GstPlanarAudioAdapter">GstBadAudio.PlanarAudioAdapter</a></p>
+
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_planar_audio_adapter_configure">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_planar_audio_adapter_configure">
+	<i>gst_planar_audio_adapter_configure</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+gst_planar_audio_adapter_configure (<a title="GstPlanarAudioAdapter" href="bad-audio/gstplanaraudioadapter.html#GstPlanarAudioAdapter">GstPlanarAudioAdapter</a> * adapter,
+                                    const <a title="GstAudioInfo" href="audio/audio-info.html#GstAudioInfo">GstAudioInfo</a> * info)</pre>
+
+<p>Sets up the <em>adapter</em> to handle audio data of the specified audio format.
+Note that this will internally clear the adapter and re-initialize it.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>adapter</code></em></i>
+–
+</div>
+<p>a <a href="bad-audio/gstplanaraudioadapter.html#GstPlanarAudioAdapter">GstPlanarAudioAdapter</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>info</code></em></i>
+–
+</div>
+<p>a <a href="audio/audio-info.html#GstAudioInfo">GstAudioInfo</a> describing the format of the audio data</p>
+
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_planar_audio_adapter_configure">
+	<i>GstBadAudio.PlanarAudioAdapter.prototype.configure</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstBadAudio.PlanarAudioAdapter.prototype.configure(info: <a title="GstAudio.AudioInfo" href="audio/audio-info.html#GstAudioInfo">GstAudio.AudioInfo</a>): {
+    // javascript wrapper for 'gst_planar_audio_adapter_configure'
+}</code></pre>
+
+<p>Sets up the <em>adapter</em> to handle audio data of the specified audio format.
+Note that this will internally clear the adapter and re-initialize it.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>adapter</code></em></i>
+<span>(</span><a title="GstBadAudio.PlanarAudioAdapter" href="bad-audio/gstplanaraudioadapter.html#GstPlanarAudioAdapter">GstBadAudio.PlanarAudioAdapter</a><span>)</span>
+–
+</div>
+<p>a <a href="bad-audio/gstplanaraudioadapter.html#GstPlanarAudioAdapter">GstBadAudio.PlanarAudioAdapter</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>info</code></em></i>
+<span>(</span><a title="GstAudio.AudioInfo" href="audio/audio-info.html#GstAudioInfo">GstAudio.AudioInfo</a><span>)</span>
+–
+</div>
+<p>a <a href="audio/audio-info.html#GstAudioInfo">GstAudio.AudioInfo</a> describing the format of the audio data</p>
+
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_planar_audio_adapter_configure">
+	<i>GstBadAudio.PlanarAudioAdapter.configure</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstBadAudio.PlanarAudioAdapter.configure (self, info):
+    #python wrapper for 'gst_planar_audio_adapter_configure'</code></pre>
+
+<p>Sets up the <em>adapter</em> to handle audio data of the specified audio format.
+Note that this will internally clear the adapter and re-initialize it.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>adapter</code></em></i>
+<span>(</span><a title="GstBadAudio.PlanarAudioAdapter" href="bad-audio/gstplanaraudioadapter.html#GstPlanarAudioAdapter">GstBadAudio.PlanarAudioAdapter</a><span>)</span>
+–
+</div>
+<p>a <a href="bad-audio/gstplanaraudioadapter.html#GstPlanarAudioAdapter">GstBadAudio.PlanarAudioAdapter</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>info</code></em></i>
+<span>(</span><a title="GstAudio.AudioInfo" href="audio/audio-info.html#GstAudioInfo">GstAudio.AudioInfo</a><span>)</span>
+–
+</div>
+<p>a <a href="audio/audio-info.html#GstAudioInfo">GstAudio.AudioInfo</a> describing the format of the audio data</p>
+
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_planar_audio_adapter_distance_from_discont">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_planar_audio_adapter_distance_from_discont">
+	<i>gst_planar_audio_adapter_distance_from_discont</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="guint64" href="https://docs.gtk.org/glib/types.html#guint64">guint64</a>
+gst_planar_audio_adapter_distance_from_discont (<a title="GstPlanarAudioAdapter" href="bad-audio/gstplanaraudioadapter.html#GstPlanarAudioAdapter">GstPlanarAudioAdapter</a> * adapter)</pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>adapter</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_planar_audio_adapter_distance_from_discont">
+	<i>GstBadAudio.PlanarAudioAdapter.prototype.distance_from_discont</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstBadAudio.PlanarAudioAdapter.prototype.distance_from_discont(): {
+    // javascript wrapper for 'gst_planar_audio_adapter_distance_from_discont'
+}</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>adapter</code></em></i>
+<span>(</span><a title="GstBadAudio.PlanarAudioAdapter" href="bad-audio/gstplanaraudioadapter.html#GstPlanarAudioAdapter">GstBadAudio.PlanarAudioAdapter</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_planar_audio_adapter_distance_from_discont">
+	<i>GstBadAudio.PlanarAudioAdapter.distance_from_discont</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstBadAudio.PlanarAudioAdapter.distance_from_discont (self):
+    #python wrapper for 'gst_planar_audio_adapter_distance_from_discont'</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>adapter</code></em></i>
+<span>(</span><a title="GstBadAudio.PlanarAudioAdapter" href="bad-audio/gstplanaraudioadapter.html#GstPlanarAudioAdapter">GstBadAudio.PlanarAudioAdapter</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_planar_audio_adapter_dts_at_discont">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_planar_audio_adapter_dts_at_discont">
+	<i>gst_planar_audio_adapter_dts_at_discont</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GstClockTime" href="gstreamer/gstclock.html#GstClockTime">GstClockTime</a>
+gst_planar_audio_adapter_dts_at_discont (<a title="GstPlanarAudioAdapter" href="bad-audio/gstplanaraudioadapter.html#GstPlanarAudioAdapter">GstPlanarAudioAdapter</a> * adapter)</pre>
+
+<p>Get the DTS that was on the last buffer with the GST_BUFFER_FLAG_DISCONT
+flag, or GST_CLOCK_TIME_NONE.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>adapter</code></em></i>
+–
+</div>
+<p>a <a href="bad-audio/gstplanaraudioadapter.html#GstPlanarAudioAdapter">GstPlanarAudioAdapter</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p>The DTS at the last discont or GST_CLOCK_TIME_NONE.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_planar_audio_adapter_dts_at_discont">
+	<i>GstBadAudio.PlanarAudioAdapter.prototype.dts_at_discont</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstBadAudio.PlanarAudioAdapter.prototype.dts_at_discont(): {
+    // javascript wrapper for 'gst_planar_audio_adapter_dts_at_discont'
+}</code></pre>
+
+<p>Get the DTS that was on the last buffer with the GST_BUFFER_FLAG_DISCONT
+flag, or GST_CLOCK_TIME_NONE.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>adapter</code></em></i>
+<span>(</span><a title="GstBadAudio.PlanarAudioAdapter" href="bad-audio/gstplanaraudioadapter.html#GstPlanarAudioAdapter">GstBadAudio.PlanarAudioAdapter</a><span>)</span>
+–
+</div>
+<p>a <a href="bad-audio/gstplanaraudioadapter.html#GstPlanarAudioAdapter">GstBadAudio.PlanarAudioAdapter</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+			</div>
+							<p>The DTS at the last discont or GST_CLOCK_TIME_NONE.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_planar_audio_adapter_dts_at_discont">
+	<i>GstBadAudio.PlanarAudioAdapter.dts_at_discont</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstBadAudio.PlanarAudioAdapter.dts_at_discont (self):
+    #python wrapper for 'gst_planar_audio_adapter_dts_at_discont'</code></pre>
+
+<p>Get the DTS that was on the last buffer with the GST_BUFFER_FLAG_DISCONT
+flag, or GST_CLOCK_TIME_NONE.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>adapter</code></em></i>
+<span>(</span><a title="GstBadAudio.PlanarAudioAdapter" href="bad-audio/gstplanaraudioadapter.html#GstPlanarAudioAdapter">GstBadAudio.PlanarAudioAdapter</a><span>)</span>
+–
+</div>
+<p>a <a href="bad-audio/gstplanaraudioadapter.html#GstPlanarAudioAdapter">GstBadAudio.PlanarAudioAdapter</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+			</div>
+							<p>The DTS at the last discont or GST_CLOCK_TIME_NONE.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_planar_audio_adapter_flush">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_planar_audio_adapter_flush">
+	<i>gst_planar_audio_adapter_flush</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+gst_planar_audio_adapter_flush (<a title="GstPlanarAudioAdapter" href="bad-audio/gstplanaraudioadapter.html#GstPlanarAudioAdapter">GstPlanarAudioAdapter</a> * adapter,
+                                <a title="gsize" href="https://docs.gtk.org/glib/types.html#gsize">gsize</a> to_flush)</pre>
+
+<p>Flushes the first <em>to_flush</em> samples in the <em>adapter</em>. The caller must ensure
+that at least this many samples are available.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>adapter</code></em></i>
+–
+</div>
+<p>a <a href="bad-audio/gstplanaraudioadapter.html#GstPlanarAudioAdapter">GstPlanarAudioAdapter</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>to_flush</code></em></i>
+–
+</div>
+<p>the number of samples to flush</p>
+
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_planar_audio_adapter_flush">
+	<i>GstBadAudio.PlanarAudioAdapter.prototype.flush</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstBadAudio.PlanarAudioAdapter.prototype.flush(to_flush: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>): {
+    // javascript wrapper for 'gst_planar_audio_adapter_flush'
+}</code></pre>
+
+<p>Flushes the first <em>to_flush</em> samples in the <em>adapter</em>. The caller must ensure
+that at least this many samples are available.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>adapter</code></em></i>
+<span>(</span><a title="GstBadAudio.PlanarAudioAdapter" href="bad-audio/gstplanaraudioadapter.html#GstPlanarAudioAdapter">GstBadAudio.PlanarAudioAdapter</a><span>)</span>
+–
+</div>
+<p>a <a href="bad-audio/gstplanaraudioadapter.html#GstPlanarAudioAdapter">GstBadAudio.PlanarAudioAdapter</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>to_flush</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>the number of samples to flush</p>
+
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_planar_audio_adapter_flush">
+	<i>GstBadAudio.PlanarAudioAdapter.flush</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstBadAudio.PlanarAudioAdapter.flush (self, to_flush):
+    #python wrapper for 'gst_planar_audio_adapter_flush'</code></pre>
+
+<p>Flushes the first <em>to_flush</em> samples in the <em>adapter</em>. The caller must ensure
+that at least this many samples are available.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>adapter</code></em></i>
+<span>(</span><a title="GstBadAudio.PlanarAudioAdapter" href="bad-audio/gstplanaraudioadapter.html#GstPlanarAudioAdapter">GstBadAudio.PlanarAudioAdapter</a><span>)</span>
+–
+</div>
+<p>a <a href="bad-audio/gstplanaraudioadapter.html#GstPlanarAudioAdapter">GstBadAudio.PlanarAudioAdapter</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>to_flush</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<p>the number of samples to flush</p>
+
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_planar_audio_adapter_get_buffer">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_planar_audio_adapter_get_buffer">
+	<i>gst_planar_audio_adapter_get_buffer</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GstBuffer" href="gstreamer/gstbuffer.html#GstBuffer">GstBuffer</a> *
+gst_planar_audio_adapter_get_buffer (<a title="GstPlanarAudioAdapter" href="bad-audio/gstplanaraudioadapter.html#GstPlanarAudioAdapter">GstPlanarAudioAdapter</a> * adapter,
+                                     <a title="gsize" href="https://docs.gtk.org/glib/types.html#gsize">gsize</a> nsamples,
+                                     <a title="GstMapFlags" href="gstreamer/gstmemory.html#GstMapFlags">GstMapFlags</a> flags)</pre>
+
+<p>Returns a <a href="gstreamer/gstbuffer.html#GstBuffer">GstBuffer</a> containing the first <em>nsamples</em> of the <em>adapter</em>, but
+does not flush them from the adapter.
+Use <a href="bad-audio/gstplanaraudioadapter.html#gst_planar_audio_adapter_take_buffer">gst_planar_audio_adapter_take_buffer</a> for flushing at the same time.</p>
+<p>The map <em>flags</em> can be used to give an optimization hint to this function.
+When the requested buffer is meant to be mapped only for reading, it might
+be possible to avoid copying memory in some cases.</p>
+<p>Caller owns a reference to the returned buffer. <a href="gstreamer/gstbuffer.html#gst_buffer_unref">gst_buffer_unref</a> after
+usage.</p>
+<p>Free-function: gst_buffer_unref</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>adapter</code></em></i>
+–
+</div>
+<p>a <a href="bad-audio/gstplanaraudioadapter.html#GstPlanarAudioAdapter">GstPlanarAudioAdapter</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>nsamples</code></em></i>
+–
+</div>
+<p>the number of samples to get</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>flags</code></em></i>
+–
+</div>
+<p>hint the intended use of the returned buffer</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span>
+<span class="annotation">[<abbr title="Free data after the code is done"><span class="acronym">transfer: full</span></abbr>]</span><span class="annotation">[<abbr title="NULL may be passed to the value"><span class="acronym">nullable</span></abbr>]</span><span>)</span>
+–
+			</div>
+							<p>a <a href="gstreamer/gstbuffer.html#GstBuffer">GstBuffer</a> containing the first
+<em>nsamples</em> of the adapter, or <a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#NULL:CAPS">NULL</a> if <em>nsamples</em> samples are not
+available. <a href="gstreamer/gstbuffer.html#gst_buffer_unref">gst_buffer_unref</a> when no longer needed.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_planar_audio_adapter_get_buffer">
+	<i>GstBadAudio.PlanarAudioAdapter.prototype.get_buffer</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstBadAudio.PlanarAudioAdapter.prototype.get_buffer(nsamples: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>, flags: <a title="Gst.MapFlags" href="gstreamer/gstmemory.html#GstMapFlags">Gst.MapFlags</a>): {
+    // javascript wrapper for 'gst_planar_audio_adapter_get_buffer'
+}</code></pre>
+
+<p>Returns a <a href="gstreamer/gstbuffer.html#GstBuffer">Gst.Buffer</a> containing the first <em>nsamples</em> of the <em>adapter</em>, but
+does not flush them from the adapter.
+Use <a href="bad-audio/gstplanaraudioadapter.html#gst_planar_audio_adapter_take_buffer">GstBadAudio.PlanarAudioAdapter.prototype.take_buffer</a> for flushing at the same time.</p>
+<p>The map <em>flags</em> can be used to give an optimization hint to this function.
+When the requested buffer is meant to be mapped only for reading, it might
+be possible to avoid copying memory in some cases.</p>
+<p>Caller owns a reference to the returned buffer. <a href="gstreamer/gstbuffer.html#gst_buffer_unref">gst_buffer_unref (not introspectable)</a> after
+usage.</p>
+<p>Free-function: gst_buffer_unref</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>adapter</code></em></i>
+<span>(</span><a title="GstBadAudio.PlanarAudioAdapter" href="bad-audio/gstplanaraudioadapter.html#GstPlanarAudioAdapter">GstBadAudio.PlanarAudioAdapter</a><span>)</span>
+–
+</div>
+<p>a <a href="bad-audio/gstplanaraudioadapter.html#GstPlanarAudioAdapter">GstBadAudio.PlanarAudioAdapter</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>nsamples</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>the number of samples to get</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>flags</code></em></i>
+<span>(</span><a title="Gst.MapFlags" href="gstreamer/gstmemory.html#GstMapFlags">Gst.MapFlags</a><span>)</span>
+–
+</div>
+<p>hint the intended use of the returned buffer</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Gst.Buffer" href="gstreamer/gstbuffer.html#GstBuffer">Gst.Buffer</a><span>)</span>
+–
+			</div>
+							<p>a <a href="gstreamer/gstbuffer.html#GstBuffer">Gst.Buffer</a> containing the first
+<em>nsamples</em> of the adapter, or <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null">null</a> if <em>nsamples</em> samples are not
+available. <a href="gstreamer/gstbuffer.html#gst_buffer_unref">gst_buffer_unref (not introspectable)</a> when no longer needed.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_planar_audio_adapter_get_buffer">
+	<i>GstBadAudio.PlanarAudioAdapter.get_buffer</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstBadAudio.PlanarAudioAdapter.get_buffer (self, nsamples, flags):
+    #python wrapper for 'gst_planar_audio_adapter_get_buffer'</code></pre>
+
+<p>Returns a <a href="gstreamer/gstbuffer.html#GstBuffer">Gst.Buffer</a> containing the first <em>nsamples</em> of the <em>adapter</em>, but
+does not flush them from the adapter.
+Use <a href="bad-audio/gstplanaraudioadapter.html#gst_planar_audio_adapter_take_buffer">GstBadAudio.PlanarAudioAdapter.take_buffer</a> for flushing at the same time.</p>
+<p>The map <em>flags</em> can be used to give an optimization hint to this function.
+When the requested buffer is meant to be mapped only for reading, it might
+be possible to avoid copying memory in some cases.</p>
+<p>Caller owns a reference to the returned buffer. <a href="gstreamer/gstbuffer.html#gst_buffer_unref">gst_buffer_unref (not introspectable)</a> after
+usage.</p>
+<p>Free-function: gst_buffer_unref</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>adapter</code></em></i>
+<span>(</span><a title="GstBadAudio.PlanarAudioAdapter" href="bad-audio/gstplanaraudioadapter.html#GstPlanarAudioAdapter">GstBadAudio.PlanarAudioAdapter</a><span>)</span>
+–
+</div>
+<p>a <a href="bad-audio/gstplanaraudioadapter.html#GstPlanarAudioAdapter">GstBadAudio.PlanarAudioAdapter</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>nsamples</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<p>the number of samples to get</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>flags</code></em></i>
+<span>(</span><a title="Gst.MapFlags" href="gstreamer/gstmemory.html#GstMapFlags">Gst.MapFlags</a><span>)</span>
+–
+</div>
+<p>hint the intended use of the returned buffer</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Gst.Buffer" href="gstreamer/gstbuffer.html#GstBuffer">Gst.Buffer</a><span>)</span>
+–
+			</div>
+							<p>a <a href="gstreamer/gstbuffer.html#GstBuffer">Gst.Buffer</a> containing the first
+<em>nsamples</em> of the adapter, or <a href="https://docs.python.org/3/library/constants.html#None">None</a> if <em>nsamples</em> samples are not
+available. <a href="gstreamer/gstbuffer.html#gst_buffer_unref">gst_buffer_unref (not introspectable)</a> when no longer needed.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_planar_audio_adapter_offset_at_discont">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_planar_audio_adapter_offset_at_discont">
+	<i>gst_planar_audio_adapter_offset_at_discont</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="guint64" href="https://docs.gtk.org/glib/types.html#guint64">guint64</a>
+gst_planar_audio_adapter_offset_at_discont (<a title="GstPlanarAudioAdapter" href="bad-audio/gstplanaraudioadapter.html#GstPlanarAudioAdapter">GstPlanarAudioAdapter</a> * adapter)</pre>
+
+<p>Get the offset that was on the last buffer with the GST_BUFFER_FLAG_DISCONT
+flag, or GST_BUFFER_OFFSET_NONE.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>adapter</code></em></i>
+–
+</div>
+<p>a <a href="bad-audio/gstplanaraudioadapter.html#GstPlanarAudioAdapter">GstPlanarAudioAdapter</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p>The offset at the last discont or GST_BUFFER_OFFSET_NONE.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_planar_audio_adapter_offset_at_discont">
+	<i>GstBadAudio.PlanarAudioAdapter.prototype.offset_at_discont</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstBadAudio.PlanarAudioAdapter.prototype.offset_at_discont(): {
+    // javascript wrapper for 'gst_planar_audio_adapter_offset_at_discont'
+}</code></pre>
+
+<p>Get the offset that was on the last buffer with the GST_BUFFER_FLAG_DISCONT
+flag, or GST_BUFFER_OFFSET_NONE.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>adapter</code></em></i>
+<span>(</span><a title="GstBadAudio.PlanarAudioAdapter" href="bad-audio/gstplanaraudioadapter.html#GstPlanarAudioAdapter">GstBadAudio.PlanarAudioAdapter</a><span>)</span>
+–
+</div>
+<p>a <a href="bad-audio/gstplanaraudioadapter.html#GstPlanarAudioAdapter">GstBadAudio.PlanarAudioAdapter</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+			</div>
+							<p>The offset at the last discont or GST_BUFFER_OFFSET_NONE.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_planar_audio_adapter_offset_at_discont">
+	<i>GstBadAudio.PlanarAudioAdapter.offset_at_discont</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstBadAudio.PlanarAudioAdapter.offset_at_discont (self):
+    #python wrapper for 'gst_planar_audio_adapter_offset_at_discont'</code></pre>
+
+<p>Get the offset that was on the last buffer with the GST_BUFFER_FLAG_DISCONT
+flag, or GST_BUFFER_OFFSET_NONE.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>adapter</code></em></i>
+<span>(</span><a title="GstBadAudio.PlanarAudioAdapter" href="bad-audio/gstplanaraudioadapter.html#GstPlanarAudioAdapter">GstBadAudio.PlanarAudioAdapter</a><span>)</span>
+–
+</div>
+<p>a <a href="bad-audio/gstplanaraudioadapter.html#GstPlanarAudioAdapter">GstBadAudio.PlanarAudioAdapter</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+			</div>
+							<p>The offset at the last discont or GST_BUFFER_OFFSET_NONE.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_planar_audio_adapter_prev_dts">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_planar_audio_adapter_prev_dts">
+	<i>gst_planar_audio_adapter_prev_dts</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GstClockTime" href="gstreamer/gstclock.html#GstClockTime">GstClockTime</a>
+gst_planar_audio_adapter_prev_dts (<a title="GstPlanarAudioAdapter" href="bad-audio/gstplanaraudioadapter.html#GstPlanarAudioAdapter">GstPlanarAudioAdapter</a> * adapter,
+                                   <a title="guint64" href="https://docs.gtk.org/glib/types.html#guint64">guint64</a> * distance)</pre>
+
+<p>Get the dts that was before the current sample in the adapter. When
+<em>distance</em> is given, the amount of bytes between the dts and the current
+position is returned.</p>
+<p>The dts is reset to GST_CLOCK_TIME_NONE and the distance is set to 0 when
+the adapter is first created or when it is cleared. This also means that
+before the first sample with a dts is removed from the adapter, the dts
+and distance returned are GST_CLOCK_TIME_NONE and 0 respectively.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>adapter</code></em></i>
+–
+</div>
+<p>a <a href="bad-audio/gstplanaraudioadapter.html#GstPlanarAudioAdapter">GstPlanarAudioAdapter</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>distance</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="Parameter for returning results"><span class="acronym">out</span></abbr>]</span><span class="annotation">[<abbr title="NULL is OK, both for passing and returning"><span class="acronym">allow-none</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>pointer to location for distance, or <a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#NULL:CAPS">NULL</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p>The previously seen dts.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_planar_audio_adapter_prev_dts">
+	<i>GstBadAudio.PlanarAudioAdapter.prototype.prev_dts</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstBadAudio.PlanarAudioAdapter.prototype.prev_dts(): {
+    // javascript wrapper for 'gst_planar_audio_adapter_prev_dts'
+}</code></pre>
+
+<p>Get the dts that was before the current sample in the adapter. When
+<em>distance</em> is given, the amount of bytes between the dts and the current
+position is returned.</p>
+<p>The dts is reset to GST_CLOCK_TIME_NONE and the distance is set to 0 when
+the adapter is first created or when it is cleared. This also means that
+before the first sample with a dts is removed from the adapter, the dts
+and distance returned are GST_CLOCK_TIME_NONE and 0 respectively.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>adapter</code></em></i>
+<span>(</span><a title="GstBadAudio.PlanarAudioAdapter" href="bad-audio/gstplanaraudioadapter.html#GstPlanarAudioAdapter">GstBadAudio.PlanarAudioAdapter</a><span>)</span>
+–
+</div>
+<p>a <a href="bad-audio/gstplanaraudioadapter.html#GstPlanarAudioAdapter">GstBadAudio.PlanarAudioAdapter</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<p><b>Returns a tuple made of:</b></p>
+				
+<div class="symbol-detail">
+	<div>
+		<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>
+<span>)</span>
+–
+	</div>
+			<p>The previously seen dts.</p>
+
+	</div>
+
+				
+<div class="symbol-detail">
+	<div>
+				<i><em><code>distance</code></em></i>
+		<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>
+<span>)</span>
+–
+	</div>
+			<p>The previously seen dts.</p>
+
+	</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_planar_audio_adapter_prev_dts">
+	<i>GstBadAudio.PlanarAudioAdapter.prev_dts</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstBadAudio.PlanarAudioAdapter.prev_dts (self):
+    #python wrapper for 'gst_planar_audio_adapter_prev_dts'</code></pre>
+
+<p>Get the dts that was before the current sample in the adapter. When
+<em>distance</em> is given, the amount of bytes between the dts and the current
+position is returned.</p>
+<p>The dts is reset to GST_CLOCK_TIME_NONE and the distance is set to 0 when
+the adapter is first created or when it is cleared. This also means that
+before the first sample with a dts is removed from the adapter, the dts
+and distance returned are GST_CLOCK_TIME_NONE and 0 respectively.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>adapter</code></em></i>
+<span>(</span><a title="GstBadAudio.PlanarAudioAdapter" href="bad-audio/gstplanaraudioadapter.html#GstPlanarAudioAdapter">GstBadAudio.PlanarAudioAdapter</a><span>)</span>
+–
+</div>
+<p>a <a href="bad-audio/gstplanaraudioadapter.html#GstPlanarAudioAdapter">GstBadAudio.PlanarAudioAdapter</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<p><b>Returns a tuple made of:</b></p>
+				
+<div class="symbol-detail">
+	<div>
+		<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a>
+<span>)</span>
+–
+	</div>
+			<p>The previously seen dts.</p>
+
+	</div>
+
+				
+<div class="symbol-detail">
+	<div>
+				<i><em><code>distance</code></em></i>
+		<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a>
+<span>)</span>
+–
+	</div>
+			<p>The previously seen dts.</p>
+
+	</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_planar_audio_adapter_prev_offset">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_planar_audio_adapter_prev_offset">
+	<i>gst_planar_audio_adapter_prev_offset</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="guint64" href="https://docs.gtk.org/glib/types.html#guint64">guint64</a>
+gst_planar_audio_adapter_prev_offset (<a title="GstPlanarAudioAdapter" href="bad-audio/gstplanaraudioadapter.html#GstPlanarAudioAdapter">GstPlanarAudioAdapter</a> * adapter,
+                                      <a title="guint64" href="https://docs.gtk.org/glib/types.html#guint64">guint64</a> * distance)</pre>
+
+<p>Get the offset that was before the current sample in the adapter. When
+<em>distance</em> is given, the amount of samples between the offset and the current
+position is returned.</p>
+<p>The offset is reset to GST_BUFFER_OFFSET_NONE and the distance is set to 0
+when the adapter is first created or when it is cleared. This also means that
+before the first sample with an offset is removed from the adapter, the
+offset and distance returned are GST_BUFFER_OFFSET_NONE and 0 respectively.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>adapter</code></em></i>
+–
+</div>
+<p>a <a href="bad-audio/gstplanaraudioadapter.html#GstPlanarAudioAdapter">GstPlanarAudioAdapter</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>distance</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="Parameter for returning results"><span class="acronym">out</span></abbr>]</span><span class="annotation">[<abbr title="NULL is OK, both for passing and returning"><span class="acronym">allow-none</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>pointer to a location for distance, or <a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#NULL:CAPS">NULL</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p>The previous seen offset.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_planar_audio_adapter_prev_offset">
+	<i>GstBadAudio.PlanarAudioAdapter.prototype.prev_offset</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstBadAudio.PlanarAudioAdapter.prototype.prev_offset(): {
+    // javascript wrapper for 'gst_planar_audio_adapter_prev_offset'
+}</code></pre>
+
+<p>Get the offset that was before the current sample in the adapter. When
+<em>distance</em> is given, the amount of samples between the offset and the current
+position is returned.</p>
+<p>The offset is reset to GST_BUFFER_OFFSET_NONE and the distance is set to 0
+when the adapter is first created or when it is cleared. This also means that
+before the first sample with an offset is removed from the adapter, the
+offset and distance returned are GST_BUFFER_OFFSET_NONE and 0 respectively.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>adapter</code></em></i>
+<span>(</span><a title="GstBadAudio.PlanarAudioAdapter" href="bad-audio/gstplanaraudioadapter.html#GstPlanarAudioAdapter">GstBadAudio.PlanarAudioAdapter</a><span>)</span>
+–
+</div>
+<p>a <a href="bad-audio/gstplanaraudioadapter.html#GstPlanarAudioAdapter">GstBadAudio.PlanarAudioAdapter</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<p><b>Returns a tuple made of:</b></p>
+				
+<div class="symbol-detail">
+	<div>
+		<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>
+<span>)</span>
+–
+	</div>
+			<p>The previous seen offset.</p>
+
+	</div>
+
+				
+<div class="symbol-detail">
+	<div>
+				<i><em><code>distance</code></em></i>
+		<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>
+<span>)</span>
+–
+	</div>
+			<p>The previous seen offset.</p>
+
+	</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_planar_audio_adapter_prev_offset">
+	<i>GstBadAudio.PlanarAudioAdapter.prev_offset</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstBadAudio.PlanarAudioAdapter.prev_offset (self):
+    #python wrapper for 'gst_planar_audio_adapter_prev_offset'</code></pre>
+
+<p>Get the offset that was before the current sample in the adapter. When
+<em>distance</em> is given, the amount of samples between the offset and the current
+position is returned.</p>
+<p>The offset is reset to GST_BUFFER_OFFSET_NONE and the distance is set to 0
+when the adapter is first created or when it is cleared. This also means that
+before the first sample with an offset is removed from the adapter, the
+offset and distance returned are GST_BUFFER_OFFSET_NONE and 0 respectively.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>adapter</code></em></i>
+<span>(</span><a title="GstBadAudio.PlanarAudioAdapter" href="bad-audio/gstplanaraudioadapter.html#GstPlanarAudioAdapter">GstBadAudio.PlanarAudioAdapter</a><span>)</span>
+–
+</div>
+<p>a <a href="bad-audio/gstplanaraudioadapter.html#GstPlanarAudioAdapter">GstBadAudio.PlanarAudioAdapter</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<p><b>Returns a tuple made of:</b></p>
+				
+<div class="symbol-detail">
+	<div>
+		<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a>
+<span>)</span>
+–
+	</div>
+			<p>The previous seen offset.</p>
+
+	</div>
+
+				
+<div class="symbol-detail">
+	<div>
+				<i><em><code>distance</code></em></i>
+		<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a>
+<span>)</span>
+–
+	</div>
+			<p>The previous seen offset.</p>
+
+	</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_planar_audio_adapter_prev_pts">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_planar_audio_adapter_prev_pts">
+	<i>gst_planar_audio_adapter_prev_pts</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GstClockTime" href="gstreamer/gstclock.html#GstClockTime">GstClockTime</a>
+gst_planar_audio_adapter_prev_pts (<a title="GstPlanarAudioAdapter" href="bad-audio/gstplanaraudioadapter.html#GstPlanarAudioAdapter">GstPlanarAudioAdapter</a> * adapter,
+                                   <a title="guint64" href="https://docs.gtk.org/glib/types.html#guint64">guint64</a> * distance)</pre>
+
+<p>Get the pts that was before the current sample in the adapter. When
+<em>distance</em> is given, the amount of samples between the pts and the current
+position is returned.</p>
+<p>The pts is reset to GST_CLOCK_TIME_NONE and the distance is set to 0 when
+the adapter is first created or when it is cleared. This also means that before
+the first sample with a pts is removed from the adapter, the pts
+and distance returned are GST_CLOCK_TIME_NONE and 0 respectively.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>adapter</code></em></i>
+–
+</div>
+<p>a <a href="bad-audio/gstplanaraudioadapter.html#GstPlanarAudioAdapter">GstPlanarAudioAdapter</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>distance</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="Parameter for returning results"><span class="acronym">out</span></abbr>]</span><span class="annotation">[<abbr title="NULL is OK, both for passing and returning"><span class="acronym">allow-none</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>pointer to location for distance, or <a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#NULL:CAPS">NULL</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p>The previously seen pts.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_planar_audio_adapter_prev_pts">
+	<i>GstBadAudio.PlanarAudioAdapter.prototype.prev_pts</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstBadAudio.PlanarAudioAdapter.prototype.prev_pts(): {
+    // javascript wrapper for 'gst_planar_audio_adapter_prev_pts'
+}</code></pre>
+
+<p>Get the pts that was before the current sample in the adapter. When
+<em>distance</em> is given, the amount of samples between the pts and the current
+position is returned.</p>
+<p>The pts is reset to GST_CLOCK_TIME_NONE and the distance is set to 0 when
+the adapter is first created or when it is cleared. This also means that before
+the first sample with a pts is removed from the adapter, the pts
+and distance returned are GST_CLOCK_TIME_NONE and 0 respectively.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>adapter</code></em></i>
+<span>(</span><a title="GstBadAudio.PlanarAudioAdapter" href="bad-audio/gstplanaraudioadapter.html#GstPlanarAudioAdapter">GstBadAudio.PlanarAudioAdapter</a><span>)</span>
+–
+</div>
+<p>a <a href="bad-audio/gstplanaraudioadapter.html#GstPlanarAudioAdapter">GstBadAudio.PlanarAudioAdapter</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<p><b>Returns a tuple made of:</b></p>
+				
+<div class="symbol-detail">
+	<div>
+		<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>
+<span>)</span>
+–
+	</div>
+			<p>The previously seen pts.</p>
+
+	</div>
+
+				
+<div class="symbol-detail">
+	<div>
+				<i><em><code>distance</code></em></i>
+		<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>
+<span>)</span>
+–
+	</div>
+			<p>The previously seen pts.</p>
+
+	</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_planar_audio_adapter_prev_pts">
+	<i>GstBadAudio.PlanarAudioAdapter.prev_pts</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstBadAudio.PlanarAudioAdapter.prev_pts (self):
+    #python wrapper for 'gst_planar_audio_adapter_prev_pts'</code></pre>
+
+<p>Get the pts that was before the current sample in the adapter. When
+<em>distance</em> is given, the amount of samples between the pts and the current
+position is returned.</p>
+<p>The pts is reset to GST_CLOCK_TIME_NONE and the distance is set to 0 when
+the adapter is first created or when it is cleared. This also means that before
+the first sample with a pts is removed from the adapter, the pts
+and distance returned are GST_CLOCK_TIME_NONE and 0 respectively.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>adapter</code></em></i>
+<span>(</span><a title="GstBadAudio.PlanarAudioAdapter" href="bad-audio/gstplanaraudioadapter.html#GstPlanarAudioAdapter">GstBadAudio.PlanarAudioAdapter</a><span>)</span>
+–
+</div>
+<p>a <a href="bad-audio/gstplanaraudioadapter.html#GstPlanarAudioAdapter">GstBadAudio.PlanarAudioAdapter</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<p><b>Returns a tuple made of:</b></p>
+				
+<div class="symbol-detail">
+	<div>
+		<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a>
+<span>)</span>
+–
+	</div>
+			<p>The previously seen pts.</p>
+
+	</div>
+
+				
+<div class="symbol-detail">
+	<div>
+				<i><em><code>distance</code></em></i>
+		<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a>
+<span>)</span>
+–
+	</div>
+			<p>The previously seen pts.</p>
+
+	</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_planar_audio_adapter_pts_at_discont">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_planar_audio_adapter_pts_at_discont">
+	<i>gst_planar_audio_adapter_pts_at_discont</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GstClockTime" href="gstreamer/gstclock.html#GstClockTime">GstClockTime</a>
+gst_planar_audio_adapter_pts_at_discont (<a title="GstPlanarAudioAdapter" href="bad-audio/gstplanaraudioadapter.html#GstPlanarAudioAdapter">GstPlanarAudioAdapter</a> * adapter)</pre>
+
+<p>Get the PTS that was on the last buffer with the GST_BUFFER_FLAG_DISCONT
+flag, or GST_CLOCK_TIME_NONE.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>adapter</code></em></i>
+–
+</div>
+<p>a <a href="bad-audio/gstplanaraudioadapter.html#GstPlanarAudioAdapter">GstPlanarAudioAdapter</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p>The PTS at the last discont or GST_CLOCK_TIME_NONE.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_planar_audio_adapter_pts_at_discont">
+	<i>GstBadAudio.PlanarAudioAdapter.prototype.pts_at_discont</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstBadAudio.PlanarAudioAdapter.prototype.pts_at_discont(): {
+    // javascript wrapper for 'gst_planar_audio_adapter_pts_at_discont'
+}</code></pre>
+
+<p>Get the PTS that was on the last buffer with the GST_BUFFER_FLAG_DISCONT
+flag, or GST_CLOCK_TIME_NONE.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>adapter</code></em></i>
+<span>(</span><a title="GstBadAudio.PlanarAudioAdapter" href="bad-audio/gstplanaraudioadapter.html#GstPlanarAudioAdapter">GstBadAudio.PlanarAudioAdapter</a><span>)</span>
+–
+</div>
+<p>a <a href="bad-audio/gstplanaraudioadapter.html#GstPlanarAudioAdapter">GstBadAudio.PlanarAudioAdapter</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+			</div>
+							<p>The PTS at the last discont or GST_CLOCK_TIME_NONE.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_planar_audio_adapter_pts_at_discont">
+	<i>GstBadAudio.PlanarAudioAdapter.pts_at_discont</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstBadAudio.PlanarAudioAdapter.pts_at_discont (self):
+    #python wrapper for 'gst_planar_audio_adapter_pts_at_discont'</code></pre>
+
+<p>Get the PTS that was on the last buffer with the GST_BUFFER_FLAG_DISCONT
+flag, or GST_CLOCK_TIME_NONE.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>adapter</code></em></i>
+<span>(</span><a title="GstBadAudio.PlanarAudioAdapter" href="bad-audio/gstplanaraudioadapter.html#GstPlanarAudioAdapter">GstBadAudio.PlanarAudioAdapter</a><span>)</span>
+–
+</div>
+<p>a <a href="bad-audio/gstplanaraudioadapter.html#GstPlanarAudioAdapter">GstBadAudio.PlanarAudioAdapter</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+			</div>
+							<p>The PTS at the last discont or GST_CLOCK_TIME_NONE.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_planar_audio_adapter_push">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_planar_audio_adapter_push">
+	<i>gst_planar_audio_adapter_push</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+gst_planar_audio_adapter_push (<a title="GstPlanarAudioAdapter" href="bad-audio/gstplanaraudioadapter.html#GstPlanarAudioAdapter">GstPlanarAudioAdapter</a> * adapter,
+                               <a title="GstBuffer" href="gstreamer/gstbuffer.html#GstBuffer">GstBuffer</a> * buf)</pre>
+
+<p>Adds the data from <em>buf</em> to the data stored inside <em>adapter</em> and takes
+ownership of the buffer.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>adapter</code></em></i>
+–
+</div>
+<p>a <a href="bad-audio/gstplanaraudioadapter.html#GstPlanarAudioAdapter">GstPlanarAudioAdapter</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>buf</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="Free data after the code is done"><span class="acronym">transfer: full</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gstbuffer.html#GstBuffer">GstBuffer</a> to queue in the adapter</p>
+
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_planar_audio_adapter_push">
+	<i>GstBadAudio.PlanarAudioAdapter.prototype.push</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstBadAudio.PlanarAudioAdapter.prototype.push(buf: <a title="Gst.Buffer" href="gstreamer/gstbuffer.html#GstBuffer">Gst.Buffer</a>): {
+    // javascript wrapper for 'gst_planar_audio_adapter_push'
+}</code></pre>
+
+<p>Adds the data from <em>buf</em> to the data stored inside <em>adapter</em> and takes
+ownership of the buffer.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>adapter</code></em></i>
+<span>(</span><a title="GstBadAudio.PlanarAudioAdapter" href="bad-audio/gstplanaraudioadapter.html#GstPlanarAudioAdapter">GstBadAudio.PlanarAudioAdapter</a><span>)</span>
+–
+</div>
+<p>a <a href="bad-audio/gstplanaraudioadapter.html#GstPlanarAudioAdapter">GstBadAudio.PlanarAudioAdapter</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>buf</code></em></i>
+<span>(</span><a title="Gst.Buffer" href="gstreamer/gstbuffer.html#GstBuffer">Gst.Buffer</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gstbuffer.html#GstBuffer">Gst.Buffer</a> to queue in the adapter</p>
+
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_planar_audio_adapter_push">
+	<i>GstBadAudio.PlanarAudioAdapter.push</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstBadAudio.PlanarAudioAdapter.push (self, buf):
+    #python wrapper for 'gst_planar_audio_adapter_push'</code></pre>
+
+<p>Adds the data from <em>buf</em> to the data stored inside <em>adapter</em> and takes
+ownership of the buffer.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>adapter</code></em></i>
+<span>(</span><a title="GstBadAudio.PlanarAudioAdapter" href="bad-audio/gstplanaraudioadapter.html#GstPlanarAudioAdapter">GstBadAudio.PlanarAudioAdapter</a><span>)</span>
+–
+</div>
+<p>a <a href="bad-audio/gstplanaraudioadapter.html#GstPlanarAudioAdapter">GstBadAudio.PlanarAudioAdapter</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>buf</code></em></i>
+<span>(</span><a title="Gst.Buffer" href="gstreamer/gstbuffer.html#GstBuffer">Gst.Buffer</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gstbuffer.html#GstBuffer">Gst.Buffer</a> to queue in the adapter</p>
+
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_planar_audio_adapter_take_buffer">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_planar_audio_adapter_take_buffer">
+	<i>gst_planar_audio_adapter_take_buffer</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GstBuffer" href="gstreamer/gstbuffer.html#GstBuffer">GstBuffer</a> *
+gst_planar_audio_adapter_take_buffer (<a title="GstPlanarAudioAdapter" href="bad-audio/gstplanaraudioadapter.html#GstPlanarAudioAdapter">GstPlanarAudioAdapter</a> * adapter,
+                                      <a title="gsize" href="https://docs.gtk.org/glib/types.html#gsize">gsize</a> nsamples,
+                                      <a title="GstMapFlags" href="gstreamer/gstmemory.html#GstMapFlags">GstMapFlags</a> flags)</pre>
+
+<p>Returns a <a href="gstreamer/gstbuffer.html#GstBuffer">GstBuffer</a> containing the first <em>nsamples</em> bytes of the
+<em>adapter</em>. The returned bytes will be flushed from the adapter.</p>
+<p>See <a href="bad-audio/gstplanaraudioadapter.html#gst_planar_audio_adapter_get_buffer">gst_planar_audio_adapter_get_buffer</a> for more details.</p>
+<p>Caller owns a reference to the returned buffer. <a href="gstreamer/gstbuffer.html#gst_buffer_unref">gst_buffer_unref</a> after
+usage.</p>
+<p>Free-function: gst_buffer_unref</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>adapter</code></em></i>
+–
+</div>
+<p>a <a href="bad-audio/gstplanaraudioadapter.html#GstPlanarAudioAdapter">GstPlanarAudioAdapter</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>nsamples</code></em></i>
+–
+</div>
+<p>the number of samples to take</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>flags</code></em></i>
+–
+</div>
+<p>hint the intended use of the returned buffer</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span>
+<span class="annotation">[<abbr title="Free data after the code is done"><span class="acronym">transfer: full</span></abbr>]</span><span class="annotation">[<abbr title="NULL may be passed to the value"><span class="acronym">nullable</span></abbr>]</span><span>)</span>
+–
+			</div>
+							<p>a <a href="gstreamer/gstbuffer.html#GstBuffer">GstBuffer</a> containing the first
+<em>nsamples</em> of the adapter, or <a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#NULL:CAPS">NULL</a> if <em>nsamples</em> samples are not
+available. <a href="gstreamer/gstbuffer.html#gst_buffer_unref">gst_buffer_unref</a> when no longer needed.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_planar_audio_adapter_take_buffer">
+	<i>GstBadAudio.PlanarAudioAdapter.prototype.take_buffer</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstBadAudio.PlanarAudioAdapter.prototype.take_buffer(nsamples: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>, flags: <a title="Gst.MapFlags" href="gstreamer/gstmemory.html#GstMapFlags">Gst.MapFlags</a>): {
+    // javascript wrapper for 'gst_planar_audio_adapter_take_buffer'
+}</code></pre>
+
+<p>Returns a <a href="gstreamer/gstbuffer.html#GstBuffer">Gst.Buffer</a> containing the first <em>nsamples</em> bytes of the
+<em>adapter</em>. The returned bytes will be flushed from the adapter.</p>
+<p>See <a href="bad-audio/gstplanaraudioadapter.html#gst_planar_audio_adapter_get_buffer">GstBadAudio.PlanarAudioAdapter.prototype.get_buffer</a> for more details.</p>
+<p>Caller owns a reference to the returned buffer. <a href="gstreamer/gstbuffer.html#gst_buffer_unref">gst_buffer_unref (not introspectable)</a> after
+usage.</p>
+<p>Free-function: gst_buffer_unref</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>adapter</code></em></i>
+<span>(</span><a title="GstBadAudio.PlanarAudioAdapter" href="bad-audio/gstplanaraudioadapter.html#GstPlanarAudioAdapter">GstBadAudio.PlanarAudioAdapter</a><span>)</span>
+–
+</div>
+<p>a <a href="bad-audio/gstplanaraudioadapter.html#GstPlanarAudioAdapter">GstBadAudio.PlanarAudioAdapter</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>nsamples</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>the number of samples to take</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>flags</code></em></i>
+<span>(</span><a title="Gst.MapFlags" href="gstreamer/gstmemory.html#GstMapFlags">Gst.MapFlags</a><span>)</span>
+–
+</div>
+<p>hint the intended use of the returned buffer</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Gst.Buffer" href="gstreamer/gstbuffer.html#GstBuffer">Gst.Buffer</a><span>)</span>
+–
+			</div>
+							<p>a <a href="gstreamer/gstbuffer.html#GstBuffer">Gst.Buffer</a> containing the first
+<em>nsamples</em> of the adapter, or <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null">null</a> if <em>nsamples</em> samples are not
+available. <a href="gstreamer/gstbuffer.html#gst_buffer_unref">gst_buffer_unref (not introspectable)</a> when no longer needed.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_planar_audio_adapter_take_buffer">
+	<i>GstBadAudio.PlanarAudioAdapter.take_buffer</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstBadAudio.PlanarAudioAdapter.take_buffer (self, nsamples, flags):
+    #python wrapper for 'gst_planar_audio_adapter_take_buffer'</code></pre>
+
+<p>Returns a <a href="gstreamer/gstbuffer.html#GstBuffer">Gst.Buffer</a> containing the first <em>nsamples</em> bytes of the
+<em>adapter</em>. The returned bytes will be flushed from the adapter.</p>
+<p>See <a href="bad-audio/gstplanaraudioadapter.html#gst_planar_audio_adapter_get_buffer">GstBadAudio.PlanarAudioAdapter.get_buffer</a> for more details.</p>
+<p>Caller owns a reference to the returned buffer. <a href="gstreamer/gstbuffer.html#gst_buffer_unref">gst_buffer_unref (not introspectable)</a> after
+usage.</p>
+<p>Free-function: gst_buffer_unref</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>adapter</code></em></i>
+<span>(</span><a title="GstBadAudio.PlanarAudioAdapter" href="bad-audio/gstplanaraudioadapter.html#GstPlanarAudioAdapter">GstBadAudio.PlanarAudioAdapter</a><span>)</span>
+–
+</div>
+<p>a <a href="bad-audio/gstplanaraudioadapter.html#GstPlanarAudioAdapter">GstBadAudio.PlanarAudioAdapter</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>nsamples</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<p>the number of samples to take</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>flags</code></em></i>
+<span>(</span><a title="Gst.MapFlags" href="gstreamer/gstmemory.html#GstMapFlags">Gst.MapFlags</a><span>)</span>
+–
+</div>
+<p>hint the intended use of the returned buffer</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Gst.Buffer" href="gstreamer/gstbuffer.html#GstBuffer">Gst.Buffer</a><span>)</span>
+–
+			</div>
+							<p>a <a href="gstreamer/gstbuffer.html#GstBuffer">Gst.Buffer</a> containing the first
+<em>nsamples</em> of the adapter, or <a href="https://docs.python.org/3/library/constants.html#None">None</a> if <em>nsamples</em> samples are not
+available. <a href="gstreamer/gstbuffer.html#gst_buffer_unref">gst_buffer_unref (not introspectable)</a> when no longer needed.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+
+        
+
+            <h2 class="symbol_section">Constants</h2>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GST_TYPE_PLANAR_AUDIO_ADAPTER">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_TYPE_PLANAR_AUDIO_ADAPTER">
+	<i>GST_TYPE_PLANAR_AUDIO_ADAPTER</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_TYPE_PLANAR_AUDIO_ADAPTER \
+  (gst_planar_audio_adapter_get_type())
+</pre>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+
+
+
+
+
+		
+	</div>
+	<div id="search_results">
+		<p>The results of the search are</p>
+	</div>
+	<div id="footer">
+		    
+
+	</div>
+</div>
+
+<div id="toc-column">
+	
+		<div class="edit-button">
+		
+
+	</div>
+		<div id="toc-wrapper">
+		<nav id="toc"></nav>
+	</div>
+</div>
+</div>
+</main>
+
+
+<script src="assets/js/navbar_offset_scroller.js"></script>
+</body>
+</html>

@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<base href="..">
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<title>Contributing to GStreamer</title>
+
+<link rel="stylesheet" href="assets/css/dark-frontend.css" type="text/css" title="dark">
+<link rel="alternate stylesheet" href="assets/css/light-frontend.css" type="text/css" title="light">
+<link rel="stylesheet" href="assets/css/bootstrap-toc.min.css" type="text/css">
+<link rel="stylesheet" href="assets/css/jquery.mCustomScrollbar.min.css">
+<link rel="stylesheet" href="assets/js/search/enable_search.css" type="text/css">
+
+<link rel="stylesheet" href="assets/css/extra_frontend.css" type="text/css">
+<link rel="stylesheet" href="assets/css/devhelp.css" type="text/css">
+
+<link rel="stylesheet" href="assets/css/prism-tomorrow.css" type="text/css" title="dark">
+
+<link rel="alternate stylesheet" href="assets/css/prism.css" type="text/css" title="light">
+
+<script src="assets/js/mustache.min.js"></script>
+<script src="assets/js/jquery.js"></script>
+<script src="assets/js/bootstrap.js"></script>
+<script src="assets/js/scrollspy.js"></script>
+<script src="assets/js/typeahead.jquery.min.js"></script>
+<script src="assets/js/search.js"></script>
+<script src="assets/js/compare-versions.js"></script>
+<script src="assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="assets/js/bootstrap-toc.min.js"></script>
+<script src="assets/js/jquery.touchSwipe.min.js"></script>
+<script src="assets/js/anchor.min.js"></script>
+<script src="assets/js/tag_filtering.js"></script>
+<script src="assets/js/language_switching.js"></script>
+<script src="assets/js/styleswitcher.js"></script>
+
+<script src="assets/js/lines_around_headings.js"></script>
+
+<script src="assets/js/prism-core.js"></script>
+<script src="assets/js/prism-autoloader.js"></script>
+<script src="assets/js/prism_autoloader_path_override.js"></script>
+<script src="assets/js/trie.js"></script>
+
+<!-- generic -->
+<link rel="icon" type="image/png" href="assets/images/favicon-16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="assets/images/favicon-32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="assets/images/favicon-57.png" sizes="57x57">
+<link rel="icon" type="image/png" href="assets/images/favicon-64.png" sizes="64x64">
+<link rel="icon" type="image/png" href="assets/images/favicon-76.png" sizes="76x76">
+<link rel="icon" type="image/png" href="assets/images/favicon-96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="assets/images/favicon-128.png" sizes="128x128">
+<link rel="icon" type="image/png" href="assets/images/favicon-192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="assets/images/favicon-228.png" sizes="228x228">
+
+<!-- Android -->
+<link rel="shortcut icon" sizes="196x196" href="assets/images/favicon-196.png">
+
+<!-- iOS -->
+<link rel="apple-touch-icon" href="assets/images/favicon-120.png" sizes="120x120">
+<link rel="apple-touch-icon" href="assets/images/favicon-152.png" sizes="152x152">
+<link rel="apple-touch-icon" href="assets/images/favicon-180.png" sizes="180x180">
+
+</head>
+
+<body class="no-script
+">
+
+<script>
+$('body').removeClass('no-script');
+</script>
+
+<nav class="navbar navbar-fixed-top navbar-default" id="topnav">
+	<div class="container-fluid">
+		<div class="navbar-right">
+			<a id="toc-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-wrapper" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<span title="light mode switch" class="glyphicon glyphicon-sunglasses pull-right" id="lightmode-icon"></span>
+			<form class="navbar-form pull-right" id="navbar-search-form">
+                               <div class="form-group has-feedback">
+                                       <input type="text" class="form-control input-sm" name="search" id="sidenav-lookup-field" placeholder="search" disabled>
+				       <span class="glyphicon glyphicon-search form-control-feedback" id="search-mgn-glass"></span>
+                               </div>
+                        </form>
+		</div>
+		<div class="navbar-header">
+			<a id="sidenav-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<a id="home-link" href="index.html" class="hotdoc-navbar-brand">
+				<img src="assets/images/gstreamer-logo.svg" alt="Home">
+			</a>
+		</div>
+		<div class="navbar-collapse collapse" id="navbar-wrapper">
+			<ul class="nav navbar-nav" id="menu">
+				
+<li class="dropdown">
+    <a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        API References<span class="caret"></span>
+    </a>
+	<ul class="dropdown-menu" id="modules-menu">
+					<li>
+				<a href="gstreamer/gi-index.html">GStreamer core</a>
+			</li>
+					<li>
+				<a href="libs.html">GStreamer Libraries</a>
+			</li>
+					<li>
+				<a href="plugins_doc.html">GStreamer Plugins</a>
+			</li>
+		</ul>
+</li>
+
+<li>
+    <a href="application-development/index.html">Application manual</a>
+</li>
+
+
+<li>
+    <a href="tutorials/index.html">Tutorials</a>
+</li>
+
+			</ul>
+			<div class="hidden-xs hidden-sm navbar-text navbar-center">
+							</div>
+		</div>
+	</div>
+</nav>
+
+<main>
+<div data-extension="gi-extension" data-hotdoc-in-toplevel="True" data-hotdoc-project="GStreamer" data-hotdoc-ref="contribute/index.html" class="page_container" id="page-wrapper" data-hotdoc-meta-gi-languages="['c', 'javascript', 'python']" data-hotdoc-meta-gi-language="c">
+<script src="assets/js/utils.js"></script>
+
+<div class="panel panel-collapse oc-collapsed" id="sidenav" data-hotdoc-role="navigation">
+	<script src="assets/js/full-width.js"></script>
+  <div id="sitenav-wrapper">
+    <iframe src="hotdoc-sitemap.html" id="sitenav-frame"></iframe>
+  </div>
+</div>
+
+<div id="body">
+	<div id="main">
+				    <div id="page-description" data-hotdoc-role="main">
+        <h1 id="contributing-to-gstreamer">Contributing to GStreamer</h1>
+<p>This document provides instructions and guidelines for submitting issues,
+feature requests and patches to GStreamer. The following applies to all
+these operations:</p>
+<ul>
+<li>
+<p>Please use <a href="https://gitlab.freedesktop.org/gstreamer">freedesktop.org GitLab</a> to perform any of the aforementioned
+operations. You will need to create a freedesktop.org GitLab account if you
+don't have one yet (yep, that's just how it is. Sorry for the inconvenience)
+If you don't want to create a new account you should also be able to sign in
+with a Google, GitHub or Twitter account.</p>
+</li>
+<li>
+<p>Due to an <a href="https://gitlab.freedesktop.org/freedesktop/freedesktop/-/wikis/home">influx of spam</a>
+user accounts on GitLab are restricted by default and can't fork projects,
+which is needed to create a Merge Request.</p>
+<p>Please <a href="https://gitlab.freedesktop.org/freedesktop/freedesktop/issues/new?issuable_template=User%20verification">file an issue and fill in the User Verification template</a>
+in order to get full access. Sorry for the hassle, and thanks for your
+understanding.</p>
+</li>
+</ul>
+<h2 id="how-to-file-issues-and-request-for-enhancements">How to File Issues and Request for Enhancements</h2>
+<h3 id="where-to-file-issues-and-feature-requests">Where to File Issues and Feature Requests</h3>
+<ul>
+<li>
+<p>If your issue is security related, please see
+<a href="https://gstreamer.freedesktop.org/security/">GStreamer Security Center</a> before
+continuing.</p>
+</li>
+<li>
+<p>Create a new issue if there is no existing report for this problem yet.
+The GStreamer <a href="https://gstreamer.freedesktop.org/bugs/">bugs page</a> also has shortcuts for the major components
+and simple search functionality if you'd like to browse or search for
+existing issues, or use the <a href="https://gitlab.freedesktop.org/gstreamer">GitLab search bar for the GStreamer project</a>
+at the top of the page.</p>
+</li>
+<li>
+<p>If you are filing a feature request (i.e. anything that is not supposed to
+work already, that is anything not an issue), please add the <em>Enhancement</em> label.
+Feel free to add any other appropriate already existing labels. Please don't
+create new labels just for your issue. This won't affect the way we prioritise
+the issue, but it will make triaging easier for us. In particular, do not add
+the <em>Blocker</em> label to an issue just because an issue is important to you.
+This label should be added only by GStreamer maintainers.</p>
+</li>
+<li>
+<p>If your issue is about a specific plugin, element or utility library,
+please prefix the issue summary with <code>element-name:</code>, <code>plugin-name:</code> or <code>lib:</code>
+and keep the rest of the description as short and precise as possible.</p>
+<p>Examples:</p>
+<ul>
+<li><code>id3demux: fails to extract composer tags</code></li>
+<li><code>tsdemux: does not detect audio stream</code></li>
+<li><code>Internal flow error when playing matroska file</code></li>
+</ul>
+<p>This makes sure developers looking through the list of open issues or issue
+notification mails can quickly identify what your issue is about. If your text
+is too long and only contains fill words at the beginning, the important
+information will be cut off and not show up in the list view or mail client.</p>
+</li>
+<li>
+<p>If you don't know which component to file the issue against, just pick the one
+that seems the most likely to you, or file it against the gstreamer-project
+component. If in doubt just pop into our <a href="https://matrix.to/#/#gstreamer:gstreamer.org">Matrix Discussion channel</a>.
+In any case, if it's not the right component someone will move the issue once
+they have a better idea what the problem is and where it belongs.</p>
+</li>
+<li>
+<p>Please mention:</p>
+<ul>
+<li>what version of GStreamer you are using</li>
+<li>what operating system you are using (Windows, macOS, Linux)</li>
+<li>if you're on Linux, please mention your distro and distro version</li>
+<li>if this is on an embedded device please provide details</li>
+</ul>
+</li>
+<li>
+<p>Try to describe how the issue can be reproduced. If it is triggered by any
+specific file, try to make the file available somewhere for download and
+put the link into the issue. The easier it is for us to reproduce
+the issue, the easier it is to fix it.</p>
+</li>
+<li>
+<p>If you experience a crash (that is: the application shuts down unexpectedly,
+usually with a segfault or bus error or memory access violation or such),
+please try to <a href="https://wiki.gnome.org/Community/GettingInTouch/Bugzilla/GettingTraces/Details">obtain a stack trace</a>. If there are criticals
+or warnings printed right before the crash, run with the environment variable
+<code>G_DEBUG=fatal_warnings</code> set, then it will abort on the first warning, which
+should hopefully give an indication to where the problem is. You can then
+obtain a stack trace from where it aborts.</p>
+</li>
+<li>
+<p>If the application errors out, please provide a gst debug log. You can get
+one by setting the <code>GST_DEBUG=*:6</code> environment variable, combined with
+<code>GST_DEBUG_FILE=/tmp/dbg.log</code>. The resulting file might end up being very
+large, so it's advisable to compress it with <code>xz -9 /tmp/dbg.log</code> before
+sharing. You may also be asked to provide debug logs for specific debug
+categories rather than everything (<code>*:6</code>).</p>
+</li>
+</ul>
+<h2 id="how-to-submit-patches">How to Submit Patches</h2>
+<h3 id="where-to-submit-patches">Where to Submit Patches</h3>
+<p>Patches need to be submitted through <a href="https://gitlab.freedesktop.org/gstreamer">GitLab</a> in form of a
+"Merge Request" (MR), which is the same as a "Pull Request" (PR)
+in GitHub, and uses the same <a href="https://docs.gitlab.com/ce/user/project/merge_requests/index.html#overview">workflow</a>.</p>
+<p>In a nutshell, you will:</p>
+<ol>
+<li>
+<a href="https://github.com/git-guides/git-clone">Clone</a> the gstreamer repository on
+your development machine</li>
+<li>Create a <a href="https://docs.gitlab.com/ee/user/project/repository/forking_workflow.html">fork</a>
+of it in your gitlab namespace (you may have to obtain forking permission first)</li>
+<li>Add that fork as a <a href="https://github.com/git-guides/git-remote">git "remote"</a>
+to the clone on your machine</li>
+<li>Setup a <a href="https://docs.gitlab.com/ee/user/project/repository/branches/">branch</a>
+with the commits you want to submit</li>
+<li>Push that branch to the fork in your gitlab namespace</li>
+<li>Open request to merge that branch into the main repository, which is called a
+<a href="https://docs.gitlab.com/ee/user/project/merge_requests/">merge request</a>
+</li>
+</ol>
+<h4 id="prerequisites">Pre-requisites</h4>
+<p>In order to submit a merge request you must first:</p>
+<ol>
+<li>Sign into or create an account on the <a href="https://gitlab.freedesktop.org">Freedesktop GitLab website</a>
+</li>
+<li>Setup SSH keys in the <a href="https://gitlab.freedesktop.org/profile/keys">GitLab user settings</a>
+</li>
+<li>Clone the gstreamer repository on your development machine</li>
+</ol>
+<h4 id="forking-the-gstreamer-repository">Forking the gstreamer repository</h4>
+<p>Then you need to create a <em>personal</em> fork of gstreamer. To fork gstreamer go to
+<a href="https://gitlab.freedesktop.org/gstreamer/gstreamer">the repository</a> and hit
+the "Fork" button:</p>
+<p><img src="contribute/images/contribute/fork-gstreamer.png" alt="Forking gstreamer" id="forking-gstreamer"></p>
+<p>Select the namespace (your username), ensure that the visibility is set to
+"Public", and hit the "Fork project" button:</p>
+<p><img src="contribute/images/contribute/fork-settings.png" alt="Fork settings" id="fork-settings"></p>
+<p><strong>Please note</strong> that new gitlab accounts do not have permission to create forks by
+default, so you will have to <a href="https://gitlab.freedesktop.org/freedesktop/freedesktop/issues/new?issuable_template=User%20verification">first file an issue and fill in the user verification
+template</a> as mentioned above in order to get forking rights.
+This should be a fairly quick process.</p>
+<p>A new repository will be created in your user namespace
+(<a href="https://gitlab.freedesktop.org/$GITLAB_USERNAME/gstreamer">https://gitlab.freedesktop.org/$GITLAB_USERNAME/gstreamer</a>). You will be redirected
+there automatically once the forking process is finished. The forking might
+take a few minutes.</p>
+<p>Once this is done you can add your personal fork as new remote to the gstreamer
+repository clone you made in step 3 above with the following command (replace
+<code>$GITLAB_USERNAME</code> with your actual gitlab username):</p>
+<pre><code>git remote add $GITLAB_USERNAME git@gitlab.freedesktop.org:$GITLAB_USERNAME/gstreamer.git
+</code></pre>
+<p>Check with</p>
+<pre><code>git fetch $GITLAB_USERNAME
+</code></pre>
+<p>that it is accessible and working.</p>
+<p>Common mistakes at this point are:</p>
+<p>a) <a href="https://gitlab.freedesktop.org/profile/keys">Not setting up an SSH key</a></p>
+<p>b) Having a private fork. You can change your fork to public in the settings:
+https://gitlab.freedesktop.org/$GITLAB_USERNAME/gstreamer/edit (replace <code>$GITLAB_USERNAME</code>
+with your actual gitlab username)</p>
+<h4 id="setting-up-your-branch">Setting up your branch</h4>
+<p>Next, you make a git branch with one or more commits you want to submit
+for review and merging. For that you will first need a local branch which
+you can create with e.g.</p>
+<pre><code>git checkout -b fix-xyz
+</code></pre>
+<p>Then you can make your modifications and create a local commit with e.g.</p>
+<pre><code>git commit path/to/file1.[ch]
+</code></pre>
+<p>This will pop up an editor where you can create your commit message. It should
+look something like:</p>
+<pre><code>exampledemux: fix seeking without index in push mode
+
+Without an index we would refuse to seek in push mode. Make
+seeking without an index work by estimating the position
+to seek to. It might not be 100% accurate, but better than
+nothing.
+</code></pre>
+<p>Then exit the editor, and you should have a commit.</p>
+<p>Please make sure your commits are as terse and precise as possible. Do not
+include 'clean-ups' or non-functional changes, since they distract from the
+real changes and make things harder to review, and also lower the chances that
+the patch will still apply cleanly to the latest version in git. If you feel
+there are things to clean up, please submit the clean-ups as a separate patch
+that does not contain any functional changes. See
+<a href="contribute/index.html#writing-good-commit-messages">Writing Good Commit Messages</a> for more
+information.</p>
+<p>It's best to run <code>git add</code> or <code>git commit</code> on specific directories or files
+instead of using <code>git commit -a</code>, as it's too easy to accidentally contaminate
+a patch with changes that belong into it with <code>git commit -a</code>, in particular
+changes to the <code>common</code> submodule.</p>
+<p>You can check your commit(s) with <code>git show</code> or <code>git log -p</code> or using a GUI
+such as <code>gitg</code> or <code>gitk</code>.</p>
+<p>Make sure the author is correctly set to your full name and e-mail address.</p>
+<p>If you haven't used git before, it would be a good idea to tell it who you are:</p>
+<pre><code>git config --global user.name "George S. Treamer"
+git config --global user.email "george.s.treamer@example.com"
+</code></pre>
+<p>You can make changes to the last commit using:</p>
+<ul>
+<li>
+<p><code>git commit --amend</code> to fix up the commit message</p>
+</li>
+<li>
+<p><code>git commit --amend --author='John You &lt;john@you.com&gt;'</code> to fix up the author</p>
+</li>
+<li>
+<p><code>git add path/to/file1.[ch]; git commit --amend</code> to incorporate fixes
+made to the files since the last commit (i.e. what shows up in <code>git diff</code>).
+If you just want to add some of the changes, but not all of them you can
+use <code>git add -p file.c</code>, then it will ask you for each individual change
+whether you want to add it or leave it.</p>
+</li>
+</ul>
+<p>Once everything looks fine, you can push the branch to your personal fork git
+repository with:</p>
+<pre><code>git push -u $GITLAB_USERNAME
+</code></pre>
+<p>You can use</p>
+<pre><code>git push -u --dry-run $GITLAB_USERNAME
+</code></pre>
+<p>for testing to see what would happen without actually doing anything yet.
+As before, replace <code>$GITLAB_USERNAME</code> with your actual gitlab username.</p>
+<p>After you have pushed the branch to your personal fork you will see a link
+on the terminal with which you can create a merge request for the upstream
+repository. It will look something like this:</p>
+<pre><code class="language-sh">$ git push -u $GITLAB_USERNAME
+Enumerating objects: 4436, done.
+Counting objects: 100% (4436/4436), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (1161/1161), done.
+Writing objects: 100% (3616/3616), 1.47 MiB | 8.12 MiB/s, done.
+Total 3616 (delta 2973), reused 3022 (delta 2443), pack-reused 0
+remote: Resolving deltas: 100% (2973/2973), completed with 704 local objects.
+remote:
+remote: To create a merge request for fix-xyz, visit:
+remote:   https://gitlab.freedesktop.org/$GITLAB_USERNAME/gstreamer/-/merge_requests/new?merge_request%5Bsource_branch%5D=fix-xyz
+remote:
+To gitlab.freedesktop.org:$GITLAB_USERNAME/gstreamer.git
+ * [new branch]            fix-xyz -&gt; fix-xyz
+Branch 'fix-xyz' set up to track remote branch 'fix-xyz' from '$GITLAB_USERNAME' by rebasing.
+</code></pre>
+<p>Clicking on that link will take you to a page where you can enter a description
+of the changes you are submitting. If your branch contains only one commit, the
+title and description will be auto-filled using the commit message.</p>
+<p><img src="contribute/images/contribute/submit-mr.png" alt="Submitting a merge request" id="submitting-a-merge-request"></p>
+<p>On the same page, ensure that these checkboxes are selected and create the
+merge request:</p>
+<p><img src="contribute/images/contribute/mr-settings.png" alt="Merge request settings" id="merge-request-settings"></p>
+<p>If you don't see the link or want to do this later, you can go to the branch
+list of your personal repository at <a href="https://gitlab.freedesktop.org/$GITLAB_USERNAME/gstreamer/branches">https://gitlab.freedesktop.org/$GITLAB_USERNAME/gstreamer/branches</a>
+and hit the 'Merge Request' button when ready. This will open a new page where
+you can select the source project <code>$GITLAB_USERNAME/gstreamer</code> + source branch
+<code>fix-xyz</code> and the target project <code>gstreamer/gstreamer</code> and target branch
+<code>main</code>. Then you will be able to enter a description of the changes you are
+submitting.</p>
+<h4 id="revising-your-merge-request">Revising your merge request</h4>
+<p>You will often need to revise the commits in your merge request based on review
+by maintainers of the project. You <strong>do not</strong> need to open a new merge request
+to do that. You need to edit the commits in your local branch and force-push it
+to sync the branch in your namespace. That will automatically update the merge
+request.</p>
+<p>The most common case is when you have a single commit in your branch that you
+want to edit. To do this, first make any changes you want to do, then check the
+branch status:</p>
+<pre><code class="language-sh">$ git status
+On branch fix-xyz
+Your branch is up to date with '$GITLAB_USERNAME/fix-xyz'.
+
+Changes not staged for commit:
+  (use "git add &lt;file&gt;..." to update what will be committed)
+  (use "git restore &lt;file&gt;..." to discard changes in working directory)
+	modified:   subprojects/gst-docs/markdown/contribute/index.md
+
+no changes added to commit (use "git add" and/or "git commit -a")
+</code></pre>
+<p>Next, add the changes and amend your commit:</p>
+<pre><code class="language-sh">$ git add subprojects/gst-docs/markdown/contribute/index.md
+$ git commit --amend
+</code></pre>
+<p>This will open your editor and allow you to edit the commit message if
+necessary. Closing the editor will save the new (updated) commit.</p>
+<p>Next, push the changes to your remote branch:</p>
+<pre><code class="language-sh">$ git push --force-with-lease
+</code></pre>
+<p>This will overwrite the old commit in your remote branch with the new commit
+that you just created. If this command completes successfully, that's it! The
+merge request has been automatically updated.</p>
+<p><strong>If the command fails</strong>, that means that there were changes in the remote
+branch that you hadn't pulled into your branch before amending your commit.</p>
+<p>This can happen if, for example, someone uses the "Rebase" button on your merge
+request to rebase the commit(s) on top of the latest changes in the <code>main</code>
+branch.</p>
+<p>In that case you need to resync the two branches. This usually requires you to
+understand <code>git rebase</code>, which is beyond the scope of this document. There's
+tutorials you can find online, such as <a href="https://git-rebase.io/">git-rebase.io</a></p>
+<p>In the simplest case, you might be able to get away with just doing a <code>git pull --rebase</code>.</p>
+<h4 id="additional-points">Additional points</h4>
+<ul>
+<li>
+<p>If you are submitting a Merge Request for an issue (or multiple issues) that
+already exist, please add 'Fixes #123' to the commit message of one of your
+commits, so that there is a cross-reference in GitLab and the issue will be
+closed automatically when your Merge Request is merged.</p>
+</li>
+<li>
+<p>You do not have to file an issue to go with each Merge Request, it's fine
+to just submit a Merge Request on its own.</p>
+</li>
+<li>
+<p>If your proposed changes are proposed for review but not ready to be merged
+yet, please prefix the Merge Request title with <code>WIP:</code> for Work-in-Progress.
+That will prevent us from inadvertently merging it and make clear its status.</p>
+</li>
+<li>
+<p>Please make sure the 'Author' field in your commit messages has your full and
+proper name and e-mail address. You can check with e.g. <code>git log</code> or <code>gitk</code>.</p>
+</li>
+<li>
+<p>If your change is for an enhancement (anything that is not supposed to work
+already, i.e. anything not a bug) or adds new API, please add the
+<em>Enhancement</em> label. This won't affect the way we prioritise your issue,
+but it does make triaging easier for us.</p>
+</li>
+<li>
+<p>If your Merge Request is against a specific plugin or element or utility library,
+please prefix the Merge Request summary with <code>element-name:</code>, <code>plugin-name:</code>
+or <code>lib:</code> and keep the rest of the description as short and precise as possible.</p>
+<p>Examples:</p>
+<ul>
+<li><code>id3demux: add support for WCOP frame</code></li>
+<li><code>riff: add RGB16 support</code></li>
+<li><code>playbin: detect if video-sink supports deinterlacing</code></li>
+<li><code>tests: rtprtx unit test is racy</code></li>
+</ul>
+<p>This makes sure developers looking through the list of open merge requests or
+notification mails can quickly identify what your change is about. If your text
+is too long and only contains fill words at the beginning, the important
+information will be cut off and not show up in the list view or mail client.</p>
+</li>
+<li>
+<p>Make liberal use of the reference syntax available to help cross-linking
+different issues and merge requests. e.g. <code>#100</code> references issue 100 in the
+current project, and <code>!100</code> references merge request 100 in the current project.
+A complete list is available from <a href="https://docs.gitlab.com/ee/user/markdown.html#special-gitlab-references">gitlab's documentation</a>.</p>
+</li>
+<li>
+<p>Please create separate merge requests for separate issues.
+There is no golden rule when something counts as a separate issue,
+please just use your best judgment.
+If there is an issue that requires related fixes in multiple elements
+or libraries, please also feel free to put everything into one issue. If you
+just happen to have multiple patches for us but they are not really related,
+please put them in separate issues and merge requests. The main question is
+if it makes sense to discuss and review these patches together or if they
+could just as well be handled completely separately.</p>
+</li>
+<li>
+<p>Please do not send patches to the gstreamer-devel mailing list. Patches
+submitted on the mailing list are most likely going to be ignored, overlooked,
+or you will get a brief reply asking you to put them into gitlab. We do
+not use the mailing list for patch review.</p>
+</li>
+<li>
+<p>Please do not send pull requests to our github mirror. They will be closed
+automatically.</p>
+</li>
+<li>
+<p>Please do not attach patches to issues, except in the special case of a fix
+for a security issue.</p>
+</li>
+<li>
+<p>Please prepare any merge request against a current git checkout of the
+GStreamer monorepo (gstreamer module), against the tip of the <code>main</code> branch.
+If a merge request is prepared against an old commit or older branch and
+can't be easily rebased you may be asked to rebase and update the branch on
+top of the <code>main</code> branch.</p>
+</li>
+<li>
+<p>If you have created a new plugin, please submit a merge request that adds it
+to <code>subprojects/gst-plugins-bad</code>, including any required <code>meson.build</code>
+modifications, new files and documentation.</p>
+</li>
+</ul>
+<h4 id="coding-style">Coding Style</h4>
+<p>Try to stick to the GStreamer indentation and coding style. There is an
+application called <a href="https://gitlab.freedesktop.org/gstreamer/gst-indent/"><code>gst-indent-1.0</code></a> that can be installed
+with <code>pip install gst-indent</code>. You can run it over your <code>.c</code> or
+<code>.cpp</code> files if you want your code auto-indented before making the patch.</p>
+<p>Please do <em>not</em> run <code>gst-indent-1.0</code> on header files, our header file
+indentation is free-form.</p>
+<p>If you build GStreamer from git, a local commit hook will be installed that
+checks if your commit conforms to the required style. You can bypass that local
+indentation check hook by using <code>git commit -n</code>, but it will still be checked
+again later on the CI when you submit your changes through GitLab for merging.</p>
+<p>Compiler requirements:</p>
+<ul>
+<li>we are targetting the C99 compiler and preprocesser feature subset
+supported by gcc 5.4, clang and vs2017. Newer features can be
+used conditionally as long as there is a suitable fallback. This is similar
+to <a href="https://wiki.gnome.org/Projects/GLib/CompilerRequirements">GLib's compiler requirements</a>.</li>
+</ul>
+<p>Other style guidelines:</p>
+<ul>
+<li>do not use tabs for indentation in new code, not even in freeform header files</li>
+<li>do not use packed structures for parsing external data, instead use helper
+APIs such as <a href="https://gstreamer.freedesktop.org/documentation/base/gstbytereader.html?gi-language=c#GstByteReader">GstByteReader</a> and <a href="https://gstreamer.freedesktop.org/documentation/base/gstbitreader.html?gi-language=c#GstBitReader">GstBitReader</a> for
+data parsing</li>
+<li>from GStreamer 1.20 onwards you may in particular also
+<ul>
+<li>use c++-style <code>// comments</code>
+</li>
+<li>declare variables inline (as opposed to only at the beginning of a block)</li>
+<li>use advanced/nicer struct initialisers</li>
+</ul>
+</li>
+</ul>
+<h5 id="precommit">Pre-commit</h5>
+<p>GStreamer uses <a href="https://pre-commit.com/">pre-commit</a> to validate coding style automatically when you create a new commit.</p>
+<p>pre-commit can be installed with <code>pip</code>:</p>
+<pre><code>pip install pre-commit
+</code></pre>
+<p>The pre-commit hooks are automatically installed the first you run <code>meson setup</code>.
+They can be also be installed manually using:</p>
+<pre><code>pre-commit install
+</code></pre>
+<p>One installed, pre-commit will run automatically on every <code>git commit</code>.
+You can also run manually all the pre-commit hooks using:</p>
+<pre><code>pre-commit run --all-files --show-diff-on-failure
+</code></pre>
+<p>When you create a new commit, the pre-commit hooks may apply changes to your files,
+automatically fixing the issues found. When this happens, simply add the changes to
+your staging environment, and re-run the commit.</p>
+<p>You can bypass the pre-commit hooks using <code>git commit --no-verify</code>. The commits will
+be validated in the CI's <code>check</code> stage, so you will still need to ensure that all
+hooks passes correctly. To fix your commits,  you can use the helper script located in
+<code>scripts/check-commits.py</code> that will rebase your work starting from the commit passed
+as first argument and it will run pre-commit for each commit, allowing you to fix them
+individually rather than using a new commit on top of your branch to fix the issues found.</p>
+<h3 id="writing-good-commit-messages">Writing Good Commit Messages</h3>
+<p>Please take the time to write good and concise commit messages.</p>
+<p>The first line of each commit message should be a short and concise summary
+of the commit. If the commit applies to a specific subsystem, library, plugin
+or element, prefix the message with the name of the component, for example:</p>
+<pre><code>oggdemux: fix granulepos query for the old theora bitstream
+</code></pre>
+<p>or</p>
+<pre><code>docs: add new stream API
+</code></pre>
+<p>or</p>
+<pre><code>tests: video: add unit test for converting RGB to XYZ colorspace
+</code></pre>
+<p>This should be a <em>summary</em> of the change and <em>not a description</em> of the change.
+Meaning: don't say <em>how</em> you did something but <em>what</em> you fixed, improved or
+changed, what the most important practical <em>effect</em> of the change is. Example:</p>
+<pre><code>qtdemux: fix crash when doing reverse playback in push mode (good)
+</code></pre>
+<p>instead of</p>
+<pre><code>qtdemux: use signed integer to avoid counter underrun (bad)
+</code></pre>
+<p>The second line of the commit message should be empty.</p>
+<p>The third and following lines should contain an extensive <em>description</em> and
+<em>rationale</em> of the change made: what was changed, what was broken, how did it
+get fixed, what bugs or issues does this fix? And most importantly: <em>why</em> was
+something changed.</p>
+<p>Trivial commits do not require a description, e.g. if you fix a memory leak
+it's usually enough to just say that you fixed a leak. Maybe mention what was
+leaked and perhaps also if it was an important leak or only happens in some
+corner case error code path, but in any case there's no need to write a long
+explanation why leaks are bad or why this needed fixing.</p>
+<p>The important part is really what the reasoning behind the change is, since
+that's what people want to know if they try to figure out twelve months later
+why a line of code does what it does.</p>
+<p>If the commit is related to any particular issues in gitlab, please add a
+reference to the issue (e.g. <code>See #123</code> or <code>Fixes #123</code> if it fixes it the
+issue). For issues in other repositories (gst-plugins-{base,good,ugly,bad} etc.)
+please add the full issue URL to the commit message instead (or ask for the
+issue to be moved to the monorepo gstreamer repository), e.g.</p>
+<pre><code>https://gitlab.freedesktop.org/gstreamer/gst-plugins-foo/issues/123
+</code></pre>
+<p>We do not use <code>Signed-off by:</code> lines in GStreamer, please create commits
+without such lines.</p>
+<p>Please do not add references to private company-internal bug trackers or
+code repositories in commit messages.</p>
+<h3 id="after-submitting-your-merge-request">After Submitting your Merge Request</h3>
+<p>Whenever you submit a new Merge Request, add a comment to an existing issue or
+Merge Request, GitLab will send a notification e-mail to GStreamer
+developers. This means that there is usually no need to advertise the fact that
+you have done so in other forums such as on Matrix or Discourse, unless
+you have been asked to file an issue there, in which case it's nice to follow up
+with the link to the issue.</p>
+<p>Most of all, please be patient.</p>
+<p>We try to review patches as quickly as possible, but there is such a high
+volume of issues, merge requests and feature requests that it is not always
+possible to tend to them all as quickly as we'd like. This is especially
+true for completely new plugins or new features.</p>
+<p>If you haven't received any response at all for a while (say two weeks or so),
+do feel free to ping developers by posting a quick follow-up comment on the
+issue or merge request.</p>
+<p>If you do not get a response, this is usually not a sign of people <em>ignoring</em>
+the issue, but usually just means that it's fallen through the cracks or
+people have been busy with other things.</p>
+<p>Most GStreamer developers have a review workflow that's driven by e-mail or
+GitLab notifications, so posting a follow-up comment is the best way to draw
+attention to an issue or merge request.</p>
+<h3 id="updating-your-merge-request-and-addressing-review-comments">Updating Your Merge Request and Addressing Review Comments</h3>
+<p>When someone reviews your changes, they may leave review comments for
+particular sections of code or in general. These will usually each start
+a new "Discussion" which is basically a thread for each comment.</p>
+<p>When you believe that you have addressed the issue raised in a discussion,
+either by updating the code or answering the questions raised, you should
+"Resolve the Discussion" using the button, ideally also leaving a comment
+saying so (e.g. "done", "fixed", "updated", "no longer needed" or such). The
+comment makes sure a notification e-mail is generated, which makes it easier
+for GStreamer developers to keep track of what's happening.</p>
+<p>At the top of each merge request in GitLab is a tracker with the number of
+unresolved discussions. This way it's easy for maintainers (and yourself)
+to see what's left to do and if there are any open questions/issues.</p>
+<p>Whenever you have made changes to your patches locally you can just
+<code>git push -f your-personal-gitlab-fork your-branch</code> to your personal fork.
+GitLab will then pick up the changes automatically. You do <em>not</em> need to submit
+a new Merge Request whenever you make changes to an already-submitted patchset,
+and in fact you shouldn't do that because it means all the previous discussion
+context is lost and it's also not easy for reviewers to see what changed.
+Just force-update your existing branch.</p>
+<p>You do not need to add individial "fixup commits" to your branch when you address
+issues raised. Instead just fix up the original commit(s) directly using
+<code>git rebase</code> etc. GitLab is able to track and show changes made between
+different revisions of a merge request branch, so just keep the branch always
+to the "latest clean version". See the <a href="https://git-scm.com/book/en/v2/Git-Tools-Rewriting-History">Rewriting History</a>
+section of the <a href="https://git-scm.com/book/en/v2">Pro Git book</a> for more details.</p>
+<p>GStreamer does not use merge commits, and all merge requests will be rebased
+automatically by <code>gstreamer-merge-bot</code> before merging. Unless necessary due to
+conflicts, you should not rebase your merge request on top of the latest
+<code>main</code> branch. It makes it harder for reviewers to review changes pushed to the
+merge request, since it breaks the "Compare with previous version" option.</p>
+<p>GStreamer maintainers will typically receive e-mail notifications when you add
+a comment and when all oustanding discussions have been resolved. They may
+receive notifications when you push new commits, but will generally not receive
+notifications for rebases, so if you want to send a gentle review reminder,
+posting a comment is the best way to do it.</p>
+<p><img src="contribute/images/contribute/compare.png" alt="Compare with previous version" id="compare-with-previous-version"></p>
+<h1 id="workflows-for-gstreamer-developers">Workflows for GStreamer developers</h1>
+<h2 id="merging-merge-requests">Merging merge requests</h2>
+<p>Merge requests should be merged either by assigning the merge request to Marge,
+our merge bot, or by adding the <code>Merge in X hours</code> or <code>Merge in X days</code> labels.</p>
+<h3 id="marge-merge-bot">Marge merge bot</h3>
+<p>Marge will rebase the merge request on top of the target branch and will
+also automatically add <code>Part-of: &lt;url&gt;</code> footers to each commit that point
+back to the merge request in gitlab.</p>
+<p>When Marge rebases, the continuous integration (CI) pipeline will start
+automatically and the merge request will get merged once it passes. Since
+the CI pipeline is triggered by Marge in this case, it will also have the
+right permissions to trigger the Cerbero sub-pipeline, which won't run for
+monorepo pipelines triggered by external contributors.</p>
+<p>Sidenote: Our CI pipelines don't start automatically usually, but are gated
+by a manual trigger in order not to waste CI resources. However, pipelines
+will start running automatically if Marge triggers them which will happen
+when Marge rebases commits. This means that when pushing updates to a
+merge request branch (especially if Marge touched it once already) it's
+usually a good idea to either remove the <code>Part-of</code> footers from the top
+commit message, or to not be entirely on top of the target branch, so that
+Marge is forced to rebase again when being re-assigned the merge request.
+Otherwise Marge will not rebase and wait for the pipeline to complete, but
+the pipeline won't actually run because it's not been triggered.</p>
+<p>If Marge is assigned a merge request but nothing happens, it usually means
+she's busy with another merge request in the same project and target branch.
+Check GitLab for a <a href="https://gitlab.freedesktop.org/groups/gstreamer/-/merge_requests?scope=all&amp;state=opened&amp;assignee_username=gstreamer-merge-bot">list of merge requests assigned to Marge</a>. If
+no other merge requests are being processed, you may be encountering the above
+pipeline trigger problem and may have to trigger the merge request pipeline
+manually.</p>
+<h3 id="merge-in-x-days-and-merge-in-x-hours-labels">"Merge in X days" and "Merge in X hours" labels</h3>
+<p>We have a range of <code>Merge in X hours</code> or <code>Merge in X days</code> labels available.</p>
+<p>When these labels are added to a merge request, Marge will assign the merge
+request to herself after the specified amount of time has passed (roughly).</p>
+<p>They can be useful for multiple purposes:</p>
+<ul>
+<li>
+<p>Schedule merge requests for later in the day or night, when the
+CI farm is less busy</p>
+</li>
+<li>
+<p>Provide a heads-up to other developers that you intend to merge
+something, whilst still allowing some time for others to review or
+comment.</p>
+</li>
+</ul>
+<p>It's possible to subscribe to specific labels in GitLab and receive
+notifications when they are added to a merge request.</p>
+<p>When Marge picks up the label and assigns merge requests to itself, a
+notification will be generated. When merging fails, a notification will
+also be generated, which helps make sure things don't fall through the
+cracks once they've been scheduled for merging.</p>
+<p>It's of course fine for another developer to assign a merge request with
+a <code>Merge in X</code> label to Marge immediately if they think it's fine to go in
+now and don't expect further comments or review being needed by others.</p>
+<h3 id="fixing-since-tags">Fixing Since tags</h3>
+<p>Since a few releases, CI  runs checks to ensure that all new symbols added
+as public API are marked with a Since tag in their docstrings.</p>
+<p>If the documentation job rejects your MR with:</p>
+<pre><code>ERROR: [check-missing-since-markers]: (missing-since-marker): /some/path: Missing since marker for GST_SOME_SYMBOL
+</code></pre>
+<p>You should be able to get rid of the warning by adding a new gtk-doc comment
+in the relevant source or header file with such contents:</p>
+<pre><code>/**
+ * GST_SOME_SYMBOL:
+ *
+ * some description of the symbol purposes
+ *
+ * Since: 1.XX
+ */
+</code></pre>
+<p>A common mistake for the docstring is to omit the description paragraph:</p>
+<pre><code>/**
+ * GST_SOME_SYMBOL:
+ *
+ * Since: 1.XX
+ */
+</code></pre>
+<p>This will <em>not</em> parse as valid gtk-doc syntax.</p>
+<p>If your attempt is not enough and you'd rather avoid waiting for CI to try various
+docstrings, or you simply want to build your documentation changes <em>fast</em> on
+your local machine, you can proceed as follows:</p>
+<pre><code># Make sure you have hotdoc
+pipx install hotdoc
+# Make sure you have a doc-enabled build
+rm -rf build &amp;&amp; meson build -Dgpl=enabled -Ddoc=enabled &amp;&amp; ninja -C build
+# Build the complete documentation once
+ninja -C build/ subprojects/gst-docs/GStreamer-doc -v
+# Enter the devenv, hotdoc now finds the current devhelp2 files and
+# will not emit warnings about incorrect links
+ninja -C build devenv
+# Go back to the toplevel directory
+cd ..
+# Build the exact documentation subproject you are interested in,
+# this is super fast, adapt command to your case
+hotdoc run --conf-file build/subprojects/gst-plugins-bad/docs/mpegts-doc.json --previous-symbol-index subprojects/gst-docs/symbols/symbol_index.json
+</code></pre>
+<p>Another, less common situation is for the header file the docstring was added in to
+be explicitly excluded by the meson build files: some header files are known
+to contain gtk-doc like docstrings and to generate a ton of irrelevant warnings,
+we ignore those.</p>
+<p>If you have a concern it might be the case you can look at the relevant
+hotdoc.json file for your subproject to see exactly what sources are
+included / excluded.</p>
+<p>You can enable checks for up-to-date plugin caches and presence of the necessary
+since tags at commit time by setting the <code>GST_ENABLE_DOC_PRE_COMMIT_HOOK</code>
+environment variable to any value other than "0":</p>
+<pre><code class="language-shell">GST_ENABLE_DOC_PRE_COMMIT_HOOK=1 git commit
+</code></pre>
+<p>The pre-commit hook will:</p>
+<ul>
+<li>Stash unstaged changes (the path to the patch file is printed out)</li>
+<li>Locate the build directory (the location can be specified through the <code>GST_DOC_BUILDDIR</code> environment variable)</li>
+<li>Build the version of the code that is to be committed</li>
+<li>Build the relevant plugins caches and error out if there is a diff</li>
+<li>Build the relevant doc subprojects using <code>hotdoc</code> and error out in case of since tag errors</li>
+</ul>
+<p>In any case, the stashed changes are then re-applied</p>
+<h2 id="backporting-to-a-stable-branch">Backporting to a stable branch</h2>
+<p>Before backporting any changes to a stable branch, they should first be
+applied to the <code>main</code> branch, and should obviously not have caused any known
+outstanding regressions. The only exception here are changes that do not apply
+to the <code>main</code> branch anymore.</p>
+<p>You do not need to create backport merge requests against stable branches.
+Backport merge requests for stable branches will be created automatically
+based on labels on <code>main</code> branch merge requests.</p>
+<p>Existing merge request against the <code>main</code> branch, including merged ones,
+that should be considered for backporting in the future should be labeled with
+the <code>Needs backport</code> label and the label for the target stable branch
+(e.g. <code>1.18</code>). All merge requests with the <a href="https://gitlab.freedesktop.org/groups/gstreamer/-/merge_requests?state=merged&amp;label_name%5B%5D=Needs%20backport"><code>Needs backport</code></a>
+label will be regularly considered for backporting by GStreamer developers.</p>
+<p>Changes that add API or change existing API will usually not be considered
+for backporting.</p>
+<p>In case patches don't apply cleanly to the target stable branch, draft <code>WIP</code>
+merge requests will be created by the above-mentioned scripts. If that happens
+developers will have to backport the desired commits and resolve any cherry-pick
+conflicts manually. The result should then be pushed into the existing branch
+for the <code>WIP</code> backport merge request. Any GStreamer developer should be able
+to do this, and help in this area is always welcome. Please resolve the WIP/Draft
+status once all the relevant commits have been backported and assign the
+merge request to the merge bot for merging.</p>
+<p>There is also a <a href="https://gitlab.freedesktop.org/groups/gstreamer/-/merge_requests?state=merged&amp;label_name%5B%5D=Maybe%20backport"><code>Maybe backport</code> label</a> which can be added
+if you're not sure if commits should be backported or not, or you want to
+revisit it later once the changes in question have seen some testing in the
+development branch. If you tag a merge request with <code>Maybe backport</code> it's
+usually useful to add a comment about why it's being tagged only as a maybe.
+That will make it easier for others to evaluate whether it should be backported
+or not later.</p>
+<h2 id="deleting-branch-in-your-personal-fork-when-merge-request-gets-merged">Deleting branch in your personal fork when Merge Request gets merged</h2>
+<p>When filing a Merge Request in GitLab, there's a checkbox that can be ticked
+to make GitLab automatically delete the feature branch in your personal fork
+when the Merge Request gets merged.</p>
+<p>This only works if the GitLab user merging the Merge Request has developer
+permissions in your personal fork though, so to make this work you will need
+to add the GStreamer Marge bot user as member to your personal fork.</p>
+<p>Alternatively there's a "Delete merged branches" menu item in the vertical dots
+menu on the "Branches" page of your personal fork in GitLab.</p>
+
+    </div>
+        
+
+
+
+
+		
+	</div>
+	<div id="search_results">
+		<p>The results of the search are</p>
+	</div>
+	<div id="footer">
+		    
+
+	</div>
+</div>
+
+<div id="toc-column">
+	
+		<div class="edit-button">
+		<a href="https://gitlab.freedesktop.org/gstreamer/gst-docs//edit/master/subprojects/gst-docs/markdown/contribute/index.md" data-hotdoc-role="edit-button">Edit on GitLab</a>
+
+	</div>
+		<div id="toc-wrapper">
+		<nav id="toc"></nav>
+	</div>
+</div>
+</div>
+</main>
+
+
+<script src="assets/js/navbar_offset_scroller.js"></script>
+</body>
+</html>

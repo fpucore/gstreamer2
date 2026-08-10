@@ -1,0 +1,1986 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<base href="..">
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<title>GstGLContextConfig</title>
+
+<link rel="stylesheet" href="assets/css/dark-frontend.css" type="text/css" title="dark">
+<link rel="alternate stylesheet" href="assets/css/light-frontend.css" type="text/css" title="light">
+<link rel="stylesheet" href="assets/css/bootstrap-toc.min.css" type="text/css">
+<link rel="stylesheet" href="assets/css/jquery.mCustomScrollbar.min.css">
+<link rel="stylesheet" href="assets/js/search/enable_search.css" type="text/css">
+
+<link rel="stylesheet" href="assets/css/extra_frontend.css" type="text/css">
+<link rel="stylesheet" href="assets/css/devhelp.css" type="text/css">
+
+<link rel="stylesheet" href="assets/css/prism-tomorrow.css" type="text/css" title="dark">
+
+<link rel="alternate stylesheet" href="assets/css/prism.css" type="text/css" title="light">
+
+<script src="assets/js/mustache.min.js"></script>
+<script src="assets/js/jquery.js"></script>
+<script src="assets/js/bootstrap.js"></script>
+<script src="assets/js/scrollspy.js"></script>
+<script src="assets/js/typeahead.jquery.min.js"></script>
+<script src="assets/js/search.js"></script>
+<script src="assets/js/compare-versions.js"></script>
+<script src="assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="assets/js/bootstrap-toc.min.js"></script>
+<script src="assets/js/jquery.touchSwipe.min.js"></script>
+<script src="assets/js/anchor.min.js"></script>
+<script src="assets/js/tag_filtering.js"></script>
+<script src="assets/js/language_switching.js"></script>
+<script src="assets/js/styleswitcher.js"></script>
+
+<script src="assets/js/lines_around_headings.js"></script>
+
+<script src="assets/js/prism-core.js"></script>
+<script src="assets/js/prism-autoloader.js"></script>
+<script src="assets/js/prism_autoloader_path_override.js"></script>
+<script src="assets/js/trie.js"></script>
+
+<!-- generic -->
+<link rel="icon" type="image/png" href="assets/images/favicon-16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="assets/images/favicon-32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="assets/images/favicon-57.png" sizes="57x57">
+<link rel="icon" type="image/png" href="assets/images/favicon-64.png" sizes="64x64">
+<link rel="icon" type="image/png" href="assets/images/favicon-76.png" sizes="76x76">
+<link rel="icon" type="image/png" href="assets/images/favicon-96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="assets/images/favicon-128.png" sizes="128x128">
+<link rel="icon" type="image/png" href="assets/images/favicon-192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="assets/images/favicon-228.png" sizes="228x228">
+
+<!-- Android -->
+<link rel="shortcut icon" sizes="196x196" href="assets/images/favicon-196.png">
+
+<!-- iOS -->
+<link rel="apple-touch-icon" href="assets/images/favicon-120.png" sizes="120x120">
+<link rel="apple-touch-icon" href="assets/images/favicon-152.png" sizes="152x152">
+<link rel="apple-touch-icon" href="assets/images/favicon-180.png" sizes="180x180">
+
+</head>
+
+<body class="no-script
+">
+
+<script>
+$('body').removeClass('no-script');
+</script>
+
+<nav class="navbar navbar-fixed-top navbar-default" id="topnav">
+	<div class="container-fluid">
+		<div class="navbar-right">
+			<a id="toc-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-wrapper" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<span title="light mode switch" class="glyphicon glyphicon-sunglasses pull-right" id="lightmode-icon"></span>
+			<form class="navbar-form pull-right" id="navbar-search-form">
+                               <div class="form-group has-feedback">
+                                       <input type="text" class="form-control input-sm" name="search" id="sidenav-lookup-field" placeholder="search" disabled>
+				       <span class="glyphicon glyphicon-search form-control-feedback" id="search-mgn-glass"></span>
+                               </div>
+                        </form>
+		</div>
+		<div class="navbar-header">
+			<a id="sidenav-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<a id="home-link" href="index.html" class="hotdoc-navbar-brand">
+				<img src="assets/images/gstreamer-logo.svg" alt="Home">
+			</a>
+		</div>
+		<div class="navbar-collapse collapse" id="navbar-wrapper">
+			<ul class="nav navbar-nav" id="menu">
+				
+<li class="dropdown">
+    <a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        API References<span class="caret"></span>
+    </a>
+	<ul class="dropdown-menu" id="modules-menu">
+					<li>
+				<a href="gstreamer/gi-index.html">GStreamer core</a>
+			</li>
+					<li>
+				<a href="libs.html">GStreamer Libraries</a>
+			</li>
+					<li>
+				<a href="plugins_doc.html">GStreamer Plugins</a>
+			</li>
+		</ul>
+</li>
+
+<li>
+    <a href="application-development/index.html">Application manual</a>
+</li>
+
+
+<li>
+    <a href="tutorials/index.html">Tutorials</a>
+</li>
+
+			</ul>
+			<div class="hidden-xs hidden-sm navbar-text navbar-center">
+							</div>
+		</div>
+	</div>
+</nav>
+
+<main>
+<div data-extension="gi-extension" data-hotdoc-in-toplevel="False" data-hotdoc-project="gl" data-hotdoc-ref="gstglcontextconfig.html" class="page_container" id="page-wrapper" data-hotdoc-meta-gi-languages="['c', 'javascript', 'python']" data-hotdoc-meta-gi-language="c">
+<script src="assets/js/utils.js"></script>
+
+<div class="panel panel-collapse oc-collapsed" id="sidenav" data-hotdoc-role="navigation">
+	<script src="assets/js/full-width.js"></script>
+  <div id="sitenav-wrapper">
+    <iframe src="hotdoc-sitemap.html" id="sitenav-frame"></iframe>
+  </div>
+</div>
+
+<div id="body">
+	<div id="main">
+				    <div id="page-description" data-hotdoc-role="main">
+        <h1 id="gstglcontextconfig-page">GstGLContextConfig</h1>
+<p>A common list of well-known values for what a config retrievable from or set
+on a <code>GstGLContext</code> may contain.</p>
+
+    </div>
+        
+        
+
+            <h2 class="symbol_section">Functions</h2>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="gst_gl_config_caveat_to_string">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="gst_gl_config_caveat_to_string">
+	<i>gst_gl_config_caveat_to_string</i>
+</h3>
+
+
+
+
+<pre class="c-prototype language-c">
+const <a title="gchar" href="https://docs.gtk.org/glib/types.html#gchar">gchar</a> *
+gst_gl_config_caveat_to_string (<a title="GstGLConfigCaveat" href="gl/gstglcontextconfig.html#GstGLConfigCaveat">GstGLConfigCaveat</a> caveat)</pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>caveat</code></em></i>
+–
+</div>
+<p>the <a href="gl/gstglcontextconfig.html#GstGLConfigCaveat">GstGLConfigCaveat</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span>
+<span class="annotation">[<abbr title="NULL may be passed to the value"><span class="acronym">nullable</span></abbr>]</span><span>)</span>
+–
+			</div>
+							<p>a string version of <em>caveat</em> or <a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#NULL:CAPS">NULL</a> if <em>caveat</em> does not
+exist.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3 data-hotdoc-id="gst_gl_config_caveat_to_string">
+	<i>GstGL.prototype.gl_config_caveat_to_string</i>
+</h3>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstGL.prototype.gl_config_caveat_to_string(caveat: <a title="GstGL.GLConfigCaveat" href="gl/gstglcontextconfig.html#GstGLConfigCaveat">GstGL.GLConfigCaveat</a>): {
+    // javascript wrapper for 'gst_gl_config_caveat_to_string'
+}</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>caveat</code></em></i>
+<span>(</span><a title="GstGL.GLConfigCaveat" href="gl/gstglcontextconfig.html#GstGLConfigCaveat">GstGL.GLConfigCaveat</a><span>)</span>
+–
+</div>
+<p>the <a href="gl/gstglcontextconfig.html#GstGLConfigCaveat">GstGL.GLConfigCaveat</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a><span>)</span>
+–
+			</div>
+							<p>a string version of <em>caveat</em> or <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null">null</a> if <em>caveat</em> does not
+exist.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3 data-hotdoc-id="gst_gl_config_caveat_to_string">
+	<i>GstGL.gl_config_caveat_to_string</i>
+</h3>
+
+
+<pre class="python-prototype language-python">
+<code>def GstGL.gl_config_caveat_to_string (caveat):
+    #python wrapper for 'gst_gl_config_caveat_to_string'</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>caveat</code></em></i>
+<span>(</span><a title="GstGL.GLConfigCaveat" href="gl/gstglcontextconfig.html#GstGLConfigCaveat">GstGL.GLConfigCaveat</a><span>)</span>
+–
+</div>
+<p>the <a href="gl/gstglcontextconfig.html#GstGLConfigCaveat">GstGL.GLConfigCaveat</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="str" href="https://docs.python.org/3/library/functions.html#func-str">str</a><span>)</span>
+–
+			</div>
+							<p>a string version of <em>caveat</em> or <a href="https://docs.python.org/3/library/constants.html#None">None</a> if <em>caveat</em> does not
+exist.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="gst_gl_config_surface_type_to_string">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="gst_gl_config_surface_type_to_string">
+	<i>gst_gl_config_surface_type_to_string</i>
+</h3>
+
+
+
+
+<pre class="c-prototype language-c">
+const <a title="gchar" href="https://docs.gtk.org/glib/types.html#gchar">gchar</a> *
+gst_gl_config_surface_type_to_string (<a title="GstGLConfigSurfaceType" href="gl/gstglcontextconfig.html#GstGLConfigSurfaceType">GstGLConfigSurfaceType</a> surface_type)</pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>surface_type</code></em></i>
+–
+</div>
+<p>the <a href="gl/gstglcontextconfig.html#GstGLConfigSurfaceType">GstGLConfigSurfaceType</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span>
+<span class="annotation">[<abbr title="NULL may be passed to the value"><span class="acronym">nullable</span></abbr>]</span><span>)</span>
+–
+			</div>
+							<p>a string version of <em>caveat</em> or <a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#NULL:CAPS">NULL</a> if <em>surface_type</em> does not
+exist.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3 data-hotdoc-id="gst_gl_config_surface_type_to_string">
+	<i>GstGL.prototype.gl_config_surface_type_to_string</i>
+</h3>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstGL.prototype.gl_config_surface_type_to_string(surface_type: <a title="GstGL.GLConfigSurfaceType" href="gl/gstglcontextconfig.html#GstGLConfigSurfaceType">GstGL.GLConfigSurfaceType</a>): {
+    // javascript wrapper for 'gst_gl_config_surface_type_to_string'
+}</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>surface_type</code></em></i>
+<span>(</span><a title="GstGL.GLConfigSurfaceType" href="gl/gstglcontextconfig.html#GstGLConfigSurfaceType">GstGL.GLConfigSurfaceType</a><span>)</span>
+–
+</div>
+<p>the <a href="gl/gstglcontextconfig.html#GstGLConfigSurfaceType">GstGL.GLConfigSurfaceType</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a><span>)</span>
+–
+			</div>
+							<p>a string version of <em>caveat</em> or <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null">null</a> if <em>surface_type</em> does not
+exist.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3 data-hotdoc-id="gst_gl_config_surface_type_to_string">
+	<i>GstGL.gl_config_surface_type_to_string</i>
+</h3>
+
+
+<pre class="python-prototype language-python">
+<code>def GstGL.gl_config_surface_type_to_string (surface_type):
+    #python wrapper for 'gst_gl_config_surface_type_to_string'</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>surface_type</code></em></i>
+<span>(</span><a title="GstGL.GLConfigSurfaceType" href="gl/gstglcontextconfig.html#GstGLConfigSurfaceType">GstGL.GLConfigSurfaceType</a><span>)</span>
+–
+</div>
+<p>the <a href="gl/gstglcontextconfig.html#GstGLConfigSurfaceType">GstGL.GLConfigSurfaceType</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="str" href="https://docs.python.org/3/library/functions.html#func-str">str</a><span>)</span>
+–
+			</div>
+							<p>a string version of <em>caveat</em> or <a href="https://docs.python.org/3/library/constants.html#None">None</a> if <em>surface_type</em> does not
+exist.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+
+            <h2 class="symbol_section">Function Macros</h2>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="GST_GL_CONFIG_ATTRIB_GTYPE">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_GL_CONFIG_ATTRIB_GTYPE">
+	<i>GST_GL_CONFIG_ATTRIB_GTYPE</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_GL_CONFIG_ATTRIB_GTYPE(UPPER_NAME) \
+  G_PASTE(G_PASTE(GST_GL_CONFIG_ATTRIB_,UPPER_NAME),_GTYPE)
+</pre>
+
+<p>Get a reference to the <a href="https://docs.gtk.org/gobject/alias.Type.html">GType</a> of a particular configuration field.</p>
+<p>e.g. for <code>CONFIG_ID</code>: <code>GST_GL_CONFIG_ATTRIB_GTYPE (CONFIG_ID)</code></p>
+
+
+
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="GST_GL_CONFIG_ATTRIB_NAME">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_GL_CONFIG_ATTRIB_NAME">
+	<i>GST_GL_CONFIG_ATTRIB_NAME</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_GL_CONFIG_ATTRIB_NAME(UPPER_NAME) \
+  G_PASTE(G_PASTE(GST_GL_CONFIG_ATTRIB_,UPPER_NAME),_NAME)
+</pre>
+
+<p>Get a reference to the variable name of a particular configuration field.</p>
+<p>e.g. for <code>CONFIG_ID</code>: <code>GST_GL_CONFIG_ATTRIB_NAME (CONFIG_ID)</code></p>
+
+
+
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="GST_GL_CONFIG_STRUCTURE_SET_ARGS">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_GL_CONFIG_STRUCTURE_SET_ARGS">
+	<i>GST_GL_CONFIG_STRUCTURE_SET_ARGS</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_GL_CONFIG_STRUCTURE_SET_ARGS(def_name,ctype,val) \
+    GST_GL_CONFIG_ATTRIB_NAME(def_name), \
+    GST_GL_CONFIG_ATTRIB_GTYPE(def_name), \
+    (ctype) (val)
+</pre>
+
+
+
+
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+
+            <h2 class="symbol_section">Enumerations</h2>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="GstGLConfigCaveat">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GstGLConfigCaveat">
+	<i>GstGLConfigCaveat</i>
+</h3>
+
+
+
+
+
+	<div class="members-container">
+		<h5>Members</h5>
+					
+<div class="symbol-detail" data-hotdoc-id="GST_GL_CONFIG_CAVEAT_NONE">
+	<div>
+		<i><em><code>GST_GL_CONFIG_CAVEAT_NONE</code></em></i>
+		(<span class="value">0</span>)
+		–
+	</div>
+			<p>none</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_GL_CONFIG_CAVEAT_SLOW">
+	<div>
+		<i><em><code>GST_GL_CONFIG_CAVEAT_SLOW</code></em></i>
+		(<span class="value">1</span>)
+		–
+	</div>
+			<p>slow</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_GL_CONFIG_CAVEAT_NON_CONFORMANT">
+	<div>
+		<i><em><code>GST_GL_CONFIG_CAVEAT_NON_CONFORMANT</code></em></i>
+		(<span class="value">2</span>)
+		–
+	</div>
+			<p>non-conformant</p>
+
+	</div>
+
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3 data-hotdoc-id="GstGLConfigCaveat">
+	<i>GstGL.GLConfigCaveat</i>
+</h3>
+
+
+
+
+
+	<div class="members-container">
+		<h5>Members</h5>
+					
+<div class="symbol-detail" data-hotdoc-id="GST_GL_CONFIG_CAVEAT_NONE">
+	<div>
+		<i><em><code>GstGL.GLConfigCaveat.NONE</code></em></i>
+		(<span class="value">0</span>)
+		–
+	</div>
+			<p>none</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_GL_CONFIG_CAVEAT_SLOW">
+	<div>
+		<i><em><code>GstGL.GLConfigCaveat.SLOW</code></em></i>
+		(<span class="value">1</span>)
+		–
+	</div>
+			<p>slow</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_GL_CONFIG_CAVEAT_NON_CONFORMANT">
+	<div>
+		<i><em><code>GstGL.GLConfigCaveat.NON_CONFORMANT</code></em></i>
+		(<span class="value">2</span>)
+		–
+	</div>
+			<p>non-conformant</p>
+
+	</div>
+
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3 data-hotdoc-id="GstGLConfigCaveat">
+	<i>GstGL.GLConfigCaveat</i>
+</h3>
+
+
+
+
+
+	<div class="members-container">
+		<h5>Members</h5>
+					
+<div class="symbol-detail" data-hotdoc-id="GST_GL_CONFIG_CAVEAT_NONE">
+	<div>
+		<i><em><code>GstGL.GLConfigCaveat.NONE</code></em></i>
+		(<span class="value">0</span>)
+		–
+	</div>
+			<p>none</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_GL_CONFIG_CAVEAT_SLOW">
+	<div>
+		<i><em><code>GstGL.GLConfigCaveat.SLOW</code></em></i>
+		(<span class="value">1</span>)
+		–
+	</div>
+			<p>slow</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_GL_CONFIG_CAVEAT_NON_CONFORMANT">
+	<div>
+		<i><em><code>GstGL.GLConfigCaveat.NON_CONFORMANT</code></em></i>
+		(<span class="value">2</span>)
+		–
+	</div>
+			<p>non-conformant</p>
+
+	</div>
+
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="GstGLConfigSurfaceType">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GstGLConfigSurfaceType">
+	<i>GstGLConfigSurfaceType</i>
+</h3>
+
+
+
+
+
+	<div class="members-container">
+		<h5>Members</h5>
+					
+<div class="symbol-detail" data-hotdoc-id="GST_GL_CONFIG_SURFACE_TYPE_NONE">
+	<div>
+		<i><em><code>GST_GL_CONFIG_SURFACE_TYPE_NONE</code></em></i>
+		(<span class="value">0</span>)
+		–
+	</div>
+			<p>none</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_GL_CONFIG_SURFACE_TYPE_WINDOW">
+	<div>
+		<i><em><code>GST_GL_CONFIG_SURFACE_TYPE_WINDOW</code></em></i>
+		(<span class="value">1</span>)
+		–
+	</div>
+			<p>window</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_GL_CONFIG_SURFACE_TYPE_PBUFFER">
+	<div>
+		<i><em><code>GST_GL_CONFIG_SURFACE_TYPE_PBUFFER</code></em></i>
+		(<span class="value">2</span>)
+		–
+	</div>
+			<p>pbuffer</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_GL_CONFIG_SURFACE_TYPE_PIXMAP">
+	<div>
+		<i><em><code>GST_GL_CONFIG_SURFACE_TYPE_PIXMAP</code></em></i>
+		(<span class="value">4</span>)
+		–
+	</div>
+			<p>pixmap</p>
+
+	</div>
+
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3 data-hotdoc-id="GstGLConfigSurfaceType">
+	<i>GstGL.GLConfigSurfaceType</i>
+</h3>
+
+
+
+
+
+	<div class="members-container">
+		<h5>Members</h5>
+					
+<div class="symbol-detail" data-hotdoc-id="GST_GL_CONFIG_SURFACE_TYPE_NONE">
+	<div>
+		<i><em><code>GstGL.GLConfigSurfaceType.NONE</code></em></i>
+		(<span class="value">0</span>)
+		–
+	</div>
+			<p>none</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_GL_CONFIG_SURFACE_TYPE_WINDOW">
+	<div>
+		<i><em><code>GstGL.GLConfigSurfaceType.WINDOW</code></em></i>
+		(<span class="value">1</span>)
+		–
+	</div>
+			<p>window</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_GL_CONFIG_SURFACE_TYPE_PBUFFER">
+	<div>
+		<i><em><code>GstGL.GLConfigSurfaceType.PBUFFER</code></em></i>
+		(<span class="value">2</span>)
+		–
+	</div>
+			<p>pbuffer</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_GL_CONFIG_SURFACE_TYPE_PIXMAP">
+	<div>
+		<i><em><code>GstGL.GLConfigSurfaceType.PIXMAP</code></em></i>
+		(<span class="value">4</span>)
+		–
+	</div>
+			<p>pixmap</p>
+
+	</div>
+
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3 data-hotdoc-id="GstGLConfigSurfaceType">
+	<i>GstGL.GLConfigSurfaceType</i>
+</h3>
+
+
+
+
+
+	<div class="members-container">
+		<h5>Members</h5>
+					
+<div class="symbol-detail" data-hotdoc-id="GST_GL_CONFIG_SURFACE_TYPE_NONE">
+	<div>
+		<i><em><code>GstGL.GLConfigSurfaceType.NONE</code></em></i>
+		(<span class="value">0</span>)
+		–
+	</div>
+			<p>none</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_GL_CONFIG_SURFACE_TYPE_WINDOW">
+	<div>
+		<i><em><code>GstGL.GLConfigSurfaceType.WINDOW</code></em></i>
+		(<span class="value">1</span>)
+		–
+	</div>
+			<p>window</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_GL_CONFIG_SURFACE_TYPE_PBUFFER">
+	<div>
+		<i><em><code>GstGL.GLConfigSurfaceType.PBUFFER</code></em></i>
+		(<span class="value">2</span>)
+		–
+	</div>
+			<p>pbuffer</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_GL_CONFIG_SURFACE_TYPE_PIXMAP">
+	<div>
+		<i><em><code>GstGL.GLConfigSurfaceType.PIXMAP</code></em></i>
+		(<span class="value">4</span>)
+		–
+	</div>
+			<p>pixmap</p>
+
+	</div>
+
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+
+            <h2 class="symbol_section">Constants</h2>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="GST_GL_CONFIG_ATTRIB_ALPHA_SIZE_GTYPE">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_GL_CONFIG_ATTRIB_ALPHA_SIZE_GTYPE">
+	<i>GST_GL_CONFIG_ATTRIB_ALPHA_SIZE_GTYPE</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_GL_CONFIG_ATTRIB_ALPHA_SIZE_GTYPE G_TYPE_INT
+</pre>
+
+<p>The <a href="https://docs.gtk.org/gobject/alias.Type.html">GType</a> of the 'alpha-size' field.</p>
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="GST_GL_CONFIG_ATTRIB_BLUE_SIZE_GTYPE">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_GL_CONFIG_ATTRIB_BLUE_SIZE_GTYPE">
+	<i>GST_GL_CONFIG_ATTRIB_BLUE_SIZE_GTYPE</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_GL_CONFIG_ATTRIB_BLUE_SIZE_GTYPE G_TYPE_INT
+</pre>
+
+<p>The <a href="https://docs.gtk.org/gobject/alias.Type.html">GType</a> of the 'blue-size' field.</p>
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="GST_GL_CONFIG_ATTRIB_CAVEAT_GTYPE">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_GL_CONFIG_ATTRIB_CAVEAT_GTYPE">
+	<i>GST_GL_CONFIG_ATTRIB_CAVEAT_GTYPE</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_GL_CONFIG_ATTRIB_CAVEAT_GTYPE GST_TYPE_GL_CONFIG_CAVEAT
+</pre>
+
+<p>The <a href="https://docs.gtk.org/gobject/alias.Type.html">GType</a> of the 'caveat' field.</p>
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="GST_GL_CONFIG_ATTRIB_CONFIG_ID_GTYPE">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_GL_CONFIG_ATTRIB_CONFIG_ID_GTYPE">
+	<i>GST_GL_CONFIG_ATTRIB_CONFIG_ID_GTYPE</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_GL_CONFIG_ATTRIB_CONFIG_ID_GTYPE G_TYPE_UINT
+</pre>
+
+<p>The <a href="https://docs.gtk.org/gobject/alias.Type.html">GType</a> of the config-id field.</p>
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="GST_GL_CONFIG_ATTRIB_CONFORMANT_API_GTYPE">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_GL_CONFIG_ATTRIB_CONFORMANT_API_GTYPE">
+	<i>GST_GL_CONFIG_ATTRIB_CONFORMANT_API_GTYPE</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_GL_CONFIG_ATTRIB_CONFORMANT_API_GTYPE GST_TYPE_GL_API
+</pre>
+
+<p>The <a href="https://docs.gtk.org/gobject/alias.Type.html">GType</a> of the 'conformant-api' field.</p>
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="GST_GL_CONFIG_ATTRIB_DEPTH_SIZE_GTYPE">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_GL_CONFIG_ATTRIB_DEPTH_SIZE_GTYPE">
+	<i>GST_GL_CONFIG_ATTRIB_DEPTH_SIZE_GTYPE</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_GL_CONFIG_ATTRIB_DEPTH_SIZE_GTYPE G_TYPE_INT
+</pre>
+
+<p>The <a href="https://docs.gtk.org/gobject/alias.Type.html">GType</a> of the 'depth-size' field.</p>
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="GST_GL_CONFIG_ATTRIB_GREEN_SIZE_GTYPE">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_GL_CONFIG_ATTRIB_GREEN_SIZE_GTYPE">
+	<i>GST_GL_CONFIG_ATTRIB_GREEN_SIZE_GTYPE</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_GL_CONFIG_ATTRIB_GREEN_SIZE_GTYPE G_TYPE_INT
+</pre>
+
+<p>The <a href="https://docs.gtk.org/gobject/alias.Type.html">GType</a> of the 'green-size' field.</p>
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="GST_GL_CONFIG_ATTRIB_LEVEL_GTYPE">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_GL_CONFIG_ATTRIB_LEVEL_GTYPE">
+	<i>GST_GL_CONFIG_ATTRIB_LEVEL_GTYPE</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_GL_CONFIG_ATTRIB_LEVEL_GTYPE G_TYPE_INT
+</pre>
+
+<p>The <a href="https://docs.gtk.org/gobject/alias.Type.html">GType</a> of the 'level' field.</p>
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="GST_GL_CONFIG_ATTRIB_LUMINANCE_SIZE_GTYPE">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_GL_CONFIG_ATTRIB_LUMINANCE_SIZE_GTYPE">
+	<i>GST_GL_CONFIG_ATTRIB_LUMINANCE_SIZE_GTYPE</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_GL_CONFIG_ATTRIB_LUMINANCE_SIZE_GTYPE G_TYPE_INT
+</pre>
+
+<p>The <a href="https://docs.gtk.org/gobject/alias.Type.html">GType</a> of the 'luminance-size' field.</p>
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="GST_GL_CONFIG_ATTRIB_MAX_PBUFFER_HEIGHT_GTYPE">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_GL_CONFIG_ATTRIB_MAX_PBUFFER_HEIGHT_GTYPE">
+	<i>GST_GL_CONFIG_ATTRIB_MAX_PBUFFER_HEIGHT_GTYPE</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_GL_CONFIG_ATTRIB_MAX_PBUFFER_HEIGHT_GTYPE G_TYPE_INT
+</pre>
+
+<p>The <a href="https://docs.gtk.org/gobject/alias.Type.html">GType</a> of the 'max-pbuffer-height' field.</p>
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="GST_GL_CONFIG_ATTRIB_MAX_PBUFFER_PIXELS_GTYPE">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_GL_CONFIG_ATTRIB_MAX_PBUFFER_PIXELS_GTYPE">
+	<i>GST_GL_CONFIG_ATTRIB_MAX_PBUFFER_PIXELS_GTYPE</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_GL_CONFIG_ATTRIB_MAX_PBUFFER_PIXELS_GTYPE G_TYPE_INT
+</pre>
+
+<p>The <a href="https://docs.gtk.org/gobject/alias.Type.html">GType</a> of the 'max-pbuffer-pixels' field.</p>
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="GST_GL_CONFIG_ATTRIB_MAX_PBUFFER_WIDTH_GTYPE">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_GL_CONFIG_ATTRIB_MAX_PBUFFER_WIDTH_GTYPE">
+	<i>GST_GL_CONFIG_ATTRIB_MAX_PBUFFER_WIDTH_GTYPE</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_GL_CONFIG_ATTRIB_MAX_PBUFFER_WIDTH_GTYPE G_TYPE_INT
+</pre>
+
+<p>The <a href="https://docs.gtk.org/gobject/alias.Type.html">GType</a> of the 'max-pbuffer-width' field.</p>
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="GST_GL_CONFIG_ATTRIB_MAX_SWAP_INTERVAL_GTYPE">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_GL_CONFIG_ATTRIB_MAX_SWAP_INTERVAL_GTYPE">
+	<i>GST_GL_CONFIG_ATTRIB_MAX_SWAP_INTERVAL_GTYPE</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_GL_CONFIG_ATTRIB_MAX_SWAP_INTERVAL_GTYPE G_TYPE_INT
+</pre>
+
+<p>The <a href="https://docs.gtk.org/gobject/alias.Type.html">GType</a> of the 'max-swap-interval' field.</p>
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="GST_GL_CONFIG_ATTRIB_MIN_SWAP_INTERVAL_GTYPE">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_GL_CONFIG_ATTRIB_MIN_SWAP_INTERVAL_GTYPE">
+	<i>GST_GL_CONFIG_ATTRIB_MIN_SWAP_INTERVAL_GTYPE</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_GL_CONFIG_ATTRIB_MIN_SWAP_INTERVAL_GTYPE G_TYPE_INT
+</pre>
+
+<p>The <a href="https://docs.gtk.org/gobject/alias.Type.html">GType</a> of the 'min-swap-interval' field.</p>
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="GST_GL_CONFIG_ATTRIB_NATIVE_RENDERABLE_GTYPE">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_GL_CONFIG_ATTRIB_NATIVE_RENDERABLE_GTYPE">
+	<i>GST_GL_CONFIG_ATTRIB_NATIVE_RENDERABLE_GTYPE</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_GL_CONFIG_ATTRIB_NATIVE_RENDERABLE_GTYPE G_TYPE_BOOLEAN
+</pre>
+
+<p>The <a href="https://docs.gtk.org/gobject/alias.Type.html">GType</a> of the 'native-renderable' field.</p>
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="GST_GL_CONFIG_ATTRIB_NATIVE_VISUAL_ID_GTYPE">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_GL_CONFIG_ATTRIB_NATIVE_VISUAL_ID_GTYPE">
+	<i>GST_GL_CONFIG_ATTRIB_NATIVE_VISUAL_ID_GTYPE</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_GL_CONFIG_ATTRIB_NATIVE_VISUAL_ID_GTYPE G_TYPE_UINT
+</pre>
+
+<p>The <a href="https://docs.gtk.org/gobject/alias.Type.html">GType</a> of the 'native-visual-id' field.</p>
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="GST_GL_CONFIG_ATTRIB_PLATFORM_GTYPE">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_GL_CONFIG_ATTRIB_PLATFORM_GTYPE">
+	<i>GST_GL_CONFIG_ATTRIB_PLATFORM_GTYPE</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_GL_CONFIG_ATTRIB_PLATFORM_GTYPE GST_TYPE_GL_PLATFORM
+</pre>
+
+<p>The <a href="https://docs.gtk.org/gobject/alias.Type.html">GType</a> of the 'platform' field.</p>
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="GST_GL_CONFIG_ATTRIB_RED_SIZE_GTYPE">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_GL_CONFIG_ATTRIB_RED_SIZE_GTYPE">
+	<i>GST_GL_CONFIG_ATTRIB_RED_SIZE_GTYPE</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_GL_CONFIG_ATTRIB_RED_SIZE_GTYPE G_TYPE_INT
+</pre>
+
+<p>The <a href="https://docs.gtk.org/gobject/alias.Type.html">GType</a> of the 'red-size' field.</p>
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="GST_GL_CONFIG_ATTRIB_RENDERABLE_API_GTYPE">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_GL_CONFIG_ATTRIB_RENDERABLE_API_GTYPE">
+	<i>GST_GL_CONFIG_ATTRIB_RENDERABLE_API_GTYPE</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_GL_CONFIG_ATTRIB_RENDERABLE_API_GTYPE GST_TYPE_GL_API
+</pre>
+
+<p>The <a href="https://docs.gtk.org/gobject/alias.Type.html">GType</a> of the 'renderable-api' field.</p>
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="GST_GL_CONFIG_ATTRIB_SAMPLES_GTYPE">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_GL_CONFIG_ATTRIB_SAMPLES_GTYPE">
+	<i>GST_GL_CONFIG_ATTRIB_SAMPLES_GTYPE</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_GL_CONFIG_ATTRIB_SAMPLES_GTYPE G_TYPE_INT
+</pre>
+
+<p>The <a href="https://docs.gtk.org/gobject/alias.Type.html">GType</a> of the 'samples' field.</p>
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="GST_GL_CONFIG_ATTRIB_SAMPLE_BUFFERS_GTYPE">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_GL_CONFIG_ATTRIB_SAMPLE_BUFFERS_GTYPE">
+	<i>GST_GL_CONFIG_ATTRIB_SAMPLE_BUFFERS_GTYPE</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_GL_CONFIG_ATTRIB_SAMPLE_BUFFERS_GTYPE G_TYPE_INT
+</pre>
+
+<p>The <a href="https://docs.gtk.org/gobject/alias.Type.html">GType</a> of the 'sample-buffers' field.</p>
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="GST_GL_CONFIG_ATTRIB_STENCIL_SIZE_GTYPE">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_GL_CONFIG_ATTRIB_STENCIL_SIZE_GTYPE">
+	<i>GST_GL_CONFIG_ATTRIB_STENCIL_SIZE_GTYPE</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_GL_CONFIG_ATTRIB_STENCIL_SIZE_GTYPE G_TYPE_INT
+</pre>
+
+<p>The <a href="https://docs.gtk.org/gobject/alias.Type.html">GType</a> of the 'stencil-size' field.</p>
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="GST_GL_CONFIG_ATTRIB_SURFACE_TYPE_GTYPE">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_GL_CONFIG_ATTRIB_SURFACE_TYPE_GTYPE">
+	<i>GST_GL_CONFIG_ATTRIB_SURFACE_TYPE_GTYPE</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_GL_CONFIG_ATTRIB_SURFACE_TYPE_GTYPE GST_TYPE_GL_CONFIG_SURFACE_TYPE
+</pre>
+
+<p>The <a href="https://docs.gtk.org/gobject/alias.Type.html">GType</a> of the 'surface-type' field.</p>
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="GST_GL_CONFIG_STRUCTURE_NAME">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_GL_CONFIG_STRUCTURE_NAME">
+	<i>GST_GL_CONFIG_STRUCTURE_NAME</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_GL_CONFIG_STRUCTURE_NAME "gst-gl-context-config"
+</pre>
+
+<p>The canonical name of a <a href="gstreamer/gststructure.html#GstStructure">GstStructure</a> that contains a configuration for a
+<a href="gl/gstglcontext.html#GstGLContext">GstGLContext</a>.</p>
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3 data-hotdoc-id="GST_GL_CONFIG_STRUCTURE_NAME">
+	<i>GstGL.GL_CONFIG_STRUCTURE_NAME</i>
+</h3>
+
+
+<p>The canonical name of a <a href="gstreamer/gststructure.html#GstStructure">Gst.Structure</a> that contains a configuration for a
+<a href="gl/gstglcontext.html#GstGLContext">GstGL.GLContext</a>.</p>
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3 data-hotdoc-id="GST_GL_CONFIG_STRUCTURE_NAME">
+	<i>GstGL.GL_CONFIG_STRUCTURE_NAME</i>
+</h3>
+
+
+<p>The canonical name of a <a href="gstreamer/gststructure.html#GstStructure">Gst.Structure</a> that contains a configuration for a
+<a href="gl/gstglcontext.html#GstGLContext">GstGL.GLContext</a>.</p>
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+
+
+
+
+
+		
+	</div>
+	<div id="search_results">
+		<p>The results of the search are</p>
+	</div>
+	<div id="footer">
+		    
+
+	</div>
+</div>
+
+<div id="toc-column">
+	
+		<div class="edit-button">
+		
+
+	</div>
+		<div id="toc-wrapper">
+		<nav id="toc"></nav>
+	</div>
+</div>
+</div>
+</main>
+
+
+<script src="assets/js/navbar_offset_scroller.js"></script>
+</body>
+</html>

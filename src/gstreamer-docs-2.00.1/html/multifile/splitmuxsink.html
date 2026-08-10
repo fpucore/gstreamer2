@@ -1,0 +1,1785 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<base href="..">
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<title>splitmuxsink</title>
+
+<link rel="stylesheet" href="assets/css/dark-frontend.css" type="text/css" title="dark">
+<link rel="alternate stylesheet" href="assets/css/light-frontend.css" type="text/css" title="light">
+<link rel="stylesheet" href="assets/css/bootstrap-toc.min.css" type="text/css">
+<link rel="stylesheet" href="assets/css/jquery.mCustomScrollbar.min.css">
+<link rel="stylesheet" href="assets/js/search/enable_search.css" type="text/css">
+
+<link rel="stylesheet" href="assets/css/extra_frontend.css" type="text/css">
+<link rel="stylesheet" href="assets/css/devhelp.css" type="text/css">
+
+<link rel="stylesheet" href="assets/css/prism-tomorrow.css" type="text/css" title="dark">
+
+<link rel="alternate stylesheet" href="assets/css/prism.css" type="text/css" title="light">
+
+<script src="assets/js/mustache.min.js"></script>
+<script src="assets/js/jquery.js"></script>
+<script src="assets/js/bootstrap.js"></script>
+<script src="assets/js/scrollspy.js"></script>
+<script src="assets/js/typeahead.jquery.min.js"></script>
+<script src="assets/js/search.js"></script>
+<script src="assets/js/compare-versions.js"></script>
+<script src="assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="assets/js/bootstrap-toc.min.js"></script>
+<script src="assets/js/jquery.touchSwipe.min.js"></script>
+<script src="assets/js/anchor.min.js"></script>
+<script src="assets/js/tag_filtering.js"></script>
+<script src="assets/js/language_switching.js"></script>
+<script src="assets/js/styleswitcher.js"></script>
+
+<script src="assets/js/lines_around_headings.js"></script>
+
+<script src="assets/js/prism-core.js"></script>
+<script src="assets/js/prism-autoloader.js"></script>
+<script src="assets/js/prism_autoloader_path_override.js"></script>
+<script src="assets/js/trie.js"></script>
+
+<!-- generic -->
+<link rel="icon" type="image/png" href="assets/images/favicon-16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="assets/images/favicon-32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="assets/images/favicon-57.png" sizes="57x57">
+<link rel="icon" type="image/png" href="assets/images/favicon-64.png" sizes="64x64">
+<link rel="icon" type="image/png" href="assets/images/favicon-76.png" sizes="76x76">
+<link rel="icon" type="image/png" href="assets/images/favicon-96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="assets/images/favicon-128.png" sizes="128x128">
+<link rel="icon" type="image/png" href="assets/images/favicon-192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="assets/images/favicon-228.png" sizes="228x228">
+
+<!-- Android -->
+<link rel="shortcut icon" sizes="196x196" href="assets/images/favicon-196.png">
+
+<!-- iOS -->
+<link rel="apple-touch-icon" href="assets/images/favicon-120.png" sizes="120x120">
+<link rel="apple-touch-icon" href="assets/images/favicon-152.png" sizes="152x152">
+<link rel="apple-touch-icon" href="assets/images/favicon-180.png" sizes="180x180">
+
+</head>
+
+<body class="no-script
+">
+
+<script>
+$('body').removeClass('no-script');
+</script>
+
+<nav class="navbar navbar-fixed-top navbar-default" id="topnav">
+	<div class="container-fluid">
+		<div class="navbar-right">
+			<a id="toc-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-wrapper" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<span title="light mode switch" class="glyphicon glyphicon-sunglasses pull-right" id="lightmode-icon"></span>
+			<form class="navbar-form pull-right" id="navbar-search-form">
+                               <div class="form-group has-feedback">
+                                       <input type="text" class="form-control input-sm" name="search" id="sidenav-lookup-field" placeholder="search" disabled>
+				       <span class="glyphicon glyphicon-search form-control-feedback" id="search-mgn-glass"></span>
+                               </div>
+                        </form>
+		</div>
+		<div class="navbar-header">
+			<a id="sidenav-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<a id="home-link" href="index.html" class="hotdoc-navbar-brand">
+				<img src="assets/images/gstreamer-logo.svg" alt="Home">
+			</a>
+		</div>
+		<div class="navbar-collapse collapse" id="navbar-wrapper">
+			<ul class="nav navbar-nav" id="menu">
+				
+<li class="dropdown">
+    <a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        API References<span class="caret"></span>
+    </a>
+	<ul class="dropdown-menu" id="modules-menu">
+					<li>
+				<a href="gstreamer/gi-index.html">GStreamer core</a>
+			</li>
+					<li>
+				<a href="libs.html">GStreamer Libraries</a>
+			</li>
+					<li>
+				<a href="plugins_doc.html">GStreamer Plugins</a>
+			</li>
+		</ul>
+</li>
+
+<li>
+    <a href="application-development/index.html">Application manual</a>
+</li>
+
+
+<li>
+    <a href="tutorials/index.html">Tutorials</a>
+</li>
+
+			</ul>
+			<div class="hidden-xs hidden-sm navbar-text navbar-center">
+							</div>
+		</div>
+	</div>
+</nav>
+
+<main>
+<div data-extension="gst-extension" data-hotdoc-in-toplevel="False" data-hotdoc-project="multifile" data-hotdoc-ref="splitmuxsink.html" class="page_container" id="page-wrapper" data-hotdoc-meta-gi-languages="['c', 'javascript', 'python']">
+<script src="assets/js/utils.js"></script>
+
+<div class="panel panel-collapse oc-collapsed" id="sidenav" data-hotdoc-role="navigation">
+	<script src="assets/js/full-width.js"></script>
+  <div id="sitenav-wrapper">
+    <iframe src="hotdoc-sitemap.html" id="sitenav-frame"></iframe>
+  </div>
+</div>
+
+<div id="body">
+	<div id="main">
+				    <div id="page-description" data-hotdoc-role="main">
+        <h1 id="splitmuxsink-page">splitmuxsink</h1>
+<p>This element wraps a muxer and a sink, and starts a new file when the mux
+contents are about to cross a threshold of maximum size of maximum time,
+splitting at video keyframe boundaries. Exactly one input video stream
+can be muxed, with as many accompanying audio and subtitle streams as
+desired.</p>
+<p>By default, it uses mp4mux and filesink, but they can be changed via
+the 'muxer' and 'sink' properties.</p>
+<p>The minimum file size is 1 GOP, however - so limits may be overrun if the
+distance between any 2 keyframes is larger than the limits.</p>
+<p>If a video stream is available, the splitting process is driven by the video
+stream contents, and the video stream must contain closed GOPs for the output
+file parts to be played individually correctly. In the absence of a video
+stream, the first available stream is used as reference for synchronization.</p>
+<p>In the async-finalize mode, when the threshold is crossed, the old muxer
+and sink is disconnected from the pipeline and left to finish the file
+asynchronously, and a new muxer and sink is created to continue with the
+next fragment. For that reason, instead of muxer and sink objects, the
+muxer-factory and sink-factory properties are used to construct the new
+objects, together with muxer-properties and sink-properties.</p>
+<h2 id="example-pipelines">Example pipelines</h2>
+<pre><code class="language-["> gst-launch-1.0 -e v4l2src num-buffers=500 ! video/x-raw,width=320,height=240 ! videoconvert ! queue ! timeoverlay ! x264enc key-int-max=10 ! h264parse ! splitmuxsink location=video%02d.mov max-size-time=10000000000 max-size-bytes=1000000
+</code></pre>
+<p>Records a video stream captured from a v4l2 device and muxes it into
+ISO mp4 files, splitting as needed to limit size/duration to 10 seconds
+and 1MB maximum size.</p>
+<pre><code class="language-["> gst-launch-1.0 -e v4l2src num-buffers=500 ! video/x-raw,width=320,height=240 ! videoconvert ! queue ! timeoverlay ! x264enc key-int-max=10 ! h264parse ! splitmuxsink location=video%02d.mkv max-size-time=10000000000 muxer-factory=matroskamux muxer-properties="properties,streamable=true"
+</code></pre>
+<p>Records a video stream captured from a v4l2 device and muxer it into
+streamable Matroska files, splitting as needed to limit size/duration to 10
+seconds. Each file will finalize asynchronously.</p>
+<pre><code class="language-["> gst-launch-1.0 videotestsrc num-buffers=10 ! jpegenc ! .video splitmuxsink muxer=qtmux muxer-pad-map=x-pad-map,video=video_1 location=test%05d.mp4 -v
+</code></pre>
+<p>Records 10 frames to an mp4 file, using a muxer-pad-map to make explicit mappings between the splitmuxsink sink pad and the corresponding muxer pad
+it will deliver to.</p>
+
+    </div>
+        
+        
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="splitmuxsink">
+	
+        
+
+        <h2>Hierarchy</h2>
+            <div class="hierarchy_container">
+                <div class="hierarchy_details">
+<pre>
+<a title="GObject" href="https://docs.gtk.org/gobject/class.Object.html" data-gi-href-javascript="https://docs.gtk.org/gobject/class.Object.html" data-gi-title-javascript="GObject.Object" data-gi-href-python="https://docs.gtk.org/gobject/class.Object.html" data-gi-title-python="GObject.Object">GObject</a>
+    <span class="lineart">╰──</span><a title="GInitiallyUnowned" href="https://docs.gtk.org/gobject/class.InitiallyUnowned.html" data-gi-href-javascript="https://docs.gtk.org/gobject/class.InitiallyUnowned.html" data-gi-title-javascript="GObject.InitiallyUnowned" data-gi-href-python="https://docs.gtk.org/gobject/class.InitiallyUnowned.html" data-gi-title-python="GObject.InitiallyUnowned">GInitiallyUnowned</a>
+        <span class="lineart">╰──</span><a title="GstObject" href="gstreamer/gstobject.html#GstObject" data-gi-href-javascript="gstreamer/gstobject.html#GstObject" data-gi-title-javascript="Gst.Object" data-gi-href-python="gstreamer/gstobject.html#GstObject" data-gi-title-python="Gst.Object">GstObject</a>
+            <span class="lineart">╰──</span><a title="GstElement" href="gstreamer/gstelement.html#GstElement" data-gi-href-javascript="gstreamer/gstelement.html#GstElement" data-gi-title-javascript="Gst.Element" data-gi-href-python="gstreamer/gstelement.html#GstElement" data-gi-title-python="Gst.Element">GstElement</a>
+                <span class="lineart">╰──</span><a title="GstBin" href="gstreamer/gstbin.html#GstBin" data-gi-href-javascript="gstreamer/gstbin.html#GstBin" data-gi-title-javascript="Gst.Bin" data-gi-href-python="gstreamer/gstbin.html#GstBin" data-gi-title-python="Gst.Bin">GstBin</a>
+                    <span class="lineart">╰──</span>splitmuxsink
+</pre>
+
+</div>
+
+            </div>
+            <h2>Implemented interfaces</h2>
+            <div>
+                <pre>
+<a title="GstChildProxy" href="gstreamer/gstchildproxy.html#GstChildProxy" data-gi-href-javascript="gstreamer/gstchildproxy.html#GstChildProxy" data-gi-title-javascript="Gst.ChildProxy" data-gi-href-python="gstreamer/gstchildproxy.html#GstChildProxy" data-gi-title-python="Gst.ChildProxy">GstChildProxy</a>
+</pre>
+            </div>
+        <h2 class="symbol_section">Factory details</h2>
+        <div class="symbol-detail">
+            <p><b>Authors:</b> – Jan Schmidt <jan@centricular.com></jan@centricular.com></p>
+            <p><b>Classification:</b> – <code>Generic/Bin/Muxer</code></p>
+            <p><b>Rank</b> – none</p>
+            <p><b>Plugin</b> – multifile</p>
+            <p><b>Package</b> – GStreamer Good Plug-ins</p>
+        </div>
+
+</div>
+
+
+            <h2 class="symbol_section">Pad Templates</h2>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstSplitMuxSink!audio_%u">
+	
+
+
+
+        <h3><span><code>audio_%u</code></span></h3>
+
+
+        <div>
+            
+            <pre class="language-yaml"><code class="language-yaml">ANY</code></pre>
+            <div class="symbol-detail">
+                <p><b>Presence</b> – <i>request</i></p>
+                <p><b>Direction</b> – <i>sink</i></p>
+                    <p><b>Object type</b> – <a title="GstPad" href="gstreamer/gstpad.html#GstPad" data-gi-href-javascript="gstreamer/gstpad.html#GstPad" data-gi-title-javascript="Gst.Pad" data-gi-href-python="gstreamer/gstpad.html#GstPad" data-gi-title-python="Gst.Pad">GstPad</a></p>
+            </div>
+        </div>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstSplitMuxSink!caption_%u">
+	
+
+
+
+        <h3><span><code>caption_%u</code></span></h3>
+
+
+        <div>
+            
+            <pre class="language-yaml"><code class="language-yaml">ANY</code></pre>
+            <div class="symbol-detail">
+                <p><b>Presence</b> – <i>request</i></p>
+                <p><b>Direction</b> – <i>sink</i></p>
+                    <p><b>Object type</b> – <a title="GstPad" href="gstreamer/gstpad.html#GstPad" data-gi-href-javascript="gstreamer/gstpad.html#GstPad" data-gi-title-javascript="Gst.Pad" data-gi-href-python="gstreamer/gstpad.html#GstPad" data-gi-title-python="Gst.Pad">GstPad</a></p>
+            </div>
+        </div>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstSplitMuxSink!subtitle_%u">
+	
+
+
+
+        <h3><span><code>subtitle_%u</code></span></h3>
+
+
+        <div>
+            
+            <pre class="language-yaml"><code class="language-yaml">ANY</code></pre>
+            <div class="symbol-detail">
+                <p><b>Presence</b> – <i>request</i></p>
+                <p><b>Direction</b> – <i>sink</i></p>
+                    <p><b>Object type</b> – <a title="GstPad" href="gstreamer/gstpad.html#GstPad" data-gi-href-javascript="gstreamer/gstpad.html#GstPad" data-gi-title-javascript="Gst.Pad" data-gi-href-python="gstreamer/gstpad.html#GstPad" data-gi-title-python="Gst.Pad">GstPad</a></p>
+            </div>
+        </div>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstSplitMuxSink!video">
+	
+
+
+
+        <h3><span><code>video</code></span></h3>
+
+
+        <div>
+            
+            <pre class="language-yaml"><code class="language-yaml">ANY</code></pre>
+            <div class="symbol-detail">
+                <p><b>Presence</b> – <i>request</i></p>
+                <p><b>Direction</b> – <i>sink</i></p>
+                    <p><b>Object type</b> – <a title="GstPad" href="gstreamer/gstpad.html#GstPad" data-gi-href-javascript="gstreamer/gstpad.html#GstPad" data-gi-title-javascript="Gst.Pad" data-gi-href-python="gstreamer/gstpad.html#GstPad" data-gi-title-python="Gst.Pad">GstPad</a></p>
+            </div>
+        </div>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstSplitMuxSink!video_aux_%u">
+	
+
+
+
+        <h3><span><code>video_aux_%u</code></span></h3>
+
+
+        <div>
+            
+            <pre class="language-yaml"><code class="language-yaml">ANY</code></pre>
+            <div class="symbol-detail">
+                <p><b>Presence</b> – <i>request</i></p>
+                <p><b>Direction</b> – <i>sink</i></p>
+                    <p><b>Object type</b> – <a title="GstPad" href="gstreamer/gstpad.html#GstPad" data-gi-href-javascript="gstreamer/gstpad.html#GstPad" data-gi-title-javascript="Gst.Pad" data-gi-href-python="gstreamer/gstpad.html#GstPad" data-gi-title-python="Gst.Pad">GstPad</a></p>
+            </div>
+        </div>
+
+
+
+<hr>
+
+</div>
+
+
+            <h2 class="symbol_section">Signals</h2>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="splitmuxsink::format-location">
+	
+
+
+
+<h3 data-hotdoc-id="splitmuxsink::format-location">
+	<i>format-location</i>
+</h3>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gchararray" href="https://web.mit.edu/barnowl/share/gtk-doc/html/gobject/gobject-Standard-Parameter-and-Value-Types.html#gchararray" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" data-gi-title-javascript="String" data-gi-href-python="https://docs.python.org/3/library/functions.html#func-str" data-gi-title-python="str">gchararray</a>
+format_location_callback (<a title="GstElement" href="gstreamer/gstelement.html#GstElement" data-gi-href-javascript="gstreamer/gstelement.html#GstElement" data-gi-title-javascript="Gst.Element" data-gi-href-python="gstreamer/gstelement.html#GstElement" data-gi-title-python="Gst.Element">GstElement</a> <span class="pointer-token">*</span> splitmux,
+                          <a title="guint" href="https://docs.gtk.org/glib/types.html#guint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">guint</a> fragment_id,
+                          <a title="gpointer" href="https://docs.gtk.org/glib/types.html#gpointer" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" data-gi-title-javascript="Object" data-gi-href-python="https://docs.python.org/3/library/functions.html#object" data-gi-title-python="object">gpointer</a> udata)</pre>
+<pre class="python-prototype language-python">
+<code>def format_location_callback (splitmux, fragment_id, udata):
+    #python callback for the 'format-location' signal</code></pre>
+<pre class="javascript-prototype language-javascript">
+<code>function format_location_callback(splitmux: <a title="GstElement" href="gstreamer/gstelement.html#GstElement" data-gi-href-javascript="gstreamer/gstelement.html#GstElement" data-gi-title-javascript="Gst.Element" data-gi-href-python="gstreamer/gstelement.html#GstElement" data-gi-title-python="Gst.Element">GstElement</a> <span class="pointer-token">*</span> splitmux, fragment_id: <a title="guint" href="https://docs.gtk.org/glib/types.html#guint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">guint</a> fragment_id, udata: <a title="gpointer" href="https://docs.gtk.org/glib/types.html#gpointer" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" data-gi-title-javascript="Object" data-gi-href-python="https://docs.python.org/3/library/functions.html#object" data-gi-title-python="object">gpointer</a> udata): {
+    // javascript callback for the 'format-location' signal
+}</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>splitmux</code></em></i>
+–
+</div>
+<p>the <a href="multifile/splitmuxsink.html#splitmuxsink">splitmuxsink</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>fragment_id</code></em></i>
+–
+</div>
+<p>the sequence number of the file to be created</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>udata</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="gchararray" href="https://web.mit.edu/barnowl/share/gtk-doc/html/gobject/gobject-Standard-Parameter-and-Value-Types.html#gchararray" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" data-gi-title-javascript="String" data-gi-href-python="https://docs.python.org/3/library/functions.html#func-str" data-gi-title-python="str">gchararray</a><span>)</span>
+–
+			</div>
+							<p>the location to be used for the next output file. This must be
+a newly-allocated string which will be freed with <a href="https://docs.gtk.org/glib/func.free.html" data-gi-href-javascript="https://docs.gtk.org/glib/func.free.html" data-gi-title-javascript="GLib.prototype.free" data-gi-href-python="https://docs.gtk.org/glib/func.free.html" data-gi-title-python="GLib.free">g_free</a> by the
+splitmuxsink element when it no longer needs it, so use <a href="https://docs.gtk.org/glib/func.strdup.html" data-gi-href-javascript="https://docs.gtk.org/glib/func.strdup.html" data-gi-title-javascript="GLib.prototype.strdup" data-gi-href-python="https://docs.gtk.org/glib/func.strdup.html" data-gi-title-python="GLib.strdup">g_strdup</a> or
+<a href="https://docs.gtk.org/glib/func.strdup_printf.html" data-gi-href-javascript="https://docs.gtk.org/glib/func.strdup_printf.html" data-gi-title-javascript="g_strdup_printf (not introspectable)" data-gi-href-python="https://docs.gtk.org/glib/func.strdup_printf.html" data-gi-title-python="g_strdup_printf (not introspectable)">g_strdup_printf</a> or similar functions to allocate it.</p>
+
+					</div>
+	</div>
+
+
+<p>
+	<b>Flags:</b>	
+	
+		
+				<a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS">Run Last</a>
+			
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.12;" id="splitmuxsink::format-location-full">
+	
+
+
+
+<h3 data-hotdoc-id="splitmuxsink::format-location-full">
+	<i>format-location-full</i>
+</h3>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gchararray" href="https://web.mit.edu/barnowl/share/gtk-doc/html/gobject/gobject-Standard-Parameter-and-Value-Types.html#gchararray" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" data-gi-title-javascript="String" data-gi-href-python="https://docs.python.org/3/library/functions.html#func-str" data-gi-title-python="str">gchararray</a>
+format_location_full_callback (<a title="GstElement" href="gstreamer/gstelement.html#GstElement" data-gi-href-javascript="gstreamer/gstelement.html#GstElement" data-gi-title-javascript="Gst.Element" data-gi-href-python="gstreamer/gstelement.html#GstElement" data-gi-title-python="Gst.Element">GstElement</a> <span class="pointer-token">*</span> splitmux,
+                               <a title="guint" href="https://docs.gtk.org/glib/types.html#guint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">guint</a> fragment_id,
+                               <a title="GstSample" href="gstreamer/gstsample.html#GstSample" data-gi-href-javascript="gstreamer/gstsample.html#GstSample" data-gi-title-javascript="Gst.Sample" data-gi-href-python="gstreamer/gstsample.html#GstSample" data-gi-title-python="Gst.Sample">GstSample</a> <span class="pointer-token">*</span> first_sample,
+                               <a title="gpointer" href="https://docs.gtk.org/glib/types.html#gpointer" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" data-gi-title-javascript="Object" data-gi-href-python="https://docs.python.org/3/library/functions.html#object" data-gi-title-python="object">gpointer</a> udata)</pre>
+<pre class="python-prototype language-python">
+<code>def format_location_full_callback (splitmux, fragment_id, first_sample, udata):
+    #python callback for the 'format-location-full' signal</code></pre>
+<pre class="javascript-prototype language-javascript">
+<code>function format_location_full_callback(splitmux: <a title="GstElement" href="gstreamer/gstelement.html#GstElement" data-gi-href-javascript="gstreamer/gstelement.html#GstElement" data-gi-title-javascript="Gst.Element" data-gi-href-python="gstreamer/gstelement.html#GstElement" data-gi-title-python="Gst.Element">GstElement</a> <span class="pointer-token">*</span> splitmux, fragment_id: <a title="guint" href="https://docs.gtk.org/glib/types.html#guint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">guint</a> fragment_id, first_sample: <a title="GstSample" href="gstreamer/gstsample.html#GstSample" data-gi-href-javascript="gstreamer/gstsample.html#GstSample" data-gi-title-javascript="Gst.Sample" data-gi-href-python="gstreamer/gstsample.html#GstSample" data-gi-title-python="Gst.Sample">GstSample</a> <span class="pointer-token">*</span> first_sample, udata: <a title="gpointer" href="https://docs.gtk.org/glib/types.html#gpointer" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" data-gi-title-javascript="Object" data-gi-href-python="https://docs.python.org/3/library/functions.html#object" data-gi-title-python="object">gpointer</a> udata): {
+    // javascript callback for the 'format-location-full' signal
+}</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>splitmux</code></em></i>
+–
+</div>
+<p>the <a href="multifile/splitmuxsink.html#splitmuxsink">splitmuxsink</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>fragment_id</code></em></i>
+–
+</div>
+<p>the sequence number of the file to be created</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>first_sample</code></em></i>
+–
+</div>
+<p>A <a href="gstreamer/gstsample.html#GstSample" data-gi-href-javascript="gstreamer/gstsample.html#GstSample" data-gi-title-javascript="Gst.Sample" data-gi-href-python="gstreamer/gstsample.html#GstSample" data-gi-title-python="Gst.Sample">GstSample</a> containing the first buffer
+from the reference stream in the new file</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>udata</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="gchararray" href="https://web.mit.edu/barnowl/share/gtk-doc/html/gobject/gobject-Standard-Parameter-and-Value-Types.html#gchararray" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" data-gi-title-javascript="String" data-gi-href-python="https://docs.python.org/3/library/functions.html#func-str" data-gi-title-python="str">gchararray</a><span>)</span>
+–
+			</div>
+							<p>the location to be used for the next output file. This must be
+a newly-allocated string which will be freed with <a href="https://docs.gtk.org/glib/func.free.html" data-gi-href-javascript="https://docs.gtk.org/glib/func.free.html" data-gi-title-javascript="GLib.prototype.free" data-gi-href-python="https://docs.gtk.org/glib/func.free.html" data-gi-title-python="GLib.free">g_free</a> by the
+splitmuxsink element when it no longer needs it, so use <a href="https://docs.gtk.org/glib/func.strdup.html" data-gi-href-javascript="https://docs.gtk.org/glib/func.strdup.html" data-gi-title-javascript="GLib.prototype.strdup" data-gi-href-python="https://docs.gtk.org/glib/func.strdup.html" data-gi-title-python="GLib.strdup">g_strdup</a> or
+<a href="https://docs.gtk.org/glib/func.strdup_printf.html" data-gi-href-javascript="https://docs.gtk.org/glib/func.strdup_printf.html" data-gi-title-javascript="g_strdup_printf (not introspectable)" data-gi-href-python="https://docs.gtk.org/glib/func.strdup_printf.html" data-gi-title-python="g_strdup_printf (not introspectable)">g_strdup_printf</a> or similar functions to allocate it.</p>
+
+					</div>
+	</div>
+
+
+<p>
+	<b>Flags:</b>	
+	
+		
+				<a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS">Run Last</a>
+			
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.12
+		</p>
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.16;" id="splitmuxsink::muxer-added">
+	
+
+
+
+<h3 data-hotdoc-id="splitmuxsink::muxer-added">
+	<i>muxer-added</i>
+</h3>
+
+
+
+
+<pre class="c-prototype language-c">
+muxer_added_callback (<a title="GstElement" href="gstreamer/gstelement.html#GstElement" data-gi-href-javascript="gstreamer/gstelement.html#GstElement" data-gi-title-javascript="Gst.Element" data-gi-href-python="gstreamer/gstelement.html#GstElement" data-gi-title-python="Gst.Element">GstElement</a> <span class="pointer-token">*</span> splitmux,
+                      <a title="GstElement" href="gstreamer/gstelement.html#GstElement" data-gi-href-javascript="gstreamer/gstelement.html#GstElement" data-gi-title-javascript="Gst.Element" data-gi-href-python="gstreamer/gstelement.html#GstElement" data-gi-title-python="Gst.Element">GstElement</a> <span class="pointer-token">*</span> muxer,
+                      <a title="gpointer" href="https://docs.gtk.org/glib/types.html#gpointer" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" data-gi-title-javascript="Object" data-gi-href-python="https://docs.python.org/3/library/functions.html#object" data-gi-title-python="object">gpointer</a> udata)</pre>
+<pre class="python-prototype language-python">
+<code>def muxer_added_callback (splitmux, muxer, udata):
+    #python callback for the 'muxer-added' signal</code></pre>
+<pre class="javascript-prototype language-javascript">
+<code>function muxer_added_callback(splitmux: <a title="GstElement" href="gstreamer/gstelement.html#GstElement" data-gi-href-javascript="gstreamer/gstelement.html#GstElement" data-gi-title-javascript="Gst.Element" data-gi-href-python="gstreamer/gstelement.html#GstElement" data-gi-title-python="Gst.Element">GstElement</a> <span class="pointer-token">*</span> splitmux, muxer: <a title="GstElement" href="gstreamer/gstelement.html#GstElement" data-gi-href-javascript="gstreamer/gstelement.html#GstElement" data-gi-title-javascript="Gst.Element" data-gi-href-python="gstreamer/gstelement.html#GstElement" data-gi-title-python="Gst.Element">GstElement</a> <span class="pointer-token">*</span> muxer, udata: <a title="gpointer" href="https://docs.gtk.org/glib/types.html#gpointer" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" data-gi-title-javascript="Object" data-gi-href-python="https://docs.python.org/3/library/functions.html#object" data-gi-title-python="object">gpointer</a> udata): {
+    // javascript callback for the 'muxer-added' signal
+}</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>splitmux</code></em></i>
+–
+</div>
+<p>the <a href="multifile/splitmuxsink.html#splitmuxsink">splitmuxsink</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>muxer</code></em></i>
+–
+</div>
+<p>the newly added muxer element</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>udata</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+<p>
+	<b>Flags:</b>	
+	
+		
+				<a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS">Run Last</a>
+			
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.16
+		</p>
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.16;" id="splitmuxsink::sink-added">
+	
+
+
+
+<h3 data-hotdoc-id="splitmuxsink::sink-added">
+	<i>sink-added</i>
+</h3>
+
+
+
+
+<pre class="c-prototype language-c">
+sink_added_callback (<a title="GstElement" href="gstreamer/gstelement.html#GstElement" data-gi-href-javascript="gstreamer/gstelement.html#GstElement" data-gi-title-javascript="Gst.Element" data-gi-href-python="gstreamer/gstelement.html#GstElement" data-gi-title-python="Gst.Element">GstElement</a> <span class="pointer-token">*</span> splitmux,
+                     <a title="GstElement" href="gstreamer/gstelement.html#GstElement" data-gi-href-javascript="gstreamer/gstelement.html#GstElement" data-gi-title-javascript="Gst.Element" data-gi-href-python="gstreamer/gstelement.html#GstElement" data-gi-title-python="Gst.Element">GstElement</a> <span class="pointer-token">*</span> sink,
+                     <a title="gpointer" href="https://docs.gtk.org/glib/types.html#gpointer" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" data-gi-title-javascript="Object" data-gi-href-python="https://docs.python.org/3/library/functions.html#object" data-gi-title-python="object">gpointer</a> udata)</pre>
+<pre class="python-prototype language-python">
+<code>def sink_added_callback (splitmux, sink, udata):
+    #python callback for the 'sink-added' signal</code></pre>
+<pre class="javascript-prototype language-javascript">
+<code>function sink_added_callback(splitmux: <a title="GstElement" href="gstreamer/gstelement.html#GstElement" data-gi-href-javascript="gstreamer/gstelement.html#GstElement" data-gi-title-javascript="Gst.Element" data-gi-href-python="gstreamer/gstelement.html#GstElement" data-gi-title-python="Gst.Element">GstElement</a> <span class="pointer-token">*</span> splitmux, sink: <a title="GstElement" href="gstreamer/gstelement.html#GstElement" data-gi-href-javascript="gstreamer/gstelement.html#GstElement" data-gi-title-javascript="Gst.Element" data-gi-href-python="gstreamer/gstelement.html#GstElement" data-gi-title-python="Gst.Element">GstElement</a> <span class="pointer-token">*</span> sink, udata: <a title="gpointer" href="https://docs.gtk.org/glib/types.html#gpointer" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" data-gi-title-javascript="Object" data-gi-href-python="https://docs.python.org/3/library/functions.html#object" data-gi-title-python="object">gpointer</a> udata): {
+    // javascript callback for the 'sink-added' signal
+}</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>splitmux</code></em></i>
+–
+</div>
+<p>the <a href="multifile/splitmuxsink.html#splitmuxsink">splitmuxsink</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>sink</code></em></i>
+–
+</div>
+<p>the newly added sink element</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>udata</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+<p>
+	<b>Flags:</b>	
+	
+		
+				<a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS">Run Last</a>
+			
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.16
+		</p>
+
+<hr>
+
+</div>
+
+
+            <h2 class="symbol_section">Action Signals</h2>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.16;" id="splitmuxsink::split-after">
+	
+
+
+
+<h3 data-hotdoc-id="splitmuxsink::split-after">
+	<i>split-after</i>
+</h3>
+
+
+
+<pre class="c-prototype language-c">
+g_signal_emit_by_name (splitmux, "split-after");</pre>
+
+<pre class="python-prototype language-python">
+ret = splitmux.emit ("split-after")</pre>
+
+<pre class="javascript-prototype language-javascript">
+let ret = splitmux.emit ("split-after");</pre>
+
+<p>When called by the user, this action signal splits the video file (and begins a new one) immediately.
+Unlike the 'split-now' signal, with 'split-after', the current GOP will be output to the old file.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>splitmux</code></em></i>
+<span>(</span><a title="GstElement" href="gstreamer/gstelement.html#GstElement" data-gi-href-javascript="gstreamer/gstelement.html#GstElement" data-gi-title-javascript="Gst.Element" data-gi-href-python="gstreamer/gstelement.html#GstElement" data-gi-title-python="Gst.Element">GstElement</a> <span class="pointer-token">*</span><span>)</span>
+–
+</div>
+<p>the <a href="multifile/splitmuxsink.html#splitmuxsink">splitmuxsink</a></p>
+
+</div>
+
+			</div>
+
+
+<p>
+	<b>Flags:</b>	
+	
+		
+				<a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS">Run Last</a>
+			
+				/		
+				<a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-ACTION:CAPS">Action</a>
+			
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.16
+		</p>
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.16;" id="splitmuxsink::split-at-running-time">
+	
+
+
+
+<h3 data-hotdoc-id="splitmuxsink::split-at-running-time">
+	<i>split-at-running-time</i>
+</h3>
+
+
+
+<pre class="c-prototype language-c">
+g_signal_emit_by_name (splitmux, "split-at-running-time", arg0);</pre>
+
+<pre class="python-prototype language-python">
+ret = splitmux.emit ("split-at-running-time", arg0)</pre>
+
+<pre class="javascript-prototype language-javascript">
+let ret = splitmux.emit ("split-at-running-time", arg0);</pre>
+
+<p>When called by the user, this action signal splits the video file (and
+begins a new one) as soon as the given running time is reached. If this
+action signal is called multiple times, running times are queued up and
+processed in the order they were given.</p>
+<p>Note that this is prone to race conditions, where said running time is
+reached and surpassed before we had a chance to split. The file will
+still split immediately, but in order to make sure that the split doesn't
+happen too late, it is recommended to call this action signal from
+something that will prevent further buffers from flowing into
+splitmuxsink before the split is completed, such as a pad probe before
+splitmuxsink.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>splitmux</code></em></i>
+<span>(</span><a title="GstElement" href="gstreamer/gstelement.html#GstElement" data-gi-href-javascript="gstreamer/gstelement.html#GstElement" data-gi-title-javascript="Gst.Element" data-gi-href-python="gstreamer/gstelement.html#GstElement" data-gi-title-python="Gst.Element">GstElement</a> <span class="pointer-token">*</span><span>)</span>
+–
+</div>
+<p>the <a href="multifile/splitmuxsink.html#splitmuxsink">splitmuxsink</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>arg0</code></em></i>
+<span>(</span><a title="guint64" href="https://docs.gtk.org/glib/types.html#guint64" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">guint64</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+<p>
+	<b>Flags:</b>	
+	
+		
+				<a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS">Run Last</a>
+			
+				/		
+				<a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-ACTION:CAPS">Action</a>
+			
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.16
+		</p>
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.14;" id="splitmuxsink::split-now">
+	
+
+
+
+<h3 data-hotdoc-id="splitmuxsink::split-now">
+	<i>split-now</i>
+</h3>
+
+
+
+<pre class="c-prototype language-c">
+g_signal_emit_by_name (splitmux, "split-now");</pre>
+
+<pre class="python-prototype language-python">
+ret = splitmux.emit ("split-now")</pre>
+
+<pre class="javascript-prototype language-javascript">
+let ret = splitmux.emit ("split-now");</pre>
+
+<p>When called by the user, this action signal splits the video file (and begins a new one) immediately.
+The current GOP will be output to the new file.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>splitmux</code></em></i>
+<span>(</span><a title="GstElement" href="gstreamer/gstelement.html#GstElement" data-gi-href-javascript="gstreamer/gstelement.html#GstElement" data-gi-title-javascript="Gst.Element" data-gi-href-python="gstreamer/gstelement.html#GstElement" data-gi-title-python="Gst.Element">GstElement</a> <span class="pointer-token">*</span><span>)</span>
+–
+</div>
+<p>the <a href="multifile/splitmuxsink.html#splitmuxsink">splitmuxsink</a></p>
+
+</div>
+
+			</div>
+
+
+<p>
+	<b>Flags:</b>	
+	
+		
+				<a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS">Run Last</a>
+			
+				/		
+				<a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-ACTION:CAPS">Action</a>
+			
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.14
+		</p>
+
+<hr>
+
+</div>
+
+
+            <h2 class="symbol_section">Properties</h2>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="splitmuxsink:alignment-threshold">
+	
+
+
+
+<h3 data-hotdoc-id="splitmuxsink:alignment-threshold">
+	<i>alignment-threshold</i>
+</h3>
+
+
+<pre class="property_signature">
+“alignment-threshold” <span class="type"><a title="guint64" href="https://docs.gtk.org/glib/types.html#guint64" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">guint64</a></span>
+</pre>
+
+<p>Allow non-reference streams to be that many ns before the reference stream</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	0
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="splitmuxsink:async-finalize">
+	
+
+
+
+<h3 data-hotdoc-id="splitmuxsink:async-finalize">
+	<i>async-finalize</i>
+</h3>
+
+
+<pre class="property_signature">
+“async-finalize” <span class="type"><a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#bool" data-gi-title-python="bool">gboolean</a></span>
+</pre>
+
+<p>Finalize each fragment asynchronously and start a new one</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	false
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="splitmuxsink:location">
+	
+
+
+
+<h3 data-hotdoc-id="splitmuxsink:location">
+	<i>location</i>
+</h3>
+
+
+<pre class="property_signature">
+“location” <span class="type"><a title="gchararray" href="https://web.mit.edu/barnowl/share/gtk-doc/html/gobject/gobject-Standard-Parameter-and-Value-Types.html#gchararray" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" data-gi-title-javascript="String" data-gi-href-python="https://docs.python.org/3/library/functions.html#func-str" data-gi-title-python="str">gchararray</a></span>
+</pre>
+
+<p>Format string pattern for the location of the files to write (e.g. video%%05d.mp4)</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	NULL
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="splitmuxsink:max-files">
+	
+
+
+
+<h3 data-hotdoc-id="splitmuxsink:max-files">
+	<i>max-files</i>
+</h3>
+
+
+<pre class="property_signature">
+“max-files” <span class="type"><a title="guint" href="https://docs.gtk.org/glib/types.html#guint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">guint</a></span>
+</pre>
+
+<p>Maximum number of files to keep on disk. Once the maximum is reached,old files start to be deleted to make room for new ones.</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	0
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="splitmuxsink:max-size-bytes">
+	
+
+
+
+<h3 data-hotdoc-id="splitmuxsink:max-size-bytes">
+	<i>max-size-bytes</i>
+</h3>
+
+
+<pre class="property_signature">
+“max-size-bytes” <span class="type"><a title="guint64" href="https://docs.gtk.org/glib/types.html#guint64" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">guint64</a></span>
+</pre>
+
+<p>Max. amount of data per file (in bytes, 0=disable)</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	0
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="splitmuxsink:max-size-time">
+	
+
+
+
+<h3 data-hotdoc-id="splitmuxsink:max-size-time">
+	<i>max-size-time</i>
+</h3>
+
+
+<pre class="property_signature">
+“max-size-time” <span class="type"><a title="guint64" href="https://docs.gtk.org/glib/types.html#guint64" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">guint64</a></span>
+</pre>
+
+<p>Max. amount of time per file (in ns, 0=disable)</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	0
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="splitmuxsink:max-size-timecode">
+	
+
+
+
+<h3 data-hotdoc-id="splitmuxsink:max-size-timecode">
+	<i>max-size-timecode</i>
+</h3>
+
+
+<pre class="property_signature">
+“max-size-timecode” <span class="type"><a title="gchararray" href="https://web.mit.edu/barnowl/share/gtk-doc/html/gobject/gobject-Standard-Parameter-and-Value-Types.html#gchararray" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" data-gi-title-javascript="String" data-gi-href-python="https://docs.python.org/3/library/functions.html#func-str" data-gi-title-python="str">gchararray</a></span>
+</pre>
+
+<p>Maximum difference in timecode between first and last frame. Separator is assumed to be ":" everywhere (e.g. 01:00:00:00). Will only be effective if a timecode track is present.</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	NULL
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="splitmuxsink:mux-overhead">
+	
+
+
+
+<h3 data-hotdoc-id="splitmuxsink:mux-overhead">
+	<i>mux-overhead</i>
+</h3>
+
+
+<pre class="property_signature">
+“mux-overhead” <span class="type"><a title="gdouble" href="https://docs.gtk.org/glib/types.html#gdouble" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#float" data-gi-title-python="float">gdouble</a></span>
+</pre>
+
+<p>Extra size overhead of muxing (0.02 = 2%%)</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	0.02
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="splitmuxsink:muxer">
+	
+
+
+
+<h3 data-hotdoc-id="splitmuxsink:muxer">
+	<i>muxer</i>
+</h3>
+
+
+<pre class="property_signature">
+“muxer” <span class="type"><a title="GstElement" href="gstreamer/gstelement.html#GstElement" data-gi-href-javascript="gstreamer/gstelement.html#GstElement" data-gi-title-javascript="Gst.Element" data-gi-href-python="gstreamer/gstelement.html#GstElement" data-gi-title-python="Gst.Element">GstElement</a> <span class="pointer-token">*</span></span>
+</pre>
+
+<p>The muxer element to use (NULL = default mp4mux). Valid only for async-finalize = FALSE</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="splitmuxsink:muxer-factory">
+	
+
+
+
+<h3 data-hotdoc-id="splitmuxsink:muxer-factory">
+	<i>muxer-factory</i>
+</h3>
+
+
+<pre class="property_signature">
+“muxer-factory” <span class="type"><a title="gchararray" href="https://web.mit.edu/barnowl/share/gtk-doc/html/gobject/gobject-Standard-Parameter-and-Value-Types.html#gchararray" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" data-gi-title-javascript="String" data-gi-href-python="https://docs.python.org/3/library/functions.html#func-str" data-gi-title-python="str">gchararray</a></span>
+</pre>
+
+<p>The muxer element factory to use (default = mp4mux). Valid only for async-finalize = TRUE</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	mp4mux
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="splitmuxsink:muxer-pad-map">
+	
+
+
+
+<h3 data-hotdoc-id="splitmuxsink:muxer-pad-map">
+	<i>muxer-pad-map</i>
+</h3>
+
+
+<pre class="property_signature">
+“muxer-pad-map” <span class="type"><a title="GstStructure" href="gstreamer/gststructure.html#GstStructure" data-gi-href-javascript="gstreamer/gststructure.html#GstStructure" data-gi-title-javascript="Gst.Structure" data-gi-href-python="gstreamer/gststructure.html#GstStructure" data-gi-title-python="Gst.Structure">GstStructure</a> <span class="pointer-token">*</span></span>
+</pre>
+
+<p>A GstStructure specifies the mapping from splitmuxsink sink pads to muxer pads</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.18;" id="splitmuxsink:muxer-preset">
+	
+
+
+
+<h3 data-hotdoc-id="splitmuxsink:muxer-preset">
+	<i>muxer-preset</i>
+</h3>
+
+
+<pre class="property_signature">
+“muxer-preset” <span class="type"><a title="gchararray" href="https://web.mit.edu/barnowl/share/gtk-doc/html/gobject/gobject-Standard-Parameter-and-Value-Types.html#gchararray" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" data-gi-title-javascript="String" data-gi-href-python="https://docs.python.org/3/library/functions.html#func-str" data-gi-title-python="str">gchararray</a></span>
+</pre>
+
+<p>An optional <a href="gstreamer/gstpreset.html#GstPreset" data-gi-href-javascript="gstreamer/gstpreset.html#GstPreset" data-gi-title-javascript="Gst.Preset" data-gi-href-python="gstreamer/gstpreset.html#GstPreset" data-gi-title-python="Gst.Preset">GstPreset</a> name to use for the muxer. This only has an effect
+in <code>async-finalize=TRUE</code> mode.</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	NULL
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="splitmuxsink:muxer-properties">
+	
+
+
+
+<h3 data-hotdoc-id="splitmuxsink:muxer-properties">
+	<i>muxer-properties</i>
+</h3>
+
+
+<pre class="property_signature">
+“muxer-properties” <span class="type"><a title="GstStructure" href="gstreamer/gststructure.html#GstStructure" data-gi-href-javascript="gstreamer/gststructure.html#GstStructure" data-gi-title-javascript="Gst.Structure" data-gi-href-python="gstreamer/gststructure.html#GstStructure" data-gi-title-python="Gst.Structure">GstStructure</a> <span class="pointer-token">*</span></span>
+</pre>
+
+<p>The muxer element properties to use. Example: {properties,boolean-prop=true,string-prop="hi"}. Valid only for async-finalize = TRUE</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="splitmuxsink:reset-muxer">
+	
+
+
+
+<h3 data-hotdoc-id="splitmuxsink:reset-muxer">
+	<i>reset-muxer</i>
+</h3>
+
+
+<pre class="property_signature">
+“reset-muxer” <span class="type"><a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#bool" data-gi-title-python="bool">gboolean</a></span>
+</pre>
+
+<p>Reset the muxer after each segment. Disabling this will not work for most muxers.</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	true
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="splitmuxsink:send-keyframe-requests">
+	
+
+
+
+<h3 data-hotdoc-id="splitmuxsink:send-keyframe-requests">
+	<i>send-keyframe-requests</i>
+</h3>
+
+
+<pre class="property_signature">
+“send-keyframe-requests” <span class="type"><a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#bool" data-gi-title-python="bool">gboolean</a></span>
+</pre>
+
+<p>Request a keyframe every max-size-time ns to try splitting at that point. Needs max-size-bytes to be 0 in order to be effective.</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	false
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="splitmuxsink:sink">
+	
+
+
+
+<h3 data-hotdoc-id="splitmuxsink:sink">
+	<i>sink</i>
+</h3>
+
+
+<pre class="property_signature">
+“sink” <span class="type"><a title="GstElement" href="gstreamer/gstelement.html#GstElement" data-gi-href-javascript="gstreamer/gstelement.html#GstElement" data-gi-title-javascript="Gst.Element" data-gi-href-python="gstreamer/gstelement.html#GstElement" data-gi-title-python="Gst.Element">GstElement</a> <span class="pointer-token">*</span></span>
+</pre>
+
+<p>The sink element (or element chain) to use (NULL = default filesink). Valid only for async-finalize = FALSE</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="splitmuxsink:sink-factory">
+	
+
+
+
+<h3 data-hotdoc-id="splitmuxsink:sink-factory">
+	<i>sink-factory</i>
+</h3>
+
+
+<pre class="property_signature">
+“sink-factory” <span class="type"><a title="gchararray" href="https://web.mit.edu/barnowl/share/gtk-doc/html/gobject/gobject-Standard-Parameter-and-Value-Types.html#gchararray" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" data-gi-title-javascript="String" data-gi-href-python="https://docs.python.org/3/library/functions.html#func-str" data-gi-title-python="str">gchararray</a></span>
+</pre>
+
+<p>The sink element factory to use (default = filesink). Valid only for async-finalize = TRUE</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	filesink
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.18;" id="splitmuxsink:sink-preset">
+	
+
+
+
+<h3 data-hotdoc-id="splitmuxsink:sink-preset">
+	<i>sink-preset</i>
+</h3>
+
+
+<pre class="property_signature">
+“sink-preset” <span class="type"><a title="gchararray" href="https://web.mit.edu/barnowl/share/gtk-doc/html/gobject/gobject-Standard-Parameter-and-Value-Types.html#gchararray" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" data-gi-title-javascript="String" data-gi-href-python="https://docs.python.org/3/library/functions.html#func-str" data-gi-title-python="str">gchararray</a></span>
+</pre>
+
+<p>An optional <a href="gstreamer/gstpreset.html#GstPreset" data-gi-href-javascript="gstreamer/gstpreset.html#GstPreset" data-gi-title-javascript="Gst.Preset" data-gi-href-python="gstreamer/gstpreset.html#GstPreset" data-gi-title-python="Gst.Preset">GstPreset</a> name to use for the sink. This only has an effect
+in <code>async-finalize=TRUE</code> mode.</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	NULL
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="splitmuxsink:sink-properties">
+	
+
+
+
+<h3 data-hotdoc-id="splitmuxsink:sink-properties">
+	<i>sink-properties</i>
+</h3>
+
+
+<pre class="property_signature">
+“sink-properties” <span class="type"><a title="GstStructure" href="gstreamer/gststructure.html#GstStructure" data-gi-href-javascript="gstreamer/gststructure.html#GstStructure" data-gi-title-javascript="Gst.Structure" data-gi-href-python="gstreamer/gststructure.html#GstStructure" data-gi-title-python="Gst.Structure">GstStructure</a> <span class="pointer-token">*</span></span>
+</pre>
+
+<p>The sink element properties to use. Example: {properties,boolean-prop=true,string-prop="hi"}. Valid only for async-finalize = TRUE</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="splitmuxsink:start-index">
+	
+
+
+
+<h3 data-hotdoc-id="splitmuxsink:start-index">
+	<i>start-index</i>
+</h3>
+
+
+<pre class="property_signature">
+“start-index” <span class="type"><a title="gint" href="https://docs.gtk.org/glib/types.html#gint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">gint</a></span>
+</pre>
+
+<p>Start value of fragment index.</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	0
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="splitmuxsink:use-robust-muxing">
+	
+
+
+
+<h3 data-hotdoc-id="splitmuxsink:use-robust-muxing">
+	<i>use-robust-muxing</i>
+</h3>
+
+
+<pre class="property_signature">
+“use-robust-muxing” <span class="type"><a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#bool" data-gi-title-python="bool">gboolean</a></span>
+</pre>
+
+<p>Check if muxers support robust muxing via the reserved-max-duration and reserved-duration-remaining properties and use them if so. (Only present on qtmux and mp4mux for now). splitmuxsink may then also  create new fragments if the reserved header space is about to overflow. Note that for mp4mux and qtmux, reserved-moov-update-period must be set manually by the app to a non-zero value for robust muxing to have an effect.</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	false
+</p>
+
+
+
+<hr>
+
+</div>
+
+
+
+
+
+
+		
+	</div>
+	<div id="search_results">
+		<p>The results of the search are</p>
+	</div>
+	<div id="footer">
+		    
+
+	</div>
+</div>
+
+<div id="toc-column">
+	
+		<div class="edit-button">
+		
+
+	</div>
+		<div id="toc-wrapper">
+		<nav id="toc"></nav>
+	</div>
+</div>
+</div>
+</main>
+
+
+<script src="assets/js/navbar_offset_scroller.js"></script>
+</body>
+</html>

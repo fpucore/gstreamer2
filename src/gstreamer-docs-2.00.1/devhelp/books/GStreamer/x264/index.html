@@ -1,0 +1,2382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<base href="..">
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<title>x264enc</title>
+
+<link rel="stylesheet" href="assets/css/dark-frontend.css" type="text/css" title="dark">
+<link rel="alternate stylesheet" href="assets/css/light-frontend.css" type="text/css" title="light">
+<link rel="stylesheet" href="assets/css/bootstrap-toc.min.css" type="text/css">
+<link rel="stylesheet" href="assets/css/jquery.mCustomScrollbar.min.css">
+<link rel="stylesheet" href="assets/js/search/enable_search.css" type="text/css">
+
+<link rel="stylesheet" href="assets/css/extra_frontend.css" type="text/css">
+<link rel="stylesheet" href="assets/css/devhelp.css" type="text/css">
+
+<link rel="stylesheet" href="assets/css/prism-tomorrow.css" type="text/css" title="dark">
+
+<link rel="alternate stylesheet" href="assets/css/prism.css" type="text/css" title="light">
+
+<script src="assets/js/mustache.min.js"></script>
+<script src="assets/js/jquery.js"></script>
+<script src="assets/js/bootstrap.js"></script>
+<script src="assets/js/scrollspy.js"></script>
+<script src="assets/js/typeahead.jquery.min.js"></script>
+<script src="assets/js/search.js"></script>
+<script src="assets/js/compare-versions.js"></script>
+<script src="assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="assets/js/bootstrap-toc.min.js"></script>
+<script src="assets/js/jquery.touchSwipe.min.js"></script>
+<script src="assets/js/anchor.min.js"></script>
+<script src="assets/js/tag_filtering.js"></script>
+<script src="assets/js/language_switching.js"></script>
+<script src="assets/js/styleswitcher.js"></script>
+
+<script src="assets/js/lines_around_headings.js"></script>
+
+<script src="assets/js/prism-core.js"></script>
+<script src="assets/js/prism-autoloader.js"></script>
+<script src="assets/js/prism_autoloader_path_override.js"></script>
+<script src="assets/js/trie.js"></script>
+
+<!-- generic -->
+<link rel="icon" type="image/png" href="assets/images/favicon-16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="assets/images/favicon-32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="assets/images/favicon-57.png" sizes="57x57">
+<link rel="icon" type="image/png" href="assets/images/favicon-64.png" sizes="64x64">
+<link rel="icon" type="image/png" href="assets/images/favicon-76.png" sizes="76x76">
+<link rel="icon" type="image/png" href="assets/images/favicon-96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="assets/images/favicon-128.png" sizes="128x128">
+<link rel="icon" type="image/png" href="assets/images/favicon-192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="assets/images/favicon-228.png" sizes="228x228">
+
+<!-- Android -->
+<link rel="shortcut icon" sizes="196x196" href="assets/images/favicon-196.png">
+
+<!-- iOS -->
+<link rel="apple-touch-icon" href="assets/images/favicon-120.png" sizes="120x120">
+<link rel="apple-touch-icon" href="assets/images/favicon-152.png" sizes="152x152">
+<link rel="apple-touch-icon" href="assets/images/favicon-180.png" sizes="180x180">
+
+</head>
+
+<body class="no-script
+">
+
+<script>
+$('body').removeClass('no-script');
+</script>
+
+<nav class="navbar navbar-fixed-top navbar-default" id="topnav">
+	<div class="container-fluid">
+		<div class="navbar-right">
+			<a id="toc-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-wrapper" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<span title="light mode switch" class="glyphicon glyphicon-sunglasses pull-right" id="lightmode-icon"></span>
+			<form class="navbar-form pull-right" id="navbar-search-form">
+                               <div class="form-group has-feedback">
+                                       <input type="text" class="form-control input-sm" name="search" id="sidenav-lookup-field" placeholder="search" disabled>
+				       <span class="glyphicon glyphicon-search form-control-feedback" id="search-mgn-glass"></span>
+                               </div>
+                        </form>
+		</div>
+		<div class="navbar-header">
+			<a id="sidenav-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<a id="home-link" href="index.html" class="hotdoc-navbar-brand">
+				<img src="assets/images/gstreamer-logo.svg" alt="Home">
+			</a>
+		</div>
+		<div class="navbar-collapse collapse" id="navbar-wrapper">
+			<ul class="nav navbar-nav" id="menu">
+				
+<li class="dropdown">
+    <a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        API References<span class="caret"></span>
+    </a>
+	<ul class="dropdown-menu" id="modules-menu">
+					<li>
+				<a href="gstreamer/gi-index.html">GStreamer core</a>
+			</li>
+					<li>
+				<a href="libs.html">GStreamer Libraries</a>
+			</li>
+					<li>
+				<a href="plugins_doc.html">GStreamer Plugins</a>
+			</li>
+		</ul>
+</li>
+
+<li>
+    <a href="application-development/index.html">Application manual</a>
+</li>
+
+
+<li>
+    <a href="tutorials/index.html">Tutorials</a>
+</li>
+
+			</ul>
+			<div class="hidden-xs hidden-sm navbar-text navbar-center">
+							</div>
+		</div>
+	</div>
+</nav>
+
+<main>
+<div data-extension="gst-extension" data-hotdoc-in-toplevel="False" data-hotdoc-project="x264" data-hotdoc-ref="index.html" class="page_container" id="page-wrapper" data-hotdoc-meta-gi-languages="['c', 'javascript', 'python']">
+<script src="assets/js/utils.js"></script>
+
+<div class="panel panel-collapse oc-collapsed" id="sidenav" data-hotdoc-role="navigation">
+	<script src="assets/js/full-width.js"></script>
+  <div id="sitenav-wrapper">
+    <iframe src="hotdoc-sitemap.html" id="sitenav-frame"></iframe>
+  </div>
+</div>
+
+<div id="body">
+	<div id="main">
+				    <div id="page-description" data-hotdoc-role="main">
+        <h1 id="x264enc-page">x264enc</h1>
+<p>This element encodes raw video into H264 compressed data,
+also otherwise known as MPEG-4 AVC (Advanced Video Codec).</p>
+<p>The <a href="x264/index.html#x264enc:pass">pass</a> property controls the type of encoding.  In case of Constant
+Bitrate Encoding (actually ABR), the <a href="x264/index.html#x264enc:bitrate">bitrate</a> will determine the quality
+of the encoding.  This will similarly be the case if this target bitrate
+is to obtained in multiple (2 or 3) pass encoding.
+Alternatively, one may choose to perform Constant Quantizer or Quality encoding,
+in which case the <a href="x264/index.html#x264enc:quantizer">quantizer</a> property controls much of the outcome, in that case <a href="x264/index.html#x264enc:bitrate">bitrate</a> is the maximum bitrate.</p>
+<p>The H264 profile that is eventually used depends on a few settings.
+If <a href="x264/index.html#x264enc:dct8x8">dct8x8</a> is enabled, then High profile is used.
+Otherwise, if <a href="x264/index.html#x264enc:cabac">cabac</a> entropy coding is enabled or <a href="x264/index.html#x264enc:bframes">bframes</a>
+are allowed, then Main Profile is in effect, and otherwise Baseline profile
+applies.  The high profile is imposed by default,
+which is fine for most software players and settings,
+but in some cases (e.g. hardware platforms) a more restricted profile/level
+may be necessary. The recommended way to set a profile is to set it in the
+downstream caps.</p>
+<p>If a preset/tuning are specified then these will define the default values and
+the property defaults will be ignored. After this the option-string property is
+applied, followed by the user-set properties, fast first pass restrictions and
+finally the profile restrictions.</p>
+<blockquote>
+<p>Some settings, including the default settings, may lead to quite
+some latency (i.e. frame buffering) in the encoder. This may cause problems
+with pipeline stalling in non-trivial pipelines, because the encoder latency
+is often considerably higher than the default size of a simple queue
+element. Such problems are caused by one of the queues in the other
+non-x264enc streams/branches filling up and blocking upstream. They can
+be fixed by relaxing the default time/size/buffer limits on the queue
+elements in the non-x264 branches, or using a (single) multiqueue element
+for all branches. Also see the last example below. You can also work around
+this problem by setting the tune=zerolatency property, but this will affect
+overall encoding quality so may not be appropriate for your use case.</p>
+</blockquote>
+<h2 id="example-pipeline">Example pipeline</h2>
+<pre><code class="language-["> gst-launch-1.0 -v videotestsrc num-buffers=1000 ! x264enc qp-min=18 ! \
+   avimux ! filesink location=videotestsrc.avi
+</code></pre>
+<p>This example pipeline will encode a test video source to H264 muxed in an
+AVI container, while ensuring a sane minimum quantization factor to avoid
+some (excessive) waste. You should ideally never put H264 into an AVI
+container (or really anything else, for that matter) - use Matroska or
+MP4/QuickTime or MPEG-TS instead.</p>
+<pre><code class="language-["> gst-launch-1.0 -v videotestsrc num-buffers=1000 ! x264enc pass=quant ! \
+   matroskamux ! filesink location=videotestsrc.mkv
+</code></pre>
+<p>This example pipeline will encode a test video source to H264 using fixed
+quantization, and muxes it in a Matroska container.</p>
+<pre><code class="language-["> gst-launch-1.0 -v videotestsrc num-buffers=1000 ! x264enc pass=5 quantizer=25 speed-preset=6 ! video/x-h264, profile=baseline ! \
+   qtmux ! filesink location=videotestsrc.mov
+</code></pre>
+<p>This example pipeline will encode a test video source to H264 using
+constant quality at around Q25 using the 'medium' speed/quality preset and
+restricting the options used so that the output is H.264 Baseline Profile
+compliant and finally multiplexing the output in Quicktime mov format.</p>
+<pre><code class="language-["> gst-launch-1.0 -v videotestsrc num-buffers=1000 ! tee name=t ! queue ! videoconvert ! autovideosink \
+   t. ! queue ! x264enc rc-lookahead=5 ! fakesink
+</code></pre>
+<p>This example pipeline will encode a test video source to H.264 while
+displaying the input material at the same time.  As mentioned above,
+specific settings are needed in this case to avoid pipeline stalling.
+Depending on goals and context, other approaches are possible, e.g.
+tune=zerolatency might be configured, or queue sizes increased.</p>
+
+    </div>
+        
+        
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="plugin-x264">
+	
+        <div class="base_symbol_container">
+        </div>
+
+</div>
+
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="x264enc">
+	
+        
+
+        <h2>Hierarchy</h2>
+            <div class="hierarchy_container">
+                <div class="hierarchy_details">
+<pre>
+<a title="GObject" href="https://docs.gtk.org/gobject/class.Object.html" data-gi-href-javascript="https://docs.gtk.org/gobject/class.Object.html" data-gi-title-javascript="GObject.Object" data-gi-href-python="https://docs.gtk.org/gobject/class.Object.html" data-gi-title-python="GObject.Object">GObject</a>
+    <span class="lineart">╰──</span><a title="GInitiallyUnowned" href="https://docs.gtk.org/gobject/class.InitiallyUnowned.html" data-gi-href-javascript="https://docs.gtk.org/gobject/class.InitiallyUnowned.html" data-gi-title-javascript="GObject.InitiallyUnowned" data-gi-href-python="https://docs.gtk.org/gobject/class.InitiallyUnowned.html" data-gi-title-python="GObject.InitiallyUnowned">GInitiallyUnowned</a>
+        <span class="lineart">╰──</span><a title="GstObject" href="gstreamer/gstobject.html#GstObject" data-gi-href-javascript="gstreamer/gstobject.html#GstObject" data-gi-title-javascript="Gst.Object" data-gi-href-python="gstreamer/gstobject.html#GstObject" data-gi-title-python="Gst.Object">GstObject</a>
+            <span class="lineart">╰──</span><a title="GstElement" href="gstreamer/gstelement.html#GstElement" data-gi-href-javascript="gstreamer/gstelement.html#GstElement" data-gi-title-javascript="Gst.Element" data-gi-href-python="gstreamer/gstelement.html#GstElement" data-gi-title-python="Gst.Element">GstElement</a>
+                <span class="lineart">╰──</span><a title="GstVideoEncoder" href="video/gstvideoencoder.html#GstVideoEncoder" data-gi-href-javascript="video/gstvideoencoder.html#GstVideoEncoder" data-gi-title-javascript="GstVideo.VideoEncoder" data-gi-href-python="video/gstvideoencoder.html#GstVideoEncoder" data-gi-title-python="GstVideo.VideoEncoder">GstVideoEncoder</a>
+                    <span class="lineart">╰──</span>x264enc
+</pre>
+
+</div>
+
+            </div>
+            <h2>Implemented interfaces</h2>
+            <div>
+                <pre>
+<a title="GstPreset" href="gstreamer/gstpreset.html#GstPreset" data-gi-href-javascript="gstreamer/gstpreset.html#GstPreset" data-gi-title-javascript="Gst.Preset" data-gi-href-python="gstreamer/gstpreset.html#GstPreset" data-gi-title-python="Gst.Preset">GstPreset</a>
+</pre>
+            </div>
+        <h2 class="symbol_section">Factory details</h2>
+        <div class="symbol-detail">
+            <p><b>Authors:</b> – Josef Zlomek <josef.zlomek@itonis.tv>, Mark Nauwelaerts <mnauw@users.sf.net></mnauw@users.sf.net></josef.zlomek@itonis.tv></p>
+            <p><b>Classification:</b> – <code>Codec/Encoder/Video</code></p>
+            <p><b>Rank</b> – primary</p>
+            <p><b>Plugin</b> – x264</p>
+            <p><b>Package</b> – GStreamer Ugly Plug-ins</p>
+        </div>
+
+</div>
+
+
+            <h2 class="symbol_section">Pad Templates</h2>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstX264Enc!sink">
+	
+
+
+
+        <h3><span><code>sink</code></span></h3>
+
+
+        <div>
+            
+            <pre class="language-yaml"><code class="language-yaml">video/x-raw:
+      framerate: [ 0/1, 2147483647/1 ]
+          width: [ 1, 2147483647 ]
+         height: [ 1, 2147483647 ]
+         format: { Y444, Y42B, I420, YV12, NV12, GRAY8, Y444_10LE, I422_10LE, I420_10LE }
+</code></pre>
+            <div class="symbol-detail">
+                <p><b>Presence</b> – <i>always</i></p>
+                <p><b>Direction</b> – <i>sink</i></p>
+                    <p><b>Object type</b> – <a title="GstPad" href="gstreamer/gstpad.html#GstPad" data-gi-href-javascript="gstreamer/gstpad.html#GstPad" data-gi-title-javascript="Gst.Pad" data-gi-href-python="gstreamer/gstpad.html#GstPad" data-gi-title-python="Gst.Pad">GstPad</a></p>
+            </div>
+        </div>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstX264Enc!src">
+	
+
+
+
+        <h3><span><code>src</code></span></h3>
+
+
+        <div>
+            
+            <pre class="language-yaml"><code class="language-yaml">video/x-h264:
+      framerate: [ 0/1, 2147483647/1 ]
+          width: [ 1, 2147483647 ]
+         height: [ 1, 2147483647 ]
+  stream-format: { (string)avc, (string)byte-stream }
+      alignment: au
+        profile: { (string)high-4:4:4, (string)high-4:2:2, (string)high-10, (string)high, (string)main, (string)baseline, (string)constrained-baseline, (string)high-4:4:4-intra, (string)high-4:2:2-intra, (string)high-10-intra }
+</code></pre>
+            <div class="symbol-detail">
+                <p><b>Presence</b> – <i>always</i></p>
+                <p><b>Direction</b> – <i>src</i></p>
+                    <p><b>Object type</b> – <a title="GstPad" href="gstreamer/gstpad.html#GstPad" data-gi-href-javascript="gstreamer/gstpad.html#GstPad" data-gi-title-javascript="Gst.Pad" data-gi-href-python="gstreamer/gstpad.html#GstPad" data-gi-title-python="Gst.Pad">GstPad</a></p>
+            </div>
+        </div>
+
+
+
+<hr>
+
+</div>
+
+
+            <h2 class="symbol_section">Properties</h2>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="x264enc:analyse">
+	
+
+
+
+<h3 data-hotdoc-id="x264enc:analyse">
+	<i>analyse</i>
+</h3>
+
+
+<pre class="property_signature">
+“analyse” <span class="type"><a title="GstX264EncAnalyse" href="x264/index.html#GstX264EncAnalyse">GstX264EncAnalyse</a> <span class="pointer-token">*</span></span>
+</pre>
+
+<p>Partitions to consider</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	(none)
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="x264enc:aud">
+	
+
+
+
+<h3 data-hotdoc-id="x264enc:aud">
+	<i>aud</i>
+</h3>
+
+
+<pre class="property_signature">
+“aud” <span class="type"><a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#bool" data-gi-title-python="bool">gboolean</a></span>
+</pre>
+
+<p>Use AU (Access Unit) delimiter</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	true
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="x264enc:b-adapt">
+	
+
+
+
+<h3 data-hotdoc-id="x264enc:b-adapt">
+	<i>b-adapt</i>
+</h3>
+
+
+<pre class="property_signature">
+“b-adapt” <span class="type"><a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#bool" data-gi-title-python="bool">gboolean</a></span>
+</pre>
+
+<p>Automatically decide how many B-frames to use</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	true
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="x264enc:b-pyramid">
+	
+
+
+
+<h3 data-hotdoc-id="x264enc:b-pyramid">
+	<i>b-pyramid</i>
+</h3>
+
+
+<pre class="property_signature">
+“b-pyramid” <span class="type"><a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#bool" data-gi-title-python="bool">gboolean</a></span>
+</pre>
+
+<p>Keep some B-frames as references</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	false
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="x264enc:bframes">
+	
+
+
+
+<h3 data-hotdoc-id="x264enc:bframes">
+	<i>bframes</i>
+</h3>
+
+
+<pre class="property_signature">
+“bframes” <span class="type"><a title="guint" href="https://docs.gtk.org/glib/types.html#guint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">guint</a></span>
+</pre>
+
+<p>Number of B-frames between I and P</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	0
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="x264enc:bitrate">
+	
+
+
+
+<h3 data-hotdoc-id="x264enc:bitrate">
+	<i>bitrate</i>
+</h3>
+
+
+<pre class="property_signature">
+“bitrate” <span class="type"><a title="guint" href="https://docs.gtk.org/glib/types.html#guint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">guint</a></span>
+</pre>
+
+<p>Bitrate in kbit/sec</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	2048
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="x264enc:byte-stream">
+	
+
+
+
+<h3 data-hotdoc-id="x264enc:byte-stream">
+	<i>byte-stream</i>
+</h3>
+
+
+<pre class="property_signature">
+“byte-stream” <span class="type"><a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#bool" data-gi-title-python="bool">gboolean</a></span>
+</pre>
+
+<p>Generate byte stream format of NALU</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	false
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="x264enc:cabac">
+	
+
+
+
+<h3 data-hotdoc-id="x264enc:cabac">
+	<i>cabac</i>
+</h3>
+
+
+<pre class="property_signature">
+“cabac” <span class="type"><a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#bool" data-gi-title-python="bool">gboolean</a></span>
+</pre>
+
+<p>Enable CABAC entropy coding</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	true
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="x264enc:dct8x8">
+	
+
+
+
+<h3 data-hotdoc-id="x264enc:dct8x8">
+	<i>dct8x8</i>
+</h3>
+
+
+<pre class="property_signature">
+“dct8x8” <span class="type"><a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#bool" data-gi-title-python="bool">gboolean</a></span>
+</pre>
+
+<p>Adaptive spatial transform size</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	false
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="x264enc:frame-packing">
+	
+
+
+
+<h3 data-hotdoc-id="x264enc:frame-packing">
+	<i>frame-packing</i>
+</h3>
+
+
+<pre class="property_signature">
+“frame-packing” <span class="type"><a title="GstX264EncFramePacking" href="x264/index.html#GstX264EncFramePacking">GstX264EncFramePacking</a> <span class="pointer-token">*</span></span>
+</pre>
+
+<p>Set frame packing mode for Stereoscopic content</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	auto (-1)
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="x264enc:insert-vui">
+	
+
+
+
+<h3 data-hotdoc-id="x264enc:insert-vui">
+	<i>insert-vui</i>
+</h3>
+
+
+<pre class="property_signature">
+“insert-vui” <span class="type"><a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#bool" data-gi-title-python="bool">gboolean</a></span>
+</pre>
+
+<p>Insert VUI NAL in stream</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	true
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="x264enc:interlaced">
+	
+
+
+
+<h3 data-hotdoc-id="x264enc:interlaced">
+	<i>interlaced</i>
+</h3>
+
+
+<pre class="property_signature">
+“interlaced” <span class="type"><a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#bool" data-gi-title-python="bool">gboolean</a></span>
+</pre>
+
+<p>Interlaced material</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	false
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="x264enc:intra-refresh">
+	
+
+
+
+<h3 data-hotdoc-id="x264enc:intra-refresh">
+	<i>intra-refresh</i>
+</h3>
+
+
+<pre class="property_signature">
+“intra-refresh” <span class="type"><a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#bool" data-gi-title-python="bool">gboolean</a></span>
+</pre>
+
+<p>Use Periodic Intra Refresh instead of IDR frames</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	false
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="x264enc:ip-factor">
+	
+
+
+
+<h3 data-hotdoc-id="x264enc:ip-factor">
+	<i>ip-factor</i>
+</h3>
+
+
+<pre class="property_signature">
+“ip-factor” <span class="type"><a title="gfloat" href="https://docs.gtk.org/glib/types.html#gfloat" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#float" data-gi-title-python="float">gfloat</a></span>
+</pre>
+
+<p>Quantizer factor between I- and P-frames</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	1.4
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="x264enc:key-int-max">
+	
+
+
+
+<h3 data-hotdoc-id="x264enc:key-int-max">
+	<i>key-int-max</i>
+</h3>
+
+
+<pre class="property_signature">
+“key-int-max” <span class="type"><a title="guint" href="https://docs.gtk.org/glib/types.html#guint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">guint</a></span>
+</pre>
+
+<p>Maximal distance between two key-frames (0 for automatic)</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	0
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="x264enc:mb-tree">
+	
+
+
+
+<h3 data-hotdoc-id="x264enc:mb-tree">
+	<i>mb-tree</i>
+</h3>
+
+
+<pre class="property_signature">
+“mb-tree” <span class="type"><a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#bool" data-gi-title-python="bool">gboolean</a></span>
+</pre>
+
+<p>Macroblock-Tree ratecontrol</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	true
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="x264enc:me">
+	
+
+
+
+<h3 data-hotdoc-id="x264enc:me">
+	<i>me</i>
+</h3>
+
+
+<pre class="property_signature">
+“me” <span class="type"><a title="GstX264EncMe" href="x264/index.html#GstX264EncMe">GstX264EncMe</a> <span class="pointer-token">*</span></span>
+</pre>
+
+<p>Integer pixel motion estimation method</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	hex (1)
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="x264enc:multipass-cache-file">
+	
+
+
+
+<h3 data-hotdoc-id="x264enc:multipass-cache-file">
+	<i>multipass-cache-file</i>
+</h3>
+
+
+<pre class="property_signature">
+“multipass-cache-file” <span class="type"><a title="gchararray" href="https://web.mit.edu/barnowl/share/gtk-doc/html/gobject/gobject-Standard-Parameter-and-Value-Types.html#gchararray" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" data-gi-title-javascript="String" data-gi-href-python="https://docs.python.org/3/library/functions.html#func-str" data-gi-title-python="str">gchararray</a></span>
+</pre>
+
+<p>Filename for multipass cache file</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	x264.log
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.26;" id="x264enc:nal-hrd">
+	
+
+
+
+<h3 data-hotdoc-id="x264enc:nal-hrd">
+	<i>nal-hrd</i>
+</h3>
+
+
+<pre class="property_signature">
+“nal-hrd” <span class="type"><a title="GstX264EncNalHrd" href="x264/index.html#GstX264EncNalHrd">GstX264EncNalHrd</a> <span class="pointer-token">*</span></span>
+</pre>
+
+<p>Signal Hypothetical Reference Decoder information.</p>
+<p>Required for Blu-ray streams, television broadcast and a
+few other specialist areas.</p>
+<p>It can be used for instance to force true CBR, and will cause
+the encoder to output NULL padding packets.</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	none (0)
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.26
+		</p>
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="x264enc:noise-reduction">
+	
+
+
+
+<h3 data-hotdoc-id="x264enc:noise-reduction">
+	<i>noise-reduction</i>
+</h3>
+
+
+<pre class="property_signature">
+“noise-reduction” <span class="type"><a title="guint" href="https://docs.gtk.org/glib/types.html#guint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">guint</a></span>
+</pre>
+
+<p>Noise reduction strength</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	0
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="x264enc:option-string">
+	
+
+
+
+<h3 data-hotdoc-id="x264enc:option-string">
+	<i>option-string</i>
+</h3>
+
+
+<pre class="property_signature">
+“option-string” <span class="type"><a title="gchararray" href="https://web.mit.edu/barnowl/share/gtk-doc/html/gobject/gobject-Standard-Parameter-and-Value-Types.html#gchararray" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" data-gi-title-javascript="String" data-gi-href-python="https://docs.python.org/3/library/functions.html#func-str" data-gi-title-python="str">gchararray</a></span>
+</pre>
+
+<p>String of x264 options (overridden by element properties) in the format "key1=value1:key2=value2".</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="x264enc:pass">
+	
+
+
+
+<h3 data-hotdoc-id="x264enc:pass">
+	<i>pass</i>
+</h3>
+
+
+<pre class="property_signature">
+“pass” <span class="type"><a title="GstX264EncPass" href="x264/index.html#GstX264EncPass">GstX264EncPass</a> <span class="pointer-token">*</span></span>
+</pre>
+
+<p>Encoding pass/type</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	cbr (0)
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="x264enc:pb-factor">
+	
+
+
+
+<h3 data-hotdoc-id="x264enc:pb-factor">
+	<i>pb-factor</i>
+</h3>
+
+
+<pre class="property_signature">
+“pb-factor” <span class="type"><a title="gfloat" href="https://docs.gtk.org/glib/types.html#gfloat" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#float" data-gi-title-python="float">gfloat</a></span>
+</pre>
+
+<p>Quantizer factor between P- and B-frames</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	1.3
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="x264enc:psy-tune">
+	
+
+
+
+<h3 data-hotdoc-id="x264enc:psy-tune">
+	<i>psy-tune</i>
+</h3>
+
+
+<pre class="property_signature">
+“psy-tune” <span class="type"><a title="GstX264EncPsyTune" href="x264/index.html#GstX264EncPsyTune">GstX264EncPsyTune</a> <span class="pointer-token">*</span></span>
+</pre>
+
+<p>Preset name for psychovisual tuning options</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	none (0)
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="x264enc:qp-max">
+	
+
+
+
+<h3 data-hotdoc-id="x264enc:qp-max">
+	<i>qp-max</i>
+</h3>
+
+
+<pre class="property_signature">
+“qp-max” <span class="type"><a title="guint" href="https://docs.gtk.org/glib/types.html#guint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">guint</a></span>
+</pre>
+
+<p>Maximum quantizer</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	51
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="x264enc:qp-min">
+	
+
+
+
+<h3 data-hotdoc-id="x264enc:qp-min">
+	<i>qp-min</i>
+</h3>
+
+
+<pre class="property_signature">
+“qp-min” <span class="type"><a title="guint" href="https://docs.gtk.org/glib/types.html#guint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">guint</a></span>
+</pre>
+
+<p>Minimum quantizer</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	10
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="x264enc:qp-step">
+	
+
+
+
+<h3 data-hotdoc-id="x264enc:qp-step">
+	<i>qp-step</i>
+</h3>
+
+
+<pre class="property_signature">
+“qp-step” <span class="type"><a title="guint" href="https://docs.gtk.org/glib/types.html#guint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">guint</a></span>
+</pre>
+
+<p>Maximum quantizer difference between frames</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	4
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="x264enc:quantizer">
+	
+
+
+
+<h3 data-hotdoc-id="x264enc:quantizer">
+	<i>quantizer</i>
+</h3>
+
+
+<pre class="property_signature">
+“quantizer” <span class="type"><a title="guint" href="https://docs.gtk.org/glib/types.html#guint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">guint</a></span>
+</pre>
+
+<p>Constant quantizer or quality to apply</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	21
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="x264enc:rc-lookahead">
+	
+
+
+
+<h3 data-hotdoc-id="x264enc:rc-lookahead">
+	<i>rc-lookahead</i>
+</h3>
+
+
+<pre class="property_signature">
+“rc-lookahead” <span class="type"><a title="gint" href="https://docs.gtk.org/glib/types.html#gint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">gint</a></span>
+</pre>
+
+<p>Number of frames for frametype lookahead</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	40
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="x264enc:ref">
+	
+
+
+
+<h3 data-hotdoc-id="x264enc:ref">
+	<i>ref</i>
+</h3>
+
+
+<pre class="property_signature">
+“ref” <span class="type"><a title="guint" href="https://docs.gtk.org/glib/types.html#guint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">guint</a></span>
+</pre>
+
+<p>Number of reference frames</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	3
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="x264enc:sliced-threads">
+	
+
+
+
+<h3 data-hotdoc-id="x264enc:sliced-threads">
+	<i>sliced-threads</i>
+</h3>
+
+
+<pre class="property_signature">
+“sliced-threads” <span class="type"><a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#bool" data-gi-title-python="bool">gboolean</a></span>
+</pre>
+
+<p>Low latency but lower efficiency threading</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	false
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="x264enc:speed-preset">
+	
+
+
+
+<h3 data-hotdoc-id="x264enc:speed-preset">
+	<i>speed-preset</i>
+</h3>
+
+
+<pre class="property_signature">
+“speed-preset” <span class="type"><a title="GstX264EncPreset" href="x264/index.html#GstX264EncPreset">GstX264EncPreset</a> <span class="pointer-token">*</span></span>
+</pre>
+
+<p>Preset name for speed/quality tradeoff options (can affect decode compatibility - impose restrictions separately for your target decoder)</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	medium (6)
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="x264enc:sps-id">
+	
+
+
+
+<h3 data-hotdoc-id="x264enc:sps-id">
+	<i>sps-id</i>
+</h3>
+
+
+<pre class="property_signature">
+“sps-id” <span class="type"><a title="guint" href="https://docs.gtk.org/glib/types.html#guint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">guint</a></span>
+</pre>
+
+<p>SPS and PPS ID number</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	0
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="x264enc:subme">
+	
+
+
+
+<h3 data-hotdoc-id="x264enc:subme">
+	<i>subme</i>
+</h3>
+
+
+<pre class="property_signature">
+“subme” <span class="type"><a title="guint" href="https://docs.gtk.org/glib/types.html#guint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">guint</a></span>
+</pre>
+
+<p>Subpixel motion estimation and partition decision quality: 1=fast, 10=best</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	1
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="x264enc:sync-lookahead">
+	
+
+
+
+<h3 data-hotdoc-id="x264enc:sync-lookahead">
+	<i>sync-lookahead</i>
+</h3>
+
+
+<pre class="property_signature">
+“sync-lookahead” <span class="type"><a title="gint" href="https://docs.gtk.org/glib/types.html#gint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">gint</a></span>
+</pre>
+
+<p>Number of buffer frames for threaded lookahead (-1 for automatic)</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	-1
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="x264enc:threads">
+	
+
+
+
+<h3 data-hotdoc-id="x264enc:threads">
+	<i>threads</i>
+</h3>
+
+
+<pre class="property_signature">
+“threads” <span class="type"><a title="guint" href="https://docs.gtk.org/glib/types.html#guint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">guint</a></span>
+</pre>
+
+<p>Number of threads used by the codec (0 for automatic)</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	0
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="x264enc:trellis">
+	
+
+
+
+<h3 data-hotdoc-id="x264enc:trellis">
+	<i>trellis</i>
+</h3>
+
+
+<pre class="property_signature">
+“trellis” <span class="type"><a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#bool" data-gi-title-python="bool">gboolean</a></span>
+</pre>
+
+<p>Enable trellis searched quantization</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	true
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="x264enc:tune">
+	
+
+
+
+<h3 data-hotdoc-id="x264enc:tune">
+	<i>tune</i>
+</h3>
+
+
+<pre class="property_signature">
+“tune” <span class="type"><a title="GstX264EncTune" href="x264/index.html#GstX264EncTune">GstX264EncTune</a> <span class="pointer-token">*</span></span>
+</pre>
+
+<p>Preset name for non-psychovisual tuning options</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	(none)
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="x264enc:vbv-buf-capacity">
+	
+
+
+
+<h3 data-hotdoc-id="x264enc:vbv-buf-capacity">
+	<i>vbv-buf-capacity</i>
+</h3>
+
+
+<pre class="property_signature">
+“vbv-buf-capacity” <span class="type"><a title="guint" href="https://docs.gtk.org/glib/types.html#guint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">guint</a></span>
+</pre>
+
+<p>Size of the VBV buffer in milliseconds</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	600
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="x264enc:weightb">
+	
+
+
+
+<h3 data-hotdoc-id="x264enc:weightb">
+	<i>weightb</i>
+</h3>
+
+
+<pre class="property_signature">
+“weightb” <span class="type"><a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#bool" data-gi-title-python="bool">gboolean</a></span>
+</pre>
+
+<p>Weighted prediction for B-frames</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	false
+</p>
+
+
+
+<hr>
+
+</div>
+
+
+            <h2 class="symbol_section">Named constants</h2>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstX264EncAnalyse">
+	
+
+
+
+<h3 data-hotdoc-id="GstX264EncAnalyse">
+	<i>GstX264EncAnalyse</i>
+</h3>
+
+
+
+
+
+	<div class="members-container">
+		<h4>Members</h4>
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstX264EncAnalyse::i4x4">
+        <code>i4x4</code> (<i>0x00000001</i>) – i4x4
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstX264EncAnalyse::i8x8">
+        <code>i8x8</code> (<i>0x00000002</i>) – i8x8
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstX264EncAnalyse::p8x8">
+        <code>p8x8</code> (<i>0x00000010</i>) – p8x8
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstX264EncAnalyse::p4x4">
+        <code>p4x4</code> (<i>0x00000020</i>) – p4x4
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstX264EncAnalyse::b8x8">
+        <code>b8x8</code> (<i>0x00000100</i>) – b8x8
+        </div>
+    
+			</div>
+
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstX264EncFramePacking">
+	
+
+
+
+<h3 data-hotdoc-id="GstX264EncFramePacking">
+	<i>GstX264EncFramePacking</i>
+</h3>
+
+
+
+
+
+	<div class="members-container">
+		<h4>Members</h4>
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstX264EncFramePacking::auto">
+        <code>auto</code> (<i>-1</i>) – Automatic (use incoming video information)
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstX264EncFramePacking::checkerboard">
+        <code>checkerboard</code> (<i>0</i>) – checkerboard - Left and Right pixels alternate in a checkerboard pattern
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstX264EncFramePacking::column-interleaved">
+        <code>column-interleaved</code> (<i>1</i>) – column interleaved - Alternating pixel columns represent Left and Right views
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstX264EncFramePacking::row-interleaved">
+        <code>row-interleaved</code> (<i>2</i>) – row interleaved - Alternating pixel rows represent Left and Right views
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstX264EncFramePacking::side-by-side">
+        <code>side-by-side</code> (<i>3</i>) – side by side - The left half of the frame contains the Left eye view, the right half the Right eye view
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstX264EncFramePacking::top-bottom">
+        <code>top-bottom</code> (<i>4</i>) – top bottom - L is on top, R on bottom
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstX264EncFramePacking::frame-interleaved">
+        <code>frame-interleaved</code> (<i>5</i>) – frame interleaved - Each frame contains either Left or Right view alternately
+        </div>
+    
+			</div>
+
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstX264EncMe">
+	
+
+
+
+<h3 data-hotdoc-id="GstX264EncMe">
+	<i>GstX264EncMe</i>
+</h3>
+
+
+
+
+
+	<div class="members-container">
+		<h4>Members</h4>
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstX264EncMe::dia">
+        <code>dia</code> (<i>0</i>) – dia
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstX264EncMe::hex">
+        <code>hex</code> (<i>1</i>) – hex
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstX264EncMe::umh">
+        <code>umh</code> (<i>2</i>) – umh
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstX264EncMe::esa">
+        <code>esa</code> (<i>3</i>) – esa
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstX264EncMe::tesa">
+        <code>tesa</code> (<i>4</i>) – tesa
+        </div>
+    
+			</div>
+
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.26;" id="GstX264EncNalHrd">
+	
+
+
+
+<h3 data-hotdoc-id="GstX264EncNalHrd">
+	<i>GstX264EncNalHrd</i>
+</h3>
+
+
+<p>Signal HRD information. Required for Blu-ray streams,
+television broadcast and a few other specialist areas.</p>
+
+
+
+
+	<div class="members-container">
+		<h4>Members</h4>
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstX264EncNalHrd::none">
+        <code>none</code> (<i>0</i>) – None
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstX264EncNalHrd::vbr">
+        <code>vbr</code> (<i>1</i>) – Variable bitrate
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstX264EncNalHrd::cbr">
+        <code>cbr</code> (<i>2</i>) – Constant bitrate
+        </div>
+    
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.26
+		</p>
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstX264EncPass">
+	
+
+
+
+<h3 data-hotdoc-id="GstX264EncPass">
+	<i>GstX264EncPass</i>
+</h3>
+
+
+
+
+
+	<div class="members-container">
+		<h4>Members</h4>
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstX264EncPass::cbr">
+        <code>cbr</code> (<i>0</i>) – Constant Bitrate Encoding
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstX264EncPass::quant">
+        <code>quant</code> (<i>4</i>) – Constant Quantizer
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstX264EncPass::qual">
+        <code>qual</code> (<i>5</i>) – Constant Quality
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstX264EncPass::pass1">
+        <code>pass1</code> (<i>17</i>) – VBR Encoding - Pass 1
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstX264EncPass::pass2">
+        <code>pass2</code> (<i>18</i>) – VBR Encoding - Pass 2
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstX264EncPass::pass3">
+        <code>pass3</code> (<i>19</i>) – VBR Encoding - Pass 3
+        </div>
+    
+			</div>
+
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstX264EncPreset">
+	
+
+
+
+<h3 data-hotdoc-id="GstX264EncPreset">
+	<i>GstX264EncPreset</i>
+</h3>
+
+
+
+
+
+	<div class="members-container">
+		<h4>Members</h4>
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstX264EncPreset::None">
+        <code>None</code> (<i>0</i>) – No preset
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstX264EncPreset::ultrafast">
+        <code>ultrafast</code> (<i>1</i>) – ultrafast
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstX264EncPreset::superfast">
+        <code>superfast</code> (<i>2</i>) – superfast
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstX264EncPreset::veryfast">
+        <code>veryfast</code> (<i>3</i>) – veryfast
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstX264EncPreset::faster">
+        <code>faster</code> (<i>4</i>) – faster
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstX264EncPreset::fast">
+        <code>fast</code> (<i>5</i>) – fast
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstX264EncPreset::medium">
+        <code>medium</code> (<i>6</i>) – medium
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstX264EncPreset::slow">
+        <code>slow</code> (<i>7</i>) – slow
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstX264EncPreset::slower">
+        <code>slower</code> (<i>8</i>) – slower
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstX264EncPreset::veryslow">
+        <code>veryslow</code> (<i>9</i>) – veryslow
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstX264EncPreset::placebo">
+        <code>placebo</code> (<i>10</i>) – placebo
+        </div>
+    
+			</div>
+
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstX264EncPsyTune">
+	
+
+
+
+<h3 data-hotdoc-id="GstX264EncPsyTune">
+	<i>GstX264EncPsyTune</i>
+</h3>
+
+
+
+
+
+	<div class="members-container">
+		<h4>Members</h4>
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstX264EncPsyTune::none">
+        <code>none</code> (<i>0</i>) – No tuning
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstX264EncPsyTune::film">
+        <code>film</code> (<i>1</i>) – Film
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstX264EncPsyTune::animation">
+        <code>animation</code> (<i>2</i>) – Animation
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstX264EncPsyTune::grain">
+        <code>grain</code> (<i>3</i>) – Grain
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstX264EncPsyTune::psnr">
+        <code>psnr</code> (<i>4</i>) – PSNR
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstX264EncPsyTune::ssim">
+        <code>ssim</code> (<i>5</i>) – SSIM
+        </div>
+    
+			</div>
+
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstX264EncTune">
+	
+
+
+
+<h3 data-hotdoc-id="GstX264EncTune">
+	<i>GstX264EncTune</i>
+</h3>
+
+
+
+
+
+	<div class="members-container">
+		<h4>Members</h4>
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstX264EncTune::stillimage">
+        <code>stillimage</code> (<i>0x00000001</i>) – Still image
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstX264EncTune::fastdecode">
+        <code>fastdecode</code> (<i>0x00000002</i>) – Fast decode
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstX264EncTune::zerolatency">
+        <code>zerolatency</code> (<i>0x00000004</i>) – Zero latency
+        </div>
+    
+			</div>
+
+
+
+
+<hr>
+
+</div>
+
+
+
+
+
+
+		
+	</div>
+	<div id="search_results">
+		<p>The results of the search are</p>
+	</div>
+	<div id="footer">
+		    
+
+	</div>
+</div>
+
+<div id="toc-column">
+	
+		<div class="edit-button">
+		
+
+	</div>
+		<div id="toc-wrapper">
+		<nav id="toc"></nav>
+	</div>
+</div>
+</div>
+</main>
+
+
+<script src="assets/js/navbar_offset_scroller.js"></script>
+</body>
+</html>

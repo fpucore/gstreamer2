@@ -1,0 +1,5630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<base href="..">
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<title>GESLayer</title>
+
+<link rel="stylesheet" href="assets/css/dark-frontend.css" type="text/css" title="dark">
+<link rel="alternate stylesheet" href="assets/css/light-frontend.css" type="text/css" title="light">
+<link rel="stylesheet" href="assets/css/bootstrap-toc.min.css" type="text/css">
+<link rel="stylesheet" href="assets/css/jquery.mCustomScrollbar.min.css">
+<link rel="stylesheet" href="assets/js/search/enable_search.css" type="text/css">
+
+<link rel="stylesheet" href="assets/css/extra_frontend.css" type="text/css">
+<link rel="stylesheet" href="assets/css/devhelp.css" type="text/css">
+
+<link rel="stylesheet" href="assets/css/prism-tomorrow.css" type="text/css" title="dark">
+
+<link rel="alternate stylesheet" href="assets/css/prism.css" type="text/css" title="light">
+
+<script src="assets/js/mustache.min.js"></script>
+<script src="assets/js/jquery.js"></script>
+<script src="assets/js/bootstrap.js"></script>
+<script src="assets/js/scrollspy.js"></script>
+<script src="assets/js/typeahead.jquery.min.js"></script>
+<script src="assets/js/search.js"></script>
+<script src="assets/js/compare-versions.js"></script>
+<script src="assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="assets/js/bootstrap-toc.min.js"></script>
+<script src="assets/js/jquery.touchSwipe.min.js"></script>
+<script src="assets/js/anchor.min.js"></script>
+<script src="assets/js/tag_filtering.js"></script>
+<script src="assets/js/language_switching.js"></script>
+<script src="assets/js/styleswitcher.js"></script>
+
+<script src="assets/js/lines_around_headings.js"></script>
+
+<script src="assets/js/prism-core.js"></script>
+<script src="assets/js/prism-autoloader.js"></script>
+<script src="assets/js/prism_autoloader_path_override.js"></script>
+<script src="assets/js/trie.js"></script>
+
+<!-- generic -->
+<link rel="icon" type="image/png" href="assets/images/favicon-16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="assets/images/favicon-32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="assets/images/favicon-57.png" sizes="57x57">
+<link rel="icon" type="image/png" href="assets/images/favicon-64.png" sizes="64x64">
+<link rel="icon" type="image/png" href="assets/images/favicon-76.png" sizes="76x76">
+<link rel="icon" type="image/png" href="assets/images/favicon-96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="assets/images/favicon-128.png" sizes="128x128">
+<link rel="icon" type="image/png" href="assets/images/favicon-192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="assets/images/favicon-228.png" sizes="228x228">
+
+<!-- Android -->
+<link rel="shortcut icon" sizes="196x196" href="assets/images/favicon-196.png">
+
+<!-- iOS -->
+<link rel="apple-touch-icon" href="assets/images/favicon-120.png" sizes="120x120">
+<link rel="apple-touch-icon" href="assets/images/favicon-152.png" sizes="152x152">
+<link rel="apple-touch-icon" href="assets/images/favicon-180.png" sizes="180x180">
+
+</head>
+
+<body class="no-script
+">
+
+<script>
+$('body').removeClass('no-script');
+</script>
+
+<nav class="navbar navbar-fixed-top navbar-default" id="topnav">
+	<div class="container-fluid">
+		<div class="navbar-right">
+			<a id="toc-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-wrapper" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<span title="light mode switch" class="glyphicon glyphicon-sunglasses pull-right" id="lightmode-icon"></span>
+			<form class="navbar-form pull-right" id="navbar-search-form">
+                               <div class="form-group has-feedback">
+                                       <input type="text" class="form-control input-sm" name="search" id="sidenav-lookup-field" placeholder="search" disabled>
+				       <span class="glyphicon glyphicon-search form-control-feedback" id="search-mgn-glass"></span>
+                               </div>
+                        </form>
+		</div>
+		<div class="navbar-header">
+			<a id="sidenav-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<a id="home-link" href="index.html" class="hotdoc-navbar-brand">
+				<img src="assets/images/gstreamer-logo.svg" alt="Home">
+			</a>
+		</div>
+		<div class="navbar-collapse collapse" id="navbar-wrapper">
+			<ul class="nav navbar-nav" id="menu">
+				
+<li class="dropdown">
+    <a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        API References<span class="caret"></span>
+    </a>
+	<ul class="dropdown-menu" id="modules-menu">
+					<li>
+				<a href="gstreamer/gi-index.html">GStreamer core</a>
+			</li>
+					<li>
+				<a href="libs.html">GStreamer Libraries</a>
+			</li>
+					<li>
+				<a href="plugins_doc.html">GStreamer Plugins</a>
+			</li>
+		</ul>
+</li>
+
+<li>
+    <a href="application-development/index.html">Application manual</a>
+</li>
+
+
+<li>
+    <a href="tutorials/index.html">Tutorials</a>
+</li>
+
+			</ul>
+			<div class="hidden-xs hidden-sm navbar-text navbar-center">
+							</div>
+		</div>
+	</div>
+</nav>
+
+<main>
+<div data-extension="gi-extension" data-hotdoc-in-toplevel="False" data-hotdoc-project="gst-editing-services" data-hotdoc-ref="geslayer.html" class="page_container" id="page-wrapper" data-hotdoc-meta-gi-languages="['c', 'javascript', 'python']" data-hotdoc-meta-gi-language="c">
+<script src="assets/js/utils.js"></script>
+
+<div class="panel panel-collapse oc-collapsed" id="sidenav" data-hotdoc-role="navigation">
+	<script src="assets/js/full-width.js"></script>
+  <div id="sitenav-wrapper">
+    <iframe src="hotdoc-sitemap.html" id="sitenav-frame"></iframe>
+  </div>
+</div>
+
+<div id="body">
+	<div id="main">
+				    <div id="page-description" data-hotdoc-role="main">
+        <h1 id="geslayer-page">GESLayer</h1>
+<p><a href="gst-editing-services/geslayer.html#GESLayer" data-gi-href-javascript="gst-editing-services/geslayer.html#GESLayer" data-gi-title-javascript="GES.Layer" data-gi-href-python="gst-editing-services/geslayer.html#GESLayer" data-gi-title-python="GES.Layer">GESLayer</a>-s are responsible for collecting and ordering <a href="gst-editing-services/gesclip.html#GESClip" data-gi-href-javascript="gst-editing-services/gesclip.html#GESClip" data-gi-title-javascript="GES.Clip" data-gi-href-python="gst-editing-services/gesclip.html#GESClip" data-gi-title-python="GES.Clip">GESClip</a>-s.</p>
+<p>A layer within a timeline will have an associated priority,
+corresponding to their index within the timeline. A layer with the
+index/priority 0 will have the highest priority and the layer with the
+largest index will have the lowest priority (the order of priorities,
+in this sense, is the _reverse_ of the numerical ordering of the
+indices). <a href="gst-editing-services/gestimeline.html#ges_timeline_move_layer" data-gi-href-javascript="gst-editing-services/gestimeline.html#ges_timeline_move_layer" data-gi-title-javascript="GES.Timeline.prototype.move_layer" data-gi-href-python="gst-editing-services/gestimeline.html#ges_timeline_move_layer" data-gi-title-python="GES.Timeline.move_layer">ges_timeline_move_layer</a> should be used if you wish to
+change how layers are prioritised in a timeline.</p>
+<p>Layers with higher priorities will have their content priorities
+over content from lower priority layers, similar to how layers are
+used in image editing. For example, if two separate layers both
+display video content, then the layer with the higher priority will
+have its images shown first. The other layer will only have its image
+shown if the higher priority layer has no content at the given
+playtime, or is transparent in some way. Audio content in separate
+layers will simply play in addition.</p>
+
+    </div>
+        
+        
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GESLayer">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h2 data-hotdoc-id="GESLayer">
+	<i>GESLayer</i>
+</h2>
+
+
+<div class="hierarchy_container">
+	<div class="hierarchy_details">
+<pre>
+<a title="GObject" href="https://docs.gtk.org/gobject/class.Object.html">GObject</a>
+    <span class="lineart">╰──</span><a title="GInitiallyUnowned" href="https://docs.gtk.org/gobject/class.InitiallyUnowned.html">GInitiallyUnowned</a>
+        <span class="lineart">╰──</span>GESLayer
+</pre>
+
+</div>
+
+</div>
+
+
+
+
+	<div class="members-container">
+		<h3>Members</h3>
+					
+<div class="symbol-detail" data-hotdoc-id="GESLayer.parent">
+	<div>
+		<i><em><code>parent</code></em></i>
+		(<a title="GInitiallyUnowned" href="https://docs.gtk.org/gobject/class.InitiallyUnowned.html">GInitiallyUnowned</a>)
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GESLayer.timeline">
+	<div>
+		<i><em><code>timeline</code></em></i>
+		(<a title="GESTimeline" href="gst-editing-services/gestimeline.html#GESTimeline">GESTimeline</a> *)
+		–
+	</div>
+			<p>the <a href="gst-editing-services/gestimeline.html#GESTimeline">GESTimeline</a> where this layer is being used.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GESLayer.min_nle_priority">
+	<div>
+		<i><em><code>min_nle_priority</code></em></i>
+		(<a title="guint32" href="https://docs.gtk.org/glib/types.html#guint32">guint32</a>)
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GESLayer.max_nle_priority">
+	<div>
+		<i><em><code>max_nle_priority</code></em></i>
+		(<a title="guint32" href="https://docs.gtk.org/glib/types.html#guint32">guint32</a>)
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GESLayer.priv">
+	<div>
+		<i><em><code>priv</code></em></i>
+		(GESLayerPrivate*)
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GESLayer._ges_reserved">
+	<div>
+		<i><em><code>_ges_reserved</code></em></i>
+		(<a title="gpointer" href="https://docs.gtk.org/glib/types.html#gpointer">gpointer</a> *)
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+			</div>
+
+
+
+
+<hr>
+<h3>Class structure</h3>
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GESLayerClass">
+	<i>GESLayerClass</i>
+</h4>
+
+
+<p>Subclasses can override the <em>get_objects</em> if they can provide a more
+efficient way of providing the list of contained <a href="gst-editing-services/gesclip.html#GESClip">GESClip</a>-s.</p>
+
+
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3>
+	GES.LayerClass
+</h3>
+
+
+<p>Subclasses can override the <em>get_objects</em> if they can provide a more
+efficient way of providing the list of contained <a href="gst-editing-services/gesclip.html#GESClip">GES.Clip</a>-s.</p>
+
+
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3>
+	GES.LayerClass
+</h3>
+
+
+<p>Subclasses can override the <em>get_objects</em> if they can provide a more
+efficient way of providing the list of contained <a href="gst-editing-services/gesclip.html#GESClip">GES.Clip</a>-s.</p>
+
+
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h2 data-hotdoc-id="GESLayer">
+	<i>GES.Layer</i>
+</h2>
+
+
+<div class="hierarchy_container">
+	<div class="hierarchy_details">
+<pre>
+<a title="GObject.Object" href="https://docs.gtk.org/gobject/class.Object.html">GObject.Object</a>
+    <span class="lineart">╰──</span><a title="GObject.InitiallyUnowned" href="https://docs.gtk.org/gobject/class.InitiallyUnowned.html">GObject.InitiallyUnowned</a>
+        <span class="lineart">╰──</span>GES.Layer
+</pre>
+
+</div>
+
+</div>
+
+
+
+
+	<div class="members-container">
+		<h3>Members</h3>
+					
+<div class="symbol-detail" data-hotdoc-id="GESLayer.parent">
+	<div>
+		<i><em><code>parent</code></em></i>
+		(<a title="GObject.InitiallyUnowned" href="https://docs.gtk.org/gobject/class.InitiallyUnowned.html">GObject.InitiallyUnowned</a>)
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GESLayer.timeline">
+	<div>
+		<i><em><code>timeline</code></em></i>
+		(<a title="GES.Timeline" href="gst-editing-services/gestimeline.html#GESTimeline">GES.Timeline</a>)
+		–
+	</div>
+			<p>the <a href="gst-editing-services/gestimeline.html#GESTimeline">GES.Timeline</a> where this layer is being used.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GESLayer.min_nle_priority">
+	<div>
+		<i><em><code>min_nle_priority</code></em></i>
+		(<a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>)
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GESLayer.max_nle_priority">
+	<div>
+		<i><em><code>max_nle_priority</code></em></i>
+		(<a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>)
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GESLayer.priv">
+	<div>
+		<i><em><code>priv</code></em></i>
+		(GES.LayerPrivate)
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GESLayer._ges_reserved">
+	<div>
+		<i><em><code>_ges_reserved</code></em></i>
+		([ <a title="Object" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a> ])
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+			</div>
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h2 data-hotdoc-id="GESLayer">
+	<i>GES.Layer</i>
+</h2>
+
+
+<div class="hierarchy_container">
+	<div class="hierarchy_details">
+<pre>
+<a title="GObject.Object" href="https://docs.gtk.org/gobject/class.Object.html">GObject.Object</a>
+    <span class="lineart">╰──</span><a title="GObject.InitiallyUnowned" href="https://docs.gtk.org/gobject/class.InitiallyUnowned.html">GObject.InitiallyUnowned</a>
+        <span class="lineart">╰──</span>GES.Layer
+</pre>
+
+</div>
+
+</div>
+
+
+
+
+	<div class="members-container">
+		<h3>Members</h3>
+					
+<div class="symbol-detail" data-hotdoc-id="GESLayer.parent">
+	<div>
+		<i><em><code>parent</code></em></i>
+		(<a title="GObject.InitiallyUnowned" href="https://docs.gtk.org/gobject/class.InitiallyUnowned.html">GObject.InitiallyUnowned</a>)
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GESLayer.timeline">
+	<div>
+		<i><em><code>timeline</code></em></i>
+		(<a title="GES.Timeline" href="gst-editing-services/gestimeline.html#GESTimeline">GES.Timeline</a>)
+		–
+	</div>
+			<p>the <a href="gst-editing-services/gestimeline.html#GESTimeline">GES.Timeline</a> where this layer is being used.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GESLayer.min_nle_priority">
+	<div>
+		<i><em><code>min_nle_priority</code></em></i>
+		(<a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a>)
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GESLayer.max_nle_priority">
+	<div>
+		<i><em><code>max_nle_priority</code></em></i>
+		(<a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a>)
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GESLayer.priv">
+	<div>
+		<i><em><code>priv</code></em></i>
+		(GES.LayerPrivate)
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GESLayer._ges_reserved">
+	<div>
+		<i><em><code>_ges_reserved</code></em></i>
+		([ <a title="object" href="https://docs.python.org/3/library/functions.html#object">object</a> ])
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+			</div>
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+
+            <h3 class="symbol_section">Constructors</h3>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="ges_layer_new">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="ges_layer_new">
+	<i>ges_layer_new</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GESLayer" href="gst-editing-services/geslayer.html#GESLayer">GESLayer</a> *
+ges_layer_new ()</pre>
+
+<p>Creates a new layer.</p>
+
+
+
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span>
+<span class="annotation">[<abbr title="Alias for transfer none, used for objects with floating refs"><span class="acronym">transfer: floating</span></abbr>]</span><span>)</span>
+–
+			</div>
+							<p>A new layer.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="ges_layer_new">
+	<i>GES.Layer.prototype.new</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GES.Layer.prototype.new(): {
+    // javascript wrapper for 'ges_layer_new'
+}</code></pre>
+
+<p>Creates a new layer.</p>
+
+
+
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GES.Layer" href="gst-editing-services/geslayer.html#GESLayer">GES.Layer</a><span>)</span>
+–
+			</div>
+							<p>A new layer.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="ges_layer_new">
+	<i>GES.Layer.new</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GES.Layer.new ():
+    #python wrapper for 'ges_layer_new'</code></pre>
+
+<p>Creates a new layer.</p>
+
+
+
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GES.Layer" href="gst-editing-services/geslayer.html#GESLayer">GES.Layer</a><span>)</span>
+–
+			</div>
+							<p>A new layer.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+
+            <h3 class="symbol_section">Methods</h3>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="ges_layer_add_asset">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="ges_layer_add_asset">
+	<i>ges_layer_add_asset</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GESClip" href="gst-editing-services/gesclip.html#GESClip">GESClip</a> *
+ges_layer_add_asset (<a title="GESLayer" href="gst-editing-services/geslayer.html#GESLayer">GESLayer</a> * layer,
+                     <a title="GESAsset" href="gst-editing-services/gesasset.html#GESAsset">GESAsset</a> * asset,
+                     <a title="GstClockTime" href="gstreamer/gstclock.html#GstClockTime">GstClockTime</a> start,
+                     <a title="GstClockTime" href="gstreamer/gstclock.html#GstClockTime">GstClockTime</a> inpoint,
+                     <a title="GstClockTime" href="gstreamer/gstclock.html#GstClockTime">GstClockTime</a> duration,
+                     <a title="GESTrackType" href="gst-editing-services/ges-enums.html#GESTrackType">GESTrackType</a> track_types)</pre>
+
+<p>See <a href="gst-editing-services/geslayer.html#ges_layer_add_asset_full">ges_layer_add_asset_full</a>, which also gives an error.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>layer</code></em></i>
+–
+</div>
+<p>The <a href="gst-editing-services/geslayer.html#GESLayer">GESLayer</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>asset</code></em></i>
+–
+</div>
+<p>The asset to extract the new clip from</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>start</code></em></i>
+–
+</div>
+<p>The <a href="gst-editing-services/gestimelineelement.html#GESTimelineElement:start">start</a> value to set on the new clip
+If <code>start == #GST_CLOCK_TIME_NONE</code>, it will be added to the end
+of <em>layer</em>, i.e. it will be set to <em>layer</em>'s duration</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>inpoint</code></em></i>
+–
+</div>
+<p>The <a href="gst-editing-services/gestimelineelement.html#GESTimelineElement:in-point">in-point</a> value to set on the new
+clip</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>duration</code></em></i>
+–
+</div>
+<p>The <a href="gst-editing-services/gestimelineelement.html#GESTimelineElement:duration">duration</a> value to set on the new
+clip</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>track_types</code></em></i>
+–
+</div>
+<p>The <a href="gst-editing-services/gesclip.html#GESClip:supported-formats">supported-formats</a> to set on the the new
+clip, or <a href="gst-editing-services/ges-enums.html#GES_TRACK_TYPE_UNKNOWN">GES_TRACK_TYPE_UNKNOWN</a> to use the default</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span>
+<span class="annotation">[<abbr title="Don't free data after the code is done"><span class="acronym">transfer: none</span></abbr>]</span><span class="annotation">[<abbr title="NULL may be passed to the value"><span class="acronym">nullable</span></abbr>]</span><span>)</span>
+–
+			</div>
+							<p>The newly created clip.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="ges_layer_add_asset">
+	<i>GES.Layer.prototype.add_asset</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GES.Layer.prototype.add_asset(asset: <a title="GES.Asset" href="gst-editing-services/gesasset.html#GESAsset">GES.Asset</a>, start: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>, inpoint: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>, duration: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>, track_types: <a title="GES.TrackType" href="gst-editing-services/ges-enums.html#GESTrackType">GES.TrackType</a>): {
+    // javascript wrapper for 'ges_layer_add_asset'
+}</code></pre>
+
+<p>See <a href="gst-editing-services/geslayer.html#ges_layer_add_asset_full">GES.Layer.prototype.add_asset_full</a>, which also gives an error.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>layer</code></em></i>
+<span>(</span><a title="GES.Layer" href="gst-editing-services/geslayer.html#GESLayer">GES.Layer</a><span>)</span>
+–
+</div>
+<p>The <a href="gst-editing-services/geslayer.html#GESLayer">GES.Layer</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>asset</code></em></i>
+<span>(</span><a title="GES.Asset" href="gst-editing-services/gesasset.html#GESAsset">GES.Asset</a><span>)</span>
+–
+</div>
+<p>The asset to extract the new clip from</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>start</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>The <a href="gst-editing-services/gestimelineelement.html#GESTimelineElement:start">start</a> value to set on the new clip
+If <code>start == #GST_CLOCK_TIME_NONE</code>, it will be added to the end
+of <em>layer</em>, i.e. it will be set to <em>layer</em>'s duration</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>inpoint</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>The <a href="gst-editing-services/gestimelineelement.html#GESTimelineElement:in-point">in-point</a> value to set on the new
+clip</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>duration</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>The <a href="gst-editing-services/gestimelineelement.html#GESTimelineElement:duration">duration</a> value to set on the new
+clip</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>track_types</code></em></i>
+<span>(</span><a title="GES.TrackType" href="gst-editing-services/ges-enums.html#GESTrackType">GES.TrackType</a><span>)</span>
+–
+</div>
+<p>The <a href="gst-editing-services/gesclip.html#GESClip:supported-formats">supported-formats</a> to set on the the new
+clip, or <a href="gst-editing-services/ges-enums.html#GES_TRACK_TYPE_UNKNOWN">GES.TrackType.UNKNOWN</a> to use the default</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GES.Clip" href="gst-editing-services/gesclip.html#GESClip">GES.Clip</a><span>)</span>
+–
+			</div>
+							<p>The newly created clip.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="ges_layer_add_asset">
+	<i>GES.Layer.add_asset</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GES.Layer.add_asset (self, asset, start, inpoint, duration, track_types):
+    #python wrapper for 'ges_layer_add_asset'</code></pre>
+
+<p>See <a href="gst-editing-services/geslayer.html#ges_layer_add_asset_full">GES.Layer.add_asset_full</a>, which also gives an error.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>layer</code></em></i>
+<span>(</span><a title="GES.Layer" href="gst-editing-services/geslayer.html#GESLayer">GES.Layer</a><span>)</span>
+–
+</div>
+<p>The <a href="gst-editing-services/geslayer.html#GESLayer">GES.Layer</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>asset</code></em></i>
+<span>(</span><a title="GES.Asset" href="gst-editing-services/gesasset.html#GESAsset">GES.Asset</a><span>)</span>
+–
+</div>
+<p>The asset to extract the new clip from</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>start</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<p>The <a href="gst-editing-services/gestimelineelement.html#GESTimelineElement:start">start</a> value to set on the new clip
+If <code>start == #GST_CLOCK_TIME_NONE</code>, it will be added to the end
+of <em>layer</em>, i.e. it will be set to <em>layer</em>'s duration</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>inpoint</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<p>The <a href="gst-editing-services/gestimelineelement.html#GESTimelineElement:in-point">in_point</a> value to set on the new
+clip</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>duration</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<p>The <a href="gst-editing-services/gestimelineelement.html#GESTimelineElement:duration">duration</a> value to set on the new
+clip</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>track_types</code></em></i>
+<span>(</span><a title="GES.TrackType" href="gst-editing-services/ges-enums.html#GESTrackType">GES.TrackType</a><span>)</span>
+–
+</div>
+<p>The <a href="gst-editing-services/gesclip.html#GESClip:supported-formats">supported_formats</a> to set on the the new
+clip, or <a href="gst-editing-services/ges-enums.html#GES_TRACK_TYPE_UNKNOWN">GES.TrackType.UNKNOWN</a> to use the default</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GES.Clip" href="gst-editing-services/gesclip.html#GESClip">GES.Clip</a><span>)</span>
+–
+			</div>
+							<p>The newly created clip.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.18;" id="ges_layer_add_asset_full">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="ges_layer_add_asset_full">
+	<i>ges_layer_add_asset_full</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GESClip" href="gst-editing-services/gesclip.html#GESClip">GESClip</a> *
+ges_layer_add_asset_full (<a title="GESLayer" href="gst-editing-services/geslayer.html#GESLayer">GESLayer</a> * layer,
+                          <a title="GESAsset" href="gst-editing-services/gesasset.html#GESAsset">GESAsset</a> * asset,
+                          <a title="GstClockTime" href="gstreamer/gstclock.html#GstClockTime">GstClockTime</a> start,
+                          <a title="GstClockTime" href="gstreamer/gstclock.html#GstClockTime">GstClockTime</a> inpoint,
+                          <a title="GstClockTime" href="gstreamer/gstclock.html#GstClockTime">GstClockTime</a> duration,
+                          <a title="GESTrackType" href="gst-editing-services/ges-enums.html#GESTrackType">GESTrackType</a> track_types,
+                          <a title="GError" href="https://docs.gtk.org/glib/struct.Error.html">GError</a> ** error)</pre>
+
+<p>Extracts a new clip from an asset and adds it to the layer with
+the given properties.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>layer</code></em></i>
+–
+</div>
+<p>The <a href="gst-editing-services/geslayer.html#GESLayer">GESLayer</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>asset</code></em></i>
+–
+</div>
+<p>The asset to extract the new clip from</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>start</code></em></i>
+–
+</div>
+<p>The <a href="gst-editing-services/gestimelineelement.html#GESTimelineElement:start">start</a> value to set on the new clip
+If <code>start == #GST_CLOCK_TIME_NONE</code>, it will be added to the end
+of <em>layer</em>, i.e. it will be set to <em>layer</em>'s duration</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>inpoint</code></em></i>
+–
+</div>
+<p>The <a href="gst-editing-services/gestimelineelement.html#GESTimelineElement:in-point">in-point</a> value to set on the new
+clip</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>duration</code></em></i>
+–
+</div>
+<p>The <a href="gst-editing-services/gestimelineelement.html#GESTimelineElement:duration">duration</a> value to set on the new
+clip</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>track_types</code></em></i>
+–
+</div>
+<p>The <a href="gst-editing-services/gesclip.html#GESClip:supported-formats">supported-formats</a> to set on the the new
+clip, or <a href="gst-editing-services/ges-enums.html#GES_TRACK_TYPE_UNKNOWN">GES_TRACK_TYPE_UNKNOWN</a> to use the default</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>error</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="NULL may be passed to the value"><span class="acronym">nullable</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>Return location for an error</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span>
+<span class="annotation">[<abbr title="Don't free data after the code is done"><span class="acronym">transfer: none</span></abbr>]</span><span>)</span>
+–
+			</div>
+							<p>The newly created clip.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="ges_layer_add_asset_full">
+	<i>GES.Layer.prototype.add_asset_full</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GES.Layer.prototype.add_asset_full(asset: <a title="GES.Asset" href="gst-editing-services/gesasset.html#GESAsset">GES.Asset</a>, start: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>, inpoint: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>, duration: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>, track_types: <a title="GES.TrackType" href="gst-editing-services/ges-enums.html#GESTrackType">GES.TrackType</a>): {
+    // javascript wrapper for 'ges_layer_add_asset_full'
+}</code></pre>
+
+<p>Extracts a new clip from an asset and adds it to the layer with
+the given properties.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>layer</code></em></i>
+<span>(</span><a title="GES.Layer" href="gst-editing-services/geslayer.html#GESLayer">GES.Layer</a><span>)</span>
+–
+</div>
+<p>The <a href="gst-editing-services/geslayer.html#GESLayer">GES.Layer</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>asset</code></em></i>
+<span>(</span><a title="GES.Asset" href="gst-editing-services/gesasset.html#GESAsset">GES.Asset</a><span>)</span>
+–
+</div>
+<p>The asset to extract the new clip from</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>start</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>The <a href="gst-editing-services/gestimelineelement.html#GESTimelineElement:start">start</a> value to set on the new clip
+If <code>start == #GST_CLOCK_TIME_NONE</code>, it will be added to the end
+of <em>layer</em>, i.e. it will be set to <em>layer</em>'s duration</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>inpoint</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>The <a href="gst-editing-services/gestimelineelement.html#GESTimelineElement:in-point">in-point</a> value to set on the new
+clip</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>duration</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>The <a href="gst-editing-services/gestimelineelement.html#GESTimelineElement:duration">duration</a> value to set on the new
+clip</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>track_types</code></em></i>
+<span>(</span><a title="GES.TrackType" href="gst-editing-services/ges-enums.html#GESTrackType">GES.TrackType</a><span>)</span>
+–
+</div>
+<p>The <a href="gst-editing-services/gesclip.html#GESClip:supported-formats">supported-formats</a> to set on the the new
+clip, or <a href="gst-editing-services/ges-enums.html#GES_TRACK_TYPE_UNKNOWN">GES.TrackType.UNKNOWN</a> to use the default</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GES.Clip" href="gst-editing-services/gesclip.html#GESClip">GES.Clip</a><span>)</span>
+–
+			</div>
+							<p>The newly created clip.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="ges_layer_add_asset_full">
+	<i>GES.Layer.add_asset_full</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>@raises(<a href="https://developer.gnome.org/glib/stable/glib-Error-Reporting.html">GLib.GError</a>)
+def GES.Layer.add_asset_full (self, asset, start, inpoint, duration, track_types):
+    #python wrapper for 'ges_layer_add_asset_full'</code></pre>
+
+<p>Extracts a new clip from an asset and adds it to the layer with
+the given properties.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>layer</code></em></i>
+<span>(</span><a title="GES.Layer" href="gst-editing-services/geslayer.html#GESLayer">GES.Layer</a><span>)</span>
+–
+</div>
+<p>The <a href="gst-editing-services/geslayer.html#GESLayer">GES.Layer</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>asset</code></em></i>
+<span>(</span><a title="GES.Asset" href="gst-editing-services/gesasset.html#GESAsset">GES.Asset</a><span>)</span>
+–
+</div>
+<p>The asset to extract the new clip from</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>start</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<p>The <a href="gst-editing-services/gestimelineelement.html#GESTimelineElement:start">start</a> value to set on the new clip
+If <code>start == #GST_CLOCK_TIME_NONE</code>, it will be added to the end
+of <em>layer</em>, i.e. it will be set to <em>layer</em>'s duration</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>inpoint</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<p>The <a href="gst-editing-services/gestimelineelement.html#GESTimelineElement:in-point">in_point</a> value to set on the new
+clip</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>duration</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<p>The <a href="gst-editing-services/gestimelineelement.html#GESTimelineElement:duration">duration</a> value to set on the new
+clip</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>track_types</code></em></i>
+<span>(</span><a title="GES.TrackType" href="gst-editing-services/ges-enums.html#GESTrackType">GES.TrackType</a><span>)</span>
+–
+</div>
+<p>The <a href="gst-editing-services/gesclip.html#GESClip:supported-formats">supported_formats</a> to set on the the new
+clip, or <a href="gst-editing-services/ges-enums.html#GES_TRACK_TYPE_UNKNOWN">GES.TrackType.UNKNOWN</a> to use the default</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GES.Clip" href="gst-editing-services/gesclip.html#GESClip">GES.Clip</a><span>)</span>
+–
+			</div>
+							<p>The newly created clip.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="ges_layer_add_clip">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="ges_layer_add_clip">
+	<i>ges_layer_add_clip</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a>
+ges_layer_add_clip (<a title="GESLayer" href="gst-editing-services/geslayer.html#GESLayer">GESLayer</a> * layer,
+                    <a title="GESClip" href="gst-editing-services/gesclip.html#GESClip">GESClip</a> * clip)</pre>
+
+<p>See <a href="gst-editing-services/geslayer.html#ges_layer_add_clip_full">ges_layer_add_clip_full</a>, which also gives an error.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>layer</code></em></i>
+–
+</div>
+<p>The <a href="gst-editing-services/geslayer.html#GESLayer">GESLayer</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>clip</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="Alias for transfer none, used for objects with floating refs"><span class="acronym">transfer: floating</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>The clip to add</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p><a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#TRUE:CAPS">TRUE</a> if <em>clip</em> was properly added to <em>layer</em>, or <a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#FALSE:CAPS">FALSE</a>
+if <em>layer</em> refused to add <em>clip</em>.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="ges_layer_add_clip">
+	<i>GES.Layer.prototype.add_clip</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GES.Layer.prototype.add_clip(clip: <a title="GES.Clip" href="gst-editing-services/gesclip.html#GESClip">GES.Clip</a>): {
+    // javascript wrapper for 'ges_layer_add_clip'
+}</code></pre>
+
+<p>See <a href="gst-editing-services/geslayer.html#ges_layer_add_clip_full">GES.Layer.prototype.add_clip_full</a>, which also gives an error.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>layer</code></em></i>
+<span>(</span><a title="GES.Layer" href="gst-editing-services/geslayer.html#GESLayer">GES.Layer</a><span>)</span>
+–
+</div>
+<p>The <a href="gst-editing-services/geslayer.html#GESLayer">GES.Layer</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>clip</code></em></i>
+<span>(</span><a title="GES.Clip" href="gst-editing-services/gesclip.html#GESClip">GES.Clip</a><span>)</span>
+–
+</div>
+<p>The clip to add</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+			</div>
+							<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">true</a> if <em>clip</em> was properly added to <em>layer</em>, or <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">false</a>
+if <em>layer</em> refused to add <em>clip</em>.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="ges_layer_add_clip">
+	<i>GES.Layer.add_clip</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GES.Layer.add_clip (self, clip):
+    #python wrapper for 'ges_layer_add_clip'</code></pre>
+
+<p>See <a href="gst-editing-services/geslayer.html#ges_layer_add_clip_full">GES.Layer.add_clip_full</a>, which also gives an error.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>layer</code></em></i>
+<span>(</span><a title="GES.Layer" href="gst-editing-services/geslayer.html#GESLayer">GES.Layer</a><span>)</span>
+–
+</div>
+<p>The <a href="gst-editing-services/geslayer.html#GESLayer">GES.Layer</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>clip</code></em></i>
+<span>(</span><a title="GES.Clip" href="gst-editing-services/gesclip.html#GESClip">GES.Clip</a><span>)</span>
+–
+</div>
+<p>The clip to add</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a><span>)</span>
+–
+			</div>
+							<p><a href="https://docs.python.org/3/library/constants.html#True">True</a> if <em>clip</em> was properly added to <em>layer</em>, or <a href="https://docs.python.org/3/library/constants.html#False">False</a>
+if <em>layer</em> refused to add <em>clip</em>.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.18;" id="ges_layer_add_clip_full">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="ges_layer_add_clip_full">
+	<i>ges_layer_add_clip_full</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a>
+ges_layer_add_clip_full (<a title="GESLayer" href="gst-editing-services/geslayer.html#GESLayer">GESLayer</a> * layer,
+                         <a title="GESClip" href="gst-editing-services/gesclip.html#GESClip">GESClip</a> * clip,
+                         <a title="GError" href="https://docs.gtk.org/glib/struct.Error.html">GError</a> ** error)</pre>
+
+<p>Adds the given clip to the layer. If the method succeeds, the layer
+will take ownership of the clip.</p>
+<p>This method will fail and return <a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#FALSE:CAPS">FALSE</a> if <em>clip</em> already resides in
+some layer. It can also fail if the additional clip breaks some
+compositional rules (see <a href="gst-editing-services/gestimelineelement.html#GESTimelineElement">GESTimelineElement</a>).</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>layer</code></em></i>
+–
+</div>
+<p>The <a href="gst-editing-services/geslayer.html#GESLayer">GESLayer</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>clip</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="Alias for transfer none, used for objects with floating refs"><span class="acronym">transfer: floating</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>The clip to add</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>error</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="NULL may be passed to the value"><span class="acronym">nullable</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>Return location for an error</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p><a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#TRUE:CAPS">TRUE</a> if <em>clip</em> was properly added to <em>layer</em>, or <a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#FALSE:CAPS">FALSE</a>
+if <em>layer</em> refused to add <em>clip</em>.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="ges_layer_add_clip_full">
+	<i>GES.Layer.prototype.add_clip_full</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GES.Layer.prototype.add_clip_full(clip: <a title="GES.Clip" href="gst-editing-services/gesclip.html#GESClip">GES.Clip</a>): {
+    // javascript wrapper for 'ges_layer_add_clip_full'
+}</code></pre>
+
+<p>Adds the given clip to the layer. If the method succeeds, the layer
+will take ownership of the clip.</p>
+<p>This method will fail and return <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">false</a> if <em>clip</em> already resides in
+some layer. It can also fail if the additional clip breaks some
+compositional rules (see <a href="gst-editing-services/gestimelineelement.html#GESTimelineElement">GES.TimelineElement</a>).</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>layer</code></em></i>
+<span>(</span><a title="GES.Layer" href="gst-editing-services/geslayer.html#GESLayer">GES.Layer</a><span>)</span>
+–
+</div>
+<p>The <a href="gst-editing-services/geslayer.html#GESLayer">GES.Layer</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>clip</code></em></i>
+<span>(</span><a title="GES.Clip" href="gst-editing-services/gesclip.html#GESClip">GES.Clip</a><span>)</span>
+–
+</div>
+<p>The clip to add</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+			</div>
+							<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">true</a> if <em>clip</em> was properly added to <em>layer</em>, or <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">false</a>
+if <em>layer</em> refused to add <em>clip</em>.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="ges_layer_add_clip_full">
+	<i>GES.Layer.add_clip_full</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>@raises(<a href="https://developer.gnome.org/glib/stable/glib-Error-Reporting.html">GLib.GError</a>)
+def GES.Layer.add_clip_full (self, clip):
+    #python wrapper for 'ges_layer_add_clip_full'</code></pre>
+
+<p>Adds the given clip to the layer. If the method succeeds, the layer
+will take ownership of the clip.</p>
+<p>This method will fail and return <a href="https://docs.python.org/3/library/constants.html#False">False</a> if <em>clip</em> already resides in
+some layer. It can also fail if the additional clip breaks some
+compositional rules (see <a href="gst-editing-services/gestimelineelement.html#GESTimelineElement">GES.TimelineElement</a>).</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>layer</code></em></i>
+<span>(</span><a title="GES.Layer" href="gst-editing-services/geslayer.html#GESLayer">GES.Layer</a><span>)</span>
+–
+</div>
+<p>The <a href="gst-editing-services/geslayer.html#GESLayer">GES.Layer</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>clip</code></em></i>
+<span>(</span><a title="GES.Clip" href="gst-editing-services/gesclip.html#GESClip">GES.Clip</a><span>)</span>
+–
+</div>
+<p>The clip to add</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a><span>)</span>
+–
+			</div>
+							<p><a href="https://docs.python.org/3/library/constants.html#True">True</a> if <em>clip</em> was properly added to <em>layer</em>, or <a href="https://docs.python.org/3/library/constants.html#False">False</a>
+if <em>layer</em> refused to add <em>clip</em>.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.18;" id="ges_layer_get_active_for_track">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="ges_layer_get_active_for_track">
+	<i>ges_layer_get_active_for_track</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a>
+ges_layer_get_active_for_track (<a title="GESLayer" href="gst-editing-services/geslayer.html#GESLayer">GESLayer</a> * layer,
+                                <a title="GESTrack" href="gst-editing-services/gestrack.html#GESTrack">GESTrack</a> * track)</pre>
+
+<p>Gets whether the layer is active for the given track. See
+<a href="gst-editing-services/geslayer.html#ges_layer_set_active_for_tracks">ges_layer_set_active_for_tracks</a>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>layer</code></em></i>
+–
+</div>
+<p>The <a href="gst-editing-services/geslayer.html#GESLayer">GESLayer</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>track</code></em></i>
+–
+</div>
+<p>The <a href="gst-editing-services/gestrack.html#GESTrack">GESTrack</a> to check if <em>layer</em> is currently active for</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p><a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#TRUE:CAPS">TRUE</a> if <em>layer</em> is active for <em>track</em>, or <a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#FALSE:CAPS">FALSE</a> otherwise.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="ges_layer_get_active_for_track">
+	<i>GES.Layer.prototype.get_active_for_track</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GES.Layer.prototype.get_active_for_track(track: <a title="GES.Track" href="gst-editing-services/gestrack.html#GESTrack">GES.Track</a>): {
+    // javascript wrapper for 'ges_layer_get_active_for_track'
+}</code></pre>
+
+<p>Gets whether the layer is active for the given track. See
+<a href="gst-editing-services/geslayer.html#ges_layer_set_active_for_tracks">GES.Layer.prototype.set_active_for_tracks</a>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>layer</code></em></i>
+<span>(</span><a title="GES.Layer" href="gst-editing-services/geslayer.html#GESLayer">GES.Layer</a><span>)</span>
+–
+</div>
+<p>The <a href="gst-editing-services/geslayer.html#GESLayer">GES.Layer</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>track</code></em></i>
+<span>(</span><a title="GES.Track" href="gst-editing-services/gestrack.html#GESTrack">GES.Track</a><span>)</span>
+–
+</div>
+<p>The <a href="gst-editing-services/gestrack.html#GESTrack">GES.Track</a> to check if <em>layer</em> is currently active for</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+			</div>
+							<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">true</a> if <em>layer</em> is active for <em>track</em>, or <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">false</a> otherwise.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="ges_layer_get_active_for_track">
+	<i>GES.Layer.get_active_for_track</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GES.Layer.get_active_for_track (self, track):
+    #python wrapper for 'ges_layer_get_active_for_track'</code></pre>
+
+<p>Gets whether the layer is active for the given track. See
+<a href="gst-editing-services/geslayer.html#ges_layer_set_active_for_tracks">GES.Layer.set_active_for_tracks</a>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>layer</code></em></i>
+<span>(</span><a title="GES.Layer" href="gst-editing-services/geslayer.html#GESLayer">GES.Layer</a><span>)</span>
+–
+</div>
+<p>The <a href="gst-editing-services/geslayer.html#GESLayer">GES.Layer</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>track</code></em></i>
+<span>(</span><a title="GES.Track" href="gst-editing-services/gestrack.html#GESTrack">GES.Track</a><span>)</span>
+–
+</div>
+<p>The <a href="gst-editing-services/gestrack.html#GESTrack">GES.Track</a> to check if <em>layer</em> is currently active for</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a><span>)</span>
+–
+			</div>
+							<p><a href="https://docs.python.org/3/library/constants.html#True">True</a> if <em>layer</em> is active for <em>track</em>, or <a href="https://docs.python.org/3/library/constants.html#False">False</a> otherwise.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="ges_layer_get_auto_transition">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="ges_layer_get_auto_transition">
+	<i>ges_layer_get_auto_transition</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a>
+ges_layer_get_auto_transition (<a title="GESLayer" href="gst-editing-services/geslayer.html#GESLayer">GESLayer</a> * layer)</pre>
+
+<p>Gets the <a href="gst-editing-services/geslayer.html#GESLayer:auto-transition">auto-transition</a> of the layer.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>layer</code></em></i>
+–
+</div>
+<p>The <a href="gst-editing-services/geslayer.html#GESLayer">GESLayer</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p><a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#TRUE:CAPS">TRUE</a> if transitions are automatically added to <em>layer</em>.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="ges_layer_get_auto_transition">
+	<i>GES.Layer.prototype.get_auto_transition</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GES.Layer.prototype.get_auto_transition(): {
+    // javascript wrapper for 'ges_layer_get_auto_transition'
+}</code></pre>
+
+<p>Gets the <a href="gst-editing-services/geslayer.html#GESLayer:auto-transition">auto-transition</a> of the layer.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>layer</code></em></i>
+<span>(</span><a title="GES.Layer" href="gst-editing-services/geslayer.html#GESLayer">GES.Layer</a><span>)</span>
+–
+</div>
+<p>The <a href="gst-editing-services/geslayer.html#GESLayer">GES.Layer</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+			</div>
+							<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">true</a> if transitions are automatically added to <em>layer</em>.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="ges_layer_get_auto_transition">
+	<i>GES.Layer.get_auto_transition</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GES.Layer.get_auto_transition (self):
+    #python wrapper for 'ges_layer_get_auto_transition'</code></pre>
+
+<p>Gets the <a href="gst-editing-services/geslayer.html#GESLayer:auto-transition">auto_transition</a> of the layer.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>layer</code></em></i>
+<span>(</span><a title="GES.Layer" href="gst-editing-services/geslayer.html#GESLayer">GES.Layer</a><span>)</span>
+–
+</div>
+<p>The <a href="gst-editing-services/geslayer.html#GESLayer">GES.Layer</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a><span>)</span>
+–
+			</div>
+							<p><a href="https://docs.python.org/3/library/constants.html#True">True</a> if transitions are automatically added to <em>layer</em>.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="ges_layer_get_clips">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="ges_layer_get_clips">
+	<i>ges_layer_get_clips</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GList" href="https://docs.gtk.org/glib/struct.List.html">GList</a> *
+ges_layer_get_clips (<a title="GESLayer" href="gst-editing-services/geslayer.html#GESLayer">GESLayer</a> * layer)</pre>
+
+<p>Get the <a href="gst-editing-services/gesclip.html#GESClip">GESClip</a>-s contained in this layer.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>layer</code></em></i>
+–
+</div>
+<p>The <a href="gst-editing-services/geslayer.html#GESLayer">GESLayer</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span>
+<span class="annotation">[<abbr title="Free data after the code is done"><span class="acronym">transfer: full</span></abbr>]</span><span class="annotation">[<abbr title="Generic and defining element of containers and arrays"><span class="acronym">element-type</span></abbr> GESClip]</span><span>)</span>
+–
+			</div>
+							<p>A list of clips in
+<em>layer</em>.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="ges_layer_get_clips">
+	<i>GES.Layer.prototype.get_clips</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GES.Layer.prototype.get_clips(): {
+    // javascript wrapper for 'ges_layer_get_clips'
+}</code></pre>
+
+<p>Get the <a href="gst-editing-services/gesclip.html#GESClip">GES.Clip</a>-s contained in this layer.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>layer</code></em></i>
+<span>(</span><a title="GES.Layer" href="gst-editing-services/geslayer.html#GESLayer">GES.Layer</a><span>)</span>
+–
+</div>
+<p>The <a href="gst-editing-services/geslayer.html#GESLayer">GES.Layer</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span>[ <a title="GES.Clip" href="gst-editing-services/gesclip.html#GESClip">GES.Clip</a> ]<span>)</span>
+–
+			</div>
+							<p>A list of clips in
+<em>layer</em>.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="ges_layer_get_clips">
+	<i>GES.Layer.get_clips</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GES.Layer.get_clips (self):
+    #python wrapper for 'ges_layer_get_clips'</code></pre>
+
+<p>Get the <a href="gst-editing-services/gesclip.html#GESClip">GES.Clip</a>-s contained in this layer.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>layer</code></em></i>
+<span>(</span><a title="GES.Layer" href="gst-editing-services/geslayer.html#GESLayer">GES.Layer</a><span>)</span>
+–
+</div>
+<p>The <a href="gst-editing-services/geslayer.html#GESLayer">GES.Layer</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span>[ <a title="GES.Clip" href="gst-editing-services/gesclip.html#GESClip">GES.Clip</a> ]<span>)</span>
+–
+			</div>
+							<p>A list of clips in
+<em>layer</em>.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="ges_layer_get_clips_in_interval">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="ges_layer_get_clips_in_interval">
+	<i>ges_layer_get_clips_in_interval</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GList" href="https://docs.gtk.org/glib/struct.List.html">GList</a> *
+ges_layer_get_clips_in_interval (<a title="GESLayer" href="gst-editing-services/geslayer.html#GESLayer">GESLayer</a> * layer,
+                                 <a title="GstClockTime" href="gstreamer/gstclock.html#GstClockTime">GstClockTime</a> start,
+                                 <a title="GstClockTime" href="gstreamer/gstclock.html#GstClockTime">GstClockTime</a> end)</pre>
+
+<p>Gets the clips within the layer that appear between <em>start</em> and <em>end</em>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>layer</code></em></i>
+–
+</div>
+<p>The <a href="gst-editing-services/geslayer.html#GESLayer">GESLayer</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>start</code></em></i>
+–
+</div>
+<p>Start of the interval</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>end</code></em></i>
+–
+</div>
+<p>End of the interval</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span>
+<span class="annotation">[<abbr title="Free data after the code is done"><span class="acronym">transfer: full</span></abbr>]</span><span class="annotation">[<abbr title="Generic and defining element of containers and arrays"><span class="acronym">element-type</span></abbr> GESClip]</span><span>)</span>
+–
+			</div>
+							<p>A list of <a href="gst-editing-services/gesclip.html#GESClip">GESClip</a>-s
+that intersect the interval <code>[start, end)</code> in <em>layer</em>.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="ges_layer_get_clips_in_interval">
+	<i>GES.Layer.prototype.get_clips_in_interval</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GES.Layer.prototype.get_clips_in_interval(start: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>, end: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>): {
+    // javascript wrapper for 'ges_layer_get_clips_in_interval'
+}</code></pre>
+
+<p>Gets the clips within the layer that appear between <em>start</em> and <em>end</em>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>layer</code></em></i>
+<span>(</span><a title="GES.Layer" href="gst-editing-services/geslayer.html#GESLayer">GES.Layer</a><span>)</span>
+–
+</div>
+<p>The <a href="gst-editing-services/geslayer.html#GESLayer">GES.Layer</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>start</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>Start of the interval</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>end</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>End of the interval</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span>[ <a title="GES.Clip" href="gst-editing-services/gesclip.html#GESClip">GES.Clip</a> ]<span>)</span>
+–
+			</div>
+							<p>A list of <a href="gst-editing-services/gesclip.html#GESClip">GES.Clip</a>-s
+that intersect the interval <code>[start, end)</code> in <em>layer</em>.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="ges_layer_get_clips_in_interval">
+	<i>GES.Layer.get_clips_in_interval</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GES.Layer.get_clips_in_interval (self, start, end):
+    #python wrapper for 'ges_layer_get_clips_in_interval'</code></pre>
+
+<p>Gets the clips within the layer that appear between <em>start</em> and <em>end</em>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>layer</code></em></i>
+<span>(</span><a title="GES.Layer" href="gst-editing-services/geslayer.html#GESLayer">GES.Layer</a><span>)</span>
+–
+</div>
+<p>The <a href="gst-editing-services/geslayer.html#GESLayer">GES.Layer</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>start</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<p>Start of the interval</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>end</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<p>End of the interval</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span>[ <a title="GES.Clip" href="gst-editing-services/gesclip.html#GESClip">GES.Clip</a> ]<span>)</span>
+–
+			</div>
+							<p>A list of <a href="gst-editing-services/gesclip.html#GESClip">GES.Clip</a>-s
+that intersect the interval <code>[start, end)</code> in <em>layer</em>.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="ges_layer_get_duration">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="ges_layer_get_duration">
+	<i>ges_layer_get_duration</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GstClockTime" href="gstreamer/gstclock.html#GstClockTime">GstClockTime</a>
+ges_layer_get_duration (<a title="GESLayer" href="gst-editing-services/geslayer.html#GESLayer">GESLayer</a> * layer)</pre>
+
+<p>Retrieves the duration of the layer, which is the difference
+between the start of the layer (always time 0) and the end (which will
+be the end time of the final clip).</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>layer</code></em></i>
+–
+</div>
+<p>The layer to get the duration from</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p>The duration of <em>layer</em>.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="ges_layer_get_duration">
+	<i>GES.Layer.prototype.get_duration</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GES.Layer.prototype.get_duration(): {
+    // javascript wrapper for 'ges_layer_get_duration'
+}</code></pre>
+
+<p>Retrieves the duration of the layer, which is the difference
+between the start of the layer (always time 0) and the end (which will
+be the end time of the final clip).</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>layer</code></em></i>
+<span>(</span><a title="GES.Layer" href="gst-editing-services/geslayer.html#GESLayer">GES.Layer</a><span>)</span>
+–
+</div>
+<p>The layer to get the duration from</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+			</div>
+							<p>The duration of <em>layer</em>.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="ges_layer_get_duration">
+	<i>GES.Layer.get_duration</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GES.Layer.get_duration (self):
+    #python wrapper for 'ges_layer_get_duration'</code></pre>
+
+<p>Retrieves the duration of the layer, which is the difference
+between the start of the layer (always time 0) and the end (which will
+be the end time of the final clip).</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>layer</code></em></i>
+<span>(</span><a title="GES.Layer" href="gst-editing-services/geslayer.html#GESLayer">GES.Layer</a><span>)</span>
+–
+</div>
+<p>The layer to get the duration from</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+			</div>
+							<p>The duration of <em>layer</em>.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="ges_layer_get_priority">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="ges_layer_get_priority">
+	<i>ges_layer_get_priority</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="guint" href="https://docs.gtk.org/glib/types.html#guint">guint</a>
+ges_layer_get_priority (<a title="GESLayer" href="gst-editing-services/geslayer.html#GESLayer">GESLayer</a> * layer)</pre>
+
+<p>Get the priority of the layer. When inside a timeline, this is its
+index in the timeline. See <a href="gst-editing-services/gestimeline.html#ges_timeline_move_layer">ges_timeline_move_layer</a>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>layer</code></em></i>
+–
+</div>
+<p>The <a href="gst-editing-services/geslayer.html#GESLayer">GESLayer</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p>The priority of <em>layer</em> within its timeline.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="ges_layer_get_priority">
+	<i>GES.Layer.prototype.get_priority</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GES.Layer.prototype.get_priority(): {
+    // javascript wrapper for 'ges_layer_get_priority'
+}</code></pre>
+
+<p>Get the priority of the layer. When inside a timeline, this is its
+index in the timeline. See <a href="gst-editing-services/gestimeline.html#ges_timeline_move_layer">GES.Timeline.prototype.move_layer</a>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>layer</code></em></i>
+<span>(</span><a title="GES.Layer" href="gst-editing-services/geslayer.html#GESLayer">GES.Layer</a><span>)</span>
+–
+</div>
+<p>The <a href="gst-editing-services/geslayer.html#GESLayer">GES.Layer</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+			</div>
+							<p>The priority of <em>layer</em> within its timeline.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="ges_layer_get_priority">
+	<i>GES.Layer.get_priority</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GES.Layer.get_priority (self):
+    #python wrapper for 'ges_layer_get_priority'</code></pre>
+
+<p>Get the priority of the layer. When inside a timeline, this is its
+index in the timeline. See <a href="gst-editing-services/gestimeline.html#ges_timeline_move_layer">GES.Timeline.move_layer</a>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>layer</code></em></i>
+<span>(</span><a title="GES.Layer" href="gst-editing-services/geslayer.html#GESLayer">GES.Layer</a><span>)</span>
+–
+</div>
+<p>The <a href="gst-editing-services/geslayer.html#GESLayer">GES.Layer</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+			</div>
+							<p>The priority of <em>layer</em> within its timeline.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="ges_layer_get_timeline">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="ges_layer_get_timeline">
+	<i>ges_layer_get_timeline</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GESTimeline" href="gst-editing-services/gestimeline.html#GESTimeline">GESTimeline</a> *
+ges_layer_get_timeline (<a title="GESLayer" href="gst-editing-services/geslayer.html#GESLayer">GESLayer</a> * layer)</pre>
+
+<p>Gets the timeline that the layer is a part of.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>layer</code></em></i>
+–
+</div>
+<p>The <a href="gst-editing-services/geslayer.html#GESLayer">GESLayer</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span>
+<span class="annotation">[<abbr title="Don't free data after the code is done"><span class="acronym">transfer: none</span></abbr>]</span><span class="annotation">[<abbr title="NULL may be passed to the value"><span class="acronym">nullable</span></abbr>]</span><span>)</span>
+–
+			</div>
+							<p>The timeline that <em>layer</em>
+is currently part of, or <a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#NULL:CAPS">NULL</a> if it is not associated with any
+timeline.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="ges_layer_get_timeline">
+	<i>GES.Layer.prototype.get_timeline</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GES.Layer.prototype.get_timeline(): {
+    // javascript wrapper for 'ges_layer_get_timeline'
+}</code></pre>
+
+<p>Gets the timeline that the layer is a part of.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>layer</code></em></i>
+<span>(</span><a title="GES.Layer" href="gst-editing-services/geslayer.html#GESLayer">GES.Layer</a><span>)</span>
+–
+</div>
+<p>The <a href="gst-editing-services/geslayer.html#GESLayer">GES.Layer</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GES.Timeline" href="gst-editing-services/gestimeline.html#GESTimeline">GES.Timeline</a><span>)</span>
+–
+			</div>
+							<p>The timeline that <em>layer</em>
+is currently part of, or <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null">null</a> if it is not associated with any
+timeline.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="ges_layer_get_timeline">
+	<i>GES.Layer.get_timeline</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GES.Layer.get_timeline (self):
+    #python wrapper for 'ges_layer_get_timeline'</code></pre>
+
+<p>Gets the timeline that the layer is a part of.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>layer</code></em></i>
+<span>(</span><a title="GES.Layer" href="gst-editing-services/geslayer.html#GESLayer">GES.Layer</a><span>)</span>
+–
+</div>
+<p>The <a href="gst-editing-services/geslayer.html#GESLayer">GES.Layer</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GES.Timeline" href="gst-editing-services/gestimeline.html#GESTimeline">GES.Timeline</a><span>)</span>
+–
+			</div>
+							<p>The timeline that <em>layer</em>
+is currently part of, or <a href="https://docs.python.org/3/library/constants.html#None">None</a> if it is not associated with any
+timeline.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="ges_layer_is_empty">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="ges_layer_is_empty">
+	<i>ges_layer_is_empty</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a>
+ges_layer_is_empty (<a title="GESLayer" href="gst-editing-services/geslayer.html#GESLayer">GESLayer</a> * layer)</pre>
+
+<p>Convenience method to check if the layer is empty (doesn't contain
+any <a href="gst-editing-services/gesclip.html#GESClip">GESClip</a>), or not.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>layer</code></em></i>
+–
+</div>
+<p>The <a href="gst-editing-services/geslayer.html#GESLayer">GESLayer</a> to check</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p><a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#TRUE:CAPS">TRUE</a> if <em>layer</em> is empty, <a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#FALSE:CAPS">FALSE</a> if it contains at least
+one clip.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="ges_layer_is_empty">
+	<i>GES.Layer.prototype.is_empty</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GES.Layer.prototype.is_empty(): {
+    // javascript wrapper for 'ges_layer_is_empty'
+}</code></pre>
+
+<p>Convenience method to check if the layer is empty (doesn't contain
+any <a href="gst-editing-services/gesclip.html#GESClip">GES.Clip</a>), or not.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>layer</code></em></i>
+<span>(</span><a title="GES.Layer" href="gst-editing-services/geslayer.html#GESLayer">GES.Layer</a><span>)</span>
+–
+</div>
+<p>The <a href="gst-editing-services/geslayer.html#GESLayer">GES.Layer</a> to check</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+			</div>
+							<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">true</a> if <em>layer</em> is empty, <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">false</a> if it contains at least
+one clip.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="ges_layer_is_empty">
+	<i>GES.Layer.is_empty</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GES.Layer.is_empty (self):
+    #python wrapper for 'ges_layer_is_empty'</code></pre>
+
+<p>Convenience method to check if the layer is empty (doesn't contain
+any <a href="gst-editing-services/gesclip.html#GESClip">GES.Clip</a>), or not.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>layer</code></em></i>
+<span>(</span><a title="GES.Layer" href="gst-editing-services/geslayer.html#GESLayer">GES.Layer</a><span>)</span>
+–
+</div>
+<p>The <a href="gst-editing-services/geslayer.html#GESLayer">GES.Layer</a> to check</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a><span>)</span>
+–
+			</div>
+							<p><a href="https://docs.python.org/3/library/constants.html#True">True</a> if <em>layer</em> is empty, <a href="https://docs.python.org/3/library/constants.html#False">False</a> if it contains at least
+one clip.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="ges_layer_remove_clip">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="ges_layer_remove_clip">
+	<i>ges_layer_remove_clip</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a>
+ges_layer_remove_clip (<a title="GESLayer" href="gst-editing-services/geslayer.html#GESLayer">GESLayer</a> * layer,
+                       <a title="GESClip" href="gst-editing-services/gesclip.html#GESClip">GESClip</a> * clip)</pre>
+
+<p>Removes the given clip from the layer.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>layer</code></em></i>
+–
+</div>
+<p>The <a href="gst-editing-services/geslayer.html#GESLayer">GESLayer</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>clip</code></em></i>
+–
+</div>
+<p>The clip to remove</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p><a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#TRUE:CAPS">TRUE</a> if <em>clip</em> was removed from <em>layer</em>, or <a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#FALSE:CAPS">FALSE</a> if the
+operation failed.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="ges_layer_remove_clip">
+	<i>GES.Layer.prototype.remove_clip</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GES.Layer.prototype.remove_clip(clip: <a title="GES.Clip" href="gst-editing-services/gesclip.html#GESClip">GES.Clip</a>): {
+    // javascript wrapper for 'ges_layer_remove_clip'
+}</code></pre>
+
+<p>Removes the given clip from the layer.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>layer</code></em></i>
+<span>(</span><a title="GES.Layer" href="gst-editing-services/geslayer.html#GESLayer">GES.Layer</a><span>)</span>
+–
+</div>
+<p>The <a href="gst-editing-services/geslayer.html#GESLayer">GES.Layer</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>clip</code></em></i>
+<span>(</span><a title="GES.Clip" href="gst-editing-services/gesclip.html#GESClip">GES.Clip</a><span>)</span>
+–
+</div>
+<p>The clip to remove</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+			</div>
+							<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">true</a> if <em>clip</em> was removed from <em>layer</em>, or <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">false</a> if the
+operation failed.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="ges_layer_remove_clip">
+	<i>GES.Layer.remove_clip</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GES.Layer.remove_clip (self, clip):
+    #python wrapper for 'ges_layer_remove_clip'</code></pre>
+
+<p>Removes the given clip from the layer.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>layer</code></em></i>
+<span>(</span><a title="GES.Layer" href="gst-editing-services/geslayer.html#GESLayer">GES.Layer</a><span>)</span>
+–
+</div>
+<p>The <a href="gst-editing-services/geslayer.html#GESLayer">GES.Layer</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>clip</code></em></i>
+<span>(</span><a title="GES.Clip" href="gst-editing-services/gesclip.html#GESClip">GES.Clip</a><span>)</span>
+–
+</div>
+<p>The clip to remove</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a><span>)</span>
+–
+			</div>
+							<p><a href="https://docs.python.org/3/library/constants.html#True">True</a> if <em>clip</em> was removed from <em>layer</em>, or <a href="https://docs.python.org/3/library/constants.html#False">False</a> if the
+operation failed.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.18;" id="ges_layer_set_active_for_tracks">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="ges_layer_set_active_for_tracks">
+	<i>ges_layer_set_active_for_tracks</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a>
+ges_layer_set_active_for_tracks (<a title="GESLayer" href="gst-editing-services/geslayer.html#GESLayer">GESLayer</a> * layer,
+                                 <a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a> active,
+                                 <a title="GList" href="https://docs.gtk.org/glib/struct.List.html">GList</a> * tracks)</pre>
+
+<p>Activate or deactivate track elements in <em>tracks</em> (or in all tracks if <em>tracks</em>
+is <a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#NULL:CAPS">NULL</a>).</p>
+<p>When a layer is deactivated for a track, all the <a href="gst-editing-services/gestrackelement.html#GESTrackElement">GESTrackElement</a>-s in
+the track that belong to a <a href="gst-editing-services/gesclip.html#GESClip">GESClip</a> in the layer will no longer be
+active in the track, regardless of their individual
+<a href="gst-editing-services/gestrackelement.html#GESTrackElement:active">active</a> value.</p>
+<p>Note that by default a layer will be active for all of its
+timeline's tracks.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>layer</code></em></i>
+–
+</div>
+<p>The <a href="gst-editing-services/geslayer.html#GESLayer">GESLayer</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>active</code></em></i>
+–
+</div>
+<p>Whether elements in <em>tracks</em> should be active or not</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>tracks</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="Don't free data after the code is done"><span class="acronym">transfer: none</span></abbr>]</span><span class="annotation">[<abbr title="Generic and defining element of containers and arrays"><span class="acronym">element-type</span></abbr> GESTrack]</span><span class="annotation">[<abbr title="NULL is OK, both for passing and returning"><span class="acronym">allow-none</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>The list of
+tracks <em>layer</em> should be (de-)active in, or <a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#NULL:CAPS">NULL</a> to include all the tracks
+in the <em>layer</em>'s timeline</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p><a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#TRUE:CAPS">TRUE</a> if the operation worked <a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#FALSE:CAPS">FALSE</a> otherwise.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="ges_layer_set_active_for_tracks">
+	<i>GES.Layer.prototype.set_active_for_tracks</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GES.Layer.prototype.set_active_for_tracks(active: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>, tracks: [ <a title="GES.Track" href="gst-editing-services/gestrack.html#GESTrack">GES.Track</a> ]): {
+    // javascript wrapper for 'ges_layer_set_active_for_tracks'
+}</code></pre>
+
+<p>Activate or deactivate track elements in <em>tracks</em> (or in all tracks if <em>tracks</em>
+is <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null">null</a>).</p>
+<p>When a layer is deactivated for a track, all the <a href="gst-editing-services/gestrackelement.html#GESTrackElement">GES.TrackElement</a>-s in
+the track that belong to a <a href="gst-editing-services/gesclip.html#GESClip">GES.Clip</a> in the layer will no longer be
+active in the track, regardless of their individual
+<a href="gst-editing-services/gestrackelement.html#GESTrackElement:active">active</a> value.</p>
+<p>Note that by default a layer will be active for all of its
+timeline's tracks.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>layer</code></em></i>
+<span>(</span><a title="GES.Layer" href="gst-editing-services/geslayer.html#GESLayer">GES.Layer</a><span>)</span>
+–
+</div>
+<p>The <a href="gst-editing-services/geslayer.html#GESLayer">GES.Layer</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>active</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>Whether elements in <em>tracks</em> should be active or not</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>tracks</code></em></i>
+<span>(</span>[ <a title="GES.Track" href="gst-editing-services/gestrack.html#GESTrack">GES.Track</a> ]<span>)</span>
+–
+</div>
+<p>The list of
+tracks <em>layer</em> should be (de-)active in, or <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null">null</a> to include all the tracks
+in the <em>layer</em>'s timeline</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+			</div>
+							<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">true</a> if the operation worked <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">false</a> otherwise.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="ges_layer_set_active_for_tracks">
+	<i>GES.Layer.set_active_for_tracks</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GES.Layer.set_active_for_tracks (self, active, tracks):
+    #python wrapper for 'ges_layer_set_active_for_tracks'</code></pre>
+
+<p>Activate or deactivate track elements in <em>tracks</em> (or in all tracks if <em>tracks</em>
+is <a href="https://docs.python.org/3/library/constants.html#None">None</a>).</p>
+<p>When a layer is deactivated for a track, all the <a href="gst-editing-services/gestrackelement.html#GESTrackElement">GES.TrackElement</a>-s in
+the track that belong to a <a href="gst-editing-services/gesclip.html#GESClip">GES.Clip</a> in the layer will no longer be
+active in the track, regardless of their individual
+<a href="gst-editing-services/gestrackelement.html#GESTrackElement:active">active</a> value.</p>
+<p>Note that by default a layer will be active for all of its
+timeline's tracks.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>layer</code></em></i>
+<span>(</span><a title="GES.Layer" href="gst-editing-services/geslayer.html#GESLayer">GES.Layer</a><span>)</span>
+–
+</div>
+<p>The <a href="gst-editing-services/geslayer.html#GESLayer">GES.Layer</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>active</code></em></i>
+<span>(</span><a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a><span>)</span>
+–
+</div>
+<p>Whether elements in <em>tracks</em> should be active or not</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>tracks</code></em></i>
+<span>(</span>[ <a title="GES.Track" href="gst-editing-services/gestrack.html#GESTrack">GES.Track</a> ]<span>)</span>
+–
+</div>
+<p>The list of
+tracks <em>layer</em> should be (de-)active in, or <a href="https://docs.python.org/3/library/constants.html#None">None</a> to include all the tracks
+in the <em>layer</em>'s timeline</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a><span>)</span>
+–
+			</div>
+							<p><a href="https://docs.python.org/3/library/constants.html#True">True</a> if the operation worked <a href="https://docs.python.org/3/library/constants.html#False">False</a> otherwise.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="ges_layer_set_auto_transition">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="ges_layer_set_auto_transition">
+	<i>ges_layer_set_auto_transition</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+ges_layer_set_auto_transition (<a title="GESLayer" href="gst-editing-services/geslayer.html#GESLayer">GESLayer</a> * layer,
+                               <a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a> auto_transition)</pre>
+
+<p>Sets <a href="gst-editing-services/geslayer.html#GESLayer:auto-transition">auto-transition</a> for the layer. Use
+<a href="gst-editing-services/gestimeline.html#ges_timeline_set_auto_transition">ges_timeline_set_auto_transition</a> if you want all layers within a
+<a href="gst-editing-services/gestimeline.html#GESTimeline">GESTimeline</a> to have <a href="gst-editing-services/geslayer.html#GESLayer:auto-transition">auto-transition</a> set to <a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#TRUE:CAPS">TRUE</a>. Use this
+method if you want different values for different layers (and make sure
+to keep <a href="gst-editing-services/gestimeline.html#GESTimeline:auto-transition">auto-transition</a> as <a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#FALSE:CAPS">FALSE</a> for the corresponding
+timeline).</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>layer</code></em></i>
+–
+</div>
+<p>The <a href="gst-editing-services/geslayer.html#GESLayer">GESLayer</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>auto_transition</code></em></i>
+–
+</div>
+<p>Whether transitions should be automatically added to
+the layer</p>
+
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="ges_layer_set_auto_transition">
+	<i>GES.Layer.prototype.set_auto_transition</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GES.Layer.prototype.set_auto_transition(auto_transition: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>): {
+    // javascript wrapper for 'ges_layer_set_auto_transition'
+}</code></pre>
+
+<p>Sets <a href="gst-editing-services/geslayer.html#GESLayer:auto-transition">auto-transition</a> for the layer. Use
+<a href="gst-editing-services/gestimeline.html#ges_timeline_set_auto_transition">GES.Timeline.prototype.set_auto_transition</a> if you want all layers within a
+<a href="gst-editing-services/gestimeline.html#GESTimeline">GES.Timeline</a> to have <a href="gst-editing-services/geslayer.html#GESLayer:auto-transition">auto-transition</a> set to <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">true</a>. Use this
+method if you want different values for different layers (and make sure
+to keep <a href="gst-editing-services/gestimeline.html#GESTimeline:auto-transition">auto-transition</a> as <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">false</a> for the corresponding
+timeline).</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>layer</code></em></i>
+<span>(</span><a title="GES.Layer" href="gst-editing-services/geslayer.html#GESLayer">GES.Layer</a><span>)</span>
+–
+</div>
+<p>The <a href="gst-editing-services/geslayer.html#GESLayer">GES.Layer</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>auto_transition</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>Whether transitions should be automatically added to
+the layer</p>
+
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="ges_layer_set_auto_transition">
+	<i>GES.Layer.set_auto_transition</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GES.Layer.set_auto_transition (self, auto_transition):
+    #python wrapper for 'ges_layer_set_auto_transition'</code></pre>
+
+<p>Sets <a href="gst-editing-services/geslayer.html#GESLayer:auto-transition">auto_transition</a> for the layer. Use
+<a href="gst-editing-services/gestimeline.html#ges_timeline_set_auto_transition">GES.Timeline.set_auto_transition</a> if you want all layers within a
+<a href="gst-editing-services/gestimeline.html#GESTimeline">GES.Timeline</a> to have <a href="gst-editing-services/geslayer.html#GESLayer:auto-transition">auto_transition</a> set to <a href="https://docs.python.org/3/library/constants.html#True">True</a>. Use this
+method if you want different values for different layers (and make sure
+to keep <a href="gst-editing-services/gestimeline.html#GESTimeline:auto-transition">auto_transition</a> as <a href="https://docs.python.org/3/library/constants.html#False">False</a> for the corresponding
+timeline).</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>layer</code></em></i>
+<span>(</span><a title="GES.Layer" href="gst-editing-services/geslayer.html#GESLayer">GES.Layer</a><span>)</span>
+–
+</div>
+<p>The <a href="gst-editing-services/geslayer.html#GESLayer">GES.Layer</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>auto_transition</code></em></i>
+<span>(</span><a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a><span>)</span>
+–
+</div>
+<p>Whether transitions should be automatically added to
+the layer</p>
+
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="deprecated:1.16.0;" id="ges_layer_set_priority">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="ges_layer_set_priority">
+	<i>ges_layer_set_priority</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+ges_layer_set_priority (<a title="GESLayer" href="gst-editing-services/geslayer.html#GESLayer">GESLayer</a> * layer,
+                        <a title="guint" href="https://docs.gtk.org/glib/types.html#guint">guint</a> priority)</pre>
+
+<p>Sets the layer to the given priority. See <a href="gst-editing-services/geslayer.html#GESLayer:priority">priority</a>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>layer</code></em></i>
+–
+</div>
+<p>The <a href="gst-editing-services/geslayer.html#GESLayer">GESLayer</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>priority</code></em></i>
+–
+</div>
+<p>The priority to set</p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>deprecated</b>			: 1.16.0: use #ges_timeline_move_layer instead. This deprecation means
+ that you will not need to handle layer priorities at all yourself, GES
+ will make sure there is never 'gaps' between layer priorities.
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="ges_layer_set_priority">
+	<i>GES.Layer.prototype.set_priority</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GES.Layer.prototype.set_priority(priority: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>): {
+    // javascript wrapper for 'ges_layer_set_priority'
+}</code></pre>
+
+<p>Sets the layer to the given priority. See <a href="gst-editing-services/geslayer.html#GESLayer:priority">priority</a>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>layer</code></em></i>
+<span>(</span><a title="GES.Layer" href="gst-editing-services/geslayer.html#GESLayer">GES.Layer</a><span>)</span>
+–
+</div>
+<p>The <a href="gst-editing-services/geslayer.html#GESLayer">GES.Layer</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>priority</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>The priority to set</p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>deprecated</b>			: 1.16.0: use #ges_timeline_move_layer instead. This deprecation means
+ that you will not need to handle layer priorities at all yourself, GES
+ will make sure there is never 'gaps' between layer priorities.
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="ges_layer_set_priority">
+	<i>GES.Layer.set_priority</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GES.Layer.set_priority (self, priority):
+    #python wrapper for 'ges_layer_set_priority'</code></pre>
+
+<p>Sets the layer to the given priority. See <a href="gst-editing-services/geslayer.html#GESLayer:priority">priority</a>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>layer</code></em></i>
+<span>(</span><a title="GES.Layer" href="gst-editing-services/geslayer.html#GESLayer">GES.Layer</a><span>)</span>
+–
+</div>
+<p>The <a href="gst-editing-services/geslayer.html#GESLayer">GES.Layer</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>priority</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<p>The priority to set</p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>deprecated</b>			: 1.16.0: use #ges_timeline_move_layer instead. This deprecation means
+ that you will not need to handle layer priorities at all yourself, GES
+ will make sure there is never 'gaps' between layer priorities.
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="ges_layer_set_timeline">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="ges_layer_set_timeline">
+	<i>ges_layer_set_timeline</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+ges_layer_set_timeline (<a title="GESLayer" href="gst-editing-services/geslayer.html#GESLayer">GESLayer</a> * layer,
+                        <a title="GESTimeline" href="gst-editing-services/gestimeline.html#GESTimeline">GESTimeline</a> * timeline)</pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>layer</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>timeline</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="ges_layer_set_timeline">
+	<i>GES.Layer.prototype.set_timeline</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GES.Layer.prototype.set_timeline(timeline: <a title="GES.Timeline" href="gst-editing-services/gestimeline.html#GESTimeline">GES.Timeline</a>): {
+    // javascript wrapper for 'ges_layer_set_timeline'
+}</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>layer</code></em></i>
+<span>(</span><a title="GES.Layer" href="gst-editing-services/geslayer.html#GESLayer">GES.Layer</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>timeline</code></em></i>
+<span>(</span><a title="GES.Timeline" href="gst-editing-services/gestimeline.html#GESTimeline">GES.Timeline</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="ges_layer_set_timeline">
+	<i>GES.Layer.set_timeline</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GES.Layer.set_timeline (self, timeline):
+    #python wrapper for 'ges_layer_set_timeline'</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>layer</code></em></i>
+<span>(</span><a title="GES.Layer" href="gst-editing-services/geslayer.html#GESLayer">GES.Layer</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>timeline</code></em></i>
+<span>(</span><a title="GES.Timeline" href="gst-editing-services/gestimeline.html#GESTimeline">GES.Timeline</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+
+            <h3 class="symbol_section">Signals</h3>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.18;" id="GESLayer::active-changed">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GESLayer::active-changed">
+	<i>active-changed</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+active_changed_callback (<a title="GESLayer" href="gst-editing-services/geslayer.html#GESLayer">GESLayer</a> * self,
+                         <a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a> active,
+                         <a title="GESTrack" href="gst-editing-services/gestrack.html#GESTrack">GESTrack</a> * tracks,
+                         <a title="gpointer" href="https://docs.gtk.org/glib/types.html#gpointer">gpointer</a> user_data)</pre>
+
+<p>Will be emitted whenever the layer is activated or deactivated
+for some <a href="gst-editing-services/gestrack.html#GESTrack">GESTrack</a>. See <a href="gst-editing-services/geslayer.html#ges_layer_set_active_for_tracks">ges_layer_set_active_for_tracks</a>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>active</code></em></i>
+–
+</div>
+<p>Whether <em>layer</em> has been made active or de-active in the <em>tracks</em></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>tracks</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="Generic and defining element of containers and arrays"><span class="acronym">element-type</span></abbr> GESTrack]</span><span class="annotation">[<abbr title="Don't free data after the code is done"><span class="acronym">transfer: none</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>A list of <a href="gst-editing-services/gestrack.html#GESTrack">GESTrack</a>
+which have been activated or deactivated</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>user_data</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+<p>
+	<b>Flags:</b>	
+	
+		
+				<a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-FIRST:CAPS">Run First</a>
+			
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GESLayer::active-changed">
+	<i>active-changed</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function active_changed_callback(self: <a title="GES.Layer" href="gst-editing-services/geslayer.html#GESLayer">GES.Layer</a>, active: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>, tracks: [ <a title="GES.Track" href="gst-editing-services/gestrack.html#GESTrack">GES.Track</a> ], user_data: <a title="Object" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>): {
+    // javascript callback for the 'active-changed' signal
+}</code></pre>
+
+<p>Will be emitted whenever the layer is activated or deactivated
+for some <a href="gst-editing-services/gestrack.html#GESTrack">GES.Track</a>. See <a href="gst-editing-services/geslayer.html#ges_layer_set_active_for_tracks">GES.Layer.prototype.set_active_for_tracks</a>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+<span>(</span><a title="GES.Layer" href="gst-editing-services/geslayer.html#GESLayer">GES.Layer</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>active</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>Whether <em>layer</em> has been made active or de-active in the <em>tracks</em></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>tracks</code></em></i>
+<span>(</span>[ <a title="GES.Track" href="gst-editing-services/gestrack.html#GESTrack">GES.Track</a> ]<span>)</span>
+–
+</div>
+<p>A list of <a href="gst-editing-services/gestrack.html#GESTrack">GES.Track</a>
+which have been activated or deactivated</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>user_data</code></em></i>
+<span>(</span><a title="Object" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+<p>
+	<b>Flags:</b>	
+	
+		
+				<a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-FIRST:CAPS">Run First</a>
+			
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GESLayer::active-changed">
+	<i>active-changed</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def active_changed_callback (self, active, tracks, *user_data):
+    #python callback for the 'active-changed' signal</code></pre>
+
+<p>Will be emitted whenever the layer is activated or deactivated
+for some <a href="gst-editing-services/gestrack.html#GESTrack">GES.Track</a>. See <a href="gst-editing-services/geslayer.html#ges_layer_set_active_for_tracks">GES.Layer.set_active_for_tracks</a>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+<span>(</span><a title="GES.Layer" href="gst-editing-services/geslayer.html#GESLayer">GES.Layer</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>active</code></em></i>
+<span>(</span><a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a><span>)</span>
+–
+</div>
+<p>Whether <em>layer</em> has been made active or de-active in the <em>tracks</em></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>tracks</code></em></i>
+<span>(</span>[ <a title="GES.Track" href="gst-editing-services/gestrack.html#GESTrack">GES.Track</a> ]<span>)</span>
+–
+</div>
+<p>A list of <a href="gst-editing-services/gestrack.html#GESTrack">GES.Track</a>
+which have been activated or deactivated</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>user_data</code></em></i>
+<span>(</span><a title="variadic" href="https://docs.python.org/dev/tutorial/controlflow.html#arbitrary-argument-lists">variadic</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+<p>
+	<b>Flags:</b>	
+	
+		
+				<a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-FIRST:CAPS">Run First</a>
+			
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GESLayer::clip-added">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GESLayer::clip-added">
+	<i>clip-added</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+clip_added_callback (<a title="GESLayer" href="gst-editing-services/geslayer.html#GESLayer">GESLayer</a> * self,
+                     <a title="GESClip" href="gst-editing-services/gesclip.html#GESClip">GESClip</a> * clip,
+                     <a title="gpointer" href="https://docs.gtk.org/glib/types.html#gpointer">gpointer</a> user_data)</pre>
+
+<p>Will be emitted after the clip is added to the layer.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>clip</code></em></i>
+–
+</div>
+<p>The clip that was added</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>user_data</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+<p>
+	<b>Flags:</b>	
+	
+		
+				<a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-FIRST:CAPS">Run First</a>
+			
+</p>
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GESLayer::clip-added">
+	<i>clip-added</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function clip_added_callback(self: <a title="GES.Layer" href="gst-editing-services/geslayer.html#GESLayer">GES.Layer</a>, clip: <a title="GES.Clip" href="gst-editing-services/gesclip.html#GESClip">GES.Clip</a>, user_data: <a title="Object" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>): {
+    // javascript callback for the 'clip-added' signal
+}</code></pre>
+
+<p>Will be emitted after the clip is added to the layer.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+<span>(</span><a title="GES.Layer" href="gst-editing-services/geslayer.html#GESLayer">GES.Layer</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>clip</code></em></i>
+<span>(</span><a title="GES.Clip" href="gst-editing-services/gesclip.html#GESClip">GES.Clip</a><span>)</span>
+–
+</div>
+<p>The clip that was added</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>user_data</code></em></i>
+<span>(</span><a title="Object" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+<p>
+	<b>Flags:</b>	
+	
+		
+				<a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-FIRST:CAPS">Run First</a>
+			
+</p>
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GESLayer::clip-added">
+	<i>clip-added</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def clip_added_callback (self, clip, *user_data):
+    #python callback for the 'clip-added' signal</code></pre>
+
+<p>Will be emitted after the clip is added to the layer.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+<span>(</span><a title="GES.Layer" href="gst-editing-services/geslayer.html#GESLayer">GES.Layer</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>clip</code></em></i>
+<span>(</span><a title="GES.Clip" href="gst-editing-services/gesclip.html#GESClip">GES.Clip</a><span>)</span>
+–
+</div>
+<p>The clip that was added</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>user_data</code></em></i>
+<span>(</span><a title="variadic" href="https://docs.python.org/dev/tutorial/controlflow.html#arbitrary-argument-lists">variadic</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+<p>
+	<b>Flags:</b>	
+	
+		
+				<a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-FIRST:CAPS">Run First</a>
+			
+</p>
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GESLayer::clip-removed">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GESLayer::clip-removed">
+	<i>clip-removed</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+clip_removed_callback (<a title="GESLayer" href="gst-editing-services/geslayer.html#GESLayer">GESLayer</a> * self,
+                       <a title="GESClip" href="gst-editing-services/gesclip.html#GESClip">GESClip</a> * clip,
+                       <a title="gpointer" href="https://docs.gtk.org/glib/types.html#gpointer">gpointer</a> user_data)</pre>
+
+<p>Will be emitted after the clip is removed from the layer.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>clip</code></em></i>
+–
+</div>
+<p>The clip that was removed</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>user_data</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+<p>
+	<b>Flags:</b>	
+	
+		
+				<a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-FIRST:CAPS">Run First</a>
+			
+</p>
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GESLayer::clip-removed">
+	<i>clip-removed</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function clip_removed_callback(self: <a title="GES.Layer" href="gst-editing-services/geslayer.html#GESLayer">GES.Layer</a>, clip: <a title="GES.Clip" href="gst-editing-services/gesclip.html#GESClip">GES.Clip</a>, user_data: <a title="Object" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>): {
+    // javascript callback for the 'clip-removed' signal
+}</code></pre>
+
+<p>Will be emitted after the clip is removed from the layer.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+<span>(</span><a title="GES.Layer" href="gst-editing-services/geslayer.html#GESLayer">GES.Layer</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>clip</code></em></i>
+<span>(</span><a title="GES.Clip" href="gst-editing-services/gesclip.html#GESClip">GES.Clip</a><span>)</span>
+–
+</div>
+<p>The clip that was removed</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>user_data</code></em></i>
+<span>(</span><a title="Object" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+<p>
+	<b>Flags:</b>	
+	
+		
+				<a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-FIRST:CAPS">Run First</a>
+			
+</p>
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GESLayer::clip-removed">
+	<i>clip-removed</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def clip_removed_callback (self, clip, *user_data):
+    #python callback for the 'clip-removed' signal</code></pre>
+
+<p>Will be emitted after the clip is removed from the layer.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+<span>(</span><a title="GES.Layer" href="gst-editing-services/geslayer.html#GESLayer">GES.Layer</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>clip</code></em></i>
+<span>(</span><a title="GES.Clip" href="gst-editing-services/gesclip.html#GESClip">GES.Clip</a><span>)</span>
+–
+</div>
+<p>The clip that was removed</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>user_data</code></em></i>
+<span>(</span><a title="variadic" href="https://docs.python.org/dev/tutorial/controlflow.html#arbitrary-argument-lists">variadic</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+<p>
+	<b>Flags:</b>	
+	
+		
+				<a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-FIRST:CAPS">Run First</a>
+			
+</p>
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+
+            <h3 class="symbol_section">Properties</h3>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GESLayer:auto-transition">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GESLayer:auto-transition">
+	<i>auto-transition</i>
+</h4>
+
+
+<pre class="property_signature">
+“auto-transition” <span class="type"><a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a></span>
+</pre>
+
+<p>Whether to automatically create a <a href="gst-editing-services/gestransitionclip.html#GESTransitionClip">GESTransitionClip</a> whenever two
+<a href="gst-editing-services/gessource.html#GESSource">GESSource</a>-s that both belong to a <a href="gst-editing-services/gesclip.html#GESClip">GESClip</a> in the layer overlap.
+See <a href="gst-editing-services/gestimeline.html#GESTimeline">GESTimeline</a> for what counts as an overlap.</p>
+<p>When a layer is added to a <a href="gst-editing-services/gestimeline.html#GESTimeline">GESTimeline</a>, if this property is left as
+<a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#FALSE:CAPS">FALSE</a>, but the timeline's <a href="gst-editing-services/gestimeline.html#GESTimeline:auto-transition">auto-transition</a> is <a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#TRUE:CAPS">TRUE</a>, it
+will be set to <a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#TRUE:CAPS">TRUE</a> as well.</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GESLayer:auto-transition">
+	<i>auto-transition</i>
+</h4>
+
+
+<pre class="property_signature">
+“auto-transition” <span class="type"><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a></span>
+</pre>
+
+<p>Whether to automatically create a <a href="gst-editing-services/gestransitionclip.html#GESTransitionClip">GES.TransitionClip</a> whenever two
+<a href="gst-editing-services/gessource.html#GESSource">GES.Source</a>-s that both belong to a <a href="gst-editing-services/gesclip.html#GESClip">GES.Clip</a> in the layer overlap.
+See <a href="gst-editing-services/gestimeline.html#GESTimeline">GES.Timeline</a> for what counts as an overlap.</p>
+<p>When a layer is added to a <a href="gst-editing-services/gestimeline.html#GESTimeline">GES.Timeline</a>, if this property is left as
+<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">false</a>, but the timeline's <a href="gst-editing-services/gestimeline.html#GESTimeline:auto-transition">auto-transition</a> is <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">true</a>, it
+will be set to <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">true</a> as well.</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GESLayer:auto-transition">
+	<i>auto_transition</i>
+</h4>
+
+
+<pre class="property_signature">
+“self.props.auto_transition” <span class="type"><a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a></span>
+</pre>
+
+<p>Whether to automatically create a <a href="gst-editing-services/gestransitionclip.html#GESTransitionClip">GES.TransitionClip</a> whenever two
+<a href="gst-editing-services/gessource.html#GESSource">GES.Source</a>-s that both belong to a <a href="gst-editing-services/gesclip.html#GESClip">GES.Clip</a> in the layer overlap.
+See <a href="gst-editing-services/gestimeline.html#GESTimeline">GES.Timeline</a> for what counts as an overlap.</p>
+<p>When a layer is added to a <a href="gst-editing-services/gestimeline.html#GESTimeline">GES.Timeline</a>, if this property is left as
+<a href="https://docs.python.org/3/library/constants.html#False">False</a>, but the timeline's <a href="gst-editing-services/gestimeline.html#GESTimeline:auto-transition">auto_transition</a> is <a href="https://docs.python.org/3/library/constants.html#True">True</a>, it
+will be set to <a href="https://docs.python.org/3/library/constants.html#True">True</a> as well.</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="deprecated:1.16.0;" id="GESLayer:priority">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GESLayer:priority">
+	<i>priority</i>
+</h4>
+
+
+<pre class="property_signature">
+“priority” <span class="type"><a title="guint" href="https://docs.gtk.org/glib/types.html#guint">guint</a></span>
+</pre>
+
+<p>The priority of the layer in the <a href="gst-editing-services/gestimeline.html#GESTimeline">GESTimeline</a>. 0 is the highest
+priority. Conceptually, a timeline is a stack of layers,
+and the priority of the layer represents its position in the stack. Two
+layers should not have the same priority within a given GESTimeline.</p>
+<p>Note that the timeline needs to be committed (with <a href="gst-editing-services/gestimeline.html#ges_timeline_commit">ges_timeline_commit</a>)
+for the change to be taken into account.</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+
+
+	<p>
+	<b>deprecated</b>			: 1.16.0: use #ges_timeline_move_layer instead. This deprecation means
+ that you will not need to handle layer priorities at all yourself, GES
+ will make sure there is never 'gaps' between layer priorities.
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GESLayer:priority">
+	<i>priority</i>
+</h4>
+
+
+<pre class="property_signature">
+“priority” <span class="type"><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a></span>
+</pre>
+
+<p>The priority of the layer in the <a href="gst-editing-services/gestimeline.html#GESTimeline">GES.Timeline</a>. 0 is the highest
+priority. Conceptually, a timeline is a stack of layers,
+and the priority of the layer represents its position in the stack. Two
+layers should not have the same priority within a given GESTimeline.</p>
+<p>Note that the timeline needs to be committed (with <a href="gst-editing-services/gestimeline.html#ges_timeline_commit">GES.Timeline.prototype.commit</a>)
+for the change to be taken into account.</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+
+
+	<p>
+	<b>deprecated</b>			: 1.16.0: use #ges_timeline_move_layer instead. This deprecation means
+ that you will not need to handle layer priorities at all yourself, GES
+ will make sure there is never 'gaps' between layer priorities.
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GESLayer:priority">
+	<i>priority</i>
+</h4>
+
+
+<pre class="property_signature">
+“self.props.priority” <span class="type"><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a></span>
+</pre>
+
+<p>The priority of the layer in the <a href="gst-editing-services/gestimeline.html#GESTimeline">GES.Timeline</a>. 0 is the highest
+priority. Conceptually, a timeline is a stack of layers,
+and the priority of the layer represents its position in the stack. Two
+layers should not have the same priority within a given GESTimeline.</p>
+<p>Note that the timeline needs to be committed (with <a href="gst-editing-services/gestimeline.html#ges_timeline_commit">GES.Timeline.commit</a>)
+for the change to be taken into account.</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+
+
+	<p>
+	<b>deprecated</b>			: 1.16.0: use #ges_timeline_move_layer instead. This deprecation means
+ that you will not need to handle layer priorities at all yourself, GES
+ will make sure there is never 'gaps' between layer priorities.
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+
+            <h3 class="symbol_section">Virtual Methods</h3>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GESLayerClass::get_objects">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GESLayerClass::get_objects">
+	<i>get_objects</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GList" href="https://docs.gtk.org/glib/struct.List.html">GList</a> *
+get_objects (<a title="GESLayer" href="gst-editing-services/geslayer.html#GESLayer">GESLayer</a> * layer)</pre>
+
+<p>method to get the objects contained in the layer</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>layer</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GESLayerClass::object_added">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GESLayerClass::object_added">
+	<i>object_added</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+object_added (<a title="GESLayer" href="gst-editing-services/geslayer.html#GESLayer">GESLayer</a> * layer,
+              <a title="GESClip" href="gst-editing-services/gesclip.html#GESClip">GESClip</a> * object)</pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>layer</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>object</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GESLayerClass::object_added">
+	<i>vfunc_object_added</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function vfunc_object_added(layer: <a title="GES.Layer" href="gst-editing-services/geslayer.html#GESLayer">GES.Layer</a>, object: <a title="GES.Clip" href="gst-editing-services/gesclip.html#GESClip">GES.Clip</a>): {
+    // javascript implementation of the 'object_added' virtual method
+}</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>layer</code></em></i>
+<span>(</span><a title="GES.Layer" href="gst-editing-services/geslayer.html#GESLayer">GES.Layer</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>object</code></em></i>
+<span>(</span><a title="GES.Clip" href="gst-editing-services/gesclip.html#GESClip">GES.Clip</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GESLayerClass::object_added">
+	<i>do_object_added</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def do_object_added (layer, object):
+    #python implementation of the 'object_added' virtual method</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>layer</code></em></i>
+<span>(</span><a title="GES.Layer" href="gst-editing-services/geslayer.html#GESLayer">GES.Layer</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>object</code></em></i>
+<span>(</span><a title="GES.Clip" href="gst-editing-services/gesclip.html#GESClip">GES.Clip</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GESLayerClass::object_removed">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GESLayerClass::object_removed">
+	<i>object_removed</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+object_removed (<a title="GESLayer" href="gst-editing-services/geslayer.html#GESLayer">GESLayer</a> * layer,
+                <a title="GESClip" href="gst-editing-services/gesclip.html#GESClip">GESClip</a> * object)</pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>layer</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>object</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GESLayerClass::object_removed">
+	<i>vfunc_object_removed</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function vfunc_object_removed(layer: <a title="GES.Layer" href="gst-editing-services/geslayer.html#GESLayer">GES.Layer</a>, object: <a title="GES.Clip" href="gst-editing-services/gesclip.html#GESClip">GES.Clip</a>): {
+    // javascript implementation of the 'object_removed' virtual method
+}</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>layer</code></em></i>
+<span>(</span><a title="GES.Layer" href="gst-editing-services/geslayer.html#GESLayer">GES.Layer</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>object</code></em></i>
+<span>(</span><a title="GES.Clip" href="gst-editing-services/gesclip.html#GESClip">GES.Clip</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GESLayerClass::object_removed">
+	<i>do_object_removed</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def do_object_removed (layer, object):
+    #python implementation of the 'object_removed' virtual method</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>layer</code></em></i>
+<span>(</span><a title="GES.Layer" href="gst-editing-services/geslayer.html#GESLayer">GES.Layer</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>object</code></em></i>
+<span>(</span><a title="GES.Clip" href="gst-editing-services/gesclip.html#GESClip">GES.Clip</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+
+        
+
+            <h2 class="symbol_section">Constants</h2>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GES_TYPE_LAYER">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GES_TYPE_LAYER">
+	<i>GES_TYPE_LAYER</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GES_TYPE_LAYER ges_layer_get_type()
+</pre>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+
+
+
+
+
+		
+	</div>
+	<div id="search_results">
+		<p>The results of the search are</p>
+	</div>
+	<div id="footer">
+		    
+
+	</div>
+</div>
+
+<div id="toc-column">
+	
+		<div class="edit-button">
+		
+
+	</div>
+		<div id="toc-wrapper">
+		<nav id="toc"></nav>
+	</div>
+</div>
+</div>
+</main>
+
+
+<script src="assets/js/navbar_offset_scroller.js"></script>
+</body>
+</html>

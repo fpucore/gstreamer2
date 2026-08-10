@@ -1,0 +1,2836 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<base href="..">
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<title>avenc_pam</title>
+
+<link rel="stylesheet" href="assets/css/dark-frontend.css" type="text/css" title="dark">
+<link rel="alternate stylesheet" href="assets/css/light-frontend.css" type="text/css" title="light">
+<link rel="stylesheet" href="assets/css/bootstrap-toc.min.css" type="text/css">
+<link rel="stylesheet" href="assets/css/jquery.mCustomScrollbar.min.css">
+<link rel="stylesheet" href="assets/js/search/enable_search.css" type="text/css">
+
+<link rel="stylesheet" href="assets/css/extra_frontend.css" type="text/css">
+<link rel="stylesheet" href="assets/css/devhelp.css" type="text/css">
+
+<link rel="stylesheet" href="assets/css/prism-tomorrow.css" type="text/css" title="dark">
+
+<link rel="alternate stylesheet" href="assets/css/prism.css" type="text/css" title="light">
+
+<script src="assets/js/mustache.min.js"></script>
+<script src="assets/js/jquery.js"></script>
+<script src="assets/js/bootstrap.js"></script>
+<script src="assets/js/scrollspy.js"></script>
+<script src="assets/js/typeahead.jquery.min.js"></script>
+<script src="assets/js/search.js"></script>
+<script src="assets/js/compare-versions.js"></script>
+<script src="assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="assets/js/bootstrap-toc.min.js"></script>
+<script src="assets/js/jquery.touchSwipe.min.js"></script>
+<script src="assets/js/anchor.min.js"></script>
+<script src="assets/js/tag_filtering.js"></script>
+<script src="assets/js/language_switching.js"></script>
+<script src="assets/js/styleswitcher.js"></script>
+
+<script src="assets/js/lines_around_headings.js"></script>
+
+<script src="assets/js/prism-core.js"></script>
+<script src="assets/js/prism-autoloader.js"></script>
+<script src="assets/js/prism_autoloader_path_override.js"></script>
+<script src="assets/js/trie.js"></script>
+
+<!-- generic -->
+<link rel="icon" type="image/png" href="assets/images/favicon-16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="assets/images/favicon-32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="assets/images/favicon-57.png" sizes="57x57">
+<link rel="icon" type="image/png" href="assets/images/favicon-64.png" sizes="64x64">
+<link rel="icon" type="image/png" href="assets/images/favicon-76.png" sizes="76x76">
+<link rel="icon" type="image/png" href="assets/images/favicon-96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="assets/images/favicon-128.png" sizes="128x128">
+<link rel="icon" type="image/png" href="assets/images/favicon-192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="assets/images/favicon-228.png" sizes="228x228">
+
+<!-- Android -->
+<link rel="shortcut icon" sizes="196x196" href="assets/images/favicon-196.png">
+
+<!-- iOS -->
+<link rel="apple-touch-icon" href="assets/images/favicon-120.png" sizes="120x120">
+<link rel="apple-touch-icon" href="assets/images/favicon-152.png" sizes="152x152">
+<link rel="apple-touch-icon" href="assets/images/favicon-180.png" sizes="180x180">
+
+</head>
+
+<body class="no-script
+">
+
+<script>
+$('body').removeClass('no-script');
+</script>
+
+<nav class="navbar navbar-fixed-top navbar-default" id="topnav">
+	<div class="container-fluid">
+		<div class="navbar-right">
+			<a id="toc-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-wrapper" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<span title="light mode switch" class="glyphicon glyphicon-sunglasses pull-right" id="lightmode-icon"></span>
+			<form class="navbar-form pull-right" id="navbar-search-form">
+                               <div class="form-group has-feedback">
+                                       <input type="text" class="form-control input-sm" name="search" id="sidenav-lookup-field" placeholder="search" disabled>
+				       <span class="glyphicon glyphicon-search form-control-feedback" id="search-mgn-glass"></span>
+                               </div>
+                        </form>
+		</div>
+		<div class="navbar-header">
+			<a id="sidenav-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<a id="home-link" href="index.html" class="hotdoc-navbar-brand">
+				<img src="assets/images/gstreamer-logo.svg" alt="Home">
+			</a>
+		</div>
+		<div class="navbar-collapse collapse" id="navbar-wrapper">
+			<ul class="nav navbar-nav" id="menu">
+				
+<li class="dropdown">
+    <a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        API References<span class="caret"></span>
+    </a>
+	<ul class="dropdown-menu" id="modules-menu">
+					<li>
+				<a href="gstreamer/gi-index.html">GStreamer core</a>
+			</li>
+					<li>
+				<a href="libs.html">GStreamer Libraries</a>
+			</li>
+					<li>
+				<a href="plugins_doc.html">GStreamer Plugins</a>
+			</li>
+		</ul>
+</li>
+
+<li>
+    <a href="application-development/index.html">Application manual</a>
+</li>
+
+
+<li>
+    <a href="tutorials/index.html">Tutorials</a>
+</li>
+
+			</ul>
+			<div class="hidden-xs hidden-sm navbar-text navbar-center">
+							</div>
+		</div>
+	</div>
+</nav>
+
+<main>
+<div data-extension="gst-extension" data-hotdoc-in-toplevel="False" data-hotdoc-project="libav" data-hotdoc-ref="avenc_pam.html" class="page_container" id="page-wrapper" data-hotdoc-meta-gi-languages="['c', 'javascript', 'python']">
+<script src="assets/js/utils.js"></script>
+
+<div class="panel panel-collapse oc-collapsed" id="sidenav" data-hotdoc-role="navigation">
+	<script src="assets/js/full-width.js"></script>
+  <div id="sitenav-wrapper">
+    <iframe src="hotdoc-sitemap.html" id="sitenav-frame"></iframe>
+  </div>
+</div>
+
+<div id="body">
+	<div id="main">
+				    <div id="page-description" data-hotdoc-role="main">
+        <h1 id="avenc_pam-page">avenc_pam</h1>
+<p>libav pam encoder</p>
+
+    </div>
+        
+        
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="avenc_pam">
+	
+        
+
+        <h2>Hierarchy</h2>
+            <div class="hierarchy_container">
+                <div class="hierarchy_details">
+<pre>
+<a title="GObject" href="https://docs.gtk.org/gobject/class.Object.html" data-gi-href-javascript="https://docs.gtk.org/gobject/class.Object.html" data-gi-title-javascript="GObject.Object" data-gi-href-python="https://docs.gtk.org/gobject/class.Object.html" data-gi-title-python="GObject.Object">GObject</a>
+    <span class="lineart">╰──</span><a title="GInitiallyUnowned" href="https://docs.gtk.org/gobject/class.InitiallyUnowned.html" data-gi-href-javascript="https://docs.gtk.org/gobject/class.InitiallyUnowned.html" data-gi-title-javascript="GObject.InitiallyUnowned" data-gi-href-python="https://docs.gtk.org/gobject/class.InitiallyUnowned.html" data-gi-title-python="GObject.InitiallyUnowned">GInitiallyUnowned</a>
+        <span class="lineart">╰──</span><a title="GstObject" href="gstreamer/gstobject.html#GstObject" data-gi-href-javascript="gstreamer/gstobject.html#GstObject" data-gi-title-javascript="Gst.Object" data-gi-href-python="gstreamer/gstobject.html#GstObject" data-gi-title-python="Gst.Object">GstObject</a>
+            <span class="lineart">╰──</span><a title="GstElement" href="gstreamer/gstelement.html#GstElement" data-gi-href-javascript="gstreamer/gstelement.html#GstElement" data-gi-title-javascript="Gst.Element" data-gi-href-python="gstreamer/gstelement.html#GstElement" data-gi-title-python="Gst.Element">GstElement</a>
+                <span class="lineart">╰──</span><a title="GstVideoEncoder" href="video/gstvideoencoder.html#GstVideoEncoder" data-gi-href-javascript="video/gstvideoencoder.html#GstVideoEncoder" data-gi-title-javascript="GstVideo.VideoEncoder" data-gi-href-python="video/gstvideoencoder.html#GstVideoEncoder" data-gi-title-python="GstVideo.VideoEncoder">GstVideoEncoder</a>
+                    <span class="lineart">╰──</span>avenc_pam
+</pre>
+
+</div>
+
+            </div>
+            <h2>Implemented interfaces</h2>
+            <div>
+                <pre>
+<a title="GstPreset" href="gstreamer/gstpreset.html#GstPreset" data-gi-href-javascript="gstreamer/gstpreset.html#GstPreset" data-gi-title-javascript="Gst.Preset" data-gi-href-python="gstreamer/gstpreset.html#GstPreset" data-gi-title-python="Gst.Preset">GstPreset</a>
+</pre>
+            </div>
+        <h2 class="symbol_section">Factory details</h2>
+        <div class="symbol-detail">
+            <p><b>Authors:</b> – Wim Taymans <wim.taymans@gmail.com>, Ronald Bultje <rbultje@ronald.bitfreak.net></rbultje@ronald.bitfreak.net></wim.taymans@gmail.com></p>
+            <p><b>Classification:</b> – <code>Codec/Encoder/Video</code></p>
+            <p><b>Rank</b> – secondary</p>
+            <p><b>Plugin</b> – libav</p>
+            <p><b>Package</b> – GStreamer FFMPEG Plug-ins</p>
+        </div>
+
+</div>
+
+
+            <h2 class="symbol_section">Pad Templates</h2>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="avenc_pam!sink">
+	
+
+
+
+        <h3><span><code>sink</code></span></h3>
+
+
+        <div>
+            
+            <pre class="language-yaml"><code class="language-yaml">video/x-raw:
+         format: { RGB, RGBA, GRAY8, GRAY16_BE }
+</code></pre>
+            <div class="symbol-detail">
+                <p><b>Presence</b> – <i>always</i></p>
+                <p><b>Direction</b> – <i>sink</i></p>
+                    <p><b>Object type</b> – <a title="GstPad" href="gstreamer/gstpad.html#GstPad" data-gi-href-javascript="gstreamer/gstpad.html#GstPad" data-gi-title-javascript="Gst.Pad" data-gi-href-python="gstreamer/gstpad.html#GstPad" data-gi-title-python="Gst.Pad">GstPad</a></p>
+            </div>
+        </div>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="avenc_pam!src">
+	
+
+
+
+        <h3><span><code>src</code></span></h3>
+
+
+        <div>
+            
+            <pre class="language-yaml"><code class="language-yaml">image/x-portable-anymap:
+</code></pre>
+            <div class="symbol-detail">
+                <p><b>Presence</b> – <i>always</i></p>
+                <p><b>Direction</b> – <i>src</i></p>
+                    <p><b>Object type</b> – <a title="GstPad" href="gstreamer/gstpad.html#GstPad" data-gi-href-javascript="gstreamer/gstpad.html#GstPad" data-gi-title-javascript="Gst.Pad" data-gi-href-python="gstreamer/gstpad.html#GstPad" data-gi-title-python="Gst.Pad">GstPad</a></p>
+            </div>
+        </div>
+
+
+
+<hr>
+
+</div>
+
+
+            <h2 class="symbol_section">Properties</h2>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="avenc_pam:b-qfactor">
+	
+
+
+
+<h3 data-hotdoc-id="avenc_pam:b-qfactor">
+	<i>b-qfactor</i>
+</h3>
+
+
+<pre class="property_signature">
+“b-qfactor” <span class="type"><a title="gfloat" href="https://docs.gtk.org/glib/types.html#gfloat" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#float" data-gi-title-python="float">gfloat</a></span>
+</pre>
+
+<p>QP factor between P- and B-frames (Generic codec option, might have no effect)</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	1.25
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="avenc_pam:b-qoffset">
+	
+
+
+
+<h3 data-hotdoc-id="avenc_pam:b-qoffset">
+	<i>b-qoffset</i>
+</h3>
+
+
+<pre class="property_signature">
+“b-qoffset” <span class="type"><a title="gfloat" href="https://docs.gtk.org/glib/types.html#gfloat" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#float" data-gi-title-python="float">gfloat</a></span>
+</pre>
+
+<p>QP offset between P- and B-frames (Generic codec option, might have no effect)</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	1.25
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="avenc_pam:bidir-refine">
+	
+
+
+
+<h3 data-hotdoc-id="avenc_pam:bidir-refine">
+	<i>bidir-refine</i>
+</h3>
+
+
+<pre class="property_signature">
+“bidir-refine” <span class="type"><a title="gint" href="https://docs.gtk.org/glib/types.html#gint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">gint</a></span>
+</pre>
+
+<p>refine the two motion vectors used in bidirectional macroblocks (Generic codec option, might have no effect)</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	1
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="avenc_pam:bitrate">
+	
+
+
+
+<h3 data-hotdoc-id="avenc_pam:bitrate">
+	<i>bitrate</i>
+</h3>
+
+
+<pre class="property_signature">
+“bitrate” <span class="type"><a title="gint" href="https://docs.gtk.org/glib/types.html#gint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">gint</a></span>
+</pre>
+
+<p>set bitrate (in bits/s) (Generic codec option, might have no effect)</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	200000
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="avenc_pam:bitrate-tolerance">
+	
+
+
+
+<h3 data-hotdoc-id="avenc_pam:bitrate-tolerance">
+	<i>bitrate-tolerance</i>
+</h3>
+
+
+<pre class="property_signature">
+“bitrate-tolerance” <span class="type"><a title="gint" href="https://docs.gtk.org/glib/types.html#gint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">gint</a></span>
+</pre>
+
+<p>Set video bitrate tolerance (in bits/s). In 1-pass mode, bitrate tolerance specifies how far ratecontrol is willing to deviate from the target average bitrate value. This is not related to minimum/maximum bitrate. Lowering tolerance too much has an adverse effect on quality. (Generic codec option, might have no effect)</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	4000000
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="avenc_pam:bufsize">
+	
+
+
+
+<h3 data-hotdoc-id="avenc_pam:bufsize">
+	<i>bufsize</i>
+</h3>
+
+
+<pre class="property_signature">
+“bufsize” <span class="type"><a title="gint" href="https://docs.gtk.org/glib/types.html#gint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">gint</a></span>
+</pre>
+
+<p>set ratecontrol buffer size (in bits) (Generic codec option, might have no effect)</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	0
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="avenc_pam:chroma-sample-location">
+	
+
+
+
+<h3 data-hotdoc-id="avenc_pam:chroma-sample-location">
+	<i>chroma-sample-location</i>
+</h3>
+
+
+<pre class="property_signature">
+“chroma-sample-location” <span class="type"><a title="avcodeccontext-chroma-sample-location-type" href="libav/avenc_zmbv.html#avcodeccontext-chroma-sample-location-type">avcodeccontext-chroma-sample-location-type</a> <span class="pointer-token">*</span></span>
+</pre>
+
+<p>chroma sample location (Generic codec option, might have no effect)</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	unknown (0)
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="avenc_pam:cmp">
+	
+
+
+
+<h3 data-hotdoc-id="avenc_pam:cmp">
+	<i>cmp</i>
+</h3>
+
+
+<pre class="property_signature">
+“cmp” <span class="type"><a title="avcodeccontext-cmp-func" href="libav/avenc_zmbv.html#avcodeccontext-cmp-func">avcodeccontext-cmp-func</a> <span class="pointer-token">*</span></span>
+</pre>
+
+<p>full-pel ME compare function (Generic codec option, might have no effect)</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	sad (0)
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="avenc_pam:compression-level">
+	
+
+
+
+<h3 data-hotdoc-id="avenc_pam:compression-level">
+	<i>compression-level</i>
+</h3>
+
+
+<pre class="property_signature">
+“compression-level” <span class="type"><a title="gint" href="https://docs.gtk.org/glib/types.html#gint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">gint</a></span>
+</pre>
+
+<p>(null) (Generic codec option, might have no effect)</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	-1
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="avenc_pam:dark-mask">
+	
+
+
+
+<h3 data-hotdoc-id="avenc_pam:dark-mask">
+	<i>dark-mask</i>
+</h3>
+
+
+<pre class="property_signature">
+“dark-mask” <span class="type"><a title="gfloat" href="https://docs.gtk.org/glib/types.html#gfloat" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#float" data-gi-title-python="float">gfloat</a></span>
+</pre>
+
+<p>compresses dark areas stronger than medium ones (Generic codec option, might have no effect)</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	0
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="avenc_pam:dc">
+	
+
+
+
+<h3 data-hotdoc-id="avenc_pam:dc">
+	<i>dc</i>
+</h3>
+
+
+<pre class="property_signature">
+“dc” <span class="type"><a title="gint" href="https://docs.gtk.org/glib/types.html#gint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">gint</a></span>
+</pre>
+
+<p>intra_dc_precision (Generic codec option, might have no effect)</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	0
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="avenc_pam:dct">
+	
+
+
+
+<h3 data-hotdoc-id="avenc_pam:dct">
+	<i>dct</i>
+</h3>
+
+
+<pre class="property_signature">
+“dct” <span class="type"><a title="avcodeccontext-dct" href="libav/avenc_zmbv.html#avcodeccontext-dct">avcodeccontext-dct</a> <span class="pointer-token">*</span></span>
+</pre>
+
+<p>DCT algorithm (Generic codec option, might have no effect)</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	auto (0)
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="avenc_pam:debug">
+	
+
+
+
+<h3 data-hotdoc-id="avenc_pam:debug">
+	<i>debug</i>
+</h3>
+
+
+<pre class="property_signature">
+“debug” <span class="type"><a title="avcodeccontext-debug" href="libav/avenc_zmbv.html#avcodeccontext-debug">avcodeccontext-debug</a> <span class="pointer-token">*</span></span>
+</pre>
+
+<p>print specific debug info (Generic codec option, might have no effect)</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	(none)
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="avenc_pam:dia-size">
+	
+
+
+
+<h3 data-hotdoc-id="avenc_pam:dia-size">
+	<i>dia-size</i>
+</h3>
+
+
+<pre class="property_signature">
+“dia-size” <span class="type"><a title="gint" href="https://docs.gtk.org/glib/types.html#gint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">gint</a></span>
+</pre>
+
+<p>diamond type &amp; size for motion estimation (Generic codec option, might have no effect)</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	0
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="avenc_pam:dump-separator">
+	
+
+
+
+<h3 data-hotdoc-id="avenc_pam:dump-separator">
+	<i>dump-separator</i>
+</h3>
+
+
+<pre class="property_signature">
+“dump-separator” <span class="type"><a title="gchararray" href="https://web.mit.edu/barnowl/share/gtk-doc/html/gobject/gobject-Standard-Parameter-and-Value-Types.html#gchararray" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" data-gi-title-javascript="String" data-gi-href-python="https://docs.python.org/3/library/functions.html#func-str" data-gi-title-python="str">gchararray</a></span>
+</pre>
+
+<p>set information dump field separator (Generic codec option, might have no effect)</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	NULL
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="avenc_pam:err-detect">
+	
+
+
+
+<h3 data-hotdoc-id="avenc_pam:err-detect">
+	<i>err-detect</i>
+</h3>
+
+
+<pre class="property_signature">
+“err-detect” <span class="type"><a title="avcodeccontext-err-detect" href="libav/avenc_zmbv.html#avcodeccontext-err-detect">avcodeccontext-err-detect</a> <span class="pointer-token">*</span></span>
+</pre>
+
+<p>set error detection flags (Generic codec option, might have no effect)</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	(none)
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="avenc_pam:export-side-data">
+	
+
+
+
+<h3 data-hotdoc-id="avenc_pam:export-side-data">
+	<i>export-side-data</i>
+</h3>
+
+
+<pre class="property_signature">
+“export-side-data” <span class="type"><a title="avcodeccontext-export-side-data" href="libav/avenc_zmbv.html#avcodeccontext-export-side-data">avcodeccontext-export-side-data</a> <span class="pointer-token">*</span></span>
+</pre>
+
+<p>Export metadata as side data (Generic codec option, might have no effect)</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	(none)
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="avenc_pam:field-order">
+	
+
+
+
+<h3 data-hotdoc-id="avenc_pam:field-order">
+	<i>field-order</i>
+</h3>
+
+
+<pre class="property_signature">
+“field-order” <span class="type"><a title="avcodeccontext-field-order" href="libav/avenc_zmbv.html#avcodeccontext-field-order">avcodeccontext-field-order</a> <span class="pointer-token">*</span></span>
+</pre>
+
+<p>Field order (Generic codec option, might have no effect)</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	unknown (0)
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="avenc_pam:flags">
+	
+
+
+
+<h3 data-hotdoc-id="avenc_pam:flags">
+	<i>flags</i>
+</h3>
+
+
+<pre class="property_signature">
+“flags” <span class="type"><a title="avcodeccontext-flags" href="libav/avenc_zmbv.html#avcodeccontext-flags">avcodeccontext-flags</a> <span class="pointer-token">*</span></span>
+</pre>
+
+<p>(null) (Generic codec option, might have no effect)</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	(none)
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="avenc_pam:flags2">
+	
+
+
+
+<h3 data-hotdoc-id="avenc_pam:flags2">
+	<i>flags2</i>
+</h3>
+
+
+<pre class="property_signature">
+“flags2” <span class="type"><a title="avcodeccontext-flags2" href="libav/avenc_zmbv.html#avcodeccontext-flags2">avcodeccontext-flags2</a> <span class="pointer-token">*</span></span>
+</pre>
+
+<p>(null) (Generic codec option, might have no effect)</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	(none)
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="avenc_pam:global-quality">
+	
+
+
+
+<h3 data-hotdoc-id="avenc_pam:global-quality">
+	<i>global-quality</i>
+</h3>
+
+
+<pre class="property_signature">
+“global-quality” <span class="type"><a title="gint" href="https://docs.gtk.org/glib/types.html#gint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">gint</a></span>
+</pre>
+
+<p>(null) (Generic codec option, might have no effect)</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	0
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="avenc_pam:gop-size">
+	
+
+
+
+<h3 data-hotdoc-id="avenc_pam:gop-size">
+	<i>gop-size</i>
+</h3>
+
+
+<pre class="property_signature">
+“gop-size” <span class="type"><a title="gint" href="https://docs.gtk.org/glib/types.html#gint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">gint</a></span>
+</pre>
+
+<p>set the group of picture (GOP) size (Generic codec option, might have no effect)</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	12
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="avenc_pam:i-qfactor">
+	
+
+
+
+<h3 data-hotdoc-id="avenc_pam:i-qfactor">
+	<i>i-qfactor</i>
+</h3>
+
+
+<pre class="property_signature">
+“i-qfactor” <span class="type"><a title="gfloat" href="https://docs.gtk.org/glib/types.html#gfloat" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#float" data-gi-title-python="float">gfloat</a></span>
+</pre>
+
+<p>QP factor between P- and I-frames (Generic codec option, might have no effect)</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	-0.8
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="avenc_pam:i-qoffset">
+	
+
+
+
+<h3 data-hotdoc-id="avenc_pam:i-qoffset">
+	<i>i-qoffset</i>
+</h3>
+
+
+<pre class="property_signature">
+“i-qoffset” <span class="type"><a title="gfloat" href="https://docs.gtk.org/glib/types.html#gfloat" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#float" data-gi-title-python="float">gfloat</a></span>
+</pre>
+
+<p>QP offset between P- and I-frames (Generic codec option, might have no effect)</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	0
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="avenc_pam:idct">
+	
+
+
+
+<h3 data-hotdoc-id="avenc_pam:idct">
+	<i>idct</i>
+</h3>
+
+
+<pre class="property_signature">
+“idct” <span class="type"><a title="avcodeccontext-idct" href="libav/avenc_zmbv.html#avcodeccontext-idct">avcodeccontext-idct</a> <span class="pointer-token">*</span></span>
+</pre>
+
+<p>select IDCT implementation (Generic codec option, might have no effect)</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	auto (0)
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="avenc_pam:ildctcmp">
+	
+
+
+
+<h3 data-hotdoc-id="avenc_pam:ildctcmp">
+	<i>ildctcmp</i>
+</h3>
+
+
+<pre class="property_signature">
+“ildctcmp” <span class="type"><a title="avcodeccontext-cmp-func" href="libav/avenc_zmbv.html#avcodeccontext-cmp-func">avcodeccontext-cmp-func</a> <span class="pointer-token">*</span></span>
+</pre>
+
+<p>interlaced DCT compare function (Generic codec option, might have no effect)</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	vsad (8)
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="avenc_pam:keyint-min">
+	
+
+
+
+<h3 data-hotdoc-id="avenc_pam:keyint-min">
+	<i>keyint-min</i>
+</h3>
+
+
+<pre class="property_signature">
+“keyint-min” <span class="type"><a title="gint" href="https://docs.gtk.org/glib/types.html#gint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">gint</a></span>
+</pre>
+
+<p>minimum interval between IDR-frames (Generic codec option, might have no effect)</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	25
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="avenc_pam:last-pred">
+	
+
+
+
+<h3 data-hotdoc-id="avenc_pam:last-pred">
+	<i>last-pred</i>
+</h3>
+
+
+<pre class="property_signature">
+“last-pred” <span class="type"><a title="gint" href="https://docs.gtk.org/glib/types.html#gint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">gint</a></span>
+</pre>
+
+<p>amount of motion predictors from the previous frame (Generic codec option, might have no effect)</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	0
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="avenc_pam:lumi-mask">
+	
+
+
+
+<h3 data-hotdoc-id="avenc_pam:lumi-mask">
+	<i>lumi-mask</i>
+</h3>
+
+
+<pre class="property_signature">
+“lumi-mask” <span class="type"><a title="gfloat" href="https://docs.gtk.org/glib/types.html#gfloat" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#float" data-gi-title-python="float">gfloat</a></span>
+</pre>
+
+<p>compresses bright areas stronger than medium ones (Generic codec option, might have no effect)</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	0
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="avenc_pam:max-bframes">
+	
+
+
+
+<h3 data-hotdoc-id="avenc_pam:max-bframes">
+	<i>max-bframes</i>
+</h3>
+
+
+<pre class="property_signature">
+“max-bframes” <span class="type"><a title="gint" href="https://docs.gtk.org/glib/types.html#gint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">gint</a></span>
+</pre>
+
+<p>set maximum number of B-frames between non-B-frames (Generic codec option, might have no effect)</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	0
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="avenc_pam:max-pixels">
+	
+
+
+
+<h3 data-hotdoc-id="avenc_pam:max-pixels">
+	<i>max-pixels</i>
+</h3>
+
+
+<pre class="property_signature">
+“max-pixels” <span class="type"><a title="gint64" href="https://docs.gtk.org/glib/types.html#gint64" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">gint64</a></span>
+</pre>
+
+<p>Maximum number of pixels (Generic codec option, might have no effect)</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	2147483647
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="avenc_pam:maxrate">
+	
+
+
+
+<h3 data-hotdoc-id="avenc_pam:maxrate">
+	<i>maxrate</i>
+</h3>
+
+
+<pre class="property_signature">
+“maxrate” <span class="type"><a title="gint64" href="https://docs.gtk.org/glib/types.html#gint64" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">gint64</a></span>
+</pre>
+
+<p>maximum bitrate (in bits/s). Used for VBV together with bufsize. (Generic codec option, might have no effect)</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	0
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="avenc_pam:mbcmp">
+	
+
+
+
+<h3 data-hotdoc-id="avenc_pam:mbcmp">
+	<i>mbcmp</i>
+</h3>
+
+
+<pre class="property_signature">
+“mbcmp” <span class="type"><a title="avcodeccontext-cmp-func" href="libav/avenc_zmbv.html#avcodeccontext-cmp-func">avcodeccontext-cmp-func</a> <span class="pointer-token">*</span></span>
+</pre>
+
+<p>macroblock compare function (Generic codec option, might have no effect)</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	sad (0)
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="avenc_pam:mbd">
+	
+
+
+
+<h3 data-hotdoc-id="avenc_pam:mbd">
+	<i>mbd</i>
+</h3>
+
+
+<pre class="property_signature">
+“mbd” <span class="type"><a title="avcodeccontext-mbd" href="libav/avenc_zmbv.html#avcodeccontext-mbd">avcodeccontext-mbd</a> <span class="pointer-token">*</span></span>
+</pre>
+
+<p>macroblock decision algorithm (high quality mode) (Generic codec option, might have no effect)</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	simple (0)
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="avenc_pam:mblmax">
+	
+
+
+
+<h3 data-hotdoc-id="avenc_pam:mblmax">
+	<i>mblmax</i>
+</h3>
+
+
+<pre class="property_signature">
+“mblmax” <span class="type"><a title="gint" href="https://docs.gtk.org/glib/types.html#gint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">gint</a></span>
+</pre>
+
+<p>maximum macroblock Lagrange factor (VBR) (Generic codec option, might have no effect)</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	3658
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="avenc_pam:mblmin">
+	
+
+
+
+<h3 data-hotdoc-id="avenc_pam:mblmin">
+	<i>mblmin</i>
+</h3>
+
+
+<pre class="property_signature">
+“mblmin” <span class="type"><a title="gint" href="https://docs.gtk.org/glib/types.html#gint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">gint</a></span>
+</pre>
+
+<p>minimum macroblock Lagrange factor (VBR) (Generic codec option, might have no effect)</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	236
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="avenc_pam:me-range">
+	
+
+
+
+<h3 data-hotdoc-id="avenc_pam:me-range">
+	<i>me-range</i>
+</h3>
+
+
+<pre class="property_signature">
+“me-range” <span class="type"><a title="gint" href="https://docs.gtk.org/glib/types.html#gint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">gint</a></span>
+</pre>
+
+<p>limit motion vectors range (1023 for DivX player) (Generic codec option, might have no effect)</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	0
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="avenc_pam:minrate">
+	
+
+
+
+<h3 data-hotdoc-id="avenc_pam:minrate">
+	<i>minrate</i>
+</h3>
+
+
+<pre class="property_signature">
+“minrate” <span class="type"><a title="gint64" href="https://docs.gtk.org/glib/types.html#gint64" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">gint64</a></span>
+</pre>
+
+<p>minimum bitrate (in bits/s). Most useful in setting up a CBR encode. It is of little use otherwise. (Generic codec option, might have no effect)</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	0
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="avenc_pam:multipass-cache-file">
+	
+
+
+
+<h3 data-hotdoc-id="avenc_pam:multipass-cache-file">
+	<i>multipass-cache-file</i>
+</h3>
+
+
+<pre class="property_signature">
+“multipass-cache-file” <span class="type"><a title="gchararray" href="https://web.mit.edu/barnowl/share/gtk-doc/html/gobject/gobject-Standard-Parameter-and-Value-Types.html#gchararray" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" data-gi-title-javascript="String" data-gi-href-python="https://docs.python.org/3/library/functions.html#func-str" data-gi-title-python="str">gchararray</a></span>
+</pre>
+
+<p>Filename for multipass cache file</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+				/		
+				Construct
+			
+</p>
+<p>
+	Default value :	stats.log
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="avenc_pam:mv0-threshold">
+	
+
+
+
+<h3 data-hotdoc-id="avenc_pam:mv0-threshold">
+	<i>mv0-threshold</i>
+</h3>
+
+
+<pre class="property_signature">
+“mv0-threshold” <span class="type"><a title="gint" href="https://docs.gtk.org/glib/types.html#gint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">gint</a></span>
+</pre>
+
+<p>(null) (Generic codec option, might have no effect)</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	256
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="avenc_pam:nssew">
+	
+
+
+
+<h3 data-hotdoc-id="avenc_pam:nssew">
+	<i>nssew</i>
+</h3>
+
+
+<pre class="property_signature">
+“nssew” <span class="type"><a title="gint" href="https://docs.gtk.org/glib/types.html#gint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">gint</a></span>
+</pre>
+
+<p>nsse weight (Generic codec option, might have no effect)</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	8
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="avenc_pam:p-mask">
+	
+
+
+
+<h3 data-hotdoc-id="avenc_pam:p-mask">
+	<i>p-mask</i>
+</h3>
+
+
+<pre class="property_signature">
+“p-mask” <span class="type"><a title="gfloat" href="https://docs.gtk.org/glib/types.html#gfloat" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#float" data-gi-title-python="float">gfloat</a></span>
+</pre>
+
+<p>inter masking (Generic codec option, might have no effect)</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	0
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="avenc_pam:pass">
+	
+
+
+
+<h3 data-hotdoc-id="avenc_pam:pass">
+	<i>pass</i>
+</h3>
+
+
+<pre class="property_signature">
+“pass” <span class="type"><a title="GstLibAVEncPass" href="libav/avenc_zmbv.html#GstLibAVEncPass">GstLibAVEncPass</a> <span class="pointer-token">*</span></span>
+</pre>
+
+<p>Encoding pass/type</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+				/		
+				Construct
+			
+</p>
+<p>
+	Default value :	cbr (0)
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="avenc_pam:pre-dia-size">
+	
+
+
+
+<h3 data-hotdoc-id="avenc_pam:pre-dia-size">
+	<i>pre-dia-size</i>
+</h3>
+
+
+<pre class="property_signature">
+“pre-dia-size” <span class="type"><a title="gint" href="https://docs.gtk.org/glib/types.html#gint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">gint</a></span>
+</pre>
+
+<p>diamond type &amp; size for motion estimation pre-pass (Generic codec option, might have no effect)</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	0
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="avenc_pam:precmp">
+	
+
+
+
+<h3 data-hotdoc-id="avenc_pam:precmp">
+	<i>precmp</i>
+</h3>
+
+
+<pre class="property_signature">
+“precmp” <span class="type"><a title="avcodeccontext-cmp-func" href="libav/avenc_zmbv.html#avcodeccontext-cmp-func">avcodeccontext-cmp-func</a> <span class="pointer-token">*</span></span>
+</pre>
+
+<p>pre motion estimation compare function (Generic codec option, might have no effect)</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	sad (0)
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="avenc_pam:qblur">
+	
+
+
+
+<h3 data-hotdoc-id="avenc_pam:qblur">
+	<i>qblur</i>
+</h3>
+
+
+<pre class="property_signature">
+“qblur” <span class="type"><a title="gfloat" href="https://docs.gtk.org/glib/types.html#gfloat" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#float" data-gi-title-python="float">gfloat</a></span>
+</pre>
+
+<p>video quantizer scale blur (VBR) (Generic codec option, might have no effect)</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	0.5
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="avenc_pam:qcomp">
+	
+
+
+
+<h3 data-hotdoc-id="avenc_pam:qcomp">
+	<i>qcomp</i>
+</h3>
+
+
+<pre class="property_signature">
+“qcomp” <span class="type"><a title="gfloat" href="https://docs.gtk.org/glib/types.html#gfloat" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#float" data-gi-title-python="float">gfloat</a></span>
+</pre>
+
+<p>video quantizer scale compression (VBR). Constant of ratecontrol equation. Recommended range for default rc_eq: 0.0-1.0 (Generic codec option, might have no effect)</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	0.5
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="avenc_pam:qdiff">
+	
+
+
+
+<h3 data-hotdoc-id="avenc_pam:qdiff">
+	<i>qdiff</i>
+</h3>
+
+
+<pre class="property_signature">
+“qdiff” <span class="type"><a title="gint" href="https://docs.gtk.org/glib/types.html#gint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">gint</a></span>
+</pre>
+
+<p>maximum difference between the quantizer scales (VBR) (Generic codec option, might have no effect)</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	3
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="avenc_pam:qmax">
+	
+
+
+
+<h3 data-hotdoc-id="avenc_pam:qmax">
+	<i>qmax</i>
+</h3>
+
+
+<pre class="property_signature">
+“qmax” <span class="type"><a title="gint" href="https://docs.gtk.org/glib/types.html#gint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">gint</a></span>
+</pre>
+
+<p>maximum video quantizer scale (VBR) (Generic codec option, might have no effect)</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	31
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="avenc_pam:qmin">
+	
+
+
+
+<h3 data-hotdoc-id="avenc_pam:qmin">
+	<i>qmin</i>
+</h3>
+
+
+<pre class="property_signature">
+“qmin” <span class="type"><a title="gint" href="https://docs.gtk.org/glib/types.html#gint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">gint</a></span>
+</pre>
+
+<p>minimum video quantizer scale (VBR) (Generic codec option, might have no effect)</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	2
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="avenc_pam:quantizer">
+	
+
+
+
+<h3 data-hotdoc-id="avenc_pam:quantizer">
+	<i>quantizer</i>
+</h3>
+
+
+<pre class="property_signature">
+“quantizer” <span class="type"><a title="gfloat" href="https://docs.gtk.org/glib/types.html#gfloat" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#float" data-gi-title-python="float">gfloat</a></span>
+</pre>
+
+<p>Constant Quantizer</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+				/		
+				Construct
+			
+</p>
+<p>
+	Default value :	0.01
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="avenc_pam:rc-init-occupancy">
+	
+
+
+
+<h3 data-hotdoc-id="avenc_pam:rc-init-occupancy">
+	<i>rc-init-occupancy</i>
+</h3>
+
+
+<pre class="property_signature">
+“rc-init-occupancy” <span class="type"><a title="gint" href="https://docs.gtk.org/glib/types.html#gint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">gint</a></span>
+</pre>
+
+<p>number of bits which should be loaded into the rc buffer before decoding starts (Generic codec option, might have no effect)</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	0
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="avenc_pam:rc-max-vbv-use">
+	
+
+
+
+<h3 data-hotdoc-id="avenc_pam:rc-max-vbv-use">
+	<i>rc-max-vbv-use</i>
+</h3>
+
+
+<pre class="property_signature">
+“rc-max-vbv-use” <span class="type"><a title="gfloat" href="https://docs.gtk.org/glib/types.html#gfloat" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#float" data-gi-title-python="float">gfloat</a></span>
+</pre>
+
+<p>(null) (Generic codec option, might have no effect)</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	0
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="avenc_pam:rc-min-vbv-use">
+	
+
+
+
+<h3 data-hotdoc-id="avenc_pam:rc-min-vbv-use">
+	<i>rc-min-vbv-use</i>
+</h3>
+
+
+<pre class="property_signature">
+“rc-min-vbv-use” <span class="type"><a title="gfloat" href="https://docs.gtk.org/glib/types.html#gfloat" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#float" data-gi-title-python="float">gfloat</a></span>
+</pre>
+
+<p>(null) (Generic codec option, might have no effect)</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	3
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="avenc_pam:refs">
+	
+
+
+
+<h3 data-hotdoc-id="avenc_pam:refs">
+	<i>refs</i>
+</h3>
+
+
+<pre class="property_signature">
+“refs” <span class="type"><a title="gint" href="https://docs.gtk.org/glib/types.html#gint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">gint</a></span>
+</pre>
+
+<p>reference frames to consider for motion compensation (Generic codec option, might have no effect)</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	1
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="avenc_pam:scplx-mask">
+	
+
+
+
+<h3 data-hotdoc-id="avenc_pam:scplx-mask">
+	<i>scplx-mask</i>
+</h3>
+
+
+<pre class="property_signature">
+“scplx-mask” <span class="type"><a title="gfloat" href="https://docs.gtk.org/glib/types.html#gfloat" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#float" data-gi-title-python="float">gfloat</a></span>
+</pre>
+
+<p>spatial complexity masking (Generic codec option, might have no effect)</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	0
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="avenc_pam:slices">
+	
+
+
+
+<h3 data-hotdoc-id="avenc_pam:slices">
+	<i>slices</i>
+</h3>
+
+
+<pre class="property_signature">
+“slices” <span class="type"><a title="gint" href="https://docs.gtk.org/glib/types.html#gint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">gint</a></span>
+</pre>
+
+<p>set the number of slices, used in parallelized encoding (Generic codec option, might have no effect)</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	0
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="avenc_pam:strict">
+	
+
+
+
+<h3 data-hotdoc-id="avenc_pam:strict">
+	<i>strict</i>
+</h3>
+
+
+<pre class="property_signature">
+“strict” <span class="type"><a title="avcodeccontext-strict" href="libav/avenc_zmbv.html#avcodeccontext-strict">avcodeccontext-strict</a> <span class="pointer-token">*</span></span>
+</pre>
+
+<p>how strictly to follow the standards (Generic codec option, might have no effect)</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	normal (0)
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="avenc_pam:subcmp">
+	
+
+
+
+<h3 data-hotdoc-id="avenc_pam:subcmp">
+	<i>subcmp</i>
+</h3>
+
+
+<pre class="property_signature">
+“subcmp” <span class="type"><a title="avcodeccontext-cmp-func" href="libav/avenc_zmbv.html#avcodeccontext-cmp-func">avcodeccontext-cmp-func</a> <span class="pointer-token">*</span></span>
+</pre>
+
+<p>sub-pel ME compare function (Generic codec option, might have no effect)</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	sad (0)
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="avenc_pam:subq">
+	
+
+
+
+<h3 data-hotdoc-id="avenc_pam:subq">
+	<i>subq</i>
+</h3>
+
+
+<pre class="property_signature">
+“subq” <span class="type"><a title="gint" href="https://docs.gtk.org/glib/types.html#gint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">gint</a></span>
+</pre>
+
+<p>sub-pel motion estimation quality (Generic codec option, might have no effect)</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	8
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="avenc_pam:tcplx-mask">
+	
+
+
+
+<h3 data-hotdoc-id="avenc_pam:tcplx-mask">
+	<i>tcplx-mask</i>
+</h3>
+
+
+<pre class="property_signature">
+“tcplx-mask” <span class="type"><a title="gfloat" href="https://docs.gtk.org/glib/types.html#gfloat" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#float" data-gi-title-python="float">gfloat</a></span>
+</pre>
+
+<p>temporal complexity masking (Generic codec option, might have no effect)</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	0
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="avenc_pam:thread-type">
+	
+
+
+
+<h3 data-hotdoc-id="avenc_pam:thread-type">
+	<i>thread-type</i>
+</h3>
+
+
+<pre class="property_signature">
+“thread-type” <span class="type"><a title="avcodeccontext-thread-type" href="libav/avenc_zmbv.html#avcodeccontext-thread-type">avcodeccontext-thread-type</a> <span class="pointer-token">*</span></span>
+</pre>
+
+<p>select multithreading type (Generic codec option, might have no effect)</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	slice+frame
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="avenc_pam:threads">
+	
+
+
+
+<h3 data-hotdoc-id="avenc_pam:threads">
+	<i>threads</i>
+</h3>
+
+
+<pre class="property_signature">
+“threads” <span class="type"><a title="avcodeccontext-threads" href="libav/avenc_zmbv.html#avcodeccontext-threads">avcodeccontext-threads</a> <span class="pointer-token">*</span></span>
+</pre>
+
+<p>set the number of threads (Generic codec option, might have no effect)</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	unknown (1)
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="avenc_pam:ticks-per-frame">
+	
+
+
+
+<h3 data-hotdoc-id="avenc_pam:ticks-per-frame">
+	<i>ticks-per-frame</i>
+</h3>
+
+
+<pre class="property_signature">
+“ticks-per-frame” <span class="type"><a title="gint" href="https://docs.gtk.org/glib/types.html#gint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">gint</a></span>
+</pre>
+
+<p>(null) (Generic codec option, might have no effect)</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	1
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="avenc_pam:trellis">
+	
+
+
+
+<h3 data-hotdoc-id="avenc_pam:trellis">
+	<i>trellis</i>
+</h3>
+
+
+<pre class="property_signature">
+“trellis” <span class="type"><a title="gint" href="https://docs.gtk.org/glib/types.html#gint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">gint</a></span>
+</pre>
+
+<p>rate-distortion optimal quantization (Generic codec option, might have no effect)</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	0
+</p>
+
+
+
+<hr>
+
+</div>
+
+
+
+
+
+
+		
+	</div>
+	<div id="search_results">
+		<p>The results of the search are</p>
+	</div>
+	<div id="footer">
+		    
+
+	</div>
+</div>
+
+<div id="toc-column">
+	
+		<div class="edit-button">
+		
+
+	</div>
+		<div id="toc-wrapper">
+		<nav id="toc"></nav>
+	</div>
+</div>
+</div>
+</main>
+
+
+<script src="assets/js/navbar_offset_scroller.js"></script>
+</body>
+</html>

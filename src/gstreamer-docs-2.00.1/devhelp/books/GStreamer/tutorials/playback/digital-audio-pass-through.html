@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<base href="../..">
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<title>Playback tutorial 9: Digital audio pass-through</title>
+
+<link rel="stylesheet" href="assets/css/dark-frontend.css" type="text/css" title="dark">
+<link rel="alternate stylesheet" href="assets/css/light-frontend.css" type="text/css" title="light">
+<link rel="stylesheet" href="assets/css/bootstrap-toc.min.css" type="text/css">
+<link rel="stylesheet" href="assets/css/jquery.mCustomScrollbar.min.css">
+<link rel="stylesheet" href="assets/js/search/enable_search.css" type="text/css">
+
+<link rel="stylesheet" href="assets/css/extra_frontend.css" type="text/css">
+<link rel="stylesheet" href="assets/css/devhelp.css" type="text/css">
+
+<link rel="stylesheet" href="assets/css/prism-tomorrow.css" type="text/css" title="dark">
+
+<link rel="alternate stylesheet" href="assets/css/prism.css" type="text/css" title="light">
+
+<script src="assets/js/mustache.min.js"></script>
+<script src="assets/js/jquery.js"></script>
+<script src="assets/js/bootstrap.js"></script>
+<script src="assets/js/scrollspy.js"></script>
+<script src="assets/js/typeahead.jquery.min.js"></script>
+<script src="assets/js/search.js"></script>
+<script src="assets/js/compare-versions.js"></script>
+<script src="assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="assets/js/bootstrap-toc.min.js"></script>
+<script src="assets/js/jquery.touchSwipe.min.js"></script>
+<script src="assets/js/anchor.min.js"></script>
+<script src="assets/js/tag_filtering.js"></script>
+<script src="assets/js/language_switching.js"></script>
+<script src="assets/js/styleswitcher.js"></script>
+
+<script src="assets/js/lines_around_headings.js"></script>
+
+<script src="assets/js/prism-core.js"></script>
+<script src="assets/js/prism-autoloader.js"></script>
+<script src="assets/js/prism_autoloader_path_override.js"></script>
+<script src="assets/js/trie.js"></script>
+
+<!-- generic -->
+<link rel="icon" type="image/png" href="assets/images/favicon-16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="assets/images/favicon-32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="assets/images/favicon-57.png" sizes="57x57">
+<link rel="icon" type="image/png" href="assets/images/favicon-64.png" sizes="64x64">
+<link rel="icon" type="image/png" href="assets/images/favicon-76.png" sizes="76x76">
+<link rel="icon" type="image/png" href="assets/images/favicon-96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="assets/images/favicon-128.png" sizes="128x128">
+<link rel="icon" type="image/png" href="assets/images/favicon-192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="assets/images/favicon-228.png" sizes="228x228">
+
+<!-- Android -->
+<link rel="shortcut icon" sizes="196x196" href="assets/images/favicon-196.png">
+
+<!-- iOS -->
+<link rel="apple-touch-icon" href="assets/images/favicon-120.png" sizes="120x120">
+<link rel="apple-touch-icon" href="assets/images/favicon-152.png" sizes="152x152">
+<link rel="apple-touch-icon" href="assets/images/favicon-180.png" sizes="180x180">
+
+</head>
+
+<body class="no-script
+">
+
+<script>
+$('body').removeClass('no-script');
+</script>
+
+<nav class="navbar navbar-fixed-top navbar-default" id="topnav">
+	<div class="container-fluid">
+		<div class="navbar-right">
+			<a id="toc-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-wrapper" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<span title="light mode switch" class="glyphicon glyphicon-sunglasses pull-right" id="lightmode-icon"></span>
+			<form class="navbar-form pull-right" id="navbar-search-form">
+                               <div class="form-group has-feedback">
+                                       <input type="text" class="form-control input-sm" name="search" id="sidenav-lookup-field" placeholder="search" disabled>
+				       <span class="glyphicon glyphicon-search form-control-feedback" id="search-mgn-glass"></span>
+                               </div>
+                        </form>
+		</div>
+		<div class="navbar-header">
+			<a id="sidenav-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<a id="home-link" href="index.html" class="hotdoc-navbar-brand">
+				<img src="assets/images/gstreamer-logo.svg" alt="Home">
+			</a>
+		</div>
+		<div class="navbar-collapse collapse" id="navbar-wrapper">
+			<ul class="nav navbar-nav" id="menu">
+				
+<li class="dropdown">
+    <a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        API References<span class="caret"></span>
+    </a>
+	<ul class="dropdown-menu" id="modules-menu">
+					<li>
+				<a href="gstreamer/gi-index.html">GStreamer core</a>
+			</li>
+					<li>
+				<a href="libs.html">GStreamer Libraries</a>
+			</li>
+					<li>
+				<a href="plugins_doc.html">GStreamer Plugins</a>
+			</li>
+		</ul>
+</li>
+
+<li>
+    <a href="application-development/index.html">Application manual</a>
+</li>
+
+
+<li>
+    <a href="tutorials/index.html">Tutorials</a>
+</li>
+
+			</ul>
+			<div class="hidden-xs hidden-sm navbar-text navbar-center">
+							</div>
+		</div>
+	</div>
+</nav>
+
+<main>
+<div data-extension="gi-extension" data-hotdoc-in-toplevel="True" data-hotdoc-project="GStreamer" data-hotdoc-ref="tutorials/playback/digital-audio-pass-through.html" class="page_container" id="page-wrapper" data-hotdoc-meta-gi-languages="['c', 'javascript', 'python']" data-hotdoc-meta-gi-language="c">
+<script src="assets/js/utils.js"></script>
+
+<div class="panel panel-collapse oc-collapsed" id="sidenav" data-hotdoc-role="navigation">
+	<script src="assets/js/full-width.js"></script>
+  <div id="sitenav-wrapper">
+    <iframe src="hotdoc-sitemap.html" id="sitenav-frame"></iframe>
+  </div>
+</div>
+
+<div id="body">
+	<div id="main">
+				    <div id="page-description" data-hotdoc-role="main">
+        <h1 id="playback-tutorial-9-digital-audio-passthrough">Playback tutorial 9: Digital audio pass-through</h1>
+<h2 id="goal">Goal</h2>
+<p>This tutorial shows how GStreamer handles digital audio pass-through.</p>
+<h2 id="introduction">Introduction</h2>
+<p>Besides the common analog format, high-end audio systems usually also
+accept data in digital form, either compressed or uncompressed. This is
+convenient because the audio signal then travels from the computer to
+the speakers in a form that is more resilient to interference and noise,
+resulting higher quality.</p>
+<p>The connection is typically made through an
+<a href="http://en.wikipedia.org/wiki/SPDIF">S/PDIF</a> cable which can either be
+optical (with <a href="http://en.wikipedia.org/wiki/TOSLINK">TOSLINK</a>
+connectors) or coaxial (with <a href="http://en.wikipedia.org/wiki/RCA">RCA</a>
+connectors). S/PDIF is also known as IEC 60958 type II (IEC 958 before
+1998).</p>
+<p>In this scenario, GStreamer does not need to perform audio decoding; it
+can simply output the encoded data, acting in <em>pass-through</em> mode, and
+let the external audio system perform the decoding.</p>
+<h2 id="inner-workings-of-gstreamer-audio-sinks">Inner workings of GStreamer audio sinks</h2>
+<p>First off, digital audio output must be enabled at the system level. The
+method to achieve this depend on the operating system, but it generally
+involves going to the audio control panel and activating a checkbox
+reading “Digital Audio Output” or similar.</p>
+<p>The main GStreamer audio sinks for each platform, Pulse Audio
+(<code>pulsesink</code>) for Linux, <code>osxaudiosink</code> for OS X and Direct Sound
+(<code>directsoundsink</code>) for Windows, detect when digital audio output is
+available and change their input caps accordingly to accept encoded
+data. For example, these elements typically accept <code>audio/x-raw</code> data:
+when digital audio output is enabled in the system, they may also
+accept <code>audio/mpeg</code>, <code>audio/x-ac3</code>, <code>audio/x-eac3</code> or <code>audio/x-dts</code>.</p>
+<p>Then, when <code>playbin</code> builds the decoding pipeline, it realizes that the
+audio sink can be directly connected to the encoded data (typically
+coming out of a demuxer), so there is no need for a decoder. This
+process is automatic and does not need any action from the application.</p>
+<p>On Linux, there exist other audio sinks, like Alsa (<code>alsasink</code>) which
+work differently (a “digital device” needs to be manually selected
+through the <code>device</code> property of the sink). Pulse Audio, though, is the
+commonly preferred audio sink on Linux.</p>
+<h2 id="precautions-with-digital-formats">Precautions with digital formats</h2>
+<p>When Digital Audio Output is enabled at the system level, the GStreamer
+audio sinks automatically expose all possible digital audio caps,
+regardless of whether the actual audio decoder at the end of the S/PDIF
+cable is able to decode all those formats. This is so because there is
+no mechanism to query an external audio decoder which formats are
+supported, and, in fact, the cable can even be disconnected during this
+process.</p>
+<p>For example, after enabling Digital Audio Output in the system’s Control
+Panel,  <code>directsoundsink</code>  will automatically expose <code>audio/x-ac3</code>,
+<code>audio/x-eac3</code> and <code>audio/x-dts</code> caps in addition to <code>audio/x-raw</code>.
+However, one particular external decoder might only understand raw
+integer streams and would try to play the compressed data as such (a
+painful experience for your ears, rest assured).</p>
+<p>Solving this issue requires user intervention, since only the user knows
+the formats supported by the external decoder.</p>
+<p>On some systems, the simplest solution is to inform the operating system
+of the formats that the external audio decoder can accept. In this way,
+the GStreamer audio sinks will only offer these formats. The acceptable
+audio formats are commonly selected from the operating system’s audio
+configuration panel, from the same place where Digital Audio Output is
+enabled, but, unfortunately, this option is not available in all audio
+drivers.</p>
+<p>Another solution involves, using a custom sinkbin (see
+<a href="tutorials/playback/custom-playbin-sinks.html">Playback tutorial 7: Custom playbin sinks</a>) which includes a
+<code>capsfilter</code> element (see <a href="tutorials/basic/handy-elements.html">Basic tutorial 14: Handy elements</a>)
+and an audio sink. The caps that the external decoder supports are
+then set in the capsfiler so the wrong format is not output. This
+allows the application to enforce the appropriate format instead of
+relying on the user to have the system correctly configured. Still
+requires user intervention, but can be used regardless of the options
+the audio driver offers.</p>
+<p>Please do not use <code>autoaudiosink</code> as the audio sink, as it currently
+only supports raw audio, and will ignore any compressed format.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>This tutorial has shown a bit of how GStreamer deals with digital audio.
+In particular, it has shown that:</p>
+<ul>
+<li>Applications using <code>playbin</code> do not need to do anything special to
+enable digital audio output: it is managed from the audio control
+panel of the operating system.</li>
+</ul>
+<p>It has been a pleasure having you here, and see you soon!</p>
+
+    </div>
+        
+
+
+
+
+		
+	</div>
+	<div id="search_results">
+		<p>The results of the search are</p>
+	</div>
+	<div id="footer">
+		    
+
+	</div>
+</div>
+
+<div id="toc-column">
+	
+		<div class="edit-button">
+		<a href="https://gitlab.freedesktop.org/gstreamer/gst-docs//edit/master/subprojects/gst-docs/markdown/tutorials/playback/digital-audio-pass-through.md" data-hotdoc-role="edit-button">Edit on GitLab</a>
+
+	</div>
+		<div id="toc-wrapper">
+		<nav id="toc"></nav>
+	</div>
+</div>
+</div>
+</main>
+
+
+<script src="assets/js/navbar_offset_scroller.js"></script>
+</body>
+</html>

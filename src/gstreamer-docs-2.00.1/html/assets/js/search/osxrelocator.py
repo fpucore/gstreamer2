@@ -1,0 +1,1 @@
+urls_downloaded_cb({"token":"osxrelocator.py","urls":[{"url":"deploying/mac-osx.html#relocation-of-the-binaries","node_type":"p","page":"Mac OS X deployment","sections":["Mac OS X deployment","Relocation of GStreamer in OS X","Relocation of the binaries"],"context":{"gi-language":["default"]}}]});

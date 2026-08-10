@@ -1,0 +1,1 @@
+urls_downloaded_cb({"token":"basic-tutorial-9.c","urls":[{"url":"tutorials/basic/media-information-gathering.html#the-gstreamer-discoverer","node_type":"p","page":"Basic tutorial 9: Media information gathering","sections":["Basic tutorial 9: Media information gathering","The GStreamer Discoverer"],"context":{"gi-language":["default"]}}]});

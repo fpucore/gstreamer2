@@ -1,0 +1,5465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<base href="..">
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<title>GstVulkanWindow</title>
+
+<link rel="stylesheet" href="assets/css/dark-frontend.css" type="text/css" title="dark">
+<link rel="alternate stylesheet" href="assets/css/light-frontend.css" type="text/css" title="light">
+<link rel="stylesheet" href="assets/css/bootstrap-toc.min.css" type="text/css">
+<link rel="stylesheet" href="assets/css/jquery.mCustomScrollbar.min.css">
+<link rel="stylesheet" href="assets/js/search/enable_search.css" type="text/css">
+
+<link rel="stylesheet" href="assets/css/extra_frontend.css" type="text/css">
+<link rel="stylesheet" href="assets/css/devhelp.css" type="text/css">
+
+<link rel="stylesheet" href="assets/css/prism-tomorrow.css" type="text/css" title="dark">
+
+<link rel="alternate stylesheet" href="assets/css/prism.css" type="text/css" title="light">
+
+<script src="assets/js/mustache.min.js"></script>
+<script src="assets/js/jquery.js"></script>
+<script src="assets/js/bootstrap.js"></script>
+<script src="assets/js/scrollspy.js"></script>
+<script src="assets/js/typeahead.jquery.min.js"></script>
+<script src="assets/js/search.js"></script>
+<script src="assets/js/compare-versions.js"></script>
+<script src="assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="assets/js/bootstrap-toc.min.js"></script>
+<script src="assets/js/jquery.touchSwipe.min.js"></script>
+<script src="assets/js/anchor.min.js"></script>
+<script src="assets/js/tag_filtering.js"></script>
+<script src="assets/js/language_switching.js"></script>
+<script src="assets/js/styleswitcher.js"></script>
+
+<script src="assets/js/lines_around_headings.js"></script>
+
+<script src="assets/js/prism-core.js"></script>
+<script src="assets/js/prism-autoloader.js"></script>
+<script src="assets/js/prism_autoloader_path_override.js"></script>
+<script src="assets/js/trie.js"></script>
+
+<!-- generic -->
+<link rel="icon" type="image/png" href="assets/images/favicon-16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="assets/images/favicon-32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="assets/images/favicon-57.png" sizes="57x57">
+<link rel="icon" type="image/png" href="assets/images/favicon-64.png" sizes="64x64">
+<link rel="icon" type="image/png" href="assets/images/favicon-76.png" sizes="76x76">
+<link rel="icon" type="image/png" href="assets/images/favicon-96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="assets/images/favicon-128.png" sizes="128x128">
+<link rel="icon" type="image/png" href="assets/images/favicon-192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="assets/images/favicon-228.png" sizes="228x228">
+
+<!-- Android -->
+<link rel="shortcut icon" sizes="196x196" href="assets/images/favicon-196.png">
+
+<!-- iOS -->
+<link rel="apple-touch-icon" href="assets/images/favicon-120.png" sizes="120x120">
+<link rel="apple-touch-icon" href="assets/images/favicon-152.png" sizes="152x152">
+<link rel="apple-touch-icon" href="assets/images/favicon-180.png" sizes="180x180">
+
+</head>
+
+<body class="no-script
+">
+
+<script>
+$('body').removeClass('no-script');
+</script>
+
+<nav class="navbar navbar-fixed-top navbar-default" id="topnav">
+	<div class="container-fluid">
+		<div class="navbar-right">
+			<a id="toc-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-wrapper" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<span title="light mode switch" class="glyphicon glyphicon-sunglasses pull-right" id="lightmode-icon"></span>
+			<form class="navbar-form pull-right" id="navbar-search-form">
+                               <div class="form-group has-feedback">
+                                       <input type="text" class="form-control input-sm" name="search" id="sidenav-lookup-field" placeholder="search" disabled>
+				       <span class="glyphicon glyphicon-search form-control-feedback" id="search-mgn-glass"></span>
+                               </div>
+                        </form>
+		</div>
+		<div class="navbar-header">
+			<a id="sidenav-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<a id="home-link" href="index.html" class="hotdoc-navbar-brand">
+				<img src="assets/images/gstreamer-logo.svg" alt="Home">
+			</a>
+		</div>
+		<div class="navbar-collapse collapse" id="navbar-wrapper">
+			<ul class="nav navbar-nav" id="menu">
+				
+<li class="dropdown">
+    <a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        API References<span class="caret"></span>
+    </a>
+	<ul class="dropdown-menu" id="modules-menu">
+					<li>
+				<a href="gstreamer/gi-index.html">GStreamer core</a>
+			</li>
+					<li>
+				<a href="libs.html">GStreamer Libraries</a>
+			</li>
+					<li>
+				<a href="plugins_doc.html">GStreamer Plugins</a>
+			</li>
+		</ul>
+</li>
+
+<li>
+    <a href="application-development/index.html">Application manual</a>
+</li>
+
+
+<li>
+    <a href="tutorials/index.html">Tutorials</a>
+</li>
+
+			</ul>
+			<div class="hidden-xs hidden-sm navbar-text navbar-center">
+							</div>
+		</div>
+	</div>
+</nav>
+
+<main>
+<div data-extension="gi-extension" data-hotdoc-in-toplevel="False" data-hotdoc-project="vulkanlib" data-hotdoc-ref="vkwindow.html" class="page_container" id="page-wrapper" data-hotdoc-meta-gi-languages="['c', 'javascript', 'python']" data-hotdoc-meta-gi-language="c">
+<script src="assets/js/utils.js"></script>
+
+<div class="panel panel-collapse oc-collapsed" id="sidenav" data-hotdoc-role="navigation">
+	<script src="assets/js/full-width.js"></script>
+  <div id="sitenav-wrapper">
+    <iframe src="hotdoc-sitemap.html" id="sitenav-frame"></iframe>
+  </div>
+</div>
+
+<div id="body">
+	<div id="main">
+				    <div id="page-description" data-hotdoc-role="main">
+        <h1 id="gstvulkanwindow-page">GstVulkanWindow</h1>
+<p>GstVulkanWindow represents a window that elements can render into.  A window can
+either be a user visible window (onscreen) or hidden (offscreen).</p>
+
+    </div>
+        
+        
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.18;" id="GstVulkanWindow">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h2 data-hotdoc-id="GstVulkanWindow">
+	<i>GstVulkanWindow</i>
+</h2>
+
+
+<div class="hierarchy_container">
+	<div class="hierarchy_details">
+<pre>
+<a title="GObject" href="https://docs.gtk.org/gobject/class.Object.html">GObject</a>
+    <span class="lineart">╰──</span><a title="GInitiallyUnowned" href="https://docs.gtk.org/gobject/class.InitiallyUnowned.html">GInitiallyUnowned</a>
+        <span class="lineart">╰──</span><a title="GstObject" href="gstreamer/gstobject.html#GstObject">GstObject</a>
+            <span class="lineart">╰──</span>GstVulkanWindow
+</pre>
+
+</div>
+
+</div>
+
+<div class="class_details">
+	<p><a href="vulkanlib/vkwindow.html#GstVulkanWindow">GstVulkanWindow</a> is an opaque struct and should only be accessed through the
+provided api.</p>
+
+</div>
+
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+<h3>Class structure</h3>
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstVulkanWindowClass">
+	<i>GstVulkanWindowClass</i>
+</h4>
+
+
+
+
+
+	<div class="members-container">
+		<h5>Fields</h5>
+					
+<div class="symbol-detail" data-hotdoc-id="GstVulkanWindowClass.parent_class">
+	<div>
+		<i><em><code>parent_class</code></em></i>
+		(<a title="GstObjectClass" href="GstObjectClass">GstObjectClass</a>)
+		–
+	</div>
+			<p>Parent class</p>
+
+	</div>
+
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3>
+	GstVulkan.VulkanWindowClass
+</h3>
+
+
+
+
+
+	<div class="members-container">
+		<h5>Attributes</h5>
+					
+<div class="symbol-detail" data-hotdoc-id="GstVulkanWindowClass.parent_class">
+	<div>
+		<i><em><code>parent_class</code></em></i>
+		(<a title="Gst.ObjectClass" href="GstObjectClass">Gst.ObjectClass</a>)
+		–
+	</div>
+			<p>Parent class</p>
+
+	</div>
+
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3>
+	GstVulkan.VulkanWindowClass
+</h3>
+
+
+
+
+
+	<div class="members-container">
+		<h5>Attributes</h5>
+					
+<div class="symbol-detail" data-hotdoc-id="GstVulkanWindowClass.parent_class">
+	<div>
+		<i><em><code>parent_class</code></em></i>
+		(<a title="Gst.ObjectClass" href="GstObjectClass">Gst.ObjectClass</a>)
+		–
+	</div>
+			<p>Parent class</p>
+
+	</div>
+
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h2 data-hotdoc-id="GstVulkanWindow">
+	<i>GstVulkan.VulkanWindow</i>
+</h2>
+
+
+<div class="hierarchy_container">
+	<div class="hierarchy_details">
+<pre>
+<a title="GObject.Object" href="https://docs.gtk.org/gobject/class.Object.html">GObject.Object</a>
+    <span class="lineart">╰──</span><a title="GObject.InitiallyUnowned" href="https://docs.gtk.org/gobject/class.InitiallyUnowned.html">GObject.InitiallyUnowned</a>
+        <span class="lineart">╰──</span><a title="Gst.Object" href="gstreamer/gstobject.html#GstObject">Gst.Object</a>
+            <span class="lineart">╰──</span>GstVulkan.VulkanWindow
+</pre>
+
+</div>
+
+</div>
+
+<div class="class_details">
+	<p><a href="vulkanlib/vkwindow.html#GstVulkanWindow">GstVulkan.VulkanWindow</a> is an opaque struct and should only be accessed through the
+provided api.</p>
+
+</div>
+
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h2 data-hotdoc-id="GstVulkanWindow">
+	<i>GstVulkan.VulkanWindow</i>
+</h2>
+
+
+<div class="hierarchy_container">
+	<div class="hierarchy_details">
+<pre>
+<a title="GObject.Object" href="https://docs.gtk.org/gobject/class.Object.html">GObject.Object</a>
+    <span class="lineart">╰──</span><a title="GObject.InitiallyUnowned" href="https://docs.gtk.org/gobject/class.InitiallyUnowned.html">GObject.InitiallyUnowned</a>
+        <span class="lineart">╰──</span><a title="Gst.Object" href="gstreamer/gstobject.html#GstObject">Gst.Object</a>
+            <span class="lineart">╰──</span>GstVulkan.VulkanWindow
+</pre>
+
+</div>
+
+</div>
+
+<div class="class_details">
+	<p><a href="vulkanlib/vkwindow.html#GstVulkanWindow">GstVulkan.VulkanWindow</a> is an opaque struct and should only be accessed through the
+provided api.</p>
+
+</div>
+
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+
+            <h3 class="symbol_section">Constructors</h3>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.18;" id="gst_vulkan_window_new">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_vulkan_window_new">
+	<i>gst_vulkan_window_new</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GstVulkanWindow" href="vulkanlib/vkwindow.html#GstVulkanWindow">GstVulkanWindow</a> *
+gst_vulkan_window_new (<a title="GstVulkanDisplay" href="vulkanlib/vkdisplay.html#GstVulkanDisplay">GstVulkanDisplay</a> * display)</pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>display</code></em></i>
+–
+</div>
+<p>a <a href="vulkanlib/vkdisplay.html#GstVulkanDisplay">GstVulkanDisplay</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span>
+<span class="annotation">[<abbr title="Free data after the code is done"><span class="acronym">transfer: full</span></abbr>]</span><span>)</span>
+–
+			</div>
+							<p>a new <a href="vulkanlib/vkwindow.html#GstVulkanWindow">GstVulkanWindow</a> using <em>display</em>'s connection</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_vulkan_window_new">
+	<i>GstVulkan.VulkanWindow.prototype.new</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstVulkan.VulkanWindow.prototype.new(display: <a title="GstVulkan.VulkanDisplay" href="vulkanlib/vkdisplay.html#GstVulkanDisplay">GstVulkan.VulkanDisplay</a>): {
+    // javascript wrapper for 'gst_vulkan_window_new'
+}</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>display</code></em></i>
+<span>(</span><a title="GstVulkan.VulkanDisplay" href="vulkanlib/vkdisplay.html#GstVulkanDisplay">GstVulkan.VulkanDisplay</a><span>)</span>
+–
+</div>
+<p>a <a href="vulkanlib/vkdisplay.html#GstVulkanDisplay">GstVulkan.VulkanDisplay</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GstVulkan.VulkanWindow" href="vulkanlib/vkwindow.html#GstVulkanWindow">GstVulkan.VulkanWindow</a><span>)</span>
+–
+			</div>
+							<p>a new <a href="vulkanlib/vkwindow.html#GstVulkanWindow">GstVulkan.VulkanWindow</a> using <em>display</em>'s connection</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_vulkan_window_new">
+	<i>GstVulkan.VulkanWindow.new</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstVulkan.VulkanWindow.new (display):
+    #python wrapper for 'gst_vulkan_window_new'</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>display</code></em></i>
+<span>(</span><a title="GstVulkan.VulkanDisplay" href="vulkanlib/vkdisplay.html#GstVulkanDisplay">GstVulkan.VulkanDisplay</a><span>)</span>
+–
+</div>
+<p>a <a href="vulkanlib/vkdisplay.html#GstVulkanDisplay">GstVulkan.VulkanDisplay</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GstVulkan.VulkanWindow" href="vulkanlib/vkwindow.html#GstVulkanWindow">GstVulkan.VulkanWindow</a><span>)</span>
+–
+			</div>
+							<p>a new <a href="vulkanlib/vkwindow.html#GstVulkanWindow">GstVulkan.VulkanWindow</a> using <em>display</em>'s connection</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+
+            <h3 class="symbol_section">Methods</h3>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.18;" id="gst_vulkan_window_close">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_vulkan_window_close">
+	<i>gst_vulkan_window_close</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+gst_vulkan_window_close (<a title="GstVulkanWindow" href="vulkanlib/vkwindow.html#GstVulkanWindow">GstVulkanWindow</a> * window)</pre>
+
+<p>Attempt to close the window.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>window</code></em></i>
+–
+</div>
+<p>a <a href="vulkanlib/vkwindow.html#GstVulkanWindow">GstVulkanWindow</a></p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_vulkan_window_close">
+	<i>GstVulkan.VulkanWindow.prototype.close</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstVulkan.VulkanWindow.prototype.close(): {
+    // javascript wrapper for 'gst_vulkan_window_close'
+}</code></pre>
+
+<p>Attempt to close the window.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>window</code></em></i>
+<span>(</span><a title="GstVulkan.VulkanWindow" href="vulkanlib/vkwindow.html#GstVulkanWindow">GstVulkan.VulkanWindow</a><span>)</span>
+–
+</div>
+<p>a <a href="vulkanlib/vkwindow.html#GstVulkanWindow">GstVulkan.VulkanWindow</a></p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_vulkan_window_close">
+	<i>GstVulkan.VulkanWindow.close</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstVulkan.VulkanWindow.close (self):
+    #python wrapper for 'gst_vulkan_window_close'</code></pre>
+
+<p>Attempt to close the window.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>window</code></em></i>
+<span>(</span><a title="GstVulkan.VulkanWindow" href="vulkanlib/vkwindow.html#GstVulkanWindow">GstVulkan.VulkanWindow</a><span>)</span>
+–
+</div>
+<p>a <a href="vulkanlib/vkwindow.html#GstVulkanWindow">GstVulkan.VulkanWindow</a></p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.18;" id="gst_vulkan_window_get_display">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_vulkan_window_get_display">
+	<i>gst_vulkan_window_get_display</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GstVulkanDisplay" href="vulkanlib/vkdisplay.html#GstVulkanDisplay">GstVulkanDisplay</a> *
+gst_vulkan_window_get_display (<a title="GstVulkanWindow" href="vulkanlib/vkwindow.html#GstVulkanWindow">GstVulkanWindow</a> * window)</pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>window</code></em></i>
+–
+</div>
+<p>a <a href="vulkanlib/vkwindow.html#GstVulkanWindow">GstVulkanWindow</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span>
+<span class="annotation">[<abbr title="Free data after the code is done"><span class="acronym">transfer: full</span></abbr>]</span><span>)</span>
+–
+			</div>
+							<p>the <a href="vulkanlib/vkdisplay.html#GstVulkanDisplay">GstVulkanDisplay</a> for <em>window</em></p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_vulkan_window_get_display">
+	<i>GstVulkan.VulkanWindow.prototype.get_display</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstVulkan.VulkanWindow.prototype.get_display(): {
+    // javascript wrapper for 'gst_vulkan_window_get_display'
+}</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>window</code></em></i>
+<span>(</span><a title="GstVulkan.VulkanWindow" href="vulkanlib/vkwindow.html#GstVulkanWindow">GstVulkan.VulkanWindow</a><span>)</span>
+–
+</div>
+<p>a <a href="vulkanlib/vkwindow.html#GstVulkanWindow">GstVulkan.VulkanWindow</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GstVulkan.VulkanDisplay" href="vulkanlib/vkdisplay.html#GstVulkanDisplay">GstVulkan.VulkanDisplay</a><span>)</span>
+–
+			</div>
+							<p>the <a href="vulkanlib/vkdisplay.html#GstVulkanDisplay">GstVulkan.VulkanDisplay</a> for <em>window</em></p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_vulkan_window_get_display">
+	<i>GstVulkan.VulkanWindow.get_display</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstVulkan.VulkanWindow.get_display (self):
+    #python wrapper for 'gst_vulkan_window_get_display'</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>window</code></em></i>
+<span>(</span><a title="GstVulkan.VulkanWindow" href="vulkanlib/vkwindow.html#GstVulkanWindow">GstVulkan.VulkanWindow</a><span>)</span>
+–
+</div>
+<p>a <a href="vulkanlib/vkwindow.html#GstVulkanWindow">GstVulkan.VulkanWindow</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GstVulkan.VulkanDisplay" href="vulkanlib/vkdisplay.html#GstVulkanDisplay">GstVulkan.VulkanDisplay</a><span>)</span>
+–
+			</div>
+							<p>the <a href="vulkanlib/vkdisplay.html#GstVulkanDisplay">GstVulkan.VulkanDisplay</a> for <em>window</em></p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.18;" id="gst_vulkan_window_get_presentation_support">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_vulkan_window_get_presentation_support">
+	<i>gst_vulkan_window_get_presentation_support</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a>
+gst_vulkan_window_get_presentation_support (<a title="GstVulkanWindow" href="vulkanlib/vkwindow.html#GstVulkanWindow">GstVulkanWindow</a> * window,
+                                            <a title="GstVulkanDevice" href="vulkanlib/vkdevice.html#GstVulkanDevice">GstVulkanDevice</a> * device,
+                                            <a title="guint32" href="https://docs.gtk.org/glib/types.html#guint32">guint32</a> queue_family_idx)</pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>window</code></em></i>
+–
+</div>
+<p>a <a href="vulkanlib/vkwindow.html#GstVulkanWindow">GstVulkanWindow</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>device</code></em></i>
+–
+</div>
+<p>a <a href="vulkanlib/vkdevice.html#GstVulkanDevice">GstVulkanDevice</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>queue_family_idx</code></em></i>
+–
+</div>
+<p>the queue family</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p>whether the given combination of <em>window</em>, <em>device</em> and
+<em>queue_family_idx</em> supports presentation</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_vulkan_window_get_presentation_support">
+	<i>GstVulkan.VulkanWindow.prototype.get_presentation_support</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstVulkan.VulkanWindow.prototype.get_presentation_support(device: <a title="GstVulkan.VulkanDevice" href="vulkanlib/vkdevice.html#GstVulkanDevice">GstVulkan.VulkanDevice</a>, queue_family_idx: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>): {
+    // javascript wrapper for 'gst_vulkan_window_get_presentation_support'
+}</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>window</code></em></i>
+<span>(</span><a title="GstVulkan.VulkanWindow" href="vulkanlib/vkwindow.html#GstVulkanWindow">GstVulkan.VulkanWindow</a><span>)</span>
+–
+</div>
+<p>a <a href="vulkanlib/vkwindow.html#GstVulkanWindow">GstVulkan.VulkanWindow</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>device</code></em></i>
+<span>(</span><a title="GstVulkan.VulkanDevice" href="vulkanlib/vkdevice.html#GstVulkanDevice">GstVulkan.VulkanDevice</a><span>)</span>
+–
+</div>
+<p>a <a href="vulkanlib/vkdevice.html#GstVulkanDevice">GstVulkan.VulkanDevice</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>queue_family_idx</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>the queue family</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+			</div>
+							<p>whether the given combination of <em>window</em>, <em>device</em> and
+<em>queue_family_idx</em> supports presentation</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_vulkan_window_get_presentation_support">
+	<i>GstVulkan.VulkanWindow.get_presentation_support</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstVulkan.VulkanWindow.get_presentation_support (self, device, queue_family_idx):
+    #python wrapper for 'gst_vulkan_window_get_presentation_support'</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>window</code></em></i>
+<span>(</span><a title="GstVulkan.VulkanWindow" href="vulkanlib/vkwindow.html#GstVulkanWindow">GstVulkan.VulkanWindow</a><span>)</span>
+–
+</div>
+<p>a <a href="vulkanlib/vkwindow.html#GstVulkanWindow">GstVulkan.VulkanWindow</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>device</code></em></i>
+<span>(</span><a title="GstVulkan.VulkanDevice" href="vulkanlib/vkdevice.html#GstVulkanDevice">GstVulkan.VulkanDevice</a><span>)</span>
+–
+</div>
+<p>a <a href="vulkanlib/vkdevice.html#GstVulkanDevice">GstVulkan.VulkanDevice</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>queue_family_idx</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<p>the queue family</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a><span>)</span>
+–
+			</div>
+							<p>whether the given combination of <em>window</em>, <em>device</em> and
+<em>queue_family_idx</em> supports presentation</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.18;" id="gst_vulkan_window_get_surface">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_vulkan_window_get_surface">
+	<i>gst_vulkan_window_get_surface</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+VkSurfaceKHR
+gst_vulkan_window_get_surface (<a title="GstVulkanWindow" href="vulkanlib/vkwindow.html#GstVulkanWindow">GstVulkanWindow</a> * window,
+                               <a title="GError" href="https://docs.gtk.org/glib/struct.Error.html">GError</a> ** error)</pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>window</code></em></i>
+–
+</div>
+<p>a <a href="vulkanlib/vkwindow.html#GstVulkanWindow">GstVulkanWindow</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>error</code></em></i>
+–
+</div>
+<p>a <a href="https://docs.gtk.org/glib/struct.Error.html">GError</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p>the VkSurface for displaying into.  The caller is responsible for
+calling <code>VkDestroySurface</code> on the returned surface.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.18;" id="gst_vulkan_window_get_surface_dimensions">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_vulkan_window_get_surface_dimensions">
+	<i>gst_vulkan_window_get_surface_dimensions</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+gst_vulkan_window_get_surface_dimensions (<a title="GstVulkanWindow" href="vulkanlib/vkwindow.html#GstVulkanWindow">GstVulkanWindow</a> * window,
+                                          <a title="guint" href="https://docs.gtk.org/glib/types.html#guint">guint</a> * width,
+                                          <a title="guint" href="https://docs.gtk.org/glib/types.html#guint">guint</a> * height)</pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>window</code></em></i>
+–
+</div>
+<p>a <a href="vulkanlib/vkwindow.html#GstVulkanWindow">GstVulkanWindow</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>width</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="Parameter for returning results"><span class="acronym">out</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>Current width of <em>window</em></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>height</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="Parameter for returning results"><span class="acronym">out</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>Current height of <em>window</em></p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_vulkan_window_get_surface_dimensions">
+	<i>GstVulkan.VulkanWindow.prototype.get_surface_dimensions</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstVulkan.VulkanWindow.prototype.get_surface_dimensions(): {
+    // javascript wrapper for 'gst_vulkan_window_get_surface_dimensions'
+}</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>window</code></em></i>
+<span>(</span><a title="GstVulkan.VulkanWindow" href="vulkanlib/vkwindow.html#GstVulkanWindow">GstVulkan.VulkanWindow</a><span>)</span>
+–
+</div>
+<p>a <a href="vulkanlib/vkwindow.html#GstVulkanWindow">GstVulkan.VulkanWindow</a></p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_vulkan_window_get_surface_dimensions">
+	<i>GstVulkan.VulkanWindow.get_surface_dimensions</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstVulkan.VulkanWindow.get_surface_dimensions (self):
+    #python wrapper for 'gst_vulkan_window_get_surface_dimensions'</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>window</code></em></i>
+<span>(</span><a title="GstVulkan.VulkanWindow" href="vulkanlib/vkwindow.html#GstVulkanWindow">GstVulkan.VulkanWindow</a><span>)</span>
+–
+</div>
+<p>a <a href="vulkanlib/vkwindow.html#GstVulkanWindow">GstVulkan.VulkanWindow</a></p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.18;" id="gst_vulkan_window_handle_events">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_vulkan_window_handle_events">
+	<i>gst_vulkan_window_handle_events</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+gst_vulkan_window_handle_events (<a title="GstVulkanWindow" href="vulkanlib/vkwindow.html#GstVulkanWindow">GstVulkanWindow</a> * window,
+                                 <a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a> handle_events)</pre>
+
+<p>Tell a <em>window</em> that it should handle events from the window system. These
+events are forwarded upstream as navigation events. In some window systems
+events are not propagated in the window hierarchy if a client is listening
+for them. This method allows you to disable events handling completely
+from the <em>window</em>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>window</code></em></i>
+–
+</div>
+<p>a <a href="vulkanlib/vkwindow.html#GstVulkanWindow">GstVulkanWindow</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>handle_events</code></em></i>
+–
+</div>
+<p>a <a href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a> indicating if events should be handled or not.</p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_vulkan_window_handle_events">
+	<i>GstVulkan.VulkanWindow.prototype.handle_events</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstVulkan.VulkanWindow.prototype.handle_events(handle_events: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>): {
+    // javascript wrapper for 'gst_vulkan_window_handle_events'
+}</code></pre>
+
+<p>Tell a <em>window</em> that it should handle events from the window system. These
+events are forwarded upstream as navigation events. In some window systems
+events are not propagated in the window hierarchy if a client is listening
+for them. This method allows you to disable events handling completely
+from the <em>window</em>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>window</code></em></i>
+<span>(</span><a title="GstVulkan.VulkanWindow" href="vulkanlib/vkwindow.html#GstVulkanWindow">GstVulkan.VulkanWindow</a><span>)</span>
+–
+</div>
+<p>a <a href="vulkanlib/vkwindow.html#GstVulkanWindow">GstVulkan.VulkanWindow</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>handle_events</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>a <a href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a> indicating if events should be handled or not.</p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_vulkan_window_handle_events">
+	<i>GstVulkan.VulkanWindow.handle_events</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstVulkan.VulkanWindow.handle_events (self, handle_events):
+    #python wrapper for 'gst_vulkan_window_handle_events'</code></pre>
+
+<p>Tell a <em>window</em> that it should handle events from the window system. These
+events are forwarded upstream as navigation events. In some window systems
+events are not propagated in the window hierarchy if a client is listening
+for them. This method allows you to disable events handling completely
+from the <em>window</em>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>window</code></em></i>
+<span>(</span><a title="GstVulkan.VulkanWindow" href="vulkanlib/vkwindow.html#GstVulkanWindow">GstVulkan.VulkanWindow</a><span>)</span>
+–
+</div>
+<p>a <a href="vulkanlib/vkwindow.html#GstVulkanWindow">GstVulkan.VulkanWindow</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>handle_events</code></em></i>
+<span>(</span><a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a><span>)</span>
+–
+</div>
+<p>a <a href="https://docs.python.org/3/library/functions.html#bool">bool</a> indicating if events should be handled or not.</p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.18;" id="gst_vulkan_window_open">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_vulkan_window_open">
+	<i>gst_vulkan_window_open</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a>
+gst_vulkan_window_open (<a title="GstVulkanWindow" href="vulkanlib/vkwindow.html#GstVulkanWindow">GstVulkanWindow</a> * window,
+                        <a title="GError" href="https://docs.gtk.org/glib/struct.Error.html">GError</a> ** error)</pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>window</code></em></i>
+–
+</div>
+<p>a <a href="vulkanlib/vkwindow.html#GstVulkanWindow">GstVulkanWindow</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>error</code></em></i>
+–
+</div>
+<p>a <a href="https://docs.gtk.org/glib/struct.Error.html">GError</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p>whether <em>window</em> could be successfully opened</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_vulkan_window_open">
+	<i>GstVulkan.VulkanWindow.prototype.open</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstVulkan.VulkanWindow.prototype.open(): {
+    // javascript wrapper for 'gst_vulkan_window_open'
+}</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>window</code></em></i>
+<span>(</span><a title="GstVulkan.VulkanWindow" href="vulkanlib/vkwindow.html#GstVulkanWindow">GstVulkan.VulkanWindow</a><span>)</span>
+–
+</div>
+<p>a <a href="vulkanlib/vkwindow.html#GstVulkanWindow">GstVulkan.VulkanWindow</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+			</div>
+							<p>whether <em>window</em> could be successfully opened</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_vulkan_window_open">
+	<i>GstVulkan.VulkanWindow.open</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>@raises(<a href="https://developer.gnome.org/glib/stable/glib-Error-Reporting.html">GLib.GError</a>)
+def GstVulkan.VulkanWindow.open (self):
+    #python wrapper for 'gst_vulkan_window_open'</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>window</code></em></i>
+<span>(</span><a title="GstVulkan.VulkanWindow" href="vulkanlib/vkwindow.html#GstVulkanWindow">GstVulkan.VulkanWindow</a><span>)</span>
+–
+</div>
+<p>a <a href="vulkanlib/vkwindow.html#GstVulkanWindow">GstVulkan.VulkanWindow</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a><span>)</span>
+–
+			</div>
+							<p>whether <em>window</em> could be successfully opened</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.18;" id="gst_vulkan_window_redraw">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_vulkan_window_redraw">
+	<i>gst_vulkan_window_redraw</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+gst_vulkan_window_redraw (<a title="GstVulkanWindow" href="vulkanlib/vkwindow.html#GstVulkanWindow">GstVulkanWindow</a> * window)</pre>
+
+<p>Ask the <em>window</em> to redraw its contents</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>window</code></em></i>
+–
+</div>
+<p>a <a href="vulkanlib/vkwindow.html#GstVulkanWindow">GstVulkanWindow</a></p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_vulkan_window_redraw">
+	<i>GstVulkan.VulkanWindow.prototype.redraw</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstVulkan.VulkanWindow.prototype.redraw(): {
+    // javascript wrapper for 'gst_vulkan_window_redraw'
+}</code></pre>
+
+<p>Ask the <em>window</em> to redraw its contents</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>window</code></em></i>
+<span>(</span><a title="GstVulkan.VulkanWindow" href="vulkanlib/vkwindow.html#GstVulkanWindow">GstVulkan.VulkanWindow</a><span>)</span>
+–
+</div>
+<p>a <a href="vulkanlib/vkwindow.html#GstVulkanWindow">GstVulkan.VulkanWindow</a></p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_vulkan_window_redraw">
+	<i>GstVulkan.VulkanWindow.redraw</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstVulkan.VulkanWindow.redraw (self):
+    #python wrapper for 'gst_vulkan_window_redraw'</code></pre>
+
+<p>Ask the <em>window</em> to redraw its contents</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>window</code></em></i>
+<span>(</span><a title="GstVulkan.VulkanWindow" href="vulkanlib/vkwindow.html#GstVulkanWindow">GstVulkan.VulkanWindow</a><span>)</span>
+–
+</div>
+<p>a <a href="vulkanlib/vkwindow.html#GstVulkanWindow">GstVulkan.VulkanWindow</a></p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.18;" id="gst_vulkan_window_resize">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_vulkan_window_resize">
+	<i>gst_vulkan_window_resize</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+gst_vulkan_window_resize (<a title="GstVulkanWindow" href="vulkanlib/vkwindow.html#GstVulkanWindow">GstVulkanWindow</a> * window,
+                          <a title="gint" href="https://docs.gtk.org/glib/types.html#gint">gint</a> width,
+                          <a title="gint" href="https://docs.gtk.org/glib/types.html#gint">gint</a> height)</pre>
+
+<p>Resize the output surface.</p>
+<p>Currently intended for subclasses to update internal state.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>window</code></em></i>
+–
+</div>
+<p>a <a href="vulkanlib/vkwindow.html#GstVulkanWindow">GstVulkanWindow</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>width</code></em></i>
+–
+</div>
+<p>the new width</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>height</code></em></i>
+–
+</div>
+<p>the new height</p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_vulkan_window_resize">
+	<i>GstVulkan.VulkanWindow.prototype.resize</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstVulkan.VulkanWindow.prototype.resize(width: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>, height: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>): {
+    // javascript wrapper for 'gst_vulkan_window_resize'
+}</code></pre>
+
+<p>Resize the output surface.</p>
+<p>Currently intended for subclasses to update internal state.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>window</code></em></i>
+<span>(</span><a title="GstVulkan.VulkanWindow" href="vulkanlib/vkwindow.html#GstVulkanWindow">GstVulkan.VulkanWindow</a><span>)</span>
+–
+</div>
+<p>a <a href="vulkanlib/vkwindow.html#GstVulkanWindow">GstVulkan.VulkanWindow</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>width</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>the new width</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>height</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>the new height</p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_vulkan_window_resize">
+	<i>GstVulkan.VulkanWindow.resize</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstVulkan.VulkanWindow.resize (self, width, height):
+    #python wrapper for 'gst_vulkan_window_resize'</code></pre>
+
+<p>Resize the output surface.</p>
+<p>Currently intended for subclasses to update internal state.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>window</code></em></i>
+<span>(</span><a title="GstVulkan.VulkanWindow" href="vulkanlib/vkwindow.html#GstVulkanWindow">GstVulkan.VulkanWindow</a><span>)</span>
+–
+</div>
+<p>a <a href="vulkanlib/vkwindow.html#GstVulkanWindow">GstVulkan.VulkanWindow</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>width</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<p>the new width</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>height</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<p>the new height</p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_vulkan_window_send_key_event">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_vulkan_window_send_key_event">
+	<i>gst_vulkan_window_send_key_event</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+gst_vulkan_window_send_key_event (<a title="GstVulkanWindow" href="vulkanlib/vkwindow.html#GstVulkanWindow">GstVulkanWindow</a> * window,
+                                  const char* event_type,
+                                  const char* key_str)</pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>window</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>event_type</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>key_str</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_vulkan_window_send_key_event">
+	<i>GstVulkan.VulkanWindow.prototype.send_key_event</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstVulkan.VulkanWindow.prototype.send_key_event(event_type: <a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>, key_str: <a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>): {
+    // javascript wrapper for 'gst_vulkan_window_send_key_event'
+}</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>window</code></em></i>
+<span>(</span><a title="GstVulkan.VulkanWindow" href="vulkanlib/vkwindow.html#GstVulkanWindow">GstVulkan.VulkanWindow</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>event_type</code></em></i>
+<span>(</span><a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>key_str</code></em></i>
+<span>(</span><a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_vulkan_window_send_key_event">
+	<i>GstVulkan.VulkanWindow.send_key_event</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstVulkan.VulkanWindow.send_key_event (self, event_type, key_str):
+    #python wrapper for 'gst_vulkan_window_send_key_event'</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>window</code></em></i>
+<span>(</span><a title="GstVulkan.VulkanWindow" href="vulkanlib/vkwindow.html#GstVulkanWindow">GstVulkan.VulkanWindow</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>event_type</code></em></i>
+<span>(</span><a title="str" href="https://docs.python.org/3/library/functions.html#func-str">str</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>key_str</code></em></i>
+<span>(</span><a title="str" href="https://docs.python.org/3/library/functions.html#func-str">str</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_vulkan_window_send_mouse_event">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_vulkan_window_send_mouse_event">
+	<i>gst_vulkan_window_send_mouse_event</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+gst_vulkan_window_send_mouse_event (<a title="GstVulkanWindow" href="vulkanlib/vkwindow.html#GstVulkanWindow">GstVulkanWindow</a> * window,
+                                    const char* event_type,
+                                    int button,
+                                    double posx,
+                                    double posy)</pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>window</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>event_type</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>button</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>posx</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>posy</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_vulkan_window_send_mouse_event">
+	<i>GstVulkan.VulkanWindow.prototype.send_mouse_event</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstVulkan.VulkanWindow.prototype.send_mouse_event(event_type: <a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>, button: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>, posx: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>, posy: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>): {
+    // javascript wrapper for 'gst_vulkan_window_send_mouse_event'
+}</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>window</code></em></i>
+<span>(</span><a title="GstVulkan.VulkanWindow" href="vulkanlib/vkwindow.html#GstVulkanWindow">GstVulkan.VulkanWindow</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>event_type</code></em></i>
+<span>(</span><a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>button</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>posx</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>posy</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_vulkan_window_send_mouse_event">
+	<i>GstVulkan.VulkanWindow.send_mouse_event</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstVulkan.VulkanWindow.send_mouse_event (self, event_type, button, posx, posy):
+    #python wrapper for 'gst_vulkan_window_send_mouse_event'</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>window</code></em></i>
+<span>(</span><a title="GstVulkan.VulkanWindow" href="vulkanlib/vkwindow.html#GstVulkanWindow">GstVulkan.VulkanWindow</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>event_type</code></em></i>
+<span>(</span><a title="str" href="https://docs.python.org/3/library/functions.html#func-str">str</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>button</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>posx</code></em></i>
+<span>(</span><a title="float" href="https://docs.python.org/3/library/functions.html#float">float</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>posy</code></em></i>
+<span>(</span><a title="float" href="https://docs.python.org/3/library/functions.html#float">float</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_vulkan_window_set_window_handle">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_vulkan_window_set_window_handle">
+	<i>gst_vulkan_window_set_window_handle</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+gst_vulkan_window_set_window_handle (<a title="GstVulkanWindow" href="vulkanlib/vkwindow.html#GstVulkanWindow">GstVulkanWindow</a> * window,
+                                     <a title="guintptr" href="https://docs.gtk.org/glib/types.html#guintptr">guintptr</a> handle)</pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>window</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>handle</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_vulkan_window_set_window_handle">
+	<i>GstVulkan.VulkanWindow.prototype.set_window_handle</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstVulkan.VulkanWindow.prototype.set_window_handle(handle: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>): {
+    // javascript wrapper for 'gst_vulkan_window_set_window_handle'
+}</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>window</code></em></i>
+<span>(</span><a title="GstVulkan.VulkanWindow" href="vulkanlib/vkwindow.html#GstVulkanWindow">GstVulkan.VulkanWindow</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>handle</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_vulkan_window_set_window_handle">
+	<i>GstVulkan.VulkanWindow.set_window_handle</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstVulkan.VulkanWindow.set_window_handle (self, handle):
+    #python wrapper for 'gst_vulkan_window_set_window_handle'</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>window</code></em></i>
+<span>(</span><a title="GstVulkan.VulkanWindow" href="vulkanlib/vkwindow.html#GstVulkanWindow">GstVulkan.VulkanWindow</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>handle</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+
+            <h3 class="symbol_section">Signals</h3>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstVulkanWindow::close">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstVulkanWindow::close">
+	<i>close</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a>
+close_callback (<a title="GstVulkanWindow" href="vulkanlib/vkwindow.html#GstVulkanWindow">GstVulkanWindow</a> * self,
+                <a title="gpointer" href="https://docs.gtk.org/glib/types.html#gpointer">gpointer</a> user_data)</pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>user_data</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+<p>
+	<b>Flags:</b>	
+	
+		
+				<a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS">Run Last</a>
+			
+</p>
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GstVulkanWindow::close">
+	<i>close</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function close_callback(self: <a title="GstVulkan.VulkanWindow" href="vulkanlib/vkwindow.html#GstVulkanWindow">GstVulkan.VulkanWindow</a>, user_data: <a title="Object" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>): {
+    // javascript callback for the 'close' signal
+}</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+<span>(</span><a title="GstVulkan.VulkanWindow" href="vulkanlib/vkwindow.html#GstVulkanWindow">GstVulkan.VulkanWindow</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>user_data</code></em></i>
+<span>(</span><a title="Object" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+<p>
+	<b>Flags:</b>	
+	
+		
+				<a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS">Run Last</a>
+			
+</p>
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GstVulkanWindow::close">
+	<i>close</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def close_callback (self, *user_data):
+    #python callback for the 'close' signal</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+<span>(</span><a title="GstVulkan.VulkanWindow" href="vulkanlib/vkwindow.html#GstVulkanWindow">GstVulkan.VulkanWindow</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>user_data</code></em></i>
+<span>(</span><a title="variadic" href="https://docs.python.org/dev/tutorial/controlflow.html#arbitrary-argument-lists">variadic</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a><span>)</span>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+<p>
+	<b>Flags:</b>	
+	
+		
+				<a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS">Run Last</a>
+			
+</p>
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstVulkanWindow::draw">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstVulkanWindow::draw">
+	<i>draw</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+draw_callback (<a title="GstVulkanWindow" href="vulkanlib/vkwindow.html#GstVulkanWindow">GstVulkanWindow</a> * self,
+               <a title="gpointer" href="https://docs.gtk.org/glib/types.html#gpointer">gpointer</a> user_data)</pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>user_data</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+<p>
+	<b>Flags:</b>	
+	
+		
+				<a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS">Run Last</a>
+			
+</p>
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GstVulkanWindow::draw">
+	<i>draw</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function draw_callback(self: <a title="GstVulkan.VulkanWindow" href="vulkanlib/vkwindow.html#GstVulkanWindow">GstVulkan.VulkanWindow</a>, user_data: <a title="Object" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>): {
+    // javascript callback for the 'draw' signal
+}</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+<span>(</span><a title="GstVulkan.VulkanWindow" href="vulkanlib/vkwindow.html#GstVulkanWindow">GstVulkan.VulkanWindow</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>user_data</code></em></i>
+<span>(</span><a title="Object" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+<p>
+	<b>Flags:</b>	
+	
+		
+				<a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS">Run Last</a>
+			
+</p>
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GstVulkanWindow::draw">
+	<i>draw</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def draw_callback (self, *user_data):
+    #python callback for the 'draw' signal</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+<span>(</span><a title="GstVulkan.VulkanWindow" href="vulkanlib/vkwindow.html#GstVulkanWindow">GstVulkan.VulkanWindow</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>user_data</code></em></i>
+<span>(</span><a title="variadic" href="https://docs.python.org/dev/tutorial/controlflow.html#arbitrary-argument-lists">variadic</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+<p>
+	<b>Flags:</b>	
+	
+		
+				<a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS">Run Last</a>
+			
+</p>
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.18;" id="GstVulkanWindow::key-event">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstVulkanWindow::key-event">
+	<i>key-event</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+key_event_callback (<a title="GstVulkanWindow" href="vulkanlib/vkwindow.html#GstVulkanWindow">GstVulkanWindow</a> * self,
+                    <a title="gchar" href="https://docs.gtk.org/glib/types.html#gchar">gchar</a> * id,
+                    <a title="gchar" href="https://docs.gtk.org/glib/types.html#gchar">gchar</a> * key,
+                    <a title="gpointer" href="https://docs.gtk.org/glib/types.html#gpointer">gpointer</a> user_data)</pre>
+
+<p>Will be emitted when a key event is received by the <a href="vulkanlib/vkwindow.html#GstVulkanWindow">GstVulkanWindow</a>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>id</code></em></i>
+–
+</div>
+<p>the name of the event</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>key</code></em></i>
+–
+</div>
+<p>the id of the key pressed</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>user_data</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+<p>
+	<b>Flags:</b>	
+	
+		
+				<a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS">Run Last</a>
+			
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GstVulkanWindow::key-event">
+	<i>key-event</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function key_event_callback(self: <a title="GstVulkan.VulkanWindow" href="vulkanlib/vkwindow.html#GstVulkanWindow">GstVulkan.VulkanWindow</a>, id: <a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>, key: <a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>, user_data: <a title="Object" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>): {
+    // javascript callback for the 'key-event' signal
+}</code></pre>
+
+<p>Will be emitted when a key event is received by the <a href="vulkanlib/vkwindow.html#GstVulkanWindow">GstVulkan.VulkanWindow</a>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+<span>(</span><a title="GstVulkan.VulkanWindow" href="vulkanlib/vkwindow.html#GstVulkanWindow">GstVulkan.VulkanWindow</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>id</code></em></i>
+<span>(</span><a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a><span>)</span>
+–
+</div>
+<p>the name of the event</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>key</code></em></i>
+<span>(</span><a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a><span>)</span>
+–
+</div>
+<p>the id of the key pressed</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>user_data</code></em></i>
+<span>(</span><a title="Object" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+<p>
+	<b>Flags:</b>	
+	
+		
+				<a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS">Run Last</a>
+			
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GstVulkanWindow::key-event">
+	<i>key-event</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def key_event_callback (self, id, key, *user_data):
+    #python callback for the 'key-event' signal</code></pre>
+
+<p>Will be emitted when a key event is received by the <a href="vulkanlib/vkwindow.html#GstVulkanWindow">GstVulkan.VulkanWindow</a>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+<span>(</span><a title="GstVulkan.VulkanWindow" href="vulkanlib/vkwindow.html#GstVulkanWindow">GstVulkan.VulkanWindow</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>id</code></em></i>
+<span>(</span><a title="str" href="https://docs.python.org/3/library/functions.html#func-str">str</a><span>)</span>
+–
+</div>
+<p>the name of the event</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>key</code></em></i>
+<span>(</span><a title="str" href="https://docs.python.org/3/library/functions.html#func-str">str</a><span>)</span>
+–
+</div>
+<p>the id of the key pressed</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>user_data</code></em></i>
+<span>(</span><a title="variadic" href="https://docs.python.org/dev/tutorial/controlflow.html#arbitrary-argument-lists">variadic</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+<p>
+	<b>Flags:</b>	
+	
+		
+				<a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS">Run Last</a>
+			
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.18;" id="GstVulkanWindow::mouse-event">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstVulkanWindow::mouse-event">
+	<i>mouse-event</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+mouse_event_callback (<a title="GstVulkanWindow" href="vulkanlib/vkwindow.html#GstVulkanWindow">GstVulkanWindow</a> * self,
+                      <a title="gchar" href="https://docs.gtk.org/glib/types.html#gchar">gchar</a> * id,
+                      <a title="gint" href="https://docs.gtk.org/glib/types.html#gint">gint</a> button,
+                      <a title="gdouble" href="https://docs.gtk.org/glib/types.html#gdouble">gdouble</a> x,
+                      <a title="gdouble" href="https://docs.gtk.org/glib/types.html#gdouble">gdouble</a> y,
+                      <a title="gpointer" href="https://docs.gtk.org/glib/types.html#gpointer">gpointer</a> user_data)</pre>
+
+<p>Will be emitted when a mouse event is received by the <a href="vulkanlib/vkwindow.html#GstVulkanWindow">GstVulkanWindow</a>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>id</code></em></i>
+–
+</div>
+<p>the name of the event</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>button</code></em></i>
+–
+</div>
+<p>the id of the button</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>x</code></em></i>
+–
+</div>
+<p>the x coordinate of the mouse event</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>y</code></em></i>
+–
+</div>
+<p>the y coordinate of the mouse event</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>user_data</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+<p>
+	<b>Flags:</b>	
+	
+		
+				<a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS">Run Last</a>
+			
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GstVulkanWindow::mouse-event">
+	<i>mouse-event</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function mouse_event_callback(self: <a title="GstVulkan.VulkanWindow" href="vulkanlib/vkwindow.html#GstVulkanWindow">GstVulkan.VulkanWindow</a>, id: <a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>, button: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>, x: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>, y: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>, user_data: <a title="Object" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>): {
+    // javascript callback for the 'mouse-event' signal
+}</code></pre>
+
+<p>Will be emitted when a mouse event is received by the <a href="vulkanlib/vkwindow.html#GstVulkanWindow">GstVulkan.VulkanWindow</a>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+<span>(</span><a title="GstVulkan.VulkanWindow" href="vulkanlib/vkwindow.html#GstVulkanWindow">GstVulkan.VulkanWindow</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>id</code></em></i>
+<span>(</span><a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a><span>)</span>
+–
+</div>
+<p>the name of the event</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>button</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>the id of the button</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>x</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>the x coordinate of the mouse event</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>y</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>the y coordinate of the mouse event</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>user_data</code></em></i>
+<span>(</span><a title="Object" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+<p>
+	<b>Flags:</b>	
+	
+		
+				<a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS">Run Last</a>
+			
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GstVulkanWindow::mouse-event">
+	<i>mouse-event</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def mouse_event_callback (self, id, button, x, y, *user_data):
+    #python callback for the 'mouse-event' signal</code></pre>
+
+<p>Will be emitted when a mouse event is received by the <a href="vulkanlib/vkwindow.html#GstVulkanWindow">GstVulkan.VulkanWindow</a>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+<span>(</span><a title="GstVulkan.VulkanWindow" href="vulkanlib/vkwindow.html#GstVulkanWindow">GstVulkan.VulkanWindow</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>id</code></em></i>
+<span>(</span><a title="str" href="https://docs.python.org/3/library/functions.html#func-str">str</a><span>)</span>
+–
+</div>
+<p>the name of the event</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>button</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<p>the id of the button</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>x</code></em></i>
+<span>(</span><a title="float" href="https://docs.python.org/3/library/functions.html#float">float</a><span>)</span>
+–
+</div>
+<p>the x coordinate of the mouse event</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>y</code></em></i>
+<span>(</span><a title="float" href="https://docs.python.org/3/library/functions.html#float">float</a><span>)</span>
+–
+</div>
+<p>the y coordinate of the mouse event</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>user_data</code></em></i>
+<span>(</span><a title="variadic" href="https://docs.python.org/dev/tutorial/controlflow.html#arbitrary-argument-lists">variadic</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+<p>
+	<b>Flags:</b>	
+	
+		
+				<a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS">Run Last</a>
+			
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstVulkanWindow::resize">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstVulkanWindow::resize">
+	<i>resize</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+resize_callback (<a title="GstVulkanWindow" href="vulkanlib/vkwindow.html#GstVulkanWindow">GstVulkanWindow</a> * self,
+                 <a title="guint" href="https://docs.gtk.org/glib/types.html#guint">guint</a> object,
+                 <a title="guint" href="https://docs.gtk.org/glib/types.html#guint">guint</a> p0,
+                 <a title="gpointer" href="https://docs.gtk.org/glib/types.html#gpointer">gpointer</a> user_data)</pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>object</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>p0</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>user_data</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+<p>
+	<b>Flags:</b>	
+	
+		
+				<a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS">Run Last</a>
+			
+</p>
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GstVulkanWindow::resize">
+	<i>resize</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function resize_callback(self: <a title="GstVulkan.VulkanWindow" href="vulkanlib/vkwindow.html#GstVulkanWindow">GstVulkan.VulkanWindow</a>, object: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>, p0: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>, user_data: <a title="Object" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>): {
+    // javascript callback for the 'resize' signal
+}</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+<span>(</span><a title="GstVulkan.VulkanWindow" href="vulkanlib/vkwindow.html#GstVulkanWindow">GstVulkan.VulkanWindow</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>object</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>p0</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>user_data</code></em></i>
+<span>(</span><a title="Object" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+<p>
+	<b>Flags:</b>	
+	
+		
+				<a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS">Run Last</a>
+			
+</p>
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GstVulkanWindow::resize">
+	<i>resize</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def resize_callback (self, object, p0, *user_data):
+    #python callback for the 'resize' signal</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+<span>(</span><a title="GstVulkan.VulkanWindow" href="vulkanlib/vkwindow.html#GstVulkanWindow">GstVulkan.VulkanWindow</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>object</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>p0</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>user_data</code></em></i>
+<span>(</span><a title="variadic" href="https://docs.python.org/dev/tutorial/controlflow.html#arbitrary-argument-lists">variadic</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+<p>
+	<b>Flags:</b>	
+	
+		
+				<a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS">Run Last</a>
+			
+</p>
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+
+            <h3 class="symbol_section">Properties</h3>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstVulkanWindow:display">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstVulkanWindow:display">
+	<i>display</i>
+</h4>
+
+
+<pre class="property_signature">
+“display” <span class="type"><a title="GstVulkanDisplay" href="vulkanlib/vkdisplay.html#GstVulkanDisplay">GstVulkanDisplay</a> *</span>
+</pre>
+
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+</p>
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GstVulkanWindow:display">
+	<i>display</i>
+</h4>
+
+
+<pre class="property_signature">
+“display” <span class="type"><a title="GstVulkan.VulkanDisplay" href="vulkanlib/vkdisplay.html#GstVulkanDisplay">GstVulkan.VulkanDisplay</a></span>
+</pre>
+
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+</p>
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GstVulkanWindow:display">
+	<i>display</i>
+</h4>
+
+
+<pre class="property_signature">
+“self.props.display” <span class="type"><a title="GstVulkan.VulkanDisplay" href="vulkanlib/vkdisplay.html#GstVulkanDisplay">GstVulkan.VulkanDisplay</a></span>
+</pre>
+
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+</p>
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+
+            <h3 class="symbol_section">Virtual Methods</h3>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstVulkanWindowClass::close">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstVulkanWindowClass::close">
+	<i>close</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+close (<a title="GstVulkanWindow" href="vulkanlib/vkwindow.html#GstVulkanWindow">GstVulkanWindow</a> * window)</pre>
+
+<p>close the connection to the display</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>window</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GstVulkanWindowClass::close">
+	<i>vfunc_close</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function vfunc_close(window: <a title="GstVulkan.VulkanWindow" href="vulkanlib/vkwindow.html#GstVulkanWindow">GstVulkan.VulkanWindow</a>): {
+    // javascript implementation of the 'close' virtual method
+}</code></pre>
+
+<p>close the connection to the display</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>window</code></em></i>
+<span>(</span><a title="GstVulkan.VulkanWindow" href="vulkanlib/vkwindow.html#GstVulkanWindow">GstVulkan.VulkanWindow</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GstVulkanWindowClass::close">
+	<i>do_close</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def do_close (window):
+    #python implementation of the 'close' virtual method</code></pre>
+
+<p>close the connection to the display</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>window</code></em></i>
+<span>(</span><a title="GstVulkan.VulkanWindow" href="vulkanlib/vkwindow.html#GstVulkanWindow">GstVulkan.VulkanWindow</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstVulkanWindowClass::get_presentation_support">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstVulkanWindowClass::get_presentation_support">
+	<i>get_presentation_support</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a>
+get_presentation_support (<a title="GstVulkanWindow" href="vulkanlib/vkwindow.html#GstVulkanWindow">GstVulkanWindow</a> * window,
+                          <a title="GstVulkanDevice" href="vulkanlib/vkdevice.html#GstVulkanDevice">GstVulkanDevice</a> * device,
+                          <a title="guint32" href="https://docs.gtk.org/glib/types.html#guint32">guint32</a> queue_family_idx)</pre>
+
+<p>retrieve whether this window supports presentation</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>window</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>device</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>queue_family_idx</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GstVulkanWindowClass::get_presentation_support">
+	<i>vfunc_get_presentation_support</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function vfunc_get_presentation_support(window: <a title="GstVulkan.VulkanWindow" href="vulkanlib/vkwindow.html#GstVulkanWindow">GstVulkan.VulkanWindow</a>, device: <a title="GstVulkan.VulkanDevice" href="vulkanlib/vkdevice.html#GstVulkanDevice">GstVulkan.VulkanDevice</a>, queue_family_idx: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>): {
+    // javascript implementation of the 'get_presentation_support' virtual method
+}</code></pre>
+
+<p>retrieve whether this window supports presentation</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>window</code></em></i>
+<span>(</span><a title="GstVulkan.VulkanWindow" href="vulkanlib/vkwindow.html#GstVulkanWindow">GstVulkan.VulkanWindow</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>device</code></em></i>
+<span>(</span><a title="GstVulkan.VulkanDevice" href="vulkanlib/vkdevice.html#GstVulkanDevice">GstVulkan.VulkanDevice</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>queue_family_idx</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GstVulkanWindowClass::get_presentation_support">
+	<i>do_get_presentation_support</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def do_get_presentation_support (window, device, queue_family_idx):
+    #python implementation of the 'get_presentation_support' virtual method</code></pre>
+
+<p>retrieve whether this window supports presentation</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>window</code></em></i>
+<span>(</span><a title="GstVulkan.VulkanWindow" href="vulkanlib/vkwindow.html#GstVulkanWindow">GstVulkan.VulkanWindow</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>device</code></em></i>
+<span>(</span><a title="GstVulkan.VulkanDevice" href="vulkanlib/vkdevice.html#GstVulkanDevice">GstVulkan.VulkanDevice</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>queue_family_idx</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a><span>)</span>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstVulkanWindowClass::get_surface">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstVulkanWindowClass::get_surface">
+	<i>get_surface</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+VkSurfaceKHR
+get_surface (<a title="GstVulkanWindow" href="vulkanlib/vkwindow.html#GstVulkanWindow">GstVulkanWindow</a> * window,
+             <a title="GError" href="https://docs.gtk.org/glib/struct.Error.html">GError</a> ** error)</pre>
+
+<p>retrieve the vulkan surface for this window</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>window</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>error</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstVulkanWindowClass::get_surface_dimensions">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstVulkanWindowClass::get_surface_dimensions">
+	<i>get_surface_dimensions</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+get_surface_dimensions (<a title="GstVulkanWindow" href="vulkanlib/vkwindow.html#GstVulkanWindow">GstVulkanWindow</a> * window,
+                        <a title="guint" href="https://docs.gtk.org/glib/types.html#guint">guint</a> * width,
+                        <a title="guint" href="https://docs.gtk.org/glib/types.html#guint">guint</a> * height)</pre>
+
+<p>retrieve the current size of the window</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>window</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>width</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>height</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GstVulkanWindowClass::get_surface_dimensions">
+	<i>vfunc_get_surface_dimensions</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function vfunc_get_surface_dimensions(window: <a title="GstVulkan.VulkanWindow" href="vulkanlib/vkwindow.html#GstVulkanWindow">GstVulkan.VulkanWindow</a>): {
+    // javascript implementation of the 'get_surface_dimensions' virtual method
+}</code></pre>
+
+<p>retrieve the current size of the window</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>window</code></em></i>
+<span>(</span><a title="GstVulkan.VulkanWindow" href="vulkanlib/vkwindow.html#GstVulkanWindow">GstVulkan.VulkanWindow</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GstVulkanWindowClass::get_surface_dimensions">
+	<i>do_get_surface_dimensions</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def do_get_surface_dimensions (window):
+    #python implementation of the 'get_surface_dimensions' virtual method</code></pre>
+
+<p>retrieve the current size of the window</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>window</code></em></i>
+<span>(</span><a title="GstVulkan.VulkanWindow" href="vulkanlib/vkwindow.html#GstVulkanWindow">GstVulkan.VulkanWindow</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstVulkanWindowClass::handle_events">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstVulkanWindowClass::handle_events">
+	<i>handle_events</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+handle_events (<a title="GstVulkanWindow" href="vulkanlib/vkwindow.html#GstVulkanWindow">GstVulkanWindow</a> * window,
+               <a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a> handle_events)</pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>window</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>handle_events</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GstVulkanWindowClass::handle_events">
+	<i>vfunc_handle_events</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function vfunc_handle_events(window: <a title="GstVulkan.VulkanWindow" href="vulkanlib/vkwindow.html#GstVulkanWindow">GstVulkan.VulkanWindow</a>, handle_events: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>): {
+    // javascript implementation of the 'handle_events' virtual method
+}</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>window</code></em></i>
+<span>(</span><a title="GstVulkan.VulkanWindow" href="vulkanlib/vkwindow.html#GstVulkanWindow">GstVulkan.VulkanWindow</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>handle_events</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GstVulkanWindowClass::handle_events">
+	<i>do_handle_events</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def do_handle_events (window, handle_events):
+    #python implementation of the 'handle_events' virtual method</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>window</code></em></i>
+<span>(</span><a title="GstVulkan.VulkanWindow" href="vulkanlib/vkwindow.html#GstVulkanWindow">GstVulkan.VulkanWindow</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>handle_events</code></em></i>
+<span>(</span><a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstVulkanWindowClass::open">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstVulkanWindowClass::open">
+	<i>open</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a>
+open (<a title="GstVulkanWindow" href="vulkanlib/vkwindow.html#GstVulkanWindow">GstVulkanWindow</a> * window,
+      <a title="GError" href="https://docs.gtk.org/glib/struct.Error.html">GError</a> ** error)</pre>
+
+<p>open the connection to the display</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>window</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>error</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GstVulkanWindowClass::open">
+	<i>vfunc_open</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function vfunc_open(window: <a title="GstVulkan.VulkanWindow" href="vulkanlib/vkwindow.html#GstVulkanWindow">GstVulkan.VulkanWindow</a>): {
+    // javascript implementation of the 'open' virtual method
+}</code></pre>
+
+<p>open the connection to the display</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>window</code></em></i>
+<span>(</span><a title="GstVulkan.VulkanWindow" href="vulkanlib/vkwindow.html#GstVulkanWindow">GstVulkan.VulkanWindow</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GstVulkanWindowClass::open">
+	<i>do_open</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def do_open (window):
+    #python implementation of the 'open' virtual method</code></pre>
+
+<p>open the connection to the display</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>window</code></em></i>
+<span>(</span><a title="GstVulkan.VulkanWindow" href="vulkanlib/vkwindow.html#GstVulkanWindow">GstVulkan.VulkanWindow</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a><span>)</span>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstVulkanWindowClass::set_window_handle">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstVulkanWindowClass::set_window_handle">
+	<i>set_window_handle</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+set_window_handle (<a title="GstVulkanWindow" href="vulkanlib/vkwindow.html#GstVulkanWindow">GstVulkanWindow</a> * window,
+                   <a title="guintptr" href="https://docs.gtk.org/glib/types.html#guintptr">guintptr</a> handle)</pre>
+
+<p>set the external window handle to render into</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>window</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>handle</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GstVulkanWindowClass::set_window_handle">
+	<i>vfunc_set_window_handle</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function vfunc_set_window_handle(window: <a title="GstVulkan.VulkanWindow" href="vulkanlib/vkwindow.html#GstVulkanWindow">GstVulkan.VulkanWindow</a>, handle: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>): {
+    // javascript implementation of the 'set_window_handle' virtual method
+}</code></pre>
+
+<p>set the external window handle to render into</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>window</code></em></i>
+<span>(</span><a title="GstVulkan.VulkanWindow" href="vulkanlib/vkwindow.html#GstVulkanWindow">GstVulkan.VulkanWindow</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>handle</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GstVulkanWindowClass::set_window_handle">
+	<i>do_set_window_handle</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def do_set_window_handle (window, handle):
+    #python implementation of the 'set_window_handle' virtual method</code></pre>
+
+<p>set the external window handle to render into</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>window</code></em></i>
+<span>(</span><a title="GstVulkan.VulkanWindow" href="vulkanlib/vkwindow.html#GstVulkanWindow">GstVulkan.VulkanWindow</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>handle</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+
+        
+
+            <h2 class="symbol_section">Functions</h2>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.18;" id="gst_vulkan_window_error_quark">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="gst_vulkan_window_error_quark">
+	<i>gst_vulkan_window_error_quark</i>
+</h3>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GQuark" href="https://docs.gtk.org/glib/alias.Quark.html">GQuark</a>
+gst_vulkan_window_error_quark ()</pre>
+
+
+
+
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3 data-hotdoc-id="gst_vulkan_window_error_quark">
+	<i>GstVulkan.prototype.vulkan_window_error_quark</i>
+</h3>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstVulkan.prototype.vulkan_window_error_quark(): {
+    // javascript wrapper for 'gst_vulkan_window_error_quark'
+}</code></pre>
+
+
+
+
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GLib.Quark" href="https://docs.gtk.org/glib/alias.Quark.html">GLib.Quark</a><span>)</span>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3 data-hotdoc-id="gst_vulkan_window_error_quark">
+	<i>GstVulkan.vulkan_window_error_quark</i>
+</h3>
+
+
+<pre class="python-prototype language-python">
+<code>def GstVulkan.vulkan_window_error_quark ():
+    #python wrapper for 'gst_vulkan_window_error_quark'</code></pre>
+
+
+
+
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GLib.Quark" href="https://docs.gtk.org/glib/alias.Quark.html">GLib.Quark</a><span>)</span>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+
+            <h2 class="symbol_section">Function Macros</h2>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.18;" id="GST_VULKAN_WINDOW_GET_LOCK">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_VULKAN_WINDOW_GET_LOCK">
+	<i>GST_VULKAN_WINDOW_GET_LOCK</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_VULKAN_WINDOW_GET_LOCK(w) (&amp;GST_VULKAN_WINDOW(w)-&gt;lock)
+</pre>
+
+
+
+
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.18;" id="GST_VULKAN_WINDOW_LOCK">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_VULKAN_WINDOW_LOCK">
+	<i>GST_VULKAN_WINDOW_LOCK</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_VULKAN_WINDOW_LOCK(w) g_mutex_lock(&amp;GST_VULKAN_WINDOW(w)-&gt;lock)
+</pre>
+
+
+
+
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.18;" id="GST_VULKAN_WINDOW_UNLOCK">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_VULKAN_WINDOW_UNLOCK">
+	<i>GST_VULKAN_WINDOW_UNLOCK</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_VULKAN_WINDOW_UNLOCK(w) g_mutex_unlock(&amp;GST_VULKAN_WINDOW(w)-&gt;lock)
+</pre>
+
+
+
+
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+
+            <h2 class="symbol_section">Enumerations</h2>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.18;" id="GstVulkanWindowError">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GstVulkanWindowError">
+	<i>GstVulkanWindowError</i>
+</h3>
+
+
+
+
+
+	<div class="members-container">
+		<h5>Members</h5>
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VULKAN_WINDOW_ERROR_FAILED">
+	<div>
+		<i><em><code>GST_VULKAN_WINDOW_ERROR_FAILED</code></em></i>
+		(<span class="value">0</span>)
+		–
+	</div>
+			<p>failed</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VULKAN_WINDOW_ERROR_OLD_LIBS">
+	<div>
+		<i><em><code>GST_VULKAN_WINDOW_ERROR_OLD_LIBS</code></em></i>
+		(<span class="value">1</span>)
+		–
+	</div>
+			<p>old libraries</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VULKAN_WINDOW_ERROR_RESOURCE_UNAVAILABLE">
+	<div>
+		<i><em><code>GST_VULKAN_WINDOW_ERROR_RESOURCE_UNAVAILABLE</code></em></i>
+		(<span class="value">2</span>)
+		–
+	</div>
+			<p>resource unavailable</p>
+
+	</div>
+
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3 data-hotdoc-id="GstVulkanWindowError">
+	<i>GstVulkan.VulkanWindowError</i>
+</h3>
+
+
+
+
+
+	<div class="members-container">
+		<h5>Members</h5>
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VULKAN_WINDOW_ERROR_FAILED">
+	<div>
+		<i><em><code>GstVulkan.VulkanWindowError.FAILED</code></em></i>
+		(<span class="value">0</span>)
+		–
+	</div>
+			<p>failed</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VULKAN_WINDOW_ERROR_OLD_LIBS">
+	<div>
+		<i><em><code>GstVulkan.VulkanWindowError.OLD_LIBS</code></em></i>
+		(<span class="value">1</span>)
+		–
+	</div>
+			<p>old libraries</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VULKAN_WINDOW_ERROR_RESOURCE_UNAVAILABLE">
+	<div>
+		<i><em><code>GstVulkan.VulkanWindowError.RESOURCE_UNAVAILABLE</code></em></i>
+		(<span class="value">2</span>)
+		–
+	</div>
+			<p>resource unavailable</p>
+
+	</div>
+
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3 data-hotdoc-id="GstVulkanWindowError">
+	<i>GstVulkan.VulkanWindowError</i>
+</h3>
+
+
+
+
+
+	<div class="members-container">
+		<h5>Members</h5>
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VULKAN_WINDOW_ERROR_FAILED">
+	<div>
+		<i><em><code>GstVulkan.VulkanWindowError.FAILED</code></em></i>
+		(<span class="value">0</span>)
+		–
+	</div>
+			<p>failed</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VULKAN_WINDOW_ERROR_OLD_LIBS">
+	<div>
+		<i><em><code>GstVulkan.VulkanWindowError.OLD_LIBS</code></em></i>
+		(<span class="value">1</span>)
+		–
+	</div>
+			<p>old libraries</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VULKAN_WINDOW_ERROR_RESOURCE_UNAVAILABLE">
+	<div>
+		<i><em><code>GstVulkan.VulkanWindowError.RESOURCE_UNAVAILABLE</code></em></i>
+		(<span class="value">2</span>)
+		–
+	</div>
+			<p>resource unavailable</p>
+
+	</div>
+
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+
+            <h2 class="symbol_section">Constants</h2>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.18;" id="GST_VULKAN_WINDOW_ERROR">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_VULKAN_WINDOW_ERROR">
+	<i>GST_VULKAN_WINDOW_ERROR</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_VULKAN_WINDOW_ERROR (gst_vulkan_window_error_quark ())
+</pre>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+
+
+
+
+
+		
+	</div>
+	<div id="search_results">
+		<p>The results of the search are</p>
+	</div>
+	<div id="footer">
+		    
+
+	</div>
+</div>
+
+<div id="toc-column">
+	
+		<div class="edit-button">
+		
+
+	</div>
+		<div id="toc-wrapper">
+		<nav id="toc"></nav>
+	</div>
+</div>
+</div>
+</main>
+
+
+<script src="assets/js/navbar_offset_scroller.js"></script>
+</body>
+</html>

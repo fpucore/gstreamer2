@@ -1,0 +1,2433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<base href="..">
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<title>GstAV1BitWriter</title>
+
+<link rel="stylesheet" href="assets/css/dark-frontend.css" type="text/css" title="dark">
+<link rel="alternate stylesheet" href="assets/css/light-frontend.css" type="text/css" title="light">
+<link rel="stylesheet" href="assets/css/bootstrap-toc.min.css" type="text/css">
+<link rel="stylesheet" href="assets/css/jquery.mCustomScrollbar.min.css">
+<link rel="stylesheet" href="assets/js/search/enable_search.css" type="text/css">
+
+<link rel="stylesheet" href="assets/css/extra_frontend.css" type="text/css">
+<link rel="stylesheet" href="assets/css/devhelp.css" type="text/css">
+
+<link rel="stylesheet" href="assets/css/prism-tomorrow.css" type="text/css" title="dark">
+
+<link rel="alternate stylesheet" href="assets/css/prism.css" type="text/css" title="light">
+
+<script src="assets/js/mustache.min.js"></script>
+<script src="assets/js/jquery.js"></script>
+<script src="assets/js/bootstrap.js"></script>
+<script src="assets/js/scrollspy.js"></script>
+<script src="assets/js/typeahead.jquery.min.js"></script>
+<script src="assets/js/search.js"></script>
+<script src="assets/js/compare-versions.js"></script>
+<script src="assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="assets/js/bootstrap-toc.min.js"></script>
+<script src="assets/js/jquery.touchSwipe.min.js"></script>
+<script src="assets/js/anchor.min.js"></script>
+<script src="assets/js/tag_filtering.js"></script>
+<script src="assets/js/language_switching.js"></script>
+<script src="assets/js/styleswitcher.js"></script>
+
+<script src="assets/js/lines_around_headings.js"></script>
+
+<script src="assets/js/prism-core.js"></script>
+<script src="assets/js/prism-autoloader.js"></script>
+<script src="assets/js/prism_autoloader_path_override.js"></script>
+<script src="assets/js/trie.js"></script>
+
+<!-- generic -->
+<link rel="icon" type="image/png" href="assets/images/favicon-16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="assets/images/favicon-32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="assets/images/favicon-57.png" sizes="57x57">
+<link rel="icon" type="image/png" href="assets/images/favicon-64.png" sizes="64x64">
+<link rel="icon" type="image/png" href="assets/images/favicon-76.png" sizes="76x76">
+<link rel="icon" type="image/png" href="assets/images/favicon-96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="assets/images/favicon-128.png" sizes="128x128">
+<link rel="icon" type="image/png" href="assets/images/favicon-192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="assets/images/favicon-228.png" sizes="228x228">
+
+<!-- Android -->
+<link rel="shortcut icon" sizes="196x196" href="assets/images/favicon-196.png">
+
+<!-- iOS -->
+<link rel="apple-touch-icon" href="assets/images/favicon-120.png" sizes="120x120">
+<link rel="apple-touch-icon" href="assets/images/favicon-152.png" sizes="152x152">
+<link rel="apple-touch-icon" href="assets/images/favicon-180.png" sizes="180x180">
+
+</head>
+
+<body class="no-script
+">
+
+<script>
+$('body').removeClass('no-script');
+</script>
+
+<nav class="navbar navbar-fixed-top navbar-default" id="topnav">
+	<div class="container-fluid">
+		<div class="navbar-right">
+			<a id="toc-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-wrapper" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<span title="light mode switch" class="glyphicon glyphicon-sunglasses pull-right" id="lightmode-icon"></span>
+			<form class="navbar-form pull-right" id="navbar-search-form">
+                               <div class="form-group has-feedback">
+                                       <input type="text" class="form-control input-sm" name="search" id="sidenav-lookup-field" placeholder="search" disabled>
+				       <span class="glyphicon glyphicon-search form-control-feedback" id="search-mgn-glass"></span>
+                               </div>
+                        </form>
+		</div>
+		<div class="navbar-header">
+			<a id="sidenav-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<a id="home-link" href="index.html" class="hotdoc-navbar-brand">
+				<img src="assets/images/gstreamer-logo.svg" alt="Home">
+			</a>
+		</div>
+		<div class="navbar-collapse collapse" id="navbar-wrapper">
+			<ul class="nav navbar-nav" id="menu">
+				
+<li class="dropdown">
+    <a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        API References<span class="caret"></span>
+    </a>
+	<ul class="dropdown-menu" id="modules-menu">
+					<li>
+				<a href="gstreamer/gi-index.html">GStreamer core</a>
+			</li>
+					<li>
+				<a href="libs.html">GStreamer Libraries</a>
+			</li>
+					<li>
+				<a href="plugins_doc.html">GStreamer Plugins</a>
+			</li>
+		</ul>
+</li>
+
+<li>
+    <a href="application-development/index.html">Application manual</a>
+</li>
+
+
+<li>
+    <a href="tutorials/index.html">Tutorials</a>
+</li>
+
+			</ul>
+			<div class="hidden-xs hidden-sm navbar-text navbar-center">
+							</div>
+		</div>
+	</div>
+</nav>
+
+<main>
+<div data-extension="gi-extension" data-hotdoc-in-toplevel="False" data-hotdoc-project="codecparsers" data-hotdoc-ref="gstav1bitwriter.html" class="page_container" id="page-wrapper" data-hotdoc-meta-gi-languages="['c', 'javascript', 'python']" data-hotdoc-meta-gi-language="c">
+<script src="assets/js/utils.js"></script>
+
+<div class="panel panel-collapse oc-collapsed" id="sidenav" data-hotdoc-role="navigation">
+	<script src="assets/js/full-width.js"></script>
+  <div id="sitenav-wrapper">
+    <iframe src="hotdoc-sitemap.html" id="sitenav-frame"></iframe>
+  </div>
+</div>
+
+<div id="body">
+	<div id="main">
+				    <div id="page-description" data-hotdoc-role="main">
+        <h1 id="gstav1bitwriter-page">GstAV1BitWriter</h1>
+    </div>
+        
+        
+
+            <h2 class="symbol_section">Functions</h2>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.22;" id="gst_av1_bit_writer_frame_header_obu">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="gst_av1_bit_writer_frame_header_obu">
+	<i>gst_av1_bit_writer_frame_header_obu</i>
+</h3>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GstAV1BitWriterResult" href="codecparsers/gstav1bitwriter.html#GstAV1BitWriterResult">GstAV1BitWriterResult</a>
+gst_av1_bit_writer_frame_header_obu (const <a title="GstAV1FrameHeaderOBU" href="codecparsers/gstav1parser.html#GstAV1FrameHeaderOBU">GstAV1FrameHeaderOBU</a> * frame_hdr,
+                                     const <a title="GstAV1SequenceHeaderOBU" href="codecparsers/gstav1parser.html#GstAV1SequenceHeaderOBU">GstAV1SequenceHeaderOBU</a> * seq_hdr,
+                                     <a title="guint8" href="https://docs.gtk.org/glib/types.html#guint8">guint8</a> temporal_id,
+                                     <a title="guint8" href="https://docs.gtk.org/glib/types.html#guint8">guint8</a> spatial_id,
+                                     <a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a> size_field,
+                                     <a title="guint8" href="https://docs.gtk.org/glib/types.html#guint8">guint8</a> * data,
+                                     <a title="guint" href="https://docs.gtk.org/glib/types.html#guint">guint</a> * size)</pre>
+
+<p>Generating the according AV1 bit stream OBU by providing the frame header.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>frame_hdr</code></em></i>
+–
+</div>
+<p>the frame header of <a href="codecparsers/gstav1parser.html#GstAV1FrameHeaderOBU">GstAV1FrameHeaderOBU</a> to write</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>seq_hdr</code></em></i>
+–
+</div>
+<p>the sequence header of <a href="codecparsers/gstav1parser.html#GstAV1SequenceHeaderOBU">GstAV1SequenceHeaderOBU</a> to refer</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>temporal_id</code></em></i>
+–
+</div>
+<p>specifies the temporal level of the data contained in the OBU.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>spatial_id</code></em></i>
+–
+</div>
+<p>specifies the spatial level of the data contained in the OBU.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>size_field</code></em></i>
+–
+</div>
+<p>whether the OBU header contains the OBU size.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>data</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="Parameter for returning results"><span class="acronym">out</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>the bit stream generated by the frame header</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>size</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="Parameter for input and for returning results"><span class="acronym">inout</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>the size in bytes of the input and output</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p>a <a href="codecparsers/gstav1bitwriter.html#GstAV1BitWriterResult">GstAV1BitWriterResult</a></p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.22
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3 data-hotdoc-id="gst_av1_bit_writer_frame_header_obu">
+	<i>GstCodecParsers.prototype.av1_bit_writer_frame_header_obu</i>
+</h3>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstCodecParsers.prototype.av1_bit_writer_frame_header_obu(frame_hdr: <a title="GstCodecParsers.AV1FrameHeaderOBU" href="codecparsers/gstav1parser.html#GstAV1FrameHeaderOBU">GstCodecParsers.AV1FrameHeaderOBU</a>, seq_hdr: <a title="GstCodecParsers.AV1SequenceHeaderOBU" href="codecparsers/gstav1parser.html#GstAV1SequenceHeaderOBU">GstCodecParsers.AV1SequenceHeaderOBU</a>, temporal_id: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>, spatial_id: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>, size_field: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>, size: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>): {
+    // javascript wrapper for 'gst_av1_bit_writer_frame_header_obu'
+}</code></pre>
+
+<p>Generating the according AV1 bit stream OBU by providing the frame header.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>frame_hdr</code></em></i>
+<span>(</span><a title="GstCodecParsers.AV1FrameHeaderOBU" href="codecparsers/gstav1parser.html#GstAV1FrameHeaderOBU">GstCodecParsers.AV1FrameHeaderOBU</a><span>)</span>
+–
+</div>
+<p>the frame header of <a href="codecparsers/gstav1parser.html#GstAV1FrameHeaderOBU">GstCodecParsers.AV1FrameHeaderOBU</a> to write</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>seq_hdr</code></em></i>
+<span>(</span><a title="GstCodecParsers.AV1SequenceHeaderOBU" href="codecparsers/gstav1parser.html#GstAV1SequenceHeaderOBU">GstCodecParsers.AV1SequenceHeaderOBU</a><span>)</span>
+–
+</div>
+<p>the sequence header of <a href="codecparsers/gstav1parser.html#GstAV1SequenceHeaderOBU">GstCodecParsers.AV1SequenceHeaderOBU</a> to refer</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>temporal_id</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>specifies the temporal level of the data contained in the OBU.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>spatial_id</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>specifies the spatial level of the data contained in the OBU.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>size_field</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>whether the OBU header contains the OBU size.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>size</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>the size in bytes of the input and output</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<p><b>Returns a tuple made of:</b></p>
+				
+<div class="symbol-detail">
+	<div>
+		<span>(</span><a title="GstCodecParsers.AV1BitWriterResult" href="codecparsers/gstav1bitwriter.html#GstAV1BitWriterResult">GstCodecParsers.AV1BitWriterResult</a>
+<span>)</span>
+–
+	</div>
+			<p>a <a href="codecparsers/gstav1bitwriter.html#GstAV1BitWriterResult">GstCodecParsers.AV1BitWriterResult</a></p>
+
+	</div>
+
+				
+<div class="symbol-detail">
+	<div>
+				<i><em><code>data</code></em></i>
+		<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>
+<span>)</span>
+–
+	</div>
+			<p>a <a href="codecparsers/gstav1bitwriter.html#GstAV1BitWriterResult">GstCodecParsers.AV1BitWriterResult</a></p>
+
+	</div>
+
+				
+<div class="symbol-detail">
+	<div>
+				<i><em><code>size</code></em></i>
+		<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>
+<span>)</span>
+–
+	</div>
+			<p>a <a href="codecparsers/gstav1bitwriter.html#GstAV1BitWriterResult">GstCodecParsers.AV1BitWriterResult</a></p>
+
+	</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.22
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3 data-hotdoc-id="gst_av1_bit_writer_frame_header_obu">
+	<i>GstCodecParsers.av1_bit_writer_frame_header_obu</i>
+</h3>
+
+
+<pre class="python-prototype language-python">
+<code>def GstCodecParsers.av1_bit_writer_frame_header_obu (frame_hdr, seq_hdr, temporal_id, spatial_id, size_field, size):
+    #python wrapper for 'gst_av1_bit_writer_frame_header_obu'</code></pre>
+
+<p>Generating the according AV1 bit stream OBU by providing the frame header.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>frame_hdr</code></em></i>
+<span>(</span><a title="GstCodecParsers.AV1FrameHeaderOBU" href="codecparsers/gstav1parser.html#GstAV1FrameHeaderOBU">GstCodecParsers.AV1FrameHeaderOBU</a><span>)</span>
+–
+</div>
+<p>the frame header of <a href="codecparsers/gstav1parser.html#GstAV1FrameHeaderOBU">GstCodecParsers.AV1FrameHeaderOBU</a> to write</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>seq_hdr</code></em></i>
+<span>(</span><a title="GstCodecParsers.AV1SequenceHeaderOBU" href="codecparsers/gstav1parser.html#GstAV1SequenceHeaderOBU">GstCodecParsers.AV1SequenceHeaderOBU</a><span>)</span>
+–
+</div>
+<p>the sequence header of <a href="codecparsers/gstav1parser.html#GstAV1SequenceHeaderOBU">GstCodecParsers.AV1SequenceHeaderOBU</a> to refer</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>temporal_id</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<p>specifies the temporal level of the data contained in the OBU.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>spatial_id</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<p>specifies the spatial level of the data contained in the OBU.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>size_field</code></em></i>
+<span>(</span><a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a><span>)</span>
+–
+</div>
+<p>whether the OBU header contains the OBU size.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>size</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<p>the size in bytes of the input and output</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<p><b>Returns a tuple made of:</b></p>
+				
+<div class="symbol-detail">
+	<div>
+		<span>(</span><a title="GstCodecParsers.AV1BitWriterResult" href="codecparsers/gstav1bitwriter.html#GstAV1BitWriterResult">GstCodecParsers.AV1BitWriterResult</a>
+<span>)</span>
+–
+	</div>
+			<p>a <a href="codecparsers/gstav1bitwriter.html#GstAV1BitWriterResult">GstCodecParsers.AV1BitWriterResult</a></p>
+
+	</div>
+
+				
+<div class="symbol-detail">
+	<div>
+				<i><em><code>data</code></em></i>
+		<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a>
+<span>)</span>
+–
+	</div>
+			<p>a <a href="codecparsers/gstav1bitwriter.html#GstAV1BitWriterResult">GstCodecParsers.AV1BitWriterResult</a></p>
+
+	</div>
+
+				
+<div class="symbol-detail">
+	<div>
+				<i><em><code>size</code></em></i>
+		<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a>
+<span>)</span>
+–
+	</div>
+			<p>a <a href="codecparsers/gstav1bitwriter.html#GstAV1BitWriterResult">GstCodecParsers.AV1BitWriterResult</a></p>
+
+	</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.22
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.22;" id="gst_av1_bit_writer_frame_header_obu_with_offsets">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="gst_av1_bit_writer_frame_header_obu_with_offsets">
+	<i>gst_av1_bit_writer_frame_header_obu_with_offsets</i>
+</h3>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GstAV1BitWriterResult" href="codecparsers/gstav1bitwriter.html#GstAV1BitWriterResult">GstAV1BitWriterResult</a>
+gst_av1_bit_writer_frame_header_obu_with_offsets (const <a title="GstAV1FrameHeaderOBU" href="codecparsers/gstav1parser.html#GstAV1FrameHeaderOBU">GstAV1FrameHeaderOBU</a> * frame_hdr,
+                                                  const <a title="GstAV1SequenceHeaderOBU" href="codecparsers/gstav1parser.html#GstAV1SequenceHeaderOBU">GstAV1SequenceHeaderOBU</a> * seq_hdr,
+                                                  <a title="guint8" href="https://docs.gtk.org/glib/types.html#guint8">guint8</a> temporal_id,
+                                                  <a title="guint8" href="https://docs.gtk.org/glib/types.html#guint8">guint8</a> spatial_id,
+                                                  <a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a> size_field,
+                                                  <a title="guint" href="https://docs.gtk.org/glib/types.html#guint">guint</a> size_field_size,
+                                                  <a title="guint" href="https://docs.gtk.org/glib/types.html#guint">guint</a> * qindex_offset,
+                                                  <a title="guint" href="https://docs.gtk.org/glib/types.html#guint">guint</a> * segmentation_offset,
+                                                  <a title="guint" href="https://docs.gtk.org/glib/types.html#guint">guint</a> * lf_offset,
+                                                  <a title="guint" href="https://docs.gtk.org/glib/types.html#guint">guint</a> * cdef_offset,
+                                                  <a title="guint" href="https://docs.gtk.org/glib/types.html#guint">guint</a> * cdef_size,
+                                                  <a title="guint8" href="https://docs.gtk.org/glib/types.html#guint8">guint8</a> * data,
+                                                  <a title="guint" href="https://docs.gtk.org/glib/types.html#guint">guint</a> * size)</pre>
+
+<p>While Generating the according AV1 bit stream OBU by providing the frame
+header, this function also return bit offsets of qindex, segmentation and
+cdef, etc. These offsets can help to change the content of these fields
+later. This function is useful if the encoder may change the content of
+the frame header after generating it. For example, some HW needs user to
+provide a frame header before the real encoding job, and it will change
+the according fields in the frame header during the real encoding job.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>frame_hdr</code></em></i>
+–
+</div>
+<p>the frame header of <a href="codecparsers/gstav1parser.html#GstAV1FrameHeaderOBU">GstAV1FrameHeaderOBU</a> to write</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>seq_hdr</code></em></i>
+–
+</div>
+<p>the sequence header of <a href="codecparsers/gstav1parser.html#GstAV1SequenceHeaderOBU">GstAV1SequenceHeaderOBU</a> to refer</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>temporal_id</code></em></i>
+–
+</div>
+<p>specifies the temporal level of the data contained in the OBU.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>spatial_id</code></em></i>
+–
+</div>
+<p>specifies the spatial level of the data contained in the OBU.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>size_field</code></em></i>
+–
+</div>
+<p>whether the OBU header contains the OBU size.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>size_field_size</code></em></i>
+–
+</div>
+<blockquote>
+<p>0 means a fixed OBU header size field.</p>
+</blockquote>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>qindex_offset</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="Parameter for returning results"><span class="acronym">out</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>return the qindex fields offset in bits.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>segmentation_offset</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="Parameter for returning results"><span class="acronym">out</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>return the segmentation fields offset in bits.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>lf_offset</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="Parameter for returning results"><span class="acronym">out</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>return the loopfilter fields offset in bits.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>cdef_offset</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="Parameter for returning results"><span class="acronym">out</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>return the cdef fields offset in bits.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>cdef_size</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="Parameter for returning results"><span class="acronym">out</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>return the cdef fields size in bits.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>data</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="Parameter for returning results"><span class="acronym">out</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>the bit stream generated by the frame header</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>size</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="Parameter for input and for returning results"><span class="acronym">inout</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>the size in bytes of the input and output</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p>a <a href="codecparsers/gstav1bitwriter.html#GstAV1BitWriterResult">GstAV1BitWriterResult</a></p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.22
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3 data-hotdoc-id="gst_av1_bit_writer_frame_header_obu_with_offsets">
+	<i>GstCodecParsers.prototype.av1_bit_writer_frame_header_obu_with_offsets</i>
+</h3>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstCodecParsers.prototype.av1_bit_writer_frame_header_obu_with_offsets(frame_hdr: <a title="GstCodecParsers.AV1FrameHeaderOBU" href="codecparsers/gstav1parser.html#GstAV1FrameHeaderOBU">GstCodecParsers.AV1FrameHeaderOBU</a>, seq_hdr: <a title="GstCodecParsers.AV1SequenceHeaderOBU" href="codecparsers/gstav1parser.html#GstAV1SequenceHeaderOBU">GstCodecParsers.AV1SequenceHeaderOBU</a>, temporal_id: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>, spatial_id: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>, size_field: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>, size_field_size: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>, size: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>): {
+    // javascript wrapper for 'gst_av1_bit_writer_frame_header_obu_with_offsets'
+}</code></pre>
+
+<p>While Generating the according AV1 bit stream OBU by providing the frame
+header, this function also return bit offsets of qindex, segmentation and
+cdef, etc. These offsets can help to change the content of these fields
+later. This function is useful if the encoder may change the content of
+the frame header after generating it. For example, some HW needs user to
+provide a frame header before the real encoding job, and it will change
+the according fields in the frame header during the real encoding job.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>frame_hdr</code></em></i>
+<span>(</span><a title="GstCodecParsers.AV1FrameHeaderOBU" href="codecparsers/gstav1parser.html#GstAV1FrameHeaderOBU">GstCodecParsers.AV1FrameHeaderOBU</a><span>)</span>
+–
+</div>
+<p>the frame header of <a href="codecparsers/gstav1parser.html#GstAV1FrameHeaderOBU">GstCodecParsers.AV1FrameHeaderOBU</a> to write</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>seq_hdr</code></em></i>
+<span>(</span><a title="GstCodecParsers.AV1SequenceHeaderOBU" href="codecparsers/gstav1parser.html#GstAV1SequenceHeaderOBU">GstCodecParsers.AV1SequenceHeaderOBU</a><span>)</span>
+–
+</div>
+<p>the sequence header of <a href="codecparsers/gstav1parser.html#GstAV1SequenceHeaderOBU">GstCodecParsers.AV1SequenceHeaderOBU</a> to refer</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>temporal_id</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>specifies the temporal level of the data contained in the OBU.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>spatial_id</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>specifies the spatial level of the data contained in the OBU.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>size_field</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>whether the OBU header contains the OBU size.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>size_field_size</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<blockquote>
+<p>0 means a fixed OBU header size field.</p>
+</blockquote>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>size</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>the size in bytes of the input and output</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<p><b>Returns a tuple made of:</b></p>
+				
+<div class="symbol-detail">
+	<div>
+		<span>(</span><a title="GstCodecParsers.AV1BitWriterResult" href="codecparsers/gstav1bitwriter.html#GstAV1BitWriterResult">GstCodecParsers.AV1BitWriterResult</a>
+<span>)</span>
+–
+	</div>
+			<p>a <a href="codecparsers/gstav1bitwriter.html#GstAV1BitWriterResult">GstCodecParsers.AV1BitWriterResult</a></p>
+
+	</div>
+
+				
+<div class="symbol-detail">
+	<div>
+				<i><em><code>qindex_offset</code></em></i>
+		<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>
+<span>)</span>
+–
+	</div>
+			<p>a <a href="codecparsers/gstav1bitwriter.html#GstAV1BitWriterResult">GstCodecParsers.AV1BitWriterResult</a></p>
+
+	</div>
+
+				
+<div class="symbol-detail">
+	<div>
+				<i><em><code>segmentation_offset</code></em></i>
+		<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>
+<span>)</span>
+–
+	</div>
+			<p>a <a href="codecparsers/gstav1bitwriter.html#GstAV1BitWriterResult">GstCodecParsers.AV1BitWriterResult</a></p>
+
+	</div>
+
+				
+<div class="symbol-detail">
+	<div>
+				<i><em><code>lf_offset</code></em></i>
+		<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>
+<span>)</span>
+–
+	</div>
+			<p>a <a href="codecparsers/gstav1bitwriter.html#GstAV1BitWriterResult">GstCodecParsers.AV1BitWriterResult</a></p>
+
+	</div>
+
+				
+<div class="symbol-detail">
+	<div>
+				<i><em><code>cdef_offset</code></em></i>
+		<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>
+<span>)</span>
+–
+	</div>
+			<p>a <a href="codecparsers/gstav1bitwriter.html#GstAV1BitWriterResult">GstCodecParsers.AV1BitWriterResult</a></p>
+
+	</div>
+
+				
+<div class="symbol-detail">
+	<div>
+				<i><em><code>cdef_size</code></em></i>
+		<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>
+<span>)</span>
+–
+	</div>
+			<p>a <a href="codecparsers/gstav1bitwriter.html#GstAV1BitWriterResult">GstCodecParsers.AV1BitWriterResult</a></p>
+
+	</div>
+
+				
+<div class="symbol-detail">
+	<div>
+				<i><em><code>data</code></em></i>
+		<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>
+<span>)</span>
+–
+	</div>
+			<p>a <a href="codecparsers/gstav1bitwriter.html#GstAV1BitWriterResult">GstCodecParsers.AV1BitWriterResult</a></p>
+
+	</div>
+
+				
+<div class="symbol-detail">
+	<div>
+				<i><em><code>size</code></em></i>
+		<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>
+<span>)</span>
+–
+	</div>
+			<p>a <a href="codecparsers/gstav1bitwriter.html#GstAV1BitWriterResult">GstCodecParsers.AV1BitWriterResult</a></p>
+
+	</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.22
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3 data-hotdoc-id="gst_av1_bit_writer_frame_header_obu_with_offsets">
+	<i>GstCodecParsers.av1_bit_writer_frame_header_obu_with_offsets</i>
+</h3>
+
+
+<pre class="python-prototype language-python">
+<code>def GstCodecParsers.av1_bit_writer_frame_header_obu_with_offsets (frame_hdr, seq_hdr, temporal_id, spatial_id, size_field, size_field_size, size):
+    #python wrapper for 'gst_av1_bit_writer_frame_header_obu_with_offsets'</code></pre>
+
+<p>While Generating the according AV1 bit stream OBU by providing the frame
+header, this function also return bit offsets of qindex, segmentation and
+cdef, etc. These offsets can help to change the content of these fields
+later. This function is useful if the encoder may change the content of
+the frame header after generating it. For example, some HW needs user to
+provide a frame header before the real encoding job, and it will change
+the according fields in the frame header during the real encoding job.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>frame_hdr</code></em></i>
+<span>(</span><a title="GstCodecParsers.AV1FrameHeaderOBU" href="codecparsers/gstav1parser.html#GstAV1FrameHeaderOBU">GstCodecParsers.AV1FrameHeaderOBU</a><span>)</span>
+–
+</div>
+<p>the frame header of <a href="codecparsers/gstav1parser.html#GstAV1FrameHeaderOBU">GstCodecParsers.AV1FrameHeaderOBU</a> to write</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>seq_hdr</code></em></i>
+<span>(</span><a title="GstCodecParsers.AV1SequenceHeaderOBU" href="codecparsers/gstav1parser.html#GstAV1SequenceHeaderOBU">GstCodecParsers.AV1SequenceHeaderOBU</a><span>)</span>
+–
+</div>
+<p>the sequence header of <a href="codecparsers/gstav1parser.html#GstAV1SequenceHeaderOBU">GstCodecParsers.AV1SequenceHeaderOBU</a> to refer</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>temporal_id</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<p>specifies the temporal level of the data contained in the OBU.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>spatial_id</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<p>specifies the spatial level of the data contained in the OBU.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>size_field</code></em></i>
+<span>(</span><a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a><span>)</span>
+–
+</div>
+<p>whether the OBU header contains the OBU size.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>size_field_size</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<blockquote>
+<p>0 means a fixed OBU header size field.</p>
+</blockquote>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>size</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<p>the size in bytes of the input and output</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<p><b>Returns a tuple made of:</b></p>
+				
+<div class="symbol-detail">
+	<div>
+		<span>(</span><a title="GstCodecParsers.AV1BitWriterResult" href="codecparsers/gstav1bitwriter.html#GstAV1BitWriterResult">GstCodecParsers.AV1BitWriterResult</a>
+<span>)</span>
+–
+	</div>
+			<p>a <a href="codecparsers/gstav1bitwriter.html#GstAV1BitWriterResult">GstCodecParsers.AV1BitWriterResult</a></p>
+
+	</div>
+
+				
+<div class="symbol-detail">
+	<div>
+				<i><em><code>qindex_offset</code></em></i>
+		<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a>
+<span>)</span>
+–
+	</div>
+			<p>a <a href="codecparsers/gstav1bitwriter.html#GstAV1BitWriterResult">GstCodecParsers.AV1BitWriterResult</a></p>
+
+	</div>
+
+				
+<div class="symbol-detail">
+	<div>
+				<i><em><code>segmentation_offset</code></em></i>
+		<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a>
+<span>)</span>
+–
+	</div>
+			<p>a <a href="codecparsers/gstav1bitwriter.html#GstAV1BitWriterResult">GstCodecParsers.AV1BitWriterResult</a></p>
+
+	</div>
+
+				
+<div class="symbol-detail">
+	<div>
+				<i><em><code>lf_offset</code></em></i>
+		<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a>
+<span>)</span>
+–
+	</div>
+			<p>a <a href="codecparsers/gstav1bitwriter.html#GstAV1BitWriterResult">GstCodecParsers.AV1BitWriterResult</a></p>
+
+	</div>
+
+				
+<div class="symbol-detail">
+	<div>
+				<i><em><code>cdef_offset</code></em></i>
+		<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a>
+<span>)</span>
+–
+	</div>
+			<p>a <a href="codecparsers/gstav1bitwriter.html#GstAV1BitWriterResult">GstCodecParsers.AV1BitWriterResult</a></p>
+
+	</div>
+
+				
+<div class="symbol-detail">
+	<div>
+				<i><em><code>cdef_size</code></em></i>
+		<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a>
+<span>)</span>
+–
+	</div>
+			<p>a <a href="codecparsers/gstav1bitwriter.html#GstAV1BitWriterResult">GstCodecParsers.AV1BitWriterResult</a></p>
+
+	</div>
+
+				
+<div class="symbol-detail">
+	<div>
+				<i><em><code>data</code></em></i>
+		<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a>
+<span>)</span>
+–
+	</div>
+			<p>a <a href="codecparsers/gstav1bitwriter.html#GstAV1BitWriterResult">GstCodecParsers.AV1BitWriterResult</a></p>
+
+	</div>
+
+				
+<div class="symbol-detail">
+	<div>
+				<i><em><code>size</code></em></i>
+		<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a>
+<span>)</span>
+–
+	</div>
+			<p>a <a href="codecparsers/gstav1bitwriter.html#GstAV1BitWriterResult">GstCodecParsers.AV1BitWriterResult</a></p>
+
+	</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.22
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.22;" id="gst_av1_bit_writer_metadata_obu">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="gst_av1_bit_writer_metadata_obu">
+	<i>gst_av1_bit_writer_metadata_obu</i>
+</h3>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GstAV1BitWriterResult" href="codecparsers/gstav1bitwriter.html#GstAV1BitWriterResult">GstAV1BitWriterResult</a>
+gst_av1_bit_writer_metadata_obu (const <a title="GstAV1MetadataOBU" href="codecparsers/gstav1parser.html#GstAV1MetadataOBU">GstAV1MetadataOBU</a> * metadata,
+                                 <a title="guint8" href="https://docs.gtk.org/glib/types.html#guint8">guint8</a> temporal_id,
+                                 <a title="guint8" href="https://docs.gtk.org/glib/types.html#guint8">guint8</a> spatial_id,
+                                 <a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a> size_field,
+                                 <a title="guint8" href="https://docs.gtk.org/glib/types.html#guint8">guint8</a> * data,
+                                 <a title="guint" href="https://docs.gtk.org/glib/types.html#guint">guint</a> * size)</pre>
+
+<p>Generating the according AV1 bit stream OBU by providing the meta data.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>metadata</code></em></i>
+–
+</div>
+<p>the meta data of <a href="codecparsers/gstav1parser.html#GstAV1MetadataOBU">GstAV1MetadataOBU</a> to write</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>temporal_id</code></em></i>
+–
+</div>
+<p>specifies the temporal level of the data contained in the OBU.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>spatial_id</code></em></i>
+–
+</div>
+<p>specifies the spatial level of the data contained in the OBU.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>size_field</code></em></i>
+–
+</div>
+<p>whether the header contain size feild</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>data</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="Parameter for returning results"><span class="acronym">out</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>the bit stream generated by the meta data</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>size</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="Parameter for input and for returning results"><span class="acronym">inout</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>the size in bytes of the input and output</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p>a <a href="codecparsers/gstav1bitwriter.html#GstAV1BitWriterResult">GstAV1BitWriterResult</a></p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.22
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3 data-hotdoc-id="gst_av1_bit_writer_metadata_obu">
+	<i>GstCodecParsers.prototype.av1_bit_writer_metadata_obu</i>
+</h3>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstCodecParsers.prototype.av1_bit_writer_metadata_obu(metadata: <a title="GstCodecParsers.AV1MetadataOBU" href="codecparsers/gstav1parser.html#GstAV1MetadataOBU">GstCodecParsers.AV1MetadataOBU</a>, temporal_id: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>, spatial_id: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>, size_field: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>, size: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>): {
+    // javascript wrapper for 'gst_av1_bit_writer_metadata_obu'
+}</code></pre>
+
+<p>Generating the according AV1 bit stream OBU by providing the meta data.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>metadata</code></em></i>
+<span>(</span><a title="GstCodecParsers.AV1MetadataOBU" href="codecparsers/gstav1parser.html#GstAV1MetadataOBU">GstCodecParsers.AV1MetadataOBU</a><span>)</span>
+–
+</div>
+<p>the meta data of <a href="codecparsers/gstav1parser.html#GstAV1MetadataOBU">GstCodecParsers.AV1MetadataOBU</a> to write</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>temporal_id</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>specifies the temporal level of the data contained in the OBU.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>spatial_id</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>specifies the spatial level of the data contained in the OBU.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>size_field</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>whether the header contain size feild</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>size</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>the size in bytes of the input and output</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<p><b>Returns a tuple made of:</b></p>
+				
+<div class="symbol-detail">
+	<div>
+		<span>(</span><a title="GstCodecParsers.AV1BitWriterResult" href="codecparsers/gstav1bitwriter.html#GstAV1BitWriterResult">GstCodecParsers.AV1BitWriterResult</a>
+<span>)</span>
+–
+	</div>
+			<p>a <a href="codecparsers/gstav1bitwriter.html#GstAV1BitWriterResult">GstCodecParsers.AV1BitWriterResult</a></p>
+
+	</div>
+
+				
+<div class="symbol-detail">
+	<div>
+				<i><em><code>data</code></em></i>
+		<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>
+<span>)</span>
+–
+	</div>
+			<p>a <a href="codecparsers/gstav1bitwriter.html#GstAV1BitWriterResult">GstCodecParsers.AV1BitWriterResult</a></p>
+
+	</div>
+
+				
+<div class="symbol-detail">
+	<div>
+				<i><em><code>size</code></em></i>
+		<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>
+<span>)</span>
+–
+	</div>
+			<p>a <a href="codecparsers/gstav1bitwriter.html#GstAV1BitWriterResult">GstCodecParsers.AV1BitWriterResult</a></p>
+
+	</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.22
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3 data-hotdoc-id="gst_av1_bit_writer_metadata_obu">
+	<i>GstCodecParsers.av1_bit_writer_metadata_obu</i>
+</h3>
+
+
+<pre class="python-prototype language-python">
+<code>def GstCodecParsers.av1_bit_writer_metadata_obu (metadata, temporal_id, spatial_id, size_field, size):
+    #python wrapper for 'gst_av1_bit_writer_metadata_obu'</code></pre>
+
+<p>Generating the according AV1 bit stream OBU by providing the meta data.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>metadata</code></em></i>
+<span>(</span><a title="GstCodecParsers.AV1MetadataOBU" href="codecparsers/gstav1parser.html#GstAV1MetadataOBU">GstCodecParsers.AV1MetadataOBU</a><span>)</span>
+–
+</div>
+<p>the meta data of <a href="codecparsers/gstav1parser.html#GstAV1MetadataOBU">GstCodecParsers.AV1MetadataOBU</a> to write</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>temporal_id</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<p>specifies the temporal level of the data contained in the OBU.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>spatial_id</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<p>specifies the spatial level of the data contained in the OBU.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>size_field</code></em></i>
+<span>(</span><a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a><span>)</span>
+–
+</div>
+<p>whether the header contain size feild</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>size</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<p>the size in bytes of the input and output</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<p><b>Returns a tuple made of:</b></p>
+				
+<div class="symbol-detail">
+	<div>
+		<span>(</span><a title="GstCodecParsers.AV1BitWriterResult" href="codecparsers/gstav1bitwriter.html#GstAV1BitWriterResult">GstCodecParsers.AV1BitWriterResult</a>
+<span>)</span>
+–
+	</div>
+			<p>a <a href="codecparsers/gstav1bitwriter.html#GstAV1BitWriterResult">GstCodecParsers.AV1BitWriterResult</a></p>
+
+	</div>
+
+				
+<div class="symbol-detail">
+	<div>
+				<i><em><code>data</code></em></i>
+		<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a>
+<span>)</span>
+–
+	</div>
+			<p>a <a href="codecparsers/gstav1bitwriter.html#GstAV1BitWriterResult">GstCodecParsers.AV1BitWriterResult</a></p>
+
+	</div>
+
+				
+<div class="symbol-detail">
+	<div>
+				<i><em><code>size</code></em></i>
+		<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a>
+<span>)</span>
+–
+	</div>
+			<p>a <a href="codecparsers/gstav1bitwriter.html#GstAV1BitWriterResult">GstCodecParsers.AV1BitWriterResult</a></p>
+
+	</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.22
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.22;" id="gst_av1_bit_writer_sequence_header_obu">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="gst_av1_bit_writer_sequence_header_obu">
+	<i>gst_av1_bit_writer_sequence_header_obu</i>
+</h3>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GstAV1BitWriterResult" href="codecparsers/gstav1bitwriter.html#GstAV1BitWriterResult">GstAV1BitWriterResult</a>
+gst_av1_bit_writer_sequence_header_obu (const <a title="GstAV1SequenceHeaderOBU" href="codecparsers/gstav1parser.html#GstAV1SequenceHeaderOBU">GstAV1SequenceHeaderOBU</a> * seq_hdr,
+                                        <a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a> size_field,
+                                        <a title="guint8" href="https://docs.gtk.org/glib/types.html#guint8">guint8</a> * data,
+                                        <a title="guint" href="https://docs.gtk.org/glib/types.html#guint">guint</a> * size)</pre>
+
+<p>Generating the according AV1 bit stream OBU by providing the sequence header.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>seq_hdr</code></em></i>
+–
+</div>
+<p>the sequence header of <a href="codecparsers/gstav1parser.html#GstAV1SequenceHeaderOBU">GstAV1SequenceHeaderOBU</a> to write</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>size_field</code></em></i>
+–
+</div>
+<p>whether the header contain size feild</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>data</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="Parameter for returning results"><span class="acronym">out</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>the bit stream generated by the sequence header</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>size</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="Parameter for input and for returning results"><span class="acronym">inout</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>the size in bytes of the input and output</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p>a <a href="codecparsers/gstav1bitwriter.html#GstAV1BitWriterResult">GstAV1BitWriterResult</a></p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.22
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3 data-hotdoc-id="gst_av1_bit_writer_sequence_header_obu">
+	<i>GstCodecParsers.prototype.av1_bit_writer_sequence_header_obu</i>
+</h3>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstCodecParsers.prototype.av1_bit_writer_sequence_header_obu(seq_hdr: <a title="GstCodecParsers.AV1SequenceHeaderOBU" href="codecparsers/gstav1parser.html#GstAV1SequenceHeaderOBU">GstCodecParsers.AV1SequenceHeaderOBU</a>, size_field: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>, size: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>): {
+    // javascript wrapper for 'gst_av1_bit_writer_sequence_header_obu'
+}</code></pre>
+
+<p>Generating the according AV1 bit stream OBU by providing the sequence header.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>seq_hdr</code></em></i>
+<span>(</span><a title="GstCodecParsers.AV1SequenceHeaderOBU" href="codecparsers/gstav1parser.html#GstAV1SequenceHeaderOBU">GstCodecParsers.AV1SequenceHeaderOBU</a><span>)</span>
+–
+</div>
+<p>the sequence header of <a href="codecparsers/gstav1parser.html#GstAV1SequenceHeaderOBU">GstCodecParsers.AV1SequenceHeaderOBU</a> to write</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>size_field</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>whether the header contain size feild</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>size</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>the size in bytes of the input and output</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<p><b>Returns a tuple made of:</b></p>
+				
+<div class="symbol-detail">
+	<div>
+		<span>(</span><a title="GstCodecParsers.AV1BitWriterResult" href="codecparsers/gstav1bitwriter.html#GstAV1BitWriterResult">GstCodecParsers.AV1BitWriterResult</a>
+<span>)</span>
+–
+	</div>
+			<p>a <a href="codecparsers/gstav1bitwriter.html#GstAV1BitWriterResult">GstCodecParsers.AV1BitWriterResult</a></p>
+
+	</div>
+
+				
+<div class="symbol-detail">
+	<div>
+				<i><em><code>data</code></em></i>
+		<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>
+<span>)</span>
+–
+	</div>
+			<p>a <a href="codecparsers/gstav1bitwriter.html#GstAV1BitWriterResult">GstCodecParsers.AV1BitWriterResult</a></p>
+
+	</div>
+
+				
+<div class="symbol-detail">
+	<div>
+				<i><em><code>size</code></em></i>
+		<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>
+<span>)</span>
+–
+	</div>
+			<p>a <a href="codecparsers/gstav1bitwriter.html#GstAV1BitWriterResult">GstCodecParsers.AV1BitWriterResult</a></p>
+
+	</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.22
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3 data-hotdoc-id="gst_av1_bit_writer_sequence_header_obu">
+	<i>GstCodecParsers.av1_bit_writer_sequence_header_obu</i>
+</h3>
+
+
+<pre class="python-prototype language-python">
+<code>def GstCodecParsers.av1_bit_writer_sequence_header_obu (seq_hdr, size_field, size):
+    #python wrapper for 'gst_av1_bit_writer_sequence_header_obu'</code></pre>
+
+<p>Generating the according AV1 bit stream OBU by providing the sequence header.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>seq_hdr</code></em></i>
+<span>(</span><a title="GstCodecParsers.AV1SequenceHeaderOBU" href="codecparsers/gstav1parser.html#GstAV1SequenceHeaderOBU">GstCodecParsers.AV1SequenceHeaderOBU</a><span>)</span>
+–
+</div>
+<p>the sequence header of <a href="codecparsers/gstav1parser.html#GstAV1SequenceHeaderOBU">GstCodecParsers.AV1SequenceHeaderOBU</a> to write</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>size_field</code></em></i>
+<span>(</span><a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a><span>)</span>
+–
+</div>
+<p>whether the header contain size feild</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>size</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<p>the size in bytes of the input and output</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<p><b>Returns a tuple made of:</b></p>
+				
+<div class="symbol-detail">
+	<div>
+		<span>(</span><a title="GstCodecParsers.AV1BitWriterResult" href="codecparsers/gstav1bitwriter.html#GstAV1BitWriterResult">GstCodecParsers.AV1BitWriterResult</a>
+<span>)</span>
+–
+	</div>
+			<p>a <a href="codecparsers/gstav1bitwriter.html#GstAV1BitWriterResult">GstCodecParsers.AV1BitWriterResult</a></p>
+
+	</div>
+
+				
+<div class="symbol-detail">
+	<div>
+				<i><em><code>data</code></em></i>
+		<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a>
+<span>)</span>
+–
+	</div>
+			<p>a <a href="codecparsers/gstav1bitwriter.html#GstAV1BitWriterResult">GstCodecParsers.AV1BitWriterResult</a></p>
+
+	</div>
+
+				
+<div class="symbol-detail">
+	<div>
+				<i><em><code>size</code></em></i>
+		<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a>
+<span>)</span>
+–
+	</div>
+			<p>a <a href="codecparsers/gstav1bitwriter.html#GstAV1BitWriterResult">GstCodecParsers.AV1BitWriterResult</a></p>
+
+	</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.22
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.22;" id="gst_av1_bit_writer_temporal_delimiter_obu">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="gst_av1_bit_writer_temporal_delimiter_obu">
+	<i>gst_av1_bit_writer_temporal_delimiter_obu</i>
+</h3>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GstAV1BitWriterResult" href="codecparsers/gstav1bitwriter.html#GstAV1BitWriterResult">GstAV1BitWriterResult</a>
+gst_av1_bit_writer_temporal_delimiter_obu (<a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a> size_field,
+                                           <a title="guint8" href="https://docs.gtk.org/glib/types.html#guint8">guint8</a> * data,
+                                           <a title="guint" href="https://docs.gtk.org/glib/types.html#guint">guint</a> * size)</pre>
+
+<p>Generating the according temporal delimiter AV1 bit stream OBU.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>size_field</code></em></i>
+–
+</div>
+<p>whether the header contain size feild</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>data</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="Parameter for returning results"><span class="acronym">out</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>the bit stream generated</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>size</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="Parameter for input and for returning results"><span class="acronym">inout</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>the size in bytes of the input and output</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p>a <a href="codecparsers/gstav1bitwriter.html#GstAV1BitWriterResult">GstAV1BitWriterResult</a></p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.22
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3 data-hotdoc-id="gst_av1_bit_writer_temporal_delimiter_obu">
+	<i>GstCodecParsers.prototype.av1_bit_writer_temporal_delimiter_obu</i>
+</h3>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstCodecParsers.prototype.av1_bit_writer_temporal_delimiter_obu(size_field: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>, size: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>): {
+    // javascript wrapper for 'gst_av1_bit_writer_temporal_delimiter_obu'
+}</code></pre>
+
+<p>Generating the according temporal delimiter AV1 bit stream OBU.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>size_field</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>whether the header contain size feild</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>size</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>the size in bytes of the input and output</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<p><b>Returns a tuple made of:</b></p>
+				
+<div class="symbol-detail">
+	<div>
+		<span>(</span><a title="GstCodecParsers.AV1BitWriterResult" href="codecparsers/gstav1bitwriter.html#GstAV1BitWriterResult">GstCodecParsers.AV1BitWriterResult</a>
+<span>)</span>
+–
+	</div>
+			<p>a <a href="codecparsers/gstav1bitwriter.html#GstAV1BitWriterResult">GstCodecParsers.AV1BitWriterResult</a></p>
+
+	</div>
+
+				
+<div class="symbol-detail">
+	<div>
+				<i><em><code>data</code></em></i>
+		<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>
+<span>)</span>
+–
+	</div>
+			<p>a <a href="codecparsers/gstav1bitwriter.html#GstAV1BitWriterResult">GstCodecParsers.AV1BitWriterResult</a></p>
+
+	</div>
+
+				
+<div class="symbol-detail">
+	<div>
+				<i><em><code>size</code></em></i>
+		<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>
+<span>)</span>
+–
+	</div>
+			<p>a <a href="codecparsers/gstav1bitwriter.html#GstAV1BitWriterResult">GstCodecParsers.AV1BitWriterResult</a></p>
+
+	</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.22
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3 data-hotdoc-id="gst_av1_bit_writer_temporal_delimiter_obu">
+	<i>GstCodecParsers.av1_bit_writer_temporal_delimiter_obu</i>
+</h3>
+
+
+<pre class="python-prototype language-python">
+<code>def GstCodecParsers.av1_bit_writer_temporal_delimiter_obu (size_field, size):
+    #python wrapper for 'gst_av1_bit_writer_temporal_delimiter_obu'</code></pre>
+
+<p>Generating the according temporal delimiter AV1 bit stream OBU.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>size_field</code></em></i>
+<span>(</span><a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a><span>)</span>
+–
+</div>
+<p>whether the header contain size feild</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>size</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<p>the size in bytes of the input and output</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<p><b>Returns a tuple made of:</b></p>
+				
+<div class="symbol-detail">
+	<div>
+		<span>(</span><a title="GstCodecParsers.AV1BitWriterResult" href="codecparsers/gstav1bitwriter.html#GstAV1BitWriterResult">GstCodecParsers.AV1BitWriterResult</a>
+<span>)</span>
+–
+	</div>
+			<p>a <a href="codecparsers/gstav1bitwriter.html#GstAV1BitWriterResult">GstCodecParsers.AV1BitWriterResult</a></p>
+
+	</div>
+
+				
+<div class="symbol-detail">
+	<div>
+				<i><em><code>data</code></em></i>
+		<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a>
+<span>)</span>
+–
+	</div>
+			<p>a <a href="codecparsers/gstav1bitwriter.html#GstAV1BitWriterResult">GstCodecParsers.AV1BitWriterResult</a></p>
+
+	</div>
+
+				
+<div class="symbol-detail">
+	<div>
+				<i><em><code>size</code></em></i>
+		<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a>
+<span>)</span>
+–
+	</div>
+			<p>a <a href="codecparsers/gstav1bitwriter.html#GstAV1BitWriterResult">GstCodecParsers.AV1BitWriterResult</a></p>
+
+	</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.22
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+
+            <h2 class="symbol_section">Enumerations</h2>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.24;" id="GstAV1BitWriterResult">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GstAV1BitWriterResult">
+	<i>GstAV1BitWriterResult</i>
+</h3>
+
+
+<p>The result of writing AV1 data into bit stream.</p>
+
+
+
+
+	<div class="members-container">
+		<h5>Members</h5>
+					
+<div class="symbol-detail" data-hotdoc-id="GST_AV1_BIT_WRITER_OK">
+	<div>
+		<i><em><code>GST_AV1_BIT_WRITER_OK</code></em></i>
+		(<span class="value">0</span>)
+		–
+	</div>
+			<p>The writing succeeded</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_AV1_BIT_WRITER_INVALID_DATA">
+	<div>
+		<i><em><code>GST_AV1_BIT_WRITER_INVALID_DATA</code></em></i>
+		(<span class="value">1</span>)
+		–
+	</div>
+			<p>The input data to write is invalid</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_AV1_BIT_WRITER_NO_MORE_SPACE">
+	<div>
+		<i><em><code>GST_AV1_BIT_WRITER_NO_MORE_SPACE</code></em></i>
+		(<span class="value">2</span>)
+		–
+	</div>
+			<p>The output does not have enough size</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_AV1_BIT_WRITER_ERROR">
+	<div>
+		<i><em><code>GST_AV1_BIT_WRITER_ERROR</code></em></i>
+		(<span class="value">3</span>)
+		–
+	</div>
+			<p>An general error occurred when writing</p>
+
+	</div>
+
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3 data-hotdoc-id="GstAV1BitWriterResult">
+	<i>GstCodecParsers.AV1BitWriterResult</i>
+</h3>
+
+
+<p>The result of writing AV1 data into bit stream.</p>
+
+
+
+
+	<div class="members-container">
+		<h5>Members</h5>
+					
+<div class="symbol-detail" data-hotdoc-id="GST_AV1_BIT_WRITER_OK">
+	<div>
+		<i><em><code>GstCodecParsers.AV1BitWriterResult.OK</code></em></i>
+		(<span class="value">0</span>)
+		–
+	</div>
+			<p>The writing succeeded</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_AV1_BIT_WRITER_INVALID_DATA">
+	<div>
+		<i><em><code>GstCodecParsers.AV1BitWriterResult.INVALID_DATA</code></em></i>
+		(<span class="value">1</span>)
+		–
+	</div>
+			<p>The input data to write is invalid</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_AV1_BIT_WRITER_NO_MORE_SPACE">
+	<div>
+		<i><em><code>GstCodecParsers.AV1BitWriterResult.NO_MORE_SPACE</code></em></i>
+		(<span class="value">2</span>)
+		–
+	</div>
+			<p>The output does not have enough size</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_AV1_BIT_WRITER_ERROR">
+	<div>
+		<i><em><code>GstCodecParsers.AV1BitWriterResult.ERROR</code></em></i>
+		(<span class="value">3</span>)
+		–
+	</div>
+			<p>An general error occurred when writing</p>
+
+	</div>
+
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3 data-hotdoc-id="GstAV1BitWriterResult">
+	<i>GstCodecParsers.AV1BitWriterResult</i>
+</h3>
+
+
+<p>The result of writing AV1 data into bit stream.</p>
+
+
+
+
+	<div class="members-container">
+		<h5>Members</h5>
+					
+<div class="symbol-detail" data-hotdoc-id="GST_AV1_BIT_WRITER_OK">
+	<div>
+		<i><em><code>GstCodecParsers.AV1BitWriterResult.OK</code></em></i>
+		(<span class="value">0</span>)
+		–
+	</div>
+			<p>The writing succeeded</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_AV1_BIT_WRITER_INVALID_DATA">
+	<div>
+		<i><em><code>GstCodecParsers.AV1BitWriterResult.INVALID_DATA</code></em></i>
+		(<span class="value">1</span>)
+		–
+	</div>
+			<p>The input data to write is invalid</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_AV1_BIT_WRITER_NO_MORE_SPACE">
+	<div>
+		<i><em><code>GstCodecParsers.AV1BitWriterResult.NO_MORE_SPACE</code></em></i>
+		(<span class="value">2</span>)
+		–
+	</div>
+			<p>The output does not have enough size</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_AV1_BIT_WRITER_ERROR">
+	<div>
+		<i><em><code>GstCodecParsers.AV1BitWriterResult.ERROR</code></em></i>
+		(<span class="value">3</span>)
+		–
+	</div>
+			<p>An general error occurred when writing</p>
+
+	</div>
+
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+
+
+
+
+
+		
+	</div>
+	<div id="search_results">
+		<p>The results of the search are</p>
+	</div>
+	<div id="footer">
+		    
+
+	</div>
+</div>
+
+<div id="toc-column">
+	
+		<div class="edit-button">
+		
+
+	</div>
+		<div id="toc-wrapper">
+		<nav id="toc"></nav>
+	</div>
+</div>
+</div>
+</main>
+
+
+<script src="assets/js/navbar_offset_scroller.js"></script>
+</body>
+</html>

@@ -1,0 +1,4021 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<base href="..">
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<title>GstAudio meta</title>
+
+<link rel="stylesheet" href="assets/css/dark-frontend.css" type="text/css" title="dark">
+<link rel="alternate stylesheet" href="assets/css/light-frontend.css" type="text/css" title="light">
+<link rel="stylesheet" href="assets/css/bootstrap-toc.min.css" type="text/css">
+<link rel="stylesheet" href="assets/css/jquery.mCustomScrollbar.min.css">
+<link rel="stylesheet" href="assets/js/search/enable_search.css" type="text/css">
+
+<link rel="stylesheet" href="assets/css/extra_frontend.css" type="text/css">
+<link rel="stylesheet" href="assets/css/devhelp.css" type="text/css">
+
+<link rel="stylesheet" href="assets/css/prism-tomorrow.css" type="text/css" title="dark">
+
+<link rel="alternate stylesheet" href="assets/css/prism.css" type="text/css" title="light">
+
+<script src="assets/js/mustache.min.js"></script>
+<script src="assets/js/jquery.js"></script>
+<script src="assets/js/bootstrap.js"></script>
+<script src="assets/js/scrollspy.js"></script>
+<script src="assets/js/typeahead.jquery.min.js"></script>
+<script src="assets/js/search.js"></script>
+<script src="assets/js/compare-versions.js"></script>
+<script src="assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="assets/js/bootstrap-toc.min.js"></script>
+<script src="assets/js/jquery.touchSwipe.min.js"></script>
+<script src="assets/js/anchor.min.js"></script>
+<script src="assets/js/tag_filtering.js"></script>
+<script src="assets/js/language_switching.js"></script>
+<script src="assets/js/styleswitcher.js"></script>
+
+<script src="assets/js/lines_around_headings.js"></script>
+
+<script src="assets/js/prism-core.js"></script>
+<script src="assets/js/prism-autoloader.js"></script>
+<script src="assets/js/prism_autoloader_path_override.js"></script>
+<script src="assets/js/trie.js"></script>
+
+<!-- generic -->
+<link rel="icon" type="image/png" href="assets/images/favicon-16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="assets/images/favicon-32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="assets/images/favicon-57.png" sizes="57x57">
+<link rel="icon" type="image/png" href="assets/images/favicon-64.png" sizes="64x64">
+<link rel="icon" type="image/png" href="assets/images/favicon-76.png" sizes="76x76">
+<link rel="icon" type="image/png" href="assets/images/favicon-96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="assets/images/favicon-128.png" sizes="128x128">
+<link rel="icon" type="image/png" href="assets/images/favicon-192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="assets/images/favicon-228.png" sizes="228x228">
+
+<!-- Android -->
+<link rel="shortcut icon" sizes="196x196" href="assets/images/favicon-196.png">
+
+<!-- iOS -->
+<link rel="apple-touch-icon" href="assets/images/favicon-120.png" sizes="120x120">
+<link rel="apple-touch-icon" href="assets/images/favicon-152.png" sizes="152x152">
+<link rel="apple-touch-icon" href="assets/images/favicon-180.png" sizes="180x180">
+
+</head>
+
+<body class="no-script
+">
+
+<script>
+$('body').removeClass('no-script');
+</script>
+
+<nav class="navbar navbar-fixed-top navbar-default" id="topnav">
+	<div class="container-fluid">
+		<div class="navbar-right">
+			<a id="toc-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-wrapper" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<span title="light mode switch" class="glyphicon glyphicon-sunglasses pull-right" id="lightmode-icon"></span>
+			<form class="navbar-form pull-right" id="navbar-search-form">
+                               <div class="form-group has-feedback">
+                                       <input type="text" class="form-control input-sm" name="search" id="sidenav-lookup-field" placeholder="search" disabled>
+				       <span class="glyphicon glyphicon-search form-control-feedback" id="search-mgn-glass"></span>
+                               </div>
+                        </form>
+		</div>
+		<div class="navbar-header">
+			<a id="sidenav-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<a id="home-link" href="index.html" class="hotdoc-navbar-brand">
+				<img src="assets/images/gstreamer-logo.svg" alt="Home">
+			</a>
+		</div>
+		<div class="navbar-collapse collapse" id="navbar-wrapper">
+			<ul class="nav navbar-nav" id="menu">
+				
+<li class="dropdown">
+    <a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        API References<span class="caret"></span>
+    </a>
+	<ul class="dropdown-menu" id="modules-menu">
+					<li>
+				<a href="gstreamer/gi-index.html">GStreamer core</a>
+			</li>
+					<li>
+				<a href="libs.html">GStreamer Libraries</a>
+			</li>
+					<li>
+				<a href="plugins_doc.html">GStreamer Plugins</a>
+			</li>
+		</ul>
+</li>
+
+<li>
+    <a href="application-development/index.html">Application manual</a>
+</li>
+
+
+<li>
+    <a href="tutorials/index.html">Tutorials</a>
+</li>
+
+			</ul>
+			<div class="hidden-xs hidden-sm navbar-text navbar-center">
+							</div>
+		</div>
+	</div>
+</nav>
+
+<main>
+<div data-extension="gi-extension" data-hotdoc-in-toplevel="False" data-hotdoc-project="audio" data-hotdoc-ref="gstaudiometa.html" class="page_container" id="page-wrapper" data-hotdoc-meta-gi-languages="['c', 'javascript', 'python']" data-hotdoc-meta-gi-language="c">
+<script src="assets/js/utils.js"></script>
+
+<div class="panel panel-collapse oc-collapsed" id="sidenav" data-hotdoc-role="navigation">
+	<script src="assets/js/full-width.js"></script>
+  <div id="sitenav-wrapper">
+    <iframe src="hotdoc-sitemap.html" id="sitenav-frame"></iframe>
+  </div>
+</div>
+
+<div id="body">
+	<div id="main">
+				    <div id="page-description" data-hotdoc-role="main">
+        <h1 id="gstaudio-meta-page">GstAudio meta</h1>
+<p><a href="audio/gstaudiometa.html#GstAudioDownmixMeta" data-gi-href-javascript="audio/gstaudiometa.html#GstAudioDownmixMeta" data-gi-title-javascript="GstAudio.AudioDownmixMeta" data-gi-href-python="audio/gstaudiometa.html#GstAudioDownmixMeta" data-gi-title-python="GstAudio.AudioDownmixMeta">GstAudioDownmixMeta</a> defines an audio downmix matrix to be send along with
+audio buffers. These functions in this module help to create and attach the
+meta as well as extracting it.</p>
+
+    </div>
+        
+        
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.8;" id="GstAudioClippingMeta">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h2 data-hotdoc-id="GstAudioClippingMeta">
+	<i>GstAudioClippingMeta</i>
+</h2>
+
+
+
+<div class="class_details">
+	<p>Extra buffer metadata describing how much audio has to be clipped from
+the start or end of a buffer. This is used for compressed formats, where
+the first frame usually has some additional samples due to encoder and
+decoder delays, and the last frame usually has some additional samples to
+be able to fill the complete last frame.</p>
+<p>This is used to ensure that decoded data in the end has the same amount of
+samples, and multiply decoded streams can be gaplessly concatenated.</p>
+<p>Note: If clipping of the start is done by adjusting the segment, this meta
+has to be dropped from buffers as otherwise clipping could happen twice.</p>
+
+</div>
+
+
+
+	<div class="members-container">
+		<h3>Members</h3>
+					
+<div class="symbol-detail" data-hotdoc-id="GstAudioClippingMeta.meta">
+	<div>
+		<i><em><code>meta</code></em></i>
+		(<a title="GstMeta" href="gstreamer/gstmeta.html#GstMeta">GstMeta</a>)
+		–
+	</div>
+			<p>parent <a href="gstreamer/gstmeta.html#GstMeta">GstMeta</a></p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstAudioClippingMeta.format">
+	<div>
+		<i><em><code>format</code></em></i>
+		(<a title="GstFormat" href="gstreamer/gstformat.html#GstFormat">GstFormat</a>)
+		–
+	</div>
+			<p>GstFormat of <em>start</em> and <em>stop</em>, GST_FORMAT_DEFAULT is samples</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstAudioClippingMeta.start">
+	<div>
+		<i><em><code>start</code></em></i>
+		(<a title="guint64" href="https://docs.gtk.org/glib/types.html#guint64">guint64</a>)
+		–
+	</div>
+			<p>Amount of audio to clip from start of buffer</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstAudioClippingMeta.end">
+	<div>
+		<i><em><code>end</code></em></i>
+		(<a title="guint64" href="https://docs.gtk.org/glib/types.html#guint64">guint64</a>)
+		–
+	</div>
+			<p>Amount of  to clip from end of buffer</p>
+
+	</div>
+
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.8
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h2 data-hotdoc-id="GstAudioClippingMeta">
+	<i>GstAudio.AudioClippingMeta</i>
+</h2>
+
+
+
+<div class="class_details">
+	<p>Extra buffer metadata describing how much audio has to be clipped from
+the start or end of a buffer. This is used for compressed formats, where
+the first frame usually has some additional samples due to encoder and
+decoder delays, and the last frame usually has some additional samples to
+be able to fill the complete last frame.</p>
+<p>This is used to ensure that decoded data in the end has the same amount of
+samples, and multiply decoded streams can be gaplessly concatenated.</p>
+<p>Note: If clipping of the start is done by adjusting the segment, this meta
+has to be dropped from buffers as otherwise clipping could happen twice.</p>
+
+</div>
+
+
+
+	<div class="members-container">
+		<h3>Members</h3>
+					
+<div class="symbol-detail" data-hotdoc-id="GstAudioClippingMeta.meta">
+	<div>
+		<i><em><code>meta</code></em></i>
+		(<a title="Gst.Meta" href="gstreamer/gstmeta.html#GstMeta">Gst.Meta</a>)
+		–
+	</div>
+			<p>parent <a href="gstreamer/gstmeta.html#GstMeta">Gst.Meta</a></p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstAudioClippingMeta.format">
+	<div>
+		<i><em><code>format</code></em></i>
+		(<a title="Gst.Format" href="gstreamer/gstformat.html#GstFormat">Gst.Format</a>)
+		–
+	</div>
+			<p>GstFormat of <em>start</em> and <em>stop</em>, GST_FORMAT_DEFAULT is samples</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstAudioClippingMeta.start">
+	<div>
+		<i><em><code>start</code></em></i>
+		(<a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>)
+		–
+	</div>
+			<p>Amount of audio to clip from start of buffer</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstAudioClippingMeta.end">
+	<div>
+		<i><em><code>end</code></em></i>
+		(<a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>)
+		–
+	</div>
+			<p>Amount of  to clip from end of buffer</p>
+
+	</div>
+
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.8
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h2 data-hotdoc-id="GstAudioClippingMeta">
+	<i>GstAudio.AudioClippingMeta</i>
+</h2>
+
+
+
+<div class="class_details">
+	<p>Extra buffer metadata describing how much audio has to be clipped from
+the start or end of a buffer. This is used for compressed formats, where
+the first frame usually has some additional samples due to encoder and
+decoder delays, and the last frame usually has some additional samples to
+be able to fill the complete last frame.</p>
+<p>This is used to ensure that decoded data in the end has the same amount of
+samples, and multiply decoded streams can be gaplessly concatenated.</p>
+<p>Note: If clipping of the start is done by adjusting the segment, this meta
+has to be dropped from buffers as otherwise clipping could happen twice.</p>
+
+</div>
+
+
+
+	<div class="members-container">
+		<h3>Members</h3>
+					
+<div class="symbol-detail" data-hotdoc-id="GstAudioClippingMeta.meta">
+	<div>
+		<i><em><code>meta</code></em></i>
+		(<a title="Gst.Meta" href="gstreamer/gstmeta.html#GstMeta">Gst.Meta</a>)
+		–
+	</div>
+			<p>parent <a href="gstreamer/gstmeta.html#GstMeta">Gst.Meta</a></p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstAudioClippingMeta.format">
+	<div>
+		<i><em><code>format</code></em></i>
+		(<a title="Gst.Format" href="gstreamer/gstformat.html#GstFormat">Gst.Format</a>)
+		–
+	</div>
+			<p>GstFormat of <em>start</em> and <em>stop</em>, GST_FORMAT_DEFAULT is samples</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstAudioClippingMeta.start">
+	<div>
+		<i><em><code>start</code></em></i>
+		(<a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a>)
+		–
+	</div>
+			<p>Amount of audio to clip from start of buffer</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstAudioClippingMeta.end">
+	<div>
+		<i><em><code>end</code></em></i>
+		(<a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a>)
+		–
+	</div>
+			<p>Amount of  to clip from end of buffer</p>
+
+	</div>
+
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.8
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+
+            <h3 class="symbol_section">Functions</h3>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_audio_clipping_meta_get_info">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_audio_clipping_meta_get_info">
+	<i>gst_audio_clipping_meta_get_info</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+const <a title="GstMetaInfo" href="gstreamer/gstmeta.html#GstMetaInfo">GstMetaInfo</a> *
+gst_audio_clipping_meta_get_info ()</pre>
+
+
+
+
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_audio_clipping_meta_get_info">
+	<i>GstAudio.prototype.audio_clipping_meta_get_info</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstAudio.prototype.audio_clipping_meta_get_info(): {
+    // javascript wrapper for 'gst_audio_clipping_meta_get_info'
+}</code></pre>
+
+
+
+
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Gst.MetaInfo" href="gstreamer/gstmeta.html#GstMetaInfo">Gst.MetaInfo</a><span>)</span>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_audio_clipping_meta_get_info">
+	<i>GstAudio.audio_clipping_meta_get_info</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstAudio.audio_clipping_meta_get_info ():
+    #python wrapper for 'gst_audio_clipping_meta_get_info'</code></pre>
+
+
+
+
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Gst.MetaInfo" href="gstreamer/gstmeta.html#GstMetaInfo">Gst.MetaInfo</a><span>)</span>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+
+        
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstAudioDownmixMeta">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h2 data-hotdoc-id="GstAudioDownmixMeta">
+	<i>GstAudioDownmixMeta</i>
+</h2>
+
+
+
+<div class="class_details">
+	<p>Extra buffer metadata describing audio downmixing matrix. This metadata is
+attached to audio buffers and contains a matrix to downmix the buffer number
+of channels to <em>channels</em>.</p>
+<p><em>matrix</em> is an two-dimensional array of <em>to_channels</em> times <em>from_channels</em>
+coefficients, i.e. the i-th output channels is constructed by multiplicating
+the input channels with the coefficients in <em>matrix</em>[i] and taking the sum
+of the results.</p>
+
+</div>
+
+
+
+	<div class="members-container">
+		<h3>Members</h3>
+					
+<div class="symbol-detail" data-hotdoc-id="GstAudioDownmixMeta.meta">
+	<div>
+		<i><em><code>meta</code></em></i>
+		(<a title="GstMeta" href="gstreamer/gstmeta.html#GstMeta">GstMeta</a>)
+		–
+	</div>
+			<p>parent <a href="gstreamer/gstmeta.html#GstMeta">GstMeta</a></p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstAudioDownmixMeta.from_position">
+	<div>
+		<i><em><code>from_position</code></em></i>
+		(<a title="GstAudioChannelPosition" href="audio/gstaudiochannels.html#GstAudioChannelPosition">GstAudioChannelPosition</a> *)
+		–
+	</div>
+			<p>the channel positions of the source</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstAudioDownmixMeta.to_position">
+	<div>
+		<i><em><code>to_position</code></em></i>
+		(<a title="GstAudioChannelPosition" href="audio/gstaudiochannels.html#GstAudioChannelPosition">GstAudioChannelPosition</a> *)
+		–
+	</div>
+			<p>the channel positions of the destination</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstAudioDownmixMeta.from_channels">
+	<div>
+		<i><em><code>from_channels</code></em></i>
+		(<a title="gint" href="https://docs.gtk.org/glib/types.html#gint">gint</a>)
+		–
+	</div>
+			<p>the number of channels of the source</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstAudioDownmixMeta.to_channels">
+	<div>
+		<i><em><code>to_channels</code></em></i>
+		(<a title="gint" href="https://docs.gtk.org/glib/types.html#gint">gint</a>)
+		–
+	</div>
+			<p>the number of channels of the destination</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstAudioDownmixMeta.matrix">
+	<div>
+		<i><em><code>matrix</code></em></i>
+		(<a title="gfloat" href="https://docs.gtk.org/glib/types.html#gfloat">gfloat</a> **)
+		–
+	</div>
+			<p>the matrix coefficients.</p>
+
+	</div>
+
+			</div>
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h2 data-hotdoc-id="GstAudioDownmixMeta">
+	<i>GstAudio.AudioDownmixMeta</i>
+</h2>
+
+
+
+<div class="class_details">
+	<p>Extra buffer metadata describing audio downmixing matrix. This metadata is
+attached to audio buffers and contains a matrix to downmix the buffer number
+of channels to <em>channels</em>.</p>
+<p><em>matrix</em> is an two-dimensional array of <em>to_channels</em> times <em>from_channels</em>
+coefficients, i.e. the i-th output channels is constructed by multiplicating
+the input channels with the coefficients in <em>matrix</em>[i] and taking the sum
+of the results.</p>
+
+</div>
+
+
+
+	<div class="members-container">
+		<h3>Members</h3>
+					
+<div class="symbol-detail" data-hotdoc-id="GstAudioDownmixMeta.meta">
+	<div>
+		<i><em><code>meta</code></em></i>
+		(<a title="Gst.Meta" href="gstreamer/gstmeta.html#GstMeta">Gst.Meta</a>)
+		–
+	</div>
+			<p>parent <a href="gstreamer/gstmeta.html#GstMeta">Gst.Meta</a></p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstAudioDownmixMeta.from_position">
+	<div>
+		<i><em><code>from_position</code></em></i>
+		([ <a title="GstAudio.AudioChannelPosition" href="audio/gstaudiochannels.html#GstAudioChannelPosition">GstAudio.AudioChannelPosition</a> ])
+		–
+	</div>
+			<p>the channel positions of the source</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstAudioDownmixMeta.to_position">
+	<div>
+		<i><em><code>to_position</code></em></i>
+		([ <a title="GstAudio.AudioChannelPosition" href="audio/gstaudiochannels.html#GstAudioChannelPosition">GstAudio.AudioChannelPosition</a> ])
+		–
+	</div>
+			<p>the channel positions of the destination</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstAudioDownmixMeta.from_channels">
+	<div>
+		<i><em><code>from_channels</code></em></i>
+		(<a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>)
+		–
+	</div>
+			<p>the number of channels of the source</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstAudioDownmixMeta.to_channels">
+	<div>
+		<i><em><code>to_channels</code></em></i>
+		(<a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>)
+		–
+	</div>
+			<p>the number of channels of the destination</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstAudioDownmixMeta.matrix">
+	<div>
+		<i><em><code>matrix</code></em></i>
+		([ <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a> ])
+		–
+	</div>
+			<p>the matrix coefficients.</p>
+
+	</div>
+
+			</div>
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h2 data-hotdoc-id="GstAudioDownmixMeta">
+	<i>GstAudio.AudioDownmixMeta</i>
+</h2>
+
+
+
+<div class="class_details">
+	<p>Extra buffer metadata describing audio downmixing matrix. This metadata is
+attached to audio buffers and contains a matrix to downmix the buffer number
+of channels to <em>channels</em>.</p>
+<p><em>matrix</em> is an two-dimensional array of <em>to_channels</em> times <em>from_channels</em>
+coefficients, i.e. the i-th output channels is constructed by multiplicating
+the input channels with the coefficients in <em>matrix</em>[i] and taking the sum
+of the results.</p>
+
+</div>
+
+
+
+	<div class="members-container">
+		<h3>Members</h3>
+					
+<div class="symbol-detail" data-hotdoc-id="GstAudioDownmixMeta.meta">
+	<div>
+		<i><em><code>meta</code></em></i>
+		(<a title="Gst.Meta" href="gstreamer/gstmeta.html#GstMeta">Gst.Meta</a>)
+		–
+	</div>
+			<p>parent <a href="gstreamer/gstmeta.html#GstMeta">Gst.Meta</a></p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstAudioDownmixMeta.from_position">
+	<div>
+		<i><em><code>from_position</code></em></i>
+		([ <a title="GstAudio.AudioChannelPosition" href="audio/gstaudiochannels.html#GstAudioChannelPosition">GstAudio.AudioChannelPosition</a> ])
+		–
+	</div>
+			<p>the channel positions of the source</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstAudioDownmixMeta.to_position">
+	<div>
+		<i><em><code>to_position</code></em></i>
+		([ <a title="GstAudio.AudioChannelPosition" href="audio/gstaudiochannels.html#GstAudioChannelPosition">GstAudio.AudioChannelPosition</a> ])
+		–
+	</div>
+			<p>the channel positions of the destination</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstAudioDownmixMeta.from_channels">
+	<div>
+		<i><em><code>from_channels</code></em></i>
+		(<a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a>)
+		–
+	</div>
+			<p>the number of channels of the source</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstAudioDownmixMeta.to_channels">
+	<div>
+		<i><em><code>to_channels</code></em></i>
+		(<a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a>)
+		–
+	</div>
+			<p>the number of channels of the destination</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstAudioDownmixMeta.matrix">
+	<div>
+		<i><em><code>matrix</code></em></i>
+		([ <a title="float" href="https://docs.python.org/3/library/functions.html#float">float</a> ])
+		–
+	</div>
+			<p>the matrix coefficients.</p>
+
+	</div>
+
+			</div>
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+
+            <h3 class="symbol_section">Functions</h3>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_audio_downmix_meta_get_info">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_audio_downmix_meta_get_info">
+	<i>gst_audio_downmix_meta_get_info</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+const <a title="GstMetaInfo" href="gstreamer/gstmeta.html#GstMetaInfo">GstMetaInfo</a> *
+gst_audio_downmix_meta_get_info ()</pre>
+
+
+
+
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_audio_downmix_meta_get_info">
+	<i>GstAudio.prototype.audio_downmix_meta_get_info</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstAudio.prototype.audio_downmix_meta_get_info(): {
+    // javascript wrapper for 'gst_audio_downmix_meta_get_info'
+}</code></pre>
+
+
+
+
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Gst.MetaInfo" href="gstreamer/gstmeta.html#GstMetaInfo">Gst.MetaInfo</a><span>)</span>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_audio_downmix_meta_get_info">
+	<i>GstAudio.audio_downmix_meta_get_info</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstAudio.audio_downmix_meta_get_info ():
+    #python wrapper for 'gst_audio_downmix_meta_get_info'</code></pre>
+
+
+
+
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Gst.MetaInfo" href="gstreamer/gstmeta.html#GstMetaInfo">Gst.MetaInfo</a><span>)</span>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+
+        
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="GstAudioLevelMeta">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h2 data-hotdoc-id="GstAudioLevelMeta">
+	<i>GstAudioLevelMeta</i>
+</h2>
+
+
+
+<div class="class_details">
+	<p>Meta containing Audio Level Indication: https://tools.ietf.org/html/rfc6464</p>
+
+</div>
+
+
+
+	<div class="members-container">
+		<h3>Members</h3>
+					
+<div class="symbol-detail" data-hotdoc-id="GstAudioLevelMeta.meta">
+	<div>
+		<i><em><code>meta</code></em></i>
+		(<a title="GstMeta" href="gstreamer/gstmeta.html#GstMeta">GstMeta</a>)
+		–
+	</div>
+			<p>parent <a href="gstreamer/gstmeta.html#GstMeta">GstMeta</a></p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstAudioLevelMeta.level">
+	<div>
+		<i><em><code>level</code></em></i>
+		(<a title="guint8" href="https://docs.gtk.org/glib/types.html#guint8">guint8</a>)
+		–
+	</div>
+			<p>the -dBov from 0-127 (127 is silence).</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstAudioLevelMeta.voice_activity">
+	<div>
+		<i><em><code>voice_activity</code></em></i>
+		(<a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a>)
+		–
+	</div>
+			<p>whether the buffer contains voice activity</p>
+
+	</div>
+
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h2 data-hotdoc-id="GstAudioLevelMeta">
+	<i>GstAudio.AudioLevelMeta</i>
+</h2>
+
+
+
+<div class="class_details">
+	<p>Meta containing Audio Level Indication: https://tools.ietf.org/html/rfc6464</p>
+
+</div>
+
+
+
+	<div class="members-container">
+		<h3>Members</h3>
+					
+<div class="symbol-detail" data-hotdoc-id="GstAudioLevelMeta.meta">
+	<div>
+		<i><em><code>meta</code></em></i>
+		(<a title="Gst.Meta" href="gstreamer/gstmeta.html#GstMeta">Gst.Meta</a>)
+		–
+	</div>
+			<p>parent <a href="gstreamer/gstmeta.html#GstMeta">Gst.Meta</a></p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstAudioLevelMeta.level">
+	<div>
+		<i><em><code>level</code></em></i>
+		(<a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>)
+		–
+	</div>
+			<p>the -dBov from 0-127 (127 is silence).</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstAudioLevelMeta.voice_activity">
+	<div>
+		<i><em><code>voice_activity</code></em></i>
+		(<a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>)
+		–
+	</div>
+			<p>whether the buffer contains voice activity</p>
+
+	</div>
+
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h2 data-hotdoc-id="GstAudioLevelMeta">
+	<i>GstAudio.AudioLevelMeta</i>
+</h2>
+
+
+
+<div class="class_details">
+	<p>Meta containing Audio Level Indication: https://tools.ietf.org/html/rfc6464</p>
+
+</div>
+
+
+
+	<div class="members-container">
+		<h3>Members</h3>
+					
+<div class="symbol-detail" data-hotdoc-id="GstAudioLevelMeta.meta">
+	<div>
+		<i><em><code>meta</code></em></i>
+		(<a title="Gst.Meta" href="gstreamer/gstmeta.html#GstMeta">Gst.Meta</a>)
+		–
+	</div>
+			<p>parent <a href="gstreamer/gstmeta.html#GstMeta">Gst.Meta</a></p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstAudioLevelMeta.level">
+	<div>
+		<i><em><code>level</code></em></i>
+		(<a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a>)
+		–
+	</div>
+			<p>the -dBov from 0-127 (127 is silence).</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstAudioLevelMeta.voice_activity">
+	<div>
+		<i><em><code>voice_activity</code></em></i>
+		(<a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a>)
+		–
+	</div>
+			<p>whether the buffer contains voice activity</p>
+
+	</div>
+
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+
+            <h3 class="symbol_section">Functions</h3>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="gst_audio_level_meta_get_info">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_audio_level_meta_get_info">
+	<i>gst_audio_level_meta_get_info</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+const <a title="GstMetaInfo" href="gstreamer/gstmeta.html#GstMetaInfo">GstMetaInfo</a> *
+gst_audio_level_meta_get_info ()</pre>
+
+<p>Return the <a href="gstreamer/gstmeta.html#GstMetaInfo">GstMetaInfo</a> associated with <a href="audio/gstaudiometa.html#GstAudioLevelMeta">GstAudioLevelMeta</a>.</p>
+
+
+
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span>
+<span class="annotation">[<abbr title="Don't free data after the code is done"><span class="acronym">transfer: none</span></abbr>]</span><span>)</span>
+–
+			</div>
+							<p>a <a href="gstreamer/gstmeta.html#GstMetaInfo">GstMetaInfo</a></p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_audio_level_meta_get_info">
+	<i>GstAudio.prototype.audio_level_meta_get_info</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstAudio.prototype.audio_level_meta_get_info(): {
+    // javascript wrapper for 'gst_audio_level_meta_get_info'
+}</code></pre>
+
+<p>Return the <a href="gstreamer/gstmeta.html#GstMetaInfo">Gst.MetaInfo</a> associated with <a href="audio/gstaudiometa.html#GstAudioLevelMeta">GstAudio.AudioLevelMeta</a>.</p>
+
+
+
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Gst.MetaInfo" href="gstreamer/gstmeta.html#GstMetaInfo">Gst.MetaInfo</a><span>)</span>
+–
+			</div>
+							<p>a <a href="gstreamer/gstmeta.html#GstMetaInfo">Gst.MetaInfo</a></p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_audio_level_meta_get_info">
+	<i>GstAudio.audio_level_meta_get_info</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstAudio.audio_level_meta_get_info ():
+    #python wrapper for 'gst_audio_level_meta_get_info'</code></pre>
+
+<p>Return the <a href="gstreamer/gstmeta.html#GstMetaInfo">Gst.MetaInfo</a> associated with <a href="audio/gstaudiometa.html#GstAudioLevelMeta">GstAudio.AudioLevelMeta</a>.</p>
+
+
+
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Gst.MetaInfo" href="gstreamer/gstmeta.html#GstMetaInfo">Gst.MetaInfo</a><span>)</span>
+–
+			</div>
+							<p>a <a href="gstreamer/gstmeta.html#GstMetaInfo">Gst.MetaInfo</a></p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+
+        
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.16;" id="GstAudioMeta">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h2 data-hotdoc-id="GstAudioMeta">
+	<i>GstAudioMeta</i>
+</h2>
+
+
+
+<div class="class_details">
+	<p>Buffer metadata describing how data is laid out inside the buffer. This
+is useful for non-interleaved (planar) buffers, where it is necessary to
+have a place to store where each plane starts and how long each plane is.</p>
+<p>It is a requirement for non-interleaved buffers to have this metadata
+attached and to be mapped with <a href="audio/audio-buffer.html#gst_audio_buffer_map">gst_audio_buffer_map</a> in order to ensure
+correct handling of clipping and channel reordering.</p>
+<p>The different channels in <em>offsets</em> are always in the GStreamer channel order.
+Zero-copy channel reordering can be implemented by swapping the values in
+<em>offsets</em>.</p>
+<p>It is not allowed for channels to overlap in memory,
+i.e. for each i in [0, channels), the range
+[@offsets[i], <em>offsets</em>[i] + <em>samples</em> * sample_stride) must not overlap
+with any other such range.</p>
+<p>It is, however, allowed to have parts of the buffer memory unused,
+by using <em>offsets</em> and <em>samples</em> in such a way that leave gaps on it.
+This is used to implement zero-copy clipping in non-interleaved buffers.</p>
+<p>Obviously, due to the above, it is not safe to infer the
+number of valid samples from the size of the buffer. You should always
+use the <em>samples</em> variable of this metadata.</p>
+<p>Note that for interleaved audio it is not a requirement to have this
+metadata attached and at the moment of writing, there is actually no use
+case to do so. It is, however, allowed to attach it, for some potential
+future use case.</p>
+<p>Since 1.24 it can be serialized using <a href="gstreamer/gstmeta.html#gst_meta_serialize">gst_meta_serialize</a> and
+<a href="gstreamer/gstmeta.html#gst_meta_deserialize">gst_meta_deserialize</a>.</p>
+
+</div>
+
+
+
+	<div class="members-container">
+		<h3>Members</h3>
+					
+<div class="symbol-detail" data-hotdoc-id="GstAudioMeta.meta">
+	<div>
+		<i><em><code>meta</code></em></i>
+		(<a title="GstMeta" href="gstreamer/gstmeta.html#GstMeta">GstMeta</a>)
+		–
+	</div>
+			<p>parent <a href="gstreamer/gstmeta.html#GstMeta">GstMeta</a></p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstAudioMeta.info">
+	<div>
+		<i><em><code>info</code></em></i>
+		(<a title="GstAudioInfo" href="audio/audio-info.html#GstAudioInfo">GstAudioInfo</a>)
+		–
+	</div>
+			<p>the audio properties of the buffer</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstAudioMeta.samples">
+	<div>
+		<i><em><code>samples</code></em></i>
+		(<a title="gsize" href="https://docs.gtk.org/glib/types.html#gsize">gsize</a>)
+		–
+	</div>
+			<p>the number of valid samples in the buffer</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstAudioMeta.offsets">
+	<div>
+		<i><em><code>offsets</code></em></i>
+		(<a title="gsize" href="https://docs.gtk.org/glib/types.html#gsize">gsize</a> *)
+		–
+	</div>
+			<p>the offsets (in bytes) where each channel plane starts in the
+buffer or <a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#NULL:CAPS">NULL</a> if the buffer has interleaved layout; if not <a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#NULL:CAPS">NULL</a>, this
+is guaranteed to be an array of <em>info</em>.channels elements</p>
+
+	</div>
+
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.16
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h2 data-hotdoc-id="GstAudioMeta">
+	<i>GstAudio.AudioMeta</i>
+</h2>
+
+
+
+<div class="class_details">
+	<p>Buffer metadata describing how data is laid out inside the buffer. This
+is useful for non-interleaved (planar) buffers, where it is necessary to
+have a place to store where each plane starts and how long each plane is.</p>
+<p>It is a requirement for non-interleaved buffers to have this metadata
+attached and to be mapped with <a href="audio/audio-buffer.html#gst_audio_buffer_map">GstAudio.prototype.audio_buffer_map</a> in order to ensure
+correct handling of clipping and channel reordering.</p>
+<p>The different channels in <em>offsets</em> are always in the GStreamer channel order.
+Zero-copy channel reordering can be implemented by swapping the values in
+<em>offsets</em>.</p>
+<p>It is not allowed for channels to overlap in memory,
+i.e. for each i in [0, channels), the range
+[@offsets[i], <em>offsets</em>[i] + <em>samples</em> * sample_stride) must not overlap
+with any other such range.</p>
+<p>It is, however, allowed to have parts of the buffer memory unused,
+by using <em>offsets</em> and <em>samples</em> in such a way that leave gaps on it.
+This is used to implement zero-copy clipping in non-interleaved buffers.</p>
+<p>Obviously, due to the above, it is not safe to infer the
+number of valid samples from the size of the buffer. You should always
+use the <em>samples</em> variable of this metadata.</p>
+<p>Note that for interleaved audio it is not a requirement to have this
+metadata attached and at the moment of writing, there is actually no use
+case to do so. It is, however, allowed to attach it, for some potential
+future use case.</p>
+<p>Since 1.24 it can be serialized using <a href="gstreamer/gstmeta.html#gst_meta_serialize">Gst.Meta.prototype.serialize</a> and
+<a href="gstreamer/gstmeta.html#gst_meta_deserialize">Gst.prototype.meta_deserialize</a>.</p>
+
+</div>
+
+
+
+	<div class="members-container">
+		<h3>Members</h3>
+					
+<div class="symbol-detail" data-hotdoc-id="GstAudioMeta.meta">
+	<div>
+		<i><em><code>meta</code></em></i>
+		(<a title="Gst.Meta" href="gstreamer/gstmeta.html#GstMeta">Gst.Meta</a>)
+		–
+	</div>
+			<p>parent <a href="gstreamer/gstmeta.html#GstMeta">Gst.Meta</a></p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstAudioMeta.info">
+	<div>
+		<i><em><code>info</code></em></i>
+		(<a title="GstAudio.AudioInfo" href="audio/audio-info.html#GstAudioInfo">GstAudio.AudioInfo</a>)
+		–
+	</div>
+			<p>the audio properties of the buffer</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstAudioMeta.samples">
+	<div>
+		<i><em><code>samples</code></em></i>
+		(<a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>)
+		–
+	</div>
+			<p>the number of valid samples in the buffer</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstAudioMeta.offsets">
+	<div>
+		<i><em><code>offsets</code></em></i>
+		([ <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a> ])
+		–
+	</div>
+			<p>the offsets (in bytes) where each channel plane starts in the
+buffer or <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null">null</a> if the buffer has interleaved layout; if not <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null">null</a>, this
+is guaranteed to be an array of <em>info</em>.channels elements</p>
+
+	</div>
+
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.16
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h2 data-hotdoc-id="GstAudioMeta">
+	<i>GstAudio.AudioMeta</i>
+</h2>
+
+
+
+<div class="class_details">
+	<p>Buffer metadata describing how data is laid out inside the buffer. This
+is useful for non-interleaved (planar) buffers, where it is necessary to
+have a place to store where each plane starts and how long each plane is.</p>
+<p>It is a requirement for non-interleaved buffers to have this metadata
+attached and to be mapped with <a href="audio/audio-buffer.html#gst_audio_buffer_map">GstAudio.audio_buffer_map</a> in order to ensure
+correct handling of clipping and channel reordering.</p>
+<p>The different channels in <em>offsets</em> are always in the GStreamer channel order.
+Zero-copy channel reordering can be implemented by swapping the values in
+<em>offsets</em>.</p>
+<p>It is not allowed for channels to overlap in memory,
+i.e. for each i in [0, channels), the range
+[@offsets[i], <em>offsets</em>[i] + <em>samples</em> * sample_stride) must not overlap
+with any other such range.</p>
+<p>It is, however, allowed to have parts of the buffer memory unused,
+by using <em>offsets</em> and <em>samples</em> in such a way that leave gaps on it.
+This is used to implement zero-copy clipping in non-interleaved buffers.</p>
+<p>Obviously, due to the above, it is not safe to infer the
+number of valid samples from the size of the buffer. You should always
+use the <em>samples</em> variable of this metadata.</p>
+<p>Note that for interleaved audio it is not a requirement to have this
+metadata attached and at the moment of writing, there is actually no use
+case to do so. It is, however, allowed to attach it, for some potential
+future use case.</p>
+<p>Since 1.24 it can be serialized using <a href="gstreamer/gstmeta.html#gst_meta_serialize">Gst.Meta.serialize</a> and
+<a href="gstreamer/gstmeta.html#gst_meta_deserialize">Gst.meta_deserialize</a>.</p>
+
+</div>
+
+
+
+	<div class="members-container">
+		<h3>Members</h3>
+					
+<div class="symbol-detail" data-hotdoc-id="GstAudioMeta.meta">
+	<div>
+		<i><em><code>meta</code></em></i>
+		(<a title="Gst.Meta" href="gstreamer/gstmeta.html#GstMeta">Gst.Meta</a>)
+		–
+	</div>
+			<p>parent <a href="gstreamer/gstmeta.html#GstMeta">Gst.Meta</a></p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstAudioMeta.info">
+	<div>
+		<i><em><code>info</code></em></i>
+		(<a title="GstAudio.AudioInfo" href="audio/audio-info.html#GstAudioInfo">GstAudio.AudioInfo</a>)
+		–
+	</div>
+			<p>the audio properties of the buffer</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstAudioMeta.samples">
+	<div>
+		<i><em><code>samples</code></em></i>
+		(<a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a>)
+		–
+	</div>
+			<p>the number of valid samples in the buffer</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstAudioMeta.offsets">
+	<div>
+		<i><em><code>offsets</code></em></i>
+		([ <a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a> ])
+		–
+	</div>
+			<p>the offsets (in bytes) where each channel plane starts in the
+buffer or <a href="https://docs.python.org/3/library/constants.html#None">None</a> if the buffer has interleaved layout; if not <a href="https://docs.python.org/3/library/constants.html#None">None</a>, this
+is guaranteed to be an array of <em>info</em>.channels elements</p>
+
+	</div>
+
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.16
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+
+            <h3 class="symbol_section">Functions</h3>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_audio_meta_get_info">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_audio_meta_get_info">
+	<i>gst_audio_meta_get_info</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+const <a title="GstMetaInfo" href="gstreamer/gstmeta.html#GstMetaInfo">GstMetaInfo</a> *
+gst_audio_meta_get_info ()</pre>
+
+
+
+
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_audio_meta_get_info">
+	<i>GstAudio.prototype.audio_meta_get_info</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstAudio.prototype.audio_meta_get_info(): {
+    // javascript wrapper for 'gst_audio_meta_get_info'
+}</code></pre>
+
+
+
+
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Gst.MetaInfo" href="gstreamer/gstmeta.html#GstMetaInfo">Gst.MetaInfo</a><span>)</span>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_audio_meta_get_info">
+	<i>GstAudio.audio_meta_get_info</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstAudio.audio_meta_get_info ():
+    #python wrapper for 'gst_audio_meta_get_info'</code></pre>
+
+
+
+
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Gst.MetaInfo" href="gstreamer/gstmeta.html#GstMetaInfo">Gst.MetaInfo</a><span>)</span>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+
+        
+
+            <h2 class="symbol_section">Functions</h2>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_audio_clipping_meta_api_get_type">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="gst_audio_clipping_meta_api_get_type">
+	<i>gst_audio_clipping_meta_api_get_type</i>
+</h3>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GType" href="https://docs.gtk.org/gobject/alias.Type.html">GType</a>
+gst_audio_clipping_meta_api_get_type ()</pre>
+
+
+
+
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3 data-hotdoc-id="gst_audio_clipping_meta_api_get_type">
+	<i>GstAudio.prototype.audio_clipping_meta_api_get_type</i>
+</h3>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstAudio.prototype.audio_clipping_meta_api_get_type(): {
+    // javascript wrapper for 'gst_audio_clipping_meta_api_get_type'
+}</code></pre>
+
+
+
+
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GObject.Type" href="https://developer.gnome.org/gobject/stable/gobject-Type-Information.html#GType">GObject.Type</a><span>)</span>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3 data-hotdoc-id="gst_audio_clipping_meta_api_get_type">
+	<i>GstAudio.audio_clipping_meta_api_get_type</i>
+</h3>
+
+
+<pre class="python-prototype language-python">
+<code>def GstAudio.audio_clipping_meta_api_get_type ():
+    #python wrapper for 'gst_audio_clipping_meta_api_get_type'</code></pre>
+
+
+
+
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GObject.Type" href="https://developer.gnome.org/gobject/stable/gobject-Type-Information.html#GType">GObject.Type</a><span>)</span>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_audio_downmix_meta_api_get_type">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="gst_audio_downmix_meta_api_get_type">
+	<i>gst_audio_downmix_meta_api_get_type</i>
+</h3>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GType" href="https://docs.gtk.org/gobject/alias.Type.html">GType</a>
+gst_audio_downmix_meta_api_get_type ()</pre>
+
+
+
+
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3 data-hotdoc-id="gst_audio_downmix_meta_api_get_type">
+	<i>GstAudio.prototype.audio_downmix_meta_api_get_type</i>
+</h3>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstAudio.prototype.audio_downmix_meta_api_get_type(): {
+    // javascript wrapper for 'gst_audio_downmix_meta_api_get_type'
+}</code></pre>
+
+
+
+
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GObject.Type" href="https://developer.gnome.org/gobject/stable/gobject-Type-Information.html#GType">GObject.Type</a><span>)</span>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3 data-hotdoc-id="gst_audio_downmix_meta_api_get_type">
+	<i>GstAudio.audio_downmix_meta_api_get_type</i>
+</h3>
+
+
+<pre class="python-prototype language-python">
+<code>def GstAudio.audio_downmix_meta_api_get_type ():
+    #python wrapper for 'gst_audio_downmix_meta_api_get_type'</code></pre>
+
+
+
+
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GObject.Type" href="https://developer.gnome.org/gobject/stable/gobject-Type-Information.html#GType">GObject.Type</a><span>)</span>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="gst_audio_level_meta_api_get_type">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="gst_audio_level_meta_api_get_type">
+	<i>gst_audio_level_meta_api_get_type</i>
+</h3>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GType" href="https://docs.gtk.org/gobject/alias.Type.html">GType</a>
+gst_audio_level_meta_api_get_type ()</pre>
+
+<p>Return the <a href="https://docs.gtk.org/gobject/alias.Type.html">GType</a> associated with <a href="audio/gstaudiometa.html#GstAudioLevelMeta">GstAudioLevelMeta</a>.</p>
+
+
+
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p>a <a href="https://docs.gtk.org/gobject/alias.Type.html">GType</a></p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3 data-hotdoc-id="gst_audio_level_meta_api_get_type">
+	<i>GstAudio.prototype.audio_level_meta_api_get_type</i>
+</h3>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstAudio.prototype.audio_level_meta_api_get_type(): {
+    // javascript wrapper for 'gst_audio_level_meta_api_get_type'
+}</code></pre>
+
+<p>Return the <a href="https://developer.gnome.org/gobject/stable/gobject-Type-Information.html#GType">GObject.Type</a> associated with <a href="audio/gstaudiometa.html#GstAudioLevelMeta">GstAudio.AudioLevelMeta</a>.</p>
+
+
+
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GObject.Type" href="https://developer.gnome.org/gobject/stable/gobject-Type-Information.html#GType">GObject.Type</a><span>)</span>
+–
+			</div>
+							<p>a <a href="https://developer.gnome.org/gobject/stable/gobject-Type-Information.html#GType">GObject.Type</a></p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3 data-hotdoc-id="gst_audio_level_meta_api_get_type">
+	<i>GstAudio.audio_level_meta_api_get_type</i>
+</h3>
+
+
+<pre class="python-prototype language-python">
+<code>def GstAudio.audio_level_meta_api_get_type ():
+    #python wrapper for 'gst_audio_level_meta_api_get_type'</code></pre>
+
+<p>Return the <a href="https://developer.gnome.org/gobject/stable/gobject-Type-Information.html#GType">GObject.Type</a> associated with <a href="audio/gstaudiometa.html#GstAudioLevelMeta">GstAudio.AudioLevelMeta</a>.</p>
+
+
+
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GObject.Type" href="https://developer.gnome.org/gobject/stable/gobject-Type-Information.html#GType">GObject.Type</a><span>)</span>
+–
+			</div>
+							<p>a <a href="https://developer.gnome.org/gobject/stable/gobject-Type-Information.html#GType">GObject.Type</a></p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_audio_meta_api_get_type">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="gst_audio_meta_api_get_type">
+	<i>gst_audio_meta_api_get_type</i>
+</h3>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GType" href="https://docs.gtk.org/gobject/alias.Type.html">GType</a>
+gst_audio_meta_api_get_type ()</pre>
+
+
+
+
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3 data-hotdoc-id="gst_audio_meta_api_get_type">
+	<i>GstAudio.prototype.audio_meta_api_get_type</i>
+</h3>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstAudio.prototype.audio_meta_api_get_type(): {
+    // javascript wrapper for 'gst_audio_meta_api_get_type'
+}</code></pre>
+
+
+
+
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GObject.Type" href="https://developer.gnome.org/gobject/stable/gobject-Type-Information.html#GType">GObject.Type</a><span>)</span>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3 data-hotdoc-id="gst_audio_meta_api_get_type">
+	<i>GstAudio.audio_meta_api_get_type</i>
+</h3>
+
+
+<pre class="python-prototype language-python">
+<code>def GstAudio.audio_meta_api_get_type ():
+    #python wrapper for 'gst_audio_meta_api_get_type'</code></pre>
+
+
+
+
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GObject.Type" href="https://developer.gnome.org/gobject/stable/gobject-Type-Information.html#GType">GObject.Type</a><span>)</span>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.8;" id="gst_buffer_add_audio_clipping_meta">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="gst_buffer_add_audio_clipping_meta">
+	<i>gst_buffer_add_audio_clipping_meta</i>
+</h3>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GstAudioClippingMeta" href="audio/gstaudiometa.html#GstAudioClippingMeta">GstAudioClippingMeta</a> *
+gst_buffer_add_audio_clipping_meta (<a title="GstBuffer" href="gstreamer/gstbuffer.html#GstBuffer">GstBuffer</a> * buffer,
+                                    <a title="GstFormat" href="gstreamer/gstformat.html#GstFormat">GstFormat</a> format,
+                                    <a title="guint64" href="https://docs.gtk.org/glib/types.html#guint64">guint64</a> start,
+                                    <a title="guint64" href="https://docs.gtk.org/glib/types.html#guint64">guint64</a> end)</pre>
+
+<p>Attaches <a href="audio/gstaudiometa.html#GstAudioClippingMeta">GstAudioClippingMeta</a> metadata to <em>buffer</em> with the given parameters.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>buffer</code></em></i>
+–
+</div>
+<p>a <a href="gstreamer/gstbuffer.html#GstBuffer">GstBuffer</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>format</code></em></i>
+–
+</div>
+<p>GstFormat of <em>start</em> and <em>stop</em>, GST_FORMAT_DEFAULT is samples</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>start</code></em></i>
+–
+</div>
+<p>Amount of audio to clip from start of buffer</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>end</code></em></i>
+–
+</div>
+<p>Amount of  to clip from end of buffer</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span>
+<span class="annotation">[<abbr title="Don't free data after the code is done"><span class="acronym">transfer: none</span></abbr>]</span><span>)</span>
+–
+			</div>
+							<p>the <a href="audio/gstaudiometa.html#GstAudioClippingMeta">GstAudioClippingMeta</a> on <em>buffer</em>.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.8
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3 data-hotdoc-id="gst_buffer_add_audio_clipping_meta">
+	<i>GstAudio.prototype.buffer_add_audio_clipping_meta</i>
+</h3>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstAudio.prototype.buffer_add_audio_clipping_meta(buffer: <a title="Gst.Buffer" href="gstreamer/gstbuffer.html#GstBuffer">Gst.Buffer</a>, format: <a title="Gst.Format" href="gstreamer/gstformat.html#GstFormat">Gst.Format</a>, start: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>, end: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>): {
+    // javascript wrapper for 'gst_buffer_add_audio_clipping_meta'
+}</code></pre>
+
+<p>Attaches <a href="audio/gstaudiometa.html#GstAudioClippingMeta">GstAudio.AudioClippingMeta</a> metadata to <em>buffer</em> with the given parameters.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>buffer</code></em></i>
+<span>(</span><a title="Gst.Buffer" href="gstreamer/gstbuffer.html#GstBuffer">Gst.Buffer</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gstbuffer.html#GstBuffer">Gst.Buffer</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>format</code></em></i>
+<span>(</span><a title="Gst.Format" href="gstreamer/gstformat.html#GstFormat">Gst.Format</a><span>)</span>
+–
+</div>
+<p>GstFormat of <em>start</em> and <em>stop</em>, GST_FORMAT_DEFAULT is samples</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>start</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>Amount of audio to clip from start of buffer</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>end</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>Amount of  to clip from end of buffer</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GstAudio.AudioClippingMeta" href="audio/gstaudiometa.html#GstAudioClippingMeta">GstAudio.AudioClippingMeta</a><span>)</span>
+–
+			</div>
+							<p>the <a href="audio/gstaudiometa.html#GstAudioClippingMeta">GstAudio.AudioClippingMeta</a> on <em>buffer</em>.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.8
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3 data-hotdoc-id="gst_buffer_add_audio_clipping_meta">
+	<i>GstAudio.buffer_add_audio_clipping_meta</i>
+</h3>
+
+
+<pre class="python-prototype language-python">
+<code>def GstAudio.buffer_add_audio_clipping_meta (buffer, format, start, end):
+    #python wrapper for 'gst_buffer_add_audio_clipping_meta'</code></pre>
+
+<p>Attaches <a href="audio/gstaudiometa.html#GstAudioClippingMeta">GstAudio.AudioClippingMeta</a> metadata to <em>buffer</em> with the given parameters.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>buffer</code></em></i>
+<span>(</span><a title="Gst.Buffer" href="gstreamer/gstbuffer.html#GstBuffer">Gst.Buffer</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gstbuffer.html#GstBuffer">Gst.Buffer</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>format</code></em></i>
+<span>(</span><a title="Gst.Format" href="gstreamer/gstformat.html#GstFormat">Gst.Format</a><span>)</span>
+–
+</div>
+<p>GstFormat of <em>start</em> and <em>stop</em>, GST_FORMAT_DEFAULT is samples</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>start</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<p>Amount of audio to clip from start of buffer</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>end</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<p>Amount of  to clip from end of buffer</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GstAudio.AudioClippingMeta" href="audio/gstaudiometa.html#GstAudioClippingMeta">GstAudio.AudioClippingMeta</a><span>)</span>
+–
+			</div>
+							<p>the <a href="audio/gstaudiometa.html#GstAudioClippingMeta">GstAudio.AudioClippingMeta</a> on <em>buffer</em>.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.8
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_buffer_add_audio_downmix_meta">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="gst_buffer_add_audio_downmix_meta">
+	<i>gst_buffer_add_audio_downmix_meta</i>
+</h3>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GstAudioDownmixMeta" href="audio/gstaudiometa.html#GstAudioDownmixMeta">GstAudioDownmixMeta</a> *
+gst_buffer_add_audio_downmix_meta (<a title="GstBuffer" href="gstreamer/gstbuffer.html#GstBuffer">GstBuffer</a> * buffer,
+                                   const <a title="GstAudioChannelPosition" href="audio/gstaudiochannels.html#GstAudioChannelPosition">GstAudioChannelPosition</a> * from_position,
+                                   <a title="gint" href="https://docs.gtk.org/glib/types.html#gint">gint</a> from_channels,
+                                   const <a title="GstAudioChannelPosition" href="audio/gstaudiochannels.html#GstAudioChannelPosition">GstAudioChannelPosition</a> * to_position,
+                                   <a title="gint" href="https://docs.gtk.org/glib/types.html#gint">gint</a> to_channels,
+                                   const <a title="gfloat" href="https://docs.gtk.org/glib/types.html#gfloat">gfloat</a> ** matrix)</pre>
+
+<p>Attaches <a href="audio/gstaudiometa.html#GstAudioDownmixMeta">GstAudioDownmixMeta</a> metadata to <em>buffer</em> with the given parameters.</p>
+<p><em>matrix</em> is an two-dimensional array of <em>to_channels</em> times <em>from_channels</em>
+coefficients, i.e. the i-th output channels is constructed by multiplicating
+the input channels with the coefficients in <em>matrix</em>[i] and taking the sum
+of the results.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>buffer</code></em></i>
+–
+</div>
+<p>a <a href="gstreamer/gstbuffer.html#GstBuffer">GstBuffer</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>from_position</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="Parameter points to an array of items"><span class="acronym">array</span></abbr> length=from_channels]</span><span>)</span>
+–
+</div>
+<p>the channel positions
+of the source</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>from_channels</code></em></i>
+–
+</div>
+<p>The number of channels of the source</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>to_position</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="Parameter points to an array of items"><span class="acronym">array</span></abbr> length=to_channels]</span><span>)</span>
+–
+</div>
+<p>the channel positions of
+the destination</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>to_channels</code></em></i>
+–
+</div>
+<p>The number of channels of the destination</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>matrix</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="Parameter points to an array of items"><span class="acronym">array</span></abbr>]</span><span class="annotation">[<abbr title="Generic and defining element of containers and arrays"><span class="acronym">element-type</span></abbr> gpointer]</span><span>)</span>
+–
+</div>
+<p>The matrix coefficients.</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span>
+<span class="annotation">[<abbr title="Don't free data after the code is done"><span class="acronym">transfer: none</span></abbr>]</span><span>)</span>
+–
+			</div>
+							<p>the <a href="audio/gstaudiometa.html#GstAudioDownmixMeta">GstAudioDownmixMeta</a> on <em>buffer</em>.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="gst_buffer_add_audio_level_meta">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="gst_buffer_add_audio_level_meta">
+	<i>gst_buffer_add_audio_level_meta</i>
+</h3>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GstAudioLevelMeta" href="audio/gstaudiometa.html#GstAudioLevelMeta">GstAudioLevelMeta</a> *
+gst_buffer_add_audio_level_meta (<a title="GstBuffer" href="gstreamer/gstbuffer.html#GstBuffer">GstBuffer</a> * buffer,
+                                 <a title="guint8" href="https://docs.gtk.org/glib/types.html#guint8">guint8</a> level,
+                                 <a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a> voice_activity)</pre>
+
+<p>Attaches audio level information to <em>buffer</em>. (RFC 6464)</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>buffer</code></em></i>
+–
+</div>
+<p>a <a href="gstreamer/gstbuffer.html#GstBuffer">GstBuffer</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>level</code></em></i>
+–
+</div>
+<p>the -dBov from 0-127 (127 is silence).</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>voice_activity</code></em></i>
+–
+</div>
+<p>whether the buffer contains voice activity.</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span>
+<span class="annotation">[<abbr title="Don't free data after the code is done"><span class="acronym">transfer: none</span></abbr>]</span><span class="annotation">[<abbr title="NULL may be passed to the value"><span class="acronym">nullable</span></abbr>]</span><span>)</span>
+–
+			</div>
+							<p>the <a href="audio/gstaudiometa.html#GstAudioLevelMeta">GstAudioLevelMeta</a> on <em>buffer</em>.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3 data-hotdoc-id="gst_buffer_add_audio_level_meta">
+	<i>GstAudio.prototype.buffer_add_audio_level_meta</i>
+</h3>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstAudio.prototype.buffer_add_audio_level_meta(buffer: <a title="Gst.Buffer" href="gstreamer/gstbuffer.html#GstBuffer">Gst.Buffer</a>, level: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>, voice_activity: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>): {
+    // javascript wrapper for 'gst_buffer_add_audio_level_meta'
+}</code></pre>
+
+<p>Attaches audio level information to <em>buffer</em>. (RFC 6464)</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>buffer</code></em></i>
+<span>(</span><a title="Gst.Buffer" href="gstreamer/gstbuffer.html#GstBuffer">Gst.Buffer</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gstbuffer.html#GstBuffer">Gst.Buffer</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>level</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>the -dBov from 0-127 (127 is silence).</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>voice_activity</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>whether the buffer contains voice activity.</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GstAudio.AudioLevelMeta" href="audio/gstaudiometa.html#GstAudioLevelMeta">GstAudio.AudioLevelMeta</a><span>)</span>
+–
+			</div>
+							<p>the <a href="audio/gstaudiometa.html#GstAudioLevelMeta">GstAudio.AudioLevelMeta</a> on <em>buffer</em>.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3 data-hotdoc-id="gst_buffer_add_audio_level_meta">
+	<i>GstAudio.buffer_add_audio_level_meta</i>
+</h3>
+
+
+<pre class="python-prototype language-python">
+<code>def GstAudio.buffer_add_audio_level_meta (buffer, level, voice_activity):
+    #python wrapper for 'gst_buffer_add_audio_level_meta'</code></pre>
+
+<p>Attaches audio level information to <em>buffer</em>. (RFC 6464)</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>buffer</code></em></i>
+<span>(</span><a title="Gst.Buffer" href="gstreamer/gstbuffer.html#GstBuffer">Gst.Buffer</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gstbuffer.html#GstBuffer">Gst.Buffer</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>level</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<p>the -dBov from 0-127 (127 is silence).</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>voice_activity</code></em></i>
+<span>(</span><a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a><span>)</span>
+–
+</div>
+<p>whether the buffer contains voice activity.</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GstAudio.AudioLevelMeta" href="audio/gstaudiometa.html#GstAudioLevelMeta">GstAudio.AudioLevelMeta</a><span>)</span>
+–
+			</div>
+							<p>the <a href="audio/gstaudiometa.html#GstAudioLevelMeta">GstAudio.AudioLevelMeta</a> on <em>buffer</em>.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.16;" id="gst_buffer_add_audio_meta">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="gst_buffer_add_audio_meta">
+	<i>gst_buffer_add_audio_meta</i>
+</h3>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GstAudioMeta" href="audio/gstaudiometa.html#GstAudioMeta">GstAudioMeta</a> *
+gst_buffer_add_audio_meta (<a title="GstBuffer" href="gstreamer/gstbuffer.html#GstBuffer">GstBuffer</a> * buffer,
+                           const <a title="GstAudioInfo" href="audio/audio-info.html#GstAudioInfo">GstAudioInfo</a> * info,
+                           <a title="gsize" href="https://docs.gtk.org/glib/types.html#gsize">gsize</a> samples,
+                           <a title="gsize" href="https://docs.gtk.org/glib/types.html#gsize">gsize</a> * offsets)</pre>
+
+<p>Allocates and attaches a <a href="audio/gstaudiometa.html#GstAudioMeta">GstAudioMeta</a> on <em>buffer</em>, which must be writable
+for that purpose. The fields of the <a href="audio/gstaudiometa.html#GstAudioMeta">GstAudioMeta</a> are directly populated
+from the arguments of this function.</p>
+<p>When <em>info</em>-&gt;layout is <a href="audio/audio-format.html#GST_AUDIO_LAYOUT_NON_INTERLEAVED">GST_AUDIO_LAYOUT_NON_INTERLEAVED</a> and <em>offsets</em> is
+<a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#NULL:CAPS">NULL</a>, the offsets are calculated with a formula that assumes the planes are
+tightly packed and in sequence:
+offsets[channel] = channel * <em>samples</em> * sample_stride</p>
+<p>It is not allowed for channels to overlap in memory,
+i.e. for each i in [0, channels), the range
+[@offsets[i], <em>offsets</em>[i] + <em>samples</em> * sample_stride) must not overlap
+with any other such range. This function will assert if the parameters
+specified cause this restriction to be violated.</p>
+<p>It is, obviously, also not allowed to specify parameters that would cause
+out-of-bounds memory access on <em>buffer</em>. This is also checked, which means
+that you must add enough memory on the <em>buffer</em> before adding this meta.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>buffer</code></em></i>
+–
+</div>
+<p>a <a href="gstreamer/gstbuffer.html#GstBuffer">GstBuffer</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>info</code></em></i>
+–
+</div>
+<p>the audio properties of the buffer</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>samples</code></em></i>
+–
+</div>
+<p>the number of valid samples in the buffer</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>offsets</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="Parameter points to an array of items"><span class="acronym">array</span></abbr>]</span><span class="annotation">[<abbr title="NULL may be passed to the value"><span class="acronym">nullable</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>the offsets (in bytes) where each channel plane starts
+in the buffer or <a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#NULL:CAPS">NULL</a> to calculate it (see below); must be <a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#NULL:CAPS">NULL</a> also
+when <em>info</em>-&gt;layout is <a href="audio/audio-format.html#GST_AUDIO_LAYOUT_INTERLEAVED">GST_AUDIO_LAYOUT_INTERLEAVED</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span>
+<span class="annotation">[<abbr title="Don't free data after the code is done"><span class="acronym">transfer: none</span></abbr>]</span><span>)</span>
+–
+			</div>
+							<p>the <a href="audio/gstaudiometa.html#GstAudioMeta">GstAudioMeta</a> that was attached on the <em>buffer</em></p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.16
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3 data-hotdoc-id="gst_buffer_add_audio_meta">
+	<i>GstAudio.prototype.buffer_add_audio_meta</i>
+</h3>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstAudio.prototype.buffer_add_audio_meta(buffer: <a title="Gst.Buffer" href="gstreamer/gstbuffer.html#GstBuffer">Gst.Buffer</a>, info: <a title="GstAudio.AudioInfo" href="audio/audio-info.html#GstAudioInfo">GstAudio.AudioInfo</a>, samples: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>, offsets: [ <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a> ]): {
+    // javascript wrapper for 'gst_buffer_add_audio_meta'
+}</code></pre>
+
+<p>Allocates and attaches a <a href="audio/gstaudiometa.html#GstAudioMeta">GstAudio.AudioMeta</a> on <em>buffer</em>, which must be writable
+for that purpose. The fields of the <a href="audio/gstaudiometa.html#GstAudioMeta">GstAudio.AudioMeta</a> are directly populated
+from the arguments of this function.</p>
+<p>When <em>info</em>-&gt;layout is <a href="audio/audio-format.html#GST_AUDIO_LAYOUT_NON_INTERLEAVED">GstAudio.AudioLayout.NON_INTERLEAVED</a> and <em>offsets</em> is
+<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null">null</a>, the offsets are calculated with a formula that assumes the planes are
+tightly packed and in sequence:
+offsets[channel] = channel * <em>samples</em> * sample_stride</p>
+<p>It is not allowed for channels to overlap in memory,
+i.e. for each i in [0, channels), the range
+[@offsets[i], <em>offsets</em>[i] + <em>samples</em> * sample_stride) must not overlap
+with any other such range. This function will assert if the parameters
+specified cause this restriction to be violated.</p>
+<p>It is, obviously, also not allowed to specify parameters that would cause
+out-of-bounds memory access on <em>buffer</em>. This is also checked, which means
+that you must add enough memory on the <em>buffer</em> before adding this meta.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>buffer</code></em></i>
+<span>(</span><a title="Gst.Buffer" href="gstreamer/gstbuffer.html#GstBuffer">Gst.Buffer</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gstbuffer.html#GstBuffer">Gst.Buffer</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>info</code></em></i>
+<span>(</span><a title="GstAudio.AudioInfo" href="audio/audio-info.html#GstAudioInfo">GstAudio.AudioInfo</a><span>)</span>
+–
+</div>
+<p>the audio properties of the buffer</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>samples</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>the number of valid samples in the buffer</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>offsets</code></em></i>
+<span>(</span>[ <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a> ]<span>)</span>
+–
+</div>
+<p>the offsets (in bytes) where each channel plane starts
+in the buffer or <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null">null</a> to calculate it (see below); must be <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null">null</a> also
+when <em>info</em>-&gt;layout is <a href="audio/audio-format.html#GST_AUDIO_LAYOUT_INTERLEAVED">GstAudio.AudioLayout.INTERLEAVED</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GstAudio.AudioMeta" href="audio/gstaudiometa.html#GstAudioMeta">GstAudio.AudioMeta</a><span>)</span>
+–
+			</div>
+							<p>the <a href="audio/gstaudiometa.html#GstAudioMeta">GstAudio.AudioMeta</a> that was attached on the <em>buffer</em></p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.16
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3 data-hotdoc-id="gst_buffer_add_audio_meta">
+	<i>GstAudio.buffer_add_audio_meta</i>
+</h3>
+
+
+<pre class="python-prototype language-python">
+<code>def GstAudio.buffer_add_audio_meta (buffer, info, samples, offsets):
+    #python wrapper for 'gst_buffer_add_audio_meta'</code></pre>
+
+<p>Allocates and attaches a <a href="audio/gstaudiometa.html#GstAudioMeta">GstAudio.AudioMeta</a> on <em>buffer</em>, which must be writable
+for that purpose. The fields of the <a href="audio/gstaudiometa.html#GstAudioMeta">GstAudio.AudioMeta</a> are directly populated
+from the arguments of this function.</p>
+<p>When <em>info</em>-&gt;layout is <a href="audio/audio-format.html#GST_AUDIO_LAYOUT_NON_INTERLEAVED">GstAudio.AudioLayout.NON_INTERLEAVED</a> and <em>offsets</em> is
+<a href="https://docs.python.org/3/library/constants.html#None">None</a>, the offsets are calculated with a formula that assumes the planes are
+tightly packed and in sequence:
+offsets[channel] = channel * <em>samples</em> * sample_stride</p>
+<p>It is not allowed for channels to overlap in memory,
+i.e. for each i in [0, channels), the range
+[@offsets[i], <em>offsets</em>[i] + <em>samples</em> * sample_stride) must not overlap
+with any other such range. This function will assert if the parameters
+specified cause this restriction to be violated.</p>
+<p>It is, obviously, also not allowed to specify parameters that would cause
+out-of-bounds memory access on <em>buffer</em>. This is also checked, which means
+that you must add enough memory on the <em>buffer</em> before adding this meta.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>buffer</code></em></i>
+<span>(</span><a title="Gst.Buffer" href="gstreamer/gstbuffer.html#GstBuffer">Gst.Buffer</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gstbuffer.html#GstBuffer">Gst.Buffer</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>info</code></em></i>
+<span>(</span><a title="GstAudio.AudioInfo" href="audio/audio-info.html#GstAudioInfo">GstAudio.AudioInfo</a><span>)</span>
+–
+</div>
+<p>the audio properties of the buffer</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>samples</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<p>the number of valid samples in the buffer</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>offsets</code></em></i>
+<span>(</span>[ <a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a> ]<span>)</span>
+–
+</div>
+<p>the offsets (in bytes) where each channel plane starts
+in the buffer or <a href="https://docs.python.org/3/library/constants.html#None">None</a> to calculate it (see below); must be <a href="https://docs.python.org/3/library/constants.html#None">None</a> also
+when <em>info</em>-&gt;layout is <a href="audio/audio-format.html#GST_AUDIO_LAYOUT_INTERLEAVED">GstAudio.AudioLayout.INTERLEAVED</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GstAudio.AudioMeta" href="audio/gstaudiometa.html#GstAudioMeta">GstAudio.AudioMeta</a><span>)</span>
+–
+			</div>
+							<p>the <a href="audio/gstaudiometa.html#GstAudioMeta">GstAudio.AudioMeta</a> that was attached on the <em>buffer</em></p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.16
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_buffer_get_audio_downmix_meta_for_channels">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="gst_buffer_get_audio_downmix_meta_for_channels">
+	<i>gst_buffer_get_audio_downmix_meta_for_channels</i>
+</h3>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GstAudioDownmixMeta" href="audio/gstaudiometa.html#GstAudioDownmixMeta">GstAudioDownmixMeta</a> *
+gst_buffer_get_audio_downmix_meta_for_channels (<a title="GstBuffer" href="gstreamer/gstbuffer.html#GstBuffer">GstBuffer</a> * buffer,
+                                                const <a title="GstAudioChannelPosition" href="audio/gstaudiochannels.html#GstAudioChannelPosition">GstAudioChannelPosition</a> * to_position,
+                                                <a title="gint" href="https://docs.gtk.org/glib/types.html#gint">gint</a> to_channels)</pre>
+
+<p>Find the <a href="audio/gstaudiometa.html#GstAudioDownmixMeta">GstAudioDownmixMeta</a> on <em>buffer</em> for the given destination
+channel positions.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>buffer</code></em></i>
+–
+</div>
+<p>a <a href="gstreamer/gstbuffer.html#GstBuffer">GstBuffer</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>to_position</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="Parameter points to an array of items"><span class="acronym">array</span></abbr> length=to_channels]</span><span>)</span>
+–
+</div>
+<p>the channel positions of
+the destination</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>to_channels</code></em></i>
+–
+</div>
+<p>The number of channels of the destination</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span>
+<span class="annotation">[<abbr title="Don't free data after the code is done"><span class="acronym">transfer: none</span></abbr>]</span><span>)</span>
+–
+			</div>
+							<p>the <a href="audio/gstaudiometa.html#GstAudioDownmixMeta">GstAudioDownmixMeta</a> on <em>buffer</em>.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3 data-hotdoc-id="gst_buffer_get_audio_downmix_meta_for_channels">
+	<i>GstAudio.prototype.buffer_get_audio_downmix_meta_for_channels</i>
+</h3>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstAudio.prototype.buffer_get_audio_downmix_meta_for_channels(buffer: <a title="Gst.Buffer" href="gstreamer/gstbuffer.html#GstBuffer">Gst.Buffer</a>, to_position: [ <a title="GstAudio.AudioChannelPosition" href="audio/gstaudiochannels.html#GstAudioChannelPosition">GstAudio.AudioChannelPosition</a> ], to_channels: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>): {
+    // javascript wrapper for 'gst_buffer_get_audio_downmix_meta_for_channels'
+}</code></pre>
+
+<p>Find the <a href="audio/gstaudiometa.html#GstAudioDownmixMeta">GstAudio.AudioDownmixMeta</a> on <em>buffer</em> for the given destination
+channel positions.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>buffer</code></em></i>
+<span>(</span><a title="Gst.Buffer" href="gstreamer/gstbuffer.html#GstBuffer">Gst.Buffer</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gstbuffer.html#GstBuffer">Gst.Buffer</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>to_position</code></em></i>
+<span>(</span>[ <a title="GstAudio.AudioChannelPosition" href="audio/gstaudiochannels.html#GstAudioChannelPosition">GstAudio.AudioChannelPosition</a> ]<span>)</span>
+–
+</div>
+<p>the channel positions of
+the destination</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>to_channels</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>The number of channels of the destination</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GstAudio.AudioDownmixMeta" href="audio/gstaudiometa.html#GstAudioDownmixMeta">GstAudio.AudioDownmixMeta</a><span>)</span>
+–
+			</div>
+							<p>the <a href="audio/gstaudiometa.html#GstAudioDownmixMeta">GstAudio.AudioDownmixMeta</a> on <em>buffer</em>.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3 data-hotdoc-id="gst_buffer_get_audio_downmix_meta_for_channels">
+	<i>GstAudio.buffer_get_audio_downmix_meta_for_channels</i>
+</h3>
+
+
+<pre class="python-prototype language-python">
+<code>def GstAudio.buffer_get_audio_downmix_meta_for_channels (buffer, to_position, to_channels):
+    #python wrapper for 'gst_buffer_get_audio_downmix_meta_for_channels'</code></pre>
+
+<p>Find the <a href="audio/gstaudiometa.html#GstAudioDownmixMeta">GstAudio.AudioDownmixMeta</a> on <em>buffer</em> for the given destination
+channel positions.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>buffer</code></em></i>
+<span>(</span><a title="Gst.Buffer" href="gstreamer/gstbuffer.html#GstBuffer">Gst.Buffer</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gstbuffer.html#GstBuffer">Gst.Buffer</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>to_position</code></em></i>
+<span>(</span>[ <a title="GstAudio.AudioChannelPosition" href="audio/gstaudiochannels.html#GstAudioChannelPosition">GstAudio.AudioChannelPosition</a> ]<span>)</span>
+–
+</div>
+<p>the channel positions of
+the destination</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>to_channels</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<p>The number of channels of the destination</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GstAudio.AudioDownmixMeta" href="audio/gstaudiometa.html#GstAudioDownmixMeta">GstAudio.AudioDownmixMeta</a><span>)</span>
+–
+			</div>
+							<p>the <a href="audio/gstaudiometa.html#GstAudioDownmixMeta">GstAudio.AudioDownmixMeta</a> on <em>buffer</em>.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="gst_buffer_get_audio_level_meta">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="gst_buffer_get_audio_level_meta">
+	<i>gst_buffer_get_audio_level_meta</i>
+</h3>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GstAudioLevelMeta" href="audio/gstaudiometa.html#GstAudioLevelMeta">GstAudioLevelMeta</a> *
+gst_buffer_get_audio_level_meta (<a title="GstBuffer" href="gstreamer/gstbuffer.html#GstBuffer">GstBuffer</a> * buffer)</pre>
+
+<p>Find the <a href="audio/gstaudiometa.html#GstAudioLevelMeta">GstAudioLevelMeta</a> on <em>buffer</em>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>buffer</code></em></i>
+–
+</div>
+<p>a <a href="gstreamer/gstbuffer.html#GstBuffer">GstBuffer</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span>
+<span class="annotation">[<abbr title="Don't free data after the code is done"><span class="acronym">transfer: none</span></abbr>]</span><span class="annotation">[<abbr title="NULL may be passed to the value"><span class="acronym">nullable</span></abbr>]</span><span>)</span>
+–
+			</div>
+							<p>the <a href="audio/gstaudiometa.html#GstAudioLevelMeta">GstAudioLevelMeta</a> or <a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#NULL:CAPS">NULL</a> when
+there is no such metadata on <em>buffer</em>.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3 data-hotdoc-id="gst_buffer_get_audio_level_meta">
+	<i>GstAudio.prototype.buffer_get_audio_level_meta</i>
+</h3>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstAudio.prototype.buffer_get_audio_level_meta(buffer: <a title="Gst.Buffer" href="gstreamer/gstbuffer.html#GstBuffer">Gst.Buffer</a>): {
+    // javascript wrapper for 'gst_buffer_get_audio_level_meta'
+}</code></pre>
+
+<p>Find the <a href="audio/gstaudiometa.html#GstAudioLevelMeta">GstAudio.AudioLevelMeta</a> on <em>buffer</em>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>buffer</code></em></i>
+<span>(</span><a title="Gst.Buffer" href="gstreamer/gstbuffer.html#GstBuffer">Gst.Buffer</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gstbuffer.html#GstBuffer">Gst.Buffer</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GstAudio.AudioLevelMeta" href="audio/gstaudiometa.html#GstAudioLevelMeta">GstAudio.AudioLevelMeta</a><span>)</span>
+–
+			</div>
+							<p>the <a href="audio/gstaudiometa.html#GstAudioLevelMeta">GstAudio.AudioLevelMeta</a> or <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null">null</a> when
+there is no such metadata on <em>buffer</em>.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3 data-hotdoc-id="gst_buffer_get_audio_level_meta">
+	<i>GstAudio.buffer_get_audio_level_meta</i>
+</h3>
+
+
+<pre class="python-prototype language-python">
+<code>def GstAudio.buffer_get_audio_level_meta (buffer):
+    #python wrapper for 'gst_buffer_get_audio_level_meta'</code></pre>
+
+<p>Find the <a href="audio/gstaudiometa.html#GstAudioLevelMeta">GstAudio.AudioLevelMeta</a> on <em>buffer</em>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>buffer</code></em></i>
+<span>(</span><a title="Gst.Buffer" href="gstreamer/gstbuffer.html#GstBuffer">Gst.Buffer</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gstbuffer.html#GstBuffer">Gst.Buffer</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GstAudio.AudioLevelMeta" href="audio/gstaudiometa.html#GstAudioLevelMeta">GstAudio.AudioLevelMeta</a><span>)</span>
+–
+			</div>
+							<p>the <a href="audio/gstaudiometa.html#GstAudioLevelMeta">GstAudio.AudioLevelMeta</a> or <a href="https://docs.python.org/3/library/constants.html#None">None</a> when
+there is no such metadata on <em>buffer</em>.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+
+            <h2 class="symbol_section">Function Macros</h2>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_buffer_get_audio_clipping_meta">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="gst_buffer_get_audio_clipping_meta">
+	<i>gst_buffer_get_audio_clipping_meta</i>
+</h3>
+
+
+<pre class="raw_code">
+#define gst_buffer_get_audio_clipping_meta(b) ((GstAudioClippingMeta*)gst_buffer_get_meta((b), GST_AUDIO_CLIPPING_META_API_TYPE))
+</pre>
+
+
+
+
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_buffer_get_audio_downmix_meta">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="gst_buffer_get_audio_downmix_meta">
+	<i>gst_buffer_get_audio_downmix_meta</i>
+</h3>
+
+
+<pre class="raw_code">
+#define gst_buffer_get_audio_downmix_meta(b) ((GstAudioDownmixMeta*)gst_buffer_get_meta((b), GST_AUDIO_DOWNMIX_META_API_TYPE))
+</pre>
+
+
+
+
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_buffer_get_audio_meta">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="gst_buffer_get_audio_meta">
+	<i>gst_buffer_get_audio_meta</i>
+</h3>
+
+
+<pre class="raw_code">
+#define gst_buffer_get_audio_meta(b) \
+    ((GstAudioMeta*)gst_buffer_get_meta((b), GST_AUDIO_META_API_TYPE))
+</pre>
+
+
+
+
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+
+            <h2 class="symbol_section">Constants</h2>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GST_AUDIO_CLIPPING_META_API_TYPE">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_AUDIO_CLIPPING_META_API_TYPE">
+	<i>GST_AUDIO_CLIPPING_META_API_TYPE</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_AUDIO_CLIPPING_META_API_TYPE (gst_audio_clipping_meta_api_get_type())
+</pre>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GST_AUDIO_CLIPPING_META_INFO">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_AUDIO_CLIPPING_META_INFO">
+	<i>GST_AUDIO_CLIPPING_META_INFO</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_AUDIO_CLIPPING_META_INFO  (gst_audio_clipping_meta_get_info())
+</pre>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GST_AUDIO_DOWNMIX_META_API_TYPE">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_AUDIO_DOWNMIX_META_API_TYPE">
+	<i>GST_AUDIO_DOWNMIX_META_API_TYPE</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_AUDIO_DOWNMIX_META_API_TYPE (gst_audio_downmix_meta_api_get_type())
+</pre>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GST_AUDIO_DOWNMIX_META_INFO">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_AUDIO_DOWNMIX_META_INFO">
+	<i>GST_AUDIO_DOWNMIX_META_INFO</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_AUDIO_DOWNMIX_META_INFO  (gst_audio_downmix_meta_get_info())
+</pre>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="GST_AUDIO_LEVEL_META_API_TYPE">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_AUDIO_LEVEL_META_API_TYPE">
+	<i>GST_AUDIO_LEVEL_META_API_TYPE</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_AUDIO_LEVEL_META_API_TYPE  (gst_audio_level_meta_api_get_type())
+</pre>
+
+<p>The <a href="https://docs.gtk.org/gobject/alias.Type.html">GType</a> associated with <a href="audio/gstaudiometa.html#GstAudioLevelMeta">GstAudioLevelMeta</a>.</p>
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="GST_AUDIO_LEVEL_META_INFO">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_AUDIO_LEVEL_META_INFO">
+	<i>GST_AUDIO_LEVEL_META_INFO</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_AUDIO_LEVEL_META_INFO  (gst_audio_level_meta_get_info())
+</pre>
+
+<p>The <a href="gstreamer/gstmeta.html#GstMetaInfo">GstMetaInfo</a> associated with <a href="audio/gstaudiometa.html#GstAudioLevelMeta">GstAudioLevelMeta</a>.</p>
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GST_AUDIO_META_API_TYPE">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_AUDIO_META_API_TYPE">
+	<i>GST_AUDIO_META_API_TYPE</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_AUDIO_META_API_TYPE (gst_audio_meta_api_get_type())
+</pre>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GST_AUDIO_META_INFO">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_AUDIO_META_INFO">
+	<i>GST_AUDIO_META_INFO</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_AUDIO_META_INFO  (gst_audio_meta_get_info())
+</pre>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+
+
+
+
+
+		
+	</div>
+	<div id="search_results">
+		<p>The results of the search are</p>
+	</div>
+	<div id="footer">
+		    
+
+	</div>
+</div>
+
+<div id="toc-column">
+	
+		<div class="edit-button">
+		
+
+	</div>
+		<div id="toc-wrapper">
+		<nav id="toc"></nav>
+	</div>
+</div>
+</div>
+</main>
+
+
+<script src="assets/js/navbar_offset_scroller.js"></script>
+</body>
+</html>

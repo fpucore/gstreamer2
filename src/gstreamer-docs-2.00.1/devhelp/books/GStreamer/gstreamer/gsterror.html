@@ -1,0 +1,2763 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<base href="..">
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<title>GstGError</title>
+
+<link rel="stylesheet" href="assets/css/dark-frontend.css" type="text/css" title="dark">
+<link rel="alternate stylesheet" href="assets/css/light-frontend.css" type="text/css" title="light">
+<link rel="stylesheet" href="assets/css/bootstrap-toc.min.css" type="text/css">
+<link rel="stylesheet" href="assets/css/jquery.mCustomScrollbar.min.css">
+<link rel="stylesheet" href="assets/js/search/enable_search.css" type="text/css">
+
+<link rel="stylesheet" href="assets/css/extra_frontend.css" type="text/css">
+<link rel="stylesheet" href="assets/css/devhelp.css" type="text/css">
+
+<link rel="stylesheet" href="assets/css/prism-tomorrow.css" type="text/css" title="dark">
+
+<link rel="alternate stylesheet" href="assets/css/prism.css" type="text/css" title="light">
+
+<script src="assets/js/mustache.min.js"></script>
+<script src="assets/js/jquery.js"></script>
+<script src="assets/js/bootstrap.js"></script>
+<script src="assets/js/scrollspy.js"></script>
+<script src="assets/js/typeahead.jquery.min.js"></script>
+<script src="assets/js/search.js"></script>
+<script src="assets/js/compare-versions.js"></script>
+<script src="assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="assets/js/bootstrap-toc.min.js"></script>
+<script src="assets/js/jquery.touchSwipe.min.js"></script>
+<script src="assets/js/anchor.min.js"></script>
+<script src="assets/js/tag_filtering.js"></script>
+<script src="assets/js/language_switching.js"></script>
+<script src="assets/js/styleswitcher.js"></script>
+
+<script src="assets/js/lines_around_headings.js"></script>
+
+<script src="assets/js/prism-core.js"></script>
+<script src="assets/js/prism-autoloader.js"></script>
+<script src="assets/js/prism_autoloader_path_override.js"></script>
+<script src="assets/js/trie.js"></script>
+
+<!-- generic -->
+<link rel="icon" type="image/png" href="assets/images/favicon-16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="assets/images/favicon-32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="assets/images/favicon-57.png" sizes="57x57">
+<link rel="icon" type="image/png" href="assets/images/favicon-64.png" sizes="64x64">
+<link rel="icon" type="image/png" href="assets/images/favicon-76.png" sizes="76x76">
+<link rel="icon" type="image/png" href="assets/images/favicon-96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="assets/images/favicon-128.png" sizes="128x128">
+<link rel="icon" type="image/png" href="assets/images/favicon-192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="assets/images/favicon-228.png" sizes="228x228">
+
+<!-- Android -->
+<link rel="shortcut icon" sizes="196x196" href="assets/images/favicon-196.png">
+
+<!-- iOS -->
+<link rel="apple-touch-icon" href="assets/images/favicon-120.png" sizes="120x120">
+<link rel="apple-touch-icon" href="assets/images/favicon-152.png" sizes="152x152">
+<link rel="apple-touch-icon" href="assets/images/favicon-180.png" sizes="180x180">
+
+</head>
+
+<body class="no-script
+">
+
+<script>
+$('body').removeClass('no-script');
+</script>
+
+<nav class="navbar navbar-fixed-top navbar-default" id="topnav">
+	<div class="container-fluid">
+		<div class="navbar-right">
+			<a id="toc-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-wrapper" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<span title="light mode switch" class="glyphicon glyphicon-sunglasses pull-right" id="lightmode-icon"></span>
+			<form class="navbar-form pull-right" id="navbar-search-form">
+                               <div class="form-group has-feedback">
+                                       <input type="text" class="form-control input-sm" name="search" id="sidenav-lookup-field" placeholder="search" disabled>
+				       <span class="glyphicon glyphicon-search form-control-feedback" id="search-mgn-glass"></span>
+                               </div>
+                        </form>
+		</div>
+		<div class="navbar-header">
+			<a id="sidenav-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<a id="home-link" href="index.html" class="hotdoc-navbar-brand">
+				<img src="assets/images/gstreamer-logo.svg" alt="Home">
+			</a>
+		</div>
+		<div class="navbar-collapse collapse" id="navbar-wrapper">
+			<ul class="nav navbar-nav" id="menu">
+				
+<li class="dropdown">
+    <a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        API References<span class="caret"></span>
+    </a>
+	<ul class="dropdown-menu" id="modules-menu">
+					<li>
+				<a href="gstreamer/gi-index.html">GStreamer core</a>
+			</li>
+					<li>
+				<a href="libs.html">GStreamer Libraries</a>
+			</li>
+					<li>
+				<a href="plugins_doc.html">GStreamer Plugins</a>
+			</li>
+		</ul>
+</li>
+
+<li>
+    <a href="application-development/index.html">Application manual</a>
+</li>
+
+
+<li>
+    <a href="tutorials/index.html">Tutorials</a>
+</li>
+
+			</ul>
+			<div class="hidden-xs hidden-sm navbar-text navbar-center">
+							</div>
+		</div>
+	</div>
+</nav>
+
+<main>
+<div data-extension="gi-extension" data-hotdoc-in-toplevel="False" data-hotdoc-project="gstreamer" data-hotdoc-ref="gsterror.html" class="page_container" id="page-wrapper" data-hotdoc-meta-gi-languages="['c', 'javascript', 'python']" data-hotdoc-meta-gi-language="c">
+<script src="assets/js/utils.js"></script>
+
+<div class="panel panel-collapse oc-collapsed" id="sidenav" data-hotdoc-role="navigation">
+	<script src="assets/js/full-width.js"></script>
+  <div id="sitenav-wrapper">
+    <iframe src="hotdoc-sitemap.html" id="sitenav-frame"></iframe>
+  </div>
+</div>
+
+<div id="body">
+	<div id="main">
+				    <div id="page-description" data-hotdoc-role="main">
+        <h1 id="gstgerror-page">GstGError</h1>
+<p>GStreamer elements can throw non-fatal warnings and fatal errors.
+Higher-level elements and applications can programmatically filter
+the ones they are interested in or can recover from,
+and have a default handler handle the rest of them.</p>
+<p>The rest of this section will use the term "error"
+to mean both (non-fatal) warnings and (fatal) errors; they are treated
+similarly.</p>
+<p>Errors from elements are the combination of a <a href="https://docs.gtk.org/glib/struct.Error.html" data-gi-href-javascript="https://docs.gtk.org/glib/struct.Error.html" data-gi-title-javascript="GError (not introspectable)" data-gi-href-python="https://docs.gtk.org/glib/struct.Error.html" data-gi-title-python="GError (not introspectable)">GError</a> and a debug string.
+The <a href="https://docs.gtk.org/glib/struct.Error.html" data-gi-href-javascript="https://docs.gtk.org/glib/struct.Error.html" data-gi-title-javascript="GError (not introspectable)" data-gi-href-python="https://docs.gtk.org/glib/struct.Error.html" data-gi-title-python="GError (not introspectable)">GError</a> contains:</p>
+<ul>
+<li>a domain type: CORE, LIBRARY, RESOURCE or STREAM</li>
+<li>a code: an enum value specific to the domain</li>
+<li>a translated, human-readable message</li>
+<li>a non-translated additional debug string, which also contains</li>
+<li>file and line information</li>
+</ul>
+<p>Elements do not have the context required to decide what to do with
+errors.  As such, they should only inform about errors, and stop their
+processing.  In short, an element doesn't know what it is being used for.</p>
+<p>It is the application or compound element using the given element that
+has more context about the use of the element. Errors can be received by
+listening to the <a href="gstreamer/gstbus.html#GstBus" data-gi-href-javascript="gstreamer/gstbus.html#GstBus" data-gi-title-javascript="Gst.Bus" data-gi-href-python="gstreamer/gstbus.html#GstBus" data-gi-title-python="Gst.Bus">GstBus</a> of the element/pipeline for <a href="gstreamer/gstmessage.html#GstMessage" data-gi-href-javascript="gstreamer/gstmessage.html#GstMessage" data-gi-title-javascript="Gst.Message" data-gi-href-python="gstreamer/gstmessage.html#GstMessage" data-gi-title-python="Gst.Message">GstMessage</a> objects with
+the type <a href="gstreamer/gstmessage.html#GST_MESSAGE_ERROR" data-gi-href-javascript="gstreamer/gstmessage.html#GST_MESSAGE_ERROR" data-gi-title-javascript="Gst.MessageType.ERROR" data-gi-href-python="gstreamer/gstmessage.html#GST_MESSAGE_ERROR" data-gi-title-python="Gst.MessageType.ERROR">GST_MESSAGE_ERROR</a> or <a href="gstreamer/gstmessage.html#GST_MESSAGE_WARNING" data-gi-href-javascript="gstreamer/gstmessage.html#GST_MESSAGE_WARNING" data-gi-title-javascript="Gst.MessageType.WARNING" data-gi-href-python="gstreamer/gstmessage.html#GST_MESSAGE_WARNING" data-gi-title-python="Gst.MessageType.WARNING">GST_MESSAGE_WARNING</a>. The thrown errors should
+be inspected, and filtered if appropriate.</p>
+<p>An application is expected to, by default, present the user with a
+dialog box (or an equivalent) showing the error message.  The dialog
+should also allow a way to get at the additional debug information,
+so the user can provide bug reporting information.</p>
+<p>A compound element is expected to forward errors by default higher up
+the hierarchy; this is done by default in the same way as for other types
+of <a href="gstreamer/gstmessage.html#GstMessage" data-gi-href-javascript="gstreamer/gstmessage.html#GstMessage" data-gi-title-javascript="Gst.Message" data-gi-href-python="gstreamer/gstmessage.html#GstMessage" data-gi-title-python="Gst.Message">GstMessage</a>.</p>
+<p>When applications or compound elements trigger errors that they can
+recover from, they can filter out these errors and take appropriate action.
+For example, an application that gets an error from xvimagesink
+that indicates all XVideo ports are taken, the application can attempt
+to use another sink instead.</p>
+<p>Elements throw errors using the <a href="gstreamer/gstelement.html#GST_ELEMENT_ERROR" data-gi-href-javascript="gstreamer/gstelement.html#GST_ELEMENT_ERROR" data-gi-title-javascript="GST_ELEMENT_ERROR (not introspectable)" data-gi-href-python="gstreamer/gstelement.html#GST_ELEMENT_ERROR" data-gi-title-python="GST_ELEMENT_ERROR (not introspectable)">GST_ELEMENT_ERROR</a> convenience macro:</p>
+<h2 id="throwing-an-error">Throwing an error</h2>
+<pre><code class="language-|[">     GST_ELEMENT_ERROR (src, RESOURCE, NOT_FOUND,
+       (_("No file name specified for reading.")), (NULL));
+</code></pre>
+<p>Things to keep in mind:</p>
+<ul>
+<li>
+<p>Don't go off inventing new error codes.  The ones
+currently provided should be enough.  If you find your type of error
+does not fit the current codes, you should use FAILED.</p>
+</li>
+<li>
+<p>Don't provide a message if the default one suffices.
+this keeps messages more uniform.  Use (%NULL) - not forgetting the
+parentheses.</p>
+</li>
+<li>
+<p>If you do supply a custom message, it should be
+marked for translation.  The message should start with a capital
+and end with a period.  The message should describe the error in short,
+in a human-readable form, and without any complex technical terms.
+A user interface will present this message as the first thing a user
+sees.  Details, technical info, ... should go in the debug string.</p>
+</li>
+<li>
+<p>The debug string can be as you like.  Again, use (%NULL)
+if there's nothing to add - file and line number will still be
+passed.  <a href="gstreamer/gsterror.html#GST_ERROR_SYSTEM" data-gi-href-javascript="gstreamer/gsterror.html#GST_ERROR_SYSTEM" data-gi-title-javascript="GST_ERROR_SYSTEM (not introspectable)" data-gi-href-python="gstreamer/gsterror.html#GST_ERROR_SYSTEM" data-gi-title-python="GST_ERROR_SYSTEM (not introspectable)">GST_ERROR_SYSTEM</a> can be used as a shortcut to give
+debug information on a system call error.</p>
+</li>
+</ul>
+
+    </div>
+        
+        
+
+            <h2 class="symbol_section">Functions</h2>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_error_get_message">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="gst_error_get_message">
+	<i>gst_error_get_message</i>
+</h3>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gchar" href="https://docs.gtk.org/glib/types.html#gchar">gchar</a> *
+gst_error_get_message (<a title="GQuark" href="https://docs.gtk.org/glib/alias.Quark.html">GQuark</a> domain,
+                       <a title="gint" href="https://docs.gtk.org/glib/types.html#gint">gint</a> code)</pre>
+
+<p>Get a string describing the error message in the current locale.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>domain</code></em></i>
+–
+</div>
+<p>the GStreamer error domain this error belongs to.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>code</code></em></i>
+–
+</div>
+<p>the error code belonging to the domain.</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span>
+<span class="annotation">[<abbr title="Free data after the code is done"><span class="acronym">transfer: full</span></abbr>]</span><span>)</span>
+–
+			</div>
+							<p>a newly allocated string describing
+the error message (in UTF-8 encoding)</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3 data-hotdoc-id="gst_error_get_message">
+	<i>Gst.prototype.error_get_message</i>
+</h3>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function Gst.prototype.error_get_message(domain: <a title="GLib.Quark" href="https://docs.gtk.org/glib/alias.Quark.html">GLib.Quark</a>, code: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>): {
+    // javascript wrapper for 'gst_error_get_message'
+}</code></pre>
+
+<p>Get a string describing the error message in the current locale.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>domain</code></em></i>
+<span>(</span><a title="GLib.Quark" href="https://docs.gtk.org/glib/alias.Quark.html">GLib.Quark</a><span>)</span>
+–
+</div>
+<p>the GStreamer error domain this error belongs to.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>code</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>the error code belonging to the domain.</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a><span>)</span>
+–
+			</div>
+							<p>a newly allocated string describing
+the error message (in UTF-8 encoding)</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3 data-hotdoc-id="gst_error_get_message">
+	<i>Gst.error_get_message</i>
+</h3>
+
+
+<pre class="python-prototype language-python">
+<code>def Gst.error_get_message (domain, code):
+    #python wrapper for 'gst_error_get_message'</code></pre>
+
+<p>Get a string describing the error message in the current locale.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>domain</code></em></i>
+<span>(</span><a title="GLib.Quark" href="https://docs.gtk.org/glib/alias.Quark.html">GLib.Quark</a><span>)</span>
+–
+</div>
+<p>the GStreamer error domain this error belongs to.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>code</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<p>the error code belonging to the domain.</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="str" href="https://docs.python.org/3/library/functions.html#func-str">str</a><span>)</span>
+–
+			</div>
+							<p>a newly allocated string describing
+the error message (in UTF-8 encoding)</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+
+            <h2 class="symbol_section">Enumerations</h2>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstCoreError">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GstCoreError">
+	<i>GstCoreError</i>
+</h3>
+
+
+<p>Core errors are errors inside the core GStreamer library.</p>
+
+
+
+
+	<div class="members-container">
+		<h5>Members</h5>
+					
+<div class="symbol-detail" data-hotdoc-id="GST_CORE_ERROR_FAILED">
+	<div>
+		<i><em><code>GST_CORE_ERROR_FAILED</code></em></i>
+		(<span class="value">1</span>)
+		–
+	</div>
+			<p>a general error which doesn't fit in any other
+category.  Make sure you add a custom message to the error call.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_CORE_ERROR_TOO_LAZY">
+	<div>
+		<i><em><code>GST_CORE_ERROR_TOO_LAZY</code></em></i>
+		(<span class="value">2</span>)
+		–
+	</div>
+			<p>do not use this except as a placeholder for
+deciding where to go while developing code.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_CORE_ERROR_NOT_IMPLEMENTED">
+	<div>
+		<i><em><code>GST_CORE_ERROR_NOT_IMPLEMENTED</code></em></i>
+		(<span class="value">3</span>)
+		–
+	</div>
+			<p>use this when you do not want to implement
+this functionality yet.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_CORE_ERROR_STATE_CHANGE">
+	<div>
+		<i><em><code>GST_CORE_ERROR_STATE_CHANGE</code></em></i>
+		(<span class="value">4</span>)
+		–
+	</div>
+			<p>used for state change errors.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_CORE_ERROR_PAD">
+	<div>
+		<i><em><code>GST_CORE_ERROR_PAD</code></em></i>
+		(<span class="value">5</span>)
+		–
+	</div>
+			<p>used for pad-related errors.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_CORE_ERROR_THREAD">
+	<div>
+		<i><em><code>GST_CORE_ERROR_THREAD</code></em></i>
+		(<span class="value">6</span>)
+		–
+	</div>
+			<p>used for thread-related errors.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_CORE_ERROR_NEGOTIATION">
+	<div>
+		<i><em><code>GST_CORE_ERROR_NEGOTIATION</code></em></i>
+		(<span class="value">7</span>)
+		–
+	</div>
+			<p>used for negotiation-related errors.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_CORE_ERROR_EVENT">
+	<div>
+		<i><em><code>GST_CORE_ERROR_EVENT</code></em></i>
+		(<span class="value">8</span>)
+		–
+	</div>
+			<p>used for event-related errors.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_CORE_ERROR_SEEK">
+	<div>
+		<i><em><code>GST_CORE_ERROR_SEEK</code></em></i>
+		(<span class="value">9</span>)
+		–
+	</div>
+			<p>used for seek-related errors.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_CORE_ERROR_CAPS">
+	<div>
+		<i><em><code>GST_CORE_ERROR_CAPS</code></em></i>
+		(<span class="value">10</span>)
+		–
+	</div>
+			<p>used for caps-related errors.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_CORE_ERROR_TAG">
+	<div>
+		<i><em><code>GST_CORE_ERROR_TAG</code></em></i>
+		(<span class="value">11</span>)
+		–
+	</div>
+			<p>used for negotiation-related errors.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_CORE_ERROR_MISSING_PLUGIN">
+	<div>
+		<i><em><code>GST_CORE_ERROR_MISSING_PLUGIN</code></em></i>
+		(<span class="value">12</span>)
+		–
+	</div>
+			<p>used if a plugin is missing.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_CORE_ERROR_CLOCK">
+	<div>
+		<i><em><code>GST_CORE_ERROR_CLOCK</code></em></i>
+		(<span class="value">13</span>)
+		–
+	</div>
+			<p>used for clock related errors.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_CORE_ERROR_DISABLED">
+	<div>
+		<i><em><code>GST_CORE_ERROR_DISABLED</code></em></i>
+		(<span class="value">14</span>)
+		–
+	</div>
+			<p>used if functionality has been disabled at
+compile time.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_CORE_ERROR_NUM_ERRORS">
+	<div>
+		<i><em><code>GST_CORE_ERROR_NUM_ERRORS</code></em></i>
+		(<span class="value">15</span>)
+		–
+	</div>
+			<p>the number of core error types.</p>
+
+	</div>
+
+			</div>
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3 data-hotdoc-id="GstCoreError">
+	<i>Gst.CoreError</i>
+</h3>
+
+
+<p>Core errors are errors inside the core GStreamer library.</p>
+
+
+
+
+	<div class="members-container">
+		<h5>Members</h5>
+					
+<div class="symbol-detail" data-hotdoc-id="GST_CORE_ERROR_FAILED">
+	<div>
+		<i><em><code>Gst.CoreError.FAILED</code></em></i>
+		(<span class="value">1</span>)
+		–
+	</div>
+			<p>a general error which doesn't fit in any other
+category.  Make sure you add a custom message to the error call.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_CORE_ERROR_TOO_LAZY">
+	<div>
+		<i><em><code>Gst.CoreError.TOO_LAZY</code></em></i>
+		(<span class="value">2</span>)
+		–
+	</div>
+			<p>do not use this except as a placeholder for
+deciding where to go while developing code.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_CORE_ERROR_NOT_IMPLEMENTED">
+	<div>
+		<i><em><code>Gst.CoreError.NOT_IMPLEMENTED</code></em></i>
+		(<span class="value">3</span>)
+		–
+	</div>
+			<p>use this when you do not want to implement
+this functionality yet.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_CORE_ERROR_STATE_CHANGE">
+	<div>
+		<i><em><code>Gst.CoreError.STATE_CHANGE</code></em></i>
+		(<span class="value">4</span>)
+		–
+	</div>
+			<p>used for state change errors.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_CORE_ERROR_PAD">
+	<div>
+		<i><em><code>Gst.CoreError.PAD</code></em></i>
+		(<span class="value">5</span>)
+		–
+	</div>
+			<p>used for pad-related errors.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_CORE_ERROR_THREAD">
+	<div>
+		<i><em><code>Gst.CoreError.THREAD</code></em></i>
+		(<span class="value">6</span>)
+		–
+	</div>
+			<p>used for thread-related errors.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_CORE_ERROR_NEGOTIATION">
+	<div>
+		<i><em><code>Gst.CoreError.NEGOTIATION</code></em></i>
+		(<span class="value">7</span>)
+		–
+	</div>
+			<p>used for negotiation-related errors.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_CORE_ERROR_EVENT">
+	<div>
+		<i><em><code>Gst.CoreError.EVENT</code></em></i>
+		(<span class="value">8</span>)
+		–
+	</div>
+			<p>used for event-related errors.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_CORE_ERROR_SEEK">
+	<div>
+		<i><em><code>Gst.CoreError.SEEK</code></em></i>
+		(<span class="value">9</span>)
+		–
+	</div>
+			<p>used for seek-related errors.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_CORE_ERROR_CAPS">
+	<div>
+		<i><em><code>Gst.CoreError.CAPS</code></em></i>
+		(<span class="value">10</span>)
+		–
+	</div>
+			<p>used for caps-related errors.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_CORE_ERROR_TAG">
+	<div>
+		<i><em><code>Gst.CoreError.TAG</code></em></i>
+		(<span class="value">11</span>)
+		–
+	</div>
+			<p>used for negotiation-related errors.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_CORE_ERROR_MISSING_PLUGIN">
+	<div>
+		<i><em><code>Gst.CoreError.MISSING_PLUGIN</code></em></i>
+		(<span class="value">12</span>)
+		–
+	</div>
+			<p>used if a plugin is missing.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_CORE_ERROR_CLOCK">
+	<div>
+		<i><em><code>Gst.CoreError.CLOCK</code></em></i>
+		(<span class="value">13</span>)
+		–
+	</div>
+			<p>used for clock related errors.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_CORE_ERROR_DISABLED">
+	<div>
+		<i><em><code>Gst.CoreError.DISABLED</code></em></i>
+		(<span class="value">14</span>)
+		–
+	</div>
+			<p>used if functionality has been disabled at
+compile time.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_CORE_ERROR_NUM_ERRORS">
+	<div>
+		<i><em><code>Gst.CoreError.NUM_ERRORS</code></em></i>
+		(<span class="value">15</span>)
+		–
+	</div>
+			<p>the number of core error types.</p>
+
+	</div>
+
+			</div>
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3 data-hotdoc-id="GstCoreError">
+	<i>Gst.CoreError</i>
+</h3>
+
+
+<p>Core errors are errors inside the core GStreamer library.</p>
+
+
+
+
+	<div class="members-container">
+		<h5>Members</h5>
+					
+<div class="symbol-detail" data-hotdoc-id="GST_CORE_ERROR_FAILED">
+	<div>
+		<i><em><code>Gst.CoreError.FAILED</code></em></i>
+		(<span class="value">1</span>)
+		–
+	</div>
+			<p>a general error which doesn't fit in any other
+category.  Make sure you add a custom message to the error call.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_CORE_ERROR_TOO_LAZY">
+	<div>
+		<i><em><code>Gst.CoreError.TOO_LAZY</code></em></i>
+		(<span class="value">2</span>)
+		–
+	</div>
+			<p>do not use this except as a placeholder for
+deciding where to go while developing code.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_CORE_ERROR_NOT_IMPLEMENTED">
+	<div>
+		<i><em><code>Gst.CoreError.NOT_IMPLEMENTED</code></em></i>
+		(<span class="value">3</span>)
+		–
+	</div>
+			<p>use this when you do not want to implement
+this functionality yet.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_CORE_ERROR_STATE_CHANGE">
+	<div>
+		<i><em><code>Gst.CoreError.STATE_CHANGE</code></em></i>
+		(<span class="value">4</span>)
+		–
+	</div>
+			<p>used for state change errors.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_CORE_ERROR_PAD">
+	<div>
+		<i><em><code>Gst.CoreError.PAD</code></em></i>
+		(<span class="value">5</span>)
+		–
+	</div>
+			<p>used for pad-related errors.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_CORE_ERROR_THREAD">
+	<div>
+		<i><em><code>Gst.CoreError.THREAD</code></em></i>
+		(<span class="value">6</span>)
+		–
+	</div>
+			<p>used for thread-related errors.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_CORE_ERROR_NEGOTIATION">
+	<div>
+		<i><em><code>Gst.CoreError.NEGOTIATION</code></em></i>
+		(<span class="value">7</span>)
+		–
+	</div>
+			<p>used for negotiation-related errors.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_CORE_ERROR_EVENT">
+	<div>
+		<i><em><code>Gst.CoreError.EVENT</code></em></i>
+		(<span class="value">8</span>)
+		–
+	</div>
+			<p>used for event-related errors.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_CORE_ERROR_SEEK">
+	<div>
+		<i><em><code>Gst.CoreError.SEEK</code></em></i>
+		(<span class="value">9</span>)
+		–
+	</div>
+			<p>used for seek-related errors.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_CORE_ERROR_CAPS">
+	<div>
+		<i><em><code>Gst.CoreError.CAPS</code></em></i>
+		(<span class="value">10</span>)
+		–
+	</div>
+			<p>used for caps-related errors.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_CORE_ERROR_TAG">
+	<div>
+		<i><em><code>Gst.CoreError.TAG</code></em></i>
+		(<span class="value">11</span>)
+		–
+	</div>
+			<p>used for negotiation-related errors.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_CORE_ERROR_MISSING_PLUGIN">
+	<div>
+		<i><em><code>Gst.CoreError.MISSING_PLUGIN</code></em></i>
+		(<span class="value">12</span>)
+		–
+	</div>
+			<p>used if a plugin is missing.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_CORE_ERROR_CLOCK">
+	<div>
+		<i><em><code>Gst.CoreError.CLOCK</code></em></i>
+		(<span class="value">13</span>)
+		–
+	</div>
+			<p>used for clock related errors.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_CORE_ERROR_DISABLED">
+	<div>
+		<i><em><code>Gst.CoreError.DISABLED</code></em></i>
+		(<span class="value">14</span>)
+		–
+	</div>
+			<p>used if functionality has been disabled at
+compile time.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_CORE_ERROR_NUM_ERRORS">
+	<div>
+		<i><em><code>Gst.CoreError.NUM_ERRORS</code></em></i>
+		(<span class="value">15</span>)
+		–
+	</div>
+			<p>the number of core error types.</p>
+
+	</div>
+
+			</div>
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstLibraryError">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GstLibraryError">
+	<i>GstLibraryError</i>
+</h3>
+
+
+<p>Library errors are for errors from the library being used by elements
+(initializing, finalizing, settings, ...)</p>
+
+
+
+
+	<div class="members-container">
+		<h5>Members</h5>
+					
+<div class="symbol-detail" data-hotdoc-id="GST_LIBRARY_ERROR_FAILED">
+	<div>
+		<i><em><code>GST_LIBRARY_ERROR_FAILED</code></em></i>
+		(<span class="value">1</span>)
+		–
+	</div>
+			<p>a general error which doesn't fit in any other
+category.  Make sure you add a custom message to the error call.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_LIBRARY_ERROR_TOO_LAZY">
+	<div>
+		<i><em><code>GST_LIBRARY_ERROR_TOO_LAZY</code></em></i>
+		(<span class="value">2</span>)
+		–
+	</div>
+			<p>do not use this except as a placeholder for
+deciding where to go while developing code.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_LIBRARY_ERROR_INIT">
+	<div>
+		<i><em><code>GST_LIBRARY_ERROR_INIT</code></em></i>
+		(<span class="value">3</span>)
+		–
+	</div>
+			<p>used when the library could not be opened.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_LIBRARY_ERROR_SHUTDOWN">
+	<div>
+		<i><em><code>GST_LIBRARY_ERROR_SHUTDOWN</code></em></i>
+		(<span class="value">4</span>)
+		–
+	</div>
+			<p>used when the library could not be closed.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_LIBRARY_ERROR_SETTINGS">
+	<div>
+		<i><em><code>GST_LIBRARY_ERROR_SETTINGS</code></em></i>
+		(<span class="value">5</span>)
+		–
+	</div>
+			<p>used when the library doesn't accept settings.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_LIBRARY_ERROR_ENCODE">
+	<div>
+		<i><em><code>GST_LIBRARY_ERROR_ENCODE</code></em></i>
+		(<span class="value">6</span>)
+		–
+	</div>
+			<p>used when the library generated an encoding error.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_LIBRARY_ERROR_NUM_ERRORS">
+	<div>
+		<i><em><code>GST_LIBRARY_ERROR_NUM_ERRORS</code></em></i>
+		(<span class="value">7</span>)
+		–
+	</div>
+			<p>the number of library error types.</p>
+
+	</div>
+
+			</div>
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3 data-hotdoc-id="GstLibraryError">
+	<i>Gst.LibraryError</i>
+</h3>
+
+
+<p>Library errors are for errors from the library being used by elements
+(initializing, finalizing, settings, ...)</p>
+
+
+
+
+	<div class="members-container">
+		<h5>Members</h5>
+					
+<div class="symbol-detail" data-hotdoc-id="GST_LIBRARY_ERROR_FAILED">
+	<div>
+		<i><em><code>Gst.LibraryError.FAILED</code></em></i>
+		(<span class="value">1</span>)
+		–
+	</div>
+			<p>a general error which doesn't fit in any other
+category.  Make sure you add a custom message to the error call.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_LIBRARY_ERROR_TOO_LAZY">
+	<div>
+		<i><em><code>Gst.LibraryError.TOO_LAZY</code></em></i>
+		(<span class="value">2</span>)
+		–
+	</div>
+			<p>do not use this except as a placeholder for
+deciding where to go while developing code.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_LIBRARY_ERROR_INIT">
+	<div>
+		<i><em><code>Gst.LibraryError.INIT</code></em></i>
+		(<span class="value">3</span>)
+		–
+	</div>
+			<p>used when the library could not be opened.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_LIBRARY_ERROR_SHUTDOWN">
+	<div>
+		<i><em><code>Gst.LibraryError.SHUTDOWN</code></em></i>
+		(<span class="value">4</span>)
+		–
+	</div>
+			<p>used when the library could not be closed.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_LIBRARY_ERROR_SETTINGS">
+	<div>
+		<i><em><code>Gst.LibraryError.SETTINGS</code></em></i>
+		(<span class="value">5</span>)
+		–
+	</div>
+			<p>used when the library doesn't accept settings.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_LIBRARY_ERROR_ENCODE">
+	<div>
+		<i><em><code>Gst.LibraryError.ENCODE</code></em></i>
+		(<span class="value">6</span>)
+		–
+	</div>
+			<p>used when the library generated an encoding error.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_LIBRARY_ERROR_NUM_ERRORS">
+	<div>
+		<i><em><code>Gst.LibraryError.NUM_ERRORS</code></em></i>
+		(<span class="value">7</span>)
+		–
+	</div>
+			<p>the number of library error types.</p>
+
+	</div>
+
+			</div>
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3 data-hotdoc-id="GstLibraryError">
+	<i>Gst.LibraryError</i>
+</h3>
+
+
+<p>Library errors are for errors from the library being used by elements
+(initializing, finalizing, settings, ...)</p>
+
+
+
+
+	<div class="members-container">
+		<h5>Members</h5>
+					
+<div class="symbol-detail" data-hotdoc-id="GST_LIBRARY_ERROR_FAILED">
+	<div>
+		<i><em><code>Gst.LibraryError.FAILED</code></em></i>
+		(<span class="value">1</span>)
+		–
+	</div>
+			<p>a general error which doesn't fit in any other
+category.  Make sure you add a custom message to the error call.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_LIBRARY_ERROR_TOO_LAZY">
+	<div>
+		<i><em><code>Gst.LibraryError.TOO_LAZY</code></em></i>
+		(<span class="value">2</span>)
+		–
+	</div>
+			<p>do not use this except as a placeholder for
+deciding where to go while developing code.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_LIBRARY_ERROR_INIT">
+	<div>
+		<i><em><code>Gst.LibraryError.INIT</code></em></i>
+		(<span class="value">3</span>)
+		–
+	</div>
+			<p>used when the library could not be opened.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_LIBRARY_ERROR_SHUTDOWN">
+	<div>
+		<i><em><code>Gst.LibraryError.SHUTDOWN</code></em></i>
+		(<span class="value">4</span>)
+		–
+	</div>
+			<p>used when the library could not be closed.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_LIBRARY_ERROR_SETTINGS">
+	<div>
+		<i><em><code>Gst.LibraryError.SETTINGS</code></em></i>
+		(<span class="value">5</span>)
+		–
+	</div>
+			<p>used when the library doesn't accept settings.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_LIBRARY_ERROR_ENCODE">
+	<div>
+		<i><em><code>Gst.LibraryError.ENCODE</code></em></i>
+		(<span class="value">6</span>)
+		–
+	</div>
+			<p>used when the library generated an encoding error.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_LIBRARY_ERROR_NUM_ERRORS">
+	<div>
+		<i><em><code>Gst.LibraryError.NUM_ERRORS</code></em></i>
+		(<span class="value">7</span>)
+		–
+	</div>
+			<p>the number of library error types.</p>
+
+	</div>
+
+			</div>
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstResourceError">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GstResourceError">
+	<i>GstResourceError</i>
+</h3>
+
+
+<p>Resource errors are for any resource used by an element:
+memory, files, network connections, process space, ...
+They're typically used by source and sink elements.</p>
+
+
+
+
+	<div class="members-container">
+		<h5>Members</h5>
+					
+<div class="symbol-detail" data-hotdoc-id="GST_RESOURCE_ERROR_FAILED">
+	<div>
+		<i><em><code>GST_RESOURCE_ERROR_FAILED</code></em></i>
+		(<span class="value">1</span>)
+		–
+	</div>
+			<p>a general error which doesn't fit in any other
+category.  Make sure you add a custom message to the error call.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_RESOURCE_ERROR_TOO_LAZY">
+	<div>
+		<i><em><code>GST_RESOURCE_ERROR_TOO_LAZY</code></em></i>
+		(<span class="value">2</span>)
+		–
+	</div>
+			<p>do not use this except as a placeholder for
+deciding where to go while developing code.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_RESOURCE_ERROR_NOT_FOUND">
+	<div>
+		<i><em><code>GST_RESOURCE_ERROR_NOT_FOUND</code></em></i>
+		(<span class="value">3</span>)
+		–
+	</div>
+			<p>used when the resource could not be found.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_RESOURCE_ERROR_BUSY">
+	<div>
+		<i><em><code>GST_RESOURCE_ERROR_BUSY</code></em></i>
+		(<span class="value">4</span>)
+		–
+	</div>
+			<p>used when resource is busy.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_RESOURCE_ERROR_OPEN_READ">
+	<div>
+		<i><em><code>GST_RESOURCE_ERROR_OPEN_READ</code></em></i>
+		(<span class="value">5</span>)
+		–
+	</div>
+			<p>used when resource fails to open for reading.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_RESOURCE_ERROR_OPEN_WRITE">
+	<div>
+		<i><em><code>GST_RESOURCE_ERROR_OPEN_WRITE</code></em></i>
+		(<span class="value">6</span>)
+		–
+	</div>
+			<p>used when resource fails to open for writing.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_RESOURCE_ERROR_OPEN_READ_WRITE">
+	<div>
+		<i><em><code>GST_RESOURCE_ERROR_OPEN_READ_WRITE</code></em></i>
+		(<span class="value">7</span>)
+		–
+	</div>
+			<p>used when resource cannot be opened for
+both reading and writing, or either (but unspecified which).</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_RESOURCE_ERROR_CLOSE">
+	<div>
+		<i><em><code>GST_RESOURCE_ERROR_CLOSE</code></em></i>
+		(<span class="value">8</span>)
+		–
+	</div>
+			<p>used when the resource can't be closed.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_RESOURCE_ERROR_READ">
+	<div>
+		<i><em><code>GST_RESOURCE_ERROR_READ</code></em></i>
+		(<span class="value">9</span>)
+		–
+	</div>
+			<p>used when the resource can't be read from.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_RESOURCE_ERROR_WRITE">
+	<div>
+		<i><em><code>GST_RESOURCE_ERROR_WRITE</code></em></i>
+		(<span class="value">10</span>)
+		–
+	</div>
+			<p>used when the resource can't be written to.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_RESOURCE_ERROR_SEEK">
+	<div>
+		<i><em><code>GST_RESOURCE_ERROR_SEEK</code></em></i>
+		(<span class="value">11</span>)
+		–
+	</div>
+			<p>used when a seek on the resource fails.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_RESOURCE_ERROR_SYNC">
+	<div>
+		<i><em><code>GST_RESOURCE_ERROR_SYNC</code></em></i>
+		(<span class="value">12</span>)
+		–
+	</div>
+			<p>used when a synchronize on the resource fails.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_RESOURCE_ERROR_SETTINGS">
+	<div>
+		<i><em><code>GST_RESOURCE_ERROR_SETTINGS</code></em></i>
+		(<span class="value">13</span>)
+		–
+	</div>
+			<p>used when settings can't be manipulated on.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_RESOURCE_ERROR_NO_SPACE_LEFT">
+	<div>
+		<i><em><code>GST_RESOURCE_ERROR_NO_SPACE_LEFT</code></em></i>
+		(<span class="value">14</span>)
+		–
+	</div>
+			<p>used when the resource has no space left.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_RESOURCE_ERROR_NOT_AUTHORIZED">
+	<div>
+		<i><em><code>GST_RESOURCE_ERROR_NOT_AUTHORIZED</code></em></i>
+		(<span class="value">15</span>)
+		–
+	</div>
+			<p>used when the resource can't be opened
+due to missing authorization.
+(Since: 1.2.4)</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_RESOURCE_ERROR_NUM_ERRORS">
+	<div>
+		<i><em><code>GST_RESOURCE_ERROR_NUM_ERRORS</code></em></i>
+		(<span class="value">16</span>)
+		–
+	</div>
+			<p>the number of resource error types.</p>
+
+	</div>
+
+			</div>
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3 data-hotdoc-id="GstResourceError">
+	<i>Gst.ResourceError</i>
+</h3>
+
+
+<p>Resource errors are for any resource used by an element:
+memory, files, network connections, process space, ...
+They're typically used by source and sink elements.</p>
+
+
+
+
+	<div class="members-container">
+		<h5>Members</h5>
+					
+<div class="symbol-detail" data-hotdoc-id="GST_RESOURCE_ERROR_FAILED">
+	<div>
+		<i><em><code>Gst.ResourceError.FAILED</code></em></i>
+		(<span class="value">1</span>)
+		–
+	</div>
+			<p>a general error which doesn't fit in any other
+category.  Make sure you add a custom message to the error call.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_RESOURCE_ERROR_TOO_LAZY">
+	<div>
+		<i><em><code>Gst.ResourceError.TOO_LAZY</code></em></i>
+		(<span class="value">2</span>)
+		–
+	</div>
+			<p>do not use this except as a placeholder for
+deciding where to go while developing code.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_RESOURCE_ERROR_NOT_FOUND">
+	<div>
+		<i><em><code>Gst.ResourceError.NOT_FOUND</code></em></i>
+		(<span class="value">3</span>)
+		–
+	</div>
+			<p>used when the resource could not be found.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_RESOURCE_ERROR_BUSY">
+	<div>
+		<i><em><code>Gst.ResourceError.BUSY</code></em></i>
+		(<span class="value">4</span>)
+		–
+	</div>
+			<p>used when resource is busy.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_RESOURCE_ERROR_OPEN_READ">
+	<div>
+		<i><em><code>Gst.ResourceError.OPEN_READ</code></em></i>
+		(<span class="value">5</span>)
+		–
+	</div>
+			<p>used when resource fails to open for reading.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_RESOURCE_ERROR_OPEN_WRITE">
+	<div>
+		<i><em><code>Gst.ResourceError.OPEN_WRITE</code></em></i>
+		(<span class="value">6</span>)
+		–
+	</div>
+			<p>used when resource fails to open for writing.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_RESOURCE_ERROR_OPEN_READ_WRITE">
+	<div>
+		<i><em><code>Gst.ResourceError.OPEN_READ_WRITE</code></em></i>
+		(<span class="value">7</span>)
+		–
+	</div>
+			<p>used when resource cannot be opened for
+both reading and writing, or either (but unspecified which).</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_RESOURCE_ERROR_CLOSE">
+	<div>
+		<i><em><code>Gst.ResourceError.CLOSE</code></em></i>
+		(<span class="value">8</span>)
+		–
+	</div>
+			<p>used when the resource can't be closed.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_RESOURCE_ERROR_READ">
+	<div>
+		<i><em><code>Gst.ResourceError.READ</code></em></i>
+		(<span class="value">9</span>)
+		–
+	</div>
+			<p>used when the resource can't be read from.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_RESOURCE_ERROR_WRITE">
+	<div>
+		<i><em><code>Gst.ResourceError.WRITE</code></em></i>
+		(<span class="value">10</span>)
+		–
+	</div>
+			<p>used when the resource can't be written to.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_RESOURCE_ERROR_SEEK">
+	<div>
+		<i><em><code>Gst.ResourceError.SEEK</code></em></i>
+		(<span class="value">11</span>)
+		–
+	</div>
+			<p>used when a seek on the resource fails.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_RESOURCE_ERROR_SYNC">
+	<div>
+		<i><em><code>Gst.ResourceError.SYNC</code></em></i>
+		(<span class="value">12</span>)
+		–
+	</div>
+			<p>used when a synchronize on the resource fails.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_RESOURCE_ERROR_SETTINGS">
+	<div>
+		<i><em><code>Gst.ResourceError.SETTINGS</code></em></i>
+		(<span class="value">13</span>)
+		–
+	</div>
+			<p>used when settings can't be manipulated on.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_RESOURCE_ERROR_NO_SPACE_LEFT">
+	<div>
+		<i><em><code>Gst.ResourceError.NO_SPACE_LEFT</code></em></i>
+		(<span class="value">14</span>)
+		–
+	</div>
+			<p>used when the resource has no space left.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_RESOURCE_ERROR_NOT_AUTHORIZED">
+	<div>
+		<i><em><code>Gst.ResourceError.NOT_AUTHORIZED</code></em></i>
+		(<span class="value">15</span>)
+		–
+	</div>
+			<p>used when the resource can't be opened
+due to missing authorization.
+(Since: 1.2.4)</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_RESOURCE_ERROR_NUM_ERRORS">
+	<div>
+		<i><em><code>Gst.ResourceError.NUM_ERRORS</code></em></i>
+		(<span class="value">16</span>)
+		–
+	</div>
+			<p>the number of resource error types.</p>
+
+	</div>
+
+			</div>
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3 data-hotdoc-id="GstResourceError">
+	<i>Gst.ResourceError</i>
+</h3>
+
+
+<p>Resource errors are for any resource used by an element:
+memory, files, network connections, process space, ...
+They're typically used by source and sink elements.</p>
+
+
+
+
+	<div class="members-container">
+		<h5>Members</h5>
+					
+<div class="symbol-detail" data-hotdoc-id="GST_RESOURCE_ERROR_FAILED">
+	<div>
+		<i><em><code>Gst.ResourceError.FAILED</code></em></i>
+		(<span class="value">1</span>)
+		–
+	</div>
+			<p>a general error which doesn't fit in any other
+category.  Make sure you add a custom message to the error call.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_RESOURCE_ERROR_TOO_LAZY">
+	<div>
+		<i><em><code>Gst.ResourceError.TOO_LAZY</code></em></i>
+		(<span class="value">2</span>)
+		–
+	</div>
+			<p>do not use this except as a placeholder for
+deciding where to go while developing code.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_RESOURCE_ERROR_NOT_FOUND">
+	<div>
+		<i><em><code>Gst.ResourceError.NOT_FOUND</code></em></i>
+		(<span class="value">3</span>)
+		–
+	</div>
+			<p>used when the resource could not be found.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_RESOURCE_ERROR_BUSY">
+	<div>
+		<i><em><code>Gst.ResourceError.BUSY</code></em></i>
+		(<span class="value">4</span>)
+		–
+	</div>
+			<p>used when resource is busy.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_RESOURCE_ERROR_OPEN_READ">
+	<div>
+		<i><em><code>Gst.ResourceError.OPEN_READ</code></em></i>
+		(<span class="value">5</span>)
+		–
+	</div>
+			<p>used when resource fails to open for reading.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_RESOURCE_ERROR_OPEN_WRITE">
+	<div>
+		<i><em><code>Gst.ResourceError.OPEN_WRITE</code></em></i>
+		(<span class="value">6</span>)
+		–
+	</div>
+			<p>used when resource fails to open for writing.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_RESOURCE_ERROR_OPEN_READ_WRITE">
+	<div>
+		<i><em><code>Gst.ResourceError.OPEN_READ_WRITE</code></em></i>
+		(<span class="value">7</span>)
+		–
+	</div>
+			<p>used when resource cannot be opened for
+both reading and writing, or either (but unspecified which).</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_RESOURCE_ERROR_CLOSE">
+	<div>
+		<i><em><code>Gst.ResourceError.CLOSE</code></em></i>
+		(<span class="value">8</span>)
+		–
+	</div>
+			<p>used when the resource can't be closed.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_RESOURCE_ERROR_READ">
+	<div>
+		<i><em><code>Gst.ResourceError.READ</code></em></i>
+		(<span class="value">9</span>)
+		–
+	</div>
+			<p>used when the resource can't be read from.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_RESOURCE_ERROR_WRITE">
+	<div>
+		<i><em><code>Gst.ResourceError.WRITE</code></em></i>
+		(<span class="value">10</span>)
+		–
+	</div>
+			<p>used when the resource can't be written to.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_RESOURCE_ERROR_SEEK">
+	<div>
+		<i><em><code>Gst.ResourceError.SEEK</code></em></i>
+		(<span class="value">11</span>)
+		–
+	</div>
+			<p>used when a seek on the resource fails.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_RESOURCE_ERROR_SYNC">
+	<div>
+		<i><em><code>Gst.ResourceError.SYNC</code></em></i>
+		(<span class="value">12</span>)
+		–
+	</div>
+			<p>used when a synchronize on the resource fails.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_RESOURCE_ERROR_SETTINGS">
+	<div>
+		<i><em><code>Gst.ResourceError.SETTINGS</code></em></i>
+		(<span class="value">13</span>)
+		–
+	</div>
+			<p>used when settings can't be manipulated on.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_RESOURCE_ERROR_NO_SPACE_LEFT">
+	<div>
+		<i><em><code>Gst.ResourceError.NO_SPACE_LEFT</code></em></i>
+		(<span class="value">14</span>)
+		–
+	</div>
+			<p>used when the resource has no space left.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_RESOURCE_ERROR_NOT_AUTHORIZED">
+	<div>
+		<i><em><code>Gst.ResourceError.NOT_AUTHORIZED</code></em></i>
+		(<span class="value">15</span>)
+		–
+	</div>
+			<p>used when the resource can't be opened
+due to missing authorization.
+(Since: 1.2.4)</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_RESOURCE_ERROR_NUM_ERRORS">
+	<div>
+		<i><em><code>Gst.ResourceError.NUM_ERRORS</code></em></i>
+		(<span class="value">16</span>)
+		–
+	</div>
+			<p>the number of resource error types.</p>
+
+	</div>
+
+			</div>
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstStreamError">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GstStreamError">
+	<i>GstStreamError</i>
+</h3>
+
+
+<p>Stream errors are for anything related to the stream being processed:
+format errors, media type errors, ...
+They're typically used by decoders, demuxers, converters, ...</p>
+
+
+
+
+	<div class="members-container">
+		<h5>Members</h5>
+					
+<div class="symbol-detail" data-hotdoc-id="GST_STREAM_ERROR_FAILED">
+	<div>
+		<i><em><code>GST_STREAM_ERROR_FAILED</code></em></i>
+		(<span class="value">1</span>)
+		–
+	</div>
+			<p>a general error which doesn't fit in any other
+category.  Make sure you add a custom message to the error call.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_STREAM_ERROR_TOO_LAZY">
+	<div>
+		<i><em><code>GST_STREAM_ERROR_TOO_LAZY</code></em></i>
+		(<span class="value">2</span>)
+		–
+	</div>
+			<p>do not use this except as a placeholder for
+deciding where to go while developing code.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_STREAM_ERROR_NOT_IMPLEMENTED">
+	<div>
+		<i><em><code>GST_STREAM_ERROR_NOT_IMPLEMENTED</code></em></i>
+		(<span class="value">3</span>)
+		–
+	</div>
+			<p>use this when you do not want to implement
+this functionality yet.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_STREAM_ERROR_TYPE_NOT_FOUND">
+	<div>
+		<i><em><code>GST_STREAM_ERROR_TYPE_NOT_FOUND</code></em></i>
+		(<span class="value">4</span>)
+		–
+	</div>
+			<p>used when the element doesn't know the
+stream's type.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_STREAM_ERROR_WRONG_TYPE">
+	<div>
+		<i><em><code>GST_STREAM_ERROR_WRONG_TYPE</code></em></i>
+		(<span class="value">5</span>)
+		–
+	</div>
+			<p>used when the element doesn't handle this type
+of stream.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_STREAM_ERROR_CODEC_NOT_FOUND">
+	<div>
+		<i><em><code>GST_STREAM_ERROR_CODEC_NOT_FOUND</code></em></i>
+		(<span class="value">6</span>)
+		–
+	</div>
+			<p>used when there's no codec to handle the
+stream's type.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_STREAM_ERROR_DECODE">
+	<div>
+		<i><em><code>GST_STREAM_ERROR_DECODE</code></em></i>
+		(<span class="value">7</span>)
+		–
+	</div>
+			<p>used when decoding fails.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_STREAM_ERROR_ENCODE">
+	<div>
+		<i><em><code>GST_STREAM_ERROR_ENCODE</code></em></i>
+		(<span class="value">8</span>)
+		–
+	</div>
+			<p>used when encoding fails.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_STREAM_ERROR_DEMUX">
+	<div>
+		<i><em><code>GST_STREAM_ERROR_DEMUX</code></em></i>
+		(<span class="value">9</span>)
+		–
+	</div>
+			<p>used when demuxing fails.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_STREAM_ERROR_MUX">
+	<div>
+		<i><em><code>GST_STREAM_ERROR_MUX</code></em></i>
+		(<span class="value">10</span>)
+		–
+	</div>
+			<p>used when muxing fails.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_STREAM_ERROR_FORMAT">
+	<div>
+		<i><em><code>GST_STREAM_ERROR_FORMAT</code></em></i>
+		(<span class="value">11</span>)
+		–
+	</div>
+			<p>used when the stream is of the wrong format
+(for example, wrong caps).</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_STREAM_ERROR_DECRYPT">
+	<div>
+		<i><em><code>GST_STREAM_ERROR_DECRYPT</code></em></i>
+		(<span class="value">12</span>)
+		–
+	</div>
+			<p>used when the stream is encrypted and can't be
+decrypted because this is not supported by the element.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_STREAM_ERROR_DECRYPT_NOKEY">
+	<div>
+		<i><em><code>GST_STREAM_ERROR_DECRYPT_NOKEY</code></em></i>
+		(<span class="value">13</span>)
+		–
+	</div>
+			<p>used when the stream is encrypted and
+can't be decrypted because no suitable key is available.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_STREAM_ERROR_NUM_ERRORS">
+	<div>
+		<i><em><code>GST_STREAM_ERROR_NUM_ERRORS</code></em></i>
+		(<span class="value">14</span>)
+		–
+	</div>
+			<p>the number of stream error types.</p>
+
+	</div>
+
+			</div>
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3 data-hotdoc-id="GstStreamError">
+	<i>Gst.StreamError</i>
+</h3>
+
+
+<p>Stream errors are for anything related to the stream being processed:
+format errors, media type errors, ...
+They're typically used by decoders, demuxers, converters, ...</p>
+
+
+
+
+	<div class="members-container">
+		<h5>Members</h5>
+					
+<div class="symbol-detail" data-hotdoc-id="GST_STREAM_ERROR_FAILED">
+	<div>
+		<i><em><code>Gst.StreamError.FAILED</code></em></i>
+		(<span class="value">1</span>)
+		–
+	</div>
+			<p>a general error which doesn't fit in any other
+category.  Make sure you add a custom message to the error call.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_STREAM_ERROR_TOO_LAZY">
+	<div>
+		<i><em><code>Gst.StreamError.TOO_LAZY</code></em></i>
+		(<span class="value">2</span>)
+		–
+	</div>
+			<p>do not use this except as a placeholder for
+deciding where to go while developing code.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_STREAM_ERROR_NOT_IMPLEMENTED">
+	<div>
+		<i><em><code>Gst.StreamError.NOT_IMPLEMENTED</code></em></i>
+		(<span class="value">3</span>)
+		–
+	</div>
+			<p>use this when you do not want to implement
+this functionality yet.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_STREAM_ERROR_TYPE_NOT_FOUND">
+	<div>
+		<i><em><code>Gst.StreamError.TYPE_NOT_FOUND</code></em></i>
+		(<span class="value">4</span>)
+		–
+	</div>
+			<p>used when the element doesn't know the
+stream's type.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_STREAM_ERROR_WRONG_TYPE">
+	<div>
+		<i><em><code>Gst.StreamError.WRONG_TYPE</code></em></i>
+		(<span class="value">5</span>)
+		–
+	</div>
+			<p>used when the element doesn't handle this type
+of stream.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_STREAM_ERROR_CODEC_NOT_FOUND">
+	<div>
+		<i><em><code>Gst.StreamError.CODEC_NOT_FOUND</code></em></i>
+		(<span class="value">6</span>)
+		–
+	</div>
+			<p>used when there's no codec to handle the
+stream's type.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_STREAM_ERROR_DECODE">
+	<div>
+		<i><em><code>Gst.StreamError.DECODE</code></em></i>
+		(<span class="value">7</span>)
+		–
+	</div>
+			<p>used when decoding fails.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_STREAM_ERROR_ENCODE">
+	<div>
+		<i><em><code>Gst.StreamError.ENCODE</code></em></i>
+		(<span class="value">8</span>)
+		–
+	</div>
+			<p>used when encoding fails.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_STREAM_ERROR_DEMUX">
+	<div>
+		<i><em><code>Gst.StreamError.DEMUX</code></em></i>
+		(<span class="value">9</span>)
+		–
+	</div>
+			<p>used when demuxing fails.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_STREAM_ERROR_MUX">
+	<div>
+		<i><em><code>Gst.StreamError.MUX</code></em></i>
+		(<span class="value">10</span>)
+		–
+	</div>
+			<p>used when muxing fails.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_STREAM_ERROR_FORMAT">
+	<div>
+		<i><em><code>Gst.StreamError.FORMAT</code></em></i>
+		(<span class="value">11</span>)
+		–
+	</div>
+			<p>used when the stream is of the wrong format
+(for example, wrong caps).</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_STREAM_ERROR_DECRYPT">
+	<div>
+		<i><em><code>Gst.StreamError.DECRYPT</code></em></i>
+		(<span class="value">12</span>)
+		–
+	</div>
+			<p>used when the stream is encrypted and can't be
+decrypted because this is not supported by the element.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_STREAM_ERROR_DECRYPT_NOKEY">
+	<div>
+		<i><em><code>Gst.StreamError.DECRYPT_NOKEY</code></em></i>
+		(<span class="value">13</span>)
+		–
+	</div>
+			<p>used when the stream is encrypted and
+can't be decrypted because no suitable key is available.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_STREAM_ERROR_NUM_ERRORS">
+	<div>
+		<i><em><code>Gst.StreamError.NUM_ERRORS</code></em></i>
+		(<span class="value">14</span>)
+		–
+	</div>
+			<p>the number of stream error types.</p>
+
+	</div>
+
+			</div>
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3 data-hotdoc-id="GstStreamError">
+	<i>Gst.StreamError</i>
+</h3>
+
+
+<p>Stream errors are for anything related to the stream being processed:
+format errors, media type errors, ...
+They're typically used by decoders, demuxers, converters, ...</p>
+
+
+
+
+	<div class="members-container">
+		<h5>Members</h5>
+					
+<div class="symbol-detail" data-hotdoc-id="GST_STREAM_ERROR_FAILED">
+	<div>
+		<i><em><code>Gst.StreamError.FAILED</code></em></i>
+		(<span class="value">1</span>)
+		–
+	</div>
+			<p>a general error which doesn't fit in any other
+category.  Make sure you add a custom message to the error call.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_STREAM_ERROR_TOO_LAZY">
+	<div>
+		<i><em><code>Gst.StreamError.TOO_LAZY</code></em></i>
+		(<span class="value">2</span>)
+		–
+	</div>
+			<p>do not use this except as a placeholder for
+deciding where to go while developing code.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_STREAM_ERROR_NOT_IMPLEMENTED">
+	<div>
+		<i><em><code>Gst.StreamError.NOT_IMPLEMENTED</code></em></i>
+		(<span class="value">3</span>)
+		–
+	</div>
+			<p>use this when you do not want to implement
+this functionality yet.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_STREAM_ERROR_TYPE_NOT_FOUND">
+	<div>
+		<i><em><code>Gst.StreamError.TYPE_NOT_FOUND</code></em></i>
+		(<span class="value">4</span>)
+		–
+	</div>
+			<p>used when the element doesn't know the
+stream's type.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_STREAM_ERROR_WRONG_TYPE">
+	<div>
+		<i><em><code>Gst.StreamError.WRONG_TYPE</code></em></i>
+		(<span class="value">5</span>)
+		–
+	</div>
+			<p>used when the element doesn't handle this type
+of stream.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_STREAM_ERROR_CODEC_NOT_FOUND">
+	<div>
+		<i><em><code>Gst.StreamError.CODEC_NOT_FOUND</code></em></i>
+		(<span class="value">6</span>)
+		–
+	</div>
+			<p>used when there's no codec to handle the
+stream's type.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_STREAM_ERROR_DECODE">
+	<div>
+		<i><em><code>Gst.StreamError.DECODE</code></em></i>
+		(<span class="value">7</span>)
+		–
+	</div>
+			<p>used when decoding fails.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_STREAM_ERROR_ENCODE">
+	<div>
+		<i><em><code>Gst.StreamError.ENCODE</code></em></i>
+		(<span class="value">8</span>)
+		–
+	</div>
+			<p>used when encoding fails.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_STREAM_ERROR_DEMUX">
+	<div>
+		<i><em><code>Gst.StreamError.DEMUX</code></em></i>
+		(<span class="value">9</span>)
+		–
+	</div>
+			<p>used when demuxing fails.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_STREAM_ERROR_MUX">
+	<div>
+		<i><em><code>Gst.StreamError.MUX</code></em></i>
+		(<span class="value">10</span>)
+		–
+	</div>
+			<p>used when muxing fails.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_STREAM_ERROR_FORMAT">
+	<div>
+		<i><em><code>Gst.StreamError.FORMAT</code></em></i>
+		(<span class="value">11</span>)
+		–
+	</div>
+			<p>used when the stream is of the wrong format
+(for example, wrong caps).</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_STREAM_ERROR_DECRYPT">
+	<div>
+		<i><em><code>Gst.StreamError.DECRYPT</code></em></i>
+		(<span class="value">12</span>)
+		–
+	</div>
+			<p>used when the stream is encrypted and can't be
+decrypted because this is not supported by the element.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_STREAM_ERROR_DECRYPT_NOKEY">
+	<div>
+		<i><em><code>Gst.StreamError.DECRYPT_NOKEY</code></em></i>
+		(<span class="value">13</span>)
+		–
+	</div>
+			<p>used when the stream is encrypted and
+can't be decrypted because no suitable key is available.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_STREAM_ERROR_NUM_ERRORS">
+	<div>
+		<i><em><code>Gst.StreamError.NUM_ERRORS</code></em></i>
+		(<span class="value">14</span>)
+		–
+	</div>
+			<p>the number of stream error types.</p>
+
+	</div>
+
+			</div>
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+
+            <h2 class="symbol_section">Constants</h2>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GST_CORE_ERROR">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_CORE_ERROR">
+	<i>GST_CORE_ERROR</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_CORE_ERROR      gst_core_error_quark ()
+</pre>
+
+<p>Error domain for core system. Errors in this domain will
+be from the <a href="gstreamer/gsterror.html#GstCoreError">GstCoreError</a> enumeration.
+See <a href="https://docs.gtk.org/glib/struct.Error.html">GError</a> for information on error domains.</p>
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GST_ERROR_SYSTEM">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_ERROR_SYSTEM">
+	<i>GST_ERROR_SYSTEM</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_ERROR_SYSTEM    ("system error: %s", g_strerror (errno))
+</pre>
+
+<p>Builds a string using errno describing the previously failed system
+call.  To be used as the debug argument in <a href="gstreamer/gstelement.html#GST_ELEMENT_ERROR">GST_ELEMENT_ERROR</a>.</p>
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GST_LIBRARY_ERROR">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_LIBRARY_ERROR">
+	<i>GST_LIBRARY_ERROR</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_LIBRARY_ERROR   gst_library_error_quark ()
+</pre>
+
+<p>Error domain for library loading. Errors in this domain will
+be from the <a href="gstreamer/gsterror.html#GstLibraryError">GstLibraryError</a> enumeration.
+See <a href="https://docs.gtk.org/glib/struct.Error.html">GError</a> for information on error domains.</p>
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GST_RESOURCE_ERROR">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_RESOURCE_ERROR">
+	<i>GST_RESOURCE_ERROR</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_RESOURCE_ERROR  gst_resource_error_quark ()
+</pre>
+
+<p>Error domain for resource handling. Errors in this domain will
+be from the <a href="gstreamer/gsterror.html#GstResourceError">GstResourceError</a> enumeration.
+See <a href="https://docs.gtk.org/glib/struct.Error.html">GError</a> for information on error domains.</p>
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GST_STREAM_ERROR">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_STREAM_ERROR">
+	<i>GST_STREAM_ERROR</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_STREAM_ERROR    gst_stream_error_quark ()
+</pre>
+
+<p>Error domain for media stream processing. Errors in this domain will
+be from the <a href="gstreamer/gsterror.html#GstStreamError">GstStreamError</a> enumeration.
+See <a href="https://docs.gtk.org/glib/struct.Error.html">GError</a> for information on error domains.</p>
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+
+
+
+
+
+		
+	</div>
+	<div id="search_results">
+		<p>The results of the search are</p>
+	</div>
+	<div id="footer">
+		    
+
+	</div>
+</div>
+
+<div id="toc-column">
+	
+		<div class="edit-button">
+		
+
+	</div>
+		<div id="toc-wrapper">
+		<nav id="toc"></nav>
+	</div>
+</div>
+</div>
+</main>
+
+
+<script src="assets/js/navbar_offset_scroller.js"></script>
+</body>
+</html>

@@ -1,0 +1,1657 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<base href="..">
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<title>uridecodebin</title>
+
+<link rel="stylesheet" href="assets/css/dark-frontend.css" type="text/css" title="dark">
+<link rel="alternate stylesheet" href="assets/css/light-frontend.css" type="text/css" title="light">
+<link rel="stylesheet" href="assets/css/bootstrap-toc.min.css" type="text/css">
+<link rel="stylesheet" href="assets/css/jquery.mCustomScrollbar.min.css">
+<link rel="stylesheet" href="assets/js/search/enable_search.css" type="text/css">
+
+<link rel="stylesheet" href="assets/css/extra_frontend.css" type="text/css">
+<link rel="stylesheet" href="assets/css/devhelp.css" type="text/css">
+
+<link rel="stylesheet" href="assets/css/prism-tomorrow.css" type="text/css" title="dark">
+
+<link rel="alternate stylesheet" href="assets/css/prism.css" type="text/css" title="light">
+
+<script src="assets/js/mustache.min.js"></script>
+<script src="assets/js/jquery.js"></script>
+<script src="assets/js/bootstrap.js"></script>
+<script src="assets/js/scrollspy.js"></script>
+<script src="assets/js/typeahead.jquery.min.js"></script>
+<script src="assets/js/search.js"></script>
+<script src="assets/js/compare-versions.js"></script>
+<script src="assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="assets/js/bootstrap-toc.min.js"></script>
+<script src="assets/js/jquery.touchSwipe.min.js"></script>
+<script src="assets/js/anchor.min.js"></script>
+<script src="assets/js/tag_filtering.js"></script>
+<script src="assets/js/language_switching.js"></script>
+<script src="assets/js/styleswitcher.js"></script>
+
+<script src="assets/js/lines_around_headings.js"></script>
+
+<script src="assets/js/prism-core.js"></script>
+<script src="assets/js/prism-autoloader.js"></script>
+<script src="assets/js/prism_autoloader_path_override.js"></script>
+<script src="assets/js/trie.js"></script>
+
+<!-- generic -->
+<link rel="icon" type="image/png" href="assets/images/favicon-16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="assets/images/favicon-32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="assets/images/favicon-57.png" sizes="57x57">
+<link rel="icon" type="image/png" href="assets/images/favicon-64.png" sizes="64x64">
+<link rel="icon" type="image/png" href="assets/images/favicon-76.png" sizes="76x76">
+<link rel="icon" type="image/png" href="assets/images/favicon-96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="assets/images/favicon-128.png" sizes="128x128">
+<link rel="icon" type="image/png" href="assets/images/favicon-192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="assets/images/favicon-228.png" sizes="228x228">
+
+<!-- Android -->
+<link rel="shortcut icon" sizes="196x196" href="assets/images/favicon-196.png">
+
+<!-- iOS -->
+<link rel="apple-touch-icon" href="assets/images/favicon-120.png" sizes="120x120">
+<link rel="apple-touch-icon" href="assets/images/favicon-152.png" sizes="152x152">
+<link rel="apple-touch-icon" href="assets/images/favicon-180.png" sizes="180x180">
+
+</head>
+
+<body class="no-script
+">
+
+<script>
+$('body').removeClass('no-script');
+</script>
+
+<nav class="navbar navbar-fixed-top navbar-default" id="topnav">
+	<div class="container-fluid">
+		<div class="navbar-right">
+			<a id="toc-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-wrapper" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<span title="light mode switch" class="glyphicon glyphicon-sunglasses pull-right" id="lightmode-icon"></span>
+			<form class="navbar-form pull-right" id="navbar-search-form">
+                               <div class="form-group has-feedback">
+                                       <input type="text" class="form-control input-sm" name="search" id="sidenav-lookup-field" placeholder="search" disabled>
+				       <span class="glyphicon glyphicon-search form-control-feedback" id="search-mgn-glass"></span>
+                               </div>
+                        </form>
+		</div>
+		<div class="navbar-header">
+			<a id="sidenav-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<a id="home-link" href="index.html" class="hotdoc-navbar-brand">
+				<img src="assets/images/gstreamer-logo.svg" alt="Home">
+			</a>
+		</div>
+		<div class="navbar-collapse collapse" id="navbar-wrapper">
+			<ul class="nav navbar-nav" id="menu">
+				
+<li class="dropdown">
+    <a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        API References<span class="caret"></span>
+    </a>
+	<ul class="dropdown-menu" id="modules-menu">
+					<li>
+				<a href="gstreamer/gi-index.html">GStreamer core</a>
+			</li>
+					<li>
+				<a href="libs.html">GStreamer Libraries</a>
+			</li>
+					<li>
+				<a href="plugins_doc.html">GStreamer Plugins</a>
+			</li>
+		</ul>
+</li>
+
+<li>
+    <a href="application-development/index.html">Application manual</a>
+</li>
+
+
+<li>
+    <a href="tutorials/index.html">Tutorials</a>
+</li>
+
+			</ul>
+			<div class="hidden-xs hidden-sm navbar-text navbar-center">
+							</div>
+		</div>
+	</div>
+</nav>
+
+<main>
+<div data-extension="gst-extension" data-hotdoc-in-toplevel="False" data-hotdoc-project="playback" data-hotdoc-ref="uridecodebin.html" class="page_container" id="page-wrapper" data-hotdoc-meta-gi-languages="['c', 'javascript', 'python']">
+<script src="assets/js/utils.js"></script>
+
+<div class="panel panel-collapse oc-collapsed" id="sidenav" data-hotdoc-role="navigation">
+	<script src="assets/js/full-width.js"></script>
+  <div id="sitenav-wrapper">
+    <iframe src="hotdoc-sitemap.html" id="sitenav-frame"></iframe>
+  </div>
+</div>
+
+<div id="body">
+	<div id="main">
+				    <div id="page-description" data-hotdoc-role="main">
+        <h1 id="uridecodebin-page">uridecodebin</h1>
+<p>Decodes data from a URI into raw media. It selects a source element that can
+handle the given <a href="playback/uridecodebin.html#uridecodebin:uri">uri</a> scheme and connects it to a decodebin.</p>
+
+    </div>
+        
+        
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="uridecodebin">
+	
+        
+
+        <h2>Hierarchy</h2>
+            <div class="hierarchy_container">
+                <div class="hierarchy_details">
+<pre>
+<a title="GObject" href="https://docs.gtk.org/gobject/class.Object.html" data-gi-href-javascript="https://docs.gtk.org/gobject/class.Object.html" data-gi-title-javascript="GObject.Object" data-gi-href-python="https://docs.gtk.org/gobject/class.Object.html" data-gi-title-python="GObject.Object">GObject</a>
+    <span class="lineart">╰──</span><a title="GInitiallyUnowned" href="https://docs.gtk.org/gobject/class.InitiallyUnowned.html" data-gi-href-javascript="https://docs.gtk.org/gobject/class.InitiallyUnowned.html" data-gi-title-javascript="GObject.InitiallyUnowned" data-gi-href-python="https://docs.gtk.org/gobject/class.InitiallyUnowned.html" data-gi-title-python="GObject.InitiallyUnowned">GInitiallyUnowned</a>
+        <span class="lineart">╰──</span><a title="GstObject" href="gstreamer/gstobject.html#GstObject" data-gi-href-javascript="gstreamer/gstobject.html#GstObject" data-gi-title-javascript="Gst.Object" data-gi-href-python="gstreamer/gstobject.html#GstObject" data-gi-title-python="Gst.Object">GstObject</a>
+            <span class="lineart">╰──</span><a title="GstElement" href="gstreamer/gstelement.html#GstElement" data-gi-href-javascript="gstreamer/gstelement.html#GstElement" data-gi-title-javascript="Gst.Element" data-gi-href-python="gstreamer/gstelement.html#GstElement" data-gi-title-python="Gst.Element">GstElement</a>
+                <span class="lineart">╰──</span><a title="GstBin" href="gstreamer/gstbin.html#GstBin" data-gi-href-javascript="gstreamer/gstbin.html#GstBin" data-gi-title-javascript="Gst.Bin" data-gi-href-python="gstreamer/gstbin.html#GstBin" data-gi-title-python="Gst.Bin">GstBin</a>
+                    <span class="lineart">╰──</span>uridecodebin
+</pre>
+
+</div>
+
+            </div>
+            <h2>Implemented interfaces</h2>
+            <div>
+                <pre>
+<a title="GstChildProxy" href="gstreamer/gstchildproxy.html#GstChildProxy" data-gi-href-javascript="gstreamer/gstchildproxy.html#GstChildProxy" data-gi-title-javascript="Gst.ChildProxy" data-gi-href-python="gstreamer/gstchildproxy.html#GstChildProxy" data-gi-title-python="Gst.ChildProxy">GstChildProxy</a>
+</pre>
+            </div>
+        <h2 class="symbol_section">Factory details</h2>
+        <div class="symbol-detail">
+            <p><b>Authors:</b> – Wim Taymans <wim.taymans@gmail.com></wim.taymans@gmail.com></p>
+            <p><b>Classification:</b> – <code>Generic/Bin/Decoder</code></p>
+            <p><b>Rank</b> – none</p>
+            <p><b>Plugin</b> – playback</p>
+            <p><b>Package</b> – GStreamer Base Plug-ins</p>
+        </div>
+
+</div>
+
+
+            <h2 class="symbol_section">Pad Templates</h2>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstURIDecodeBin!src_%u">
+	
+
+
+
+        <h3><span><code>src_%u</code></span></h3>
+
+
+        <div>
+            
+            <pre class="language-yaml"><code class="language-yaml">ANY</code></pre>
+            <div class="symbol-detail">
+                <p><b>Presence</b> – <i>sometimes</i></p>
+                <p><b>Direction</b> – <i>src</i></p>
+                    <p><b>Object type</b> – <a title="GstPad" href="gstreamer/gstpad.html#GstPad" data-gi-href-javascript="gstreamer/gstpad.html#GstPad" data-gi-title-javascript="Gst.Pad" data-gi-href-python="gstreamer/gstpad.html#GstPad" data-gi-title-python="Gst.Pad">GstPad</a></p>
+            </div>
+        </div>
+
+
+
+<hr>
+
+</div>
+
+
+            <h2 class="symbol_section">Signals</h2>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="uridecodebin::autoplug-continue">
+	
+
+
+
+<h3 data-hotdoc-id="uridecodebin::autoplug-continue">
+	<i>autoplug-continue</i>
+</h3>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#bool" data-gi-title-python="bool">gboolean</a>
+autoplug_continue_callback (<a title="GstElement" href="gstreamer/gstelement.html#GstElement" data-gi-href-javascript="gstreamer/gstelement.html#GstElement" data-gi-title-javascript="Gst.Element" data-gi-href-python="gstreamer/gstelement.html#GstElement" data-gi-title-python="Gst.Element">GstElement</a> <span class="pointer-token">*</span> bin,
+                            <a title="GstPad" href="gstreamer/gstpad.html#GstPad" data-gi-href-javascript="gstreamer/gstpad.html#GstPad" data-gi-title-javascript="Gst.Pad" data-gi-href-python="gstreamer/gstpad.html#GstPad" data-gi-title-python="Gst.Pad">GstPad</a> <span class="pointer-token">*</span> pad,
+                            <a title="GstCaps" href="gstreamer/gstcaps.html#GstCaps" data-gi-href-javascript="gstreamer/gstcaps.html#GstCaps" data-gi-title-javascript="Gst.Caps" data-gi-href-python="gstreamer/gstcaps.html#GstCaps" data-gi-title-python="Gst.Caps">GstCaps</a> <span class="pointer-token">*</span> caps,
+                            <a title="gpointer" href="https://docs.gtk.org/glib/types.html#gpointer" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" data-gi-title-javascript="Object" data-gi-href-python="https://docs.python.org/3/library/functions.html#object" data-gi-title-python="object">gpointer</a> udata)</pre>
+<pre class="python-prototype language-python">
+<code>def autoplug_continue_callback (bin, pad, caps, udata):
+    #python callback for the 'autoplug-continue' signal</code></pre>
+<pre class="javascript-prototype language-javascript">
+<code>function autoplug_continue_callback(bin: <a title="GstElement" href="gstreamer/gstelement.html#GstElement" data-gi-href-javascript="gstreamer/gstelement.html#GstElement" data-gi-title-javascript="Gst.Element" data-gi-href-python="gstreamer/gstelement.html#GstElement" data-gi-title-python="Gst.Element">GstElement</a> <span class="pointer-token">*</span> bin, pad: <a title="GstPad" href="gstreamer/gstpad.html#GstPad" data-gi-href-javascript="gstreamer/gstpad.html#GstPad" data-gi-title-javascript="Gst.Pad" data-gi-href-python="gstreamer/gstpad.html#GstPad" data-gi-title-python="Gst.Pad">GstPad</a> <span class="pointer-token">*</span> pad, caps: <a title="GstCaps" href="gstreamer/gstcaps.html#GstCaps" data-gi-href-javascript="gstreamer/gstcaps.html#GstCaps" data-gi-title-javascript="Gst.Caps" data-gi-href-python="gstreamer/gstcaps.html#GstCaps" data-gi-title-python="Gst.Caps">GstCaps</a> <span class="pointer-token">*</span> caps, udata: <a title="gpointer" href="https://docs.gtk.org/glib/types.html#gpointer" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" data-gi-title-javascript="Object" data-gi-href-python="https://docs.python.org/3/library/functions.html#object" data-gi-title-python="object">gpointer</a> udata): {
+    // javascript callback for the 'autoplug-continue' signal
+}</code></pre>
+
+<p>This signal is emitted whenever uridecodebin finds a new stream. It is
+emitted before looking for any elements that can handle that stream.</p>
+<blockquote>
+<p>Invocation of signal handlers stops after the first signal handler
+returns <a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#FALSE:CAPS" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean" data-gi-title-javascript="false" data-gi-href-python="https://docs.python.org/3/library/constants.html#False" data-gi-title-python="False">FALSE</a>. Signal handlers are invoked in the order they were
+connected in.</p>
+</blockquote>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>bin</code></em></i>
+–
+</div>
+<p>The uridecodebin.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>pad</code></em></i>
+–
+</div>
+<p>The <a href="gstreamer/gstpad.html#GstPad" data-gi-href-javascript="gstreamer/gstpad.html#GstPad" data-gi-title-javascript="Gst.Pad" data-gi-href-python="gstreamer/gstpad.html#GstPad" data-gi-title-python="Gst.Pad">GstPad</a>.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>caps</code></em></i>
+–
+</div>
+<p>The <a href="gstreamer/gstcaps.html#GstCaps" data-gi-href-javascript="gstreamer/gstcaps.html#GstCaps" data-gi-title-javascript="Gst.Caps" data-gi-href-python="gstreamer/gstcaps.html#GstCaps" data-gi-title-python="Gst.Caps">GstCaps</a> found.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>udata</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#bool" data-gi-title-python="bool">gboolean</a><span>)</span>
+–
+			</div>
+							<p><a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#TRUE:CAPS" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean" data-gi-title-javascript="true" data-gi-href-python="https://docs.python.org/3/library/constants.html#True" data-gi-title-python="True">TRUE</a> if you wish uridecodebin to look for elements that can
+handle the given <em>caps</em>. If <a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#FALSE:CAPS" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean" data-gi-title-javascript="false" data-gi-href-python="https://docs.python.org/3/library/constants.html#False" data-gi-title-python="False">FALSE</a>, those caps will be considered as
+final and the pad will be exposed as such (see 'pad-added' signal of
+<a href="gstreamer/gstelement.html#GstElement" data-gi-href-javascript="gstreamer/gstelement.html#GstElement" data-gi-title-javascript="Gst.Element" data-gi-href-python="gstreamer/gstelement.html#GstElement" data-gi-title-python="Gst.Element">GstElement</a>).</p>
+
+					</div>
+	</div>
+
+
+<p>
+	<b>Flags:</b>	
+	
+		
+				<a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS">Run Last</a>
+			
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="uridecodebin::autoplug-factories">
+	
+
+
+
+<h3 data-hotdoc-id="uridecodebin::autoplug-factories">
+	<i>autoplug-factories</i>
+</h3>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GValueArray" href="https://docs.gtk.org/gobject/struct.ValueArray.html" data-gi-href-javascript="https://docs.gtk.org/gobject/struct.ValueArray.html" data-gi-title-javascript="GObject.ValueArray" data-gi-href-python="https://docs.gtk.org/gobject/struct.ValueArray.html" data-gi-title-python="GObject.ValueArray">GValueArray</a> <span class="pointer-token">*</span>
+autoplug_factories_callback (<a title="GstElement" href="gstreamer/gstelement.html#GstElement" data-gi-href-javascript="gstreamer/gstelement.html#GstElement" data-gi-title-javascript="Gst.Element" data-gi-href-python="gstreamer/gstelement.html#GstElement" data-gi-title-python="Gst.Element">GstElement</a> <span class="pointer-token">*</span> bin,
+                             <a title="GstPad" href="gstreamer/gstpad.html#GstPad" data-gi-href-javascript="gstreamer/gstpad.html#GstPad" data-gi-title-javascript="Gst.Pad" data-gi-href-python="gstreamer/gstpad.html#GstPad" data-gi-title-python="Gst.Pad">GstPad</a> <span class="pointer-token">*</span> pad,
+                             <a title="GstCaps" href="gstreamer/gstcaps.html#GstCaps" data-gi-href-javascript="gstreamer/gstcaps.html#GstCaps" data-gi-title-javascript="Gst.Caps" data-gi-href-python="gstreamer/gstcaps.html#GstCaps" data-gi-title-python="Gst.Caps">GstCaps</a> <span class="pointer-token">*</span> caps,
+                             <a title="gpointer" href="https://docs.gtk.org/glib/types.html#gpointer" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" data-gi-title-javascript="Object" data-gi-href-python="https://docs.python.org/3/library/functions.html#object" data-gi-title-python="object">gpointer</a> udata)</pre>
+<pre class="python-prototype language-python">
+<code>def autoplug_factories_callback (bin, pad, caps, udata):
+    #python callback for the 'autoplug-factories' signal</code></pre>
+<pre class="javascript-prototype language-javascript">
+<code>function autoplug_factories_callback(bin: <a title="GstElement" href="gstreamer/gstelement.html#GstElement" data-gi-href-javascript="gstreamer/gstelement.html#GstElement" data-gi-title-javascript="Gst.Element" data-gi-href-python="gstreamer/gstelement.html#GstElement" data-gi-title-python="Gst.Element">GstElement</a> <span class="pointer-token">*</span> bin, pad: <a title="GstPad" href="gstreamer/gstpad.html#GstPad" data-gi-href-javascript="gstreamer/gstpad.html#GstPad" data-gi-title-javascript="Gst.Pad" data-gi-href-python="gstreamer/gstpad.html#GstPad" data-gi-title-python="Gst.Pad">GstPad</a> <span class="pointer-token">*</span> pad, caps: <a title="GstCaps" href="gstreamer/gstcaps.html#GstCaps" data-gi-href-javascript="gstreamer/gstcaps.html#GstCaps" data-gi-title-javascript="Gst.Caps" data-gi-href-python="gstreamer/gstcaps.html#GstCaps" data-gi-title-python="Gst.Caps">GstCaps</a> <span class="pointer-token">*</span> caps, udata: <a title="gpointer" href="https://docs.gtk.org/glib/types.html#gpointer" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" data-gi-title-javascript="Object" data-gi-href-python="https://docs.python.org/3/library/functions.html#object" data-gi-title-python="object">gpointer</a> udata): {
+    // javascript callback for the 'autoplug-factories' signal
+}</code></pre>
+
+<p>This function is emitted when an array of possible factories for <em>caps</em> on
+<em>pad</em> is needed. Uridecodebin will by default return an array with all
+compatible factories, sorted by rank.</p>
+<p>If this function returns NULL, <em>pad</em> will be exposed as a final caps.</p>
+<p>If this function returns an empty array, the pad will be considered as
+having an unhandled type media type.</p>
+<blockquote>
+<p>Only the signal handler that is connected first will ever by invoked.
+Don't connect signal handlers with the <a href="https://docs.gtk.org/gobject/flags.ConnectFlags.html" data-gi-href-javascript="https://docs.gtk.org/gobject/flags.ConnectFlags.html" data-gi-title-javascript="GObject.ConnectFlags.AFTER" data-gi-href-python="https://docs.gtk.org/gobject/flags.ConnectFlags.html" data-gi-title-python="GObject.ConnectFlags.AFTER">G_CONNECT_AFTER</a> flag to this
+signal, they will never be invoked!</p>
+</blockquote>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>bin</code></em></i>
+–
+</div>
+<p>The uridecodebin.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>pad</code></em></i>
+–
+</div>
+<p>The <a href="gstreamer/gstpad.html#GstPad" data-gi-href-javascript="gstreamer/gstpad.html#GstPad" data-gi-title-javascript="Gst.Pad" data-gi-href-python="gstreamer/gstpad.html#GstPad" data-gi-title-python="Gst.Pad">GstPad</a>.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>caps</code></em></i>
+–
+</div>
+<p>The <a href="gstreamer/gstcaps.html#GstCaps" data-gi-href-javascript="gstreamer/gstcaps.html#GstCaps" data-gi-title-javascript="Gst.Caps" data-gi-href-python="gstreamer/gstcaps.html#GstCaps" data-gi-title-python="Gst.Caps">GstCaps</a> found.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>udata</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GValueArray" href="https://docs.gtk.org/gobject/struct.ValueArray.html" data-gi-href-javascript="https://docs.gtk.org/gobject/struct.ValueArray.html" data-gi-title-javascript="GObject.ValueArray" data-gi-href-python="https://docs.gtk.org/gobject/struct.ValueArray.html" data-gi-title-python="GObject.ValueArray">GValueArray</a> <span class="pointer-token">*</span><span>)</span>
+–
+			</div>
+							<p>a <a href="https://docs.gtk.org/gobject/struct.ValueArray.html" data-gi-href-javascript="https://docs.gtk.org/gobject/struct.ValueArray.html" data-gi-title-javascript="GObject.ValueArray" data-gi-href-python="https://docs.gtk.org/gobject/struct.ValueArray.html" data-gi-title-python="GObject.ValueArray">GValueArray</a>* with a list of factories to try. The factories are
+by default tried in the returned order or based on the index returned by
+"autoplug-select".</p>
+
+					</div>
+	</div>
+
+
+<p>
+	<b>Flags:</b>	
+	
+		
+				<a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS">Run Last</a>
+			
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="uridecodebin::autoplug-query">
+	
+
+
+
+<h3 data-hotdoc-id="uridecodebin::autoplug-query">
+	<i>autoplug-query</i>
+</h3>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#bool" data-gi-title-python="bool">gboolean</a>
+autoplug_query_callback (<a title="GstElement" href="gstreamer/gstelement.html#GstElement" data-gi-href-javascript="gstreamer/gstelement.html#GstElement" data-gi-title-javascript="Gst.Element" data-gi-href-python="gstreamer/gstelement.html#GstElement" data-gi-title-python="Gst.Element">GstElement</a> <span class="pointer-token">*</span> param_0,
+                         <a title="GstPad" href="gstreamer/gstpad.html#GstPad" data-gi-href-javascript="gstreamer/gstpad.html#GstPad" data-gi-title-javascript="Gst.Pad" data-gi-href-python="gstreamer/gstpad.html#GstPad" data-gi-title-python="Gst.Pad">GstPad</a> <span class="pointer-token">*</span> arg0,
+                         <a title="GstElement" href="gstreamer/gstelement.html#GstElement" data-gi-href-javascript="gstreamer/gstelement.html#GstElement" data-gi-title-javascript="Gst.Element" data-gi-href-python="gstreamer/gstelement.html#GstElement" data-gi-title-python="Gst.Element">GstElement</a> <span class="pointer-token">*</span> arg1,
+                         <a title="GstQuery" href="gstreamer/gstquery.html#GstQuery" data-gi-href-javascript="gstreamer/gstquery.html#GstQuery" data-gi-title-javascript="Gst.Query" data-gi-href-python="gstreamer/gstquery.html#GstQuery" data-gi-title-python="Gst.Query">GstQuery</a> <span class="pointer-token">*</span> arg2,
+                         <a title="gpointer" href="https://docs.gtk.org/glib/types.html#gpointer" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" data-gi-title-javascript="Object" data-gi-href-python="https://docs.python.org/3/library/functions.html#object" data-gi-title-python="object">gpointer</a> udata)</pre>
+<pre class="python-prototype language-python">
+<code>def autoplug_query_callback (param_0, arg0, arg1, arg2, udata):
+    #python callback for the 'autoplug-query' signal</code></pre>
+<pre class="javascript-prototype language-javascript">
+<code>function autoplug_query_callback(param_0: <a title="GstElement" href="gstreamer/gstelement.html#GstElement" data-gi-href-javascript="gstreamer/gstelement.html#GstElement" data-gi-title-javascript="Gst.Element" data-gi-href-python="gstreamer/gstelement.html#GstElement" data-gi-title-python="Gst.Element">GstElement</a> <span class="pointer-token">*</span> param_0, arg0: <a title="GstPad" href="gstreamer/gstpad.html#GstPad" data-gi-href-javascript="gstreamer/gstpad.html#GstPad" data-gi-title-javascript="Gst.Pad" data-gi-href-python="gstreamer/gstpad.html#GstPad" data-gi-title-python="Gst.Pad">GstPad</a> <span class="pointer-token">*</span> arg0, arg1: <a title="GstElement" href="gstreamer/gstelement.html#GstElement" data-gi-href-javascript="gstreamer/gstelement.html#GstElement" data-gi-title-javascript="Gst.Element" data-gi-href-python="gstreamer/gstelement.html#GstElement" data-gi-title-python="Gst.Element">GstElement</a> <span class="pointer-token">*</span> arg1, arg2: <a title="GstQuery" href="gstreamer/gstquery.html#GstQuery" data-gi-href-javascript="gstreamer/gstquery.html#GstQuery" data-gi-title-javascript="Gst.Query" data-gi-href-python="gstreamer/gstquery.html#GstQuery" data-gi-title-python="Gst.Query">GstQuery</a> <span class="pointer-token">*</span> arg2, udata: <a title="gpointer" href="https://docs.gtk.org/glib/types.html#gpointer" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" data-gi-title-javascript="Object" data-gi-href-python="https://docs.python.org/3/library/functions.html#object" data-gi-title-python="object">gpointer</a> udata): {
+    // javascript callback for the 'autoplug-query' signal
+}</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>param_0</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>arg0</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>arg1</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>arg2</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>udata</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#bool" data-gi-title-python="bool">gboolean</a><span>)</span>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+<p>
+	<b>Flags:</b>	
+	
+		
+				<a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS">Run Last</a>
+			
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="uridecodebin::autoplug-select">
+	
+
+
+
+<h3 data-hotdoc-id="uridecodebin::autoplug-select">
+	<i>autoplug-select</i>
+</h3>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GstAutoplugSelectResult" href="playback/uridecodebin.html#GstAutoplugSelectResult">GstAutoplugSelectResult</a> <span class="pointer-token">*</span>
+autoplug_select_callback (<a title="GstElement" href="gstreamer/gstelement.html#GstElement" data-gi-href-javascript="gstreamer/gstelement.html#GstElement" data-gi-title-javascript="Gst.Element" data-gi-href-python="gstreamer/gstelement.html#GstElement" data-gi-title-python="Gst.Element">GstElement</a> <span class="pointer-token">*</span> bin,
+                          <a title="GstPad" href="gstreamer/gstpad.html#GstPad" data-gi-href-javascript="gstreamer/gstpad.html#GstPad" data-gi-title-javascript="Gst.Pad" data-gi-href-python="gstreamer/gstpad.html#GstPad" data-gi-title-python="Gst.Pad">GstPad</a> <span class="pointer-token">*</span> pad,
+                          <a title="GstCaps" href="gstreamer/gstcaps.html#GstCaps" data-gi-href-javascript="gstreamer/gstcaps.html#GstCaps" data-gi-title-javascript="Gst.Caps" data-gi-href-python="gstreamer/gstcaps.html#GstCaps" data-gi-title-python="Gst.Caps">GstCaps</a> <span class="pointer-token">*</span> caps,
+                          <a title="GstElementFactory" href="gstreamer/gstelementfactory.html#GstElementFactory" data-gi-href-javascript="gstreamer/gstelementfactory.html#GstElementFactory" data-gi-title-javascript="Gst.ElementFactory" data-gi-href-python="gstreamer/gstelementfactory.html#GstElementFactory" data-gi-title-python="Gst.ElementFactory">GstElementFactory</a> <span class="pointer-token">*</span> factory,
+                          <a title="gpointer" href="https://docs.gtk.org/glib/types.html#gpointer" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" data-gi-title-javascript="Object" data-gi-href-python="https://docs.python.org/3/library/functions.html#object" data-gi-title-python="object">gpointer</a> udata)</pre>
+<pre class="python-prototype language-python">
+<code>def autoplug_select_callback (bin, pad, caps, factory, udata):
+    #python callback for the 'autoplug-select' signal</code></pre>
+<pre class="javascript-prototype language-javascript">
+<code>function autoplug_select_callback(bin: <a title="GstElement" href="gstreamer/gstelement.html#GstElement" data-gi-href-javascript="gstreamer/gstelement.html#GstElement" data-gi-title-javascript="Gst.Element" data-gi-href-python="gstreamer/gstelement.html#GstElement" data-gi-title-python="Gst.Element">GstElement</a> <span class="pointer-token">*</span> bin, pad: <a title="GstPad" href="gstreamer/gstpad.html#GstPad" data-gi-href-javascript="gstreamer/gstpad.html#GstPad" data-gi-title-javascript="Gst.Pad" data-gi-href-python="gstreamer/gstpad.html#GstPad" data-gi-title-python="Gst.Pad">GstPad</a> <span class="pointer-token">*</span> pad, caps: <a title="GstCaps" href="gstreamer/gstcaps.html#GstCaps" data-gi-href-javascript="gstreamer/gstcaps.html#GstCaps" data-gi-title-javascript="Gst.Caps" data-gi-href-python="gstreamer/gstcaps.html#GstCaps" data-gi-title-python="Gst.Caps">GstCaps</a> <span class="pointer-token">*</span> caps, factory: <a title="GstElementFactory" href="gstreamer/gstelementfactory.html#GstElementFactory" data-gi-href-javascript="gstreamer/gstelementfactory.html#GstElementFactory" data-gi-title-javascript="Gst.ElementFactory" data-gi-href-python="gstreamer/gstelementfactory.html#GstElementFactory" data-gi-title-python="Gst.ElementFactory">GstElementFactory</a> <span class="pointer-token">*</span> factory, udata: <a title="gpointer" href="https://docs.gtk.org/glib/types.html#gpointer" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" data-gi-title-javascript="Object" data-gi-href-python="https://docs.python.org/3/library/functions.html#object" data-gi-title-python="object">gpointer</a> udata): {
+    // javascript callback for the 'autoplug-select' signal
+}</code></pre>
+
+<p>This signal is emitted once uridecodebin has found all the possible
+<a href="gstreamer/gstelementfactory.html#GstElementFactory" data-gi-href-javascript="gstreamer/gstelementfactory.html#GstElementFactory" data-gi-title-javascript="Gst.ElementFactory" data-gi-href-python="gstreamer/gstelementfactory.html#GstElementFactory" data-gi-title-python="Gst.ElementFactory">GstElementFactory</a> that can be used to handle the given <em>caps</em>. For each of
+those factories, this signal is emitted.</p>
+<p>The signal handler should return a <a href="playback/uridecodebin.html#GstAutoplugSelectResult">GstAutoplugSelectResult</a> enum
+value indicating what decodebin should do next.</p>
+<p>A value of <a href="playback/uridecodebin.html#GstAutoplugSelectResult::try">try</a> will try to autoplug an element from
+<em>factory</em>.</p>
+<p>A value of <a href="playback/uridecodebin.html#GstAutoplugSelectResult::expose">expose</a> will expose <em>pad</em> without plugging
+any element to it.</p>
+<p>A value of <a href="playback/uridecodebin.html#GstAutoplugSelectResult::skip">skip</a> will skip <em>factory</em> and move to the
+next factory.</p>
+<blockquote>
+<p>The signal handler will not be invoked if any of the previously
+registered signal handlers (if any) return a value other than
+GST_AUTOPLUG_SELECT_TRY. Which also means that if you return
+GST_AUTOPLUG_SELECT_TRY from one signal handler, handlers that get
+registered next (again, if any) can override that decision.</p>
+</blockquote>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>bin</code></em></i>
+–
+</div>
+<p>The uridecodebin.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>pad</code></em></i>
+–
+</div>
+<p>The <a href="gstreamer/gstpad.html#GstPad" data-gi-href-javascript="gstreamer/gstpad.html#GstPad" data-gi-title-javascript="Gst.Pad" data-gi-href-python="gstreamer/gstpad.html#GstPad" data-gi-title-python="Gst.Pad">GstPad</a>.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>caps</code></em></i>
+–
+</div>
+<p>The <a href="gstreamer/gstcaps.html#GstCaps" data-gi-href-javascript="gstreamer/gstcaps.html#GstCaps" data-gi-title-javascript="Gst.Caps" data-gi-href-python="gstreamer/gstcaps.html#GstCaps" data-gi-title-python="Gst.Caps">GstCaps</a>.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>factory</code></em></i>
+–
+</div>
+<p>A <a href="gstreamer/gstelementfactory.html#GstElementFactory" data-gi-href-javascript="gstreamer/gstelementfactory.html#GstElementFactory" data-gi-title-javascript="Gst.ElementFactory" data-gi-href-python="gstreamer/gstelementfactory.html#GstElementFactory" data-gi-title-python="Gst.ElementFactory">GstElementFactory</a> to use.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>udata</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GstAutoplugSelectResult" href="playback/uridecodebin.html#GstAutoplugSelectResult">GstAutoplugSelectResult</a> <span class="pointer-token">*</span><span>)</span>
+–
+			</div>
+							<p>a <a href="playback/uridecodebin.html#GstAutoplugSelectResult">GstAutoplugSelectResult</a> that indicates the required
+operation. The default handler will always return
+<a href="playback/uridecodebin.html#GstAutoplugSelectResult::try">try</a>.</p>
+
+					</div>
+	</div>
+
+
+<p>
+	<b>Flags:</b>	
+	
+		
+				<a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS">Run Last</a>
+			
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="uridecodebin::autoplug-sort">
+	
+
+
+
+<h3 data-hotdoc-id="uridecodebin::autoplug-sort">
+	<i>autoplug-sort</i>
+</h3>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GValueArray" href="https://docs.gtk.org/gobject/struct.ValueArray.html" data-gi-href-javascript="https://docs.gtk.org/gobject/struct.ValueArray.html" data-gi-title-javascript="GObject.ValueArray" data-gi-href-python="https://docs.gtk.org/gobject/struct.ValueArray.html" data-gi-title-python="GObject.ValueArray">GValueArray</a> <span class="pointer-token">*</span>
+autoplug_sort_callback (<a title="GstElement" href="gstreamer/gstelement.html#GstElement" data-gi-href-javascript="gstreamer/gstelement.html#GstElement" data-gi-title-javascript="Gst.Element" data-gi-href-python="gstreamer/gstelement.html#GstElement" data-gi-title-python="Gst.Element">GstElement</a> <span class="pointer-token">*</span> bin,
+                        <a title="GstPad" href="gstreamer/gstpad.html#GstPad" data-gi-href-javascript="gstreamer/gstpad.html#GstPad" data-gi-title-javascript="Gst.Pad" data-gi-href-python="gstreamer/gstpad.html#GstPad" data-gi-title-python="Gst.Pad">GstPad</a> <span class="pointer-token">*</span> pad,
+                        <a title="GstCaps" href="gstreamer/gstcaps.html#GstCaps" data-gi-href-javascript="gstreamer/gstcaps.html#GstCaps" data-gi-title-javascript="Gst.Caps" data-gi-href-python="gstreamer/gstcaps.html#GstCaps" data-gi-title-python="Gst.Caps">GstCaps</a> <span class="pointer-token">*</span> caps,
+                        <a title="GValueArray" href="https://docs.gtk.org/gobject/struct.ValueArray.html" data-gi-href-javascript="https://docs.gtk.org/gobject/struct.ValueArray.html" data-gi-title-javascript="GObject.ValueArray" data-gi-href-python="https://docs.gtk.org/gobject/struct.ValueArray.html" data-gi-title-python="GObject.ValueArray">GValueArray</a> <span class="pointer-token">*</span> factories,
+                        <a title="gpointer" href="https://docs.gtk.org/glib/types.html#gpointer" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" data-gi-title-javascript="Object" data-gi-href-python="https://docs.python.org/3/library/functions.html#object" data-gi-title-python="object">gpointer</a> udata)</pre>
+<pre class="python-prototype language-python">
+<code>def autoplug_sort_callback (bin, pad, caps, factories, udata):
+    #python callback for the 'autoplug-sort' signal</code></pre>
+<pre class="javascript-prototype language-javascript">
+<code>function autoplug_sort_callback(bin: <a title="GstElement" href="gstreamer/gstelement.html#GstElement" data-gi-href-javascript="gstreamer/gstelement.html#GstElement" data-gi-title-javascript="Gst.Element" data-gi-href-python="gstreamer/gstelement.html#GstElement" data-gi-title-python="Gst.Element">GstElement</a> <span class="pointer-token">*</span> bin, pad: <a title="GstPad" href="gstreamer/gstpad.html#GstPad" data-gi-href-javascript="gstreamer/gstpad.html#GstPad" data-gi-title-javascript="Gst.Pad" data-gi-href-python="gstreamer/gstpad.html#GstPad" data-gi-title-python="Gst.Pad">GstPad</a> <span class="pointer-token">*</span> pad, caps: <a title="GstCaps" href="gstreamer/gstcaps.html#GstCaps" data-gi-href-javascript="gstreamer/gstcaps.html#GstCaps" data-gi-title-javascript="Gst.Caps" data-gi-href-python="gstreamer/gstcaps.html#GstCaps" data-gi-title-python="Gst.Caps">GstCaps</a> <span class="pointer-token">*</span> caps, factories: <a title="GValueArray" href="https://docs.gtk.org/gobject/struct.ValueArray.html" data-gi-href-javascript="https://docs.gtk.org/gobject/struct.ValueArray.html" data-gi-title-javascript="GObject.ValueArray" data-gi-href-python="https://docs.gtk.org/gobject/struct.ValueArray.html" data-gi-title-python="GObject.ValueArray">GValueArray</a> <span class="pointer-token">*</span> factories, udata: <a title="gpointer" href="https://docs.gtk.org/glib/types.html#gpointer" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" data-gi-title-javascript="Object" data-gi-href-python="https://docs.python.org/3/library/functions.html#object" data-gi-title-python="object">gpointer</a> udata): {
+    // javascript callback for the 'autoplug-sort' signal
+}</code></pre>
+
+<p>Once decodebin has found the possible <a href="gstreamer/gstelementfactory.html#GstElementFactory" data-gi-href-javascript="gstreamer/gstelementfactory.html#GstElementFactory" data-gi-title-javascript="Gst.ElementFactory" data-gi-href-python="gstreamer/gstelementfactory.html#GstElementFactory" data-gi-title-python="Gst.ElementFactory">GstElementFactory</a> objects to try
+for <em>caps</em> on <em>pad</em>, this signal is emitted. The purpose of the signal is for
+the application to perform additional sorting or filtering on the element
+factory array.</p>
+<p>The callee should copy and modify <em>factories</em> or return <a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#NULL:CAPS" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null" data-gi-title-javascript="null" data-gi-href-python="https://docs.python.org/3/library/constants.html#None" data-gi-title-python="None">NULL</a> if the
+order should not change.</p>
+<blockquote>
+<p>Invocation of signal handlers stops after one signal handler has
+returned something else than <a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#NULL:CAPS" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null" data-gi-title-javascript="null" data-gi-href-python="https://docs.python.org/3/library/constants.html#None" data-gi-title-python="None">NULL</a>. Signal handlers are invoked in
+the order they were connected in.
+Don't connect signal handlers with the <a href="https://docs.gtk.org/gobject/flags.ConnectFlags.html" data-gi-href-javascript="https://docs.gtk.org/gobject/flags.ConnectFlags.html" data-gi-title-javascript="GObject.ConnectFlags.AFTER" data-gi-href-python="https://docs.gtk.org/gobject/flags.ConnectFlags.html" data-gi-title-python="GObject.ConnectFlags.AFTER">G_CONNECT_AFTER</a> flag to this
+signal, they will never be invoked!</p>
+</blockquote>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>bin</code></em></i>
+–
+</div>
+<p>The uridecodebin.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>pad</code></em></i>
+–
+</div>
+<p>The <a href="gstreamer/gstpad.html#GstPad" data-gi-href-javascript="gstreamer/gstpad.html#GstPad" data-gi-title-javascript="Gst.Pad" data-gi-href-python="gstreamer/gstpad.html#GstPad" data-gi-title-python="Gst.Pad">GstPad</a>.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>caps</code></em></i>
+–
+</div>
+<p>The <a href="gstreamer/gstcaps.html#GstCaps" data-gi-href-javascript="gstreamer/gstcaps.html#GstCaps" data-gi-title-javascript="Gst.Caps" data-gi-href-python="gstreamer/gstcaps.html#GstCaps" data-gi-title-python="Gst.Caps">GstCaps</a>.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>factories</code></em></i>
+–
+</div>
+<p>A <a href="https://docs.gtk.org/gobject/struct.ValueArray.html" data-gi-href-javascript="https://docs.gtk.org/gobject/struct.ValueArray.html" data-gi-title-javascript="GObject.ValueArray" data-gi-href-python="https://docs.gtk.org/gobject/struct.ValueArray.html" data-gi-title-python="GObject.ValueArray">GValueArray</a> of possible <a href="gstreamer/gstelementfactory.html#GstElementFactory" data-gi-href-javascript="gstreamer/gstelementfactory.html#GstElementFactory" data-gi-title-javascript="Gst.ElementFactory" data-gi-href-python="gstreamer/gstelementfactory.html#GstElementFactory" data-gi-title-python="Gst.ElementFactory">GstElementFactory</a> to use.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>udata</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GValueArray" href="https://docs.gtk.org/gobject/struct.ValueArray.html" data-gi-href-javascript="https://docs.gtk.org/gobject/struct.ValueArray.html" data-gi-title-javascript="GObject.ValueArray" data-gi-href-python="https://docs.gtk.org/gobject/struct.ValueArray.html" data-gi-title-python="GObject.ValueArray">GValueArray</a> <span class="pointer-token">*</span><span>)</span>
+–
+			</div>
+							<p>A new sorted array of <a href="gstreamer/gstelementfactory.html#GstElementFactory" data-gi-href-javascript="gstreamer/gstelementfactory.html#GstElementFactory" data-gi-title-javascript="Gst.ElementFactory" data-gi-href-python="gstreamer/gstelementfactory.html#GstElementFactory" data-gi-title-python="Gst.ElementFactory">GstElementFactory</a> objects.</p>
+
+					</div>
+	</div>
+
+
+<p>
+	<b>Flags:</b>	
+	
+		
+				<a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS">Run Last</a>
+			
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="uridecodebin::drained">
+	
+
+
+
+<h3 data-hotdoc-id="uridecodebin::drained">
+	<i>drained</i>
+</h3>
+
+
+
+
+<pre class="c-prototype language-c">
+drained_callback (<a title="GstElement" href="gstreamer/gstelement.html#GstElement" data-gi-href-javascript="gstreamer/gstelement.html#GstElement" data-gi-title-javascript="Gst.Element" data-gi-href-python="gstreamer/gstelement.html#GstElement" data-gi-title-python="Gst.Element">GstElement</a> <span class="pointer-token">*</span> param_0,
+                  <a title="gpointer" href="https://docs.gtk.org/glib/types.html#gpointer" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" data-gi-title-javascript="Object" data-gi-href-python="https://docs.python.org/3/library/functions.html#object" data-gi-title-python="object">gpointer</a> udata)</pre>
+<pre class="python-prototype language-python">
+<code>def drained_callback (param_0, udata):
+    #python callback for the 'drained' signal</code></pre>
+<pre class="javascript-prototype language-javascript">
+<code>function drained_callback(param_0: <a title="GstElement" href="gstreamer/gstelement.html#GstElement" data-gi-href-javascript="gstreamer/gstelement.html#GstElement" data-gi-title-javascript="Gst.Element" data-gi-href-python="gstreamer/gstelement.html#GstElement" data-gi-title-python="Gst.Element">GstElement</a> <span class="pointer-token">*</span> param_0, udata: <a title="gpointer" href="https://docs.gtk.org/glib/types.html#gpointer" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" data-gi-title-javascript="Object" data-gi-href-python="https://docs.python.org/3/library/functions.html#object" data-gi-title-python="object">gpointer</a> udata): {
+    // javascript callback for the 'drained' signal
+}</code></pre>
+
+<p>This signal is emitted when the data for the current uri is played.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>param_0</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>udata</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+<p>
+	<b>Flags:</b>	
+	
+		
+				<a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS">Run Last</a>
+			
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="uridecodebin::source-setup">
+	
+
+
+
+<h3 data-hotdoc-id="uridecodebin::source-setup">
+	<i>source-setup</i>
+</h3>
+
+
+
+
+<pre class="c-prototype language-c">
+source_setup_callback (<a title="GstElement" href="gstreamer/gstelement.html#GstElement" data-gi-href-javascript="gstreamer/gstelement.html#GstElement" data-gi-title-javascript="Gst.Element" data-gi-href-python="gstreamer/gstelement.html#GstElement" data-gi-title-python="Gst.Element">GstElement</a> <span class="pointer-token">*</span> bin,
+                       <a title="GstElement" href="gstreamer/gstelement.html#GstElement" data-gi-href-javascript="gstreamer/gstelement.html#GstElement" data-gi-title-javascript="Gst.Element" data-gi-href-python="gstreamer/gstelement.html#GstElement" data-gi-title-python="Gst.Element">GstElement</a> <span class="pointer-token">*</span> source,
+                       <a title="gpointer" href="https://docs.gtk.org/glib/types.html#gpointer" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" data-gi-title-javascript="Object" data-gi-href-python="https://docs.python.org/3/library/functions.html#object" data-gi-title-python="object">gpointer</a> udata)</pre>
+<pre class="python-prototype language-python">
+<code>def source_setup_callback (bin, source, udata):
+    #python callback for the 'source-setup' signal</code></pre>
+<pre class="javascript-prototype language-javascript">
+<code>function source_setup_callback(bin: <a title="GstElement" href="gstreamer/gstelement.html#GstElement" data-gi-href-javascript="gstreamer/gstelement.html#GstElement" data-gi-title-javascript="Gst.Element" data-gi-href-python="gstreamer/gstelement.html#GstElement" data-gi-title-python="Gst.Element">GstElement</a> <span class="pointer-token">*</span> bin, source: <a title="GstElement" href="gstreamer/gstelement.html#GstElement" data-gi-href-javascript="gstreamer/gstelement.html#GstElement" data-gi-title-javascript="Gst.Element" data-gi-href-python="gstreamer/gstelement.html#GstElement" data-gi-title-python="Gst.Element">GstElement</a> <span class="pointer-token">*</span> source, udata: <a title="gpointer" href="https://docs.gtk.org/glib/types.html#gpointer" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" data-gi-title-javascript="Object" data-gi-href-python="https://docs.python.org/3/library/functions.html#object" data-gi-title-python="object">gpointer</a> udata): {
+    // javascript callback for the 'source-setup' signal
+}</code></pre>
+
+<p>This signal is emitted after the source element has been created, so
+it can be configured by setting additional properties (e.g. set a
+proxy server for an http source, or set the device and read speed for
+an audio cd source). This is functionally equivalent to connecting to
+the notify::source signal, but more convenient.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>bin</code></em></i>
+–
+</div>
+<p>the uridecodebin.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>source</code></em></i>
+–
+</div>
+<p>source element</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>udata</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+<p>
+	<b>Flags:</b>	
+	
+		
+				<a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS">Run Last</a>
+			
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="uridecodebin::unknown-type">
+	
+
+
+
+<h3 data-hotdoc-id="uridecodebin::unknown-type">
+	<i>unknown-type</i>
+</h3>
+
+
+
+
+<pre class="c-prototype language-c">
+unknown_type_callback (<a title="GstElement" href="gstreamer/gstelement.html#GstElement" data-gi-href-javascript="gstreamer/gstelement.html#GstElement" data-gi-title-javascript="Gst.Element" data-gi-href-python="gstreamer/gstelement.html#GstElement" data-gi-title-python="Gst.Element">GstElement</a> <span class="pointer-token">*</span> bin,
+                       <a title="GstPad" href="gstreamer/gstpad.html#GstPad" data-gi-href-javascript="gstreamer/gstpad.html#GstPad" data-gi-title-javascript="Gst.Pad" data-gi-href-python="gstreamer/gstpad.html#GstPad" data-gi-title-python="Gst.Pad">GstPad</a> <span class="pointer-token">*</span> pad,
+                       <a title="GstCaps" href="gstreamer/gstcaps.html#GstCaps" data-gi-href-javascript="gstreamer/gstcaps.html#GstCaps" data-gi-title-javascript="Gst.Caps" data-gi-href-python="gstreamer/gstcaps.html#GstCaps" data-gi-title-python="Gst.Caps">GstCaps</a> <span class="pointer-token">*</span> caps,
+                       <a title="gpointer" href="https://docs.gtk.org/glib/types.html#gpointer" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" data-gi-title-javascript="Object" data-gi-href-python="https://docs.python.org/3/library/functions.html#object" data-gi-title-python="object">gpointer</a> udata)</pre>
+<pre class="python-prototype language-python">
+<code>def unknown_type_callback (bin, pad, caps, udata):
+    #python callback for the 'unknown-type' signal</code></pre>
+<pre class="javascript-prototype language-javascript">
+<code>function unknown_type_callback(bin: <a title="GstElement" href="gstreamer/gstelement.html#GstElement" data-gi-href-javascript="gstreamer/gstelement.html#GstElement" data-gi-title-javascript="Gst.Element" data-gi-href-python="gstreamer/gstelement.html#GstElement" data-gi-title-python="Gst.Element">GstElement</a> <span class="pointer-token">*</span> bin, pad: <a title="GstPad" href="gstreamer/gstpad.html#GstPad" data-gi-href-javascript="gstreamer/gstpad.html#GstPad" data-gi-title-javascript="Gst.Pad" data-gi-href-python="gstreamer/gstpad.html#GstPad" data-gi-title-python="Gst.Pad">GstPad</a> <span class="pointer-token">*</span> pad, caps: <a title="GstCaps" href="gstreamer/gstcaps.html#GstCaps" data-gi-href-javascript="gstreamer/gstcaps.html#GstCaps" data-gi-title-javascript="Gst.Caps" data-gi-href-python="gstreamer/gstcaps.html#GstCaps" data-gi-title-python="Gst.Caps">GstCaps</a> <span class="pointer-token">*</span> caps, udata: <a title="gpointer" href="https://docs.gtk.org/glib/types.html#gpointer" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" data-gi-title-javascript="Object" data-gi-href-python="https://docs.python.org/3/library/functions.html#object" data-gi-title-python="object">gpointer</a> udata): {
+    // javascript callback for the 'unknown-type' signal
+}</code></pre>
+
+<p>This signal is emitted when a pad for which there is no further possible
+decoding is added to the uridecodebin.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>bin</code></em></i>
+–
+</div>
+<p>The uridecodebin.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>pad</code></em></i>
+–
+</div>
+<p>the new pad containing caps that cannot be resolved to a 'final'.
+stream type.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>caps</code></em></i>
+–
+</div>
+<p>the <a href="gstreamer/gstcaps.html#GstCaps" data-gi-href-javascript="gstreamer/gstcaps.html#GstCaps" data-gi-title-javascript="Gst.Caps" data-gi-href-python="gstreamer/gstcaps.html#GstCaps" data-gi-title-python="Gst.Caps">GstCaps</a> of the pad that cannot be resolved.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>udata</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+<p>
+	<b>Flags:</b>	
+	
+		
+				<a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS">Run Last</a>
+			
+</p>
+
+
+
+<hr>
+
+</div>
+
+
+            <h2 class="symbol_section">Properties</h2>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="uridecodebin:buffer-duration">
+	
+
+
+
+<h3 data-hotdoc-id="uridecodebin:buffer-duration">
+	<i>buffer-duration</i>
+</h3>
+
+
+<pre class="property_signature">
+“buffer-duration” <span class="type"><a title="gint64" href="https://docs.gtk.org/glib/types.html#gint64" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">gint64</a></span>
+</pre>
+
+<p>Buffer duration when buffering streams (-1 default value)</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	18446744073709551615
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="uridecodebin:buffer-size">
+	
+
+
+
+<h3 data-hotdoc-id="uridecodebin:buffer-size">
+	<i>buffer-size</i>
+</h3>
+
+
+<pre class="property_signature">
+“buffer-size” <span class="type"><a title="gint" href="https://docs.gtk.org/glib/types.html#gint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">gint</a></span>
+</pre>
+
+<p>Buffer size when buffering streams (-1 default value)</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	-1
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="uridecodebin:caps">
+	
+
+
+
+<h3 data-hotdoc-id="uridecodebin:caps">
+	<i>caps</i>
+</h3>
+
+
+<pre class="property_signature">
+“caps” <span class="type"><a title="GstCaps" href="gstreamer/gstcaps.html#GstCaps" data-gi-href-javascript="gstreamer/gstcaps.html#GstCaps" data-gi-title-javascript="Gst.Caps" data-gi-href-python="gstreamer/gstcaps.html#GstCaps" data-gi-title-python="Gst.Caps">GstCaps</a> <span class="pointer-token">*</span></span>
+</pre>
+
+<p>The caps on which to stop decoding. (NULL = default)</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	</p>
+<pre class="language-yaml"><code class="language-yaml">video/x-raw(ANY); audio/x-raw(ANY); text/x-raw(ANY); subpicture/x-dvd; subpicture/x-dvb; subpicture/x-xsub; subpicture/x-pgs; closedcaption/x-cea-608; closedcaption/x-cea-708; application/x-onvif-metadata; meta/x-klv; meta/x-id3; meta/x-st-2038</code></pre>
+
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="uridecodebin:connection-speed">
+	
+
+
+
+<h3 data-hotdoc-id="uridecodebin:connection-speed">
+	<i>connection-speed</i>
+</h3>
+
+
+<pre class="property_signature">
+“connection-speed” <span class="type"><a title="guint64" href="https://docs.gtk.org/glib/types.html#guint64" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">guint64</a></span>
+</pre>
+
+<p>Network connection speed in kbps (0 = unknown)</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	0
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="uridecodebin:download">
+	
+
+
+
+<h3 data-hotdoc-id="uridecodebin:download">
+	<i>download</i>
+</h3>
+
+
+<pre class="property_signature">
+“download” <span class="type"><a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#bool" data-gi-title-python="bool">gboolean</a></span>
+</pre>
+
+<p>For certain media type, enable download buffering.</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	false
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="uridecodebin:expose-all-streams">
+	
+
+
+
+<h3 data-hotdoc-id="uridecodebin:expose-all-streams">
+	<i>expose-all-streams</i>
+</h3>
+
+
+<pre class="property_signature">
+“expose-all-streams” <span class="type"><a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#bool" data-gi-title-python="bool">gboolean</a></span>
+</pre>
+
+<p>Expose streams of unknown type.</p>
+<p>If set to <a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#FALSE:CAPS" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean" data-gi-title-javascript="false" data-gi-href-python="https://docs.python.org/3/library/constants.html#False" data-gi-title-python="False">FALSE</a>, then only the streams that can be decoded to the final
+caps (see 'caps' property) will have a pad exposed. Streams that do not
+match those caps but could have been decoded will not have decoder plugged
+in internally and will not have a pad exposed.</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	true
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.18;" id="uridecodebin:force-sw-decoders">
+	
+
+
+
+<h3 data-hotdoc-id="uridecodebin:force-sw-decoders">
+	<i>force-sw-decoders</i>
+</h3>
+
+
+<pre class="property_signature">
+“force-sw-decoders” <span class="type"><a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#bool" data-gi-title-python="bool">gboolean</a></span>
+</pre>
+
+<p>While auto-plugging, if set to <a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#TRUE:CAPS" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean" data-gi-title-javascript="true" data-gi-href-python="https://docs.python.org/3/library/constants.html#True" data-gi-title-python="True">TRUE</a>, those decoders within
+"Hardware" klass will be ignored. Otherwise they will be tried.</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	false
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.22;" id="uridecodebin:post-stream-topology">
+	
+
+
+
+<h3 data-hotdoc-id="uridecodebin:post-stream-topology">
+	<i>post-stream-topology</i>
+</h3>
+
+
+<pre class="property_signature">
+“post-stream-topology” <span class="type"><a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#bool" data-gi-title-python="bool">gboolean</a></span>
+</pre>
+
+<p>Post stream-topology messages on the bus every time the topology changes.</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	false
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.22
+		</p>
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="uridecodebin:ring-buffer-max-size">
+	
+
+
+
+<h3 data-hotdoc-id="uridecodebin:ring-buffer-max-size">
+	<i>ring-buffer-max-size</i>
+</h3>
+
+
+<pre class="property_signature">
+“ring-buffer-max-size” <span class="type"><a title="guint64" href="https://docs.gtk.org/glib/types.html#guint64" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">guint64</a></span>
+</pre>
+
+<p>The maximum size of the ring buffer in kilobytes. If set to 0, the ring
+buffer is disabled. Default is 0.</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	0
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="uridecodebin:source">
+	
+
+
+
+<h3 data-hotdoc-id="uridecodebin:source">
+	<i>source</i>
+</h3>
+
+
+<pre class="property_signature">
+“source” <span class="type"><a title="GstElement" href="gstreamer/gstelement.html#GstElement" data-gi-href-javascript="gstreamer/gstelement.html#GstElement" data-gi-title-javascript="Gst.Element" data-gi-href-python="gstreamer/gstelement.html#GstElement" data-gi-title-python="Gst.Element">GstElement</a> <span class="pointer-token">*</span></span>
+</pre>
+
+<p>Source object used</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="uridecodebin:subtitle-encoding">
+	
+
+
+
+<h3 data-hotdoc-id="uridecodebin:subtitle-encoding">
+	<i>subtitle-encoding</i>
+</h3>
+
+
+<pre class="property_signature">
+“subtitle-encoding” <span class="type"><a title="gchararray" href="https://web.mit.edu/barnowl/share/gtk-doc/html/gobject/gobject-Standard-Parameter-and-Value-Types.html#gchararray" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" data-gi-title-javascript="String" data-gi-href-python="https://docs.python.org/3/library/functions.html#func-str" data-gi-title-python="str">gchararray</a></span>
+</pre>
+
+<p>Encoding to assume if input subtitles are not in UTF-8 encoding. If not set, the GST_SUBTITLE_ENCODING environment variable will be checked for an encoding to use. If that is not set either, ISO-8859-15 will be assumed.</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	NULL
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="uridecodebin:uri">
+	
+
+
+
+<h3 data-hotdoc-id="uridecodebin:uri">
+	<i>uri</i>
+</h3>
+
+
+<pre class="property_signature">
+“uri” <span class="type"><a title="gchararray" href="https://web.mit.edu/barnowl/share/gtk-doc/html/gobject/gobject-Standard-Parameter-and-Value-Types.html#gchararray" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" data-gi-title-javascript="String" data-gi-href-python="https://docs.python.org/3/library/functions.html#func-str" data-gi-title-python="str">gchararray</a></span>
+</pre>
+
+<p>URI to decode</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	NULL
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="uridecodebin:use-buffering">
+	
+
+
+
+<h3 data-hotdoc-id="uridecodebin:use-buffering">
+	<i>use-buffering</i>
+</h3>
+
+
+<pre class="property_signature">
+“use-buffering” <span class="type"><a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#bool" data-gi-title-python="bool">gboolean</a></span>
+</pre>
+
+<p>Emit BUFFERING messages based on low-/high-percent thresholds of the
+demuxed or parsed data.
+When download buffering is activated and used for the current media
+type, this property does nothing. Otherwise perform buffering on the
+demuxed or parsed media.</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	false
+</p>
+
+
+
+<hr>
+
+</div>
+
+
+            <h2 class="symbol_section">Named constants</h2>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstAutoplugSelectResult">
+	
+
+
+
+<h3 data-hotdoc-id="GstAutoplugSelectResult">
+	<i>GstAutoplugSelectResult</i>
+</h3>
+
+
+<p>return values for the autoplug-select signal.</p>
+
+
+
+
+	<div class="members-container">
+		<h4>Members</h4>
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstAutoplugSelectResult::try">
+        <code>try</code> (<i>0</i>) – GST_AUTOPLUG_SELECT_TRY
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstAutoplugSelectResult::expose">
+        <code>expose</code> (<i>1</i>) – GST_AUTOPLUG_SELECT_EXPOSE
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstAutoplugSelectResult::skip">
+        <code>skip</code> (<i>2</i>) – GST_AUTOPLUG_SELECT_SKIP
+        </div>
+    
+			</div>
+
+
+
+
+<hr>
+
+</div>
+
+
+
+
+
+
+		
+	</div>
+	<div id="search_results">
+		<p>The results of the search are</p>
+	</div>
+	<div id="footer">
+		    
+
+	</div>
+</div>
+
+<div id="toc-column">
+	
+		<div class="edit-button">
+		
+
+	</div>
+		<div id="toc-wrapper">
+		<nav id="toc"></nav>
+	</div>
+</div>
+</div>
+</main>
+
+
+<script src="assets/js/navbar_offset_scroller.js"></script>
+</body>
+</html>

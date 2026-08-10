@@ -1,0 +1,1469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<base href="..">
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<title>ID3 tag utils</title>
+
+<link rel="stylesheet" href="assets/css/dark-frontend.css" type="text/css" title="dark">
+<link rel="alternate stylesheet" href="assets/css/light-frontend.css" type="text/css" title="light">
+<link rel="stylesheet" href="assets/css/bootstrap-toc.min.css" type="text/css">
+<link rel="stylesheet" href="assets/css/jquery.mCustomScrollbar.min.css">
+<link rel="stylesheet" href="assets/js/search/enable_search.css" type="text/css">
+
+<link rel="stylesheet" href="assets/css/extra_frontend.css" type="text/css">
+<link rel="stylesheet" href="assets/css/devhelp.css" type="text/css">
+
+<link rel="stylesheet" href="assets/css/prism-tomorrow.css" type="text/css" title="dark">
+
+<link rel="alternate stylesheet" href="assets/css/prism.css" type="text/css" title="light">
+
+<script src="assets/js/mustache.min.js"></script>
+<script src="assets/js/jquery.js"></script>
+<script src="assets/js/bootstrap.js"></script>
+<script src="assets/js/scrollspy.js"></script>
+<script src="assets/js/typeahead.jquery.min.js"></script>
+<script src="assets/js/search.js"></script>
+<script src="assets/js/compare-versions.js"></script>
+<script src="assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="assets/js/bootstrap-toc.min.js"></script>
+<script src="assets/js/jquery.touchSwipe.min.js"></script>
+<script src="assets/js/anchor.min.js"></script>
+<script src="assets/js/tag_filtering.js"></script>
+<script src="assets/js/language_switching.js"></script>
+<script src="assets/js/styleswitcher.js"></script>
+
+<script src="assets/js/lines_around_headings.js"></script>
+
+<script src="assets/js/prism-core.js"></script>
+<script src="assets/js/prism-autoloader.js"></script>
+<script src="assets/js/prism_autoloader_path_override.js"></script>
+<script src="assets/js/trie.js"></script>
+
+<!-- generic -->
+<link rel="icon" type="image/png" href="assets/images/favicon-16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="assets/images/favicon-32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="assets/images/favicon-57.png" sizes="57x57">
+<link rel="icon" type="image/png" href="assets/images/favicon-64.png" sizes="64x64">
+<link rel="icon" type="image/png" href="assets/images/favicon-76.png" sizes="76x76">
+<link rel="icon" type="image/png" href="assets/images/favicon-96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="assets/images/favicon-128.png" sizes="128x128">
+<link rel="icon" type="image/png" href="assets/images/favicon-192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="assets/images/favicon-228.png" sizes="228x228">
+
+<!-- Android -->
+<link rel="shortcut icon" sizes="196x196" href="assets/images/favicon-196.png">
+
+<!-- iOS -->
+<link rel="apple-touch-icon" href="assets/images/favicon-120.png" sizes="120x120">
+<link rel="apple-touch-icon" href="assets/images/favicon-152.png" sizes="152x152">
+<link rel="apple-touch-icon" href="assets/images/favicon-180.png" sizes="180x180">
+
+</head>
+
+<body class="no-script
+">
+
+<script>
+$('body').removeClass('no-script');
+</script>
+
+<nav class="navbar navbar-fixed-top navbar-default" id="topnav">
+	<div class="container-fluid">
+		<div class="navbar-right">
+			<a id="toc-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-wrapper" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<span title="light mode switch" class="glyphicon glyphicon-sunglasses pull-right" id="lightmode-icon"></span>
+			<form class="navbar-form pull-right" id="navbar-search-form">
+                               <div class="form-group has-feedback">
+                                       <input type="text" class="form-control input-sm" name="search" id="sidenav-lookup-field" placeholder="search" disabled>
+				       <span class="glyphicon glyphicon-search form-control-feedback" id="search-mgn-glass"></span>
+                               </div>
+                        </form>
+		</div>
+		<div class="navbar-header">
+			<a id="sidenav-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<a id="home-link" href="index.html" class="hotdoc-navbar-brand">
+				<img src="assets/images/gstreamer-logo.svg" alt="Home">
+			</a>
+		</div>
+		<div class="navbar-collapse collapse" id="navbar-wrapper">
+			<ul class="nav navbar-nav" id="menu">
+				
+<li class="dropdown">
+    <a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        API References<span class="caret"></span>
+    </a>
+	<ul class="dropdown-menu" id="modules-menu">
+					<li>
+				<a href="gstreamer/gi-index.html">GStreamer core</a>
+			</li>
+					<li>
+				<a href="libs.html">GStreamer Libraries</a>
+			</li>
+					<li>
+				<a href="plugins_doc.html">GStreamer Plugins</a>
+			</li>
+		</ul>
+</li>
+
+<li>
+    <a href="application-development/index.html">Application manual</a>
+</li>
+
+
+<li>
+    <a href="tutorials/index.html">Tutorials</a>
+</li>
+
+			</ul>
+			<div class="hidden-xs hidden-sm navbar-text navbar-center">
+							</div>
+		</div>
+	</div>
+</nav>
+
+<main>
+<div data-extension="gi-extension" data-hotdoc-in-toplevel="False" data-hotdoc-project="tag" data-hotdoc-ref="gsttagid3.html" class="page_container" id="page-wrapper" data-hotdoc-meta-gi-languages="['c', 'javascript', 'python']" data-hotdoc-meta-gi-language="c">
+<script src="assets/js/utils.js"></script>
+
+<div class="panel panel-collapse oc-collapsed" id="sidenav" data-hotdoc-role="navigation">
+	<script src="assets/js/full-width.js"></script>
+  <div id="sitenav-wrapper">
+    <iframe src="hotdoc-sitemap.html" id="sitenav-frame"></iframe>
+  </div>
+</div>
+
+<div id="body">
+	<div id="main">
+				    <div id="page-description" data-hotdoc-role="main">
+        <h1 id="id3-tag-utils-page">ID3 tag utils</h1>
+<p>Contains various utility functions for plugins to parse or create
+ID3 tags and map ID3v2 identifiers to and from GStreamer identifiers.</p>
+
+    </div>
+        
+        
+
+            <h2 class="symbol_section">Functions</h2>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_tag_from_id3_tag">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="gst_tag_from_id3_tag">
+	<i>gst_tag_from_id3_tag</i>
+</h3>
+
+
+
+
+<pre class="c-prototype language-c">
+const <a title="gchar" href="https://docs.gtk.org/glib/types.html#gchar">gchar</a> *
+gst_tag_from_id3_tag (const <a title="gchar" href="https://docs.gtk.org/glib/types.html#gchar">gchar</a> * id3_tag)</pre>
+
+<p>Looks up the GStreamer tag for a ID3v2 tag.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>id3_tag</code></em></i>
+–
+</div>
+<p>ID3v2 tag to convert to GStreamer tag</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span>
+<span class="annotation">[<abbr title="NULL may be passed to the value"><span class="acronym">nullable</span></abbr>]</span><span>)</span>
+–
+			</div>
+							<p>The corresponding GStreamer tag or NULL if none exists.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3 data-hotdoc-id="gst_tag_from_id3_tag">
+	<i>GstTag.prototype.tag_from_id3_tag</i>
+</h3>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstTag.prototype.tag_from_id3_tag(id3_tag: <a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>): {
+    // javascript wrapper for 'gst_tag_from_id3_tag'
+}</code></pre>
+
+<p>Looks up the GStreamer tag for a ID3v2 tag.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>id3_tag</code></em></i>
+<span>(</span><a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a><span>)</span>
+–
+</div>
+<p>ID3v2 tag to convert to GStreamer tag</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a><span>)</span>
+–
+			</div>
+							<p>The corresponding GStreamer tag or NULL if none exists.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3 data-hotdoc-id="gst_tag_from_id3_tag">
+	<i>GstTag.tag_from_id3_tag</i>
+</h3>
+
+
+<pre class="python-prototype language-python">
+<code>def GstTag.tag_from_id3_tag (id3_tag):
+    #python wrapper for 'gst_tag_from_id3_tag'</code></pre>
+
+<p>Looks up the GStreamer tag for a ID3v2 tag.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>id3_tag</code></em></i>
+<span>(</span><a title="str" href="https://docs.python.org/3/library/functions.html#func-str">str</a><span>)</span>
+–
+</div>
+<p>ID3v2 tag to convert to GStreamer tag</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="str" href="https://docs.python.org/3/library/functions.html#func-str">str</a><span>)</span>
+–
+			</div>
+							<p>The corresponding GStreamer tag or NULL if none exists.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_tag_from_id3_user_tag">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="gst_tag_from_id3_user_tag">
+	<i>gst_tag_from_id3_user_tag</i>
+</h3>
+
+
+
+
+<pre class="c-prototype language-c">
+const <a title="gchar" href="https://docs.gtk.org/glib/types.html#gchar">gchar</a> *
+gst_tag_from_id3_user_tag (const <a title="gchar" href="https://docs.gtk.org/glib/types.html#gchar">gchar</a> * type,
+                           const <a title="gchar" href="https://docs.gtk.org/glib/types.html#gchar">gchar</a> * id3_user_tag)</pre>
+
+<p>Looks up the GStreamer tag for an ID3v2 user tag (e.g. description in
+TXXX frame or owner in UFID frame).</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>type</code></em></i>
+–
+</div>
+<p>the type of ID3v2 user tag (e.g. "TXXX" or "UDIF")</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>id3_user_tag</code></em></i>
+–
+</div>
+<p>ID3v2 user tag to convert to GStreamer tag</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span>
+<span class="annotation">[<abbr title="NULL may be passed to the value"><span class="acronym">nullable</span></abbr>]</span><span>)</span>
+–
+			</div>
+							<p>The corresponding GStreamer tag or NULL if none exists.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3 data-hotdoc-id="gst_tag_from_id3_user_tag">
+	<i>GstTag.prototype.tag_from_id3_user_tag</i>
+</h3>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstTag.prototype.tag_from_id3_user_tag(type: <a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>, id3_user_tag: <a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>): {
+    // javascript wrapper for 'gst_tag_from_id3_user_tag'
+}</code></pre>
+
+<p>Looks up the GStreamer tag for an ID3v2 user tag (e.g. description in
+TXXX frame or owner in UFID frame).</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>type</code></em></i>
+<span>(</span><a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a><span>)</span>
+–
+</div>
+<p>the type of ID3v2 user tag (e.g. "TXXX" or "UDIF")</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>id3_user_tag</code></em></i>
+<span>(</span><a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a><span>)</span>
+–
+</div>
+<p>ID3v2 user tag to convert to GStreamer tag</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a><span>)</span>
+–
+			</div>
+							<p>The corresponding GStreamer tag or NULL if none exists.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3 data-hotdoc-id="gst_tag_from_id3_user_tag">
+	<i>GstTag.tag_from_id3_user_tag</i>
+</h3>
+
+
+<pre class="python-prototype language-python">
+<code>def GstTag.tag_from_id3_user_tag (type, id3_user_tag):
+    #python wrapper for 'gst_tag_from_id3_user_tag'</code></pre>
+
+<p>Looks up the GStreamer tag for an ID3v2 user tag (e.g. description in
+TXXX frame or owner in UFID frame).</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>type</code></em></i>
+<span>(</span><a title="str" href="https://docs.python.org/3/library/functions.html#func-str">str</a><span>)</span>
+–
+</div>
+<p>the type of ID3v2 user tag (e.g. "TXXX" or "UDIF")</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>id3_user_tag</code></em></i>
+<span>(</span><a title="str" href="https://docs.python.org/3/library/functions.html#func-str">str</a><span>)</span>
+–
+</div>
+<p>ID3v2 user tag to convert to GStreamer tag</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="str" href="https://docs.python.org/3/library/functions.html#func-str">str</a><span>)</span>
+–
+			</div>
+							<p>The corresponding GStreamer tag or NULL if none exists.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_tag_id3_genre_count">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="gst_tag_id3_genre_count">
+	<i>gst_tag_id3_genre_count</i>
+</h3>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="guint" href="https://docs.gtk.org/glib/types.html#guint">guint</a>
+gst_tag_id3_genre_count ()</pre>
+
+<p>Gets the number of ID3v1 genres that can be identified. Winamp genres are
+included.</p>
+
+
+
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p>the number of ID3v1 genres that can be identified</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3 data-hotdoc-id="gst_tag_id3_genre_count">
+	<i>GstTag.prototype.tag_id3_genre_count</i>
+</h3>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstTag.prototype.tag_id3_genre_count(): {
+    // javascript wrapper for 'gst_tag_id3_genre_count'
+}</code></pre>
+
+<p>Gets the number of ID3v1 genres that can be identified. Winamp genres are
+included.</p>
+
+
+
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+			</div>
+							<p>the number of ID3v1 genres that can be identified</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3 data-hotdoc-id="gst_tag_id3_genre_count">
+	<i>GstTag.tag_id3_genre_count</i>
+</h3>
+
+
+<pre class="python-prototype language-python">
+<code>def GstTag.tag_id3_genre_count ():
+    #python wrapper for 'gst_tag_id3_genre_count'</code></pre>
+
+<p>Gets the number of ID3v1 genres that can be identified. Winamp genres are
+included.</p>
+
+
+
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+			</div>
+							<p>the number of ID3v1 genres that can be identified</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_tag_id3_genre_get">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="gst_tag_id3_genre_get">
+	<i>gst_tag_id3_genre_get</i>
+</h3>
+
+
+
+
+<pre class="c-prototype language-c">
+const <a title="gchar" href="https://docs.gtk.org/glib/types.html#gchar">gchar</a> *
+gst_tag_id3_genre_get (const <a title="guint" href="https://docs.gtk.org/glib/types.html#guint">guint</a> id)</pre>
+
+<p>Gets the ID3v1 genre name for a given ID.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>id</code></em></i>
+–
+</div>
+<p>ID of genre to query</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span>
+<span class="annotation">[<abbr title="NULL may be passed to the value"><span class="acronym">nullable</span></abbr>]</span><span>)</span>
+–
+			</div>
+							<p>the genre or NULL if no genre is associated with that ID.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3 data-hotdoc-id="gst_tag_id3_genre_get">
+	<i>GstTag.prototype.tag_id3_genre_get</i>
+</h3>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstTag.prototype.tag_id3_genre_get(id: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>): {
+    // javascript wrapper for 'gst_tag_id3_genre_get'
+}</code></pre>
+
+<p>Gets the ID3v1 genre name for a given ID.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>id</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>ID of genre to query</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a><span>)</span>
+–
+			</div>
+							<p>the genre or NULL if no genre is associated with that ID.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3 data-hotdoc-id="gst_tag_id3_genre_get">
+	<i>GstTag.tag_id3_genre_get</i>
+</h3>
+
+
+<pre class="python-prototype language-python">
+<code>def GstTag.tag_id3_genre_get (id):
+    #python wrapper for 'gst_tag_id3_genre_get'</code></pre>
+
+<p>Gets the ID3v1 genre name for a given ID.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>id</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<p>ID of genre to query</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="str" href="https://docs.python.org/3/library/functions.html#func-str">str</a><span>)</span>
+–
+			</div>
+							<p>the genre or NULL if no genre is associated with that ID.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_tag_list_add_id3_image">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="gst_tag_list_add_id3_image">
+	<i>gst_tag_list_add_id3_image</i>
+</h3>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a>
+gst_tag_list_add_id3_image (<a title="GstTagList" href="gstreamer/gsttaglist.html#GstTagList">GstTagList</a> * tag_list,
+                            const <a title="guint8" href="https://docs.gtk.org/glib/types.html#guint8">guint8</a> * image_data,
+                            <a title="guint" href="https://docs.gtk.org/glib/types.html#guint">guint</a> image_data_len,
+                            <a title="guint" href="https://docs.gtk.org/glib/types.html#guint">guint</a> id3_picture_type)</pre>
+
+<p>Adds an image from an ID3 APIC frame (or similar, such as used in FLAC)
+to the given tag list. Also see <a href="tag/gsttag.html#gst_tag_image_data_to_image_sample">gst_tag_image_data_to_image_sample</a> for
+more information on image tags in GStreamer.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>tag_list</code></em></i>
+–
+</div>
+<p>a tag list</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>image_data</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="Parameter points to an array of items"><span class="acronym">array</span></abbr> length=image_data_len]</span><span>)</span>
+–
+</div>
+<p>the (encoded) image</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>image_data_len</code></em></i>
+–
+</div>
+<p>the length of the encoded image data at <em>image_data</em></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>id3_picture_type</code></em></i>
+–
+</div>
+<p>picture type as per the ID3 (v2.4.0) specification for
+the APIC frame (0 = unknown/other)</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p><a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#TRUE:CAPS">TRUE</a> if the image was processed, otherwise <a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#FALSE:CAPS">FALSE</a></p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3 data-hotdoc-id="gst_tag_list_add_id3_image">
+	<i>GstTag.prototype.tag_list_add_id3_image</i>
+</h3>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstTag.prototype.tag_list_add_id3_image(tag_list: <a title="Gst.TagList" href="gstreamer/gsttaglist.html#GstTagList">Gst.TagList</a>, image_data: [ <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a> ], image_data_len: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>, id3_picture_type: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>): {
+    // javascript wrapper for 'gst_tag_list_add_id3_image'
+}</code></pre>
+
+<p>Adds an image from an ID3 APIC frame (or similar, such as used in FLAC)
+to the given tag list. Also see <a href="tag/gsttag.html#gst_tag_image_data_to_image_sample">GstTag.prototype.tag_image_data_to_image_sample</a> for
+more information on image tags in GStreamer.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>tag_list</code></em></i>
+<span>(</span><a title="Gst.TagList" href="gstreamer/gsttaglist.html#GstTagList">Gst.TagList</a><span>)</span>
+–
+</div>
+<p>a tag list</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>image_data</code></em></i>
+<span>(</span>[ <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a> ]<span>)</span>
+–
+</div>
+<p>the (encoded) image</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>image_data_len</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>the length of the encoded image data at <em>image_data</em></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>id3_picture_type</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>picture type as per the ID3 (v2.4.0) specification for
+the APIC frame (0 = unknown/other)</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+			</div>
+							<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">true</a> if the image was processed, otherwise <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">false</a></p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3 data-hotdoc-id="gst_tag_list_add_id3_image">
+	<i>GstTag.tag_list_add_id3_image</i>
+</h3>
+
+
+<pre class="python-prototype language-python">
+<code>def GstTag.tag_list_add_id3_image (tag_list, image_data, image_data_len, id3_picture_type):
+    #python wrapper for 'gst_tag_list_add_id3_image'</code></pre>
+
+<p>Adds an image from an ID3 APIC frame (or similar, such as used in FLAC)
+to the given tag list. Also see <a href="tag/gsttag.html#gst_tag_image_data_to_image_sample">GstTag.tag_image_data_to_image_sample</a> for
+more information on image tags in GStreamer.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>tag_list</code></em></i>
+<span>(</span><a title="Gst.TagList" href="gstreamer/gsttaglist.html#GstTagList">Gst.TagList</a><span>)</span>
+–
+</div>
+<p>a tag list</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>image_data</code></em></i>
+<span>(</span>[ <a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a> ]<span>)</span>
+–
+</div>
+<p>the (encoded) image</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>image_data_len</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<p>the length of the encoded image data at <em>image_data</em></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>id3_picture_type</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<p>picture type as per the ID3 (v2.4.0) specification for
+the APIC frame (0 = unknown/other)</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a><span>)</span>
+–
+			</div>
+							<p><a href="https://docs.python.org/3/library/constants.html#True">True</a> if the image was processed, otherwise <a href="https://docs.python.org/3/library/constants.html#False">False</a></p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_tag_list_new_from_id3v1">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="gst_tag_list_new_from_id3v1">
+	<i>gst_tag_list_new_from_id3v1</i>
+</h3>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GstTagList" href="gstreamer/gsttaglist.html#GstTagList">GstTagList</a> *
+gst_tag_list_new_from_id3v1 (const <a title="guint8" href="https://docs.gtk.org/glib/types.html#guint8">guint8</a> * data)</pre>
+
+<p>Parses the data containing an ID3v1 tag and returns a <a href="gstreamer/gsttaglist.html#GstTagList">GstTagList</a> from the
+parsed data.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>data</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="Parameter points to an array of items"><span class="acronym">array</span></abbr> fixed-size=128]</span><span>)</span>
+–
+</div>
+<p>128 bytes of data containing the ID3v1 tag</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span>
+<span class="annotation">[<abbr title="Free data after the code is done"><span class="acronym">transfer: full</span></abbr>]</span><span class="annotation">[<abbr title="NULL may be passed to the value"><span class="acronym">nullable</span></abbr>]</span><span>)</span>
+–
+			</div>
+							<p>A new tag list or NULL if the data was not an ID3v1 tag.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3 data-hotdoc-id="gst_tag_list_new_from_id3v1">
+	<i>GstTag.prototype.tag_list_new_from_id3v1</i>
+</h3>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstTag.prototype.tag_list_new_from_id3v1(data: [ <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a> ]): {
+    // javascript wrapper for 'gst_tag_list_new_from_id3v1'
+}</code></pre>
+
+<p>Parses the data containing an ID3v1 tag and returns a <a href="gstreamer/gsttaglist.html#GstTagList">Gst.TagList</a> from the
+parsed data.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>data</code></em></i>
+<span>(</span>[ <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a> ]<span>)</span>
+–
+</div>
+<p>128 bytes of data containing the ID3v1 tag</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Gst.TagList" href="gstreamer/gsttaglist.html#GstTagList">Gst.TagList</a><span>)</span>
+–
+			</div>
+							<p>A new tag list or NULL if the data was not an ID3v1 tag.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3 data-hotdoc-id="gst_tag_list_new_from_id3v1">
+	<i>GstTag.tag_list_new_from_id3v1</i>
+</h3>
+
+
+<pre class="python-prototype language-python">
+<code>def GstTag.tag_list_new_from_id3v1 (data):
+    #python wrapper for 'gst_tag_list_new_from_id3v1'</code></pre>
+
+<p>Parses the data containing an ID3v1 tag and returns a <a href="gstreamer/gsttaglist.html#GstTagList">Gst.TagList</a> from the
+parsed data.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>data</code></em></i>
+<span>(</span>[ <a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a> ]<span>)</span>
+–
+</div>
+<p>128 bytes of data containing the ID3v1 tag</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Gst.TagList" href="gstreamer/gsttaglist.html#GstTagList">Gst.TagList</a><span>)</span>
+–
+			</div>
+							<p>A new tag list or NULL if the data was not an ID3v1 tag.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_tag_to_id3_tag">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="gst_tag_to_id3_tag">
+	<i>gst_tag_to_id3_tag</i>
+</h3>
+
+
+
+
+<pre class="c-prototype language-c">
+const <a title="gchar" href="https://docs.gtk.org/glib/types.html#gchar">gchar</a> *
+gst_tag_to_id3_tag (const <a title="gchar" href="https://docs.gtk.org/glib/types.html#gchar">gchar</a> * gst_tag)</pre>
+
+<p>Looks up the ID3v2 tag for a GStreamer tag.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>gst_tag</code></em></i>
+–
+</div>
+<p>GStreamer tag to convert to vorbiscomment tag</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span>
+<span class="annotation">[<abbr title="NULL may be passed to the value"><span class="acronym">nullable</span></abbr>]</span><span>)</span>
+–
+			</div>
+							<p>The corresponding ID3v2 tag or NULL if none exists.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3 data-hotdoc-id="gst_tag_to_id3_tag">
+	<i>GstTag.prototype.tag_to_id3_tag</i>
+</h3>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstTag.prototype.tag_to_id3_tag(gst_tag: <a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>): {
+    // javascript wrapper for 'gst_tag_to_id3_tag'
+}</code></pre>
+
+<p>Looks up the ID3v2 tag for a GStreamer tag.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>gst_tag</code></em></i>
+<span>(</span><a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a><span>)</span>
+–
+</div>
+<p>GStreamer tag to convert to vorbiscomment tag</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a><span>)</span>
+–
+			</div>
+							<p>The corresponding ID3v2 tag or NULL if none exists.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3 data-hotdoc-id="gst_tag_to_id3_tag">
+	<i>GstTag.tag_to_id3_tag</i>
+</h3>
+
+
+<pre class="python-prototype language-python">
+<code>def GstTag.tag_to_id3_tag (gst_tag):
+    #python wrapper for 'gst_tag_to_id3_tag'</code></pre>
+
+<p>Looks up the ID3v2 tag for a GStreamer tag.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>gst_tag</code></em></i>
+<span>(</span><a title="str" href="https://docs.python.org/3/library/functions.html#func-str">str</a><span>)</span>
+–
+</div>
+<p>GStreamer tag to convert to vorbiscomment tag</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="str" href="https://docs.python.org/3/library/functions.html#func-str">str</a><span>)</span>
+–
+			</div>
+							<p>The corresponding ID3v2 tag or NULL if none exists.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+
+
+
+
+
+		
+	</div>
+	<div id="search_results">
+		<p>The results of the search are</p>
+	</div>
+	<div id="footer">
+		    
+
+	</div>
+</div>
+
+<div id="toc-column">
+	
+		<div class="edit-button">
+		
+
+	</div>
+		<div id="toc-wrapper">
+		<nav id="toc"></nav>
+	</div>
+</div>
+</div>
+</main>
+
+
+<script src="assets/js/navbar_offset_scroller.js"></script>
+</body>
+</html>

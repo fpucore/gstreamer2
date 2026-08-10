@@ -1,0 +1,6528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<base href="..">
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<title>gsttranscoder</title>
+
+<link rel="stylesheet" href="assets/css/dark-frontend.css" type="text/css" title="dark">
+<link rel="alternate stylesheet" href="assets/css/light-frontend.css" type="text/css" title="light">
+<link rel="stylesheet" href="assets/css/bootstrap-toc.min.css" type="text/css">
+<link rel="stylesheet" href="assets/css/jquery.mCustomScrollbar.min.css">
+<link rel="stylesheet" href="assets/js/search/enable_search.css" type="text/css">
+
+<link rel="stylesheet" href="assets/css/extra_frontend.css" type="text/css">
+<link rel="stylesheet" href="assets/css/devhelp.css" type="text/css">
+
+<link rel="stylesheet" href="assets/css/prism-tomorrow.css" type="text/css" title="dark">
+
+<link rel="alternate stylesheet" href="assets/css/prism.css" type="text/css" title="light">
+
+<script src="assets/js/mustache.min.js"></script>
+<script src="assets/js/jquery.js"></script>
+<script src="assets/js/bootstrap.js"></script>
+<script src="assets/js/scrollspy.js"></script>
+<script src="assets/js/typeahead.jquery.min.js"></script>
+<script src="assets/js/search.js"></script>
+<script src="assets/js/compare-versions.js"></script>
+<script src="assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="assets/js/bootstrap-toc.min.js"></script>
+<script src="assets/js/jquery.touchSwipe.min.js"></script>
+<script src="assets/js/anchor.min.js"></script>
+<script src="assets/js/tag_filtering.js"></script>
+<script src="assets/js/language_switching.js"></script>
+<script src="assets/js/styleswitcher.js"></script>
+
+<script src="assets/js/lines_around_headings.js"></script>
+
+<script src="assets/js/prism-core.js"></script>
+<script src="assets/js/prism-autoloader.js"></script>
+<script src="assets/js/prism_autoloader_path_override.js"></script>
+<script src="assets/js/trie.js"></script>
+
+<!-- generic -->
+<link rel="icon" type="image/png" href="assets/images/favicon-16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="assets/images/favicon-32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="assets/images/favicon-57.png" sizes="57x57">
+<link rel="icon" type="image/png" href="assets/images/favicon-64.png" sizes="64x64">
+<link rel="icon" type="image/png" href="assets/images/favicon-76.png" sizes="76x76">
+<link rel="icon" type="image/png" href="assets/images/favicon-96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="assets/images/favicon-128.png" sizes="128x128">
+<link rel="icon" type="image/png" href="assets/images/favicon-192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="assets/images/favicon-228.png" sizes="228x228">
+
+<!-- Android -->
+<link rel="shortcut icon" sizes="196x196" href="assets/images/favicon-196.png">
+
+<!-- iOS -->
+<link rel="apple-touch-icon" href="assets/images/favicon-120.png" sizes="120x120">
+<link rel="apple-touch-icon" href="assets/images/favicon-152.png" sizes="152x152">
+<link rel="apple-touch-icon" href="assets/images/favicon-180.png" sizes="180x180">
+
+</head>
+
+<body class="no-script
+">
+
+<script>
+$('body').removeClass('no-script');
+</script>
+
+<nav class="navbar navbar-fixed-top navbar-default" id="topnav">
+	<div class="container-fluid">
+		<div class="navbar-right">
+			<a id="toc-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-wrapper" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<span title="light mode switch" class="glyphicon glyphicon-sunglasses pull-right" id="lightmode-icon"></span>
+			<form class="navbar-form pull-right" id="navbar-search-form">
+                               <div class="form-group has-feedback">
+                                       <input type="text" class="form-control input-sm" name="search" id="sidenav-lookup-field" placeholder="search" disabled>
+				       <span class="glyphicon glyphicon-search form-control-feedback" id="search-mgn-glass"></span>
+                               </div>
+                        </form>
+		</div>
+		<div class="navbar-header">
+			<a id="sidenav-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<a id="home-link" href="index.html" class="hotdoc-navbar-brand">
+				<img src="assets/images/gstreamer-logo.svg" alt="Home">
+			</a>
+		</div>
+		<div class="navbar-collapse collapse" id="navbar-wrapper">
+			<ul class="nav navbar-nav" id="menu">
+				
+<li class="dropdown">
+    <a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        API References<span class="caret"></span>
+    </a>
+	<ul class="dropdown-menu" id="modules-menu">
+					<li>
+				<a href="gstreamer/gi-index.html">GStreamer core</a>
+			</li>
+					<li>
+				<a href="libs.html">GStreamer Libraries</a>
+			</li>
+					<li>
+				<a href="plugins_doc.html">GStreamer Plugins</a>
+			</li>
+		</ul>
+</li>
+
+<li>
+    <a href="application-development/index.html">Application manual</a>
+</li>
+
+
+<li>
+    <a href="tutorials/index.html">Tutorials</a>
+</li>
+
+			</ul>
+			<div class="hidden-xs hidden-sm navbar-text navbar-center">
+							</div>
+		</div>
+	</div>
+</nav>
+
+<main>
+<div data-extension="gi-extension" data-hotdoc-in-toplevel="False" data-hotdoc-project="transcoder" data-hotdoc-ref="gsttranscoder.html" class="page_container" id="page-wrapper" data-hotdoc-meta-gi-languages="['c', 'javascript', 'python']" data-hotdoc-meta-gi-language="c">
+<script src="assets/js/utils.js"></script>
+
+<div class="panel panel-collapse oc-collapsed" id="sidenav" data-hotdoc-role="navigation">
+	<script src="assets/js/full-width.js"></script>
+  <div id="sitenav-wrapper">
+    <iframe src="hotdoc-sitemap.html" id="sitenav-frame"></iframe>
+  </div>
+</div>
+
+<div id="body">
+	<div id="main">
+				    <div id="page-description" data-hotdoc-role="main">
+        <h1 id="gsttranscoder-page">gsttranscoder</h1>
+    </div>
+        
+        
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstTranscoder">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h2 data-hotdoc-id="GstTranscoder">
+	<i>GstTranscoder</i>
+</h2>
+
+
+<div class="hierarchy_container">
+	<div class="hierarchy_details">
+<pre>
+<a title="GObject" href="https://docs.gtk.org/gobject/class.Object.html">GObject</a>
+    <span class="lineart">╰──</span><a title="GInitiallyUnowned" href="https://docs.gtk.org/gobject/class.InitiallyUnowned.html">GInitiallyUnowned</a>
+        <span class="lineart">╰──</span><a title="GstObject" href="gstreamer/gstobject.html#GstObject">GstObject</a>
+            <span class="lineart">╰──</span>GstTranscoder
+</pre>
+
+</div>
+
+</div>
+
+
+
+
+
+
+
+<hr>
+<h3>Class structure</h3>
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstTranscoderClass">
+	<i>GstTranscoderClass</i>
+</h4>
+
+
+
+
+
+	<div class="members-container">
+		<h5>Fields</h5>
+					
+<div class="symbol-detail" data-hotdoc-id="GstTranscoderClass.parent_class">
+	<div>
+		<i><em><code>parent_class</code></em></i>
+		(<a title="GstObjectClass" href="GstObjectClass">GstObjectClass</a>)
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+			</div>
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3>
+	GstTranscoder.TranscoderClass
+</h3>
+
+
+
+
+
+	<div class="members-container">
+		<h5>Attributes</h5>
+					
+<div class="symbol-detail" data-hotdoc-id="GstTranscoderClass.parent_class">
+	<div>
+		<i><em><code>parent_class</code></em></i>
+		(<a title="Gst.ObjectClass" href="GstObjectClass">Gst.ObjectClass</a>)
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+			</div>
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3>
+	GstTranscoder.TranscoderClass
+</h3>
+
+
+
+
+
+	<div class="members-container">
+		<h5>Attributes</h5>
+					
+<div class="symbol-detail" data-hotdoc-id="GstTranscoderClass.parent_class">
+	<div>
+		<i><em><code>parent_class</code></em></i>
+		(<a title="Gst.ObjectClass" href="GstObjectClass">Gst.ObjectClass</a>)
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+			</div>
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h2 data-hotdoc-id="GstTranscoder">
+	<i>GstTranscoder.Transcoder</i>
+</h2>
+
+
+<div class="hierarchy_container">
+	<div class="hierarchy_details">
+<pre>
+<a title="GObject.Object" href="https://docs.gtk.org/gobject/class.Object.html">GObject.Object</a>
+    <span class="lineart">╰──</span><a title="GObject.InitiallyUnowned" href="https://docs.gtk.org/gobject/class.InitiallyUnowned.html">GObject.InitiallyUnowned</a>
+        <span class="lineart">╰──</span><a title="Gst.Object" href="gstreamer/gstobject.html#GstObject">Gst.Object</a>
+            <span class="lineart">╰──</span>GstTranscoder.Transcoder
+</pre>
+
+</div>
+
+</div>
+
+
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h2 data-hotdoc-id="GstTranscoder">
+	<i>GstTranscoder.Transcoder</i>
+</h2>
+
+
+<div class="hierarchy_container">
+	<div class="hierarchy_details">
+<pre>
+<a title="GObject.Object" href="https://docs.gtk.org/gobject/class.Object.html">GObject.Object</a>
+    <span class="lineart">╰──</span><a title="GObject.InitiallyUnowned" href="https://docs.gtk.org/gobject/class.InitiallyUnowned.html">GObject.InitiallyUnowned</a>
+        <span class="lineart">╰──</span><a title="Gst.Object" href="gstreamer/gstobject.html#GstObject">Gst.Object</a>
+            <span class="lineart">╰──</span>GstTranscoder.Transcoder
+</pre>
+
+</div>
+
+</div>
+
+
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+
+            <h3 class="symbol_section">Constructors</h3>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_transcoder_new">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_transcoder_new">
+	<i>gst_transcoder_new</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GstTranscoder" href="transcoder/gsttranscoder.html#GstTranscoder">GstTranscoder</a> *
+gst_transcoder_new (const <a title="gchar" href="https://docs.gtk.org/glib/types.html#gchar">gchar</a> * source_uri,
+                    const <a title="gchar" href="https://docs.gtk.org/glib/types.html#gchar">gchar</a> * dest_uri,
+                    const <a title="gchar" href="https://docs.gtk.org/glib/types.html#gchar">gchar</a> * encoding_profile)</pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>source_uri</code></em></i>
+–
+</div>
+<p>The URI of the media stream to transcode</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>dest_uri</code></em></i>
+–
+</div>
+<p>The URI of the destination of the transcoded stream</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>encoding_profile</code></em></i>
+–
+</div>
+<p>The serialized <a href="pbutils/encoding-profile.html#GstEncodingProfile">GstEncodingProfile</a> defining the output
+format. Have a look at the <a href="pbutils/encoding-profile.html#GstEncodingProfile">GstEncodingProfile</a> documentation to find more
+about the serialization format.</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p>a new <a href="transcoder/gsttranscoder.html#GstTranscoder">GstTranscoder</a> instance</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_transcoder_new">
+	<i>GstTranscoder.Transcoder.prototype.new</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstTranscoder.Transcoder.prototype.new(source_uri: <a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>, dest_uri: <a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>, encoding_profile: <a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>): {
+    // javascript wrapper for 'gst_transcoder_new'
+}</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>source_uri</code></em></i>
+<span>(</span><a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a><span>)</span>
+–
+</div>
+<p>The URI of the media stream to transcode</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>dest_uri</code></em></i>
+<span>(</span><a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a><span>)</span>
+–
+</div>
+<p>The URI of the destination of the transcoded stream</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>encoding_profile</code></em></i>
+<span>(</span><a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a><span>)</span>
+–
+</div>
+<p>The serialized <a href="pbutils/encoding-profile.html#GstEncodingProfile">GstPbutils.EncodingProfile</a> defining the output
+format. Have a look at the <a href="pbutils/encoding-profile.html#GstEncodingProfile">GstPbutils.EncodingProfile</a> documentation to find more
+about the serialization format.</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GstTranscoder.Transcoder" href="transcoder/gsttranscoder.html#GstTranscoder">GstTranscoder.Transcoder</a><span>)</span>
+–
+			</div>
+							<p>a new <a href="transcoder/gsttranscoder.html#GstTranscoder">GstTranscoder.Transcoder</a> instance</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_transcoder_new">
+	<i>GstTranscoder.Transcoder.new</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstTranscoder.Transcoder.new (source_uri, dest_uri, encoding_profile):
+    #python wrapper for 'gst_transcoder_new'</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>source_uri</code></em></i>
+<span>(</span><a title="str" href="https://docs.python.org/3/library/functions.html#func-str">str</a><span>)</span>
+–
+</div>
+<p>The URI of the media stream to transcode</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>dest_uri</code></em></i>
+<span>(</span><a title="str" href="https://docs.python.org/3/library/functions.html#func-str">str</a><span>)</span>
+–
+</div>
+<p>The URI of the destination of the transcoded stream</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>encoding_profile</code></em></i>
+<span>(</span><a title="str" href="https://docs.python.org/3/library/functions.html#func-str">str</a><span>)</span>
+–
+</div>
+<p>The serialized <a href="pbutils/encoding-profile.html#GstEncodingProfile">GstPbutils.EncodingProfile</a> defining the output
+format. Have a look at the <a href="pbutils/encoding-profile.html#GstEncodingProfile">GstPbutils.EncodingProfile</a> documentation to find more
+about the serialization format.</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GstTranscoder.Transcoder" href="transcoder/gsttranscoder.html#GstTranscoder">GstTranscoder.Transcoder</a><span>)</span>
+–
+			</div>
+							<p>a new <a href="transcoder/gsttranscoder.html#GstTranscoder">GstTranscoder.Transcoder</a> instance</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_transcoder_new_full">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_transcoder_new_full">
+	<i>gst_transcoder_new_full</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GstTranscoder" href="transcoder/gsttranscoder.html#GstTranscoder">GstTranscoder</a> *
+gst_transcoder_new_full (const <a title="gchar" href="https://docs.gtk.org/glib/types.html#gchar">gchar</a> * source_uri,
+                         const <a title="gchar" href="https://docs.gtk.org/glib/types.html#gchar">gchar</a> * dest_uri,
+                         <a title="GstEncodingProfile" href="pbutils/encoding-profile.html#GstEncodingProfile">GstEncodingProfile</a> * profile)</pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>source_uri</code></em></i>
+–
+</div>
+<p>The URI of the media stream to transcode</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>dest_uri</code></em></i>
+–
+</div>
+<p>The URI of the destination of the transcoded stream</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>profile</code></em></i>
+–
+</div>
+<p>The <a href="pbutils/encoding-profile.html#GstEncodingProfile">GstEncodingProfile</a> defining the output format
+have a look at the <a href="pbutils/encoding-profile.html#GstEncodingProfile">GstEncodingProfile</a> documentation to find more
+about the serialization format.</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p>a new <a href="transcoder/gsttranscoder.html#GstTranscoder">GstTranscoder</a> instance</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_transcoder_new_full">
+	<i>GstTranscoder.Transcoder.prototype.new_full</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstTranscoder.Transcoder.prototype.new_full(source_uri: <a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>, dest_uri: <a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>, profile: <a title="GstPbutils.EncodingProfile" href="pbutils/encoding-profile.html#GstEncodingProfile">GstPbutils.EncodingProfile</a>): {
+    // javascript wrapper for 'gst_transcoder_new_full'
+}</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>source_uri</code></em></i>
+<span>(</span><a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a><span>)</span>
+–
+</div>
+<p>The URI of the media stream to transcode</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>dest_uri</code></em></i>
+<span>(</span><a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a><span>)</span>
+–
+</div>
+<p>The URI of the destination of the transcoded stream</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>profile</code></em></i>
+<span>(</span><a title="GstPbutils.EncodingProfile" href="pbutils/encoding-profile.html#GstEncodingProfile">GstPbutils.EncodingProfile</a><span>)</span>
+–
+</div>
+<p>The <a href="pbutils/encoding-profile.html#GstEncodingProfile">GstPbutils.EncodingProfile</a> defining the output format
+have a look at the <a href="pbutils/encoding-profile.html#GstEncodingProfile">GstPbutils.EncodingProfile</a> documentation to find more
+about the serialization format.</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GstTranscoder.Transcoder" href="transcoder/gsttranscoder.html#GstTranscoder">GstTranscoder.Transcoder</a><span>)</span>
+–
+			</div>
+							<p>a new <a href="transcoder/gsttranscoder.html#GstTranscoder">GstTranscoder.Transcoder</a> instance</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_transcoder_new_full">
+	<i>GstTranscoder.Transcoder.new_full</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstTranscoder.Transcoder.new_full (source_uri, dest_uri, profile):
+    #python wrapper for 'gst_transcoder_new_full'</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>source_uri</code></em></i>
+<span>(</span><a title="str" href="https://docs.python.org/3/library/functions.html#func-str">str</a><span>)</span>
+–
+</div>
+<p>The URI of the media stream to transcode</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>dest_uri</code></em></i>
+<span>(</span><a title="str" href="https://docs.python.org/3/library/functions.html#func-str">str</a><span>)</span>
+–
+</div>
+<p>The URI of the destination of the transcoded stream</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>profile</code></em></i>
+<span>(</span><a title="GstPbutils.EncodingProfile" href="pbutils/encoding-profile.html#GstEncodingProfile">GstPbutils.EncodingProfile</a><span>)</span>
+–
+</div>
+<p>The <a href="pbutils/encoding-profile.html#GstEncodingProfile">GstPbutils.EncodingProfile</a> defining the output format
+have a look at the <a href="pbutils/encoding-profile.html#GstEncodingProfile">GstPbutils.EncodingProfile</a> documentation to find more
+about the serialization format.</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GstTranscoder.Transcoder" href="transcoder/gsttranscoder.html#GstTranscoder">GstTranscoder.Transcoder</a><span>)</span>
+–
+			</div>
+							<p>a new <a href="transcoder/gsttranscoder.html#GstTranscoder">GstTranscoder.Transcoder</a> instance</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+
+            <h3 class="symbol_section">Methods</h3>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_transcoder_get_avoid_reencoding">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_transcoder_get_avoid_reencoding">
+	<i>gst_transcoder_get_avoid_reencoding</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a>
+gst_transcoder_get_avoid_reencoding (<a title="GstTranscoder" href="transcoder/gsttranscoder.html#GstTranscoder">GstTranscoder</a> * self)</pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+–
+</div>
+<p>The <a href="transcoder/gsttranscoder.html#GstTranscoder">GstTranscoder</a> to check whether reencoding is avoided or not.</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p><a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#TRUE:CAPS">TRUE</a> if the transcoder tries to avoid reencoding streams where
+reencoding is not strictly needed, <a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#FALSE:CAPS">FALSE</a> otherwise.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_transcoder_get_avoid_reencoding">
+	<i>GstTranscoder.Transcoder.prototype.get_avoid_reencoding</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstTranscoder.Transcoder.prototype.get_avoid_reencoding(): {
+    // javascript wrapper for 'gst_transcoder_get_avoid_reencoding'
+}</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+<span>(</span><a title="GstTranscoder.Transcoder" href="transcoder/gsttranscoder.html#GstTranscoder">GstTranscoder.Transcoder</a><span>)</span>
+–
+</div>
+<p>The <a href="transcoder/gsttranscoder.html#GstTranscoder">GstTranscoder.Transcoder</a> to check whether reencoding is avoided or not.</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+			</div>
+							<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">true</a> if the transcoder tries to avoid reencoding streams where
+reencoding is not strictly needed, <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">false</a> otherwise.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_transcoder_get_avoid_reencoding">
+	<i>GstTranscoder.Transcoder.get_avoid_reencoding</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstTranscoder.Transcoder.get_avoid_reencoding (self):
+    #python wrapper for 'gst_transcoder_get_avoid_reencoding'</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+<span>(</span><a title="GstTranscoder.Transcoder" href="transcoder/gsttranscoder.html#GstTranscoder">GstTranscoder.Transcoder</a><span>)</span>
+–
+</div>
+<p>The <a href="transcoder/gsttranscoder.html#GstTranscoder">GstTranscoder.Transcoder</a> to check whether reencoding is avoided or not.</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a><span>)</span>
+–
+			</div>
+							<p><a href="https://docs.python.org/3/library/constants.html#True">True</a> if the transcoder tries to avoid reencoding streams where
+reencoding is not strictly needed, <a href="https://docs.python.org/3/library/constants.html#False">False</a> otherwise.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_transcoder_get_dest_uri">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_transcoder_get_dest_uri">
+	<i>gst_transcoder_get_dest_uri</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gchar" href="https://docs.gtk.org/glib/types.html#gchar">gchar</a> *
+gst_transcoder_get_dest_uri (<a title="GstTranscoder" href="transcoder/gsttranscoder.html#GstTranscoder">GstTranscoder</a> * self)</pre>
+
+<p>Gets the URI of the destination of the transcoded stream.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+–
+</div>
+<p><a href="transcoder/gsttranscoder.html#GstTranscoder">GstTranscoder</a> instance</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span>
+<span class="annotation">[<abbr title="Free data after the code is done"><span class="acronym">transfer: full</span></abbr>]</span><span>)</span>
+–
+			</div>
+							<p>a string containing the URI of the
+destination of the transcoded stream. <a href="https://docs.gtk.org/glib/func.free.html">g_free</a> after usage.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_transcoder_get_dest_uri">
+	<i>GstTranscoder.Transcoder.prototype.get_dest_uri</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstTranscoder.Transcoder.prototype.get_dest_uri(): {
+    // javascript wrapper for 'gst_transcoder_get_dest_uri'
+}</code></pre>
+
+<p>Gets the URI of the destination of the transcoded stream.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+<span>(</span><a title="GstTranscoder.Transcoder" href="transcoder/gsttranscoder.html#GstTranscoder">GstTranscoder.Transcoder</a><span>)</span>
+–
+</div>
+<p><a href="transcoder/gsttranscoder.html#GstTranscoder">GstTranscoder.Transcoder</a> instance</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a><span>)</span>
+–
+			</div>
+							<p>a string containing the URI of the
+destination of the transcoded stream. <a href="https://docs.gtk.org/glib/func.free.html">GLib.prototype.free</a> after usage.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_transcoder_get_dest_uri">
+	<i>GstTranscoder.Transcoder.get_dest_uri</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstTranscoder.Transcoder.get_dest_uri (self):
+    #python wrapper for 'gst_transcoder_get_dest_uri'</code></pre>
+
+<p>Gets the URI of the destination of the transcoded stream.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+<span>(</span><a title="GstTranscoder.Transcoder" href="transcoder/gsttranscoder.html#GstTranscoder">GstTranscoder.Transcoder</a><span>)</span>
+–
+</div>
+<p><a href="transcoder/gsttranscoder.html#GstTranscoder">GstTranscoder.Transcoder</a> instance</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="str" href="https://docs.python.org/3/library/functions.html#func-str">str</a><span>)</span>
+–
+			</div>
+							<p>a string containing the URI of the
+destination of the transcoded stream. <a href="https://docs.gtk.org/glib/func.free.html">GLib.free</a> after usage.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_transcoder_get_duration">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_transcoder_get_duration">
+	<i>gst_transcoder_get_duration</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GstClockTime" href="gstreamer/gstclock.html#GstClockTime">GstClockTime</a>
+gst_transcoder_get_duration (<a title="GstTranscoder" href="transcoder/gsttranscoder.html#GstTranscoder">GstTranscoder</a> * self)</pre>
+
+<p>Retrieves the duration of the media stream that self represents.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+–
+</div>
+<p><a href="transcoder/gsttranscoder.html#GstTranscoder">GstTranscoder</a> instance</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p>the duration of the transcoding media stream, in
+nanoseconds.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_transcoder_get_duration">
+	<i>GstTranscoder.Transcoder.prototype.get_duration</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstTranscoder.Transcoder.prototype.get_duration(): {
+    // javascript wrapper for 'gst_transcoder_get_duration'
+}</code></pre>
+
+<p>Retrieves the duration of the media stream that self represents.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+<span>(</span><a title="GstTranscoder.Transcoder" href="transcoder/gsttranscoder.html#GstTranscoder">GstTranscoder.Transcoder</a><span>)</span>
+–
+</div>
+<p><a href="transcoder/gsttranscoder.html#GstTranscoder">GstTranscoder.Transcoder</a> instance</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+			</div>
+							<p>the duration of the transcoding media stream, in
+nanoseconds.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_transcoder_get_duration">
+	<i>GstTranscoder.Transcoder.get_duration</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstTranscoder.Transcoder.get_duration (self):
+    #python wrapper for 'gst_transcoder_get_duration'</code></pre>
+
+<p>Retrieves the duration of the media stream that self represents.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+<span>(</span><a title="GstTranscoder.Transcoder" href="transcoder/gsttranscoder.html#GstTranscoder">GstTranscoder.Transcoder</a><span>)</span>
+–
+</div>
+<p><a href="transcoder/gsttranscoder.html#GstTranscoder">GstTranscoder.Transcoder</a> instance</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+			</div>
+							<p>the duration of the transcoding media stream, in
+nanoseconds.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="gst_transcoder_get_message_bus">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_transcoder_get_message_bus">
+	<i>gst_transcoder_get_message_bus</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GstBus" href="gstreamer/gstbus.html#GstBus">GstBus</a> *
+gst_transcoder_get_message_bus (<a title="GstTranscoder" href="transcoder/gsttranscoder.html#GstTranscoder">GstTranscoder</a> * transcoder)</pre>
+
+<p>GstTranscoder API exposes a <a href="gstreamer/gstbus.html#GstBus">GstBus</a> instance which purpose is to provide data
+structures representing transcoder-internal events in form of <a href="gstreamer/gstmessage.html#GstMessage">GstMessage</a>-s of
+type GST_MESSAGE_APPLICATION.</p>
+<p>Each message carries a "transcoder-message" field of type <a href="transcoder/gsttranscoder.html#GstTranscoderMessage">GstTranscoderMessage</a>.
+Further fields of the message data are specific to each possible value of
+that enumeration.</p>
+<p>Applications can consume the messages asynchronously within their own
+event-loop / UI-thread etc. Note that in case the application does not
+consume the messages, the bus will accumulate these internally and eventually
+fill memory. To avoid that, the bus has to be set "flushing".</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>transcoder</code></em></i>
+–
+</div>
+<p><a href="transcoder/gsttranscoder.html#GstTranscoder">GstTranscoder</a> instance</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span>
+<span class="annotation">[<abbr title="Free data after the code is done"><span class="acronym">transfer: full</span></abbr>]</span><span>)</span>
+–
+			</div>
+							<p>The transcoder message bus instance</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_transcoder_get_message_bus">
+	<i>GstTranscoder.Transcoder.prototype.get_message_bus</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstTranscoder.Transcoder.prototype.get_message_bus(): {
+    // javascript wrapper for 'gst_transcoder_get_message_bus'
+}</code></pre>
+
+<p>GstTranscoder API exposes a <a href="gstreamer/gstbus.html#GstBus">Gst.Bus</a> instance which purpose is to provide data
+structures representing transcoder-internal events in form of <a href="gstreamer/gstmessage.html#GstMessage">Gst.Message</a>-s of
+type GST_MESSAGE_APPLICATION.</p>
+<p>Each message carries a "transcoder-message" field of type <a href="transcoder/gsttranscoder.html#GstTranscoderMessage">GstTranscoder.TranscoderMessage</a>.
+Further fields of the message data are specific to each possible value of
+that enumeration.</p>
+<p>Applications can consume the messages asynchronously within their own
+event-loop / UI-thread etc. Note that in case the application does not
+consume the messages, the bus will accumulate these internally and eventually
+fill memory. To avoid that, the bus has to be set "flushing".</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>transcoder</code></em></i>
+<span>(</span><a title="GstTranscoder.Transcoder" href="transcoder/gsttranscoder.html#GstTranscoder">GstTranscoder.Transcoder</a><span>)</span>
+–
+</div>
+<p><a href="transcoder/gsttranscoder.html#GstTranscoder">GstTranscoder.Transcoder</a> instance</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Gst.Bus" href="gstreamer/gstbus.html#GstBus">Gst.Bus</a><span>)</span>
+–
+			</div>
+							<p>The transcoder message bus instance</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_transcoder_get_message_bus">
+	<i>GstTranscoder.Transcoder.get_message_bus</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstTranscoder.Transcoder.get_message_bus (self):
+    #python wrapper for 'gst_transcoder_get_message_bus'</code></pre>
+
+<p>GstTranscoder API exposes a <a href="gstreamer/gstbus.html#GstBus">Gst.Bus</a> instance which purpose is to provide data
+structures representing transcoder-internal events in form of <a href="gstreamer/gstmessage.html#GstMessage">Gst.Message</a>-s of
+type GST_MESSAGE_APPLICATION.</p>
+<p>Each message carries a "transcoder-message" field of type <a href="transcoder/gsttranscoder.html#GstTranscoderMessage">GstTranscoder.TranscoderMessage</a>.
+Further fields of the message data are specific to each possible value of
+that enumeration.</p>
+<p>Applications can consume the messages asynchronously within their own
+event-loop / UI-thread etc. Note that in case the application does not
+consume the messages, the bus will accumulate these internally and eventually
+fill memory. To avoid that, the bus has to be set "flushing".</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>transcoder</code></em></i>
+<span>(</span><a title="GstTranscoder.Transcoder" href="transcoder/gsttranscoder.html#GstTranscoder">GstTranscoder.Transcoder</a><span>)</span>
+–
+</div>
+<p><a href="transcoder/gsttranscoder.html#GstTranscoder">GstTranscoder.Transcoder</a> instance</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Gst.Bus" href="gstreamer/gstbus.html#GstBus">Gst.Bus</a><span>)</span>
+–
+			</div>
+							<p>The transcoder message bus instance</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_transcoder_get_pipeline">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_transcoder_get_pipeline">
+	<i>gst_transcoder_get_pipeline</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GstElement" href="gstreamer/gstelement.html#GstElement">GstElement</a> *
+gst_transcoder_get_pipeline (<a title="GstTranscoder" href="transcoder/gsttranscoder.html#GstTranscoder">GstTranscoder</a> * self)</pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+–
+</div>
+<p><a href="transcoder/gsttranscoder.html#GstTranscoder">GstTranscoder</a> instance</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span>
+<span class="annotation">[<abbr title="Free data after the code is done"><span class="acronym">transfer: full</span></abbr>]</span><span>)</span>
+–
+			</div>
+							<p>The internal uritranscodebin instance</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_transcoder_get_pipeline">
+	<i>GstTranscoder.Transcoder.prototype.get_pipeline</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstTranscoder.Transcoder.prototype.get_pipeline(): {
+    // javascript wrapper for 'gst_transcoder_get_pipeline'
+}</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+<span>(</span><a title="GstTranscoder.Transcoder" href="transcoder/gsttranscoder.html#GstTranscoder">GstTranscoder.Transcoder</a><span>)</span>
+–
+</div>
+<p><a href="transcoder/gsttranscoder.html#GstTranscoder">GstTranscoder.Transcoder</a> instance</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Gst.Element" href="gstreamer/gstelement.html#GstElement">Gst.Element</a><span>)</span>
+–
+			</div>
+							<p>The internal uritranscodebin instance</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_transcoder_get_pipeline">
+	<i>GstTranscoder.Transcoder.get_pipeline</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstTranscoder.Transcoder.get_pipeline (self):
+    #python wrapper for 'gst_transcoder_get_pipeline'</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+<span>(</span><a title="GstTranscoder.Transcoder" href="transcoder/gsttranscoder.html#GstTranscoder">GstTranscoder.Transcoder</a><span>)</span>
+–
+</div>
+<p><a href="transcoder/gsttranscoder.html#GstTranscoder">GstTranscoder.Transcoder</a> instance</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Gst.Element" href="gstreamer/gstelement.html#GstElement">Gst.Element</a><span>)</span>
+–
+			</div>
+							<p>The internal uritranscodebin instance</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_transcoder_get_position">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_transcoder_get_position">
+	<i>gst_transcoder_get_position</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GstClockTime" href="gstreamer/gstclock.html#GstClockTime">GstClockTime</a>
+gst_transcoder_get_position (<a title="GstTranscoder" href="transcoder/gsttranscoder.html#GstTranscoder">GstTranscoder</a> * self)</pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+–
+</div>
+<p><a href="transcoder/gsttranscoder.html#GstTranscoder">GstTranscoder</a> instance</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p>the absolute position time, in nanoseconds, of the
+transcoding stream.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_transcoder_get_position">
+	<i>GstTranscoder.Transcoder.prototype.get_position</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstTranscoder.Transcoder.prototype.get_position(): {
+    // javascript wrapper for 'gst_transcoder_get_position'
+}</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+<span>(</span><a title="GstTranscoder.Transcoder" href="transcoder/gsttranscoder.html#GstTranscoder">GstTranscoder.Transcoder</a><span>)</span>
+–
+</div>
+<p><a href="transcoder/gsttranscoder.html#GstTranscoder">GstTranscoder.Transcoder</a> instance</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+			</div>
+							<p>the absolute position time, in nanoseconds, of the
+transcoding stream.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_transcoder_get_position">
+	<i>GstTranscoder.Transcoder.get_position</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstTranscoder.Transcoder.get_position (self):
+    #python wrapper for 'gst_transcoder_get_position'</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+<span>(</span><a title="GstTranscoder.Transcoder" href="transcoder/gsttranscoder.html#GstTranscoder">GstTranscoder.Transcoder</a><span>)</span>
+–
+</div>
+<p><a href="transcoder/gsttranscoder.html#GstTranscoder">GstTranscoder.Transcoder</a> instance</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+			</div>
+							<p>the absolute position time, in nanoseconds, of the
+transcoding stream.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_transcoder_get_position_update_interval">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_transcoder_get_position_update_interval">
+	<i>gst_transcoder_get_position_update_interval</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="guint" href="https://docs.gtk.org/glib/types.html#guint">guint</a>
+gst_transcoder_get_position_update_interval (<a title="GstTranscoder" href="transcoder/gsttranscoder.html#GstTranscoder">GstTranscoder</a> * self)</pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+–
+</div>
+<p><a href="transcoder/gsttranscoder.html#GstTranscoder">GstTranscoder</a> instance</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p>current position update interval in milliseconds</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_transcoder_get_position_update_interval">
+	<i>GstTranscoder.Transcoder.prototype.get_position_update_interval</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstTranscoder.Transcoder.prototype.get_position_update_interval(): {
+    // javascript wrapper for 'gst_transcoder_get_position_update_interval'
+}</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+<span>(</span><a title="GstTranscoder.Transcoder" href="transcoder/gsttranscoder.html#GstTranscoder">GstTranscoder.Transcoder</a><span>)</span>
+–
+</div>
+<p><a href="transcoder/gsttranscoder.html#GstTranscoder">GstTranscoder.Transcoder</a> instance</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+			</div>
+							<p>current position update interval in milliseconds</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_transcoder_get_position_update_interval">
+	<i>GstTranscoder.Transcoder.get_position_update_interval</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstTranscoder.Transcoder.get_position_update_interval (self):
+    #python wrapper for 'gst_transcoder_get_position_update_interval'</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+<span>(</span><a title="GstTranscoder.Transcoder" href="transcoder/gsttranscoder.html#GstTranscoder">GstTranscoder.Transcoder</a><span>)</span>
+–
+</div>
+<p><a href="transcoder/gsttranscoder.html#GstTranscoder">GstTranscoder.Transcoder</a> instance</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+			</div>
+							<p>current position update interval in milliseconds</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="gst_transcoder_get_signal_adapter">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_transcoder_get_signal_adapter">
+	<i>gst_transcoder_get_signal_adapter</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GstTranscoderSignalAdapter" href="transcoder/gsttranscoder-signal-adapter.html#GstTranscoderSignalAdapter">GstTranscoderSignalAdapter</a> *
+gst_transcoder_get_signal_adapter (<a title="GstTranscoder" href="transcoder/gsttranscoder.html#GstTranscoder">GstTranscoder</a> * self,
+                                   <a title="GMainContext" href="https://docs.gtk.org/glib/struct.MainContext.html">GMainContext</a> * context)</pre>
+
+<p>Gets the <a href="transcoder/gsttranscoder-signal-adapter.html#GstTranscoderSignalAdapter">GstTranscoderSignalAdapter</a> attached to <em>self</em> if it is attached to
+the right <a href="https://docs.gtk.org/glib/struct.MainContext.html">GMainContext</a>. If no <a href="transcoder/gsttranscoder-signal-adapter.html#GstTranscoderSignalAdapter">GstTranscoderSignalAdapter</a> has been created
+yet, it will be created and returned, other calls will return that same
+adapter until it is destroyed, at which point, a new one can be attached the
+same way.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="Don't free data after the code is done"><span class="acronym">transfer: none</span></abbr>]</span><span>)</span>
+–
+</div>
+<p><a href="transcoder/gsttranscoder.html#GstTranscoder">GstTranscoder</a> instance to emit signals for.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>context</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="NULL may be passed to the value"><span class="acronym">nullable</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>A <a href="https://docs.gtk.org/glib/struct.MainContext.html">GMainContext</a> on which the main-loop will process
+transcoder bus messages on. Can be NULL (thread-default
+context will be used then).</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span>
+<span class="annotation">[<abbr title="Free data after the code is done"><span class="acronym">transfer: full</span></abbr>]</span><span class="annotation">[<abbr title="NULL may be passed to the value"><span class="acronym">nullable</span></abbr>]</span><span>)</span>
+–
+			</div>
+							<p>The <a href="transcoder/gsttranscoder-signal-adapter.html#GstTranscoderSignalAdapter">GstTranscoderSignalAdapter</a> to
+connect signal handlers to.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_transcoder_get_signal_adapter">
+	<i>GstTranscoder.Transcoder.prototype.get_signal_adapter</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstTranscoder.Transcoder.prototype.get_signal_adapter(context: <a title="GMainContext (not introspectable)" href="https://docs.gtk.org/glib/struct.MainContext.html">GMainContext (not introspectable)</a>): {
+    // javascript wrapper for 'gst_transcoder_get_signal_adapter'
+}</code></pre>
+
+<p>Gets the <a href="transcoder/gsttranscoder-signal-adapter.html#GstTranscoderSignalAdapter">GstTranscoder.TranscoderSignalAdapter</a> attached to <em>self</em> if it is attached to
+the right <a href="https://docs.gtk.org/glib/struct.MainContext.html">GMainContext (not introspectable)</a>. If no <a href="transcoder/gsttranscoder-signal-adapter.html#GstTranscoderSignalAdapter">GstTranscoder.TranscoderSignalAdapter</a> has been created
+yet, it will be created and returned, other calls will return that same
+adapter until it is destroyed, at which point, a new one can be attached the
+same way.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+<span>(</span><a title="GstTranscoder.Transcoder" href="transcoder/gsttranscoder.html#GstTranscoder">GstTranscoder.Transcoder</a><span>)</span>
+–
+</div>
+<p><a href="transcoder/gsttranscoder.html#GstTranscoder">GstTranscoder.Transcoder</a> instance to emit signals for.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>context</code></em></i>
+<span>(</span><a title="GMainContext (not introspectable)" href="https://docs.gtk.org/glib/struct.MainContext.html">GMainContext (not introspectable)</a><span>)</span>
+–
+</div>
+<p>A <a href="https://docs.gtk.org/glib/struct.MainContext.html">GMainContext (not introspectable)</a> on which the main-loop will process
+transcoder bus messages on. Can be NULL (thread-default
+context will be used then).</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GstTranscoder.TranscoderSignalAdapter" href="transcoder/gsttranscoder-signal-adapter.html#GstTranscoderSignalAdapter">GstTranscoder.TranscoderSignalAdapter</a><span>)</span>
+–
+			</div>
+							<p>The <a href="transcoder/gsttranscoder-signal-adapter.html#GstTranscoderSignalAdapter">GstTranscoder.TranscoderSignalAdapter</a> to
+connect signal handlers to.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_transcoder_get_signal_adapter">
+	<i>GstTranscoder.Transcoder.get_signal_adapter</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstTranscoder.Transcoder.get_signal_adapter (self, context):
+    #python wrapper for 'gst_transcoder_get_signal_adapter'</code></pre>
+
+<p>Gets the <a href="transcoder/gsttranscoder-signal-adapter.html#GstTranscoderSignalAdapter">GstTranscoder.TranscoderSignalAdapter</a> attached to <em>self</em> if it is attached to
+the right <a href="https://docs.gtk.org/glib/struct.MainContext.html">GMainContext (not introspectable)</a>. If no <a href="transcoder/gsttranscoder-signal-adapter.html#GstTranscoderSignalAdapter">GstTranscoder.TranscoderSignalAdapter</a> has been created
+yet, it will be created and returned, other calls will return that same
+adapter until it is destroyed, at which point, a new one can be attached the
+same way.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+<span>(</span><a title="GstTranscoder.Transcoder" href="transcoder/gsttranscoder.html#GstTranscoder">GstTranscoder.Transcoder</a><span>)</span>
+–
+</div>
+<p><a href="transcoder/gsttranscoder.html#GstTranscoder">GstTranscoder.Transcoder</a> instance to emit signals for.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>context</code></em></i>
+<span>(</span><a title="GMainContext (not introspectable)" href="https://docs.gtk.org/glib/struct.MainContext.html">GMainContext (not introspectable)</a><span>)</span>
+–
+</div>
+<p>A <a href="https://docs.gtk.org/glib/struct.MainContext.html">GMainContext (not introspectable)</a> on which the main-loop will process
+transcoder bus messages on. Can be NULL (thread-default
+context will be used then).</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GstTranscoder.TranscoderSignalAdapter" href="transcoder/gsttranscoder-signal-adapter.html#GstTranscoderSignalAdapter">GstTranscoder.TranscoderSignalAdapter</a><span>)</span>
+–
+			</div>
+							<p>The <a href="transcoder/gsttranscoder-signal-adapter.html#GstTranscoderSignalAdapter">GstTranscoder.TranscoderSignalAdapter</a> to
+connect signal handlers to.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_transcoder_get_source_uri">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_transcoder_get_source_uri">
+	<i>gst_transcoder_get_source_uri</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gchar" href="https://docs.gtk.org/glib/types.html#gchar">gchar</a> *
+gst_transcoder_get_source_uri (<a title="GstTranscoder" href="transcoder/gsttranscoder.html#GstTranscoder">GstTranscoder</a> * self)</pre>
+
+<p>Gets the URI of the currently-transcoding stream.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+–
+</div>
+<p><a href="transcoder/gsttranscoder.html#GstTranscoder">GstTranscoder</a> instance</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span>
+<span class="annotation">[<abbr title="Free data after the code is done"><span class="acronym">transfer: full</span></abbr>]</span><span>)</span>
+–
+			</div>
+							<p>a string containing the URI of the
+source stream. <a href="https://docs.gtk.org/glib/func.free.html">g_free</a> after usage.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_transcoder_get_source_uri">
+	<i>GstTranscoder.Transcoder.prototype.get_source_uri</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstTranscoder.Transcoder.prototype.get_source_uri(): {
+    // javascript wrapper for 'gst_transcoder_get_source_uri'
+}</code></pre>
+
+<p>Gets the URI of the currently-transcoding stream.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+<span>(</span><a title="GstTranscoder.Transcoder" href="transcoder/gsttranscoder.html#GstTranscoder">GstTranscoder.Transcoder</a><span>)</span>
+–
+</div>
+<p><a href="transcoder/gsttranscoder.html#GstTranscoder">GstTranscoder.Transcoder</a> instance</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a><span>)</span>
+–
+			</div>
+							<p>a string containing the URI of the
+source stream. <a href="https://docs.gtk.org/glib/func.free.html">GLib.prototype.free</a> after usage.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_transcoder_get_source_uri">
+	<i>GstTranscoder.Transcoder.get_source_uri</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstTranscoder.Transcoder.get_source_uri (self):
+    #python wrapper for 'gst_transcoder_get_source_uri'</code></pre>
+
+<p>Gets the URI of the currently-transcoding stream.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+<span>(</span><a title="GstTranscoder.Transcoder" href="transcoder/gsttranscoder.html#GstTranscoder">GstTranscoder.Transcoder</a><span>)</span>
+–
+</div>
+<p><a href="transcoder/gsttranscoder.html#GstTranscoder">GstTranscoder.Transcoder</a> instance</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="str" href="https://docs.python.org/3/library/functions.html#func-str">str</a><span>)</span>
+–
+			</div>
+							<p>a string containing the URI of the
+source stream. <a href="https://docs.gtk.org/glib/func.free.html">GLib.free</a> after usage.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="gst_transcoder_get_sync_signal_adapter">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_transcoder_get_sync_signal_adapter">
+	<i>gst_transcoder_get_sync_signal_adapter</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GstTranscoderSignalAdapter" href="transcoder/gsttranscoder-signal-adapter.html#GstTranscoderSignalAdapter">GstTranscoderSignalAdapter</a> *
+gst_transcoder_get_sync_signal_adapter (<a title="GstTranscoder" href="transcoder/gsttranscoder.html#GstTranscoder">GstTranscoder</a> * self)</pre>
+
+<p>Gets the <a href="transcoder/gsttranscoder-signal-adapter.html#GstTranscoderSignalAdapter">GstTranscoderSignalAdapter</a> attached to <em>self</em> to emit signals from
+its thread of emission.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="Don't free data after the code is done"><span class="acronym">transfer: none</span></abbr>]</span><span>)</span>
+–
+</div>
+<p><a href="transcoder/gsttranscoder.html#GstTranscoder">GstTranscoder</a> instance to emit signals synchronously
+for.</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span>
+<span class="annotation">[<abbr title="Free data after the code is done"><span class="acronym">transfer: full</span></abbr>]</span><span>)</span>
+–
+			</div>
+							<p>The <a href="transcoder/gsttranscoder-signal-adapter.html#GstTranscoderSignalAdapter">GstTranscoderSignalAdapter</a> to connect signal
+handlers to.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_transcoder_get_sync_signal_adapter">
+	<i>GstTranscoder.Transcoder.prototype.get_sync_signal_adapter</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstTranscoder.Transcoder.prototype.get_sync_signal_adapter(): {
+    // javascript wrapper for 'gst_transcoder_get_sync_signal_adapter'
+}</code></pre>
+
+<p>Gets the <a href="transcoder/gsttranscoder-signal-adapter.html#GstTranscoderSignalAdapter">GstTranscoder.TranscoderSignalAdapter</a> attached to <em>self</em> to emit signals from
+its thread of emission.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+<span>(</span><a title="GstTranscoder.Transcoder" href="transcoder/gsttranscoder.html#GstTranscoder">GstTranscoder.Transcoder</a><span>)</span>
+–
+</div>
+<p><a href="transcoder/gsttranscoder.html#GstTranscoder">GstTranscoder.Transcoder</a> instance to emit signals synchronously
+for.</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GstTranscoder.TranscoderSignalAdapter" href="transcoder/gsttranscoder-signal-adapter.html#GstTranscoderSignalAdapter">GstTranscoder.TranscoderSignalAdapter</a><span>)</span>
+–
+			</div>
+							<p>The <a href="transcoder/gsttranscoder-signal-adapter.html#GstTranscoderSignalAdapter">GstTranscoder.TranscoderSignalAdapter</a> to connect signal
+handlers to.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_transcoder_get_sync_signal_adapter">
+	<i>GstTranscoder.Transcoder.get_sync_signal_adapter</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstTranscoder.Transcoder.get_sync_signal_adapter (self):
+    #python wrapper for 'gst_transcoder_get_sync_signal_adapter'</code></pre>
+
+<p>Gets the <a href="transcoder/gsttranscoder-signal-adapter.html#GstTranscoderSignalAdapter">GstTranscoder.TranscoderSignalAdapter</a> attached to <em>self</em> to emit signals from
+its thread of emission.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+<span>(</span><a title="GstTranscoder.Transcoder" href="transcoder/gsttranscoder.html#GstTranscoder">GstTranscoder.Transcoder</a><span>)</span>
+–
+</div>
+<p><a href="transcoder/gsttranscoder.html#GstTranscoder">GstTranscoder.Transcoder</a> instance to emit signals synchronously
+for.</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GstTranscoder.TranscoderSignalAdapter" href="transcoder/gsttranscoder-signal-adapter.html#GstTranscoderSignalAdapter">GstTranscoder.TranscoderSignalAdapter</a><span>)</span>
+–
+			</div>
+							<p>The <a href="transcoder/gsttranscoder-signal-adapter.html#GstTranscoderSignalAdapter">GstTranscoder.TranscoderSignalAdapter</a> to connect signal
+handlers to.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_transcoder_run">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_transcoder_run">
+	<i>gst_transcoder_run</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a>
+gst_transcoder_run (<a title="GstTranscoder" href="transcoder/gsttranscoder.html#GstTranscoder">GstTranscoder</a> * self,
+                    <a title="GError" href="https://docs.gtk.org/glib/struct.Error.html">GError</a> ** error)</pre>
+
+<p>Run the transcoder task synchonously. You can connect
+to the 'position' signal to get information about the
+progress of the transcoding.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+–
+</div>
+<p>The GstTranscoder to run</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>error</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="NULL is OK, both for passing and returning"><span class="acronym">allow-none</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>An error to be set if transcoding fails</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_transcoder_run">
+	<i>GstTranscoder.Transcoder.prototype.run</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstTranscoder.Transcoder.prototype.run(): {
+    // javascript wrapper for 'gst_transcoder_run'
+}</code></pre>
+
+<p>Run the transcoder task synchonously. You can connect
+to the 'position' signal to get information about the
+progress of the transcoding.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+<span>(</span><a title="GstTranscoder.Transcoder" href="transcoder/gsttranscoder.html#GstTranscoder">GstTranscoder.Transcoder</a><span>)</span>
+–
+</div>
+<p>The GstTranscoder to run</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_transcoder_run">
+	<i>GstTranscoder.Transcoder.run</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>@raises(<a href="https://developer.gnome.org/glib/stable/glib-Error-Reporting.html">GLib.GError</a>)
+def GstTranscoder.Transcoder.run (self):
+    #python wrapper for 'gst_transcoder_run'</code></pre>
+
+<p>Run the transcoder task synchonously. You can connect
+to the 'position' signal to get information about the
+progress of the transcoding.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+<span>(</span><a title="GstTranscoder.Transcoder" href="transcoder/gsttranscoder.html#GstTranscoder">GstTranscoder.Transcoder</a><span>)</span>
+–
+</div>
+<p>The GstTranscoder to run</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a><span>)</span>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_transcoder_run_async">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_transcoder_run_async">
+	<i>gst_transcoder_run_async</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+gst_transcoder_run_async (<a title="GstTranscoder" href="transcoder/gsttranscoder.html#GstTranscoder">GstTranscoder</a> * self)</pre>
+
+<p>Run the transcoder task asynchronously. You should connect
+to the 'done' signal to be notified about when the
+transcoding is done, and to the 'error' signal to be
+notified about any error.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+–
+</div>
+<p>The GstTranscoder to run</p>
+
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_transcoder_run_async">
+	<i>GstTranscoder.Transcoder.prototype.run_async</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstTranscoder.Transcoder.prototype.run_async(): {
+    // javascript wrapper for 'gst_transcoder_run_async'
+}</code></pre>
+
+<p>Run the transcoder task asynchronously. You should connect
+to the 'done' signal to be notified about when the
+transcoding is done, and to the 'error' signal to be
+notified about any error.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+<span>(</span><a title="GstTranscoder.Transcoder" href="transcoder/gsttranscoder.html#GstTranscoder">GstTranscoder.Transcoder</a><span>)</span>
+–
+</div>
+<p>The GstTranscoder to run</p>
+
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_transcoder_run_async">
+	<i>GstTranscoder.Transcoder.run_async</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstTranscoder.Transcoder.run_async (self):
+    #python wrapper for 'gst_transcoder_run_async'</code></pre>
+
+<p>Run the transcoder task asynchronously. You should connect
+to the 'done' signal to be notified about when the
+transcoding is done, and to the 'error' signal to be
+notified about any error.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+<span>(</span><a title="GstTranscoder.Transcoder" href="transcoder/gsttranscoder.html#GstTranscoder">GstTranscoder.Transcoder</a><span>)</span>
+–
+</div>
+<p>The GstTranscoder to run</p>
+
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_transcoder_set_avoid_reencoding">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_transcoder_set_avoid_reencoding">
+	<i>gst_transcoder_set_avoid_reencoding</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+gst_transcoder_set_avoid_reencoding (<a title="GstTranscoder" href="transcoder/gsttranscoder.html#GstTranscoder">GstTranscoder</a> * self,
+                                     <a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a> avoid_reencoding)</pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+–
+</div>
+<p>The <a href="transcoder/gsttranscoder.html#GstTranscoder">GstTranscoder</a> to set whether reencoding should be avoided or not.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>avoid_reencoding</code></em></i>
+–
+</div>
+<p><a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#TRUE:CAPS">TRUE</a> if the transcoder should try to avoid reencoding
+streams where * reencoding is not strictly needed, <a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#FALSE:CAPS">FALSE</a> otherwise.</p>
+
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_transcoder_set_avoid_reencoding">
+	<i>GstTranscoder.Transcoder.prototype.set_avoid_reencoding</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstTranscoder.Transcoder.prototype.set_avoid_reencoding(avoid_reencoding: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>): {
+    // javascript wrapper for 'gst_transcoder_set_avoid_reencoding'
+}</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+<span>(</span><a title="GstTranscoder.Transcoder" href="transcoder/gsttranscoder.html#GstTranscoder">GstTranscoder.Transcoder</a><span>)</span>
+–
+</div>
+<p>The <a href="transcoder/gsttranscoder.html#GstTranscoder">GstTranscoder.Transcoder</a> to set whether reencoding should be avoided or not.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>avoid_reencoding</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">true</a> if the transcoder should try to avoid reencoding
+streams where * reencoding is not strictly needed, <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">false</a> otherwise.</p>
+
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_transcoder_set_avoid_reencoding">
+	<i>GstTranscoder.Transcoder.set_avoid_reencoding</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstTranscoder.Transcoder.set_avoid_reencoding (self, avoid_reencoding):
+    #python wrapper for 'gst_transcoder_set_avoid_reencoding'</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+<span>(</span><a title="GstTranscoder.Transcoder" href="transcoder/gsttranscoder.html#GstTranscoder">GstTranscoder.Transcoder</a><span>)</span>
+–
+</div>
+<p>The <a href="transcoder/gsttranscoder.html#GstTranscoder">GstTranscoder.Transcoder</a> to set whether reencoding should be avoided or not.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>avoid_reencoding</code></em></i>
+<span>(</span><a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a><span>)</span>
+–
+</div>
+<p><a href="https://docs.python.org/3/library/constants.html#True">True</a> if the transcoder should try to avoid reencoding
+streams where * reencoding is not strictly needed, <a href="https://docs.python.org/3/library/constants.html#False">False</a> otherwise.</p>
+
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_transcoder_set_cpu_usage">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_transcoder_set_cpu_usage">
+	<i>gst_transcoder_set_cpu_usage</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+gst_transcoder_set_cpu_usage (<a title="GstTranscoder" href="transcoder/gsttranscoder.html#GstTranscoder">GstTranscoder</a> * self,
+                              <a title="gint" href="https://docs.gtk.org/glib/types.html#gint">gint</a> cpu_usage)</pre>
+
+<p>Sets <em>cpu_usage</em> as target percentage CPU usage of the process running the
+transcoding task. It will modulate the transcoding speed to reach that target
+usage.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+–
+</div>
+<p>The GstTranscoder to limit CPU usage on.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>cpu_usage</code></em></i>
+–
+</div>
+<p>The percentage of the CPU the process running the transcoder
+should try to use. It takes into account the number of cores available.</p>
+
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_transcoder_set_cpu_usage">
+	<i>GstTranscoder.Transcoder.prototype.set_cpu_usage</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstTranscoder.Transcoder.prototype.set_cpu_usage(cpu_usage: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>): {
+    // javascript wrapper for 'gst_transcoder_set_cpu_usage'
+}</code></pre>
+
+<p>Sets <em>cpu_usage</em> as target percentage CPU usage of the process running the
+transcoding task. It will modulate the transcoding speed to reach that target
+usage.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+<span>(</span><a title="GstTranscoder.Transcoder" href="transcoder/gsttranscoder.html#GstTranscoder">GstTranscoder.Transcoder</a><span>)</span>
+–
+</div>
+<p>The GstTranscoder to limit CPU usage on.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>cpu_usage</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>The percentage of the CPU the process running the transcoder
+should try to use. It takes into account the number of cores available.</p>
+
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_transcoder_set_cpu_usage">
+	<i>GstTranscoder.Transcoder.set_cpu_usage</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstTranscoder.Transcoder.set_cpu_usage (self, cpu_usage):
+    #python wrapper for 'gst_transcoder_set_cpu_usage'</code></pre>
+
+<p>Sets <em>cpu_usage</em> as target percentage CPU usage of the process running the
+transcoding task. It will modulate the transcoding speed to reach that target
+usage.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+<span>(</span><a title="GstTranscoder.Transcoder" href="transcoder/gsttranscoder.html#GstTranscoder">GstTranscoder.Transcoder</a><span>)</span>
+–
+</div>
+<p>The GstTranscoder to limit CPU usage on.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>cpu_usage</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<p>The percentage of the CPU the process running the transcoder
+should try to use. It takes into account the number of cores available.</p>
+
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_transcoder_set_position_update_interval">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_transcoder_set_position_update_interval">
+	<i>gst_transcoder_set_position_update_interval</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+gst_transcoder_set_position_update_interval (<a title="GstTranscoder" href="transcoder/gsttranscoder.html#GstTranscoder">GstTranscoder</a> * self,
+                                             <a title="guint" href="https://docs.gtk.org/glib/types.html#guint">guint</a> interval)</pre>
+
+<p>Set interval in milliseconds between two position-updated signals.
+Pass 0 to stop updating the position.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+–
+</div>
+<p><a href="transcoder/gsttranscoder.html#GstTranscoder">GstTranscoder</a> instance</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>interval</code></em></i>
+–
+</div>
+<p>interval in ms</p>
+
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_transcoder_set_position_update_interval">
+	<i>GstTranscoder.Transcoder.prototype.set_position_update_interval</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstTranscoder.Transcoder.prototype.set_position_update_interval(interval: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>): {
+    // javascript wrapper for 'gst_transcoder_set_position_update_interval'
+}</code></pre>
+
+<p>Set interval in milliseconds between two position-updated signals.
+Pass 0 to stop updating the position.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+<span>(</span><a title="GstTranscoder.Transcoder" href="transcoder/gsttranscoder.html#GstTranscoder">GstTranscoder.Transcoder</a><span>)</span>
+–
+</div>
+<p><a href="transcoder/gsttranscoder.html#GstTranscoder">GstTranscoder.Transcoder</a> instance</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>interval</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>interval in ms</p>
+
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_transcoder_set_position_update_interval">
+	<i>GstTranscoder.Transcoder.set_position_update_interval</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstTranscoder.Transcoder.set_position_update_interval (self, interval):
+    #python wrapper for 'gst_transcoder_set_position_update_interval'</code></pre>
+
+<p>Set interval in milliseconds between two position-updated signals.
+Pass 0 to stop updating the position.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+<span>(</span><a title="GstTranscoder.Transcoder" href="transcoder/gsttranscoder.html#GstTranscoder">GstTranscoder.Transcoder</a><span>)</span>
+–
+</div>
+<p><a href="transcoder/gsttranscoder.html#GstTranscoder">GstTranscoder.Transcoder</a> instance</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>interval</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<p>interval in ms</p>
+
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+
+            <h3 class="symbol_section">Functions</h3>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="gst_transcoder_is_transcoder_message">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_transcoder_is_transcoder_message">
+	<i>gst_transcoder_is_transcoder_message</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a>
+gst_transcoder_is_transcoder_message (<a title="GstMessage" href="gstreamer/gstmessage.html#GstMessage">GstMessage</a> * msg)</pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>msg</code></em></i>
+–
+</div>
+<p>A <a href="gstreamer/gstmessage.html#GstMessage">GstMessage</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p>A <a href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a> indicating whether the passes message represents a <a href="transcoder/gsttranscoder.html#GstTranscoder">GstTranscoder</a> message or not.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_transcoder_is_transcoder_message">
+	<i>GstTranscoder.Transcoder.prototype.is_transcoder_message</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstTranscoder.Transcoder.prototype.is_transcoder_message(msg: <a title="Gst.Message" href="gstreamer/gstmessage.html#GstMessage">Gst.Message</a>): {
+    // javascript wrapper for 'gst_transcoder_is_transcoder_message'
+}</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>msg</code></em></i>
+<span>(</span><a title="Gst.Message" href="gstreamer/gstmessage.html#GstMessage">Gst.Message</a><span>)</span>
+–
+</div>
+<p>A <a href="gstreamer/gstmessage.html#GstMessage">Gst.Message</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+			</div>
+							<p>A <a href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a> indicating whether the passes message represents a <a href="transcoder/gsttranscoder.html#GstTranscoder">GstTranscoder.Transcoder</a> message or not.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_transcoder_is_transcoder_message">
+	<i>GstTranscoder.Transcoder.is_transcoder_message</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstTranscoder.Transcoder.is_transcoder_message (msg):
+    #python wrapper for 'gst_transcoder_is_transcoder_message'</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>msg</code></em></i>
+<span>(</span><a title="Gst.Message" href="gstreamer/gstmessage.html#GstMessage">Gst.Message</a><span>)</span>
+–
+</div>
+<p>A <a href="gstreamer/gstmessage.html#GstMessage">Gst.Message</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a><span>)</span>
+–
+			</div>
+							<p>A <a href="https://docs.python.org/3/library/functions.html#bool">bool</a> indicating whether the passes message represents a <a href="transcoder/gsttranscoder.html#GstTranscoder">GstTranscoder.Transcoder</a> message or not.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+
+            <h3 class="symbol_section">Properties</h3>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstTranscoder:avoid-reencoding">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstTranscoder:avoid-reencoding">
+	<i>avoid-reencoding</i>
+</h4>
+
+
+<pre class="property_signature">
+“avoid-reencoding” <span class="type"><a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a></span>
+</pre>
+
+<p>See <a href="encoding/encodebin.html#encodebin:avoid-reencoding">avoid-reencoding</a></p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GstTranscoder:avoid-reencoding">
+	<i>avoid-reencoding</i>
+</h4>
+
+
+<pre class="property_signature">
+“avoid-reencoding” <span class="type"><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a></span>
+</pre>
+
+<p>See <a href="encoding/encodebin.html#encodebin:avoid-reencoding">avoid-reencoding (not introspectable)</a></p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GstTranscoder:avoid-reencoding">
+	<i>avoid_reencoding</i>
+</h4>
+
+
+<pre class="property_signature">
+“self.props.avoid_reencoding” <span class="type"><a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a></span>
+</pre>
+
+<p>See <a href="encoding/encodebin.html#encodebin:avoid-reencoding">avoid-reencoding (not introspectable)</a></p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstTranscoder:dest-uri">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstTranscoder:dest-uri">
+	<i>dest-uri</i>
+</h4>
+
+
+<pre class="property_signature">
+“dest-uri” <span class="type"><a title="gchar" href="https://docs.gtk.org/glib/types.html#gchar">gchar</a> *</span>
+</pre>
+
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+				/		
+				Construct Only
+			
+</p>
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GstTranscoder:dest-uri">
+	<i>dest-uri</i>
+</h4>
+
+
+<pre class="property_signature">
+“dest-uri” <span class="type"><a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></span>
+</pre>
+
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+				/		
+				Construct Only
+			
+</p>
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GstTranscoder:dest-uri">
+	<i>dest_uri</i>
+</h4>
+
+
+<pre class="property_signature">
+“self.props.dest_uri” <span class="type"><a title="str" href="https://docs.python.org/3/library/functions.html#func-str">str</a></span>
+</pre>
+
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+				/		
+				Construct Only
+			
+</p>
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstTranscoder:duration">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstTranscoder:duration">
+	<i>duration</i>
+</h4>
+
+
+<pre class="property_signature">
+“duration” <span class="type"><a title="guint64" href="https://docs.gtk.org/glib/types.html#guint64">guint64</a></span>
+</pre>
+
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+</p>
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GstTranscoder:duration">
+	<i>duration</i>
+</h4>
+
+
+<pre class="property_signature">
+“duration” <span class="type"><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a></span>
+</pre>
+
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+</p>
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GstTranscoder:duration">
+	<i>duration</i>
+</h4>
+
+
+<pre class="property_signature">
+“self.props.duration” <span class="type"><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a></span>
+</pre>
+
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+</p>
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstTranscoder:pipeline">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstTranscoder:pipeline">
+	<i>pipeline</i>
+</h4>
+
+
+<pre class="property_signature">
+“pipeline” <span class="type"><a title="GstElement" href="gstreamer/gstelement.html#GstElement">GstElement</a> *</span>
+</pre>
+
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+</p>
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GstTranscoder:pipeline">
+	<i>pipeline</i>
+</h4>
+
+
+<pre class="property_signature">
+“pipeline” <span class="type"><a title="Gst.Element" href="gstreamer/gstelement.html#GstElement">Gst.Element</a></span>
+</pre>
+
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+</p>
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GstTranscoder:pipeline">
+	<i>pipeline</i>
+</h4>
+
+
+<pre class="property_signature">
+“self.props.pipeline” <span class="type"><a title="Gst.Element" href="gstreamer/gstelement.html#GstElement">Gst.Element</a></span>
+</pre>
+
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+</p>
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstTranscoder:position">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstTranscoder:position">
+	<i>position</i>
+</h4>
+
+
+<pre class="property_signature">
+“position” <span class="type"><a title="guint64" href="https://docs.gtk.org/glib/types.html#guint64">guint64</a></span>
+</pre>
+
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+</p>
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GstTranscoder:position">
+	<i>position</i>
+</h4>
+
+
+<pre class="property_signature">
+“position” <span class="type"><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a></span>
+</pre>
+
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+</p>
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GstTranscoder:position">
+	<i>position</i>
+</h4>
+
+
+<pre class="property_signature">
+“self.props.position” <span class="type"><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a></span>
+</pre>
+
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+</p>
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstTranscoder:position-update-interval">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstTranscoder:position-update-interval">
+	<i>position-update-interval</i>
+</h4>
+
+
+<pre class="property_signature">
+“position-update-interval” <span class="type"><a title="guint" href="https://docs.gtk.org/glib/types.html#guint">guint</a></span>
+</pre>
+
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GstTranscoder:position-update-interval">
+	<i>position-update-interval</i>
+</h4>
+
+
+<pre class="property_signature">
+“position-update-interval” <span class="type"><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a></span>
+</pre>
+
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GstTranscoder:position-update-interval">
+	<i>position_update_interval</i>
+</h4>
+
+
+<pre class="property_signature">
+“self.props.position_update_interval” <span class="type"><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a></span>
+</pre>
+
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstTranscoder:profile">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstTranscoder:profile">
+	<i>profile</i>
+</h4>
+
+
+<pre class="property_signature">
+“profile” <span class="type"><a title="GstEncodingProfile" href="pbutils/encoding-profile.html#GstEncodingProfile">GstEncodingProfile</a> *</span>
+</pre>
+
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+				/		
+				Construct Only
+			
+</p>
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GstTranscoder:profile">
+	<i>profile</i>
+</h4>
+
+
+<pre class="property_signature">
+“profile” <span class="type"><a title="GstPbutils.EncodingProfile" href="pbutils/encoding-profile.html#GstEncodingProfile">GstPbutils.EncodingProfile</a></span>
+</pre>
+
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+				/		
+				Construct Only
+			
+</p>
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GstTranscoder:profile">
+	<i>profile</i>
+</h4>
+
+
+<pre class="property_signature">
+“self.props.profile” <span class="type"><a title="GstPbutils.EncodingProfile" href="pbutils/encoding-profile.html#GstEncodingProfile">GstPbutils.EncodingProfile</a></span>
+</pre>
+
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+				/		
+				Construct Only
+			
+</p>
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstTranscoder:src-uri">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstTranscoder:src-uri">
+	<i>src-uri</i>
+</h4>
+
+
+<pre class="property_signature">
+“src-uri” <span class="type"><a title="gchar" href="https://docs.gtk.org/glib/types.html#gchar">gchar</a> *</span>
+</pre>
+
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+				/		
+				Construct Only
+			
+</p>
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GstTranscoder:src-uri">
+	<i>src-uri</i>
+</h4>
+
+
+<pre class="property_signature">
+“src-uri” <span class="type"><a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></span>
+</pre>
+
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+				/		
+				Construct Only
+			
+</p>
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GstTranscoder:src-uri">
+	<i>src_uri</i>
+</h4>
+
+
+<pre class="property_signature">
+“self.props.src_uri” <span class="type"><a title="str" href="https://docs.python.org/3/library/functions.html#func-str">str</a></span>
+</pre>
+
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+				/		
+				Construct Only
+			
+</p>
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+
+        
+
+            <h2 class="symbol_section">Functions</h2>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_transcoder_error_get_name">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="gst_transcoder_error_get_name">
+	<i>gst_transcoder_error_get_name</i>
+</h3>
+
+
+
+
+<pre class="c-prototype language-c">
+const <a title="gchar" href="https://docs.gtk.org/glib/types.html#gchar">gchar</a> *
+gst_transcoder_error_get_name (<a title="GstTranscoderError" href="transcoder/gsttranscoder.html#GstTranscoderError">GstTranscoderError</a> error)</pre>
+
+<p>Gets a string representing the given error.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>error</code></em></i>
+–
+</div>
+<p>a <a href="transcoder/gsttranscoder.html#GstTranscoderError">GstTranscoderError</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span>
+<span class="annotation">[<abbr title="Don't free data after the code is done"><span class="acronym">transfer: none</span></abbr>]</span><span>)</span>
+–
+			</div>
+							<p>a string with the given error.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3 data-hotdoc-id="gst_transcoder_error_get_name">
+	<i>GstTranscoder.TranscoderError.prototype.get_name</i>
+</h3>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstTranscoder.TranscoderError.prototype.get_name(error: <a title="GstTranscoder.TranscoderError" href="transcoder/gsttranscoder.html#GstTranscoderError">GstTranscoder.TranscoderError</a>): {
+    // javascript wrapper for 'gst_transcoder_error_get_name'
+}</code></pre>
+
+<p>Gets a string representing the given error.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>error</code></em></i>
+<span>(</span><a title="GstTranscoder.TranscoderError" href="transcoder/gsttranscoder.html#GstTranscoderError">GstTranscoder.TranscoderError</a><span>)</span>
+–
+</div>
+<p>a <a href="transcoder/gsttranscoder.html#GstTranscoderError">GstTranscoder.TranscoderError</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a><span>)</span>
+–
+			</div>
+							<p>a string with the given error.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3 data-hotdoc-id="gst_transcoder_error_get_name">
+	<i>GstTranscoder.TranscoderError.get_name</i>
+</h3>
+
+
+<pre class="python-prototype language-python">
+<code>def GstTranscoder.TranscoderError.get_name (error):
+    #python wrapper for 'gst_transcoder_error_get_name'</code></pre>
+
+<p>Gets a string representing the given error.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>error</code></em></i>
+<span>(</span><a title="GstTranscoder.TranscoderError" href="transcoder/gsttranscoder.html#GstTranscoderError">GstTranscoder.TranscoderError</a><span>)</span>
+–
+</div>
+<p>a <a href="transcoder/gsttranscoder.html#GstTranscoderError">GstTranscoder.TranscoderError</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="str" href="https://docs.python.org/3/library/functions.html#func-str">str</a><span>)</span>
+–
+			</div>
+							<p>a string with the given error.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_transcoder_error_quark">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="gst_transcoder_error_quark">
+	<i>gst_transcoder_error_quark</i>
+</h3>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GQuark" href="https://docs.gtk.org/glib/alias.Quark.html">GQuark</a>
+gst_transcoder_error_quark ()</pre>
+
+
+
+
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3 data-hotdoc-id="gst_transcoder_error_quark">
+	<i>GstTranscoder.TranscoderError.prototype.quark</i>
+</h3>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstTranscoder.TranscoderError.prototype.quark(): {
+    // javascript wrapper for 'gst_transcoder_error_quark'
+}</code></pre>
+
+
+
+
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GLib.Quark" href="https://docs.gtk.org/glib/alias.Quark.html">GLib.Quark</a><span>)</span>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3 data-hotdoc-id="gst_transcoder_error_quark">
+	<i>GstTranscoder.TranscoderError.quark</i>
+</h3>
+
+
+<pre class="python-prototype language-python">
+<code>def GstTranscoder.TranscoderError.quark ():
+    #python wrapper for 'gst_transcoder_error_quark'</code></pre>
+
+
+
+
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GLib.Quark" href="https://docs.gtk.org/glib/alias.Quark.html">GLib.Quark</a><span>)</span>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="gst_transcoder_message_get_name">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="gst_transcoder_message_get_name">
+	<i>gst_transcoder_message_get_name</i>
+</h3>
+
+
+
+
+<pre class="c-prototype language-c">
+const <a title="gchar" href="https://docs.gtk.org/glib/types.html#gchar">gchar</a> *
+gst_transcoder_message_get_name (<a title="GstTranscoderMessage" href="transcoder/gsttranscoder.html#GstTranscoderMessage">GstTranscoderMessage</a> message)</pre>
+
+<p>Returns (transfer none): The message name</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>message</code></em></i>
+–
+</div>
+<p>a <a href="transcoder/gsttranscoder.html#GstTranscoderMessage">GstTranscoderMessage</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3 data-hotdoc-id="gst_transcoder_message_get_name">
+	<i>GstTranscoder.TranscoderMessage.prototype.get_name</i>
+</h3>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstTranscoder.TranscoderMessage.prototype.get_name(message: <a title="GstTranscoder.TranscoderMessage" href="transcoder/gsttranscoder.html#GstTranscoderMessage">GstTranscoder.TranscoderMessage</a>): {
+    // javascript wrapper for 'gst_transcoder_message_get_name'
+}</code></pre>
+
+<p>Returns (transfer none): The message name</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>message</code></em></i>
+<span>(</span><a title="GstTranscoder.TranscoderMessage" href="transcoder/gsttranscoder.html#GstTranscoderMessage">GstTranscoder.TranscoderMessage</a><span>)</span>
+–
+</div>
+<p>a <a href="transcoder/gsttranscoder.html#GstTranscoderMessage">GstTranscoder.TranscoderMessage</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a><span>)</span>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3 data-hotdoc-id="gst_transcoder_message_get_name">
+	<i>GstTranscoder.TranscoderMessage.get_name</i>
+</h3>
+
+
+<pre class="python-prototype language-python">
+<code>def GstTranscoder.TranscoderMessage.get_name (message):
+    #python wrapper for 'gst_transcoder_message_get_name'</code></pre>
+
+<p>Returns (transfer none): The message name</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>message</code></em></i>
+<span>(</span><a title="GstTranscoder.TranscoderMessage" href="transcoder/gsttranscoder.html#GstTranscoderMessage">GstTranscoder.TranscoderMessage</a><span>)</span>
+–
+</div>
+<p>a <a href="transcoder/gsttranscoder.html#GstTranscoderMessage">GstTranscoder.TranscoderMessage</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="str" href="https://docs.python.org/3/library/functions.html#func-str">str</a><span>)</span>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="gst_transcoder_message_parse_duration">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="gst_transcoder_message_parse_duration">
+	<i>gst_transcoder_message_parse_duration</i>
+</h3>
+
+
+
+
+<pre class="c-prototype language-c">
+gst_transcoder_message_parse_duration (<a title="GstMessage" href="gstreamer/gstmessage.html#GstMessage">GstMessage</a> * msg,
+                                       <a title="GstClockTime" href="gstreamer/gstclock.html#GstClockTime">GstClockTime</a> * duration)</pre>
+
+<p>Parse the given duration <em>msg</em> and extract the corresponding <a href="gstreamer/gstclock.html#GstClockTime">GstClockTime</a></p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>msg</code></em></i>
+–
+</div>
+<p>A <a href="gstreamer/gstmessage.html#GstMessage">GstMessage</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>duration</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="Parameter for returning results"><span class="acronym">out</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>the resulting duration</p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3 data-hotdoc-id="gst_transcoder_message_parse_duration">
+	<i>GstTranscoder.TranscoderMessage.prototype.parse_duration</i>
+</h3>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstTranscoder.TranscoderMessage.prototype.parse_duration(msg: <a title="Gst.Message" href="gstreamer/gstmessage.html#GstMessage">Gst.Message</a>): {
+    // javascript wrapper for 'gst_transcoder_message_parse_duration'
+}</code></pre>
+
+<p>Parse the given duration <em>msg</em> and extract the corresponding <a href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a></p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>msg</code></em></i>
+<span>(</span><a title="Gst.Message" href="gstreamer/gstmessage.html#GstMessage">Gst.Message</a><span>)</span>
+–
+</div>
+<p>A <a href="gstreamer/gstmessage.html#GstMessage">Gst.Message</a></p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3 data-hotdoc-id="gst_transcoder_message_parse_duration">
+	<i>GstTranscoder.TranscoderMessage.parse_duration</i>
+</h3>
+
+
+<pre class="python-prototype language-python">
+<code>def GstTranscoder.TranscoderMessage.parse_duration (msg):
+    #python wrapper for 'gst_transcoder_message_parse_duration'</code></pre>
+
+<p>Parse the given duration <em>msg</em> and extract the corresponding <a href="https://docs.python.org/3/library/functions.html#int">int</a></p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>msg</code></em></i>
+<span>(</span><a title="Gst.Message" href="gstreamer/gstmessage.html#GstMessage">Gst.Message</a><span>)</span>
+–
+</div>
+<p>A <a href="gstreamer/gstmessage.html#GstMessage">Gst.Message</a></p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="gst_transcoder_message_parse_error">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="gst_transcoder_message_parse_error">
+	<i>gst_transcoder_message_parse_error</i>
+</h3>
+
+
+
+
+<pre class="c-prototype language-c">
+gst_transcoder_message_parse_error (<a title="GstMessage" href="gstreamer/gstmessage.html#GstMessage">GstMessage</a> * msg,
+                                    <a title="GError" href="https://docs.gtk.org/glib/struct.Error.html">GError</a> ** error,
+                                    <a title="GstStructure" href="gstreamer/gststructure.html#GstStructure">GstStructure</a> ** details)</pre>
+
+<p>Parse the given error <em>msg</em> and extract the corresponding <a href="https://docs.gtk.org/glib/struct.Error.html">GError</a></p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>msg</code></em></i>
+–
+</div>
+<p>A <a href="gstreamer/gstmessage.html#GstMessage">GstMessage</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>error</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="Parameter for returning results"><span class="acronym">out</span></abbr>]</span><span class="annotation">[<abbr title="NULL may be passed instead of a pointer to a location"><span class="acronym">optional</span></abbr>]</span><span class="annotation">[<abbr title="Free data after the code is done"><span class="acronym">transfer: full</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>the resulting error</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>details</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="Parameter for returning results"><span class="acronym">out</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>(transfer full): A GstStructure containing extra details about the error</p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3 data-hotdoc-id="gst_transcoder_message_parse_error">
+	<i>GstTranscoder.TranscoderMessage.prototype.parse_error</i>
+</h3>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstTranscoder.TranscoderMessage.prototype.parse_error(msg: <a title="Gst.Message" href="gstreamer/gstmessage.html#GstMessage">Gst.Message</a>): {
+    // javascript wrapper for 'gst_transcoder_message_parse_error'
+}</code></pre>
+
+<p>Parse the given error <em>msg</em> and extract the corresponding <a href="https://docs.gtk.org/glib/struct.Error.html">GError (not introspectable)</a></p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>msg</code></em></i>
+<span>(</span><a title="Gst.Message" href="gstreamer/gstmessage.html#GstMessage">Gst.Message</a><span>)</span>
+–
+</div>
+<p>A <a href="gstreamer/gstmessage.html#GstMessage">Gst.Message</a></p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3 data-hotdoc-id="gst_transcoder_message_parse_error">
+	<i>GstTranscoder.TranscoderMessage.parse_error</i>
+</h3>
+
+
+<pre class="python-prototype language-python">
+<code>def GstTranscoder.TranscoderMessage.parse_error (msg):
+    #python wrapper for 'gst_transcoder_message_parse_error'</code></pre>
+
+<p>Parse the given error <em>msg</em> and extract the corresponding <a href="https://docs.gtk.org/glib/struct.Error.html">GError (not introspectable)</a></p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>msg</code></em></i>
+<span>(</span><a title="Gst.Message" href="gstreamer/gstmessage.html#GstMessage">Gst.Message</a><span>)</span>
+–
+</div>
+<p>A <a href="gstreamer/gstmessage.html#GstMessage">Gst.Message</a></p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="gst_transcoder_message_parse_position">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="gst_transcoder_message_parse_position">
+	<i>gst_transcoder_message_parse_position</i>
+</h3>
+
+
+
+
+<pre class="c-prototype language-c">
+gst_transcoder_message_parse_position (<a title="GstMessage" href="gstreamer/gstmessage.html#GstMessage">GstMessage</a> * msg,
+                                       <a title="GstClockTime" href="gstreamer/gstclock.html#GstClockTime">GstClockTime</a> * position)</pre>
+
+<p>Parse the given position <em>msg</em> and extract the corresponding <a href="gstreamer/gstclock.html#GstClockTime">GstClockTime</a></p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>msg</code></em></i>
+–
+</div>
+<p>A <a href="gstreamer/gstmessage.html#GstMessage">GstMessage</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>position</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="Parameter for returning results"><span class="acronym">out</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>the resulting position</p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3 data-hotdoc-id="gst_transcoder_message_parse_position">
+	<i>GstTranscoder.TranscoderMessage.prototype.parse_position</i>
+</h3>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstTranscoder.TranscoderMessage.prototype.parse_position(msg: <a title="Gst.Message" href="gstreamer/gstmessage.html#GstMessage">Gst.Message</a>): {
+    // javascript wrapper for 'gst_transcoder_message_parse_position'
+}</code></pre>
+
+<p>Parse the given position <em>msg</em> and extract the corresponding <a href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a></p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>msg</code></em></i>
+<span>(</span><a title="Gst.Message" href="gstreamer/gstmessage.html#GstMessage">Gst.Message</a><span>)</span>
+–
+</div>
+<p>A <a href="gstreamer/gstmessage.html#GstMessage">Gst.Message</a></p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3 data-hotdoc-id="gst_transcoder_message_parse_position">
+	<i>GstTranscoder.TranscoderMessage.parse_position</i>
+</h3>
+
+
+<pre class="python-prototype language-python">
+<code>def GstTranscoder.TranscoderMessage.parse_position (msg):
+    #python wrapper for 'gst_transcoder_message_parse_position'</code></pre>
+
+<p>Parse the given position <em>msg</em> and extract the corresponding <a href="https://docs.python.org/3/library/functions.html#int">int</a></p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>msg</code></em></i>
+<span>(</span><a title="Gst.Message" href="gstreamer/gstmessage.html#GstMessage">Gst.Message</a><span>)</span>
+–
+</div>
+<p>A <a href="gstreamer/gstmessage.html#GstMessage">Gst.Message</a></p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="gst_transcoder_message_parse_state">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="gst_transcoder_message_parse_state">
+	<i>gst_transcoder_message_parse_state</i>
+</h3>
+
+
+
+
+<pre class="c-prototype language-c">
+gst_transcoder_message_parse_state (<a title="GstMessage" href="gstreamer/gstmessage.html#GstMessage">GstMessage</a> * msg,
+                                    <a title="GstTranscoderState" href="transcoder/gsttranscoder.html#GstTranscoderState">GstTranscoderState</a> * state)</pre>
+
+<p>Parse the given state <em>msg</em> and extract the corresponding <a href="transcoder/gsttranscoder.html#GstTranscoderState">GstTranscoderState</a></p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>msg</code></em></i>
+–
+</div>
+<p>A <a href="gstreamer/gstmessage.html#GstMessage">GstMessage</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>state</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="Parameter for returning results"><span class="acronym">out</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>the resulting state</p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3 data-hotdoc-id="gst_transcoder_message_parse_state">
+	<i>GstTranscoder.TranscoderMessage.prototype.parse_state</i>
+</h3>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstTranscoder.TranscoderMessage.prototype.parse_state(msg: <a title="Gst.Message" href="gstreamer/gstmessage.html#GstMessage">Gst.Message</a>): {
+    // javascript wrapper for 'gst_transcoder_message_parse_state'
+}</code></pre>
+
+<p>Parse the given state <em>msg</em> and extract the corresponding <a href="transcoder/gsttranscoder.html#GstTranscoderState">GstTranscoder.TranscoderState</a></p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>msg</code></em></i>
+<span>(</span><a title="Gst.Message" href="gstreamer/gstmessage.html#GstMessage">Gst.Message</a><span>)</span>
+–
+</div>
+<p>A <a href="gstreamer/gstmessage.html#GstMessage">Gst.Message</a></p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3 data-hotdoc-id="gst_transcoder_message_parse_state">
+	<i>GstTranscoder.TranscoderMessage.parse_state</i>
+</h3>
+
+
+<pre class="python-prototype language-python">
+<code>def GstTranscoder.TranscoderMessage.parse_state (msg):
+    #python wrapper for 'gst_transcoder_message_parse_state'</code></pre>
+
+<p>Parse the given state <em>msg</em> and extract the corresponding <a href="transcoder/gsttranscoder.html#GstTranscoderState">GstTranscoder.TranscoderState</a></p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>msg</code></em></i>
+<span>(</span><a title="Gst.Message" href="gstreamer/gstmessage.html#GstMessage">Gst.Message</a><span>)</span>
+–
+</div>
+<p>A <a href="gstreamer/gstmessage.html#GstMessage">Gst.Message</a></p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="gst_transcoder_message_parse_warning">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="gst_transcoder_message_parse_warning">
+	<i>gst_transcoder_message_parse_warning</i>
+</h3>
+
+
+
+
+<pre class="c-prototype language-c">
+gst_transcoder_message_parse_warning (<a title="GstMessage" href="gstreamer/gstmessage.html#GstMessage">GstMessage</a> * msg,
+                                      <a title="GError" href="https://docs.gtk.org/glib/struct.Error.html">GError</a> ** error,
+                                      <a title="GstStructure" href="gstreamer/gststructure.html#GstStructure">GstStructure</a> ** details)</pre>
+
+<p>Parse the given error <em>msg</em> and extract the corresponding <a href="https://docs.gtk.org/glib/struct.Error.html">GError</a> warning</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>msg</code></em></i>
+–
+</div>
+<p>A <a href="gstreamer/gstmessage.html#GstMessage">GstMessage</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>error</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="Parameter for returning results"><span class="acronym">out</span></abbr>]</span><span class="annotation">[<abbr title="NULL may be passed instead of a pointer to a location"><span class="acronym">optional</span></abbr>]</span><span class="annotation">[<abbr title="Free data after the code is done"><span class="acronym">transfer: full</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>the resulting warning</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>details</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="Parameter for returning results"><span class="acronym">out</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>(transfer full): A GstStructure containing extra details about the warning</p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3 data-hotdoc-id="gst_transcoder_message_parse_warning">
+	<i>GstTranscoder.TranscoderMessage.prototype.parse_warning</i>
+</h3>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstTranscoder.TranscoderMessage.prototype.parse_warning(msg: <a title="Gst.Message" href="gstreamer/gstmessage.html#GstMessage">Gst.Message</a>): {
+    // javascript wrapper for 'gst_transcoder_message_parse_warning'
+}</code></pre>
+
+<p>Parse the given error <em>msg</em> and extract the corresponding <a href="https://docs.gtk.org/glib/struct.Error.html">GError (not introspectable)</a> warning</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>msg</code></em></i>
+<span>(</span><a title="Gst.Message" href="gstreamer/gstmessage.html#GstMessage">Gst.Message</a><span>)</span>
+–
+</div>
+<p>A <a href="gstreamer/gstmessage.html#GstMessage">Gst.Message</a></p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3 data-hotdoc-id="gst_transcoder_message_parse_warning">
+	<i>GstTranscoder.TranscoderMessage.parse_warning</i>
+</h3>
+
+
+<pre class="python-prototype language-python">
+<code>def GstTranscoder.TranscoderMessage.parse_warning (msg):
+    #python wrapper for 'gst_transcoder_message_parse_warning'</code></pre>
+
+<p>Parse the given error <em>msg</em> and extract the corresponding <a href="https://docs.gtk.org/glib/struct.Error.html">GError (not introspectable)</a> warning</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>msg</code></em></i>
+<span>(</span><a title="Gst.Message" href="gstreamer/gstmessage.html#GstMessage">Gst.Message</a><span>)</span>
+–
+</div>
+<p>A <a href="gstreamer/gstmessage.html#GstMessage">Gst.Message</a></p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="gst_transcoder_state_get_name">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="gst_transcoder_state_get_name">
+	<i>gst_transcoder_state_get_name</i>
+</h3>
+
+
+
+
+<pre class="c-prototype language-c">
+const <a title="gchar" href="https://docs.gtk.org/glib/types.html#gchar">gchar</a> *
+gst_transcoder_state_get_name (<a title="GstTranscoderState" href="transcoder/gsttranscoder.html#GstTranscoderState">GstTranscoderState</a> state)</pre>
+
+<p>Gets a string representing the given state.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>state</code></em></i>
+–
+</div>
+<p>a <a href="transcoder/gsttranscoder.html#GstTranscoderState">GstTranscoderState</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span>
+<span class="annotation">[<abbr title="Don't free data after the code is done"><span class="acronym">transfer: none</span></abbr>]</span><span>)</span>
+–
+			</div>
+							<p>a string with the name of the state.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3 data-hotdoc-id="gst_transcoder_state_get_name">
+	<i>GstTranscoder.TranscoderState.prototype.get_name</i>
+</h3>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstTranscoder.TranscoderState.prototype.get_name(state: <a title="GstTranscoder.TranscoderState" href="transcoder/gsttranscoder.html#GstTranscoderState">GstTranscoder.TranscoderState</a>): {
+    // javascript wrapper for 'gst_transcoder_state_get_name'
+}</code></pre>
+
+<p>Gets a string representing the given state.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>state</code></em></i>
+<span>(</span><a title="GstTranscoder.TranscoderState" href="transcoder/gsttranscoder.html#GstTranscoderState">GstTranscoder.TranscoderState</a><span>)</span>
+–
+</div>
+<p>a <a href="transcoder/gsttranscoder.html#GstTranscoderState">GstTranscoder.TranscoderState</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a><span>)</span>
+–
+			</div>
+							<p>a string with the name of the state.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3 data-hotdoc-id="gst_transcoder_state_get_name">
+	<i>GstTranscoder.TranscoderState.get_name</i>
+</h3>
+
+
+<pre class="python-prototype language-python">
+<code>def GstTranscoder.TranscoderState.get_name (state):
+    #python wrapper for 'gst_transcoder_state_get_name'</code></pre>
+
+<p>Gets a string representing the given state.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>state</code></em></i>
+<span>(</span><a title="GstTranscoder.TranscoderState" href="transcoder/gsttranscoder.html#GstTranscoderState">GstTranscoder.TranscoderState</a><span>)</span>
+–
+</div>
+<p>a <a href="transcoder/gsttranscoder.html#GstTranscoderState">GstTranscoder.TranscoderState</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="str" href="https://docs.python.org/3/library/functions.html#func-str">str</a><span>)</span>
+–
+			</div>
+							<p>a string with the name of the state.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+
+            <h2 class="symbol_section">Enumerations</h2>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstTranscoderError">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GstTranscoderError">
+	<i>GstTranscoderError</i>
+</h3>
+
+
+
+
+
+	<div class="members-container">
+		<h5>Members</h5>
+					
+<div class="symbol-detail" data-hotdoc-id="GST_TRANSCODER_ERROR_FAILED">
+	<div>
+		<i><em><code>GST_TRANSCODER_ERROR_FAILED</code></em></i>
+		(<span class="value">0</span>)
+		–
+	</div>
+			<p>generic error.</p>
+
+	</div>
+
+			</div>
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3 data-hotdoc-id="GstTranscoderError">
+	<i>GstTranscoder.TranscoderError</i>
+</h3>
+
+
+
+
+
+	<div class="members-container">
+		<h5>Members</h5>
+					
+<div class="symbol-detail" data-hotdoc-id="GST_TRANSCODER_ERROR_FAILED">
+	<div>
+		<i><em><code>GstTranscoder.TranscoderError.FAILED</code></em></i>
+		(<span class="value">0</span>)
+		–
+	</div>
+			<p>generic error.</p>
+
+	</div>
+
+			</div>
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3 data-hotdoc-id="GstTranscoderError">
+	<i>GstTranscoder.TranscoderError</i>
+</h3>
+
+
+
+
+
+	<div class="members-container">
+		<h5>Members</h5>
+					
+<div class="symbol-detail" data-hotdoc-id="GST_TRANSCODER_ERROR_FAILED">
+	<div>
+		<i><em><code>GstTranscoder.TranscoderError.FAILED</code></em></i>
+		(<span class="value">0</span>)
+		–
+	</div>
+			<p>generic error.</p>
+
+	</div>
+
+			</div>
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="GstTranscoderMessage">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GstTranscoderMessage">
+	<i>GstTranscoderMessage</i>
+</h3>
+
+
+<p>Types of messages that will be posted on the transcoder API bus.</p>
+<p>See also <a href="transcoder/gsttranscoder.html#gst_transcoder_get_message_bus">gst_transcoder_get_message_bus</a>()</p>
+
+
+
+
+	<div class="members-container">
+		<h5>Members</h5>
+					
+<div class="symbol-detail" data-hotdoc-id="GST_TRANSCODER_MESSAGE_POSITION_UPDATED">
+	<div>
+		<i><em><code>GST_TRANSCODER_MESSAGE_POSITION_UPDATED</code></em></i>
+		(<span class="value">0</span>)
+		–
+	</div>
+			<p>Sink position changed</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_TRANSCODER_MESSAGE_DURATION_CHANGED">
+	<div>
+		<i><em><code>GST_TRANSCODER_MESSAGE_DURATION_CHANGED</code></em></i>
+		(<span class="value">1</span>)
+		–
+	</div>
+			<p>Duration of stream changed</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_TRANSCODER_MESSAGE_STATE_CHANGED">
+	<div>
+		<i><em><code>GST_TRANSCODER_MESSAGE_STATE_CHANGED</code></em></i>
+		(<span class="value">2</span>)
+		–
+	</div>
+			<p>Pipeline state changed</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_TRANSCODER_MESSAGE_DONE">
+	<div>
+		<i><em><code>GST_TRANSCODER_MESSAGE_DONE</code></em></i>
+		(<span class="value">3</span>)
+		–
+	</div>
+			<p>Transcoding is done</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_TRANSCODER_MESSAGE_ERROR">
+	<div>
+		<i><em><code>GST_TRANSCODER_MESSAGE_ERROR</code></em></i>
+		(<span class="value">4</span>)
+		–
+	</div>
+			<p>Message contains an error</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_TRANSCODER_MESSAGE_WARNING">
+	<div>
+		<i><em><code>GST_TRANSCODER_MESSAGE_WARNING</code></em></i>
+		(<span class="value">5</span>)
+		–
+	</div>
+			<p>Message contains an error</p>
+
+	</div>
+
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3 data-hotdoc-id="GstTranscoderMessage">
+	<i>GstTranscoder.TranscoderMessage</i>
+</h3>
+
+
+<p>Types of messages that will be posted on the transcoder API bus.</p>
+<p>See also <a href="transcoder/gsttranscoder.html#gst_transcoder_get_message_bus">GstTranscoder.Transcoder.prototype.get_message_bus</a>()</p>
+
+
+
+
+	<div class="members-container">
+		<h5>Members</h5>
+					
+<div class="symbol-detail" data-hotdoc-id="GST_TRANSCODER_MESSAGE_POSITION_UPDATED">
+	<div>
+		<i><em><code>GstTranscoder.TranscoderMessage.POSITION_UPDATED</code></em></i>
+		(<span class="value">0</span>)
+		–
+	</div>
+			<p>Sink position changed</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_TRANSCODER_MESSAGE_DURATION_CHANGED">
+	<div>
+		<i><em><code>GstTranscoder.TranscoderMessage.DURATION_CHANGED</code></em></i>
+		(<span class="value">1</span>)
+		–
+	</div>
+			<p>Duration of stream changed</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_TRANSCODER_MESSAGE_STATE_CHANGED">
+	<div>
+		<i><em><code>GstTranscoder.TranscoderMessage.STATE_CHANGED</code></em></i>
+		(<span class="value">2</span>)
+		–
+	</div>
+			<p>Pipeline state changed</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_TRANSCODER_MESSAGE_DONE">
+	<div>
+		<i><em><code>GstTranscoder.TranscoderMessage.DONE</code></em></i>
+		(<span class="value">3</span>)
+		–
+	</div>
+			<p>Transcoding is done</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_TRANSCODER_MESSAGE_ERROR">
+	<div>
+		<i><em><code>GstTranscoder.TranscoderMessage.ERROR</code></em></i>
+		(<span class="value">4</span>)
+		–
+	</div>
+			<p>Message contains an error</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_TRANSCODER_MESSAGE_WARNING">
+	<div>
+		<i><em><code>GstTranscoder.TranscoderMessage.WARNING</code></em></i>
+		(<span class="value">5</span>)
+		–
+	</div>
+			<p>Message contains an error</p>
+
+	</div>
+
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3 data-hotdoc-id="GstTranscoderMessage">
+	<i>GstTranscoder.TranscoderMessage</i>
+</h3>
+
+
+<p>Types of messages that will be posted on the transcoder API bus.</p>
+<p>See also <a href="transcoder/gsttranscoder.html#gst_transcoder_get_message_bus">GstTranscoder.Transcoder.get_message_bus</a>()</p>
+
+
+
+
+	<div class="members-container">
+		<h5>Members</h5>
+					
+<div class="symbol-detail" data-hotdoc-id="GST_TRANSCODER_MESSAGE_POSITION_UPDATED">
+	<div>
+		<i><em><code>GstTranscoder.TranscoderMessage.POSITION_UPDATED</code></em></i>
+		(<span class="value">0</span>)
+		–
+	</div>
+			<p>Sink position changed</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_TRANSCODER_MESSAGE_DURATION_CHANGED">
+	<div>
+		<i><em><code>GstTranscoder.TranscoderMessage.DURATION_CHANGED</code></em></i>
+		(<span class="value">1</span>)
+		–
+	</div>
+			<p>Duration of stream changed</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_TRANSCODER_MESSAGE_STATE_CHANGED">
+	<div>
+		<i><em><code>GstTranscoder.TranscoderMessage.STATE_CHANGED</code></em></i>
+		(<span class="value">2</span>)
+		–
+	</div>
+			<p>Pipeline state changed</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_TRANSCODER_MESSAGE_DONE">
+	<div>
+		<i><em><code>GstTranscoder.TranscoderMessage.DONE</code></em></i>
+		(<span class="value">3</span>)
+		–
+	</div>
+			<p>Transcoding is done</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_TRANSCODER_MESSAGE_ERROR">
+	<div>
+		<i><em><code>GstTranscoder.TranscoderMessage.ERROR</code></em></i>
+		(<span class="value">4</span>)
+		–
+	</div>
+			<p>Message contains an error</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_TRANSCODER_MESSAGE_WARNING">
+	<div>
+		<i><em><code>GstTranscoder.TranscoderMessage.WARNING</code></em></i>
+		(<span class="value">5</span>)
+		–
+	</div>
+			<p>Message contains an error</p>
+
+	</div>
+
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="GstTranscoderState">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GstTranscoderState">
+	<i>GstTranscoderState</i>
+</h3>
+
+
+<p>High level representation of the transcoder pipeline state.</p>
+
+
+
+
+	<div class="members-container">
+		<h5>Members</h5>
+					
+<div class="symbol-detail" data-hotdoc-id="GST_TRANSCODER_STATE_STOPPED">
+	<div>
+		<i><em><code>GST_TRANSCODER_STATE_STOPPED</code></em></i>
+		(<span class="value">0</span>)
+		–
+	</div>
+			<p>the transcoder is stopped.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_TRANSCODER_STATE_PAUSED">
+	<div>
+		<i><em><code>GST_TRANSCODER_STATE_PAUSED</code></em></i>
+		(<span class="value">1</span>)
+		–
+	</div>
+			<p>the transcoder is paused.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_TRANSCODER_STATE_PLAYING">
+	<div>
+		<i><em><code>GST_TRANSCODER_STATE_PLAYING</code></em></i>
+		(<span class="value">2</span>)
+		–
+	</div>
+			<p>the transcoder is currently transcoding a
+stream.</p>
+
+	</div>
+
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3 data-hotdoc-id="GstTranscoderState">
+	<i>GstTranscoder.TranscoderState</i>
+</h3>
+
+
+<p>High level representation of the transcoder pipeline state.</p>
+
+
+
+
+	<div class="members-container">
+		<h5>Members</h5>
+					
+<div class="symbol-detail" data-hotdoc-id="GST_TRANSCODER_STATE_STOPPED">
+	<div>
+		<i><em><code>GstTranscoder.TranscoderState.STOPPED</code></em></i>
+		(<span class="value">0</span>)
+		–
+	</div>
+			<p>the transcoder is stopped.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_TRANSCODER_STATE_PAUSED">
+	<div>
+		<i><em><code>GstTranscoder.TranscoderState.PAUSED</code></em></i>
+		(<span class="value">1</span>)
+		–
+	</div>
+			<p>the transcoder is paused.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_TRANSCODER_STATE_PLAYING">
+	<div>
+		<i><em><code>GstTranscoder.TranscoderState.PLAYING</code></em></i>
+		(<span class="value">2</span>)
+		–
+	</div>
+			<p>the transcoder is currently transcoding a
+stream.</p>
+
+	</div>
+
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3 data-hotdoc-id="GstTranscoderState">
+	<i>GstTranscoder.TranscoderState</i>
+</h3>
+
+
+<p>High level representation of the transcoder pipeline state.</p>
+
+
+
+
+	<div class="members-container">
+		<h5>Members</h5>
+					
+<div class="symbol-detail" data-hotdoc-id="GST_TRANSCODER_STATE_STOPPED">
+	<div>
+		<i><em><code>GstTranscoder.TranscoderState.STOPPED</code></em></i>
+		(<span class="value">0</span>)
+		–
+	</div>
+			<p>the transcoder is stopped.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_TRANSCODER_STATE_PAUSED">
+	<div>
+		<i><em><code>GstTranscoder.TranscoderState.PAUSED</code></em></i>
+		(<span class="value">1</span>)
+		–
+	</div>
+			<p>the transcoder is paused.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_TRANSCODER_STATE_PLAYING">
+	<div>
+		<i><em><code>GstTranscoder.TranscoderState.PLAYING</code></em></i>
+		(<span class="value">2</span>)
+		–
+	</div>
+			<p>the transcoder is currently transcoding a
+stream.</p>
+
+	</div>
+
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+
+            <h2 class="symbol_section">Constants</h2>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GST_TRANSCODER_ERROR">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_TRANSCODER_ERROR">
+	<i>GST_TRANSCODER_ERROR</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_TRANSCODER_ERROR                         (gst_transcoder_error_quark ())
+</pre>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GST_TYPE_TRANSCODER">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_TYPE_TRANSCODER">
+	<i>GST_TYPE_TRANSCODER</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_TYPE_TRANSCODER (gst_transcoder_get_type ())
+</pre>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+
+
+
+
+
+		
+	</div>
+	<div id="search_results">
+		<p>The results of the search are</p>
+	</div>
+	<div id="footer">
+		    
+
+	</div>
+</div>
+
+<div id="toc-column">
+	
+		<div class="edit-button">
+		
+
+	</div>
+		<div id="toc-wrapper">
+		<nav id="toc"></nav>
+	</div>
+</div>
+</div>
+</main>
+
+
+<script src="assets/js/navbar_offset_scroller.js"></script>
+</body>
+</html>

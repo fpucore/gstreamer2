@@ -1,0 +1,3406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<base href="..">
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<title>GstAV1Decoder</title>
+
+<link rel="stylesheet" href="assets/css/dark-frontend.css" type="text/css" title="dark">
+<link rel="alternate stylesheet" href="assets/css/light-frontend.css" type="text/css" title="light">
+<link rel="stylesheet" href="assets/css/bootstrap-toc.min.css" type="text/css">
+<link rel="stylesheet" href="assets/css/jquery.mCustomScrollbar.min.css">
+<link rel="stylesheet" href="assets/js/search/enable_search.css" type="text/css">
+
+<link rel="stylesheet" href="assets/css/extra_frontend.css" type="text/css">
+<link rel="stylesheet" href="assets/css/devhelp.css" type="text/css">
+
+<link rel="stylesheet" href="assets/css/prism-tomorrow.css" type="text/css" title="dark">
+
+<link rel="alternate stylesheet" href="assets/css/prism.css" type="text/css" title="light">
+
+<script src="assets/js/mustache.min.js"></script>
+<script src="assets/js/jquery.js"></script>
+<script src="assets/js/bootstrap.js"></script>
+<script src="assets/js/scrollspy.js"></script>
+<script src="assets/js/typeahead.jquery.min.js"></script>
+<script src="assets/js/search.js"></script>
+<script src="assets/js/compare-versions.js"></script>
+<script src="assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="assets/js/bootstrap-toc.min.js"></script>
+<script src="assets/js/jquery.touchSwipe.min.js"></script>
+<script src="assets/js/anchor.min.js"></script>
+<script src="assets/js/tag_filtering.js"></script>
+<script src="assets/js/language_switching.js"></script>
+<script src="assets/js/styleswitcher.js"></script>
+
+<script src="assets/js/lines_around_headings.js"></script>
+
+<script src="assets/js/prism-core.js"></script>
+<script src="assets/js/prism-autoloader.js"></script>
+<script src="assets/js/prism_autoloader_path_override.js"></script>
+<script src="assets/js/trie.js"></script>
+
+<!-- generic -->
+<link rel="icon" type="image/png" href="assets/images/favicon-16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="assets/images/favicon-32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="assets/images/favicon-57.png" sizes="57x57">
+<link rel="icon" type="image/png" href="assets/images/favicon-64.png" sizes="64x64">
+<link rel="icon" type="image/png" href="assets/images/favicon-76.png" sizes="76x76">
+<link rel="icon" type="image/png" href="assets/images/favicon-96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="assets/images/favicon-128.png" sizes="128x128">
+<link rel="icon" type="image/png" href="assets/images/favicon-192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="assets/images/favicon-228.png" sizes="228x228">
+
+<!-- Android -->
+<link rel="shortcut icon" sizes="196x196" href="assets/images/favicon-196.png">
+
+<!-- iOS -->
+<link rel="apple-touch-icon" href="assets/images/favicon-120.png" sizes="120x120">
+<link rel="apple-touch-icon" href="assets/images/favicon-152.png" sizes="152x152">
+<link rel="apple-touch-icon" href="assets/images/favicon-180.png" sizes="180x180">
+
+</head>
+
+<body class="no-script
+">
+
+<script>
+$('body').removeClass('no-script');
+</script>
+
+<nav class="navbar navbar-fixed-top navbar-default" id="topnav">
+	<div class="container-fluid">
+		<div class="navbar-right">
+			<a id="toc-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-wrapper" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<span title="light mode switch" class="glyphicon glyphicon-sunglasses pull-right" id="lightmode-icon"></span>
+			<form class="navbar-form pull-right" id="navbar-search-form">
+                               <div class="form-group has-feedback">
+                                       <input type="text" class="form-control input-sm" name="search" id="sidenav-lookup-field" placeholder="search" disabled>
+				       <span class="glyphicon glyphicon-search form-control-feedback" id="search-mgn-glass"></span>
+                               </div>
+                        </form>
+		</div>
+		<div class="navbar-header">
+			<a id="sidenav-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<a id="home-link" href="index.html" class="hotdoc-navbar-brand">
+				<img src="assets/images/gstreamer-logo.svg" alt="Home">
+			</a>
+		</div>
+		<div class="navbar-collapse collapse" id="navbar-wrapper">
+			<ul class="nav navbar-nav" id="menu">
+				
+<li class="dropdown">
+    <a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        API References<span class="caret"></span>
+    </a>
+	<ul class="dropdown-menu" id="modules-menu">
+					<li>
+				<a href="gstreamer/gi-index.html">GStreamer core</a>
+			</li>
+					<li>
+				<a href="libs.html">GStreamer Libraries</a>
+			</li>
+					<li>
+				<a href="plugins_doc.html">GStreamer Plugins</a>
+			</li>
+		</ul>
+</li>
+
+<li>
+    <a href="application-development/index.html">Application manual</a>
+</li>
+
+
+<li>
+    <a href="tutorials/index.html">Tutorials</a>
+</li>
+
+			</ul>
+			<div class="hidden-xs hidden-sm navbar-text navbar-center">
+							</div>
+		</div>
+	</div>
+</nav>
+
+<main>
+<div data-extension="gi-extension" data-hotdoc-in-toplevel="False" data-hotdoc-project="codecs" data-hotdoc-ref="gstav1decoder.html" class="page_container" id="page-wrapper" data-hotdoc-meta-gi-languages="['c', 'javascript', 'python']" data-hotdoc-meta-gi-language="c">
+<script src="assets/js/utils.js"></script>
+
+<div class="panel panel-collapse oc-collapsed" id="sidenav" data-hotdoc-role="navigation">
+	<script src="assets/js/full-width.js"></script>
+  <div id="sitenav-wrapper">
+    <iframe src="hotdoc-sitemap.html" id="sitenav-frame"></iframe>
+  </div>
+</div>
+
+<div id="body">
+	<div id="main">
+				    <div id="page-description" data-hotdoc-role="main">
+        <h1 id="gstav1decoder-page">GstAV1Decoder</h1>
+    </div>
+        
+        
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="GstAV1Decoder">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h2 data-hotdoc-id="GstAV1Decoder">
+	<i>GstAV1Decoder</i>
+</h2>
+
+
+<div class="hierarchy_container">
+	<div class="hierarchy_details">
+<pre>
+<a title="GObject" href="https://docs.gtk.org/gobject/class.Object.html">GObject</a>
+    <span class="lineart">╰──</span><a title="GInitiallyUnowned" href="https://docs.gtk.org/gobject/class.InitiallyUnowned.html">GInitiallyUnowned</a>
+        <span class="lineart">╰──</span><a title="GstObject" href="gstreamer/gstobject.html#GstObject">GstObject</a>
+            <span class="lineart">╰──</span><a title="GstElement" href="gstreamer/gstelement.html#GstElement">GstElement</a>
+                <span class="lineart">╰──</span><a title="GstVideoDecoder" href="video/gstvideodecoder.html#GstVideoDecoder">GstVideoDecoder</a>
+                    <span class="lineart">╰──</span>GstAV1Decoder
+</pre>
+
+</div>
+
+</div>
+
+<div class="class_details">
+	<p>The opaque <a href="codecs/gstav1decoder.html#GstAV1Decoder">GstAV1Decoder</a> data structure.</p>
+
+</div>
+
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+<h3>Class structure</h3>
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstAV1DecoderClass">
+	<i>GstAV1DecoderClass</i>
+</h4>
+
+
+
+
+
+	<div class="members-container">
+		<h5>Fields</h5>
+					
+<div class="symbol-detail" data-hotdoc-id="GstAV1DecoderClass.parent_class">
+	<div>
+		<i><em><code>parent_class</code></em></i>
+		(<a title="GstVideoDecoderClass" href="GstVideoDecoderClass">GstVideoDecoderClass</a>)
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+			</div>
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3>
+	GstCodecs.AV1DecoderClass
+</h3>
+
+
+
+
+
+	<div class="members-container">
+		<h5>Attributes</h5>
+					
+<div class="symbol-detail" data-hotdoc-id="GstAV1DecoderClass.parent_class">
+	<div>
+		<i><em><code>parent_class</code></em></i>
+		(<a title="GstVideo.VideoDecoderClass" href="GstVideoDecoderClass">GstVideo.VideoDecoderClass</a>)
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+			</div>
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3>
+	GstCodecs.AV1DecoderClass
+</h3>
+
+
+
+
+
+	<div class="members-container">
+		<h5>Attributes</h5>
+					
+<div class="symbol-detail" data-hotdoc-id="GstAV1DecoderClass.parent_class">
+	<div>
+		<i><em><code>parent_class</code></em></i>
+		(<a title="GstVideo.VideoDecoderClass" href="GstVideoDecoderClass">GstVideo.VideoDecoderClass</a>)
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+			</div>
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h2 data-hotdoc-id="GstAV1Decoder">
+	<i>GstCodecs.AV1Decoder</i>
+</h2>
+
+
+<div class="hierarchy_container">
+	<div class="hierarchy_details">
+<pre>
+<a title="GObject.Object" href="https://docs.gtk.org/gobject/class.Object.html">GObject.Object</a>
+    <span class="lineart">╰──</span><a title="GObject.InitiallyUnowned" href="https://docs.gtk.org/gobject/class.InitiallyUnowned.html">GObject.InitiallyUnowned</a>
+        <span class="lineart">╰──</span><a title="Gst.Object" href="gstreamer/gstobject.html#GstObject">Gst.Object</a>
+            <span class="lineart">╰──</span><a title="Gst.Element" href="gstreamer/gstelement.html#GstElement">Gst.Element</a>
+                <span class="lineart">╰──</span><a title="GstVideo.VideoDecoder" href="video/gstvideodecoder.html#GstVideoDecoder">GstVideo.VideoDecoder</a>
+                    <span class="lineart">╰──</span>GstCodecs.AV1Decoder
+</pre>
+
+</div>
+
+</div>
+
+<div class="class_details">
+	<p>The opaque <a href="codecs/gstav1decoder.html#GstAV1Decoder">GstCodecs.AV1Decoder</a> data structure.</p>
+
+</div>
+
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h2 data-hotdoc-id="GstAV1Decoder">
+	<i>GstCodecs.AV1Decoder</i>
+</h2>
+
+
+<div class="hierarchy_container">
+	<div class="hierarchy_details">
+<pre>
+<a title="GObject.Object" href="https://docs.gtk.org/gobject/class.Object.html">GObject.Object</a>
+    <span class="lineart">╰──</span><a title="GObject.InitiallyUnowned" href="https://docs.gtk.org/gobject/class.InitiallyUnowned.html">GObject.InitiallyUnowned</a>
+        <span class="lineart">╰──</span><a title="Gst.Object" href="gstreamer/gstobject.html#GstObject">Gst.Object</a>
+            <span class="lineart">╰──</span><a title="Gst.Element" href="gstreamer/gstelement.html#GstElement">Gst.Element</a>
+                <span class="lineart">╰──</span><a title="GstVideo.VideoDecoder" href="video/gstvideodecoder.html#GstVideoDecoder">GstVideo.VideoDecoder</a>
+                    <span class="lineart">╰──</span>GstCodecs.AV1Decoder
+</pre>
+
+</div>
+
+</div>
+
+<div class="class_details">
+	<p>The opaque <a href="codecs/gstav1decoder.html#GstAV1Decoder">GstCodecs.AV1Decoder</a> data structure.</p>
+
+</div>
+
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+
+            <h3 class="symbol_section">Virtual Methods</h3>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="GstAV1DecoderClass::decode_tile">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstAV1DecoderClass::decode_tile">
+	<i>decode_tile</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GstFlowReturn" href="gstreamer/gstpad.html#GstFlowReturn">GstFlowReturn</a>
+decode_tile (<a title="GstAV1Decoder" href="codecs/gstav1decoder.html#GstAV1Decoder">GstAV1Decoder</a> * decoder,
+             <a title="GstAV1Picture" href="codecs/gstav1decoder.html#GstAV1Picture">GstAV1Picture</a> * picture,
+             <a title="GstAV1Tile" href="codecs/gstav1decoder.html#GstAV1Tile">GstAV1Tile</a> * tile)</pre>
+
+<p>Provides the tile data with tile group header and required raw
+bitstream for subclass to decode it.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>decoder</code></em></i>
+–
+</div>
+<p>a <a href="codecs/gstav1decoder.html#GstAV1Decoder">GstAV1Decoder</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>picture</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="Don't free data after the code is done"><span class="acronym">transfer: none</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>a <a href="codecs/gstav1decoder.html#GstAV1Picture">GstAV1Picture</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>tile</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="Don't free data after the code is done"><span class="acronym">transfer: none</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>a <a href="codecs/gstav1decoder.html#GstAV1Tile">GstAV1Tile</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GstAV1DecoderClass::decode_tile">
+	<i>vfunc_decode_tile</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function vfunc_decode_tile(decoder: <a title="GstCodecs.AV1Decoder" href="codecs/gstav1decoder.html#GstAV1Decoder">GstCodecs.AV1Decoder</a>, picture: <a title="GstCodecs.AV1Picture" href="codecs/gstav1decoder.html#GstAV1Picture">GstCodecs.AV1Picture</a>, tile: <a title="GstCodecs.AV1Tile" href="codecs/gstav1decoder.html#GstAV1Tile">GstCodecs.AV1Tile</a>): {
+    // javascript implementation of the 'decode_tile' virtual method
+}</code></pre>
+
+<p>Provides the tile data with tile group header and required raw
+bitstream for subclass to decode it.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>decoder</code></em></i>
+<span>(</span><a title="GstCodecs.AV1Decoder" href="codecs/gstav1decoder.html#GstAV1Decoder">GstCodecs.AV1Decoder</a><span>)</span>
+–
+</div>
+<p>a <a href="codecs/gstav1decoder.html#GstAV1Decoder">GstCodecs.AV1Decoder</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>picture</code></em></i>
+<span>(</span><a title="GstCodecs.AV1Picture" href="codecs/gstav1decoder.html#GstAV1Picture">GstCodecs.AV1Picture</a><span>)</span>
+–
+</div>
+<p>a <a href="codecs/gstav1decoder.html#GstAV1Picture">GstCodecs.AV1Picture</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>tile</code></em></i>
+<span>(</span><a title="GstCodecs.AV1Tile" href="codecs/gstav1decoder.html#GstAV1Tile">GstCodecs.AV1Tile</a><span>)</span>
+–
+</div>
+<p>a <a href="codecs/gstav1decoder.html#GstAV1Tile">GstCodecs.AV1Tile</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Gst.FlowReturn" href="gstreamer/gstpad.html#GstFlowReturn">Gst.FlowReturn</a><span>)</span>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GstAV1DecoderClass::decode_tile">
+	<i>do_decode_tile</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def do_decode_tile (decoder, picture, tile):
+    #python implementation of the 'decode_tile' virtual method</code></pre>
+
+<p>Provides the tile data with tile group header and required raw
+bitstream for subclass to decode it.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>decoder</code></em></i>
+<span>(</span><a title="GstCodecs.AV1Decoder" href="codecs/gstav1decoder.html#GstAV1Decoder">GstCodecs.AV1Decoder</a><span>)</span>
+–
+</div>
+<p>a <a href="codecs/gstav1decoder.html#GstAV1Decoder">GstCodecs.AV1Decoder</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>picture</code></em></i>
+<span>(</span><a title="GstCodecs.AV1Picture" href="codecs/gstav1decoder.html#GstAV1Picture">GstCodecs.AV1Picture</a><span>)</span>
+–
+</div>
+<p>a <a href="codecs/gstav1decoder.html#GstAV1Picture">GstCodecs.AV1Picture</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>tile</code></em></i>
+<span>(</span><a title="GstCodecs.AV1Tile" href="codecs/gstav1decoder.html#GstAV1Tile">GstCodecs.AV1Tile</a><span>)</span>
+–
+</div>
+<p>a <a href="codecs/gstav1decoder.html#GstAV1Tile">GstCodecs.AV1Tile</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Gst.FlowReturn" href="gstreamer/gstpad.html#GstFlowReturn">Gst.FlowReturn</a><span>)</span>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.22;" id="GstAV1DecoderClass::duplicate_picture">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstAV1DecoderClass::duplicate_picture">
+	<i>duplicate_picture</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GstAV1Picture" href="codecs/gstav1decoder.html#GstAV1Picture">GstAV1Picture</a> *
+duplicate_picture (<a title="GstAV1Decoder" href="codecs/gstav1decoder.html#GstAV1Decoder">GstAV1Decoder</a> * decoder,
+                   <a title="GstVideoCodecFrame" href="video/gstvideoutils.html#GstVideoCodecFrame">GstVideoCodecFrame</a> * frame,
+                   <a title="GstAV1Picture" href="codecs/gstav1decoder.html#GstAV1Picture">GstAV1Picture</a> * picture)</pre>
+
+<p>Called when need to duplicate an existing <a href="codecs/gstav1decoder.html#GstAV1Picture">GstAV1Picture</a>. As
+duplicated key-frame will populate the DPB, this virtual
+function is not optional.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>decoder</code></em></i>
+–
+</div>
+<p>a <a href="codecs/gstav1decoder.html#GstAV1Decoder">GstAV1Decoder</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>frame</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="Don't free data after the code is done"><span class="acronym">transfer: none</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>the current <a href="video/gstvideoutils.html#GstVideoCodecFrame">GstVideoCodecFrame</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>picture</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="Don't free data after the code is done"><span class="acronym">transfer: none</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>a <a href="codecs/gstav1decoder.html#GstAV1Picture">GstAV1Picture</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.22
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GstAV1DecoderClass::duplicate_picture">
+	<i>vfunc_duplicate_picture</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function vfunc_duplicate_picture(decoder: <a title="GstCodecs.AV1Decoder" href="codecs/gstav1decoder.html#GstAV1Decoder">GstCodecs.AV1Decoder</a>, frame: <a title="GstVideo.VideoCodecFrame" href="video/gstvideoutils.html#GstVideoCodecFrame">GstVideo.VideoCodecFrame</a>, picture: <a title="GstCodecs.AV1Picture" href="codecs/gstav1decoder.html#GstAV1Picture">GstCodecs.AV1Picture</a>): {
+    // javascript implementation of the 'duplicate_picture' virtual method
+}</code></pre>
+
+<p>Called when need to duplicate an existing <a href="codecs/gstav1decoder.html#GstAV1Picture">GstCodecs.AV1Picture</a>. As
+duplicated key-frame will populate the DPB, this virtual
+function is not optional.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>decoder</code></em></i>
+<span>(</span><a title="GstCodecs.AV1Decoder" href="codecs/gstav1decoder.html#GstAV1Decoder">GstCodecs.AV1Decoder</a><span>)</span>
+–
+</div>
+<p>a <a href="codecs/gstav1decoder.html#GstAV1Decoder">GstCodecs.AV1Decoder</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>frame</code></em></i>
+<span>(</span><a title="GstVideo.VideoCodecFrame" href="video/gstvideoutils.html#GstVideoCodecFrame">GstVideo.VideoCodecFrame</a><span>)</span>
+–
+</div>
+<p>the current <a href="video/gstvideoutils.html#GstVideoCodecFrame">GstVideo.VideoCodecFrame</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>picture</code></em></i>
+<span>(</span><a title="GstCodecs.AV1Picture" href="codecs/gstav1decoder.html#GstAV1Picture">GstCodecs.AV1Picture</a><span>)</span>
+–
+</div>
+<p>a <a href="codecs/gstav1decoder.html#GstAV1Picture">GstCodecs.AV1Picture</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GstCodecs.AV1Picture" href="codecs/gstav1decoder.html#GstAV1Picture">GstCodecs.AV1Picture</a><span>)</span>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.22
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GstAV1DecoderClass::duplicate_picture">
+	<i>do_duplicate_picture</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def do_duplicate_picture (decoder, frame, picture):
+    #python implementation of the 'duplicate_picture' virtual method</code></pre>
+
+<p>Called when need to duplicate an existing <a href="codecs/gstav1decoder.html#GstAV1Picture">GstCodecs.AV1Picture</a>. As
+duplicated key-frame will populate the DPB, this virtual
+function is not optional.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>decoder</code></em></i>
+<span>(</span><a title="GstCodecs.AV1Decoder" href="codecs/gstav1decoder.html#GstAV1Decoder">GstCodecs.AV1Decoder</a><span>)</span>
+–
+</div>
+<p>a <a href="codecs/gstav1decoder.html#GstAV1Decoder">GstCodecs.AV1Decoder</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>frame</code></em></i>
+<span>(</span><a title="GstVideo.VideoCodecFrame" href="video/gstvideoutils.html#GstVideoCodecFrame">GstVideo.VideoCodecFrame</a><span>)</span>
+–
+</div>
+<p>the current <a href="video/gstvideoutils.html#GstVideoCodecFrame">GstVideo.VideoCodecFrame</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>picture</code></em></i>
+<span>(</span><a title="GstCodecs.AV1Picture" href="codecs/gstav1decoder.html#GstAV1Picture">GstCodecs.AV1Picture</a><span>)</span>
+–
+</div>
+<p>a <a href="codecs/gstav1decoder.html#GstAV1Picture">GstCodecs.AV1Picture</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GstCodecs.AV1Picture" href="codecs/gstav1decoder.html#GstAV1Picture">GstCodecs.AV1Picture</a><span>)</span>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.22
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="GstAV1DecoderClass::end_picture">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstAV1DecoderClass::end_picture">
+	<i>end_picture</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GstFlowReturn" href="gstreamer/gstpad.html#GstFlowReturn">GstFlowReturn</a>
+end_picture (<a title="GstAV1Decoder" href="codecs/gstav1decoder.html#GstAV1Decoder">GstAV1Decoder</a> * decoder,
+             <a title="GstAV1Picture" href="codecs/gstav1decoder.html#GstAV1Picture">GstAV1Picture</a> * picture)</pre>
+
+<p>Optional. Called per one <a href="codecs/gstav1decoder.html#GstAV1Picture">GstAV1Picture</a> to notify subclass to finish
+decoding process for the <a href="codecs/gstav1decoder.html#GstAV1Picture">GstAV1Picture</a></p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>decoder</code></em></i>
+–
+</div>
+<p>a <a href="codecs/gstav1decoder.html#GstAV1Decoder">GstAV1Decoder</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>picture</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="Don't free data after the code is done"><span class="acronym">transfer: none</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>a <a href="codecs/gstav1decoder.html#GstAV1Picture">GstAV1Picture</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GstAV1DecoderClass::end_picture">
+	<i>vfunc_end_picture</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function vfunc_end_picture(decoder: <a title="GstCodecs.AV1Decoder" href="codecs/gstav1decoder.html#GstAV1Decoder">GstCodecs.AV1Decoder</a>, picture: <a title="GstCodecs.AV1Picture" href="codecs/gstav1decoder.html#GstAV1Picture">GstCodecs.AV1Picture</a>): {
+    // javascript implementation of the 'end_picture' virtual method
+}</code></pre>
+
+<p>Optional. Called per one <a href="codecs/gstav1decoder.html#GstAV1Picture">GstCodecs.AV1Picture</a> to notify subclass to finish
+decoding process for the <a href="codecs/gstav1decoder.html#GstAV1Picture">GstCodecs.AV1Picture</a></p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>decoder</code></em></i>
+<span>(</span><a title="GstCodecs.AV1Decoder" href="codecs/gstav1decoder.html#GstAV1Decoder">GstCodecs.AV1Decoder</a><span>)</span>
+–
+</div>
+<p>a <a href="codecs/gstav1decoder.html#GstAV1Decoder">GstCodecs.AV1Decoder</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>picture</code></em></i>
+<span>(</span><a title="GstCodecs.AV1Picture" href="codecs/gstav1decoder.html#GstAV1Picture">GstCodecs.AV1Picture</a><span>)</span>
+–
+</div>
+<p>a <a href="codecs/gstav1decoder.html#GstAV1Picture">GstCodecs.AV1Picture</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Gst.FlowReturn" href="gstreamer/gstpad.html#GstFlowReturn">Gst.FlowReturn</a><span>)</span>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GstAV1DecoderClass::end_picture">
+	<i>do_end_picture</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def do_end_picture (decoder, picture):
+    #python implementation of the 'end_picture' virtual method</code></pre>
+
+<p>Optional. Called per one <a href="codecs/gstav1decoder.html#GstAV1Picture">GstCodecs.AV1Picture</a> to notify subclass to finish
+decoding process for the <a href="codecs/gstav1decoder.html#GstAV1Picture">GstCodecs.AV1Picture</a></p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>decoder</code></em></i>
+<span>(</span><a title="GstCodecs.AV1Decoder" href="codecs/gstav1decoder.html#GstAV1Decoder">GstCodecs.AV1Decoder</a><span>)</span>
+–
+</div>
+<p>a <a href="codecs/gstav1decoder.html#GstAV1Decoder">GstCodecs.AV1Decoder</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>picture</code></em></i>
+<span>(</span><a title="GstCodecs.AV1Picture" href="codecs/gstav1decoder.html#GstAV1Picture">GstCodecs.AV1Picture</a><span>)</span>
+–
+</div>
+<p>a <a href="codecs/gstav1decoder.html#GstAV1Picture">GstCodecs.AV1Picture</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Gst.FlowReturn" href="gstreamer/gstpad.html#GstFlowReturn">Gst.FlowReturn</a><span>)</span>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.22;" id="GstAV1DecoderClass::get_preferred_output_delay">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstAV1DecoderClass::get_preferred_output_delay">
+	<i>get_preferred_output_delay</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="guint" href="https://docs.gtk.org/glib/types.html#guint">guint</a>
+get_preferred_output_delay (<a title="GstAV1Decoder" href="codecs/gstav1decoder.html#GstAV1Decoder">GstAV1Decoder</a> * decoder,
+                            <a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a> live)</pre>
+
+<p>Optional. Called by baseclass to query whether delaying output is
+preferred by subclass or not.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>decoder</code></em></i>
+–
+</div>
+<p>a <a href="codecs/gstav1decoder.html#GstAV1Decoder">GstAV1Decoder</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>live</code></em></i>
+–
+</div>
+<p>whether upstream is live or not</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p>the number of perferred delayed output frame</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.22
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GstAV1DecoderClass::get_preferred_output_delay">
+	<i>vfunc_get_preferred_output_delay</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function vfunc_get_preferred_output_delay(decoder: <a title="GstCodecs.AV1Decoder" href="codecs/gstav1decoder.html#GstAV1Decoder">GstCodecs.AV1Decoder</a>, live: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>): {
+    // javascript implementation of the 'get_preferred_output_delay' virtual method
+}</code></pre>
+
+<p>Optional. Called by baseclass to query whether delaying output is
+preferred by subclass or not.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>decoder</code></em></i>
+<span>(</span><a title="GstCodecs.AV1Decoder" href="codecs/gstav1decoder.html#GstAV1Decoder">GstCodecs.AV1Decoder</a><span>)</span>
+–
+</div>
+<p>a <a href="codecs/gstav1decoder.html#GstAV1Decoder">GstCodecs.AV1Decoder</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>live</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>whether upstream is live or not</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+			</div>
+							<p>the number of perferred delayed output frame</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.22
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GstAV1DecoderClass::get_preferred_output_delay">
+	<i>do_get_preferred_output_delay</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def do_get_preferred_output_delay (decoder, live):
+    #python implementation of the 'get_preferred_output_delay' virtual method</code></pre>
+
+<p>Optional. Called by baseclass to query whether delaying output is
+preferred by subclass or not.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>decoder</code></em></i>
+<span>(</span><a title="GstCodecs.AV1Decoder" href="codecs/gstav1decoder.html#GstAV1Decoder">GstCodecs.AV1Decoder</a><span>)</span>
+–
+</div>
+<p>a <a href="codecs/gstav1decoder.html#GstAV1Decoder">GstCodecs.AV1Decoder</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>live</code></em></i>
+<span>(</span><a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a><span>)</span>
+–
+</div>
+<p>whether upstream is live or not</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+			</div>
+							<p>the number of perferred delayed output frame</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.22
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="GstAV1DecoderClass::new_picture">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstAV1DecoderClass::new_picture">
+	<i>new_picture</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GstFlowReturn" href="gstreamer/gstpad.html#GstFlowReturn">GstFlowReturn</a>
+new_picture (<a title="GstAV1Decoder" href="codecs/gstav1decoder.html#GstAV1Decoder">GstAV1Decoder</a> * decoder,
+             <a title="GstVideoCodecFrame" href="video/gstvideoutils.html#GstVideoCodecFrame">GstVideoCodecFrame</a> * frame,
+             <a title="GstAV1Picture" href="codecs/gstav1decoder.html#GstAV1Picture">GstAV1Picture</a> * picture)</pre>
+
+<p>Optional. Called whenever new <a href="codecs/gstav1decoder.html#GstAV1Picture">GstAV1Picture</a> is created.
+Subclass can set implementation specific user data
+on the <a href="codecs/gstav1decoder.html#GstAV1Picture">GstAV1Picture</a> via gst_av1_picture_set_user_data</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>decoder</code></em></i>
+–
+</div>
+<p>a <a href="codecs/gstav1decoder.html#GstAV1Decoder">GstAV1Decoder</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>frame</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="Don't free data after the code is done"><span class="acronym">transfer: none</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>a <a href="video/gstvideoutils.html#GstVideoCodecFrame">GstVideoCodecFrame</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>picture</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="Don't free data after the code is done"><span class="acronym">transfer: none</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>a <a href="codecs/gstav1decoder.html#GstAV1Picture">GstAV1Picture</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GstAV1DecoderClass::new_picture">
+	<i>vfunc_new_picture</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function vfunc_new_picture(decoder: <a title="GstCodecs.AV1Decoder" href="codecs/gstav1decoder.html#GstAV1Decoder">GstCodecs.AV1Decoder</a>, frame: <a title="GstVideo.VideoCodecFrame" href="video/gstvideoutils.html#GstVideoCodecFrame">GstVideo.VideoCodecFrame</a>, picture: <a title="GstCodecs.AV1Picture" href="codecs/gstav1decoder.html#GstAV1Picture">GstCodecs.AV1Picture</a>): {
+    // javascript implementation of the 'new_picture' virtual method
+}</code></pre>
+
+<p>Optional. Called whenever new <a href="codecs/gstav1decoder.html#GstAV1Picture">GstCodecs.AV1Picture</a> is created.
+Subclass can set implementation specific user data
+on the <a href="codecs/gstav1decoder.html#GstAV1Picture">GstCodecs.AV1Picture</a> via gst_av1_picture_set_user_data</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>decoder</code></em></i>
+<span>(</span><a title="GstCodecs.AV1Decoder" href="codecs/gstav1decoder.html#GstAV1Decoder">GstCodecs.AV1Decoder</a><span>)</span>
+–
+</div>
+<p>a <a href="codecs/gstav1decoder.html#GstAV1Decoder">GstCodecs.AV1Decoder</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>frame</code></em></i>
+<span>(</span><a title="GstVideo.VideoCodecFrame" href="video/gstvideoutils.html#GstVideoCodecFrame">GstVideo.VideoCodecFrame</a><span>)</span>
+–
+</div>
+<p>a <a href="video/gstvideoutils.html#GstVideoCodecFrame">GstVideo.VideoCodecFrame</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>picture</code></em></i>
+<span>(</span><a title="GstCodecs.AV1Picture" href="codecs/gstav1decoder.html#GstAV1Picture">GstCodecs.AV1Picture</a><span>)</span>
+–
+</div>
+<p>a <a href="codecs/gstav1decoder.html#GstAV1Picture">GstCodecs.AV1Picture</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Gst.FlowReturn" href="gstreamer/gstpad.html#GstFlowReturn">Gst.FlowReturn</a><span>)</span>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GstAV1DecoderClass::new_picture">
+	<i>do_new_picture</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def do_new_picture (decoder, frame, picture):
+    #python implementation of the 'new_picture' virtual method</code></pre>
+
+<p>Optional. Called whenever new <a href="codecs/gstav1decoder.html#GstAV1Picture">GstCodecs.AV1Picture</a> is created.
+Subclass can set implementation specific user data
+on the <a href="codecs/gstav1decoder.html#GstAV1Picture">GstCodecs.AV1Picture</a> via gst_av1_picture_set_user_data</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>decoder</code></em></i>
+<span>(</span><a title="GstCodecs.AV1Decoder" href="codecs/gstav1decoder.html#GstAV1Decoder">GstCodecs.AV1Decoder</a><span>)</span>
+–
+</div>
+<p>a <a href="codecs/gstav1decoder.html#GstAV1Decoder">GstCodecs.AV1Decoder</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>frame</code></em></i>
+<span>(</span><a title="GstVideo.VideoCodecFrame" href="video/gstvideoutils.html#GstVideoCodecFrame">GstVideo.VideoCodecFrame</a><span>)</span>
+–
+</div>
+<p>a <a href="video/gstvideoutils.html#GstVideoCodecFrame">GstVideo.VideoCodecFrame</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>picture</code></em></i>
+<span>(</span><a title="GstCodecs.AV1Picture" href="codecs/gstav1decoder.html#GstAV1Picture">GstCodecs.AV1Picture</a><span>)</span>
+–
+</div>
+<p>a <a href="codecs/gstav1decoder.html#GstAV1Picture">GstCodecs.AV1Picture</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Gst.FlowReturn" href="gstreamer/gstpad.html#GstFlowReturn">Gst.FlowReturn</a><span>)</span>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="GstAV1DecoderClass::new_sequence">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstAV1DecoderClass::new_sequence">
+	<i>new_sequence</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GstFlowReturn" href="gstreamer/gstpad.html#GstFlowReturn">GstFlowReturn</a>
+new_sequence (<a title="GstAV1Decoder" href="codecs/gstav1decoder.html#GstAV1Decoder">GstAV1Decoder</a> * decoder,
+              const <a title="GstAV1SequenceHeaderOBU" href="codecparsers/gstav1parser.html#GstAV1SequenceHeaderOBU">GstAV1SequenceHeaderOBU</a> * seq_hdr,
+              <a title="gint" href="https://docs.gtk.org/glib/types.html#gint">gint</a> max_dpb_size)</pre>
+
+<p>Notifies subclass of SPS update</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>decoder</code></em></i>
+–
+</div>
+<p>a <a href="codecs/gstav1decoder.html#GstAV1Decoder">GstAV1Decoder</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>seq_hdr</code></em></i>
+–
+</div>
+<p>a <a href="codecparsers/gstav1parser.html#GstAV1SequenceHeaderOBU">GstAV1SequenceHeaderOBU</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>max_dpb_size</code></em></i>
+–
+</div>
+<p>the size of dpb including preferred output delay
+by subclass reported via get_preferred_output_delay method.</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GstAV1DecoderClass::new_sequence">
+	<i>vfunc_new_sequence</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function vfunc_new_sequence(decoder: <a title="GstCodecs.AV1Decoder" href="codecs/gstav1decoder.html#GstAV1Decoder">GstCodecs.AV1Decoder</a>, seq_hdr: <a title="GstCodecParsers.AV1SequenceHeaderOBU" href="codecparsers/gstav1parser.html#GstAV1SequenceHeaderOBU">GstCodecParsers.AV1SequenceHeaderOBU</a>, max_dpb_size: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>): {
+    // javascript implementation of the 'new_sequence' virtual method
+}</code></pre>
+
+<p>Notifies subclass of SPS update</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>decoder</code></em></i>
+<span>(</span><a title="GstCodecs.AV1Decoder" href="codecs/gstav1decoder.html#GstAV1Decoder">GstCodecs.AV1Decoder</a><span>)</span>
+–
+</div>
+<p>a <a href="codecs/gstav1decoder.html#GstAV1Decoder">GstCodecs.AV1Decoder</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>seq_hdr</code></em></i>
+<span>(</span><a title="GstCodecParsers.AV1SequenceHeaderOBU" href="codecparsers/gstav1parser.html#GstAV1SequenceHeaderOBU">GstCodecParsers.AV1SequenceHeaderOBU</a><span>)</span>
+–
+</div>
+<p>a <a href="codecparsers/gstav1parser.html#GstAV1SequenceHeaderOBU">GstCodecParsers.AV1SequenceHeaderOBU</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>max_dpb_size</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>the size of dpb including preferred output delay
+by subclass reported via get_preferred_output_delay method.</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Gst.FlowReturn" href="gstreamer/gstpad.html#GstFlowReturn">Gst.FlowReturn</a><span>)</span>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GstAV1DecoderClass::new_sequence">
+	<i>do_new_sequence</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def do_new_sequence (decoder, seq_hdr, max_dpb_size):
+    #python implementation of the 'new_sequence' virtual method</code></pre>
+
+<p>Notifies subclass of SPS update</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>decoder</code></em></i>
+<span>(</span><a title="GstCodecs.AV1Decoder" href="codecs/gstav1decoder.html#GstAV1Decoder">GstCodecs.AV1Decoder</a><span>)</span>
+–
+</div>
+<p>a <a href="codecs/gstav1decoder.html#GstAV1Decoder">GstCodecs.AV1Decoder</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>seq_hdr</code></em></i>
+<span>(</span><a title="GstCodecParsers.AV1SequenceHeaderOBU" href="codecparsers/gstav1parser.html#GstAV1SequenceHeaderOBU">GstCodecParsers.AV1SequenceHeaderOBU</a><span>)</span>
+–
+</div>
+<p>a <a href="codecparsers/gstav1parser.html#GstAV1SequenceHeaderOBU">GstCodecParsers.AV1SequenceHeaderOBU</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>max_dpb_size</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<p>the size of dpb including preferred output delay
+by subclass reported via get_preferred_output_delay method.</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Gst.FlowReturn" href="gstreamer/gstpad.html#GstFlowReturn">Gst.FlowReturn</a><span>)</span>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="GstAV1DecoderClass::output_picture">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstAV1DecoderClass::output_picture">
+	<i>output_picture</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GstFlowReturn" href="gstreamer/gstpad.html#GstFlowReturn">GstFlowReturn</a>
+output_picture (<a title="GstAV1Decoder" href="codecs/gstav1decoder.html#GstAV1Decoder">GstAV1Decoder</a> * decoder,
+                <a title="GstVideoCodecFrame" href="video/gstvideoutils.html#GstVideoCodecFrame">GstVideoCodecFrame</a> * frame,
+                <a title="GstAV1Picture" href="codecs/gstav1decoder.html#GstAV1Picture">GstAV1Picture</a> * picture)</pre>
+
+<p>Called with a <a href="codecs/gstav1decoder.html#GstAV1Picture">GstAV1Picture</a> which is required to be outputted.
+The <a href="video/gstvideoutils.html#GstVideoCodecFrame">GstVideoCodecFrame</a> must be consumed by subclass.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>decoder</code></em></i>
+–
+</div>
+<p>a <a href="codecs/gstav1decoder.html#GstAV1Decoder">GstAV1Decoder</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>frame</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="Free data after the code is done"><span class="acronym">transfer: full</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>a <a href="video/gstvideoutils.html#GstVideoCodecFrame">GstVideoCodecFrame</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>picture</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="Free data after the code is done"><span class="acronym">transfer: full</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>a <a href="codecs/gstav1decoder.html#GstAV1Picture">GstAV1Picture</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GstAV1DecoderClass::output_picture">
+	<i>vfunc_output_picture</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function vfunc_output_picture(decoder: <a title="GstCodecs.AV1Decoder" href="codecs/gstav1decoder.html#GstAV1Decoder">GstCodecs.AV1Decoder</a>, frame: <a title="GstVideo.VideoCodecFrame" href="video/gstvideoutils.html#GstVideoCodecFrame">GstVideo.VideoCodecFrame</a>, picture: <a title="GstCodecs.AV1Picture" href="codecs/gstav1decoder.html#GstAV1Picture">GstCodecs.AV1Picture</a>): {
+    // javascript implementation of the 'output_picture' virtual method
+}</code></pre>
+
+<p>Called with a <a href="codecs/gstav1decoder.html#GstAV1Picture">GstCodecs.AV1Picture</a> which is required to be outputted.
+The <a href="video/gstvideoutils.html#GstVideoCodecFrame">GstVideo.VideoCodecFrame</a> must be consumed by subclass.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>decoder</code></em></i>
+<span>(</span><a title="GstCodecs.AV1Decoder" href="codecs/gstav1decoder.html#GstAV1Decoder">GstCodecs.AV1Decoder</a><span>)</span>
+–
+</div>
+<p>a <a href="codecs/gstav1decoder.html#GstAV1Decoder">GstCodecs.AV1Decoder</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>frame</code></em></i>
+<span>(</span><a title="GstVideo.VideoCodecFrame" href="video/gstvideoutils.html#GstVideoCodecFrame">GstVideo.VideoCodecFrame</a><span>)</span>
+–
+</div>
+<p>a <a href="video/gstvideoutils.html#GstVideoCodecFrame">GstVideo.VideoCodecFrame</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>picture</code></em></i>
+<span>(</span><a title="GstCodecs.AV1Picture" href="codecs/gstav1decoder.html#GstAV1Picture">GstCodecs.AV1Picture</a><span>)</span>
+–
+</div>
+<p>a <a href="codecs/gstav1decoder.html#GstAV1Picture">GstCodecs.AV1Picture</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Gst.FlowReturn" href="gstreamer/gstpad.html#GstFlowReturn">Gst.FlowReturn</a><span>)</span>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GstAV1DecoderClass::output_picture">
+	<i>do_output_picture</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def do_output_picture (decoder, frame, picture):
+    #python implementation of the 'output_picture' virtual method</code></pre>
+
+<p>Called with a <a href="codecs/gstav1decoder.html#GstAV1Picture">GstCodecs.AV1Picture</a> which is required to be outputted.
+The <a href="video/gstvideoutils.html#GstVideoCodecFrame">GstVideo.VideoCodecFrame</a> must be consumed by subclass.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>decoder</code></em></i>
+<span>(</span><a title="GstCodecs.AV1Decoder" href="codecs/gstav1decoder.html#GstAV1Decoder">GstCodecs.AV1Decoder</a><span>)</span>
+–
+</div>
+<p>a <a href="codecs/gstav1decoder.html#GstAV1Decoder">GstCodecs.AV1Decoder</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>frame</code></em></i>
+<span>(</span><a title="GstVideo.VideoCodecFrame" href="video/gstvideoutils.html#GstVideoCodecFrame">GstVideo.VideoCodecFrame</a><span>)</span>
+–
+</div>
+<p>a <a href="video/gstvideoutils.html#GstVideoCodecFrame">GstVideo.VideoCodecFrame</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>picture</code></em></i>
+<span>(</span><a title="GstCodecs.AV1Picture" href="codecs/gstav1decoder.html#GstAV1Picture">GstCodecs.AV1Picture</a><span>)</span>
+–
+</div>
+<p>a <a href="codecs/gstav1decoder.html#GstAV1Picture">GstCodecs.AV1Picture</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Gst.FlowReturn" href="gstreamer/gstpad.html#GstFlowReturn">Gst.FlowReturn</a><span>)</span>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="GstAV1DecoderClass::start_picture">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstAV1DecoderClass::start_picture">
+	<i>start_picture</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GstFlowReturn" href="gstreamer/gstpad.html#GstFlowReturn">GstFlowReturn</a>
+start_picture (<a title="GstAV1Decoder" href="codecs/gstav1decoder.html#GstAV1Decoder">GstAV1Decoder</a> * decoder,
+               <a title="GstAV1Picture" href="codecs/gstav1decoder.html#GstAV1Picture">GstAV1Picture</a> * picture,
+               <a title="GstAV1Dpb" href="codecs/gstav1decoder.html#GstAV1Dpb">GstAV1Dpb</a> * dpb)</pre>
+
+<p>Optional. Called per one <a href="codecs/gstav1decoder.html#GstAV1Picture">GstAV1Picture</a> to notify subclass to prepare
+decoding process for the <a href="codecs/gstav1decoder.html#GstAV1Picture">GstAV1Picture</a></p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>decoder</code></em></i>
+–
+</div>
+<p>a <a href="codecs/gstav1decoder.html#GstAV1Decoder">GstAV1Decoder</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>picture</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="Don't free data after the code is done"><span class="acronym">transfer: none</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>a <a href="codecs/gstav1decoder.html#GstAV1Picture">GstAV1Picture</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>dpb</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="Don't free data after the code is done"><span class="acronym">transfer: none</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>a <a href="codecs/gstav1decoder.html#GstAV1Dpb">GstAV1Dpb</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GstAV1DecoderClass::start_picture">
+	<i>vfunc_start_picture</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function vfunc_start_picture(decoder: <a title="GstCodecs.AV1Decoder" href="codecs/gstav1decoder.html#GstAV1Decoder">GstCodecs.AV1Decoder</a>, picture: <a title="GstCodecs.AV1Picture" href="codecs/gstav1decoder.html#GstAV1Picture">GstCodecs.AV1Picture</a>, dpb: <a title="GstCodecs.AV1Dpb" href="codecs/gstav1decoder.html#GstAV1Dpb">GstCodecs.AV1Dpb</a>): {
+    // javascript implementation of the 'start_picture' virtual method
+}</code></pre>
+
+<p>Optional. Called per one <a href="codecs/gstav1decoder.html#GstAV1Picture">GstCodecs.AV1Picture</a> to notify subclass to prepare
+decoding process for the <a href="codecs/gstav1decoder.html#GstAV1Picture">GstCodecs.AV1Picture</a></p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>decoder</code></em></i>
+<span>(</span><a title="GstCodecs.AV1Decoder" href="codecs/gstav1decoder.html#GstAV1Decoder">GstCodecs.AV1Decoder</a><span>)</span>
+–
+</div>
+<p>a <a href="codecs/gstav1decoder.html#GstAV1Decoder">GstCodecs.AV1Decoder</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>picture</code></em></i>
+<span>(</span><a title="GstCodecs.AV1Picture" href="codecs/gstav1decoder.html#GstAV1Picture">GstCodecs.AV1Picture</a><span>)</span>
+–
+</div>
+<p>a <a href="codecs/gstav1decoder.html#GstAV1Picture">GstCodecs.AV1Picture</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>dpb</code></em></i>
+<span>(</span><a title="GstCodecs.AV1Dpb" href="codecs/gstav1decoder.html#GstAV1Dpb">GstCodecs.AV1Dpb</a><span>)</span>
+–
+</div>
+<p>a <a href="codecs/gstav1decoder.html#GstAV1Dpb">GstCodecs.AV1Dpb</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Gst.FlowReturn" href="gstreamer/gstpad.html#GstFlowReturn">Gst.FlowReturn</a><span>)</span>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GstAV1DecoderClass::start_picture">
+	<i>do_start_picture</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def do_start_picture (decoder, picture, dpb):
+    #python implementation of the 'start_picture' virtual method</code></pre>
+
+<p>Optional. Called per one <a href="codecs/gstav1decoder.html#GstAV1Picture">GstCodecs.AV1Picture</a> to notify subclass to prepare
+decoding process for the <a href="codecs/gstav1decoder.html#GstAV1Picture">GstCodecs.AV1Picture</a></p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>decoder</code></em></i>
+<span>(</span><a title="GstCodecs.AV1Decoder" href="codecs/gstav1decoder.html#GstAV1Decoder">GstCodecs.AV1Decoder</a><span>)</span>
+–
+</div>
+<p>a <a href="codecs/gstav1decoder.html#GstAV1Decoder">GstCodecs.AV1Decoder</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>picture</code></em></i>
+<span>(</span><a title="GstCodecs.AV1Picture" href="codecs/gstav1decoder.html#GstAV1Picture">GstCodecs.AV1Picture</a><span>)</span>
+–
+</div>
+<p>a <a href="codecs/gstav1decoder.html#GstAV1Picture">GstCodecs.AV1Picture</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>dpb</code></em></i>
+<span>(</span><a title="GstCodecs.AV1Dpb" href="codecs/gstav1decoder.html#GstAV1Dpb">GstCodecs.AV1Dpb</a><span>)</span>
+–
+</div>
+<p>a <a href="codecs/gstav1decoder.html#GstAV1Dpb">GstCodecs.AV1Dpb</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Gst.FlowReturn" href="gstreamer/gstpad.html#GstFlowReturn">Gst.FlowReturn</a><span>)</span>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+
+        
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="GstAV1Dpb">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h2 data-hotdoc-id="GstAV1Dpb">
+	<i>GstAV1Dpb</i>
+</h2>
+
+
+
+
+
+
+	<div class="members-container">
+		<h3>Members</h3>
+					
+<div class="symbol-detail" data-hotdoc-id="GstAV1Dpb.pic_list">
+	<div>
+		<i><em><code>pic_list</code></em></i>
+		(<a title="GstAV1Picture" href="codecs/gstav1decoder.html#GstAV1Picture">GstAV1Picture</a> *)
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h2 data-hotdoc-id="GstAV1Dpb">
+	<i>GstCodecs.AV1Dpb</i>
+</h2>
+
+
+
+
+
+
+	<div class="members-container">
+		<h3>Members</h3>
+					
+<div class="symbol-detail" data-hotdoc-id="GstAV1Dpb.pic_list">
+	<div>
+		<i><em><code>pic_list</code></em></i>
+		([ <a title="GstCodecs.AV1Picture" href="codecs/gstav1decoder.html#GstAV1Picture">GstCodecs.AV1Picture</a> ])
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h2 data-hotdoc-id="GstAV1Dpb">
+	<i>GstCodecs.AV1Dpb</i>
+</h2>
+
+
+
+
+
+
+	<div class="members-container">
+		<h3>Members</h3>
+					
+<div class="symbol-detail" data-hotdoc-id="GstAV1Dpb.pic_list">
+	<div>
+		<i><em><code>pic_list</code></em></i>
+		([ <a title="GstCodecs.AV1Picture" href="codecs/gstav1decoder.html#GstAV1Picture">GstCodecs.AV1Picture</a> ])
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+
+            <h3 class="symbol_section">Methods</h3>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="gst_av1_dpb_add">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_av1_dpb_add">
+	<i>gst_av1_dpb_add</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+gst_av1_dpb_add (<a title="GstAV1Dpb" href="codecs/gstav1decoder.html#GstAV1Dpb">GstAV1Dpb</a> * dpb,
+                 <a title="GstAV1Picture" href="codecs/gstav1decoder.html#GstAV1Picture">GstAV1Picture</a> * picture)</pre>
+
+<p>Store the <em>picture</em></p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>dpb</code></em></i>
+–
+</div>
+<p>a <a href="codecs/gstav1decoder.html#GstAV1Dpb">GstAV1Dpb</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>picture</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="Free data after the code is done"><span class="acronym">transfer: full</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>a <a href="codecs/gstav1decoder.html#GstAV1Picture">GstAV1Picture</a></p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_av1_dpb_add">
+	<i>GstCodecs.AV1Dpb.prototype.add</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstCodecs.AV1Dpb.prototype.add(picture: <a title="GstCodecs.AV1Picture" href="codecs/gstav1decoder.html#GstAV1Picture">GstCodecs.AV1Picture</a>): {
+    // javascript wrapper for 'gst_av1_dpb_add'
+}</code></pre>
+
+<p>Store the <em>picture</em></p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>dpb</code></em></i>
+<span>(</span><a title="GstCodecs.AV1Dpb" href="codecs/gstav1decoder.html#GstAV1Dpb">GstCodecs.AV1Dpb</a><span>)</span>
+–
+</div>
+<p>a <a href="codecs/gstav1decoder.html#GstAV1Dpb">GstCodecs.AV1Dpb</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>picture</code></em></i>
+<span>(</span><a title="GstCodecs.AV1Picture" href="codecs/gstav1decoder.html#GstAV1Picture">GstCodecs.AV1Picture</a><span>)</span>
+–
+</div>
+<p>a <a href="codecs/gstav1decoder.html#GstAV1Picture">GstCodecs.AV1Picture</a></p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_av1_dpb_add">
+	<i>GstCodecs.AV1Dpb.add</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstCodecs.AV1Dpb.add (self, picture):
+    #python wrapper for 'gst_av1_dpb_add'</code></pre>
+
+<p>Store the <em>picture</em></p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>dpb</code></em></i>
+<span>(</span><a title="GstCodecs.AV1Dpb" href="codecs/gstav1decoder.html#GstAV1Dpb">GstCodecs.AV1Dpb</a><span>)</span>
+–
+</div>
+<p>a <a href="codecs/gstav1decoder.html#GstAV1Dpb">GstCodecs.AV1Dpb</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>picture</code></em></i>
+<span>(</span><a title="GstCodecs.AV1Picture" href="codecs/gstav1decoder.html#GstAV1Picture">GstCodecs.AV1Picture</a><span>)</span>
+–
+</div>
+<p>a <a href="codecs/gstav1decoder.html#GstAV1Picture">GstCodecs.AV1Picture</a></p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="gst_av1_dpb_clear">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_av1_dpb_clear">
+	<i>gst_av1_dpb_clear</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+gst_av1_dpb_clear (<a title="GstAV1Dpb" href="codecs/gstav1decoder.html#GstAV1Dpb">GstAV1Dpb</a> * dpb)</pre>
+
+<p>Clear all stored <a href="codecs/gstav1decoder.html#GstAV1Picture">GstAV1Picture</a></p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>dpb</code></em></i>
+–
+</div>
+<p>a <a href="codecs/gstav1decoder.html#GstAV1Dpb">GstAV1Dpb</a></p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_av1_dpb_clear">
+	<i>GstCodecs.AV1Dpb.prototype.clear</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstCodecs.AV1Dpb.prototype.clear(): {
+    // javascript wrapper for 'gst_av1_dpb_clear'
+}</code></pre>
+
+<p>Clear all stored <a href="codecs/gstav1decoder.html#GstAV1Picture">GstCodecs.AV1Picture</a></p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>dpb</code></em></i>
+<span>(</span><a title="GstCodecs.AV1Dpb" href="codecs/gstav1decoder.html#GstAV1Dpb">GstCodecs.AV1Dpb</a><span>)</span>
+–
+</div>
+<p>a <a href="codecs/gstav1decoder.html#GstAV1Dpb">GstCodecs.AV1Dpb</a></p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_av1_dpb_clear">
+	<i>GstCodecs.AV1Dpb.clear</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstCodecs.AV1Dpb.clear (self):
+    #python wrapper for 'gst_av1_dpb_clear'</code></pre>
+
+<p>Clear all stored <a href="codecs/gstav1decoder.html#GstAV1Picture">GstCodecs.AV1Picture</a></p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>dpb</code></em></i>
+<span>(</span><a title="GstCodecs.AV1Dpb" href="codecs/gstav1decoder.html#GstAV1Dpb">GstCodecs.AV1Dpb</a><span>)</span>
+–
+</div>
+<p>a <a href="codecs/gstav1decoder.html#GstAV1Dpb">GstCodecs.AV1Dpb</a></p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="gst_av1_dpb_free">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_av1_dpb_free">
+	<i>gst_av1_dpb_free</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+gst_av1_dpb_free (<a title="GstAV1Dpb" href="codecs/gstav1decoder.html#GstAV1Dpb">GstAV1Dpb</a> * dpb)</pre>
+
+<p>Free the <em>dpb</em></p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>dpb</code></em></i>
+–
+</div>
+<p>a <a href="codecs/gstav1decoder.html#GstAV1Dpb">GstAV1Dpb</a> to free</p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_av1_dpb_free">
+	<i>GstCodecs.AV1Dpb.prototype.free</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstCodecs.AV1Dpb.prototype.free(): {
+    // javascript wrapper for 'gst_av1_dpb_free'
+}</code></pre>
+
+<p>Free the <em>dpb</em></p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>dpb</code></em></i>
+<span>(</span><a title="GstCodecs.AV1Dpb" href="codecs/gstav1decoder.html#GstAV1Dpb">GstCodecs.AV1Dpb</a><span>)</span>
+–
+</div>
+<p>a <a href="codecs/gstav1decoder.html#GstAV1Dpb">GstCodecs.AV1Dpb</a> to free</p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_av1_dpb_free">
+	<i>GstCodecs.AV1Dpb.free</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstCodecs.AV1Dpb.free (self):
+    #python wrapper for 'gst_av1_dpb_free'</code></pre>
+
+<p>Free the <em>dpb</em></p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>dpb</code></em></i>
+<span>(</span><a title="GstCodecs.AV1Dpb" href="codecs/gstav1decoder.html#GstAV1Dpb">GstCodecs.AV1Dpb</a><span>)</span>
+–
+</div>
+<p>a <a href="codecs/gstav1decoder.html#GstAV1Dpb">GstCodecs.AV1Dpb</a> to free</p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+
+            <h3 class="symbol_section">Functions</h3>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="gst_av1_dpb_new">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_av1_dpb_new">
+	<i>gst_av1_dpb_new</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GstAV1Dpb" href="codecs/gstav1decoder.html#GstAV1Dpb">GstAV1Dpb</a> *
+gst_av1_dpb_new ()</pre>
+
+<p>Create new <a href="codecs/gstav1decoder.html#GstAV1Dpb">GstAV1Dpb</a></p>
+
+
+
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p>a new <a href="codecs/gstav1decoder.html#GstAV1Dpb">GstAV1Dpb</a></p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+
+        
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="GstAV1Picture">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h2 data-hotdoc-id="GstAV1Picture">
+	<i>GstAV1Picture</i>
+</h2>
+
+
+
+
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h2 data-hotdoc-id="GstAV1Picture">
+	<i>GstCodecs.AV1Picture</i>
+</h2>
+
+
+
+
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h2 data-hotdoc-id="GstAV1Picture">
+	<i>GstCodecs.AV1Picture</i>
+</h2>
+
+
+
+
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+
+            <h3 class="symbol_section">Constructors</h3>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="gst_av1_picture_new">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_av1_picture_new">
+	<i>gst_av1_picture_new</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GstAV1Picture" href="codecs/gstav1decoder.html#GstAV1Picture">GstAV1Picture</a> *
+gst_av1_picture_new ()</pre>
+
+<p>Create new <a href="codecs/gstav1decoder.html#GstAV1Picture">GstAV1Picture</a></p>
+
+
+
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p>a new <a href="codecs/gstav1decoder.html#GstAV1Picture">GstAV1Picture</a></p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_av1_picture_new">
+	<i>GstCodecs.AV1Picture.prototype.new</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstCodecs.AV1Picture.prototype.new(): {
+    // javascript wrapper for 'gst_av1_picture_new'
+}</code></pre>
+
+<p>Create new <a href="codecs/gstav1decoder.html#GstAV1Picture">GstCodecs.AV1Picture</a></p>
+
+
+
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GstCodecs.AV1Picture" href="codecs/gstav1decoder.html#GstAV1Picture">GstCodecs.AV1Picture</a><span>)</span>
+–
+			</div>
+							<p>a new <a href="codecs/gstav1decoder.html#GstAV1Picture">GstCodecs.AV1Picture</a></p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_av1_picture_new">
+	<i>GstCodecs.AV1Picture.new</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstCodecs.AV1Picture.new ():
+    #python wrapper for 'gst_av1_picture_new'</code></pre>
+
+<p>Create new <a href="codecs/gstav1decoder.html#GstAV1Picture">GstCodecs.AV1Picture</a></p>
+
+
+
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GstCodecs.AV1Picture" href="codecs/gstav1decoder.html#GstAV1Picture">GstCodecs.AV1Picture</a><span>)</span>
+–
+			</div>
+							<p>a new <a href="codecs/gstav1decoder.html#GstAV1Picture">GstCodecs.AV1Picture</a></p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+
+        
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="GstAV1Tile">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h2 data-hotdoc-id="GstAV1Tile">
+	<i>GstAV1Tile</i>
+</h2>
+
+
+
+
+
+
+	<div class="members-container">
+		<h3>Members</h3>
+					
+<div class="symbol-detail" data-hotdoc-id="GstAV1Tile.tile_group">
+	<div>
+		<i><em><code>tile_group</code></em></i>
+		(<a title="GstAV1TileGroupOBU" href="codecparsers/gstav1parser.html#GstAV1TileGroupOBU">GstAV1TileGroupOBU</a>)
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstAV1Tile.obu">
+	<div>
+		<i><em><code>obu</code></em></i>
+		(<a title="GstAV1OBU" href="codecparsers/gstav1parser.html#GstAV1OBU">GstAV1OBU</a>)
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h2 data-hotdoc-id="GstAV1Tile">
+	<i>GstCodecs.AV1Tile</i>
+</h2>
+
+
+
+
+
+
+	<div class="members-container">
+		<h3>Members</h3>
+					
+<div class="symbol-detail" data-hotdoc-id="GstAV1Tile.tile_group">
+	<div>
+		<i><em><code>tile_group</code></em></i>
+		(<a title="GstCodecParsers.AV1TileGroupOBU" href="codecparsers/gstav1parser.html#GstAV1TileGroupOBU">GstCodecParsers.AV1TileGroupOBU</a>)
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstAV1Tile.obu">
+	<div>
+		<i><em><code>obu</code></em></i>
+		(<a title="GstCodecParsers.AV1OBU" href="codecparsers/gstav1parser.html#GstAV1OBU">GstCodecParsers.AV1OBU</a>)
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h2 data-hotdoc-id="GstAV1Tile">
+	<i>GstCodecs.AV1Tile</i>
+</h2>
+
+
+
+
+
+
+	<div class="members-container">
+		<h3>Members</h3>
+					
+<div class="symbol-detail" data-hotdoc-id="GstAV1Tile.tile_group">
+	<div>
+		<i><em><code>tile_group</code></em></i>
+		(<a title="GstCodecParsers.AV1TileGroupOBU" href="codecparsers/gstav1parser.html#GstAV1TileGroupOBU">GstCodecParsers.AV1TileGroupOBU</a>)
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstAV1Tile.obu">
+	<div>
+		<i><em><code>obu</code></em></i>
+		(<a title="GstCodecParsers.AV1OBU" href="codecparsers/gstav1parser.html#GstAV1OBU">GstCodecParsers.AV1OBU</a>)
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+
+        
+
+            <h2 class="symbol_section">Function Macros</h2>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="GST_AV1_PICTURE">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_AV1_PICTURE">
+	<i>GST_AV1_PICTURE</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_AV1_PICTURE(obj)     ((GstAV1Picture *)obj)
+</pre>
+
+
+
+
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="GST_IS_AV1_PICTURE">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_IS_AV1_PICTURE">
+	<i>GST_IS_AV1_PICTURE</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_IS_AV1_PICTURE(obj)  (GST_IS_MINI_OBJECT_TYPE(obj, GST_TYPE_AV1_PICTURE))
+</pre>
+
+
+
+
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+
+            <h2 class="symbol_section">Constants</h2>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="GST_TYPE_AV1_PICTURE">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_TYPE_AV1_PICTURE">
+	<i>GST_TYPE_AV1_PICTURE</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_TYPE_AV1_PICTURE     (gst_av1_picture_get_type())
+</pre>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+
+
+
+
+
+		
+	</div>
+	<div id="search_results">
+		<p>The results of the search are</p>
+	</div>
+	<div id="footer">
+		    
+
+	</div>
+</div>
+
+<div id="toc-column">
+	
+		<div class="edit-button">
+		
+
+	</div>
+		<div id="toc-wrapper">
+		<nav id="toc"></nav>
+	</div>
+</div>
+</div>
+</main>
+
+
+<script src="assets/js/navbar_offset_scroller.js"></script>
+</body>
+</html>

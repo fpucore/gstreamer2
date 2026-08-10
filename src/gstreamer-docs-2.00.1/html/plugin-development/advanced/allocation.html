@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<base href="../..">
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<title>Memory allocation</title>
+
+<link rel="stylesheet" href="assets/css/dark-frontend.css" type="text/css" title="dark">
+<link rel="alternate stylesheet" href="assets/css/light-frontend.css" type="text/css" title="light">
+<link rel="stylesheet" href="assets/css/bootstrap-toc.min.css" type="text/css">
+<link rel="stylesheet" href="assets/css/jquery.mCustomScrollbar.min.css">
+<link rel="stylesheet" href="assets/js/search/enable_search.css" type="text/css">
+
+<link rel="stylesheet" href="assets/css/extra_frontend.css" type="text/css">
+<link rel="stylesheet" href="assets/css/devhelp.css" type="text/css">
+
+<link rel="stylesheet" href="assets/css/prism-tomorrow.css" type="text/css" title="dark">
+
+<link rel="alternate stylesheet" href="assets/css/prism.css" type="text/css" title="light">
+
+<script src="assets/js/mustache.min.js"></script>
+<script src="assets/js/jquery.js"></script>
+<script src="assets/js/bootstrap.js"></script>
+<script src="assets/js/scrollspy.js"></script>
+<script src="assets/js/typeahead.jquery.min.js"></script>
+<script src="assets/js/search.js"></script>
+<script src="assets/js/compare-versions.js"></script>
+<script src="assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="assets/js/bootstrap-toc.min.js"></script>
+<script src="assets/js/jquery.touchSwipe.min.js"></script>
+<script src="assets/js/anchor.min.js"></script>
+<script src="assets/js/tag_filtering.js"></script>
+<script src="assets/js/language_switching.js"></script>
+<script src="assets/js/styleswitcher.js"></script>
+
+<script src="assets/js/lines_around_headings.js"></script>
+
+<script src="assets/js/prism-core.js"></script>
+<script src="assets/js/prism-autoloader.js"></script>
+<script src="assets/js/prism_autoloader_path_override.js"></script>
+<script src="assets/js/trie.js"></script>
+
+<!-- generic -->
+<link rel="icon" type="image/png" href="assets/images/favicon-16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="assets/images/favicon-32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="assets/images/favicon-57.png" sizes="57x57">
+<link rel="icon" type="image/png" href="assets/images/favicon-64.png" sizes="64x64">
+<link rel="icon" type="image/png" href="assets/images/favicon-76.png" sizes="76x76">
+<link rel="icon" type="image/png" href="assets/images/favicon-96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="assets/images/favicon-128.png" sizes="128x128">
+<link rel="icon" type="image/png" href="assets/images/favicon-192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="assets/images/favicon-228.png" sizes="228x228">
+
+<!-- Android -->
+<link rel="shortcut icon" sizes="196x196" href="assets/images/favicon-196.png">
+
+<!-- iOS -->
+<link rel="apple-touch-icon" href="assets/images/favicon-120.png" sizes="120x120">
+<link rel="apple-touch-icon" href="assets/images/favicon-152.png" sizes="152x152">
+<link rel="apple-touch-icon" href="assets/images/favicon-180.png" sizes="180x180">
+
+</head>
+
+<body class="no-script
+">
+
+<script>
+$('body').removeClass('no-script');
+</script>
+
+<nav class="navbar navbar-fixed-top navbar-default" id="topnav">
+	<div class="container-fluid">
+		<div class="navbar-right">
+			<a id="toc-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-wrapper" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<span title="light mode switch" class="glyphicon glyphicon-sunglasses pull-right" id="lightmode-icon"></span>
+			<form class="navbar-form pull-right" id="navbar-search-form">
+                               <div class="form-group has-feedback">
+                                       <input type="text" class="form-control input-sm" name="search" id="sidenav-lookup-field" placeholder="search" disabled>
+				       <span class="glyphicon glyphicon-search form-control-feedback" id="search-mgn-glass"></span>
+                               </div>
+                        </form>
+		</div>
+		<div class="navbar-header">
+			<a id="sidenav-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<a id="home-link" href="index.html" class="hotdoc-navbar-brand">
+				<img src="assets/images/gstreamer-logo.svg" alt="Home">
+			</a>
+		</div>
+		<div class="navbar-collapse collapse" id="navbar-wrapper">
+			<ul class="nav navbar-nav" id="menu">
+				
+<li class="dropdown">
+    <a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        API References<span class="caret"></span>
+    </a>
+	<ul class="dropdown-menu" id="modules-menu">
+					<li>
+				<a href="gstreamer/gi-index.html">GStreamer core</a>
+			</li>
+					<li>
+				<a href="libs.html">GStreamer Libraries</a>
+			</li>
+					<li>
+				<a href="plugins_doc.html">GStreamer Plugins</a>
+			</li>
+		</ul>
+</li>
+
+<li>
+    <a href="application-development/index.html">Application manual</a>
+</li>
+
+
+<li>
+    <a href="tutorials/index.html">Tutorials</a>
+</li>
+
+			</ul>
+			<div class="hidden-xs hidden-sm navbar-text navbar-center">
+							</div>
+		</div>
+	</div>
+</nav>
+
+<main>
+<div data-extension="gi-extension" data-hotdoc-in-toplevel="True" data-hotdoc-project="GStreamer" data-hotdoc-ref="plugin-development/advanced/allocation.html" class="page_container" id="page-wrapper" data-hotdoc-meta-gi-languages="['c', 'javascript', 'python']" data-hotdoc-meta-gi-language="c">
+<script src="assets/js/utils.js"></script>
+
+<div class="panel panel-collapse oc-collapsed" id="sidenav" data-hotdoc-role="navigation">
+	<script src="assets/js/full-width.js"></script>
+  <div id="sitenav-wrapper">
+    <iframe src="hotdoc-sitemap.html" id="sitenav-frame"></iframe>
+  </div>
+</div>
+
+<div id="body">
+	<div id="main">
+				    <div id="page-description" data-hotdoc-role="main">
+        <h1 id="memory-allocation">Memory allocation</h1>
+<p>Memory allocation and management are very important topics in
+multimedia. High definition video uses many megabytes to store one
+single image frame. It is important to reuse memory when possible
+instead of constantly allocating and freeing it.</p>
+<p>Multimedia systems usually use special-purpose chips, such as DSPs or
+GPUs to perform the heavy lifting (especially for video). These
+special-purpose chips usually have strict requirements for the memory
+they operate on and how it is accessed.</p>
+<p>This chapter talks about the memory-management features available to
+GStreamer plugins. We will first talk about the lowlevel <code>GstMemory</code>
+object that manages access to a piece of memory and then continue with
+one of it's main users, the <code>GstBuffer</code>, which is used to exchange data
+between elements and with the application. We will also discuss the <code>GstMeta</code>.
+This object can be placed on buffers to provide extra info about them and
+their memory. We will also discuss the <code>GstBufferPool</code>, which allows to
+more-efficiently manage buffers of the same size.</p>
+<p>To conclude this chapter we will take a look at the <code>GST_QUERY_ALLOCATION</code>
+query, which is used to negotiate memory management options between
+elements.</p>
+<h2 id="gstmemory">GstMemory</h2>
+<p><code>GstMemory</code> is an object that manages a region of memory. This memory
+object points to a region of memory of “maxsize”. The area in this
+memory starting at “offset” and size “size” bytes is the accessible
+memory region. After a <code>GstMemory</code> is created its maxsize can no longer
+be changed, however, its "offset" and "size" can.</p>
+<h3 id="gstallocator">GstAllocator</h3>
+<p><code>GstMemory</code> objects are created by a <code>GstAllocator</code> object. Most
+allocators implement the default <code>gst_allocator_alloc()</code> method but some
+might implement different ones, for example, when additional parameters
+are needed to allocate the specific memory.</p>
+<p>Different allocators exist for system memory, shared memory and memory
+backed by a DMAbuf file descriptor. To implement support for a new kind
+of memory type, you must implement a new allocator object.</p>
+<h3 id="gstmemory-api-example">GstMemory API example</h3>
+<p>Data access to the memory wrapped by the <code>GstMemory</code> object is always
+protected with a <code>gst_memory_map()</code> and <code>gst_memory_unmap()</code> pair. An
+access mode (read/write) must be given when mapping memory. The map
+function returns a pointer to the valid memory region that can then be
+accessed according to the requested access mode.</p>
+<p>Below is an example on creating a <code>GstMemory</code> object and using the
+<code>gst_memory_map()</code> to access the memory region.</p>
+<pre><code class="language-c">[...]
+
+  GstMemory *mem;
+  GstMapInfo info;
+  gint i;
+
+  /* allocate 100 bytes */
+  mem = gst_allocator_alloc (NULL, 100, NULL);
+
+  /* get access to the memory in write mode */
+  gst_memory_map (mem, &amp;info, GST_MAP_WRITE);
+
+  /* fill with pattern */
+  for (i = 0; i &lt; info.size; i++)
+    info.data[i] = i;
+
+  /* release memory */
+  gst_memory_unmap (mem, &amp;info);
+
+[...]
+
+
+</code></pre>
+<h3 id="implementing-a-gstallocator">Implementing a GstAllocator</h3>
+<p>WRITEME</p>
+<h2 id="gstbuffer">GstBuffer</h2>
+<p>A <code>GstBuffer</code> is a lightweight object that is passed from an upstream
+to a downstream element and contains memory and metadata. It represents
+the multimedia content that is pushed to or pulled by downstream elements.</p>
+<p>A <code>GstBuffer</code> contains one or more <code>GstMemory</code> objects. These objects hold
+the buffer's data.</p>
+<p>Metadata in the buffer consists of:</p>
+<ul>
+<li>
+<p>DTS and PTS timestamps. These represent the decoding and
+presentation timestamps of the buffer content and are used by
+synchronizing elements to schedule buffers. These timestamps
+can be <code>GST_CLOCK_TIME_NONE</code> when unknown/undefined.</p>
+</li>
+<li>
+<p>The duration of the buffer contents. This duration can be
+<code>GST_CLOCK_TIME_NONE</code> when unknown/undefined.</p>
+</li>
+<li>
+<p>Media-specific <code>offset</code> and <code>offset_end</code> values. For video this is the
+frame number in the stream, for audio, the sample number. Other media
+might use different definitions.</p>
+</li>
+<li>
+<p>Arbitrary structures via <code>GstMeta</code>, see below.</p>
+</li>
+</ul>
+<h3 id="writability">Writability</h3>
+<p>A <code>GstBuffer</code> is writable when the refcount of the object is exactly 1,
+meaning that only one object is holding a ref to the buffer. You can
+only modify the buffer when it is writable. This means that you need to
+call <code>gst_buffer_make_writable()</code> before changing the timestamps,
+offsets, metadata or adding and removing memory blocks.</p>
+<h3 id="api-examples">API examples</h3>
+<p>You can create a <code>GstBuffer</code> with <code>gst_buffer_new ()</code> and then you can
+add memory objects to it. You can alternatively use the convenience function
+<code>gst_buffer_new_allocate ()</code> to perform both operations at once. It's also possible
+to wrap existing memory with <code>gst_buffer_new_wrapped_full ()</code> and specify the
+function to call when the memory should be freed.</p>
+<p>You can access the memory of a <code>GstBuffer</code> by getting and mapping the
+<code>GstMemory</code> objects individually or by using <code>gst_buffer_map ()</code>. The
+latter merges all the memory into one big block and then gives you a
+pointer to it.</p>
+<p>Below is an example of how to create a buffer and access its memory.</p>
+<pre><code class="language-c">[...]
+  GstBuffer *buffer;
+  GstMemory *mem;
+  GstMapInfo info;
+
+  /* make empty buffer */
+  buffer = gst_buffer_new ();
+
+  /* make memory holding 100 bytes */
+  mem = gst_allocator_alloc (NULL, 100, NULL);
+
+  /* add the buffer */
+  gst_buffer_append_memory (buffer, mem);
+
+[...]
+
+  /* get WRITE access to the memory and fill with 0xff */
+  gst_buffer_map (buffer, &amp;info, GST_MAP_WRITE);
+  memset (info.data, 0xff, info.size);
+  gst_buffer_unmap (buffer, &amp;info);
+
+[...]
+
+  /* free the buffer */
+  gst_buffer_unref (buffer);
+
+[...]
+</code></pre>
+<h2 id="gstmeta">GstMeta</h2>
+<p>With the <code>GstMeta</code> system you can add arbitrary structures to buffers.
+These structures describe extra properties of the buffer such as
+cropping, stride, region of interest, etc.</p>
+<p>The metadata system separates API specification (what the metadata and
+its API look like) and its implementation (how it works). This makes it
+possible to have different implementations of the same API, for example,
+depending on the hardware you are running on.</p>
+<h3 id="api-example">API example</h3>
+<p>After allocating a new <code>GstBuffer</code>, you can add metadata to it with
+the metadata-specific API. This means that you will need to link to the
+header file where the metadata is defined to use its API.</p>
+<p>By convention, a metadata API with name <code>FooBar</code> should provide two
+methods, a <code>gst_buffer_add_foo_bar_meta ()</code> and a
+<code>gst_buffer_get_foo_bar_meta ()</code>. Both functions should return a pointer
+to a <code>FooBarMeta</code> structure that contains the metadata fields. Some of
+the <code>_add_*_meta ()</code> can have extra parameters that will usually be used
+to configure the metadata structure for you.</p>
+<p>Let's have a look at the metadata that is used to specify a cropping
+region for video frames.</p>
+<pre><code class="language-c">#include &lt;gst/video/gstvideometa.h&gt;
+
+[...]
+  GstVideoCropMeta *meta;
+
+  /* buffer points to a video frame, add some cropping metadata */
+  meta = gst_buffer_add_video_crop_meta (buffer);
+
+  /* configure the cropping metadata */
+  meta-&gt;x = 8;
+  meta-&gt;y = 8;
+  meta-&gt;width = 120;
+  meta-&gt;height = 80;
+[...]
+</code></pre>
+<p>An element can then use the metadata on the buffer when rendering the
+frame like this:</p>
+<pre><code class="language-c">#include &lt;gst/video/gstvideometa.h&gt;
+
+[...]
+  GstVideoCropMeta *meta;
+
+  /* buffer points to a video frame, get the cropping metadata */
+  meta = gst_buffer_get_video_crop_meta (buffer);
+
+  if (meta) {
+    /* render frame with cropping */
+    _render_frame_cropped (buffer, meta-&gt;x, meta-&gt;y, meta-&gt;width, meta-&gt;height);
+  } else {
+    /* render frame */
+    _render_frame (buffer);
+  }
+[...]
+</code></pre>
+<h3 id="implementing-new-gstmeta">Implementing new GstMeta</h3>
+<p>In the next sections we show how you can add new metadata to the system
+and use it on buffers.</p>
+<h4 id="define-the-metadata-api">Define the metadata API</h4>
+<p>First we need to define what our API will look like and we have to
+register this API to the system. This is important because the API
+definition will be used when elements negotiate what kind of metadata
+they will exchange. The API definition also contains arbitrary tags that
+give hints about what the metadata contains. This is important when we
+see how metadata is preserved as buffers pass through the pipeline.</p>
+<p>If you are making a new implementation of an existing API, you can skip
+this step and move directly to the implementation.</p>
+<p>First we start with making the <code>my-example-meta.h</code> header file that will
+contain the definition of the API and structure for our metadata.</p>
+<pre><code class="language-c">#include &lt;gst/gst.h&gt;
+
+typedef struct _MyExampleMeta MyExampleMeta;
+
+struct _MyExampleMeta {
+  GstMeta       meta;
+
+  gint          age;
+  gchar        *name;
+};
+
+GType my_example_meta_api_get_type (void);
+#define MY_EXAMPLE_META_API_TYPE (my_example_meta_api_get_type())
+
+#define gst_buffer_get_my_example_meta(b) \
+  ((MyExampleMeta*)gst_buffer_get_meta((b),MY_EXAMPLE_META_API_TYPE))
+</code></pre>
+<p>The metadata API definition consists of the definition of the structure
+that holds a <code>gint</code> and a string. The first field in the structure must be
+a <code>GstMeta</code>.</p>
+<p>We also define a <code>my_example_meta_api_get_type ()</code> function that will
+register our metadata API definition and a convenience
+<code>gst_buffer_get_my_example_meta ()</code> macro that simply finds and returns the
+metadata with our new API.</p>
+<p>Let's have a look at how the <code>my_example_meta_api_get_type ()</code>
+function is implemented in the <code>my-example-meta.c</code> file:</p>
+<pre><code class="language-c">#include "my-example-meta.h"
+
+GType
+my_example_meta_api_get_type (void)
+{
+  static GType type;
+  static const gchar *tags[] = { "foo", "bar", NULL };
+
+  if (g_once_init_enter (&amp;type)) {
+    GType _type = gst_meta_api_type_register ("MyExampleMetaAPI", tags);
+    g_once_init_leave (&amp;type, _type);
+  }
+  return type;
+}
+</code></pre>
+<p>As you can see, it simply uses the <code>gst_meta_api_type_register ()</code>
+function to register a name and some tags for the API. The result is a
+new <code>GType</code> pointer that defines the newly registered API.</p>
+<h4 id="implementing-a-metadata-api">Implementing a metadata API</h4>
+<p>Next we can make an implementation for a registered metadata API <code>GType</code>.</p>
+<p>The implementation details of a metadata API are kept in a <code>GstMetaInfo</code>
+structure that you make available to the users of your metadata API
+implementation with a <code>my_example_meta_get_info ()</code> function and a
+convenience <code>MY_EXAMPLE_META_INFO</code> macro. You also provide a method to
+add your metadata implementation to a <code>GstBuffer</code>. Your
+<code>my-example-meta.h</code> header file will need these additions:</p>
+<pre><code class="language-c">[...]
+
+/* implementation */
+const GstMetaInfo *my_example_meta_get_info (void);
+#define MY_EXAMPLE_META_INFO (my_example_meta_get_info())
+
+MyExampleMeta * gst_buffer_add_my_example_meta (GstBuffer      *buffer,
+                                                gint            age,
+                                                const gchar    *name);
+</code></pre>
+<p>Let's have a look at how these functions are implemented in the
+<code>my-example-meta.c</code> file.</p>
+<pre><code class="language-c">[...]
+
+static gboolean
+my_example_meta_init (GstMeta * meta, gpointer params, GstBuffer * buffer)
+{
+  MyExampleMeta *emeta = (MyExampleMeta *) meta;
+
+  emeta-&gt;age = 0;
+  emeta-&gt;name = NULL;
+
+  return TRUE;
+}
+
+static gboolean
+my_example_meta_transform (GstBuffer * transbuf, GstMeta * meta,
+    GstBuffer * buffer, GQuark type, gpointer data)
+{
+  MyExampleMeta *emeta = (MyExampleMeta *) meta;
+
+  /* we always copy no matter what transform */
+  gst_buffer_add_my_example_meta (transbuf, emeta-&gt;age, emeta-&gt;name);
+
+  return TRUE;
+}
+
+static void
+my_example_meta_free (GstMeta * meta, GstBuffer * buffer)
+{
+  MyExampleMeta *emeta = (MyExampleMeta *) meta;
+
+  g_free (emeta-&gt;name);
+  emeta-&gt;name = NULL;
+}
+
+const GstMetaInfo *
+my_example_meta_get_info (void)
+{
+  static const GstMetaInfo *meta_info = NULL;
+
+  if (g_once_init_enter (&amp;meta_info)) {
+    const GstMetaInfo *mi = gst_meta_register (MY_EXAMPLE_META_API_TYPE,
+        "MyExampleMeta",
+        sizeof (MyExampleMeta),
+        my_example_meta_init,
+        my_example_meta_free,
+        my_example_meta_transform);
+    g_once_init_leave (&amp;meta_info, mi);
+  }
+  return meta_info;
+}
+
+MyExampleMeta *
+gst_buffer_add_my_example_meta (GstBuffer   *buffer,
+                                gint         age,
+                                const gchar *name)
+{
+  MyExampleMeta *meta;
+
+  g_return_val_if_fail (GST_IS_BUFFER (buffer), NULL);
+
+  meta = (MyExampleMeta *) gst_buffer_add_meta (buffer,
+      MY_EXAMPLE_META_INFO, NULL);
+
+  meta-&gt;age = age;
+  meta-&gt;name = g_strdup (name);
+
+  return meta;
+}
+</code></pre>
+<p><code>gst_meta_register ()</code> registers the implementation details, like the
+API that you implement and the size of the metadata structure, alongside
+methods to initialize and free the memory area. You can also implement a
+transform function that will be called when a certain transformation
+(identified by the quark and quark specific data) is performed on a
+buffer.</p>
+<p>Lastly, you implement a <code>gst_buffer_add_*_meta()</code> that adds the metadata
+implementation to a buffer and sets the values of the metadata.</p>
+<h2 id="gstbufferpool">GstBufferPool</h2>
+<p>The <code>GstBufferPool</code> object provides a convenient base class for managing
+lists of reusable buffers. Essential for this object is that all the
+buffers have the same properties such as size, padding, metadata and
+alignment.</p>
+<p>A <code>GstBufferPool</code> can be configured to manage a minimum and maximum
+amount of buffers of a specific size. It can also be configured to use a
+specific <code>GstAllocator</code> for the memory of the buffers. There is also
+support in the bufferpool to enable bufferpool specific options, such as
+adding <code>GstMeta</code> to the pool's buffers or enabling specific padding on the
+buffers' memory.</p>
+<p>A <code>GstBufferPool</code> can be either inactivate or active. In the inactive state, you
+can configure the pool. In the active state, you can't change the
+configuration anymore but you can acquire and release buffers from/to
+the pool.</p>
+<p>In the following sections we take a look at how you can use a <code>GstBufferPool</code>.</p>
+<h3 id="api-example1">API example</h3>
+<p>There can be many different <code>GstBufferPool</code> implementations; they are all
+subclasses of the <code>GstBufferPool</code> base class. For this example, we will
+assume we somehow have access to a buffer pool, either because we created
+it ourselves or because we were given one as a result of the <code>ALLOCATION</code>
+query, as we will see below.</p>
+<p>The <code>GstBufferPool</code> is initially in the inactive state so that we can
+configure it. Trying to configure a <code>GstBufferPool</code> that is not in the
+inactive state will fail. Likewise, trying to activate a bufferpool that
+is not configured will also fail.</p>
+<pre><code class="language-c">  GstStructure *config;
+
+[...]
+
+  /* get config structure */
+  config = gst_buffer_pool_get_config (pool);
+
+  /* set caps, size, minimum and maximum buffers in the pool */
+  gst_buffer_pool_config_set_params (config, caps, size, min, max);
+
+  /* configure allocator and parameters */
+  gst_buffer_pool_config_set_allocator (config, allocator, &amp;params);
+
+  /* store the updated configuration again */
+  gst_buffer_pool_set_config (pool, config);
+
+[...]
+
+</code></pre>
+<p>The configuration of a <code>GstBufferPool</code> is maintained in a generic
+<code>GstStructure</code> that can be obtained with <code>gst_buffer_pool_get_config()</code>.
+Convenience methods exist to get and set the configuration options in
+this structure. After updating the structure, it is set as the current
+configuration in the <code>GstBufferPool</code> again with
+<code>gst_buffer_pool_set_config()</code>.</p>
+<p>The following options can be configured on a <code>GstBufferPool</code>:</p>
+<ul>
+<li>
+<p>The caps of the buffers to allocate.</p>
+</li>
+<li>
+<p>The size of the buffers. This is the suggested size of the buffers
+in the pool. The pool might decide to allocate larger buffers to add
+padding.</p>
+</li>
+<li>
+<p>The minimum and maximum amount of buffers in the pool. When minimum
+is set to <code>\&gt; 0</code>, the bufferpool will pre-allocate this amount of
+buffers. When maximum is not 0, the bufferpool will allocate up to
+maximum amount of buffers.</p>
+</li>
+<li>
+<p>The allocator and parameters to use. Some bufferpools might ignore
+the allocator and use its internal one.</p>
+</li>
+<li>
+<p>Other arbitrary bufferpool options identified with a string. a
+bufferpool lists the supported options with
+<code>gst_buffer_pool_get_options()</code> and you can ask if an option is
+supported with <code>gst_buffer_pool_has_option()</code>. The option can be
+enabled by adding it to the configuration structure with
+<code>gst_buffer_pool_config_add_option ()</code>. These options are used to
+enable things like letting the pool set metadata on the buffers or
+to add extra configuration options for padding, for example.</p>
+</li>
+</ul>
+<p>After the configuration is set on the bufferpool, the pool can be
+activated with <code>gst_buffer_pool_set_active (pool, TRUE)</code>. From that
+point on you can use <code>gst_buffer_pool_acquire_buffer ()</code> to retrieve a
+buffer from the pool, like this:</p>
+<pre><code class="language-c">  [...]
+
+  GstFlowReturn ret;
+  GstBuffer *buffer;
+
+  ret = gst_buffer_pool_acquire_buffer (pool, &amp;buffer, NULL);
+  if (G_UNLIKELY (ret != GST_FLOW_OK))
+    goto pool_failed;
+
+  [...]
+</code></pre>
+<p>It is important to check the return value of the acquire function
+because it is possible that it fails: When your element shuts down, it
+will deactivate the bufferpool and then all calls to acquire will return
+<code>GST_FLOW_FLUSHING</code>.</p>
+<p>All buffers that are acquired from the pool will have their pool member
+set to the original pool. When the last ref is decremented on the
+buffer, GStreamer will automatically call
+<code>gst_buffer_pool_release_buffer()</code> to release the buffer back to the
+pool. You (or any other downstream element) don't need to know if a
+buffer came from a pool, you can just unref it.</p>
+<h3 id="implementing-a-new-gstbufferpool">Implementing a new GstBufferPool</h3>
+<p>WRITEME</p>
+<h2 id="gst_query_allocation">GST_QUERY_ALLOCATION</h2>
+<p>The <code>ALLOCATION</code> query is used to negotiate <code>GstMeta</code>, <code>GstBufferPool</code> and
+<code>GstAllocator</code> between elements. Negotiation of the allocation strategy
+is always initiated and decided by a srcpad after it has negotiated a
+format and before it decides to push buffers. A sinkpad can suggest an
+allocation strategy but it is ultimately the source pad that will decide
+based on the suggestions of the downstream sink pad.</p>
+<p>The source pad will do a <code>GST_QUERY_ALLOCATION</code> with the negotiated caps
+as a parameter. This is needed so that the downstream element knows what
+media type is being handled. A downstream sink pad can answer the
+allocation query with the following results:</p>
+<ul>
+<li>
+<p>An array of possible <code>GstBufferPool</code> suggestions with suggested
+size, minimum and maximum amount of buffers.</p>
+</li>
+<li>
+<p>An array of <code>GstAllocator</code> objects along with suggested allocation
+parameters such as flags, prefix, alignment and padding. These
+allocators can also be configured in a bufferpool when this is
+supported by the bufferpool.</p>
+</li>
+<li>
+<p>An array of supported <code>GstMeta</code> implementations along with metadata
+specific parameters. It is important that the upstream element knows
+what kind of metadata is supported downstream before it places that
+metadata on buffers.</p>
+</li>
+</ul>
+<p>When the <code>GST_QUERY_ALLOCATION</code> returns, the source pad will select from
+the available bufferpools, allocators and metadata how it will allocate
+buffers.</p>
+<h3 id="allocation-query-example">ALLOCATION query example</h3>
+<p>Below is an example of the <code>ALLOCATION</code> query.</p>
+<pre><code class="language-c">#include &lt;gst/video/video.h&gt;
+#include &lt;gst/video/gstvideometa.h&gt;
+#include &lt;gst/video/gstvideopool.h&gt;
+
+  GstCaps *caps;
+  GstQuery *query;
+  GstStructure *structure;
+  GstBufferPool *pool;
+  GstStructure *config;
+  guint size, min, max;
+
+[...]
+
+  /* find a pool for the negotiated caps now */
+  query = gst_query_new_allocation (caps, TRUE);
+
+  if (!gst_pad_peer_query (scope-&gt;srcpad, query)) {
+    /* query failed, not a problem, we use the query defaults */
+  }
+
+  if (gst_query_get_n_allocation_pools (query) &gt; 0) {
+    /* we got configuration from our peer, parse them */
+    gst_query_parse_nth_allocation_pool (query, 0, &amp;pool, &amp;size, &amp;min, &amp;max);
+  } else {
+    pool = NULL;
+    size = 0;
+    min = max = 0;
+  }
+
+  if (pool == NULL) {
+    /* we did not get a pool, make one ourselves then */
+    pool = gst_video_buffer_pool_new ();
+  }
+
+  config = gst_buffer_pool_get_config (pool);
+  gst_buffer_pool_config_add_option (config, GST_BUFFER_POOL_OPTION_VIDEO_META);
+  gst_buffer_pool_config_set_params (config, caps, size, min, max);
+  gst_buffer_pool_set_config (pool, config);
+
+  /* and activate */
+  gst_buffer_pool_set_active (pool, TRUE);
+
+[...]
+</code></pre>
+<p>This particular implementation will make a custom <code>GstVideoBufferPool</code>
+object that is specialized in allocating video buffers. You can also
+enable the pool to put <code>GstVideoMeta</code> metadata on the buffers from the
+pool doing:</p>
+<pre><code class="language-c">gst_buffer_pool_config_add_option (config, GST_BUFFER_POOL_OPTION_VIDEO_META)
+</code></pre>
+<h3 id="the-allocation-query-in-base-classes">The ALLOCATION query in base classes</h3>
+<p>In many base classes you will see the following virtual methods for
+influencing the allocation strategy:</p>
+<ul>
+<li>
+<p><code>propose_allocation ()</code> should suggest allocation parameters for the
+upstream element.</p>
+</li>
+<li>
+<p><code>decide_allocation ()</code> should decide the allocation parameters from
+the suggestions received from downstream.</p>
+</li>
+</ul>
+<p>Implementors of these methods should modify the given <code>GstQuery</code> object
+by updating the pool options and allocation options.</p>
+<h3 id="negotiating-the-exact-layout-of-video-buffers">Negotiating the exact layout of video buffers</h3>
+<p>Hardware elements may have specific constraints on the layout
+of their input buffers, requiring to add vertical and/or horizontal paddings
+to their planes.
+If the producer is able to create buffers fulfilling these requirements,
+we can ensure zero-copy by configuring its driver accordingly before starting to produce
+buffers.</p>
+<p>In such setup on Linux we'll generally use dmabuf to exchange buffers in order
+to reduce memory copies. The producer can either export its buffers
+to the consumer (dmabuf export) or import them from it (dmabuf import).</p>
+<p>In this section we'll outline the steps for how the consumer can inform the
+producer of its expected buffer layout for import and export use cases.
+Let's consider <code>v4l2src</code> (the producer) feeding buffers to
+<code>v4l2h264enc</code> (the consumer) for encoding.</p>
+<h4 id="v4l2src-importing-buffers-from-v4l2h264enc">v4l2src importing buffers from v4l2h264enc</h4>
+<ol>
+<li>
+<em>v4l2h264enc</em>: query the hardware for its requirements and create a
+<code>GstVideoAlignment</code> accordingly.</li>
+<li>
+<em>v4l2h264enc</em>: in its buffer pool <code>alloc_buffer</code> implementation, call
+<code>gst_buffer_add_video_meta_full()</code> and then
+<code>gst_video_meta_set_alignment()</code> on the returned meta with the
+requested alignment. The alignment will be added to the meta, allowing
+<code>v4l2src</code> to configure its driver before trying to import buffers.</li>
+</ol>
+<pre><code class="language-c">      meta = gst_buffer_add_video_meta_full (buf, GST_VIDEO_FRAME_FLAG_NONE,
+          GST_VIDEO_INFO_FORMAT (&amp;pool-&gt;video_info),
+          GST_VIDEO_INFO_WIDTH (&amp;pool-&gt;video_info),
+          GST_VIDEO_INFO_HEIGHT (&amp;pool-&gt;video_info),
+          GST_VIDEO_INFO_N_PLANES (&amp;pool-&gt;video_info), offset, stride);
+
+      gst_video_meta_set_alignment (meta, align);
+</code></pre>
+<ol start="3">
+<li>
+<em>v4l2h264enc</em>: propose its pool to the producer when replying to the
+<code>ALLOCATION</code> query (<code>propose_allocation()</code>).</li>
+<li>
+<em>v4l2src</em>: when receiving the reply from the <code>ALLOCATION</code> query
+(<code>decide_allocation()</code>) acquire
+a single buffer from the suggested pool and retrieve its layout
+using <code>GstVideoMeta.stride</code> and <code>gst_video_meta_get_plane_height()</code>.</li>
+<li>
+<em>v4l2src</em>: configure its driver to produce data matching those requirements,
+if possible, then try to import the buffer.
+If not, <code>v4l2src</code> won't be able to import from <code>v4l2h264enc</code> and so will
+fallback to sending its own buffers to <code>v4l2h264enc</code> which will
+have to copy each input buffer to fit its requirements.</li>
+</ol>
+<h4 id="v4l2src-exporting-buffers-to-v4l2h264enc">v4l2src exporting buffers to v4l2h264enc</h4>
+<ol>
+<li>
+<em>v4l2h264enc</em>: query the hardware for its requirements and create a
+<code>GstVideoAlignment</code> accordingly.</li>
+<li>
+<em>v4l2h264enc</em>: create a <code>GstStructure</code> named <code>video-meta</code> serializing the alignment:</li>
+</ol>
+<pre><code class="language-c">params = gst_structure_new ("video-meta",
+    "padding-top", G_TYPE_UINT, align.padding_top,
+    "padding-bottom", G_TYPE_UINT, align.padding_bottom,
+    "padding-left", G_TYPE_UINT, align.padding_left,
+    "padding-right", G_TYPE_UINT, align.padding_right,
+    "stride-align0", G_TYPE_UINT, align-&gt;stride_align[0],
+    "stride-align1", G_TYPE_UINT, align-&gt;stride_align[1],
+    "stride-align2", G_TYPE_UINT, align-&gt;stride_align[2],
+    "stride-align3", G_TYPE_UINT, align-&gt;stride_align[3],
+    NULL);
+</code></pre>
+<ol start="3">
+<li>
+<em>v4l2h264enc</em>: when handling the <code>ALLOCATION</code> query (<code>propose_allocation()</code>),
+pass this structure as parameter when adding the <code>GST_VIDEO_META_API_TYPE</code>
+meta:</li>
+</ol>
+<pre><code class="language-c">gst_query_add_allocation_meta (query, GST_VIDEO_META_API_TYPE, params);
+</code></pre>
+<ol start="4">
+<li>
+<em>v4l2src</em>: when receiving the reply from the <code>ALLOCATION</code> query
+(<code>decide_allocation()</code>) retrieve the <code>GST_VIDEO_META_API_TYPE</code> parameters
+to compute the expected buffers layout:</li>
+</ol>
+<pre><code class="language-c">guint video_idx;
+GstStructure *params;
+
+if (gst_query_find_allocation_meta (query, GST_VIDEO_META_API_TYPE, &amp;video_idx)) {
+  gst_query_parse_nth_allocation_meta (query, video_idx, &amp;params);
+
+  if (params) {
+    GstVideoAlignment align;
+    GstVideoInfo info;
+    gsize plane_size[GST_VIDEO_MAX_PLANES];
+
+    gst_video_alignment_reset (&amp;align);
+
+    gst_structure_get_uint (s, "padding-top", &amp;align.padding_top);
+    gst_structure_get_uint (s, "padding-bottom", &amp;align.padding_bottom);
+    gst_structure_get_uint (s, "padding-left", &amp;align.padding_left);
+    gst_structure_get_uint (s, "padding-right", &amp;align.padding_right);
+    gst_structure_get_uint (s, "stride-align0", &amp;align.stride_align[0]);
+    gst_structure_get_uint (s, "stride-align1", &amp;align.stride_align[1]);
+    gst_structure_get_uint (s, "stride-align2", &amp;align.stride_align[2]);
+    gst_structure_get_uint (s, "stride-align3", &amp;align.stride_align[3]);
+
+    gst_video_info_from_caps (&amp;info, caps);
+
+    gst_video_info_align_full (&amp;info, align, plane_size);
+  }
+}
+</code></pre>
+<ol start="5">
+<li>
+<em>v4l2src</em>: retrieve the requested buffers layout using
+<code>GstVideoInfo.stride</code> and <code>GST_VIDEO_INFO_PLANE_HEIGHT()</code>.</li>
+<li>
+<em>v4l2src</em>: configure its driver to produce data matching those requirements,
+if possible.
+If not, driver will produce buffers using its own layout but <code>v4l2h264enc</code> will
+have to copy each input buffer to fit its requirements.</li>
+</ol>
+
+    </div>
+        
+
+
+
+
+		
+	</div>
+	<div id="search_results">
+		<p>The results of the search are</p>
+	</div>
+	<div id="footer">
+		    
+
+	</div>
+</div>
+
+<div id="toc-column">
+	
+		<div class="edit-button">
+		<a href="https://gitlab.freedesktop.org/gstreamer/gst-docs//edit/master/subprojects/gst-docs/markdown/plugin-development/advanced/allocation.md" data-hotdoc-role="edit-button">Edit on GitLab</a>
+
+	</div>
+		<div id="toc-wrapper">
+		<nav id="toc"></nav>
+	</div>
+</div>
+</div>
+</main>
+
+
+<script src="assets/js/navbar_offset_scroller.js"></script>
+</body>
+</html>

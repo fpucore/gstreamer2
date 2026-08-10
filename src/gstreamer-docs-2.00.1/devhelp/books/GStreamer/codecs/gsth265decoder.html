@@ -1,0 +1,6264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<base href="..">
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<title>GstH265Decoder</title>
+
+<link rel="stylesheet" href="assets/css/dark-frontend.css" type="text/css" title="dark">
+<link rel="alternate stylesheet" href="assets/css/light-frontend.css" type="text/css" title="light">
+<link rel="stylesheet" href="assets/css/bootstrap-toc.min.css" type="text/css">
+<link rel="stylesheet" href="assets/css/jquery.mCustomScrollbar.min.css">
+<link rel="stylesheet" href="assets/js/search/enable_search.css" type="text/css">
+
+<link rel="stylesheet" href="assets/css/extra_frontend.css" type="text/css">
+<link rel="stylesheet" href="assets/css/devhelp.css" type="text/css">
+
+<link rel="stylesheet" href="assets/css/prism-tomorrow.css" type="text/css" title="dark">
+
+<link rel="alternate stylesheet" href="assets/css/prism.css" type="text/css" title="light">
+
+<script src="assets/js/mustache.min.js"></script>
+<script src="assets/js/jquery.js"></script>
+<script src="assets/js/bootstrap.js"></script>
+<script src="assets/js/scrollspy.js"></script>
+<script src="assets/js/typeahead.jquery.min.js"></script>
+<script src="assets/js/search.js"></script>
+<script src="assets/js/compare-versions.js"></script>
+<script src="assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="assets/js/bootstrap-toc.min.js"></script>
+<script src="assets/js/jquery.touchSwipe.min.js"></script>
+<script src="assets/js/anchor.min.js"></script>
+<script src="assets/js/tag_filtering.js"></script>
+<script src="assets/js/language_switching.js"></script>
+<script src="assets/js/styleswitcher.js"></script>
+
+<script src="assets/js/lines_around_headings.js"></script>
+
+<script src="assets/js/prism-core.js"></script>
+<script src="assets/js/prism-autoloader.js"></script>
+<script src="assets/js/prism_autoloader_path_override.js"></script>
+<script src="assets/js/trie.js"></script>
+
+<!-- generic -->
+<link rel="icon" type="image/png" href="assets/images/favicon-16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="assets/images/favicon-32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="assets/images/favicon-57.png" sizes="57x57">
+<link rel="icon" type="image/png" href="assets/images/favicon-64.png" sizes="64x64">
+<link rel="icon" type="image/png" href="assets/images/favicon-76.png" sizes="76x76">
+<link rel="icon" type="image/png" href="assets/images/favicon-96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="assets/images/favicon-128.png" sizes="128x128">
+<link rel="icon" type="image/png" href="assets/images/favicon-192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="assets/images/favicon-228.png" sizes="228x228">
+
+<!-- Android -->
+<link rel="shortcut icon" sizes="196x196" href="assets/images/favicon-196.png">
+
+<!-- iOS -->
+<link rel="apple-touch-icon" href="assets/images/favicon-120.png" sizes="120x120">
+<link rel="apple-touch-icon" href="assets/images/favicon-152.png" sizes="152x152">
+<link rel="apple-touch-icon" href="assets/images/favicon-180.png" sizes="180x180">
+
+</head>
+
+<body class="no-script
+">
+
+<script>
+$('body').removeClass('no-script');
+</script>
+
+<nav class="navbar navbar-fixed-top navbar-default" id="topnav">
+	<div class="container-fluid">
+		<div class="navbar-right">
+			<a id="toc-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-wrapper" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<span title="light mode switch" class="glyphicon glyphicon-sunglasses pull-right" id="lightmode-icon"></span>
+			<form class="navbar-form pull-right" id="navbar-search-form">
+                               <div class="form-group has-feedback">
+                                       <input type="text" class="form-control input-sm" name="search" id="sidenav-lookup-field" placeholder="search" disabled>
+				       <span class="glyphicon glyphicon-search form-control-feedback" id="search-mgn-glass"></span>
+                               </div>
+                        </form>
+		</div>
+		<div class="navbar-header">
+			<a id="sidenav-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<a id="home-link" href="index.html" class="hotdoc-navbar-brand">
+				<img src="assets/images/gstreamer-logo.svg" alt="Home">
+			</a>
+		</div>
+		<div class="navbar-collapse collapse" id="navbar-wrapper">
+			<ul class="nav navbar-nav" id="menu">
+				
+<li class="dropdown">
+    <a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        API References<span class="caret"></span>
+    </a>
+	<ul class="dropdown-menu" id="modules-menu">
+					<li>
+				<a href="gstreamer/gi-index.html">GStreamer core</a>
+			</li>
+					<li>
+				<a href="libs.html">GStreamer Libraries</a>
+			</li>
+					<li>
+				<a href="plugins_doc.html">GStreamer Plugins</a>
+			</li>
+		</ul>
+</li>
+
+<li>
+    <a href="application-development/index.html">Application manual</a>
+</li>
+
+
+<li>
+    <a href="tutorials/index.html">Tutorials</a>
+</li>
+
+			</ul>
+			<div class="hidden-xs hidden-sm navbar-text navbar-center">
+							</div>
+		</div>
+	</div>
+</nav>
+
+<main>
+<div data-extension="gi-extension" data-hotdoc-in-toplevel="False" data-hotdoc-project="codecs" data-hotdoc-ref="gsth265decoder.html" class="page_container" id="page-wrapper" data-hotdoc-meta-gi-languages="['c', 'javascript', 'python']" data-hotdoc-meta-gi-language="c">
+<script src="assets/js/utils.js"></script>
+
+<div class="panel panel-collapse oc-collapsed" id="sidenav" data-hotdoc-role="navigation">
+	<script src="assets/js/full-width.js"></script>
+  <div id="sitenav-wrapper">
+    <iframe src="hotdoc-sitemap.html" id="sitenav-frame"></iframe>
+  </div>
+</div>
+
+<div id="body">
+	<div id="main">
+				    <div id="page-description" data-hotdoc-role="main">
+        <h1 id="gsth265decoder-page">GstH265Decoder</h1>
+    </div>
+        
+        
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstH265Decoder">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h2 data-hotdoc-id="GstH265Decoder">
+	<i>GstH265Decoder</i>
+</h2>
+
+
+<div class="hierarchy_container">
+	<div class="hierarchy_details">
+<pre>
+<a title="GObject" href="https://docs.gtk.org/gobject/class.Object.html">GObject</a>
+    <span class="lineart">╰──</span><a title="GInitiallyUnowned" href="https://docs.gtk.org/gobject/class.InitiallyUnowned.html">GInitiallyUnowned</a>
+        <span class="lineart">╰──</span><a title="GstObject" href="gstreamer/gstobject.html#GstObject">GstObject</a>
+            <span class="lineart">╰──</span><a title="GstElement" href="gstreamer/gstelement.html#GstElement">GstElement</a>
+                <span class="lineart">╰──</span><a title="GstVideoDecoder" href="video/gstvideodecoder.html#GstVideoDecoder">GstVideoDecoder</a>
+                    <span class="lineart">╰──</span>GstH265Decoder
+</pre>
+
+</div>
+
+</div>
+
+<div class="class_details">
+	<p>The opaque <a href="codecs/gsth265decoder.html#GstH265Decoder">GstH265Decoder</a> data structure.</p>
+
+</div>
+
+
+
+
+
+
+<hr>
+<h3>Class structure</h3>
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstH265DecoderClass">
+	<i>GstH265DecoderClass</i>
+</h4>
+
+
+<p>The opaque <a href="GstH265DecoderClass">GstH265DecoderClass</a> data structure.</p>
+
+
+
+
+	<div class="members-container">
+		<h5>Fields</h5>
+					
+<div class="symbol-detail" data-hotdoc-id="GstH265DecoderClass.parent_class">
+	<div>
+		<i><em><code>parent_class</code></em></i>
+		(<a title="GstVideoDecoderClass" href="GstVideoDecoderClass">GstVideoDecoderClass</a>)
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+			</div>
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3>
+	GstCodecs.H265DecoderClass
+</h3>
+
+
+<p>The opaque <a href="GstH265DecoderClass">GstCodecs.H265DecoderClass</a> data structure.</p>
+
+
+
+
+	<div class="members-container">
+		<h5>Attributes</h5>
+					
+<div class="symbol-detail" data-hotdoc-id="GstH265DecoderClass.parent_class">
+	<div>
+		<i><em><code>parent_class</code></em></i>
+		(<a title="GstVideo.VideoDecoderClass" href="GstVideoDecoderClass">GstVideo.VideoDecoderClass</a>)
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+			</div>
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3>
+	GstCodecs.H265DecoderClass
+</h3>
+
+
+<p>The opaque <a href="GstH265DecoderClass">GstCodecs.H265DecoderClass</a> data structure.</p>
+
+
+
+
+	<div class="members-container">
+		<h5>Attributes</h5>
+					
+<div class="symbol-detail" data-hotdoc-id="GstH265DecoderClass.parent_class">
+	<div>
+		<i><em><code>parent_class</code></em></i>
+		(<a title="GstVideo.VideoDecoderClass" href="GstVideoDecoderClass">GstVideo.VideoDecoderClass</a>)
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+			</div>
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h2 data-hotdoc-id="GstH265Decoder">
+	<i>GstCodecs.H265Decoder</i>
+</h2>
+
+
+<div class="hierarchy_container">
+	<div class="hierarchy_details">
+<pre>
+<a title="GObject.Object" href="https://docs.gtk.org/gobject/class.Object.html">GObject.Object</a>
+    <span class="lineart">╰──</span><a title="GObject.InitiallyUnowned" href="https://docs.gtk.org/gobject/class.InitiallyUnowned.html">GObject.InitiallyUnowned</a>
+        <span class="lineart">╰──</span><a title="Gst.Object" href="gstreamer/gstobject.html#GstObject">Gst.Object</a>
+            <span class="lineart">╰──</span><a title="Gst.Element" href="gstreamer/gstelement.html#GstElement">Gst.Element</a>
+                <span class="lineart">╰──</span><a title="GstVideo.VideoDecoder" href="video/gstvideodecoder.html#GstVideoDecoder">GstVideo.VideoDecoder</a>
+                    <span class="lineart">╰──</span>GstCodecs.H265Decoder
+</pre>
+
+</div>
+
+</div>
+
+<div class="class_details">
+	<p>The opaque <a href="codecs/gsth265decoder.html#GstH265Decoder">GstCodecs.H265Decoder</a> data structure.</p>
+
+</div>
+
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h2 data-hotdoc-id="GstH265Decoder">
+	<i>GstCodecs.H265Decoder</i>
+</h2>
+
+
+<div class="hierarchy_container">
+	<div class="hierarchy_details">
+<pre>
+<a title="GObject.Object" href="https://docs.gtk.org/gobject/class.Object.html">GObject.Object</a>
+    <span class="lineart">╰──</span><a title="GObject.InitiallyUnowned" href="https://docs.gtk.org/gobject/class.InitiallyUnowned.html">GObject.InitiallyUnowned</a>
+        <span class="lineart">╰──</span><a title="Gst.Object" href="gstreamer/gstobject.html#GstObject">Gst.Object</a>
+            <span class="lineart">╰──</span><a title="Gst.Element" href="gstreamer/gstelement.html#GstElement">Gst.Element</a>
+                <span class="lineart">╰──</span><a title="GstVideo.VideoDecoder" href="video/gstvideodecoder.html#GstVideoDecoder">GstVideo.VideoDecoder</a>
+                    <span class="lineart">╰──</span>GstCodecs.H265Decoder
+</pre>
+
+</div>
+
+</div>
+
+<div class="class_details">
+	<p>The opaque <a href="codecs/gsth265decoder.html#GstH265Decoder">GstCodecs.H265Decoder</a> data structure.</p>
+
+</div>
+
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+
+            <h3 class="symbol_section">Methods</h3>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="gst_h265_decoder_get_picture">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_h265_decoder_get_picture">
+	<i>gst_h265_decoder_get_picture</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GstH265Picture" href="codecs/gsth265decoder.html#GstH265Picture">GstH265Picture</a> *
+gst_h265_decoder_get_picture (<a title="GstH265Decoder" href="codecs/gsth265decoder.html#GstH265Decoder">GstH265Decoder</a> * decoder,
+                              <a title="guint32" href="https://docs.gtk.org/glib/types.html#guint32">guint32</a> system_frame_number)</pre>
+
+<p>Retrive DPB and return a <a href="codecs/gsth265decoder.html#GstH265Picture">GstH265Picture</a> corresponding to
+the <em>system_frame_number</em></p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>decoder</code></em></i>
+–
+</div>
+<p>a <a href="codecs/gsth265decoder.html#GstH265Decoder">GstH265Decoder</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>system_frame_number</code></em></i>
+–
+</div>
+<p>a target system frame number of <a href="codecs/gsth265decoder.html#GstH265Picture">GstH265Picture</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span>
+<span class="annotation">[<abbr title="Free data after the code is done"><span class="acronym">transfer: full</span></abbr>]</span><span class="annotation">[<abbr title="NULL may be passed to the value"><span class="acronym">nullable</span></abbr>]</span><span>)</span>
+–
+			</div>
+							<p>a <a href="codecs/gsth265decoder.html#GstH265Picture">GstH265Picture</a> if successful, or <a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#NULL:CAPS">NULL</a> otherwise</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_h265_decoder_get_picture">
+	<i>GstCodecs.H265Decoder.prototype.get_picture</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstCodecs.H265Decoder.prototype.get_picture(system_frame_number: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>): {
+    // javascript wrapper for 'gst_h265_decoder_get_picture'
+}</code></pre>
+
+<p>Retrive DPB and return a <a href="codecs/gsth265decoder.html#GstH265Picture">GstCodecs.H265Picture</a> corresponding to
+the <em>system_frame_number</em></p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>decoder</code></em></i>
+<span>(</span><a title="GstCodecs.H265Decoder" href="codecs/gsth265decoder.html#GstH265Decoder">GstCodecs.H265Decoder</a><span>)</span>
+–
+</div>
+<p>a <a href="codecs/gsth265decoder.html#GstH265Decoder">GstCodecs.H265Decoder</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>system_frame_number</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>a target system frame number of <a href="codecs/gsth265decoder.html#GstH265Picture">GstCodecs.H265Picture</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GstCodecs.H265Picture" href="codecs/gsth265decoder.html#GstH265Picture">GstCodecs.H265Picture</a><span>)</span>
+–
+			</div>
+							<p>a <a href="codecs/gsth265decoder.html#GstH265Picture">GstCodecs.H265Picture</a> if successful, or <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null">null</a> otherwise</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_h265_decoder_get_picture">
+	<i>GstCodecs.H265Decoder.get_picture</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstCodecs.H265Decoder.get_picture (self, system_frame_number):
+    #python wrapper for 'gst_h265_decoder_get_picture'</code></pre>
+
+<p>Retrive DPB and return a <a href="codecs/gsth265decoder.html#GstH265Picture">GstCodecs.H265Picture</a> corresponding to
+the <em>system_frame_number</em></p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>decoder</code></em></i>
+<span>(</span><a title="GstCodecs.H265Decoder" href="codecs/gsth265decoder.html#GstH265Decoder">GstCodecs.H265Decoder</a><span>)</span>
+–
+</div>
+<p>a <a href="codecs/gsth265decoder.html#GstH265Decoder">GstCodecs.H265Decoder</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>system_frame_number</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<p>a target system frame number of <a href="codecs/gsth265decoder.html#GstH265Picture">GstCodecs.H265Picture</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GstCodecs.H265Picture" href="codecs/gsth265decoder.html#GstH265Picture">GstCodecs.H265Picture</a><span>)</span>
+–
+			</div>
+							<p>a <a href="codecs/gsth265decoder.html#GstH265Picture">GstCodecs.H265Picture</a> if successful, or <a href="https://docs.python.org/3/library/constants.html#None">None</a> otherwise</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.28;" id="gst_h265_decoder_get_sps_ext">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_h265_decoder_get_sps_ext">
+	<i>gst_h265_decoder_get_sps_ext</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+const <a title="GstH265SPSEXT" href="codecparsers/gsth265parser.html#GstH265SPSEXT">GstH265SPSEXT</a> *
+gst_h265_decoder_get_sps_ext (const <a title="GstH265Decoder" href="codecs/gsth265decoder.html#GstH265Decoder">GstH265Decoder</a> * decoder,
+                              const <a title="GstH265SPS" href="codecparsers/gsth265parser.html#GstH265SPS">GstH265SPS</a> * sps)</pre>
+
+<p>Retrieve the extended SPS values attached to the given <a href="codecparsers/gsth265parser.html#GstH265SPS">GstH265SPS</a></p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>decoder</code></em></i>
+–
+</div>
+<p>a <a href="codecs/gsth265decoder.html#GstH265Decoder">GstH265Decoder</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>sps</code></em></i>
+–
+</div>
+<p>the <a href="codecparsers/gsth265parser.html#GstH265SPS">GstH265SPS</a> matching the requested <a href="codecparsers/gsth265parser.html#GstH265SPSEXT">GstH265SPSEXT</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span>
+<span class="annotation">[<abbr title="Don't free data after the code is done"><span class="acronym">transfer: none</span></abbr>]</span><span class="annotation">[<abbr title="NULL may be passed to the value"><span class="acronym">nullable</span></abbr>]</span><span>)</span>
+–
+			</div>
+							<p>a <a href="codecparsers/gsth265parser.html#GstH265SPSEXT">GstH265SPSEXT</a> if successful, or <a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#NULL:CAPS">NULL</a> otherwise</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.28
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_h265_decoder_get_sps_ext">
+	<i>GstCodecs.H265Decoder.prototype.get_sps_ext</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstCodecs.H265Decoder.prototype.get_sps_ext(sps: <a title="GstCodecParsers.H265SPS" href="codecparsers/gsth265parser.html#GstH265SPS">GstCodecParsers.H265SPS</a>): {
+    // javascript wrapper for 'gst_h265_decoder_get_sps_ext'
+}</code></pre>
+
+<p>Retrieve the extended SPS values attached to the given <a href="codecparsers/gsth265parser.html#GstH265SPS">GstCodecParsers.H265SPS</a></p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>decoder</code></em></i>
+<span>(</span><a title="GstCodecs.H265Decoder" href="codecs/gsth265decoder.html#GstH265Decoder">GstCodecs.H265Decoder</a><span>)</span>
+–
+</div>
+<p>a <a href="codecs/gsth265decoder.html#GstH265Decoder">GstCodecs.H265Decoder</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>sps</code></em></i>
+<span>(</span><a title="GstCodecParsers.H265SPS" href="codecparsers/gsth265parser.html#GstH265SPS">GstCodecParsers.H265SPS</a><span>)</span>
+–
+</div>
+<p>the <a href="codecparsers/gsth265parser.html#GstH265SPS">GstCodecParsers.H265SPS</a> matching the requested <a href="codecparsers/gsth265parser.html#GstH265SPSEXT">GstCodecParsers.H265SPSEXT</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GstCodecParsers.H265SPSEXT" href="codecparsers/gsth265parser.html#GstH265SPSEXT">GstCodecParsers.H265SPSEXT</a><span>)</span>
+–
+			</div>
+							<p>a <a href="codecparsers/gsth265parser.html#GstH265SPSEXT">GstCodecParsers.H265SPSEXT</a> if successful, or <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null">null</a> otherwise</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.28
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_h265_decoder_get_sps_ext">
+	<i>GstCodecs.H265Decoder.get_sps_ext</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstCodecs.H265Decoder.get_sps_ext (self, sps):
+    #python wrapper for 'gst_h265_decoder_get_sps_ext'</code></pre>
+
+<p>Retrieve the extended SPS values attached to the given <a href="codecparsers/gsth265parser.html#GstH265SPS">GstCodecParsers.H265SPS</a></p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>decoder</code></em></i>
+<span>(</span><a title="GstCodecs.H265Decoder" href="codecs/gsth265decoder.html#GstH265Decoder">GstCodecs.H265Decoder</a><span>)</span>
+–
+</div>
+<p>a <a href="codecs/gsth265decoder.html#GstH265Decoder">GstCodecs.H265Decoder</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>sps</code></em></i>
+<span>(</span><a title="GstCodecParsers.H265SPS" href="codecparsers/gsth265parser.html#GstH265SPS">GstCodecParsers.H265SPS</a><span>)</span>
+–
+</div>
+<p>the <a href="codecparsers/gsth265parser.html#GstH265SPS">GstCodecParsers.H265SPS</a> matching the requested <a href="codecparsers/gsth265parser.html#GstH265SPSEXT">GstCodecParsers.H265SPSEXT</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GstCodecParsers.H265SPSEXT" href="codecparsers/gsth265parser.html#GstH265SPSEXT">GstCodecParsers.H265SPSEXT</a><span>)</span>
+–
+			</div>
+							<p>a <a href="codecparsers/gsth265parser.html#GstH265SPSEXT">GstCodecParsers.H265SPSEXT</a> if successful, or <a href="https://docs.python.org/3/library/constants.html#None">None</a> otherwise</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.28
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="gst_h265_decoder_set_process_ref_pic_lists">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_h265_decoder_set_process_ref_pic_lists">
+	<i>gst_h265_decoder_set_process_ref_pic_lists</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+gst_h265_decoder_set_process_ref_pic_lists (<a title="GstH265Decoder" href="codecs/gsth265decoder.html#GstH265Decoder">GstH265Decoder</a> * decoder,
+                                            <a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a> process)</pre>
+
+<p>Called to en/disable reference picture modification process.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>decoder</code></em></i>
+–
+</div>
+<p>a <a href="codecs/gsth265decoder.html#GstH265Decoder">GstH265Decoder</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>process</code></em></i>
+–
+</div>
+<p>whether subclass is requiring reference picture modification process</p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_h265_decoder_set_process_ref_pic_lists">
+	<i>GstCodecs.H265Decoder.prototype.set_process_ref_pic_lists</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstCodecs.H265Decoder.prototype.set_process_ref_pic_lists(process: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>): {
+    // javascript wrapper for 'gst_h265_decoder_set_process_ref_pic_lists'
+}</code></pre>
+
+<p>Called to en/disable reference picture modification process.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>decoder</code></em></i>
+<span>(</span><a title="GstCodecs.H265Decoder" href="codecs/gsth265decoder.html#GstH265Decoder">GstCodecs.H265Decoder</a><span>)</span>
+–
+</div>
+<p>a <a href="codecs/gsth265decoder.html#GstH265Decoder">GstCodecs.H265Decoder</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>process</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>whether subclass is requiring reference picture modification process</p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_h265_decoder_set_process_ref_pic_lists">
+	<i>GstCodecs.H265Decoder.set_process_ref_pic_lists</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstCodecs.H265Decoder.set_process_ref_pic_lists (self, process):
+    #python wrapper for 'gst_h265_decoder_set_process_ref_pic_lists'</code></pre>
+
+<p>Called to en/disable reference picture modification process.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>decoder</code></em></i>
+<span>(</span><a title="GstCodecs.H265Decoder" href="codecs/gsth265decoder.html#GstH265Decoder">GstCodecs.H265Decoder</a><span>)</span>
+–
+</div>
+<p>a <a href="codecs/gsth265decoder.html#GstH265Decoder">GstCodecs.H265Decoder</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>process</code></em></i>
+<span>(</span><a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a><span>)</span>
+–
+</div>
+<p>whether subclass is requiring reference picture modification process</p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+
+            <h3 class="symbol_section">Virtual Methods</h3>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstH265DecoderClass::decode_slice">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstH265DecoderClass::decode_slice">
+	<i>decode_slice</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GstFlowReturn" href="gstreamer/gstpad.html#GstFlowReturn">GstFlowReturn</a>
+decode_slice (<a title="GstH265Decoder" href="codecs/gsth265decoder.html#GstH265Decoder">GstH265Decoder</a> * decoder,
+              <a title="GstH265Picture" href="codecs/gsth265decoder.html#GstH265Picture">GstH265Picture</a> * picture,
+              <a title="GstH265Slice" href="codecs/gsth265decoder.html#GstH265Slice">GstH265Slice</a> * slice,
+              <a title="GArray" href="https://docs.gtk.org/glib/struct.Array.html">GArray</a> * ref_pic_list0,
+              <a title="GArray" href="https://docs.gtk.org/glib/struct.Array.html">GArray</a> * ref_pic_list1)</pre>
+
+<p>Provides per slice data with parsed slice header and required raw bitstream
+for subclass to decode it. If <a href="codecs/gsth265decoder.html#gst_h265_decoder_set_process_ref_pic_lists">gst_h265_decoder_set_process_ref_pic_lists</a>
+is called with <a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#TRUE:CAPS">TRUE</a> by the subclass, <em>ref_pic_list0</em> and <em>ref_pic_list1</em>
+are non-%NULL.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>decoder</code></em></i>
+–
+</div>
+<p>a <a href="codecs/gsth265decoder.html#GstH265Decoder">GstH265Decoder</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>picture</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="Don't free data after the code is done"><span class="acronym">transfer: none</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>a <a href="codecs/gsth265decoder.html#GstH265Picture">GstH265Picture</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>slice</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="Don't free data after the code is done"><span class="acronym">transfer: none</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>a <a href="codecs/gsth265decoder.html#GstH265Slice">GstH265Slice</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>ref_pic_list0</code></em></i>
+–
+</div>
+<p>(element-type GstH265Picture) (transfer none):
+an array of <a href="codecs/gsth265decoder.html#GstH265Picture">GstH265Picture</a> pointers</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>ref_pic_list1</code></em></i>
+–
+</div>
+<p>(element-type GstH265Picture) (transfer none):
+an array of <a href="codecs/gsth265decoder.html#GstH265Picture">GstH265Picture</a> pointers</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GstH265DecoderClass::decode_slice">
+	<i>vfunc_decode_slice</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function vfunc_decode_slice(decoder: <a title="GstCodecs.H265Decoder" href="codecs/gsth265decoder.html#GstH265Decoder">GstCodecs.H265Decoder</a>, picture: <a title="GstCodecs.H265Picture" href="codecs/gsth265decoder.html#GstH265Picture">GstCodecs.H265Picture</a>, slice: <a title="GstCodecs.H265Slice" href="codecs/gsth265decoder.html#GstH265Slice">GstCodecs.H265Slice</a>, ref_pic_list0: [ <a title="GstCodecs.H265Picture" href="codecs/gsth265decoder.html#GstH265Picture">GstCodecs.H265Picture</a> ], ref_pic_list1: [ <a title="GstCodecs.H265Picture" href="codecs/gsth265decoder.html#GstH265Picture">GstCodecs.H265Picture</a> ]): {
+    // javascript implementation of the 'decode_slice' virtual method
+}</code></pre>
+
+<p>Provides per slice data with parsed slice header and required raw bitstream
+for subclass to decode it. If <a href="codecs/gsth265decoder.html#gst_h265_decoder_set_process_ref_pic_lists">GstCodecs.H265Decoder.prototype.set_process_ref_pic_lists</a>
+is called with <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">true</a> by the subclass, <em>ref_pic_list0</em> and <em>ref_pic_list1</em>
+are non-%NULL.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>decoder</code></em></i>
+<span>(</span><a title="GstCodecs.H265Decoder" href="codecs/gsth265decoder.html#GstH265Decoder">GstCodecs.H265Decoder</a><span>)</span>
+–
+</div>
+<p>a <a href="codecs/gsth265decoder.html#GstH265Decoder">GstCodecs.H265Decoder</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>picture</code></em></i>
+<span>(</span><a title="GstCodecs.H265Picture" href="codecs/gsth265decoder.html#GstH265Picture">GstCodecs.H265Picture</a><span>)</span>
+–
+</div>
+<p>a <a href="codecs/gsth265decoder.html#GstH265Picture">GstCodecs.H265Picture</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>slice</code></em></i>
+<span>(</span><a title="GstCodecs.H265Slice" href="codecs/gsth265decoder.html#GstH265Slice">GstCodecs.H265Slice</a><span>)</span>
+–
+</div>
+<p>a <a href="codecs/gsth265decoder.html#GstH265Slice">GstCodecs.H265Slice</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>ref_pic_list0</code></em></i>
+<span>(</span>[ <a title="GstCodecs.H265Picture" href="codecs/gsth265decoder.html#GstH265Picture">GstCodecs.H265Picture</a> ]<span>)</span>
+–
+</div>
+<p>(element-type GstH265Picture) (transfer none):
+an array of <a href="codecs/gsth265decoder.html#GstH265Picture">GstCodecs.H265Picture</a> pointers</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>ref_pic_list1</code></em></i>
+<span>(</span>[ <a title="GstCodecs.H265Picture" href="codecs/gsth265decoder.html#GstH265Picture">GstCodecs.H265Picture</a> ]<span>)</span>
+–
+</div>
+<p>(element-type GstH265Picture) (transfer none):
+an array of <a href="codecs/gsth265decoder.html#GstH265Picture">GstCodecs.H265Picture</a> pointers</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Gst.FlowReturn" href="gstreamer/gstpad.html#GstFlowReturn">Gst.FlowReturn</a><span>)</span>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GstH265DecoderClass::decode_slice">
+	<i>do_decode_slice</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def do_decode_slice (decoder, picture, slice, ref_pic_list0, ref_pic_list1):
+    #python implementation of the 'decode_slice' virtual method</code></pre>
+
+<p>Provides per slice data with parsed slice header and required raw bitstream
+for subclass to decode it. If <a href="codecs/gsth265decoder.html#gst_h265_decoder_set_process_ref_pic_lists">GstCodecs.H265Decoder.set_process_ref_pic_lists</a>
+is called with <a href="https://docs.python.org/3/library/constants.html#True">True</a> by the subclass, <em>ref_pic_list0</em> and <em>ref_pic_list1</em>
+are non-%NULL.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>decoder</code></em></i>
+<span>(</span><a title="GstCodecs.H265Decoder" href="codecs/gsth265decoder.html#GstH265Decoder">GstCodecs.H265Decoder</a><span>)</span>
+–
+</div>
+<p>a <a href="codecs/gsth265decoder.html#GstH265Decoder">GstCodecs.H265Decoder</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>picture</code></em></i>
+<span>(</span><a title="GstCodecs.H265Picture" href="codecs/gsth265decoder.html#GstH265Picture">GstCodecs.H265Picture</a><span>)</span>
+–
+</div>
+<p>a <a href="codecs/gsth265decoder.html#GstH265Picture">GstCodecs.H265Picture</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>slice</code></em></i>
+<span>(</span><a title="GstCodecs.H265Slice" href="codecs/gsth265decoder.html#GstH265Slice">GstCodecs.H265Slice</a><span>)</span>
+–
+</div>
+<p>a <a href="codecs/gsth265decoder.html#GstH265Slice">GstCodecs.H265Slice</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>ref_pic_list0</code></em></i>
+<span>(</span>[ <a title="GstCodecs.H265Picture" href="codecs/gsth265decoder.html#GstH265Picture">GstCodecs.H265Picture</a> ]<span>)</span>
+–
+</div>
+<p>(element-type GstH265Picture) (transfer none):
+an array of <a href="codecs/gsth265decoder.html#GstH265Picture">GstCodecs.H265Picture</a> pointers</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>ref_pic_list1</code></em></i>
+<span>(</span>[ <a title="GstCodecs.H265Picture" href="codecs/gsth265decoder.html#GstH265Picture">GstCodecs.H265Picture</a> ]<span>)</span>
+–
+</div>
+<p>(element-type GstH265Picture) (transfer none):
+an array of <a href="codecs/gsth265decoder.html#GstH265Picture">GstCodecs.H265Picture</a> pointers</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Gst.FlowReturn" href="gstreamer/gstpad.html#GstFlowReturn">Gst.FlowReturn</a><span>)</span>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstH265DecoderClass::end_picture">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstH265DecoderClass::end_picture">
+	<i>end_picture</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GstFlowReturn" href="gstreamer/gstpad.html#GstFlowReturn">GstFlowReturn</a>
+end_picture (<a title="GstH265Decoder" href="codecs/gsth265decoder.html#GstH265Decoder">GstH265Decoder</a> * decoder,
+             <a title="GstH265Picture" href="codecs/gsth265decoder.html#GstH265Picture">GstH265Picture</a> * picture)</pre>
+
+<p>Optional. Called per one <a href="codecs/gsth265decoder.html#GstH265Picture">GstH265Picture</a> to notify subclass to finish
+decoding process for the <a href="codecs/gsth265decoder.html#GstH265Picture">GstH265Picture</a></p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>decoder</code></em></i>
+–
+</div>
+<p>a <a href="codecs/gsth265decoder.html#GstH265Decoder">GstH265Decoder</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>picture</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="Don't free data after the code is done"><span class="acronym">transfer: none</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>a <a href="codecs/gsth265decoder.html#GstH265Picture">GstH265Picture</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GstH265DecoderClass::end_picture">
+	<i>vfunc_end_picture</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function vfunc_end_picture(decoder: <a title="GstCodecs.H265Decoder" href="codecs/gsth265decoder.html#GstH265Decoder">GstCodecs.H265Decoder</a>, picture: <a title="GstCodecs.H265Picture" href="codecs/gsth265decoder.html#GstH265Picture">GstCodecs.H265Picture</a>): {
+    // javascript implementation of the 'end_picture' virtual method
+}</code></pre>
+
+<p>Optional. Called per one <a href="codecs/gsth265decoder.html#GstH265Picture">GstCodecs.H265Picture</a> to notify subclass to finish
+decoding process for the <a href="codecs/gsth265decoder.html#GstH265Picture">GstCodecs.H265Picture</a></p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>decoder</code></em></i>
+<span>(</span><a title="GstCodecs.H265Decoder" href="codecs/gsth265decoder.html#GstH265Decoder">GstCodecs.H265Decoder</a><span>)</span>
+–
+</div>
+<p>a <a href="codecs/gsth265decoder.html#GstH265Decoder">GstCodecs.H265Decoder</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>picture</code></em></i>
+<span>(</span><a title="GstCodecs.H265Picture" href="codecs/gsth265decoder.html#GstH265Picture">GstCodecs.H265Picture</a><span>)</span>
+–
+</div>
+<p>a <a href="codecs/gsth265decoder.html#GstH265Picture">GstCodecs.H265Picture</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Gst.FlowReturn" href="gstreamer/gstpad.html#GstFlowReturn">Gst.FlowReturn</a><span>)</span>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GstH265DecoderClass::end_picture">
+	<i>do_end_picture</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def do_end_picture (decoder, picture):
+    #python implementation of the 'end_picture' virtual method</code></pre>
+
+<p>Optional. Called per one <a href="codecs/gsth265decoder.html#GstH265Picture">GstCodecs.H265Picture</a> to notify subclass to finish
+decoding process for the <a href="codecs/gsth265decoder.html#GstH265Picture">GstCodecs.H265Picture</a></p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>decoder</code></em></i>
+<span>(</span><a title="GstCodecs.H265Decoder" href="codecs/gsth265decoder.html#GstH265Decoder">GstCodecs.H265Decoder</a><span>)</span>
+–
+</div>
+<p>a <a href="codecs/gsth265decoder.html#GstH265Decoder">GstCodecs.H265Decoder</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>picture</code></em></i>
+<span>(</span><a title="GstCodecs.H265Picture" href="codecs/gsth265decoder.html#GstH265Picture">GstCodecs.H265Picture</a><span>)</span>
+–
+</div>
+<p>a <a href="codecs/gsth265decoder.html#GstH265Picture">GstCodecs.H265Picture</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Gst.FlowReturn" href="gstreamer/gstpad.html#GstFlowReturn">Gst.FlowReturn</a><span>)</span>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.22;" id="GstH265DecoderClass::get_preferred_output_delay">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstH265DecoderClass::get_preferred_output_delay">
+	<i>get_preferred_output_delay</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="guint" href="https://docs.gtk.org/glib/types.html#guint">guint</a>
+get_preferred_output_delay (<a title="GstH265Decoder" href="codecs/gsth265decoder.html#GstH265Decoder">GstH265Decoder</a> * decoder,
+                            <a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a> live)</pre>
+
+<p>Optional. Called by baseclass to query whether delaying output is
+preferred by subclass or not.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>decoder</code></em></i>
+–
+</div>
+<p>a <a href="codecs/gsth265decoder.html#GstH265Decoder">GstH265Decoder</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>live</code></em></i>
+–
+</div>
+<p>whether upstream is live or not</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p>the number of perferred delayed output frame</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.22
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GstH265DecoderClass::get_preferred_output_delay">
+	<i>vfunc_get_preferred_output_delay</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function vfunc_get_preferred_output_delay(decoder: <a title="GstCodecs.H265Decoder" href="codecs/gsth265decoder.html#GstH265Decoder">GstCodecs.H265Decoder</a>, live: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>): {
+    // javascript implementation of the 'get_preferred_output_delay' virtual method
+}</code></pre>
+
+<p>Optional. Called by baseclass to query whether delaying output is
+preferred by subclass or not.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>decoder</code></em></i>
+<span>(</span><a title="GstCodecs.H265Decoder" href="codecs/gsth265decoder.html#GstH265Decoder">GstCodecs.H265Decoder</a><span>)</span>
+–
+</div>
+<p>a <a href="codecs/gsth265decoder.html#GstH265Decoder">GstCodecs.H265Decoder</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>live</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>whether upstream is live or not</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+			</div>
+							<p>the number of perferred delayed output frame</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.22
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GstH265DecoderClass::get_preferred_output_delay">
+	<i>do_get_preferred_output_delay</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def do_get_preferred_output_delay (decoder, live):
+    #python implementation of the 'get_preferred_output_delay' virtual method</code></pre>
+
+<p>Optional. Called by baseclass to query whether delaying output is
+preferred by subclass or not.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>decoder</code></em></i>
+<span>(</span><a title="GstCodecs.H265Decoder" href="codecs/gsth265decoder.html#GstH265Decoder">GstCodecs.H265Decoder</a><span>)</span>
+–
+</div>
+<p>a <a href="codecs/gsth265decoder.html#GstH265Decoder">GstCodecs.H265Decoder</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>live</code></em></i>
+<span>(</span><a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a><span>)</span>
+–
+</div>
+<p>whether upstream is live or not</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+			</div>
+							<p>the number of perferred delayed output frame</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.22
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstH265DecoderClass::new_picture">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstH265DecoderClass::new_picture">
+	<i>new_picture</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GstFlowReturn" href="gstreamer/gstpad.html#GstFlowReturn">GstFlowReturn</a>
+new_picture (<a title="GstH265Decoder" href="codecs/gsth265decoder.html#GstH265Decoder">GstH265Decoder</a> * decoder,
+             <a title="GstVideoCodecFrame" href="video/gstvideoutils.html#GstVideoCodecFrame">GstVideoCodecFrame</a> * frame,
+             <a title="GstH265Picture" href="codecs/gsth265decoder.html#GstH265Picture">GstH265Picture</a> * picture)</pre>
+
+<p>Optional. Called whenever new <a href="codecs/gsth265decoder.html#GstH265Picture">GstH265Picture</a> is created.
+Subclass can set implementation specific user data
+on the <a href="codecs/gsth265decoder.html#GstH265Picture">GstH265Picture</a> via gst_h265_picture_set_user_data</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>decoder</code></em></i>
+–
+</div>
+<p>a <a href="codecs/gsth265decoder.html#GstH265Decoder">GstH265Decoder</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>frame</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="Don't free data after the code is done"><span class="acronym">transfer: none</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>a <a href="video/gstvideoutils.html#GstVideoCodecFrame">GstVideoCodecFrame</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>picture</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="Don't free data after the code is done"><span class="acronym">transfer: none</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>a <a href="codecs/gsth265decoder.html#GstH265Picture">GstH265Picture</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GstH265DecoderClass::new_picture">
+	<i>vfunc_new_picture</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function vfunc_new_picture(decoder: <a title="GstCodecs.H265Decoder" href="codecs/gsth265decoder.html#GstH265Decoder">GstCodecs.H265Decoder</a>, frame: <a title="GstVideo.VideoCodecFrame" href="video/gstvideoutils.html#GstVideoCodecFrame">GstVideo.VideoCodecFrame</a>, picture: <a title="GstCodecs.H265Picture" href="codecs/gsth265decoder.html#GstH265Picture">GstCodecs.H265Picture</a>): {
+    // javascript implementation of the 'new_picture' virtual method
+}</code></pre>
+
+<p>Optional. Called whenever new <a href="codecs/gsth265decoder.html#GstH265Picture">GstCodecs.H265Picture</a> is created.
+Subclass can set implementation specific user data
+on the <a href="codecs/gsth265decoder.html#GstH265Picture">GstCodecs.H265Picture</a> via gst_h265_picture_set_user_data</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>decoder</code></em></i>
+<span>(</span><a title="GstCodecs.H265Decoder" href="codecs/gsth265decoder.html#GstH265Decoder">GstCodecs.H265Decoder</a><span>)</span>
+–
+</div>
+<p>a <a href="codecs/gsth265decoder.html#GstH265Decoder">GstCodecs.H265Decoder</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>frame</code></em></i>
+<span>(</span><a title="GstVideo.VideoCodecFrame" href="video/gstvideoutils.html#GstVideoCodecFrame">GstVideo.VideoCodecFrame</a><span>)</span>
+–
+</div>
+<p>a <a href="video/gstvideoutils.html#GstVideoCodecFrame">GstVideo.VideoCodecFrame</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>picture</code></em></i>
+<span>(</span><a title="GstCodecs.H265Picture" href="codecs/gsth265decoder.html#GstH265Picture">GstCodecs.H265Picture</a><span>)</span>
+–
+</div>
+<p>a <a href="codecs/gsth265decoder.html#GstH265Picture">GstCodecs.H265Picture</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Gst.FlowReturn" href="gstreamer/gstpad.html#GstFlowReturn">Gst.FlowReturn</a><span>)</span>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GstH265DecoderClass::new_picture">
+	<i>do_new_picture</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def do_new_picture (decoder, frame, picture):
+    #python implementation of the 'new_picture' virtual method</code></pre>
+
+<p>Optional. Called whenever new <a href="codecs/gsth265decoder.html#GstH265Picture">GstCodecs.H265Picture</a> is created.
+Subclass can set implementation specific user data
+on the <a href="codecs/gsth265decoder.html#GstH265Picture">GstCodecs.H265Picture</a> via gst_h265_picture_set_user_data</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>decoder</code></em></i>
+<span>(</span><a title="GstCodecs.H265Decoder" href="codecs/gsth265decoder.html#GstH265Decoder">GstCodecs.H265Decoder</a><span>)</span>
+–
+</div>
+<p>a <a href="codecs/gsth265decoder.html#GstH265Decoder">GstCodecs.H265Decoder</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>frame</code></em></i>
+<span>(</span><a title="GstVideo.VideoCodecFrame" href="video/gstvideoutils.html#GstVideoCodecFrame">GstVideo.VideoCodecFrame</a><span>)</span>
+–
+</div>
+<p>a <a href="video/gstvideoutils.html#GstVideoCodecFrame">GstVideo.VideoCodecFrame</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>picture</code></em></i>
+<span>(</span><a title="GstCodecs.H265Picture" href="codecs/gsth265decoder.html#GstH265Picture">GstCodecs.H265Picture</a><span>)</span>
+–
+</div>
+<p>a <a href="codecs/gsth265decoder.html#GstH265Picture">GstCodecs.H265Picture</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Gst.FlowReturn" href="gstreamer/gstpad.html#GstFlowReturn">Gst.FlowReturn</a><span>)</span>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstH265DecoderClass::new_sequence">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstH265DecoderClass::new_sequence">
+	<i>new_sequence</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GstFlowReturn" href="gstreamer/gstpad.html#GstFlowReturn">GstFlowReturn</a>
+new_sequence (<a title="GstH265Decoder" href="codecs/gsth265decoder.html#GstH265Decoder">GstH265Decoder</a> * decoder,
+              const <a title="GstH265SPS" href="codecparsers/gsth265parser.html#GstH265SPS">GstH265SPS</a> * sps,
+              <a title="gint" href="https://docs.gtk.org/glib/types.html#gint">gint</a> max_dpb_size)</pre>
+
+<p>Notifies subclass of video sequence update</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>decoder</code></em></i>
+–
+</div>
+<p>a <a href="codecs/gsth265decoder.html#GstH265Decoder">GstH265Decoder</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>sps</code></em></i>
+–
+</div>
+<p>a <a href="codecparsers/gsth265parser.html#GstH265SPS">GstH265SPS</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>max_dpb_size</code></em></i>
+–
+</div>
+<p>the size of dpb including preferred output delay
+by subclass reported via get_preferred_output_delay method.</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GstH265DecoderClass::new_sequence">
+	<i>vfunc_new_sequence</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function vfunc_new_sequence(decoder: <a title="GstCodecs.H265Decoder" href="codecs/gsth265decoder.html#GstH265Decoder">GstCodecs.H265Decoder</a>, sps: <a title="GstCodecParsers.H265SPS" href="codecparsers/gsth265parser.html#GstH265SPS">GstCodecParsers.H265SPS</a>, max_dpb_size: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>): {
+    // javascript implementation of the 'new_sequence' virtual method
+}</code></pre>
+
+<p>Notifies subclass of video sequence update</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>decoder</code></em></i>
+<span>(</span><a title="GstCodecs.H265Decoder" href="codecs/gsth265decoder.html#GstH265Decoder">GstCodecs.H265Decoder</a><span>)</span>
+–
+</div>
+<p>a <a href="codecs/gsth265decoder.html#GstH265Decoder">GstCodecs.H265Decoder</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>sps</code></em></i>
+<span>(</span><a title="GstCodecParsers.H265SPS" href="codecparsers/gsth265parser.html#GstH265SPS">GstCodecParsers.H265SPS</a><span>)</span>
+–
+</div>
+<p>a <a href="codecparsers/gsth265parser.html#GstH265SPS">GstCodecParsers.H265SPS</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>max_dpb_size</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>the size of dpb including preferred output delay
+by subclass reported via get_preferred_output_delay method.</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Gst.FlowReturn" href="gstreamer/gstpad.html#GstFlowReturn">Gst.FlowReturn</a><span>)</span>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GstH265DecoderClass::new_sequence">
+	<i>do_new_sequence</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def do_new_sequence (decoder, sps, max_dpb_size):
+    #python implementation of the 'new_sequence' virtual method</code></pre>
+
+<p>Notifies subclass of video sequence update</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>decoder</code></em></i>
+<span>(</span><a title="GstCodecs.H265Decoder" href="codecs/gsth265decoder.html#GstH265Decoder">GstCodecs.H265Decoder</a><span>)</span>
+–
+</div>
+<p>a <a href="codecs/gsth265decoder.html#GstH265Decoder">GstCodecs.H265Decoder</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>sps</code></em></i>
+<span>(</span><a title="GstCodecParsers.H265SPS" href="codecparsers/gsth265parser.html#GstH265SPS">GstCodecParsers.H265SPS</a><span>)</span>
+–
+</div>
+<p>a <a href="codecparsers/gsth265parser.html#GstH265SPS">GstCodecParsers.H265SPS</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>max_dpb_size</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<p>the size of dpb including preferred output delay
+by subclass reported via get_preferred_output_delay method.</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Gst.FlowReturn" href="gstreamer/gstpad.html#GstFlowReturn">Gst.FlowReturn</a><span>)</span>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstH265DecoderClass::output_picture">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstH265DecoderClass::output_picture">
+	<i>output_picture</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GstFlowReturn" href="gstreamer/gstpad.html#GstFlowReturn">GstFlowReturn</a>
+output_picture (<a title="GstH265Decoder" href="codecs/gsth265decoder.html#GstH265Decoder">GstH265Decoder</a> * decoder,
+                <a title="GstVideoCodecFrame" href="video/gstvideoutils.html#GstVideoCodecFrame">GstVideoCodecFrame</a> * frame,
+                <a title="GstH265Picture" href="codecs/gsth265decoder.html#GstH265Picture">GstH265Picture</a> * picture)</pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>decoder</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>frame</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>picture</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GstH265DecoderClass::output_picture">
+	<i>vfunc_output_picture</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function vfunc_output_picture(decoder: <a title="GstCodecs.H265Decoder" href="codecs/gsth265decoder.html#GstH265Decoder">GstCodecs.H265Decoder</a>, frame: <a title="GstVideo.VideoCodecFrame" href="video/gstvideoutils.html#GstVideoCodecFrame">GstVideo.VideoCodecFrame</a>, picture: <a title="GstCodecs.H265Picture" href="codecs/gsth265decoder.html#GstH265Picture">GstCodecs.H265Picture</a>): {
+    // javascript implementation of the 'output_picture' virtual method
+}</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>decoder</code></em></i>
+<span>(</span><a title="GstCodecs.H265Decoder" href="codecs/gsth265decoder.html#GstH265Decoder">GstCodecs.H265Decoder</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>frame</code></em></i>
+<span>(</span><a title="GstVideo.VideoCodecFrame" href="video/gstvideoutils.html#GstVideoCodecFrame">GstVideo.VideoCodecFrame</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>picture</code></em></i>
+<span>(</span><a title="GstCodecs.H265Picture" href="codecs/gsth265decoder.html#GstH265Picture">GstCodecs.H265Picture</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Gst.FlowReturn" href="gstreamer/gstpad.html#GstFlowReturn">Gst.FlowReturn</a><span>)</span>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GstH265DecoderClass::output_picture">
+	<i>do_output_picture</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def do_output_picture (decoder, frame, picture):
+    #python implementation of the 'output_picture' virtual method</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>decoder</code></em></i>
+<span>(</span><a title="GstCodecs.H265Decoder" href="codecs/gsth265decoder.html#GstH265Decoder">GstCodecs.H265Decoder</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>frame</code></em></i>
+<span>(</span><a title="GstVideo.VideoCodecFrame" href="video/gstvideoutils.html#GstVideoCodecFrame">GstVideo.VideoCodecFrame</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>picture</code></em></i>
+<span>(</span><a title="GstCodecs.H265Picture" href="codecs/gsth265decoder.html#GstH265Picture">GstCodecs.H265Picture</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Gst.FlowReturn" href="gstreamer/gstpad.html#GstFlowReturn">Gst.FlowReturn</a><span>)</span>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstH265DecoderClass::start_picture">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstH265DecoderClass::start_picture">
+	<i>start_picture</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GstFlowReturn" href="gstreamer/gstpad.html#GstFlowReturn">GstFlowReturn</a>
+start_picture (<a title="GstH265Decoder" href="codecs/gsth265decoder.html#GstH265Decoder">GstH265Decoder</a> * decoder,
+               <a title="GstH265Picture" href="codecs/gsth265decoder.html#GstH265Picture">GstH265Picture</a> * picture,
+               <a title="GstH265Slice" href="codecs/gsth265decoder.html#GstH265Slice">GstH265Slice</a> * slice,
+               <a title="GstH265Dpb" href="codecs/gsth265decoder.html#GstH265Dpb">GstH265Dpb</a> * dpb)</pre>
+
+<p>Optional. Called per one <a href="codecs/gsth265decoder.html#GstH265Picture">GstH265Picture</a> to notify subclass to prepare
+decoding process for the <a href="codecs/gsth265decoder.html#GstH265Picture">GstH265Picture</a></p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>decoder</code></em></i>
+–
+</div>
+<p>a <a href="codecs/gsth265decoder.html#GstH265Decoder">GstH265Decoder</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>picture</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="Don't free data after the code is done"><span class="acronym">transfer: none</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>a <a href="codecs/gsth265decoder.html#GstH265Picture">GstH265Picture</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>slice</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="Don't free data after the code is done"><span class="acronym">transfer: none</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>a <a href="codecs/gsth265decoder.html#GstH265Slice">GstH265Slice</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>dpb</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="Don't free data after the code is done"><span class="acronym">transfer: none</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>a <a href="codecs/gsth265decoder.html#GstH265Dpb">GstH265Dpb</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GstH265DecoderClass::start_picture">
+	<i>vfunc_start_picture</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function vfunc_start_picture(decoder: <a title="GstCodecs.H265Decoder" href="codecs/gsth265decoder.html#GstH265Decoder">GstCodecs.H265Decoder</a>, picture: <a title="GstCodecs.H265Picture" href="codecs/gsth265decoder.html#GstH265Picture">GstCodecs.H265Picture</a>, slice: <a title="GstCodecs.H265Slice" href="codecs/gsth265decoder.html#GstH265Slice">GstCodecs.H265Slice</a>, dpb: <a title="GstCodecs.H265Dpb" href="codecs/gsth265decoder.html#GstH265Dpb">GstCodecs.H265Dpb</a>): {
+    // javascript implementation of the 'start_picture' virtual method
+}</code></pre>
+
+<p>Optional. Called per one <a href="codecs/gsth265decoder.html#GstH265Picture">GstCodecs.H265Picture</a> to notify subclass to prepare
+decoding process for the <a href="codecs/gsth265decoder.html#GstH265Picture">GstCodecs.H265Picture</a></p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>decoder</code></em></i>
+<span>(</span><a title="GstCodecs.H265Decoder" href="codecs/gsth265decoder.html#GstH265Decoder">GstCodecs.H265Decoder</a><span>)</span>
+–
+</div>
+<p>a <a href="codecs/gsth265decoder.html#GstH265Decoder">GstCodecs.H265Decoder</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>picture</code></em></i>
+<span>(</span><a title="GstCodecs.H265Picture" href="codecs/gsth265decoder.html#GstH265Picture">GstCodecs.H265Picture</a><span>)</span>
+–
+</div>
+<p>a <a href="codecs/gsth265decoder.html#GstH265Picture">GstCodecs.H265Picture</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>slice</code></em></i>
+<span>(</span><a title="GstCodecs.H265Slice" href="codecs/gsth265decoder.html#GstH265Slice">GstCodecs.H265Slice</a><span>)</span>
+–
+</div>
+<p>a <a href="codecs/gsth265decoder.html#GstH265Slice">GstCodecs.H265Slice</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>dpb</code></em></i>
+<span>(</span><a title="GstCodecs.H265Dpb" href="codecs/gsth265decoder.html#GstH265Dpb">GstCodecs.H265Dpb</a><span>)</span>
+–
+</div>
+<p>a <a href="codecs/gsth265decoder.html#GstH265Dpb">GstCodecs.H265Dpb</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Gst.FlowReturn" href="gstreamer/gstpad.html#GstFlowReturn">Gst.FlowReturn</a><span>)</span>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GstH265DecoderClass::start_picture">
+	<i>do_start_picture</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def do_start_picture (decoder, picture, slice, dpb):
+    #python implementation of the 'start_picture' virtual method</code></pre>
+
+<p>Optional. Called per one <a href="codecs/gsth265decoder.html#GstH265Picture">GstCodecs.H265Picture</a> to notify subclass to prepare
+decoding process for the <a href="codecs/gsth265decoder.html#GstH265Picture">GstCodecs.H265Picture</a></p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>decoder</code></em></i>
+<span>(</span><a title="GstCodecs.H265Decoder" href="codecs/gsth265decoder.html#GstH265Decoder">GstCodecs.H265Decoder</a><span>)</span>
+–
+</div>
+<p>a <a href="codecs/gsth265decoder.html#GstH265Decoder">GstCodecs.H265Decoder</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>picture</code></em></i>
+<span>(</span><a title="GstCodecs.H265Picture" href="codecs/gsth265decoder.html#GstH265Picture">GstCodecs.H265Picture</a><span>)</span>
+–
+</div>
+<p>a <a href="codecs/gsth265decoder.html#GstH265Picture">GstCodecs.H265Picture</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>slice</code></em></i>
+<span>(</span><a title="GstCodecs.H265Slice" href="codecs/gsth265decoder.html#GstH265Slice">GstCodecs.H265Slice</a><span>)</span>
+–
+</div>
+<p>a <a href="codecs/gsth265decoder.html#GstH265Slice">GstCodecs.H265Slice</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>dpb</code></em></i>
+<span>(</span><a title="GstCodecs.H265Dpb" href="codecs/gsth265decoder.html#GstH265Dpb">GstCodecs.H265Dpb</a><span>)</span>
+–
+</div>
+<p>a <a href="codecs/gsth265decoder.html#GstH265Dpb">GstCodecs.H265Dpb</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Gst.FlowReturn" href="gstreamer/gstpad.html#GstFlowReturn">Gst.FlowReturn</a><span>)</span>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+
+        
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstH265Dpb">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h2 data-hotdoc-id="GstH265Dpb">
+	<i>GstH265Dpb</i>
+</h2>
+
+
+
+
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h2 data-hotdoc-id="GstH265Dpb">
+	<i>GstCodecs.H265Dpb</i>
+</h2>
+
+
+
+
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h2 data-hotdoc-id="GstH265Dpb">
+	<i>GstCodecs.H265Dpb</i>
+</h2>
+
+
+
+
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+
+            <h3 class="symbol_section">Methods</h3>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_h265_dpb_add">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_h265_dpb_add">
+	<i>gst_h265_dpb_add</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+gst_h265_dpb_add (<a title="GstH265Dpb" href="codecs/gsth265decoder.html#GstH265Dpb">GstH265Dpb</a> * dpb,
+                  <a title="GstH265Picture" href="codecs/gsth265decoder.html#GstH265Picture">GstH265Picture</a> * picture)</pre>
+
+<p>Store the <em>picture</em> and perform increase pic_latency_cnt as defined in
+"C.5.2.3 Additional bumping" process</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>dpb</code></em></i>
+–
+</div>
+<p>a <a href="codecs/gsth265decoder.html#GstH265Dpb">GstH265Dpb</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>picture</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="Free data after the code is done"><span class="acronym">transfer: full</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>a <a href="codecs/gsth265decoder.html#GstH265Picture">GstH265Picture</a></p>
+
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_h265_dpb_add">
+	<i>GstCodecs.H265Dpb.prototype.add</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstCodecs.H265Dpb.prototype.add(picture: <a title="GstCodecs.H265Picture" href="codecs/gsth265decoder.html#GstH265Picture">GstCodecs.H265Picture</a>): {
+    // javascript wrapper for 'gst_h265_dpb_add'
+}</code></pre>
+
+<p>Store the <em>picture</em> and perform increase pic_latency_cnt as defined in
+"C.5.2.3 Additional bumping" process</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>dpb</code></em></i>
+<span>(</span><a title="GstCodecs.H265Dpb" href="codecs/gsth265decoder.html#GstH265Dpb">GstCodecs.H265Dpb</a><span>)</span>
+–
+</div>
+<p>a <a href="codecs/gsth265decoder.html#GstH265Dpb">GstCodecs.H265Dpb</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>picture</code></em></i>
+<span>(</span><a title="GstCodecs.H265Picture" href="codecs/gsth265decoder.html#GstH265Picture">GstCodecs.H265Picture</a><span>)</span>
+–
+</div>
+<p>a <a href="codecs/gsth265decoder.html#GstH265Picture">GstCodecs.H265Picture</a></p>
+
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_h265_dpb_add">
+	<i>GstCodecs.H265Dpb.add</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstCodecs.H265Dpb.add (self, picture):
+    #python wrapper for 'gst_h265_dpb_add'</code></pre>
+
+<p>Store the <em>picture</em> and perform increase pic_latency_cnt as defined in
+"C.5.2.3 Additional bumping" process</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>dpb</code></em></i>
+<span>(</span><a title="GstCodecs.H265Dpb" href="codecs/gsth265decoder.html#GstH265Dpb">GstCodecs.H265Dpb</a><span>)</span>
+–
+</div>
+<p>a <a href="codecs/gsth265decoder.html#GstH265Dpb">GstCodecs.H265Dpb</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>picture</code></em></i>
+<span>(</span><a title="GstCodecs.H265Picture" href="codecs/gsth265decoder.html#GstH265Picture">GstCodecs.H265Picture</a><span>)</span>
+–
+</div>
+<p>a <a href="codecs/gsth265decoder.html#GstH265Picture">GstCodecs.H265Picture</a></p>
+
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="gst_h265_dpb_bump">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_h265_dpb_bump">
+	<i>gst_h265_dpb_bump</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GstH265Picture" href="codecs/gsth265decoder.html#GstH265Picture">GstH265Picture</a> *
+gst_h265_dpb_bump (<a title="GstH265Dpb" href="codecs/gsth265decoder.html#GstH265Dpb">GstH265Dpb</a> * dpb,
+                   <a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a> drain)</pre>
+
+<p>Perform bumping process as defined in C.5.2.4 "Bumping" process.
+If <em>drain</em> is <a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#TRUE:CAPS">TRUE</a>, <em>dpb</em> will remove a <a href="codecs/gsth265decoder.html#GstH265Picture">GstH265Picture</a> from internal array
+so that returned <a href="codecs/gsth265decoder.html#GstH265Picture">GstH265Picture</a> could hold the last reference of it</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>dpb</code></em></i>
+–
+</div>
+<p>a <a href="codecs/gsth265decoder.html#GstH265Dpb">GstH265Dpb</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>drain</code></em></i>
+–
+</div>
+<p>whether draining or not</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span>
+<span class="annotation">[<abbr title="NULL may be passed to the value"><span class="acronym">nullable</span></abbr>]</span><span class="annotation">[<abbr title="Free data after the code is done"><span class="acronym">transfer: full</span></abbr>]</span><span>)</span>
+–
+			</div>
+							<p>a <a href="codecs/gsth265decoder.html#GstH265Picture">GstH265Picture</a> which is needed to be
+outputted</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_h265_dpb_bump">
+	<i>GstCodecs.H265Dpb.prototype.bump</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstCodecs.H265Dpb.prototype.bump(drain: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>): {
+    // javascript wrapper for 'gst_h265_dpb_bump'
+}</code></pre>
+
+<p>Perform bumping process as defined in C.5.2.4 "Bumping" process.
+If <em>drain</em> is <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">true</a>, <em>dpb</em> will remove a <a href="codecs/gsth265decoder.html#GstH265Picture">GstCodecs.H265Picture</a> from internal array
+so that returned <a href="codecs/gsth265decoder.html#GstH265Picture">GstCodecs.H265Picture</a> could hold the last reference of it</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>dpb</code></em></i>
+<span>(</span><a title="GstCodecs.H265Dpb" href="codecs/gsth265decoder.html#GstH265Dpb">GstCodecs.H265Dpb</a><span>)</span>
+–
+</div>
+<p>a <a href="codecs/gsth265decoder.html#GstH265Dpb">GstCodecs.H265Dpb</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>drain</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>whether draining or not</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GstCodecs.H265Picture" href="codecs/gsth265decoder.html#GstH265Picture">GstCodecs.H265Picture</a><span>)</span>
+–
+			</div>
+							<p>a <a href="codecs/gsth265decoder.html#GstH265Picture">GstCodecs.H265Picture</a> which is needed to be
+outputted</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_h265_dpb_bump">
+	<i>GstCodecs.H265Dpb.bump</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstCodecs.H265Dpb.bump (self, drain):
+    #python wrapper for 'gst_h265_dpb_bump'</code></pre>
+
+<p>Perform bumping process as defined in C.5.2.4 "Bumping" process.
+If <em>drain</em> is <a href="https://docs.python.org/3/library/constants.html#True">True</a>, <em>dpb</em> will remove a <a href="codecs/gsth265decoder.html#GstH265Picture">GstCodecs.H265Picture</a> from internal array
+so that returned <a href="codecs/gsth265decoder.html#GstH265Picture">GstCodecs.H265Picture</a> could hold the last reference of it</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>dpb</code></em></i>
+<span>(</span><a title="GstCodecs.H265Dpb" href="codecs/gsth265decoder.html#GstH265Dpb">GstCodecs.H265Dpb</a><span>)</span>
+–
+</div>
+<p>a <a href="codecs/gsth265decoder.html#GstH265Dpb">GstCodecs.H265Dpb</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>drain</code></em></i>
+<span>(</span><a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a><span>)</span>
+–
+</div>
+<p>whether draining or not</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GstCodecs.H265Picture" href="codecs/gsth265decoder.html#GstH265Picture">GstCodecs.H265Picture</a><span>)</span>
+–
+			</div>
+							<p>a <a href="codecs/gsth265decoder.html#GstH265Picture">GstCodecs.H265Picture</a> which is needed to be
+outputted</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_h265_dpb_clear">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_h265_dpb_clear">
+	<i>gst_h265_dpb_clear</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+gst_h265_dpb_clear (<a title="GstH265Dpb" href="codecs/gsth265decoder.html#GstH265Dpb">GstH265Dpb</a> * dpb)</pre>
+
+<p>Clear all stored <a href="codecs/gsth265decoder.html#GstH265Picture">GstH265Picture</a></p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>dpb</code></em></i>
+–
+</div>
+<p>a <a href="codecs/gsth265decoder.html#GstH265Dpb">GstH265Dpb</a></p>
+
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_h265_dpb_clear">
+	<i>GstCodecs.H265Dpb.prototype.clear</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstCodecs.H265Dpb.prototype.clear(): {
+    // javascript wrapper for 'gst_h265_dpb_clear'
+}</code></pre>
+
+<p>Clear all stored <a href="codecs/gsth265decoder.html#GstH265Picture">GstCodecs.H265Picture</a></p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>dpb</code></em></i>
+<span>(</span><a title="GstCodecs.H265Dpb" href="codecs/gsth265decoder.html#GstH265Dpb">GstCodecs.H265Dpb</a><span>)</span>
+–
+</div>
+<p>a <a href="codecs/gsth265decoder.html#GstH265Dpb">GstCodecs.H265Dpb</a></p>
+
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_h265_dpb_clear">
+	<i>GstCodecs.H265Dpb.clear</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstCodecs.H265Dpb.clear (self):
+    #python wrapper for 'gst_h265_dpb_clear'</code></pre>
+
+<p>Clear all stored <a href="codecs/gsth265decoder.html#GstH265Picture">GstCodecs.H265Picture</a></p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>dpb</code></em></i>
+<span>(</span><a title="GstCodecs.H265Dpb" href="codecs/gsth265decoder.html#GstH265Dpb">GstCodecs.H265Dpb</a><span>)</span>
+–
+</div>
+<p>a <a href="codecs/gsth265decoder.html#GstH265Dpb">GstCodecs.H265Dpb</a></p>
+
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_h265_dpb_delete_unused">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_h265_dpb_delete_unused">
+	<i>gst_h265_dpb_delete_unused</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+gst_h265_dpb_delete_unused (<a title="GstH265Dpb" href="codecs/gsth265decoder.html#GstH265Dpb">GstH265Dpb</a> * dpb)</pre>
+
+<p>Delete not needed for output and not referenced all pictures from dpb</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>dpb</code></em></i>
+–
+</div>
+<p>a <a href="codecs/gsth265decoder.html#GstH265Dpb">GstH265Dpb</a></p>
+
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_h265_dpb_delete_unused">
+	<i>GstCodecs.H265Dpb.prototype.delete_unused</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstCodecs.H265Dpb.prototype.delete_unused(): {
+    // javascript wrapper for 'gst_h265_dpb_delete_unused'
+}</code></pre>
+
+<p>Delete not needed for output and not referenced all pictures from dpb</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>dpb</code></em></i>
+<span>(</span><a title="GstCodecs.H265Dpb" href="codecs/gsth265decoder.html#GstH265Dpb">GstCodecs.H265Dpb</a><span>)</span>
+–
+</div>
+<p>a <a href="codecs/gsth265decoder.html#GstH265Dpb">GstCodecs.H265Dpb</a></p>
+
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_h265_dpb_delete_unused">
+	<i>GstCodecs.H265Dpb.delete_unused</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstCodecs.H265Dpb.delete_unused (self):
+    #python wrapper for 'gst_h265_dpb_delete_unused'</code></pre>
+
+<p>Delete not needed for output and not referenced all pictures from dpb</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>dpb</code></em></i>
+<span>(</span><a title="GstCodecs.H265Dpb" href="codecs/gsth265decoder.html#GstH265Dpb">GstCodecs.H265Dpb</a><span>)</span>
+–
+</div>
+<p>a <a href="codecs/gsth265decoder.html#GstH265Dpb">GstCodecs.H265Dpb</a></p>
+
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_h265_dpb_free">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_h265_dpb_free">
+	<i>gst_h265_dpb_free</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+gst_h265_dpb_free (<a title="GstH265Dpb" href="codecs/gsth265decoder.html#GstH265Dpb">GstH265Dpb</a> * dpb)</pre>
+
+<p>Free the <em>dpb</em></p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>dpb</code></em></i>
+–
+</div>
+<p>a <a href="codecs/gsth265decoder.html#GstH265Dpb">GstH265Dpb</a> to free</p>
+
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_h265_dpb_free">
+	<i>GstCodecs.H265Dpb.prototype.free</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstCodecs.H265Dpb.prototype.free(): {
+    // javascript wrapper for 'gst_h265_dpb_free'
+}</code></pre>
+
+<p>Free the <em>dpb</em></p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>dpb</code></em></i>
+<span>(</span><a title="GstCodecs.H265Dpb" href="codecs/gsth265decoder.html#GstH265Dpb">GstCodecs.H265Dpb</a><span>)</span>
+–
+</div>
+<p>a <a href="codecs/gsth265decoder.html#GstH265Dpb">GstCodecs.H265Dpb</a> to free</p>
+
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_h265_dpb_free">
+	<i>GstCodecs.H265Dpb.free</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstCodecs.H265Dpb.free (self):
+    #python wrapper for 'gst_h265_dpb_free'</code></pre>
+
+<p>Free the <em>dpb</em></p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>dpb</code></em></i>
+<span>(</span><a title="GstCodecs.H265Dpb" href="codecs/gsth265decoder.html#GstH265Dpb">GstCodecs.H265Dpb</a><span>)</span>
+–
+</div>
+<p>a <a href="codecs/gsth265decoder.html#GstH265Dpb">GstCodecs.H265Dpb</a> to free</p>
+
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_h265_dpb_get_long_ref_by_poc">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_h265_dpb_get_long_ref_by_poc">
+	<i>gst_h265_dpb_get_long_ref_by_poc</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GstH265Picture" href="codecs/gsth265decoder.html#GstH265Picture">GstH265Picture</a> *
+gst_h265_dpb_get_long_ref_by_poc (<a title="GstH265Dpb" href="codecs/gsth265decoder.html#GstH265Dpb">GstH265Dpb</a> * dpb,
+                                  <a title="gint" href="https://docs.gtk.org/glib/types.html#gint">gint</a> poc)</pre>
+
+<p>Find a long term reference picture which has matching poc</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>dpb</code></em></i>
+–
+</div>
+<p>a <a href="codecs/gsth265decoder.html#GstH265Dpb">GstH265Dpb</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>poc</code></em></i>
+–
+</div>
+<p>a picture order count</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span>
+<span class="annotation">[<abbr title="NULL may be passed to the value"><span class="acronym">nullable</span></abbr>]</span><span class="annotation">[<abbr title="Free data after the code is done"><span class="acronym">transfer: full</span></abbr>]</span><span>)</span>
+–
+			</div>
+							<p>a <a href="codecs/gsth265decoder.html#GstH265Picture">GstH265Picture</a></p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_h265_dpb_get_long_ref_by_poc">
+	<i>GstCodecs.H265Dpb.prototype.get_long_ref_by_poc</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstCodecs.H265Dpb.prototype.get_long_ref_by_poc(poc: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>): {
+    // javascript wrapper for 'gst_h265_dpb_get_long_ref_by_poc'
+}</code></pre>
+
+<p>Find a long term reference picture which has matching poc</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>dpb</code></em></i>
+<span>(</span><a title="GstCodecs.H265Dpb" href="codecs/gsth265decoder.html#GstH265Dpb">GstCodecs.H265Dpb</a><span>)</span>
+–
+</div>
+<p>a <a href="codecs/gsth265decoder.html#GstH265Dpb">GstCodecs.H265Dpb</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>poc</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>a picture order count</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GstCodecs.H265Picture" href="codecs/gsth265decoder.html#GstH265Picture">GstCodecs.H265Picture</a><span>)</span>
+–
+			</div>
+							<p>a <a href="codecs/gsth265decoder.html#GstH265Picture">GstCodecs.H265Picture</a></p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_h265_dpb_get_long_ref_by_poc">
+	<i>GstCodecs.H265Dpb.get_long_ref_by_poc</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstCodecs.H265Dpb.get_long_ref_by_poc (self, poc):
+    #python wrapper for 'gst_h265_dpb_get_long_ref_by_poc'</code></pre>
+
+<p>Find a long term reference picture which has matching poc</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>dpb</code></em></i>
+<span>(</span><a title="GstCodecs.H265Dpb" href="codecs/gsth265decoder.html#GstH265Dpb">GstCodecs.H265Dpb</a><span>)</span>
+–
+</div>
+<p>a <a href="codecs/gsth265decoder.html#GstH265Dpb">GstCodecs.H265Dpb</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>poc</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<p>a picture order count</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GstCodecs.H265Picture" href="codecs/gsth265decoder.html#GstH265Picture">GstCodecs.H265Picture</a><span>)</span>
+–
+			</div>
+							<p>a <a href="codecs/gsth265decoder.html#GstH265Picture">GstCodecs.H265Picture</a></p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_h265_dpb_get_max_num_pics">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_h265_dpb_get_max_num_pics">
+	<i>gst_h265_dpb_get_max_num_pics</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gint" href="https://docs.gtk.org/glib/types.html#gint">gint</a>
+gst_h265_dpb_get_max_num_pics (<a title="GstH265Dpb" href="codecs/gsth265decoder.html#GstH265Dpb">GstH265Dpb</a> * dpb)</pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>dpb</code></em></i>
+–
+</div>
+<p>a <a href="codecs/gsth265decoder.html#GstH265Dpb">GstH265Dpb</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p>the number of maximum pictures</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_h265_dpb_get_max_num_pics">
+	<i>GstCodecs.H265Dpb.prototype.get_max_num_pics</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstCodecs.H265Dpb.prototype.get_max_num_pics(): {
+    // javascript wrapper for 'gst_h265_dpb_get_max_num_pics'
+}</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>dpb</code></em></i>
+<span>(</span><a title="GstCodecs.H265Dpb" href="codecs/gsth265decoder.html#GstH265Dpb">GstCodecs.H265Dpb</a><span>)</span>
+–
+</div>
+<p>a <a href="codecs/gsth265decoder.html#GstH265Dpb">GstCodecs.H265Dpb</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+			</div>
+							<p>the number of maximum pictures</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_h265_dpb_get_max_num_pics">
+	<i>GstCodecs.H265Dpb.get_max_num_pics</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstCodecs.H265Dpb.get_max_num_pics (self):
+    #python wrapper for 'gst_h265_dpb_get_max_num_pics'</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>dpb</code></em></i>
+<span>(</span><a title="GstCodecs.H265Dpb" href="codecs/gsth265decoder.html#GstH265Dpb">GstCodecs.H265Dpb</a><span>)</span>
+–
+</div>
+<p>a <a href="codecs/gsth265decoder.html#GstH265Dpb">GstCodecs.H265Dpb</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+			</div>
+							<p>the number of maximum pictures</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="gst_h265_dpb_get_picture">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_h265_dpb_get_picture">
+	<i>gst_h265_dpb_get_picture</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GstH265Picture" href="codecs/gsth265decoder.html#GstH265Picture">GstH265Picture</a> *
+gst_h265_dpb_get_picture (<a title="GstH265Dpb" href="codecs/gsth265decoder.html#GstH265Dpb">GstH265Dpb</a> * dpb,
+                          <a title="guint32" href="https://docs.gtk.org/glib/types.html#guint32">guint32</a> system_frame_number)</pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>dpb</code></em></i>
+–
+</div>
+<p>a <a href="codecs/gsth265decoder.html#GstH265Dpb">GstH265Dpb</a>
+<em>system_frame_number</em> The system frame number</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>system_frame_number</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span>
+<span class="annotation">[<abbr title="Free data after the code is done"><span class="acronym">transfer: full</span></abbr>]</span><span class="annotation">[<abbr title="NULL may be passed to the value"><span class="acronym">nullable</span></abbr>]</span><span>)</span>
+–
+			</div>
+							<p>the picture identified with the specified
+<em>system_frame_number</em>, or <a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#NULL:CAPS">NULL</a> if DPB does not contain a <a href="codecs/gsth265decoder.html#GstH265Picture">GstH265Picture</a>
+corresponding to the <em>system_frame_number</em></p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_h265_dpb_get_picture">
+	<i>GstCodecs.H265Dpb.prototype.get_picture</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstCodecs.H265Dpb.prototype.get_picture(system_frame_number: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>): {
+    // javascript wrapper for 'gst_h265_dpb_get_picture'
+}</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>dpb</code></em></i>
+<span>(</span><a title="GstCodecs.H265Dpb" href="codecs/gsth265decoder.html#GstH265Dpb">GstCodecs.H265Dpb</a><span>)</span>
+–
+</div>
+<p>a <a href="codecs/gsth265decoder.html#GstH265Dpb">GstCodecs.H265Dpb</a>
+<em>system_frame_number</em> The system frame number</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>system_frame_number</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GstCodecs.H265Picture" href="codecs/gsth265decoder.html#GstH265Picture">GstCodecs.H265Picture</a><span>)</span>
+–
+			</div>
+							<p>the picture identified with the specified
+<em>system_frame_number</em>, or <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null">null</a> if DPB does not contain a <a href="codecs/gsth265decoder.html#GstH265Picture">GstCodecs.H265Picture</a>
+corresponding to the <em>system_frame_number</em></p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_h265_dpb_get_picture">
+	<i>GstCodecs.H265Dpb.get_picture</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstCodecs.H265Dpb.get_picture (self, system_frame_number):
+    #python wrapper for 'gst_h265_dpb_get_picture'</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>dpb</code></em></i>
+<span>(</span><a title="GstCodecs.H265Dpb" href="codecs/gsth265decoder.html#GstH265Dpb">GstCodecs.H265Dpb</a><span>)</span>
+–
+</div>
+<p>a <a href="codecs/gsth265decoder.html#GstH265Dpb">GstCodecs.H265Dpb</a>
+<em>system_frame_number</em> The system frame number</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>system_frame_number</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GstCodecs.H265Picture" href="codecs/gsth265decoder.html#GstH265Picture">GstCodecs.H265Picture</a><span>)</span>
+–
+			</div>
+							<p>the picture identified with the specified
+<em>system_frame_number</em>, or <a href="https://docs.python.org/3/library/constants.html#None">None</a> if DPB does not contain a <a href="codecs/gsth265decoder.html#GstH265Picture">GstCodecs.H265Picture</a>
+corresponding to the <em>system_frame_number</em></p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_h265_dpb_get_pictures_all">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_h265_dpb_get_pictures_all">
+	<i>gst_h265_dpb_get_pictures_all</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GArray" href="https://docs.gtk.org/glib/struct.Array.html">GArray</a> *
+gst_h265_dpb_get_pictures_all (<a title="GstH265Dpb" href="codecs/gsth265decoder.html#GstH265Dpb">GstH265Dpb</a> * dpb)</pre>
+
+<p>Return: (element-type GstH265Picture) (transfer full): a <a href="https://docs.gtk.org/glib/struct.Array.html">GArray</a> of
+<a href="codecs/gsth265decoder.html#GstH265Picture">GstH265Picture</a> stored in <em>dpb</em></p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>dpb</code></em></i>
+–
+</div>
+<p>a <a href="codecs/gsth265decoder.html#GstH265Dpb">GstH265Dpb</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_h265_dpb_get_pictures_all">
+	<i>GstCodecs.H265Dpb.prototype.get_pictures_all</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstCodecs.H265Dpb.prototype.get_pictures_all(): {
+    // javascript wrapper for 'gst_h265_dpb_get_pictures_all'
+}</code></pre>
+
+<p>Return: (element-type GstH265Picture) (transfer full): a <a href="https://docs.gtk.org/glib/struct.Array.html">GArray (not introspectable)</a> of
+<a href="codecs/gsth265decoder.html#GstH265Picture">GstCodecs.H265Picture</a> stored in <em>dpb</em></p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>dpb</code></em></i>
+<span>(</span><a title="GstCodecs.H265Dpb" href="codecs/gsth265decoder.html#GstH265Dpb">GstCodecs.H265Dpb</a><span>)</span>
+–
+</div>
+<p>a <a href="codecs/gsth265decoder.html#GstH265Dpb">GstCodecs.H265Dpb</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span>[ <a title="GstCodecs.H265Picture" href="codecs/gsth265decoder.html#GstH265Picture">GstCodecs.H265Picture</a> ]<span>)</span>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_h265_dpb_get_pictures_all">
+	<i>GstCodecs.H265Dpb.get_pictures_all</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstCodecs.H265Dpb.get_pictures_all (self):
+    #python wrapper for 'gst_h265_dpb_get_pictures_all'</code></pre>
+
+<p>Return: (element-type GstH265Picture) (transfer full): a <a href="https://docs.gtk.org/glib/struct.Array.html">GArray (not introspectable)</a> of
+<a href="codecs/gsth265decoder.html#GstH265Picture">GstCodecs.H265Picture</a> stored in <em>dpb</em></p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>dpb</code></em></i>
+<span>(</span><a title="GstCodecs.H265Dpb" href="codecs/gsth265decoder.html#GstH265Dpb">GstCodecs.H265Dpb</a><span>)</span>
+–
+</div>
+<p>a <a href="codecs/gsth265decoder.html#GstH265Dpb">GstCodecs.H265Dpb</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span>[ <a title="GstCodecs.H265Picture" href="codecs/gsth265decoder.html#GstH265Picture">GstCodecs.H265Picture</a> ]<span>)</span>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_h265_dpb_get_ref_by_poc">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_h265_dpb_get_ref_by_poc">
+	<i>gst_h265_dpb_get_ref_by_poc</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GstH265Picture" href="codecs/gsth265decoder.html#GstH265Picture">GstH265Picture</a> *
+gst_h265_dpb_get_ref_by_poc (<a title="GstH265Dpb" href="codecs/gsth265decoder.html#GstH265Dpb">GstH265Dpb</a> * dpb,
+                             <a title="gint" href="https://docs.gtk.org/glib/types.html#gint">gint</a> poc)</pre>
+
+<p>Find a short or long term reference picture which has matching poc</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>dpb</code></em></i>
+–
+</div>
+<p>a <a href="codecs/gsth265decoder.html#GstH265Dpb">GstH265Dpb</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>poc</code></em></i>
+–
+</div>
+<p>a picture order count</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span>
+<span class="annotation">[<abbr title="NULL may be passed to the value"><span class="acronym">nullable</span></abbr>]</span><span class="annotation">[<abbr title="Free data after the code is done"><span class="acronym">transfer: full</span></abbr>]</span><span>)</span>
+–
+			</div>
+							<p>a <a href="codecs/gsth265decoder.html#GstH265Picture">GstH265Picture</a></p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_h265_dpb_get_ref_by_poc">
+	<i>GstCodecs.H265Dpb.prototype.get_ref_by_poc</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstCodecs.H265Dpb.prototype.get_ref_by_poc(poc: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>): {
+    // javascript wrapper for 'gst_h265_dpb_get_ref_by_poc'
+}</code></pre>
+
+<p>Find a short or long term reference picture which has matching poc</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>dpb</code></em></i>
+<span>(</span><a title="GstCodecs.H265Dpb" href="codecs/gsth265decoder.html#GstH265Dpb">GstCodecs.H265Dpb</a><span>)</span>
+–
+</div>
+<p>a <a href="codecs/gsth265decoder.html#GstH265Dpb">GstCodecs.H265Dpb</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>poc</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>a picture order count</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GstCodecs.H265Picture" href="codecs/gsth265decoder.html#GstH265Picture">GstCodecs.H265Picture</a><span>)</span>
+–
+			</div>
+							<p>a <a href="codecs/gsth265decoder.html#GstH265Picture">GstCodecs.H265Picture</a></p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_h265_dpb_get_ref_by_poc">
+	<i>GstCodecs.H265Dpb.get_ref_by_poc</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstCodecs.H265Dpb.get_ref_by_poc (self, poc):
+    #python wrapper for 'gst_h265_dpb_get_ref_by_poc'</code></pre>
+
+<p>Find a short or long term reference picture which has matching poc</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>dpb</code></em></i>
+<span>(</span><a title="GstCodecs.H265Dpb" href="codecs/gsth265decoder.html#GstH265Dpb">GstCodecs.H265Dpb</a><span>)</span>
+–
+</div>
+<p>a <a href="codecs/gsth265decoder.html#GstH265Dpb">GstCodecs.H265Dpb</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>poc</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<p>a picture order count</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GstCodecs.H265Picture" href="codecs/gsth265decoder.html#GstH265Picture">GstCodecs.H265Picture</a><span>)</span>
+–
+			</div>
+							<p>a <a href="codecs/gsth265decoder.html#GstH265Picture">GstCodecs.H265Picture</a></p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_h265_dpb_get_ref_by_poc_lsb">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_h265_dpb_get_ref_by_poc_lsb">
+	<i>gst_h265_dpb_get_ref_by_poc_lsb</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GstH265Picture" href="codecs/gsth265decoder.html#GstH265Picture">GstH265Picture</a> *
+gst_h265_dpb_get_ref_by_poc_lsb (<a title="GstH265Dpb" href="codecs/gsth265decoder.html#GstH265Dpb">GstH265Dpb</a> * dpb,
+                                 <a title="gint" href="https://docs.gtk.org/glib/types.html#gint">gint</a> poc_lsb)</pre>
+
+<p>Find a short or long term reference picture which has matching poc_lsb</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>dpb</code></em></i>
+–
+</div>
+<p>a <a href="codecs/gsth265decoder.html#GstH265Dpb">GstH265Dpb</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>poc_lsb</code></em></i>
+–
+</div>
+<p>a picture order count lsb</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span>
+<span class="annotation">[<abbr title="NULL may be passed to the value"><span class="acronym">nullable</span></abbr>]</span><span class="annotation">[<abbr title="Free data after the code is done"><span class="acronym">transfer: full</span></abbr>]</span><span>)</span>
+–
+			</div>
+							<p>a <a href="codecs/gsth265decoder.html#GstH265Picture">GstH265Picture</a></p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_h265_dpb_get_ref_by_poc_lsb">
+	<i>GstCodecs.H265Dpb.prototype.get_ref_by_poc_lsb</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstCodecs.H265Dpb.prototype.get_ref_by_poc_lsb(poc_lsb: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>): {
+    // javascript wrapper for 'gst_h265_dpb_get_ref_by_poc_lsb'
+}</code></pre>
+
+<p>Find a short or long term reference picture which has matching poc_lsb</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>dpb</code></em></i>
+<span>(</span><a title="GstCodecs.H265Dpb" href="codecs/gsth265decoder.html#GstH265Dpb">GstCodecs.H265Dpb</a><span>)</span>
+–
+</div>
+<p>a <a href="codecs/gsth265decoder.html#GstH265Dpb">GstCodecs.H265Dpb</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>poc_lsb</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>a picture order count lsb</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GstCodecs.H265Picture" href="codecs/gsth265decoder.html#GstH265Picture">GstCodecs.H265Picture</a><span>)</span>
+–
+			</div>
+							<p>a <a href="codecs/gsth265decoder.html#GstH265Picture">GstCodecs.H265Picture</a></p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_h265_dpb_get_ref_by_poc_lsb">
+	<i>GstCodecs.H265Dpb.get_ref_by_poc_lsb</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstCodecs.H265Dpb.get_ref_by_poc_lsb (self, poc_lsb):
+    #python wrapper for 'gst_h265_dpb_get_ref_by_poc_lsb'</code></pre>
+
+<p>Find a short or long term reference picture which has matching poc_lsb</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>dpb</code></em></i>
+<span>(</span><a title="GstCodecs.H265Dpb" href="codecs/gsth265decoder.html#GstH265Dpb">GstCodecs.H265Dpb</a><span>)</span>
+–
+</div>
+<p>a <a href="codecs/gsth265decoder.html#GstH265Dpb">GstCodecs.H265Dpb</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>poc_lsb</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<p>a picture order count lsb</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GstCodecs.H265Picture" href="codecs/gsth265decoder.html#GstH265Picture">GstCodecs.H265Picture</a><span>)</span>
+–
+			</div>
+							<p>a <a href="codecs/gsth265decoder.html#GstH265Picture">GstCodecs.H265Picture</a></p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_h265_dpb_get_short_ref_by_poc">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_h265_dpb_get_short_ref_by_poc">
+	<i>gst_h265_dpb_get_short_ref_by_poc</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GstH265Picture" href="codecs/gsth265decoder.html#GstH265Picture">GstH265Picture</a> *
+gst_h265_dpb_get_short_ref_by_poc (<a title="GstH265Dpb" href="codecs/gsth265decoder.html#GstH265Dpb">GstH265Dpb</a> * dpb,
+                                   <a title="gint" href="https://docs.gtk.org/glib/types.html#gint">gint</a> poc)</pre>
+
+<p>Find a short term reference picture which has matching poc</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>dpb</code></em></i>
+–
+</div>
+<p>a <a href="codecs/gsth265decoder.html#GstH265Dpb">GstH265Dpb</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>poc</code></em></i>
+–
+</div>
+<p>a picture order count</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span>
+<span class="annotation">[<abbr title="NULL may be passed to the value"><span class="acronym">nullable</span></abbr>]</span><span class="annotation">[<abbr title="Free data after the code is done"><span class="acronym">transfer: full</span></abbr>]</span><span>)</span>
+–
+			</div>
+							<p>a <a href="codecs/gsth265decoder.html#GstH265Picture">GstH265Picture</a></p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_h265_dpb_get_short_ref_by_poc">
+	<i>GstCodecs.H265Dpb.prototype.get_short_ref_by_poc</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstCodecs.H265Dpb.prototype.get_short_ref_by_poc(poc: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>): {
+    // javascript wrapper for 'gst_h265_dpb_get_short_ref_by_poc'
+}</code></pre>
+
+<p>Find a short term reference picture which has matching poc</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>dpb</code></em></i>
+<span>(</span><a title="GstCodecs.H265Dpb" href="codecs/gsth265decoder.html#GstH265Dpb">GstCodecs.H265Dpb</a><span>)</span>
+–
+</div>
+<p>a <a href="codecs/gsth265decoder.html#GstH265Dpb">GstCodecs.H265Dpb</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>poc</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>a picture order count</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GstCodecs.H265Picture" href="codecs/gsth265decoder.html#GstH265Picture">GstCodecs.H265Picture</a><span>)</span>
+–
+			</div>
+							<p>a <a href="codecs/gsth265decoder.html#GstH265Picture">GstCodecs.H265Picture</a></p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_h265_dpb_get_short_ref_by_poc">
+	<i>GstCodecs.H265Dpb.get_short_ref_by_poc</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstCodecs.H265Dpb.get_short_ref_by_poc (self, poc):
+    #python wrapper for 'gst_h265_dpb_get_short_ref_by_poc'</code></pre>
+
+<p>Find a short term reference picture which has matching poc</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>dpb</code></em></i>
+<span>(</span><a title="GstCodecs.H265Dpb" href="codecs/gsth265decoder.html#GstH265Dpb">GstCodecs.H265Dpb</a><span>)</span>
+–
+</div>
+<p>a <a href="codecs/gsth265decoder.html#GstH265Dpb">GstCodecs.H265Dpb</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>poc</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<p>a picture order count</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GstCodecs.H265Picture" href="codecs/gsth265decoder.html#GstH265Picture">GstCodecs.H265Picture</a><span>)</span>
+–
+			</div>
+							<p>a <a href="codecs/gsth265decoder.html#GstH265Picture">GstCodecs.H265Picture</a></p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_h265_dpb_get_size">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_h265_dpb_get_size">
+	<i>gst_h265_dpb_get_size</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gint" href="https://docs.gtk.org/glib/types.html#gint">gint</a>
+gst_h265_dpb_get_size (<a title="GstH265Dpb" href="codecs/gsth265decoder.html#GstH265Dpb">GstH265Dpb</a> * dpb)</pre>
+
+<p>Return: the length of stored dpb array</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>dpb</code></em></i>
+–
+</div>
+<p>a <a href="codecs/gsth265decoder.html#GstH265Dpb">GstH265Dpb</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_h265_dpb_get_size">
+	<i>GstCodecs.H265Dpb.prototype.get_size</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstCodecs.H265Dpb.prototype.get_size(): {
+    // javascript wrapper for 'gst_h265_dpb_get_size'
+}</code></pre>
+
+<p>Return: the length of stored dpb array</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>dpb</code></em></i>
+<span>(</span><a title="GstCodecs.H265Dpb" href="codecs/gsth265decoder.html#GstH265Dpb">GstCodecs.H265Dpb</a><span>)</span>
+–
+</div>
+<p>a <a href="codecs/gsth265decoder.html#GstH265Dpb">GstCodecs.H265Dpb</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_h265_dpb_get_size">
+	<i>GstCodecs.H265Dpb.get_size</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstCodecs.H265Dpb.get_size (self):
+    #python wrapper for 'gst_h265_dpb_get_size'</code></pre>
+
+<p>Return: the length of stored dpb array</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>dpb</code></em></i>
+<span>(</span><a title="GstCodecs.H265Dpb" href="codecs/gsth265decoder.html#GstH265Dpb">GstCodecs.H265Dpb</a><span>)</span>
+–
+</div>
+<p>a <a href="codecs/gsth265decoder.html#GstH265Dpb">GstCodecs.H265Dpb</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_h265_dpb_mark_all_non_ref">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_h265_dpb_mark_all_non_ref">
+	<i>gst_h265_dpb_mark_all_non_ref</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+gst_h265_dpb_mark_all_non_ref (<a title="GstH265Dpb" href="codecs/gsth265decoder.html#GstH265Dpb">GstH265Dpb</a> * dpb)</pre>
+
+<p>Mark all pictures are not referenced</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>dpb</code></em></i>
+–
+</div>
+<p>a <a href="codecs/gsth265decoder.html#GstH265Dpb">GstH265Dpb</a></p>
+
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_h265_dpb_mark_all_non_ref">
+	<i>GstCodecs.H265Dpb.prototype.mark_all_non_ref</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstCodecs.H265Dpb.prototype.mark_all_non_ref(): {
+    // javascript wrapper for 'gst_h265_dpb_mark_all_non_ref'
+}</code></pre>
+
+<p>Mark all pictures are not referenced</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>dpb</code></em></i>
+<span>(</span><a title="GstCodecs.H265Dpb" href="codecs/gsth265decoder.html#GstH265Dpb">GstCodecs.H265Dpb</a><span>)</span>
+–
+</div>
+<p>a <a href="codecs/gsth265decoder.html#GstH265Dpb">GstCodecs.H265Dpb</a></p>
+
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_h265_dpb_mark_all_non_ref">
+	<i>GstCodecs.H265Dpb.mark_all_non_ref</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstCodecs.H265Dpb.mark_all_non_ref (self):
+    #python wrapper for 'gst_h265_dpb_mark_all_non_ref'</code></pre>
+
+<p>Mark all pictures are not referenced</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>dpb</code></em></i>
+<span>(</span><a title="GstCodecs.H265Dpb" href="codecs/gsth265decoder.html#GstH265Dpb">GstCodecs.H265Dpb</a><span>)</span>
+–
+</div>
+<p>a <a href="codecs/gsth265decoder.html#GstH265Dpb">GstCodecs.H265Dpb</a></p>
+
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="gst_h265_dpb_needs_bump">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_h265_dpb_needs_bump">
+	<i>gst_h265_dpb_needs_bump</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a>
+gst_h265_dpb_needs_bump (<a title="GstH265Dpb" href="codecs/gsth265decoder.html#GstH265Dpb">GstH265Dpb</a> * dpb,
+                         <a title="guint" href="https://docs.gtk.org/glib/types.html#guint">guint</a> max_num_reorder_pics,
+                         <a title="guint" href="https://docs.gtk.org/glib/types.html#guint">guint</a> max_latency_increase,
+                         <a title="guint" href="https://docs.gtk.org/glib/types.html#guint">guint</a> max_dec_pic_buffering)</pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>dpb</code></em></i>
+–
+</div>
+<p>a <a href="codecs/gsth265decoder.html#GstH265Dpb">GstH265Dpb</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>max_num_reorder_pics</code></em></i>
+–
+</div>
+<p>sps_max_num_reorder_pics[HighestTid]</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>max_latency_increase</code></em></i>
+–
+</div>
+<p>SpsMaxLatencyPictures[HighestTid]</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>max_dec_pic_buffering</code></em></i>
+–
+</div>
+<p>sps_max_dec_pic_buffering_minus1[HighestTid ] + 1
+or zero if this shouldn't be used for bumping decision</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p><a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#TRUE:CAPS">TRUE</a> if bumping is required</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_h265_dpb_needs_bump">
+	<i>GstCodecs.H265Dpb.prototype.needs_bump</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstCodecs.H265Dpb.prototype.needs_bump(max_num_reorder_pics: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>, max_latency_increase: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>, max_dec_pic_buffering: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>): {
+    // javascript wrapper for 'gst_h265_dpb_needs_bump'
+}</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>dpb</code></em></i>
+<span>(</span><a title="GstCodecs.H265Dpb" href="codecs/gsth265decoder.html#GstH265Dpb">GstCodecs.H265Dpb</a><span>)</span>
+–
+</div>
+<p>a <a href="codecs/gsth265decoder.html#GstH265Dpb">GstCodecs.H265Dpb</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>max_num_reorder_pics</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>sps_max_num_reorder_pics[HighestTid]</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>max_latency_increase</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>SpsMaxLatencyPictures[HighestTid]</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>max_dec_pic_buffering</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>sps_max_dec_pic_buffering_minus1[HighestTid ] + 1
+or zero if this shouldn't be used for bumping decision</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+			</div>
+							<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">true</a> if bumping is required</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_h265_dpb_needs_bump">
+	<i>GstCodecs.H265Dpb.needs_bump</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstCodecs.H265Dpb.needs_bump (self, max_num_reorder_pics, max_latency_increase, max_dec_pic_buffering):
+    #python wrapper for 'gst_h265_dpb_needs_bump'</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>dpb</code></em></i>
+<span>(</span><a title="GstCodecs.H265Dpb" href="codecs/gsth265decoder.html#GstH265Dpb">GstCodecs.H265Dpb</a><span>)</span>
+–
+</div>
+<p>a <a href="codecs/gsth265decoder.html#GstH265Dpb">GstCodecs.H265Dpb</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>max_num_reorder_pics</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<p>sps_max_num_reorder_pics[HighestTid]</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>max_latency_increase</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<p>SpsMaxLatencyPictures[HighestTid]</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>max_dec_pic_buffering</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<p>sps_max_dec_pic_buffering_minus1[HighestTid ] + 1
+or zero if this shouldn't be used for bumping decision</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a><span>)</span>
+–
+			</div>
+							<p><a href="https://docs.python.org/3/library/constants.html#True">True</a> if bumping is required</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_h265_dpb_num_ref_pictures">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_h265_dpb_num_ref_pictures">
+	<i>gst_h265_dpb_num_ref_pictures</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gint" href="https://docs.gtk.org/glib/types.html#gint">gint</a>
+gst_h265_dpb_num_ref_pictures (<a title="GstH265Dpb" href="codecs/gsth265decoder.html#GstH265Dpb">GstH265Dpb</a> * dpb)</pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>dpb</code></em></i>
+–
+</div>
+<p>a <a href="codecs/gsth265decoder.html#GstH265Dpb">GstH265Dpb</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p>The number of referenced pictures</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_h265_dpb_num_ref_pictures">
+	<i>GstCodecs.H265Dpb.prototype.num_ref_pictures</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstCodecs.H265Dpb.prototype.num_ref_pictures(): {
+    // javascript wrapper for 'gst_h265_dpb_num_ref_pictures'
+}</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>dpb</code></em></i>
+<span>(</span><a title="GstCodecs.H265Dpb" href="codecs/gsth265decoder.html#GstH265Dpb">GstCodecs.H265Dpb</a><span>)</span>
+–
+</div>
+<p>a <a href="codecs/gsth265decoder.html#GstH265Dpb">GstCodecs.H265Dpb</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+			</div>
+							<p>The number of referenced pictures</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_h265_dpb_num_ref_pictures">
+	<i>GstCodecs.H265Dpb.num_ref_pictures</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstCodecs.H265Dpb.num_ref_pictures (self):
+    #python wrapper for 'gst_h265_dpb_num_ref_pictures'</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>dpb</code></em></i>
+<span>(</span><a title="GstCodecs.H265Dpb" href="codecs/gsth265decoder.html#GstH265Dpb">GstCodecs.H265Dpb</a><span>)</span>
+–
+</div>
+<p>a <a href="codecs/gsth265decoder.html#GstH265Dpb">GstCodecs.H265Dpb</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+			</div>
+							<p>The number of referenced pictures</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_h265_dpb_set_max_num_pics">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_h265_dpb_set_max_num_pics">
+	<i>gst_h265_dpb_set_max_num_pics</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+gst_h265_dpb_set_max_num_pics (<a title="GstH265Dpb" href="codecs/gsth265decoder.html#GstH265Dpb">GstH265Dpb</a> * dpb,
+                               <a title="gint" href="https://docs.gtk.org/glib/types.html#gint">gint</a> max_num_pics)</pre>
+
+<p>Set the number of maximum allowed pictures to store</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>dpb</code></em></i>
+–
+</div>
+<p>a <a href="codecs/gsth265decoder.html#GstH265Dpb">GstH265Dpb</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>max_num_pics</code></em></i>
+–
+</div>
+<p>the maximum number of picture</p>
+
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_h265_dpb_set_max_num_pics">
+	<i>GstCodecs.H265Dpb.prototype.set_max_num_pics</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstCodecs.H265Dpb.prototype.set_max_num_pics(max_num_pics: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>): {
+    // javascript wrapper for 'gst_h265_dpb_set_max_num_pics'
+}</code></pre>
+
+<p>Set the number of maximum allowed pictures to store</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>dpb</code></em></i>
+<span>(</span><a title="GstCodecs.H265Dpb" href="codecs/gsth265decoder.html#GstH265Dpb">GstCodecs.H265Dpb</a><span>)</span>
+–
+</div>
+<p>a <a href="codecs/gsth265decoder.html#GstH265Dpb">GstCodecs.H265Dpb</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>max_num_pics</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>the maximum number of picture</p>
+
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_h265_dpb_set_max_num_pics">
+	<i>GstCodecs.H265Dpb.set_max_num_pics</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstCodecs.H265Dpb.set_max_num_pics (self, max_num_pics):
+    #python wrapper for 'gst_h265_dpb_set_max_num_pics'</code></pre>
+
+<p>Set the number of maximum allowed pictures to store</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>dpb</code></em></i>
+<span>(</span><a title="GstCodecs.H265Dpb" href="codecs/gsth265decoder.html#GstH265Dpb">GstCodecs.H265Dpb</a><span>)</span>
+–
+</div>
+<p>a <a href="codecs/gsth265decoder.html#GstH265Dpb">GstCodecs.H265Dpb</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>max_num_pics</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<p>the maximum number of picture</p>
+
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+
+            <h3 class="symbol_section">Functions</h3>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_h265_dpb_new">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_h265_dpb_new">
+	<i>gst_h265_dpb_new</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GstH265Dpb" href="codecs/gsth265decoder.html#GstH265Dpb">GstH265Dpb</a> *
+gst_h265_dpb_new ()</pre>
+
+<p>Create new <a href="codecs/gsth265decoder.html#GstH265Dpb">GstH265Dpb</a></p>
+
+
+
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p>a new <a href="codecs/gsth265decoder.html#GstH265Dpb">GstH265Dpb</a></p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+
+        
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstH265Picture">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h2 data-hotdoc-id="GstH265Picture">
+	<i>GstH265Picture</i>
+</h2>
+
+
+
+
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h2 data-hotdoc-id="GstH265Picture">
+	<i>GstCodecs.H265Picture</i>
+</h2>
+
+
+
+
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h2 data-hotdoc-id="GstH265Picture">
+	<i>GstCodecs.H265Picture</i>
+</h2>
+
+
+
+
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+
+            <h3 class="symbol_section">Constructors</h3>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_h265_picture_new">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_h265_picture_new">
+	<i>gst_h265_picture_new</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GstH265Picture" href="codecs/gsth265decoder.html#GstH265Picture">GstH265Picture</a> *
+gst_h265_picture_new ()</pre>
+
+<p>Create new <a href="codecs/gsth265decoder.html#GstH265Picture">GstH265Picture</a></p>
+
+
+
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p>a new <a href="codecs/gsth265decoder.html#GstH265Picture">GstH265Picture</a></p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_h265_picture_new">
+	<i>GstCodecs.H265Picture.prototype.new</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstCodecs.H265Picture.prototype.new(): {
+    // javascript wrapper for 'gst_h265_picture_new'
+}</code></pre>
+
+<p>Create new <a href="codecs/gsth265decoder.html#GstH265Picture">GstCodecs.H265Picture</a></p>
+
+
+
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GstCodecs.H265Picture" href="codecs/gsth265decoder.html#GstH265Picture">GstCodecs.H265Picture</a><span>)</span>
+–
+			</div>
+							<p>a new <a href="codecs/gsth265decoder.html#GstH265Picture">GstCodecs.H265Picture</a></p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_h265_picture_new">
+	<i>GstCodecs.H265Picture.new</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstCodecs.H265Picture.new ():
+    #python wrapper for 'gst_h265_picture_new'</code></pre>
+
+<p>Create new <a href="codecs/gsth265decoder.html#GstH265Picture">GstCodecs.H265Picture</a></p>
+
+
+
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GstCodecs.H265Picture" href="codecs/gsth265decoder.html#GstH265Picture">GstCodecs.H265Picture</a><span>)</span>
+–
+			</div>
+							<p>a new <a href="codecs/gsth265decoder.html#GstH265Picture">GstCodecs.H265Picture</a></p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+
+        
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstH265Slice">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h2 data-hotdoc-id="GstH265Slice">
+	<i>GstH265Slice</i>
+</h2>
+
+
+
+
+
+
+	<div class="members-container">
+		<h3>Members</h3>
+					
+<div class="symbol-detail" data-hotdoc-id="GstH265Slice.header">
+	<div>
+		<i><em><code>header</code></em></i>
+		(<a title="GstH265SliceHdr" href="codecparsers/gsth265parser.html#GstH265SliceHdr">GstH265SliceHdr</a>)
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstH265Slice.nalu">
+	<div>
+		<i><em><code>nalu</code></em></i>
+		(<a title="GstH265NalUnit" href="codecparsers/gsth265parser.html#GstH265NalUnit">GstH265NalUnit</a>)
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+			</div>
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h2 data-hotdoc-id="GstH265Slice">
+	<i>GstCodecs.H265Slice</i>
+</h2>
+
+
+
+
+
+
+	<div class="members-container">
+		<h3>Members</h3>
+					
+<div class="symbol-detail" data-hotdoc-id="GstH265Slice.header">
+	<div>
+		<i><em><code>header</code></em></i>
+		(<a title="GstCodecParsers.H265SliceHdr" href="codecparsers/gsth265parser.html#GstH265SliceHdr">GstCodecParsers.H265SliceHdr</a>)
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstH265Slice.nalu">
+	<div>
+		<i><em><code>nalu</code></em></i>
+		(<a title="GstCodecParsers.H265NalUnit" href="codecparsers/gsth265parser.html#GstH265NalUnit">GstCodecParsers.H265NalUnit</a>)
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+			</div>
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h2 data-hotdoc-id="GstH265Slice">
+	<i>GstCodecs.H265Slice</i>
+</h2>
+
+
+
+
+
+
+	<div class="members-container">
+		<h3>Members</h3>
+					
+<div class="symbol-detail" data-hotdoc-id="GstH265Slice.header">
+	<div>
+		<i><em><code>header</code></em></i>
+		(<a title="GstCodecParsers.H265SliceHdr" href="codecparsers/gsth265parser.html#GstH265SliceHdr">GstCodecParsers.H265SliceHdr</a>)
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstH265Slice.nalu">
+	<div>
+		<i><em><code>nalu</code></em></i>
+		(<a title="GstCodecParsers.H265NalUnit" href="codecparsers/gsth265parser.html#GstH265NalUnit">GstCodecParsers.H265NalUnit</a>)
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+			</div>
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+
+        
+
+            <h2 class="symbol_section">Function Macros</h2>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GST_H265_DECODER_CAST">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_H265_DECODER_CAST">
+	<i>GST_H265_DECODER_CAST</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_H265_DECODER_CAST(obj)       ((GstH265Decoder*)obj)
+</pre>
+
+
+
+
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GST_H265_PICTURE_CAST">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_H265_PICTURE_CAST">
+	<i>GST_H265_PICTURE_CAST</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_H265_PICTURE_CAST(obj) (GST_H265_PICTURE(obj))
+</pre>
+
+
+
+
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+
+            <h2 class="symbol_section">Constants</h2>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GST_H265_DPB_MAX_SIZE">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_H265_DPB_MAX_SIZE">
+	<i>GST_H265_DPB_MAX_SIZE</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_H265_DPB_MAX_SIZE 16
+</pre>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3 data-hotdoc-id="GST_H265_DPB_MAX_SIZE">
+	<i>GstCodecs.H265_DPB_MAX_SIZE</i>
+</h3>
+
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3 data-hotdoc-id="GST_H265_DPB_MAX_SIZE">
+	<i>GstCodecs.H265_DPB_MAX_SIZE</i>
+</h3>
+
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+
+
+
+
+
+		
+	</div>
+	<div id="search_results">
+		<p>The results of the search are</p>
+	</div>
+	<div id="footer">
+		    
+
+	</div>
+</div>
+
+<div id="toc-column">
+	
+		<div class="edit-button">
+		
+
+	</div>
+		<div id="toc-wrapper">
+		<nav id="toc"></nav>
+	</div>
+</div>
+</div>
+</main>
+
+
+<script src="assets/js/navbar_offset_scroller.js"></script>
+</body>
+</html>

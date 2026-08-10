@@ -1,0 +1,5681 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<base href="..">
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<title>GstVulkanInstance</title>
+
+<link rel="stylesheet" href="assets/css/dark-frontend.css" type="text/css" title="dark">
+<link rel="alternate stylesheet" href="assets/css/light-frontend.css" type="text/css" title="light">
+<link rel="stylesheet" href="assets/css/bootstrap-toc.min.css" type="text/css">
+<link rel="stylesheet" href="assets/css/jquery.mCustomScrollbar.min.css">
+<link rel="stylesheet" href="assets/js/search/enable_search.css" type="text/css">
+
+<link rel="stylesheet" href="assets/css/extra_frontend.css" type="text/css">
+<link rel="stylesheet" href="assets/css/devhelp.css" type="text/css">
+
+<link rel="stylesheet" href="assets/css/prism-tomorrow.css" type="text/css" title="dark">
+
+<link rel="alternate stylesheet" href="assets/css/prism.css" type="text/css" title="light">
+
+<script src="assets/js/mustache.min.js"></script>
+<script src="assets/js/jquery.js"></script>
+<script src="assets/js/bootstrap.js"></script>
+<script src="assets/js/scrollspy.js"></script>
+<script src="assets/js/typeahead.jquery.min.js"></script>
+<script src="assets/js/search.js"></script>
+<script src="assets/js/compare-versions.js"></script>
+<script src="assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="assets/js/bootstrap-toc.min.js"></script>
+<script src="assets/js/jquery.touchSwipe.min.js"></script>
+<script src="assets/js/anchor.min.js"></script>
+<script src="assets/js/tag_filtering.js"></script>
+<script src="assets/js/language_switching.js"></script>
+<script src="assets/js/styleswitcher.js"></script>
+
+<script src="assets/js/lines_around_headings.js"></script>
+
+<script src="assets/js/prism-core.js"></script>
+<script src="assets/js/prism-autoloader.js"></script>
+<script src="assets/js/prism_autoloader_path_override.js"></script>
+<script src="assets/js/trie.js"></script>
+
+<!-- generic -->
+<link rel="icon" type="image/png" href="assets/images/favicon-16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="assets/images/favicon-32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="assets/images/favicon-57.png" sizes="57x57">
+<link rel="icon" type="image/png" href="assets/images/favicon-64.png" sizes="64x64">
+<link rel="icon" type="image/png" href="assets/images/favicon-76.png" sizes="76x76">
+<link rel="icon" type="image/png" href="assets/images/favicon-96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="assets/images/favicon-128.png" sizes="128x128">
+<link rel="icon" type="image/png" href="assets/images/favicon-192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="assets/images/favicon-228.png" sizes="228x228">
+
+<!-- Android -->
+<link rel="shortcut icon" sizes="196x196" href="assets/images/favicon-196.png">
+
+<!-- iOS -->
+<link rel="apple-touch-icon" href="assets/images/favicon-120.png" sizes="120x120">
+<link rel="apple-touch-icon" href="assets/images/favicon-152.png" sizes="152x152">
+<link rel="apple-touch-icon" href="assets/images/favicon-180.png" sizes="180x180">
+
+</head>
+
+<body class="no-script
+">
+
+<script>
+$('body').removeClass('no-script');
+</script>
+
+<nav class="navbar navbar-fixed-top navbar-default" id="topnav">
+	<div class="container-fluid">
+		<div class="navbar-right">
+			<a id="toc-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-wrapper" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<span title="light mode switch" class="glyphicon glyphicon-sunglasses pull-right" id="lightmode-icon"></span>
+			<form class="navbar-form pull-right" id="navbar-search-form">
+                               <div class="form-group has-feedback">
+                                       <input type="text" class="form-control input-sm" name="search" id="sidenav-lookup-field" placeholder="search" disabled>
+				       <span class="glyphicon glyphicon-search form-control-feedback" id="search-mgn-glass"></span>
+                               </div>
+                        </form>
+		</div>
+		<div class="navbar-header">
+			<a id="sidenav-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<a id="home-link" href="index.html" class="hotdoc-navbar-brand">
+				<img src="assets/images/gstreamer-logo.svg" alt="Home">
+			</a>
+		</div>
+		<div class="navbar-collapse collapse" id="navbar-wrapper">
+			<ul class="nav navbar-nav" id="menu">
+				
+<li class="dropdown">
+    <a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        API References<span class="caret"></span>
+    </a>
+	<ul class="dropdown-menu" id="modules-menu">
+					<li>
+				<a href="gstreamer/gi-index.html">GStreamer core</a>
+			</li>
+					<li>
+				<a href="libs.html">GStreamer Libraries</a>
+			</li>
+					<li>
+				<a href="plugins_doc.html">GStreamer Plugins</a>
+			</li>
+		</ul>
+</li>
+
+<li>
+    <a href="application-development/index.html">Application manual</a>
+</li>
+
+
+<li>
+    <a href="tutorials/index.html">Tutorials</a>
+</li>
+
+			</ul>
+			<div class="hidden-xs hidden-sm navbar-text navbar-center">
+							</div>
+		</div>
+	</div>
+</nav>
+
+<main>
+<div data-extension="gi-extension" data-hotdoc-in-toplevel="False" data-hotdoc-project="vulkanlib" data-hotdoc-ref="vkinstance.html" class="page_container" id="page-wrapper" data-hotdoc-meta-gi-languages="['c', 'javascript', 'python']" data-hotdoc-meta-gi-language="c">
+<script src="assets/js/utils.js"></script>
+
+<div class="panel panel-collapse oc-collapsed" id="sidenav" data-hotdoc-role="navigation">
+	<script src="assets/js/full-width.js"></script>
+  <div id="sitenav-wrapper">
+    <iframe src="hotdoc-sitemap.html" id="sitenav-frame"></iframe>
+  </div>
+</div>
+
+<div id="body">
+	<div id="main">
+				    <div id="page-description" data-hotdoc-role="main">
+        <h1 id="gstvulkaninstance-page">GstVulkanInstance</h1>
+<p><a href="vulkanlib/vkinstance.html#GstVulkanInstance" data-gi-href-javascript="vulkanlib/vkinstance.html#GstVulkanInstance" data-gi-title-javascript="GstVulkan.VulkanInstance" data-gi-href-python="vulkanlib/vkinstance.html#GstVulkanInstance" data-gi-title-python="GstVulkan.VulkanInstance">GstVulkanInstance</a> encapsulates the necessary information for the toplevel
+Vulkan instance object.</p>
+<p>If GStreamer is built with debugging support, the default Vulkan API chosen
+can be selected with the environment variable
+<code>GST_VULKAN_INSTANCE_API_VERSION=1.0</code>.  Any subsequent setting of the
+requested Vulkan API version through the available properties will override
+the environment variable.</p>
+
+    </div>
+        
+        
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.18;" id="GstVulkanInstance">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h2 data-hotdoc-id="GstVulkanInstance">
+	<i>GstVulkanInstance</i>
+</h2>
+
+
+<div class="hierarchy_container">
+	<div class="hierarchy_details">
+<pre>
+<a title="GObject" href="https://docs.gtk.org/gobject/class.Object.html">GObject</a>
+    <span class="lineart">╰──</span><a title="GInitiallyUnowned" href="https://docs.gtk.org/gobject/class.InitiallyUnowned.html">GInitiallyUnowned</a>
+        <span class="lineart">╰──</span><a title="GstObject" href="gstreamer/gstobject.html#GstObject">GstObject</a>
+            <span class="lineart">╰──</span>GstVulkanInstance
+</pre>
+
+</div>
+
+</div>
+
+
+
+
+	<div class="members-container">
+		<h3>Members</h3>
+					
+<div class="symbol-detail" data-hotdoc-id="GstVulkanInstance.parent">
+	<div>
+		<i><em><code>parent</code></em></i>
+		(<a title="GstObject" href="gstreamer/gstobject.html#GstObject">GstObject</a>)
+		–
+	</div>
+			<p>parent <a href="gstreamer/gstobject.html#GstObject">GstObject</a></p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVulkanInstance.instance">
+	<div>
+		<i><em><code>instance</code></em></i>
+		(VkInstance)
+		–
+	</div>
+			<p>the Vulkan instance handle</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVulkanInstance.physical_devices">
+	<div>
+		<i><em><code>physical_devices</code></em></i>
+		(VkPhysicalDevice*)
+		–
+	</div>
+			<p>list of vulkan physical device handles</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVulkanInstance.n_physical_devices">
+	<div>
+		<i><em><code>n_physical_devices</code></em></i>
+		(<a title="guint32" href="https://docs.gtk.org/glib/types.html#guint32">guint32</a>)
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+<h3>Class structure</h3>
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstVulkanInstanceClass">
+	<i>GstVulkanInstanceClass</i>
+</h4>
+
+
+
+
+
+	<div class="members-container">
+		<h5>Fields</h5>
+					
+<div class="symbol-detail" data-hotdoc-id="GstVulkanInstanceClass.parent_class">
+	<div>
+		<i><em><code>parent_class</code></em></i>
+		(<a title="GstObjectClass" href="GstObjectClass">GstObjectClass</a>)
+		–
+	</div>
+			<p>parent <a href="GstObjectClass">GstObjectClass</a></p>
+
+	</div>
+
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3>
+	GstVulkan.VulkanInstanceClass
+</h3>
+
+
+
+
+
+	<div class="members-container">
+		<h5>Attributes</h5>
+					
+<div class="symbol-detail" data-hotdoc-id="GstVulkanInstanceClass.parent_class">
+	<div>
+		<i><em><code>parent_class</code></em></i>
+		(<a title="Gst.ObjectClass" href="GstObjectClass">Gst.ObjectClass</a>)
+		–
+	</div>
+			<p>parent <a href="GstObjectClass">Gst.ObjectClass</a></p>
+
+	</div>
+
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3>
+	GstVulkan.VulkanInstanceClass
+</h3>
+
+
+
+
+
+	<div class="members-container">
+		<h5>Attributes</h5>
+					
+<div class="symbol-detail" data-hotdoc-id="GstVulkanInstanceClass.parent_class">
+	<div>
+		<i><em><code>parent_class</code></em></i>
+		(<a title="Gst.ObjectClass" href="GstObjectClass">Gst.ObjectClass</a>)
+		–
+	</div>
+			<p>parent <a href="GstObjectClass">Gst.ObjectClass</a></p>
+
+	</div>
+
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h2 data-hotdoc-id="GstVulkanInstance">
+	<i>GstVulkan.VulkanInstance</i>
+</h2>
+
+
+<div class="hierarchy_container">
+	<div class="hierarchy_details">
+<pre>
+<a title="GObject.Object" href="https://docs.gtk.org/gobject/class.Object.html">GObject.Object</a>
+    <span class="lineart">╰──</span><a title="GObject.InitiallyUnowned" href="https://docs.gtk.org/gobject/class.InitiallyUnowned.html">GObject.InitiallyUnowned</a>
+        <span class="lineart">╰──</span><a title="Gst.Object" href="gstreamer/gstobject.html#GstObject">Gst.Object</a>
+            <span class="lineart">╰──</span>GstVulkan.VulkanInstance
+</pre>
+
+</div>
+
+</div>
+
+
+
+
+	<div class="members-container">
+		<h3>Members</h3>
+					
+<div class="symbol-detail" data-hotdoc-id="GstVulkanInstance.parent">
+	<div>
+		<i><em><code>parent</code></em></i>
+		(<a title="Gst.Object" href="gstreamer/gstobject.html#GstObject">Gst.Object</a>)
+		–
+	</div>
+			<p>parent <a href="gstreamer/gstobject.html#GstObject">Gst.Object</a></p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVulkanInstance.instance">
+	<div>
+		<i><em><code>instance</code></em></i>
+		(Vulkan.Instance)
+		–
+	</div>
+			<p>the Vulkan instance handle</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVulkanInstance.physical_devices">
+	<div>
+		<i><em><code>physical_devices</code></em></i>
+		(Vulkan.PhysicalDevice)
+		–
+	</div>
+			<p>list of vulkan physical device handles</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVulkanInstance.n_physical_devices">
+	<div>
+		<i><em><code>n_physical_devices</code></em></i>
+		(<a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>)
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h2 data-hotdoc-id="GstVulkanInstance">
+	<i>GstVulkan.VulkanInstance</i>
+</h2>
+
+
+<div class="hierarchy_container">
+	<div class="hierarchy_details">
+<pre>
+<a title="GObject.Object" href="https://docs.gtk.org/gobject/class.Object.html">GObject.Object</a>
+    <span class="lineart">╰──</span><a title="GObject.InitiallyUnowned" href="https://docs.gtk.org/gobject/class.InitiallyUnowned.html">GObject.InitiallyUnowned</a>
+        <span class="lineart">╰──</span><a title="Gst.Object" href="gstreamer/gstobject.html#GstObject">Gst.Object</a>
+            <span class="lineart">╰──</span>GstVulkan.VulkanInstance
+</pre>
+
+</div>
+
+</div>
+
+
+
+
+	<div class="members-container">
+		<h3>Members</h3>
+					
+<div class="symbol-detail" data-hotdoc-id="GstVulkanInstance.parent">
+	<div>
+		<i><em><code>parent</code></em></i>
+		(<a title="Gst.Object" href="gstreamer/gstobject.html#GstObject">Gst.Object</a>)
+		–
+	</div>
+			<p>parent <a href="gstreamer/gstobject.html#GstObject">Gst.Object</a></p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVulkanInstance.instance">
+	<div>
+		<i><em><code>instance</code></em></i>
+		(Vulkan.Instance)
+		–
+	</div>
+			<p>the Vulkan instance handle</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVulkanInstance.physical_devices">
+	<div>
+		<i><em><code>physical_devices</code></em></i>
+		(Vulkan.PhysicalDevice)
+		–
+	</div>
+			<p>list of vulkan physical device handles</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVulkanInstance.n_physical_devices">
+	<div>
+		<i><em><code>n_physical_devices</code></em></i>
+		(<a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a>)
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+
+            <h3 class="symbol_section">Constructors</h3>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.18;" id="gst_vulkan_instance_new">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_vulkan_instance_new">
+	<i>gst_vulkan_instance_new</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GstVulkanInstance" href="vulkanlib/vkinstance.html#GstVulkanInstance">GstVulkanInstance</a> *
+gst_vulkan_instance_new ()</pre>
+
+
+
+
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span>
+<span class="annotation">[<abbr title="Free data after the code is done"><span class="acronym">transfer: full</span></abbr>]</span><span>)</span>
+–
+			</div>
+							<p>a new uninitialized <a href="vulkanlib/vkinstance.html#GstVulkanInstance">GstVulkanInstance</a></p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_vulkan_instance_new">
+	<i>GstVulkan.VulkanInstance.prototype.new</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstVulkan.VulkanInstance.prototype.new(): {
+    // javascript wrapper for 'gst_vulkan_instance_new'
+}</code></pre>
+
+
+
+
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GstVulkan.VulkanInstance" href="vulkanlib/vkinstance.html#GstVulkanInstance">GstVulkan.VulkanInstance</a><span>)</span>
+–
+			</div>
+							<p>a new uninitialized <a href="vulkanlib/vkinstance.html#GstVulkanInstance">GstVulkan.VulkanInstance</a></p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_vulkan_instance_new">
+	<i>GstVulkan.VulkanInstance.new</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstVulkan.VulkanInstance.new ():
+    #python wrapper for 'gst_vulkan_instance_new'</code></pre>
+
+
+
+
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GstVulkan.VulkanInstance" href="vulkanlib/vkinstance.html#GstVulkanInstance">GstVulkan.VulkanInstance</a><span>)</span>
+–
+			</div>
+							<p>a new uninitialized <a href="vulkanlib/vkinstance.html#GstVulkanInstance">GstVulkan.VulkanInstance</a></p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+
+            <h3 class="symbol_section">Methods</h3>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.26;" id="gst_vulkan_instance_check_api_version">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_vulkan_instance_check_api_version">
+	<i>gst_vulkan_instance_check_api_version</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a>
+gst_vulkan_instance_check_api_version (<a title="GstVulkanInstance" href="vulkanlib/vkinstance.html#GstVulkanInstance">GstVulkanInstance</a> * instance,
+                                       <a title="guint" href="https://docs.gtk.org/glib/types.html#guint">guint</a> major,
+                                       <a title="guint" href="https://docs.gtk.org/glib/types.html#guint">guint</a> minor,
+                                       <a title="guint" href="https://docs.gtk.org/glib/types.html#guint">guint</a> patch)</pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>instance</code></em></i>
+–
+</div>
+<p>a <a href="vulkanlib/vkinstance.html#GstVulkanInstance">GstVulkanInstance</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>major</code></em></i>
+–
+</div>
+<p>the API major version to check</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>minor</code></em></i>
+–
+</div>
+<p>the API minor version to check</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>patch</code></em></i>
+–
+</div>
+<p>the API patch version to check</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p>whether the <a href="vulkanlib/vkinstance.html#GstVulkanInstance">GstVulkanInstance</a> supports the version specified
+by <em>major</em>, <em>minor</em> and <em>patch</em>.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.26
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_vulkan_instance_check_api_version">
+	<i>GstVulkan.VulkanInstance.prototype.check_api_version</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstVulkan.VulkanInstance.prototype.check_api_version(major: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>, minor: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>, patch: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>): {
+    // javascript wrapper for 'gst_vulkan_instance_check_api_version'
+}</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>instance</code></em></i>
+<span>(</span><a title="GstVulkan.VulkanInstance" href="vulkanlib/vkinstance.html#GstVulkanInstance">GstVulkan.VulkanInstance</a><span>)</span>
+–
+</div>
+<p>a <a href="vulkanlib/vkinstance.html#GstVulkanInstance">GstVulkan.VulkanInstance</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>major</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>the API major version to check</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>minor</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>the API minor version to check</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>patch</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>the API patch version to check</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+			</div>
+							<p>whether the <a href="vulkanlib/vkinstance.html#GstVulkanInstance">GstVulkan.VulkanInstance</a> supports the version specified
+by <em>major</em>, <em>minor</em> and <em>patch</em>.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.26
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_vulkan_instance_check_api_version">
+	<i>GstVulkan.VulkanInstance.check_api_version</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstVulkan.VulkanInstance.check_api_version (self, major, minor, patch):
+    #python wrapper for 'gst_vulkan_instance_check_api_version'</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>instance</code></em></i>
+<span>(</span><a title="GstVulkan.VulkanInstance" href="vulkanlib/vkinstance.html#GstVulkanInstance">GstVulkan.VulkanInstance</a><span>)</span>
+–
+</div>
+<p>a <a href="vulkanlib/vkinstance.html#GstVulkanInstance">GstVulkan.VulkanInstance</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>major</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<p>the API major version to check</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>minor</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<p>the API minor version to check</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>patch</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<p>the API patch version to check</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a><span>)</span>
+–
+			</div>
+							<p>whether the <a href="vulkanlib/vkinstance.html#GstVulkanInstance">GstVulkan.VulkanInstance</a> supports the version specified
+by <em>major</em>, <em>minor</em> and <em>patch</em>.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.26
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.18;" id="gst_vulkan_instance_check_version">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_vulkan_instance_check_version">
+	<i>gst_vulkan_instance_check_version</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a>
+gst_vulkan_instance_check_version (<a title="GstVulkanInstance" href="vulkanlib/vkinstance.html#GstVulkanInstance">GstVulkanInstance</a> * instance,
+                                   <a title="guint" href="https://docs.gtk.org/glib/types.html#guint">guint</a> major,
+                                   <a title="guint" href="https://docs.gtk.org/glib/types.html#guint">guint</a> minor,
+                                   <a title="guint" href="https://docs.gtk.org/glib/types.html#guint">guint</a> patch)</pre>
+
+<p>Check if the configured vulkan instance supports the specified version.
+Will not work prior to opening the instance with <a href="vulkanlib/vkinstance.html#gst_vulkan_instance_open">gst_vulkan_instance_open</a>.
+If a specific version is requested, the <em>patch</em> level is ignored.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>instance</code></em></i>
+–
+</div>
+<p>a <a href="vulkanlib/vkinstance.html#GstVulkanInstance">GstVulkanInstance</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>major</code></em></i>
+–
+</div>
+<p>major version</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>minor</code></em></i>
+–
+</div>
+<p>minor version</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>patch</code></em></i>
+–
+</div>
+<p>patch version</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p>whether <em>instance</em> is at least the requested version.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_vulkan_instance_check_version">
+	<i>GstVulkan.VulkanInstance.prototype.check_version</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstVulkan.VulkanInstance.prototype.check_version(major: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>, minor: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>, patch: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>): {
+    // javascript wrapper for 'gst_vulkan_instance_check_version'
+}</code></pre>
+
+<p>Check if the configured vulkan instance supports the specified version.
+Will not work prior to opening the instance with <a href="vulkanlib/vkinstance.html#gst_vulkan_instance_open">GstVulkan.VulkanInstance.prototype.open</a>.
+If a specific version is requested, the <em>patch</em> level is ignored.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>instance</code></em></i>
+<span>(</span><a title="GstVulkan.VulkanInstance" href="vulkanlib/vkinstance.html#GstVulkanInstance">GstVulkan.VulkanInstance</a><span>)</span>
+–
+</div>
+<p>a <a href="vulkanlib/vkinstance.html#GstVulkanInstance">GstVulkan.VulkanInstance</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>major</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>major version</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>minor</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>minor version</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>patch</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>patch version</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+			</div>
+							<p>whether <em>instance</em> is at least the requested version.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_vulkan_instance_check_version">
+	<i>GstVulkan.VulkanInstance.check_version</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstVulkan.VulkanInstance.check_version (self, major, minor, patch):
+    #python wrapper for 'gst_vulkan_instance_check_version'</code></pre>
+
+<p>Check if the configured vulkan instance supports the specified version.
+Will not work prior to opening the instance with <a href="vulkanlib/vkinstance.html#gst_vulkan_instance_open">GstVulkan.VulkanInstance.open</a>.
+If a specific version is requested, the <em>patch</em> level is ignored.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>instance</code></em></i>
+<span>(</span><a title="GstVulkan.VulkanInstance" href="vulkanlib/vkinstance.html#GstVulkanInstance">GstVulkan.VulkanInstance</a><span>)</span>
+–
+</div>
+<p>a <a href="vulkanlib/vkinstance.html#GstVulkanInstance">GstVulkan.VulkanInstance</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>major</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<p>major version</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>minor</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<p>minor version</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>patch</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<p>patch version</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a><span>)</span>
+–
+			</div>
+							<p>whether <em>instance</em> is at least the requested version.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.18;" id="gst_vulkan_instance_create_device">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_vulkan_instance_create_device">
+	<i>gst_vulkan_instance_create_device</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GstVulkanDevice" href="vulkanlib/vkdevice.html#GstVulkanDevice">GstVulkanDevice</a> *
+gst_vulkan_instance_create_device (<a title="GstVulkanInstance" href="vulkanlib/vkinstance.html#GstVulkanInstance">GstVulkanInstance</a> * instance,
+                                   <a title="GError" href="https://docs.gtk.org/glib/struct.Error.html">GError</a> ** error)</pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>instance</code></em></i>
+–
+</div>
+<p>a <a href="vulkanlib/vkinstance.html#GstVulkanInstance">GstVulkanInstance</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>error</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="Parameter for returning results"><span class="acronym">out</span></abbr>]</span><span class="annotation">[<abbr title="NULL may be passed instead of a pointer to a location"><span class="acronym">optional</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>a <a href="https://docs.gtk.org/glib/struct.Error.html">GError</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span>
+<span class="annotation">[<abbr title="Free data after the code is done"><span class="acronym">transfer: full</span></abbr>]</span><span>)</span>
+–
+			</div>
+							<p>a new <a href="vulkanlib/vkdevice.html#GstVulkanDevice">GstVulkanDevice</a></p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_vulkan_instance_create_device">
+	<i>GstVulkan.VulkanInstance.prototype.create_device</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstVulkan.VulkanInstance.prototype.create_device(): {
+    // javascript wrapper for 'gst_vulkan_instance_create_device'
+}</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>instance</code></em></i>
+<span>(</span><a title="GstVulkan.VulkanInstance" href="vulkanlib/vkinstance.html#GstVulkanInstance">GstVulkan.VulkanInstance</a><span>)</span>
+–
+</div>
+<p>a <a href="vulkanlib/vkinstance.html#GstVulkanInstance">GstVulkan.VulkanInstance</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GstVulkan.VulkanDevice" href="vulkanlib/vkdevice.html#GstVulkanDevice">GstVulkan.VulkanDevice</a><span>)</span>
+–
+			</div>
+							<p>a new <a href="vulkanlib/vkdevice.html#GstVulkanDevice">GstVulkan.VulkanDevice</a></p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_vulkan_instance_create_device">
+	<i>GstVulkan.VulkanInstance.create_device</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>@raises(<a href="https://developer.gnome.org/glib/stable/glib-Error-Reporting.html">GLib.GError</a>)
+def GstVulkan.VulkanInstance.create_device (self):
+    #python wrapper for 'gst_vulkan_instance_create_device'</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>instance</code></em></i>
+<span>(</span><a title="GstVulkan.VulkanInstance" href="vulkanlib/vkinstance.html#GstVulkanInstance">GstVulkan.VulkanInstance</a><span>)</span>
+–
+</div>
+<p>a <a href="vulkanlib/vkinstance.html#GstVulkanInstance">GstVulkan.VulkanInstance</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GstVulkan.VulkanDevice" href="vulkanlib/vkdevice.html#GstVulkanDevice">GstVulkan.VulkanDevice</a><span>)</span>
+–
+			</div>
+							<p>a new <a href="vulkanlib/vkdevice.html#GstVulkanDevice">GstVulkan.VulkanDevice</a></p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.26;" id="gst_vulkan_instance_create_device_with_index">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_vulkan_instance_create_device_with_index">
+	<i>gst_vulkan_instance_create_device_with_index</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GstVulkanDevice" href="vulkanlib/vkdevice.html#GstVulkanDevice">GstVulkanDevice</a> *
+gst_vulkan_instance_create_device_with_index (<a title="GstVulkanInstance" href="vulkanlib/vkinstance.html#GstVulkanInstance">GstVulkanInstance</a> * instance,
+                                              <a title="guint" href="https://docs.gtk.org/glib/types.html#guint">guint</a> device_index,
+                                              <a title="GError" href="https://docs.gtk.org/glib/struct.Error.html">GError</a> ** error)</pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>instance</code></em></i>
+–
+</div>
+<p>a <a href="vulkanlib/vkinstance.html#GstVulkanInstance">GstVulkanInstance</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>device_index</code></em></i>
+–
+</div>
+<p>the device index to create the new <a href="vulkanlib/vkdevice.html#GstVulkanDevice">GstVulkanDevice</a> from</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>error</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="Parameter for returning results"><span class="acronym">out</span></abbr>]</span><span class="annotation">[<abbr title="NULL may be passed instead of a pointer to a location"><span class="acronym">optional</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>a <a href="https://docs.gtk.org/glib/struct.Error.html">GError</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span>
+<span class="annotation">[<abbr title="Free data after the code is done"><span class="acronym">transfer: full</span></abbr>]</span><span>)</span>
+–
+			</div>
+							<p>a new <a href="vulkanlib/vkdevice.html#GstVulkanDevice">GstVulkanDevice</a></p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.26
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_vulkan_instance_create_device_with_index">
+	<i>GstVulkan.VulkanInstance.prototype.create_device_with_index</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstVulkan.VulkanInstance.prototype.create_device_with_index(device_index: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>): {
+    // javascript wrapper for 'gst_vulkan_instance_create_device_with_index'
+}</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>instance</code></em></i>
+<span>(</span><a title="GstVulkan.VulkanInstance" href="vulkanlib/vkinstance.html#GstVulkanInstance">GstVulkan.VulkanInstance</a><span>)</span>
+–
+</div>
+<p>a <a href="vulkanlib/vkinstance.html#GstVulkanInstance">GstVulkan.VulkanInstance</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>device_index</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>the device index to create the new <a href="vulkanlib/vkdevice.html#GstVulkanDevice">GstVulkan.VulkanDevice</a> from</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GstVulkan.VulkanDevice" href="vulkanlib/vkdevice.html#GstVulkanDevice">GstVulkan.VulkanDevice</a><span>)</span>
+–
+			</div>
+							<p>a new <a href="vulkanlib/vkdevice.html#GstVulkanDevice">GstVulkan.VulkanDevice</a></p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.26
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_vulkan_instance_create_device_with_index">
+	<i>GstVulkan.VulkanInstance.create_device_with_index</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>@raises(<a href="https://developer.gnome.org/glib/stable/glib-Error-Reporting.html">GLib.GError</a>)
+def GstVulkan.VulkanInstance.create_device_with_index (self, device_index):
+    #python wrapper for 'gst_vulkan_instance_create_device_with_index'</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>instance</code></em></i>
+<span>(</span><a title="GstVulkan.VulkanInstance" href="vulkanlib/vkinstance.html#GstVulkanInstance">GstVulkan.VulkanInstance</a><span>)</span>
+–
+</div>
+<p>a <a href="vulkanlib/vkinstance.html#GstVulkanInstance">GstVulkan.VulkanInstance</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>device_index</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<p>the device index to create the new <a href="vulkanlib/vkdevice.html#GstVulkanDevice">GstVulkan.VulkanDevice</a> from</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GstVulkan.VulkanDevice" href="vulkanlib/vkdevice.html#GstVulkanDevice">GstVulkan.VulkanDevice</a><span>)</span>
+–
+			</div>
+							<p>a new <a href="vulkanlib/vkdevice.html#GstVulkanDevice">GstVulkan.VulkanDevice</a></p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.26
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.18;" id="gst_vulkan_instance_disable_extension">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_vulkan_instance_disable_extension">
+	<i>gst_vulkan_instance_disable_extension</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a>
+gst_vulkan_instance_disable_extension (<a title="GstVulkanInstance" href="vulkanlib/vkinstance.html#GstVulkanInstance">GstVulkanInstance</a> * instance,
+                                       const <a title="gchar" href="https://docs.gtk.org/glib/types.html#gchar">gchar</a> * name)</pre>
+
+<p>Disable an Vulkan extension by <em>name</em>.  Disabling an extension will only have
+an effect before the call to <a href="vulkanlib/vkinstance.html#gst_vulkan_instance_open">gst_vulkan_instance_open</a>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>instance</code></em></i>
+–
+</div>
+<p>a <a href="vulkanlib/vkinstance.html#GstVulkanInstance">GstVulkanInstance</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>name</code></em></i>
+–
+</div>
+<p>extension name to enable</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p>whether the Vulkan extension could be disabled.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_vulkan_instance_disable_extension">
+	<i>GstVulkan.VulkanInstance.prototype.disable_extension</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstVulkan.VulkanInstance.prototype.disable_extension(name: <a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>): {
+    // javascript wrapper for 'gst_vulkan_instance_disable_extension'
+}</code></pre>
+
+<p>Disable an Vulkan extension by <em>name</em>.  Disabling an extension will only have
+an effect before the call to <a href="vulkanlib/vkinstance.html#gst_vulkan_instance_open">GstVulkan.VulkanInstance.prototype.open</a>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>instance</code></em></i>
+<span>(</span><a title="GstVulkan.VulkanInstance" href="vulkanlib/vkinstance.html#GstVulkanInstance">GstVulkan.VulkanInstance</a><span>)</span>
+–
+</div>
+<p>a <a href="vulkanlib/vkinstance.html#GstVulkanInstance">GstVulkan.VulkanInstance</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>name</code></em></i>
+<span>(</span><a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a><span>)</span>
+–
+</div>
+<p>extension name to enable</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+			</div>
+							<p>whether the Vulkan extension could be disabled.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_vulkan_instance_disable_extension">
+	<i>GstVulkan.VulkanInstance.disable_extension</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstVulkan.VulkanInstance.disable_extension (self, name):
+    #python wrapper for 'gst_vulkan_instance_disable_extension'</code></pre>
+
+<p>Disable an Vulkan extension by <em>name</em>.  Disabling an extension will only have
+an effect before the call to <a href="vulkanlib/vkinstance.html#gst_vulkan_instance_open">GstVulkan.VulkanInstance.open</a>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>instance</code></em></i>
+<span>(</span><a title="GstVulkan.VulkanInstance" href="vulkanlib/vkinstance.html#GstVulkanInstance">GstVulkan.VulkanInstance</a><span>)</span>
+–
+</div>
+<p>a <a href="vulkanlib/vkinstance.html#GstVulkanInstance">GstVulkan.VulkanInstance</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>name</code></em></i>
+<span>(</span><a title="str" href="https://docs.python.org/3/library/functions.html#func-str">str</a><span>)</span>
+–
+</div>
+<p>extension name to enable</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a><span>)</span>
+–
+			</div>
+							<p>whether the Vulkan extension could be disabled.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.18;" id="gst_vulkan_instance_enable_extension">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_vulkan_instance_enable_extension">
+	<i>gst_vulkan_instance_enable_extension</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a>
+gst_vulkan_instance_enable_extension (<a title="GstVulkanInstance" href="vulkanlib/vkinstance.html#GstVulkanInstance">GstVulkanInstance</a> * instance,
+                                      const <a title="gchar" href="https://docs.gtk.org/glib/types.html#gchar">gchar</a> * name)</pre>
+
+<p>Enable an Vulkan extension by <em>name</em>.  Extensions cannot be enabled until
+<a href="vulkanlib/vkinstance.html#gst_vulkan_instance_fill_info">gst_vulkan_instance_fill_info</a> has been called.  Enabling an extension will
+only have an effect before the call to <a href="vulkanlib/vkinstance.html#gst_vulkan_instance_open">gst_vulkan_instance_open</a>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>instance</code></em></i>
+–
+</div>
+<p>a <a href="vulkanlib/vkinstance.html#GstVulkanInstance">GstVulkanInstance</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>name</code></em></i>
+–
+</div>
+<p>extension name to enable</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p>whether the Vulkan extension could be enabled.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_vulkan_instance_enable_extension">
+	<i>GstVulkan.VulkanInstance.prototype.enable_extension</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstVulkan.VulkanInstance.prototype.enable_extension(name: <a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>): {
+    // javascript wrapper for 'gst_vulkan_instance_enable_extension'
+}</code></pre>
+
+<p>Enable an Vulkan extension by <em>name</em>.  Extensions cannot be enabled until
+<a href="vulkanlib/vkinstance.html#gst_vulkan_instance_fill_info">GstVulkan.VulkanInstance.prototype.fill_info</a> has been called.  Enabling an extension will
+only have an effect before the call to <a href="vulkanlib/vkinstance.html#gst_vulkan_instance_open">GstVulkan.VulkanInstance.prototype.open</a>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>instance</code></em></i>
+<span>(</span><a title="GstVulkan.VulkanInstance" href="vulkanlib/vkinstance.html#GstVulkanInstance">GstVulkan.VulkanInstance</a><span>)</span>
+–
+</div>
+<p>a <a href="vulkanlib/vkinstance.html#GstVulkanInstance">GstVulkan.VulkanInstance</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>name</code></em></i>
+<span>(</span><a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a><span>)</span>
+–
+</div>
+<p>extension name to enable</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+			</div>
+							<p>whether the Vulkan extension could be enabled.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_vulkan_instance_enable_extension">
+	<i>GstVulkan.VulkanInstance.enable_extension</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstVulkan.VulkanInstance.enable_extension (self, name):
+    #python wrapper for 'gst_vulkan_instance_enable_extension'</code></pre>
+
+<p>Enable an Vulkan extension by <em>name</em>.  Extensions cannot be enabled until
+<a href="vulkanlib/vkinstance.html#gst_vulkan_instance_fill_info">GstVulkan.VulkanInstance.fill_info</a> has been called.  Enabling an extension will
+only have an effect before the call to <a href="vulkanlib/vkinstance.html#gst_vulkan_instance_open">GstVulkan.VulkanInstance.open</a>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>instance</code></em></i>
+<span>(</span><a title="GstVulkan.VulkanInstance" href="vulkanlib/vkinstance.html#GstVulkanInstance">GstVulkan.VulkanInstance</a><span>)</span>
+–
+</div>
+<p>a <a href="vulkanlib/vkinstance.html#GstVulkanInstance">GstVulkan.VulkanInstance</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>name</code></em></i>
+<span>(</span><a title="str" href="https://docs.python.org/3/library/functions.html#func-str">str</a><span>)</span>
+–
+</div>
+<p>extension name to enable</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a><span>)</span>
+–
+			</div>
+							<p>whether the Vulkan extension could be enabled.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.18;" id="gst_vulkan_instance_enable_layer">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_vulkan_instance_enable_layer">
+	<i>gst_vulkan_instance_enable_layer</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a>
+gst_vulkan_instance_enable_layer (<a title="GstVulkanInstance" href="vulkanlib/vkinstance.html#GstVulkanInstance">GstVulkanInstance</a> * instance,
+                                  const <a title="gchar" href="https://docs.gtk.org/glib/types.html#gchar">gchar</a> * name)</pre>
+
+<p>Enable an Vulkan layer by <em>name</em>.  Layer cannot be enabled until
+<a href="vulkanlib/vkinstance.html#gst_vulkan_instance_fill_info">gst_vulkan_instance_fill_info</a> has been called.  Enabling a layer will
+only have an effect before the call to <a href="vulkanlib/vkinstance.html#gst_vulkan_instance_open">gst_vulkan_instance_open</a>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>instance</code></em></i>
+–
+</div>
+<p>a <a href="vulkanlib/vkinstance.html#GstVulkanInstance">GstVulkanInstance</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>name</code></em></i>
+–
+</div>
+<p>layer name to enable</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p>whether the Vulkan layer could be enabled.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_vulkan_instance_enable_layer">
+	<i>GstVulkan.VulkanInstance.prototype.enable_layer</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstVulkan.VulkanInstance.prototype.enable_layer(name: <a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>): {
+    // javascript wrapper for 'gst_vulkan_instance_enable_layer'
+}</code></pre>
+
+<p>Enable an Vulkan layer by <em>name</em>.  Layer cannot be enabled until
+<a href="vulkanlib/vkinstance.html#gst_vulkan_instance_fill_info">GstVulkan.VulkanInstance.prototype.fill_info</a> has been called.  Enabling a layer will
+only have an effect before the call to <a href="vulkanlib/vkinstance.html#gst_vulkan_instance_open">GstVulkan.VulkanInstance.prototype.open</a>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>instance</code></em></i>
+<span>(</span><a title="GstVulkan.VulkanInstance" href="vulkanlib/vkinstance.html#GstVulkanInstance">GstVulkan.VulkanInstance</a><span>)</span>
+–
+</div>
+<p>a <a href="vulkanlib/vkinstance.html#GstVulkanInstance">GstVulkan.VulkanInstance</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>name</code></em></i>
+<span>(</span><a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a><span>)</span>
+–
+</div>
+<p>layer name to enable</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+			</div>
+							<p>whether the Vulkan layer could be enabled.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_vulkan_instance_enable_layer">
+	<i>GstVulkan.VulkanInstance.enable_layer</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstVulkan.VulkanInstance.enable_layer (self, name):
+    #python wrapper for 'gst_vulkan_instance_enable_layer'</code></pre>
+
+<p>Enable an Vulkan layer by <em>name</em>.  Layer cannot be enabled until
+<a href="vulkanlib/vkinstance.html#gst_vulkan_instance_fill_info">GstVulkan.VulkanInstance.fill_info</a> has been called.  Enabling a layer will
+only have an effect before the call to <a href="vulkanlib/vkinstance.html#gst_vulkan_instance_open">GstVulkan.VulkanInstance.open</a>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>instance</code></em></i>
+<span>(</span><a title="GstVulkan.VulkanInstance" href="vulkanlib/vkinstance.html#GstVulkanInstance">GstVulkan.VulkanInstance</a><span>)</span>
+–
+</div>
+<p>a <a href="vulkanlib/vkinstance.html#GstVulkanInstance">GstVulkan.VulkanInstance</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>name</code></em></i>
+<span>(</span><a title="str" href="https://docs.python.org/3/library/functions.html#func-str">str</a><span>)</span>
+–
+</div>
+<p>layer name to enable</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a><span>)</span>
+–
+			</div>
+							<p>whether the Vulkan layer could be enabled.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.18;" id="gst_vulkan_instance_fill_info">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_vulkan_instance_fill_info">
+	<i>gst_vulkan_instance_fill_info</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a>
+gst_vulkan_instance_fill_info (<a title="GstVulkanInstance" href="vulkanlib/vkinstance.html#GstVulkanInstance">GstVulkanInstance</a> * instance,
+                               <a title="GError" href="https://docs.gtk.org/glib/struct.Error.html">GError</a> ** error)</pre>
+
+<p>Retrieve as much information about the available Vulkan instance without
+actually creating an Vulkan instance.  Will not do anything while <em>instance</em>
+is open.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>instance</code></em></i>
+–
+</div>
+<p>a <a href="vulkanlib/vkinstance.html#GstVulkanInstance">GstVulkanInstance</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>error</code></em></i>
+–
+</div>
+<p><a href="https://docs.gtk.org/glib/struct.Error.html">GError</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p>whether the instance information could be retrieved</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_vulkan_instance_fill_info">
+	<i>GstVulkan.VulkanInstance.prototype.fill_info</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstVulkan.VulkanInstance.prototype.fill_info(): {
+    // javascript wrapper for 'gst_vulkan_instance_fill_info'
+}</code></pre>
+
+<p>Retrieve as much information about the available Vulkan instance without
+actually creating an Vulkan instance.  Will not do anything while <em>instance</em>
+is open.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>instance</code></em></i>
+<span>(</span><a title="GstVulkan.VulkanInstance" href="vulkanlib/vkinstance.html#GstVulkanInstance">GstVulkan.VulkanInstance</a><span>)</span>
+–
+</div>
+<p>a <a href="vulkanlib/vkinstance.html#GstVulkanInstance">GstVulkan.VulkanInstance</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+			</div>
+							<p>whether the instance information could be retrieved</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_vulkan_instance_fill_info">
+	<i>GstVulkan.VulkanInstance.fill_info</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>@raises(<a href="https://developer.gnome.org/glib/stable/glib-Error-Reporting.html">GLib.GError</a>)
+def GstVulkan.VulkanInstance.fill_info (self):
+    #python wrapper for 'gst_vulkan_instance_fill_info'</code></pre>
+
+<p>Retrieve as much information about the available Vulkan instance without
+actually creating an Vulkan instance.  Will not do anything while <em>instance</em>
+is open.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>instance</code></em></i>
+<span>(</span><a title="GstVulkan.VulkanInstance" href="vulkanlib/vkinstance.html#GstVulkanInstance">GstVulkan.VulkanInstance</a><span>)</span>
+–
+</div>
+<p>a <a href="vulkanlib/vkinstance.html#GstVulkanInstance">GstVulkan.VulkanInstance</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a><span>)</span>
+–
+			</div>
+							<p>whether the instance information could be retrieved</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.26;" id="gst_vulkan_instance_get_api_version">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_vulkan_instance_get_api_version">
+	<i>gst_vulkan_instance_get_api_version</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+gst_vulkan_instance_get_api_version (<a title="GstVulkanInstance" href="vulkanlib/vkinstance.html#GstVulkanInstance">GstVulkanInstance</a> * instance,
+                                     <a title="guint" href="https://docs.gtk.org/glib/types.html#guint">guint</a> * major,
+                                     <a title="guint" href="https://docs.gtk.org/glib/types.html#guint">guint</a> * minor,
+                                     <a title="guint" href="https://docs.gtk.org/glib/types.html#guint">guint</a> * patch)</pre>
+
+<p>Returns the vulkan API version configured when constructing the
+<a href="vulkanlib/vkinstance.html#GstVulkanInstance">GstVulkanInstance</a>. This value can be any valid Vulkan API version and may
+not match <a href="vulkanlib/vkinstance.html#gst_vulkan_instance_get_version">gst_vulkan_instance_get_version</a> in any way.  This version is the
+maximum allowed vulkan API to be used in any capacity.</p>
+<p>This will not return valid values until <a href="vulkanlib/vkinstance.html#gst_vulkan_instance_open">gst_vulkan_instance_open</a> has been
+called.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>instance</code></em></i>
+–
+</div>
+<p>a <a href="vulkanlib/vkinstance.html#GstVulkanInstance">GstVulkanInstance</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>major</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="Parameter for returning results"><span class="acronym">out</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>major version</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>minor</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="Parameter for returning results"><span class="acronym">out</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>minor version</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>patch</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="Parameter for returning results"><span class="acronym">out</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>patch version</p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.26
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_vulkan_instance_get_api_version">
+	<i>GstVulkan.VulkanInstance.prototype.get_api_version</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstVulkan.VulkanInstance.prototype.get_api_version(): {
+    // javascript wrapper for 'gst_vulkan_instance_get_api_version'
+}</code></pre>
+
+<p>Returns the vulkan API version configured when constructing the
+<a href="vulkanlib/vkinstance.html#GstVulkanInstance">GstVulkan.VulkanInstance</a>. This value can be any valid Vulkan API version and may
+not match <a href="vulkanlib/vkinstance.html#gst_vulkan_instance_get_version">GstVulkan.VulkanInstance.prototype.get_version</a> in any way.  This version is the
+maximum allowed vulkan API to be used in any capacity.</p>
+<p>This will not return valid values until <a href="vulkanlib/vkinstance.html#gst_vulkan_instance_open">GstVulkan.VulkanInstance.prototype.open</a> has been
+called.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>instance</code></em></i>
+<span>(</span><a title="GstVulkan.VulkanInstance" href="vulkanlib/vkinstance.html#GstVulkanInstance">GstVulkan.VulkanInstance</a><span>)</span>
+–
+</div>
+<p>a <a href="vulkanlib/vkinstance.html#GstVulkanInstance">GstVulkan.VulkanInstance</a></p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.26
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_vulkan_instance_get_api_version">
+	<i>GstVulkan.VulkanInstance.get_api_version</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstVulkan.VulkanInstance.get_api_version (self):
+    #python wrapper for 'gst_vulkan_instance_get_api_version'</code></pre>
+
+<p>Returns the vulkan API version configured when constructing the
+<a href="vulkanlib/vkinstance.html#GstVulkanInstance">GstVulkan.VulkanInstance</a>. This value can be any valid Vulkan API version and may
+not match <a href="vulkanlib/vkinstance.html#gst_vulkan_instance_get_version">GstVulkan.VulkanInstance.get_version</a> in any way.  This version is the
+maximum allowed vulkan API to be used in any capacity.</p>
+<p>This will not return valid values until <a href="vulkanlib/vkinstance.html#gst_vulkan_instance_open">GstVulkan.VulkanInstance.open</a> has been
+called.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>instance</code></em></i>
+<span>(</span><a title="GstVulkan.VulkanInstance" href="vulkanlib/vkinstance.html#GstVulkanInstance">GstVulkan.VulkanInstance</a><span>)</span>
+–
+</div>
+<p>a <a href="vulkanlib/vkinstance.html#GstVulkanInstance">GstVulkan.VulkanInstance</a></p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.26
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.18;" id="gst_vulkan_instance_get_extension_info">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_vulkan_instance_get_extension_info">
+	<i>gst_vulkan_instance_get_extension_info</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a>
+gst_vulkan_instance_get_extension_info (<a title="GstVulkanInstance" href="vulkanlib/vkinstance.html#GstVulkanInstance">GstVulkanInstance</a> * instance,
+                                        const <a title="gchar" href="https://docs.gtk.org/glib/types.html#gchar">gchar</a> * name,
+                                        <a title="guint32" href="https://docs.gtk.org/glib/types.html#guint32">guint32</a> * spec_version)</pre>
+
+<p>Retrieves information about an extension.</p>
+<p>Will not find any extensions before <a href="vulkanlib/vkinstance.html#gst_vulkan_instance_fill_info">gst_vulkan_instance_fill_info</a> has been
+called.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>instance</code></em></i>
+–
+</div>
+<p>a <a href="vulkanlib/vkinstance.html#GstVulkanInstance">GstVulkanInstance</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>name</code></em></i>
+–
+</div>
+<p>the layer name to look for</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>spec_version</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="Parameter for returning results"><span class="acronym">out</span></abbr>]</span><span class="annotation">[<abbr title="NULL may be passed to the value"><span class="acronym">nullable</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>return value for the layer specification version</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p>whether extension <em>name</em> is available</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_vulkan_instance_get_extension_info">
+	<i>GstVulkan.VulkanInstance.prototype.get_extension_info</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstVulkan.VulkanInstance.prototype.get_extension_info(name: <a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>): {
+    // javascript wrapper for 'gst_vulkan_instance_get_extension_info'
+}</code></pre>
+
+<p>Retrieves information about an extension.</p>
+<p>Will not find any extensions before <a href="vulkanlib/vkinstance.html#gst_vulkan_instance_fill_info">GstVulkan.VulkanInstance.prototype.fill_info</a> has been
+called.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>instance</code></em></i>
+<span>(</span><a title="GstVulkan.VulkanInstance" href="vulkanlib/vkinstance.html#GstVulkanInstance">GstVulkan.VulkanInstance</a><span>)</span>
+–
+</div>
+<p>a <a href="vulkanlib/vkinstance.html#GstVulkanInstance">GstVulkan.VulkanInstance</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>name</code></em></i>
+<span>(</span><a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a><span>)</span>
+–
+</div>
+<p>the layer name to look for</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<p><b>Returns a tuple made of:</b></p>
+				
+<div class="symbol-detail">
+	<div>
+		<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>
+<span>)</span>
+–
+	</div>
+			<p>whether extension <em>name</em> is available</p>
+
+	</div>
+
+				
+<div class="symbol-detail">
+	<div>
+				<i><em><code>spec_version</code></em></i>
+		<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>
+<span>)</span>
+–
+	</div>
+			<p>whether extension <em>name</em> is available</p>
+
+	</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_vulkan_instance_get_extension_info">
+	<i>GstVulkan.VulkanInstance.get_extension_info</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstVulkan.VulkanInstance.get_extension_info (self, name):
+    #python wrapper for 'gst_vulkan_instance_get_extension_info'</code></pre>
+
+<p>Retrieves information about an extension.</p>
+<p>Will not find any extensions before <a href="vulkanlib/vkinstance.html#gst_vulkan_instance_fill_info">GstVulkan.VulkanInstance.fill_info</a> has been
+called.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>instance</code></em></i>
+<span>(</span><a title="GstVulkan.VulkanInstance" href="vulkanlib/vkinstance.html#GstVulkanInstance">GstVulkan.VulkanInstance</a><span>)</span>
+–
+</div>
+<p>a <a href="vulkanlib/vkinstance.html#GstVulkanInstance">GstVulkan.VulkanInstance</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>name</code></em></i>
+<span>(</span><a title="str" href="https://docs.python.org/3/library/functions.html#func-str">str</a><span>)</span>
+–
+</div>
+<p>the layer name to look for</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<p><b>Returns a tuple made of:</b></p>
+				
+<div class="symbol-detail">
+	<div>
+		<span>(</span><a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a>
+<span>)</span>
+–
+	</div>
+			<p>whether extension <em>name</em> is available</p>
+
+	</div>
+
+				
+<div class="symbol-detail">
+	<div>
+				<i><em><code>spec_version</code></em></i>
+		<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a>
+<span>)</span>
+–
+	</div>
+			<p>whether extension <em>name</em> is available</p>
+
+	</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.18;" id="gst_vulkan_instance_get_layer_info">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_vulkan_instance_get_layer_info">
+	<i>gst_vulkan_instance_get_layer_info</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a>
+gst_vulkan_instance_get_layer_info (<a title="GstVulkanInstance" href="vulkanlib/vkinstance.html#GstVulkanInstance">GstVulkanInstance</a> * instance,
+                                    const <a title="gchar" href="https://docs.gtk.org/glib/types.html#gchar">gchar</a> * name,
+                                    <a title="gchar" href="https://docs.gtk.org/glib/types.html#gchar">gchar</a> ** description,
+                                    <a title="guint32" href="https://docs.gtk.org/glib/types.html#guint32">guint32</a> * spec_version,
+                                    <a title="guint32" href="https://docs.gtk.org/glib/types.html#guint32">guint32</a> * implementation_version)</pre>
+
+<p>Retrieves information about a layer.</p>
+<p>Will not find any layers before <a href="vulkanlib/vkinstance.html#gst_vulkan_instance_fill_info">gst_vulkan_instance_fill_info</a> has been
+called.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>instance</code></em></i>
+–
+</div>
+<p>a <a href="vulkanlib/vkinstance.html#GstVulkanInstance">GstVulkanInstance</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>name</code></em></i>
+–
+</div>
+<p>the layer name to look for</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>description</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="Parameter for returning results"><span class="acronym">out</span></abbr>]</span><span class="annotation">[<abbr title="NULL may be passed to the value"><span class="acronym">nullable</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>return value for the layer description or <a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#NULL:CAPS">NULL</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>spec_version</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="Parameter for returning results"><span class="acronym">out</span></abbr>]</span><span class="annotation">[<abbr title="NULL may be passed to the value"><span class="acronym">nullable</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>return value for the layer specification version</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>implementation_version</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="Parameter for returning results"><span class="acronym">out</span></abbr>]</span><span class="annotation">[<abbr title="NULL may be passed to the value"><span class="acronym">nullable</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>return value for the layer implementation version</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p>whether layer <em>name</em> is available</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_vulkan_instance_get_layer_info">
+	<i>GstVulkan.VulkanInstance.prototype.get_layer_info</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstVulkan.VulkanInstance.prototype.get_layer_info(name: <a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>): {
+    // javascript wrapper for 'gst_vulkan_instance_get_layer_info'
+}</code></pre>
+
+<p>Retrieves information about a layer.</p>
+<p>Will not find any layers before <a href="vulkanlib/vkinstance.html#gst_vulkan_instance_fill_info">GstVulkan.VulkanInstance.prototype.fill_info</a> has been
+called.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>instance</code></em></i>
+<span>(</span><a title="GstVulkan.VulkanInstance" href="vulkanlib/vkinstance.html#GstVulkanInstance">GstVulkan.VulkanInstance</a><span>)</span>
+–
+</div>
+<p>a <a href="vulkanlib/vkinstance.html#GstVulkanInstance">GstVulkan.VulkanInstance</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>name</code></em></i>
+<span>(</span><a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a><span>)</span>
+–
+</div>
+<p>the layer name to look for</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<p><b>Returns a tuple made of:</b></p>
+				
+<div class="symbol-detail">
+	<div>
+		<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>
+<span>)</span>
+–
+	</div>
+			<p>whether layer <em>name</em> is available</p>
+
+	</div>
+
+				
+<div class="symbol-detail">
+	<div>
+				<i><em><code>description</code></em></i>
+		<span>(</span><a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>
+<span>)</span>
+–
+	</div>
+			<p>whether layer <em>name</em> is available</p>
+
+	</div>
+
+				
+<div class="symbol-detail">
+	<div>
+				<i><em><code>spec_version</code></em></i>
+		<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>
+<span>)</span>
+–
+	</div>
+			<p>whether layer <em>name</em> is available</p>
+
+	</div>
+
+				
+<div class="symbol-detail">
+	<div>
+				<i><em><code>implementation_version</code></em></i>
+		<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>
+<span>)</span>
+–
+	</div>
+			<p>whether layer <em>name</em> is available</p>
+
+	</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_vulkan_instance_get_layer_info">
+	<i>GstVulkan.VulkanInstance.get_layer_info</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstVulkan.VulkanInstance.get_layer_info (self, name):
+    #python wrapper for 'gst_vulkan_instance_get_layer_info'</code></pre>
+
+<p>Retrieves information about a layer.</p>
+<p>Will not find any layers before <a href="vulkanlib/vkinstance.html#gst_vulkan_instance_fill_info">GstVulkan.VulkanInstance.fill_info</a> has been
+called.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>instance</code></em></i>
+<span>(</span><a title="GstVulkan.VulkanInstance" href="vulkanlib/vkinstance.html#GstVulkanInstance">GstVulkan.VulkanInstance</a><span>)</span>
+–
+</div>
+<p>a <a href="vulkanlib/vkinstance.html#GstVulkanInstance">GstVulkan.VulkanInstance</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>name</code></em></i>
+<span>(</span><a title="str" href="https://docs.python.org/3/library/functions.html#func-str">str</a><span>)</span>
+–
+</div>
+<p>the layer name to look for</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<p><b>Returns a tuple made of:</b></p>
+				
+<div class="symbol-detail">
+	<div>
+		<span>(</span><a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a>
+<span>)</span>
+–
+	</div>
+			<p>whether layer <em>name</em> is available</p>
+
+	</div>
+
+				
+<div class="symbol-detail">
+	<div>
+				<i><em><code>description</code></em></i>
+		<span>(</span><a title="str" href="https://docs.python.org/3/library/functions.html#func-str">str</a>
+<span>)</span>
+–
+	</div>
+			<p>whether layer <em>name</em> is available</p>
+
+	</div>
+
+				
+<div class="symbol-detail">
+	<div>
+				<i><em><code>spec_version</code></em></i>
+		<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a>
+<span>)</span>
+–
+	</div>
+			<p>whether layer <em>name</em> is available</p>
+
+	</div>
+
+				
+<div class="symbol-detail">
+	<div>
+				<i><em><code>implementation_version</code></em></i>
+		<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a>
+<span>)</span>
+–
+	</div>
+			<p>whether layer <em>name</em> is available</p>
+
+	</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.18;" id="gst_vulkan_instance_get_proc_address">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_vulkan_instance_get_proc_address">
+	<i>gst_vulkan_instance_get_proc_address</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gpointer" href="https://docs.gtk.org/glib/types.html#gpointer">gpointer</a>
+gst_vulkan_instance_get_proc_address (<a title="GstVulkanInstance" href="vulkanlib/vkinstance.html#GstVulkanInstance">GstVulkanInstance</a> * instance,
+                                      const <a title="gchar" href="https://docs.gtk.org/glib/types.html#gchar">gchar</a> * name)</pre>
+
+<p>Performs <code>vkGetInstanceProcAddr()</code> with <em>instance</em> and <em>name</em></p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>instance</code></em></i>
+–
+</div>
+<p>a <a href="vulkanlib/vkinstance.html#GstVulkanInstance">GstVulkanInstance</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>name</code></em></i>
+–
+</div>
+<p>name of the function to retrieve</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span>
+<span class="annotation">[<abbr title="NULL may be passed to the value"><span class="acronym">nullable</span></abbr>]</span><span>)</span>
+–
+			</div>
+							<p>the function pointer for <em>name</em> or <a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#NULL:CAPS">NULL</a></p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_vulkan_instance_get_proc_address">
+	<i>GstVulkan.VulkanInstance.prototype.get_proc_address</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstVulkan.VulkanInstance.prototype.get_proc_address(name: <a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>): {
+    // javascript wrapper for 'gst_vulkan_instance_get_proc_address'
+}</code></pre>
+
+<p>Performs <code>vkGetInstanceProcAddr()</code> with <em>instance</em> and <em>name</em></p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>instance</code></em></i>
+<span>(</span><a title="GstVulkan.VulkanInstance" href="vulkanlib/vkinstance.html#GstVulkanInstance">GstVulkan.VulkanInstance</a><span>)</span>
+–
+</div>
+<p>a <a href="vulkanlib/vkinstance.html#GstVulkanInstance">GstVulkan.VulkanInstance</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>name</code></em></i>
+<span>(</span><a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a><span>)</span>
+–
+</div>
+<p>name of the function to retrieve</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Object" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a><span>)</span>
+–
+			</div>
+							<p>the function pointer for <em>name</em> or <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null">null</a></p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_vulkan_instance_get_proc_address">
+	<i>GstVulkan.VulkanInstance.get_proc_address</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstVulkan.VulkanInstance.get_proc_address (self, name):
+    #python wrapper for 'gst_vulkan_instance_get_proc_address'</code></pre>
+
+<p>Performs <code>vkGetInstanceProcAddr()</code> with <em>instance</em> and <em>name</em></p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>instance</code></em></i>
+<span>(</span><a title="GstVulkan.VulkanInstance" href="vulkanlib/vkinstance.html#GstVulkanInstance">GstVulkan.VulkanInstance</a><span>)</span>
+–
+</div>
+<p>a <a href="vulkanlib/vkinstance.html#GstVulkanInstance">GstVulkan.VulkanInstance</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>name</code></em></i>
+<span>(</span><a title="str" href="https://docs.python.org/3/library/functions.html#func-str">str</a><span>)</span>
+–
+</div>
+<p>name of the function to retrieve</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="object" href="https://docs.python.org/3/library/functions.html#object">object</a><span>)</span>
+–
+			</div>
+							<p>the function pointer for <em>name</em> or <a href="https://docs.python.org/3/library/constants.html#None">None</a></p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.18;" id="gst_vulkan_instance_get_version">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_vulkan_instance_get_version">
+	<i>gst_vulkan_instance_get_version</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+gst_vulkan_instance_get_version (<a title="GstVulkanInstance" href="vulkanlib/vkinstance.html#GstVulkanInstance">GstVulkanInstance</a> * instance,
+                                 <a title="guint" href="https://docs.gtk.org/glib/types.html#guint">guint</a> * major,
+                                 <a title="guint" href="https://docs.gtk.org/glib/types.html#guint">guint</a> * minor,
+                                 <a title="guint" href="https://docs.gtk.org/glib/types.html#guint">guint</a> * patch)</pre>
+
+<p>Retrieve the vulkan instance supported version.  Only returns the supported
+API version by the instance without taking into account the requested API
+version.  This means <a href="vulkanlib/vkinstance.html#gst_vulkan_instance_check_version">gst_vulkan_instance_check_version</a> will return
+different values if a specific version has been requested (which is the
+default) than a version check that is performed manually by retrieving the
+version with this function.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>instance</code></em></i>
+–
+</div>
+<p>a <a href="vulkanlib/vkinstance.html#GstVulkanInstance">GstVulkanInstance</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>major</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="Parameter for returning results"><span class="acronym">out</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>major version</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>minor</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="Parameter for returning results"><span class="acronym">out</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>minor version</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>patch</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="Parameter for returning results"><span class="acronym">out</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>patch version</p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_vulkan_instance_get_version">
+	<i>GstVulkan.VulkanInstance.prototype.get_version</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstVulkan.VulkanInstance.prototype.get_version(): {
+    // javascript wrapper for 'gst_vulkan_instance_get_version'
+}</code></pre>
+
+<p>Retrieve the vulkan instance supported version.  Only returns the supported
+API version by the instance without taking into account the requested API
+version.  This means <a href="vulkanlib/vkinstance.html#gst_vulkan_instance_check_version">GstVulkan.VulkanInstance.prototype.check_version</a> will return
+different values if a specific version has been requested (which is the
+default) than a version check that is performed manually by retrieving the
+version with this function.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>instance</code></em></i>
+<span>(</span><a title="GstVulkan.VulkanInstance" href="vulkanlib/vkinstance.html#GstVulkanInstance">GstVulkan.VulkanInstance</a><span>)</span>
+–
+</div>
+<p>a <a href="vulkanlib/vkinstance.html#GstVulkanInstance">GstVulkan.VulkanInstance</a></p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_vulkan_instance_get_version">
+	<i>GstVulkan.VulkanInstance.get_version</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstVulkan.VulkanInstance.get_version (self):
+    #python wrapper for 'gst_vulkan_instance_get_version'</code></pre>
+
+<p>Retrieve the vulkan instance supported version.  Only returns the supported
+API version by the instance without taking into account the requested API
+version.  This means <a href="vulkanlib/vkinstance.html#gst_vulkan_instance_check_version">GstVulkan.VulkanInstance.check_version</a> will return
+different values if a specific version has been requested (which is the
+default) than a version check that is performed manually by retrieving the
+version with this function.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>instance</code></em></i>
+<span>(</span><a title="GstVulkan.VulkanInstance" href="vulkanlib/vkinstance.html#GstVulkanInstance">GstVulkan.VulkanInstance</a><span>)</span>
+–
+</div>
+<p>a <a href="vulkanlib/vkinstance.html#GstVulkanInstance">GstVulkan.VulkanInstance</a></p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.18;" id="gst_vulkan_instance_is_extension_enabled">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_vulkan_instance_is_extension_enabled">
+	<i>gst_vulkan_instance_is_extension_enabled</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a>
+gst_vulkan_instance_is_extension_enabled (<a title="GstVulkanInstance" href="vulkanlib/vkinstance.html#GstVulkanInstance">GstVulkanInstance</a> * instance,
+                                          const <a title="gchar" href="https://docs.gtk.org/glib/types.html#gchar">gchar</a> * name)</pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>instance</code></em></i>
+–
+</div>
+<p>a # GstVulkanInstance</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>name</code></em></i>
+–
+</div>
+<p>extension name</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p>whether extension <em>name</em> is enabled</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_vulkan_instance_is_extension_enabled">
+	<i>GstVulkan.VulkanInstance.prototype.is_extension_enabled</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstVulkan.VulkanInstance.prototype.is_extension_enabled(name: <a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>): {
+    // javascript wrapper for 'gst_vulkan_instance_is_extension_enabled'
+}</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>instance</code></em></i>
+<span>(</span><a title="GstVulkan.VulkanInstance" href="vulkanlib/vkinstance.html#GstVulkanInstance">GstVulkan.VulkanInstance</a><span>)</span>
+–
+</div>
+<p>a # GstVulkanInstance</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>name</code></em></i>
+<span>(</span><a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a><span>)</span>
+–
+</div>
+<p>extension name</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+			</div>
+							<p>whether extension <em>name</em> is enabled</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_vulkan_instance_is_extension_enabled">
+	<i>GstVulkan.VulkanInstance.is_extension_enabled</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstVulkan.VulkanInstance.is_extension_enabled (self, name):
+    #python wrapper for 'gst_vulkan_instance_is_extension_enabled'</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>instance</code></em></i>
+<span>(</span><a title="GstVulkan.VulkanInstance" href="vulkanlib/vkinstance.html#GstVulkanInstance">GstVulkan.VulkanInstance</a><span>)</span>
+–
+</div>
+<p>a # GstVulkanInstance</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>name</code></em></i>
+<span>(</span><a title="str" href="https://docs.python.org/3/library/functions.html#func-str">str</a><span>)</span>
+–
+</div>
+<p>extension name</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a><span>)</span>
+–
+			</div>
+							<p>whether extension <em>name</em> is enabled</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.18;" id="gst_vulkan_instance_is_layer_enabled">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_vulkan_instance_is_layer_enabled">
+	<i>gst_vulkan_instance_is_layer_enabled</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a>
+gst_vulkan_instance_is_layer_enabled (<a title="GstVulkanInstance" href="vulkanlib/vkinstance.html#GstVulkanInstance">GstVulkanInstance</a> * instance,
+                                      const <a title="gchar" href="https://docs.gtk.org/glib/types.html#gchar">gchar</a> * name)</pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>instance</code></em></i>
+–
+</div>
+<p>a # GstVulkanInstance</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>name</code></em></i>
+–
+</div>
+<p>layer name</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p>whether layer <em>name</em> is enabled</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_vulkan_instance_is_layer_enabled">
+	<i>GstVulkan.VulkanInstance.prototype.is_layer_enabled</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstVulkan.VulkanInstance.prototype.is_layer_enabled(name: <a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>): {
+    // javascript wrapper for 'gst_vulkan_instance_is_layer_enabled'
+}</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>instance</code></em></i>
+<span>(</span><a title="GstVulkan.VulkanInstance" href="vulkanlib/vkinstance.html#GstVulkanInstance">GstVulkan.VulkanInstance</a><span>)</span>
+–
+</div>
+<p>a # GstVulkanInstance</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>name</code></em></i>
+<span>(</span><a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a><span>)</span>
+–
+</div>
+<p>layer name</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+			</div>
+							<p>whether layer <em>name</em> is enabled</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_vulkan_instance_is_layer_enabled">
+	<i>GstVulkan.VulkanInstance.is_layer_enabled</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstVulkan.VulkanInstance.is_layer_enabled (self, name):
+    #python wrapper for 'gst_vulkan_instance_is_layer_enabled'</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>instance</code></em></i>
+<span>(</span><a title="GstVulkan.VulkanInstance" href="vulkanlib/vkinstance.html#GstVulkanInstance">GstVulkan.VulkanInstance</a><span>)</span>
+–
+</div>
+<p>a # GstVulkanInstance</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>name</code></em></i>
+<span>(</span><a title="str" href="https://docs.python.org/3/library/functions.html#func-str">str</a><span>)</span>
+–
+</div>
+<p>layer name</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a><span>)</span>
+–
+			</div>
+							<p>whether layer <em>name</em> is enabled</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.18;" id="gst_vulkan_instance_open">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_vulkan_instance_open">
+	<i>gst_vulkan_instance_open</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a>
+gst_vulkan_instance_open (<a title="GstVulkanInstance" href="vulkanlib/vkinstance.html#GstVulkanInstance">GstVulkanInstance</a> * instance,
+                          <a title="GError" href="https://docs.gtk.org/glib/struct.Error.html">GError</a> ** error)</pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>instance</code></em></i>
+–
+</div>
+<p>a <a href="vulkanlib/vkinstance.html#GstVulkanInstance">GstVulkanInstance</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>error</code></em></i>
+–
+</div>
+<p><a href="https://docs.gtk.org/glib/struct.Error.html">GError</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p>whether the instance could be created</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_vulkan_instance_open">
+	<i>GstVulkan.VulkanInstance.prototype.open</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstVulkan.VulkanInstance.prototype.open(): {
+    // javascript wrapper for 'gst_vulkan_instance_open'
+}</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>instance</code></em></i>
+<span>(</span><a title="GstVulkan.VulkanInstance" href="vulkanlib/vkinstance.html#GstVulkanInstance">GstVulkan.VulkanInstance</a><span>)</span>
+–
+</div>
+<p>a <a href="vulkanlib/vkinstance.html#GstVulkanInstance">GstVulkan.VulkanInstance</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+			</div>
+							<p>whether the instance could be created</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_vulkan_instance_open">
+	<i>GstVulkan.VulkanInstance.open</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>@raises(<a href="https://developer.gnome.org/glib/stable/glib-Error-Reporting.html">GLib.GError</a>)
+def GstVulkan.VulkanInstance.open (self):
+    #python wrapper for 'gst_vulkan_instance_open'</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>instance</code></em></i>
+<span>(</span><a title="GstVulkan.VulkanInstance" href="vulkanlib/vkinstance.html#GstVulkanInstance">GstVulkan.VulkanInstance</a><span>)</span>
+–
+</div>
+<p>a <a href="vulkanlib/vkinstance.html#GstVulkanInstance">GstVulkan.VulkanInstance</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a><span>)</span>
+–
+			</div>
+							<p>whether the instance could be created</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+
+            <h3 class="symbol_section">Functions</h3>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.18;" id="gst_vulkan_instance_handle_context_query">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_vulkan_instance_handle_context_query">
+	<i>gst_vulkan_instance_handle_context_query</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a>
+gst_vulkan_instance_handle_context_query (<a title="GstElement" href="gstreamer/gstelement.html#GstElement">GstElement</a> * element,
+                                          <a title="GstQuery" href="gstreamer/gstquery.html#GstQuery">GstQuery</a> * query,
+                                          <a title="GstVulkanInstance" href="vulkanlib/vkinstance.html#GstVulkanInstance">GstVulkanInstance</a> * instance)</pre>
+
+<p>If a <a href="vulkanlib/vkinstance.html#GstVulkanInstance">GstVulkanInstance</a> is requested in <em>query</em>, sets <em>instance</em> as the reply.</p>
+<p>Intended for use with element query handlers to respond to <a href="gstreamer/gstquery.html#GST_QUERY_CONTEXT">GST_QUERY_CONTEXT</a>
+for a <a href="vulkanlib/vkinstance.html#GstVulkanInstance">GstVulkanInstance</a>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>element</code></em></i>
+–
+</div>
+<p>a <a href="gstreamer/gstelement.html#GstElement">GstElement</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>query</code></em></i>
+–
+</div>
+<p>a <a href="gstreamer/gstquery.html#GstQuery">GstQuery</a> of type <a href="gstreamer/gstquery.html#GST_QUERY_CONTEXT">GST_QUERY_CONTEXT</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>instance</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="NULL may be passed to the value"><span class="acronym">nullable</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>the <a href="vulkanlib/vkinstance.html#GstVulkanInstance">GstVulkanInstance</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p>whether <em>query</em> was responded to with <em>instance</em></p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_vulkan_instance_handle_context_query">
+	<i>GstVulkan.VulkanInstance.prototype.handle_context_query</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstVulkan.VulkanInstance.prototype.handle_context_query(element: <a title="Gst.Element" href="gstreamer/gstelement.html#GstElement">Gst.Element</a>, query: <a title="Gst.Query" href="gstreamer/gstquery.html#GstQuery">Gst.Query</a>, instance: <a title="GstVulkan.VulkanInstance" href="vulkanlib/vkinstance.html#GstVulkanInstance">GstVulkan.VulkanInstance</a>): {
+    // javascript wrapper for 'gst_vulkan_instance_handle_context_query'
+}</code></pre>
+
+<p>If a <a href="vulkanlib/vkinstance.html#GstVulkanInstance">GstVulkan.VulkanInstance</a> is requested in <em>query</em>, sets <em>instance</em> as the reply.</p>
+<p>Intended for use with element query handlers to respond to <a href="gstreamer/gstquery.html#GST_QUERY_CONTEXT">Gst.QueryType.CONTEXT</a>
+for a <a href="vulkanlib/vkinstance.html#GstVulkanInstance">GstVulkan.VulkanInstance</a>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>element</code></em></i>
+<span>(</span><a title="Gst.Element" href="gstreamer/gstelement.html#GstElement">Gst.Element</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gstelement.html#GstElement">Gst.Element</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>query</code></em></i>
+<span>(</span><a title="Gst.Query" href="gstreamer/gstquery.html#GstQuery">Gst.Query</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gstquery.html#GstQuery">Gst.Query</a> of type <a href="gstreamer/gstquery.html#GST_QUERY_CONTEXT">Gst.QueryType.CONTEXT</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>instance</code></em></i>
+<span>(</span><a title="GstVulkan.VulkanInstance" href="vulkanlib/vkinstance.html#GstVulkanInstance">GstVulkan.VulkanInstance</a><span>)</span>
+–
+</div>
+<p>the <a href="vulkanlib/vkinstance.html#GstVulkanInstance">GstVulkan.VulkanInstance</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+			</div>
+							<p>whether <em>query</em> was responded to with <em>instance</em></p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_vulkan_instance_handle_context_query">
+	<i>GstVulkan.VulkanInstance.handle_context_query</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstVulkan.VulkanInstance.handle_context_query (element, query, instance):
+    #python wrapper for 'gst_vulkan_instance_handle_context_query'</code></pre>
+
+<p>If a <a href="vulkanlib/vkinstance.html#GstVulkanInstance">GstVulkan.VulkanInstance</a> is requested in <em>query</em>, sets <em>instance</em> as the reply.</p>
+<p>Intended for use with element query handlers to respond to <a href="gstreamer/gstquery.html#GST_QUERY_CONTEXT">Gst.QueryType.CONTEXT</a>
+for a <a href="vulkanlib/vkinstance.html#GstVulkanInstance">GstVulkan.VulkanInstance</a>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>element</code></em></i>
+<span>(</span><a title="Gst.Element" href="gstreamer/gstelement.html#GstElement">Gst.Element</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gstelement.html#GstElement">Gst.Element</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>query</code></em></i>
+<span>(</span><a title="Gst.Query" href="gstreamer/gstquery.html#GstQuery">Gst.Query</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gstquery.html#GstQuery">Gst.Query</a> of type <a href="gstreamer/gstquery.html#GST_QUERY_CONTEXT">Gst.QueryType.CONTEXT</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>instance</code></em></i>
+<span>(</span><a title="GstVulkan.VulkanInstance" href="vulkanlib/vkinstance.html#GstVulkanInstance">GstVulkan.VulkanInstance</a><span>)</span>
+–
+</div>
+<p>the <a href="vulkanlib/vkinstance.html#GstVulkanInstance">GstVulkan.VulkanInstance</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a><span>)</span>
+–
+			</div>
+							<p>whether <em>query</em> was responded to with <em>instance</em></p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.18;" id="gst_vulkan_instance_run_context_query">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_vulkan_instance_run_context_query">
+	<i>gst_vulkan_instance_run_context_query</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a>
+gst_vulkan_instance_run_context_query (<a title="GstElement" href="gstreamer/gstelement.html#GstElement">GstElement</a> * element,
+                                       <a title="GstVulkanInstance" href="vulkanlib/vkinstance.html#GstVulkanInstance">GstVulkanInstance</a> ** instance)</pre>
+
+<p>Attempt to retrieve a <a href="vulkanlib/vkinstance.html#GstVulkanInstance">GstVulkanInstance</a> using <a href="gstreamer/gstquery.html#GST_QUERY_CONTEXT">GST_QUERY_CONTEXT</a> from the
+surrounding elements of <em>element</em>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>element</code></em></i>
+–
+</div>
+<p>a <a href="gstreamer/gstelement.html#GstElement">GstElement</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>instance</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="Parameter for input and for returning results"><span class="acronym">inout</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>a <a href="vulkanlib/vkinstance.html#GstVulkanInstance">GstVulkanInstance</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p>whether <em>instance</em> contains a valid <a href="vulkanlib/vkinstance.html#GstVulkanInstance">GstVulkanInstance</a></p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_vulkan_instance_run_context_query">
+	<i>GstVulkan.VulkanInstance.prototype.run_context_query</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstVulkan.VulkanInstance.prototype.run_context_query(element: <a title="Gst.Element" href="gstreamer/gstelement.html#GstElement">Gst.Element</a>, instance: <a title="GstVulkan.VulkanInstance" href="vulkanlib/vkinstance.html#GstVulkanInstance">GstVulkan.VulkanInstance</a>): {
+    // javascript wrapper for 'gst_vulkan_instance_run_context_query'
+}</code></pre>
+
+<p>Attempt to retrieve a <a href="vulkanlib/vkinstance.html#GstVulkanInstance">GstVulkan.VulkanInstance</a> using <a href="gstreamer/gstquery.html#GST_QUERY_CONTEXT">Gst.QueryType.CONTEXT</a> from the
+surrounding elements of <em>element</em>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>element</code></em></i>
+<span>(</span><a title="Gst.Element" href="gstreamer/gstelement.html#GstElement">Gst.Element</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gstelement.html#GstElement">Gst.Element</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>instance</code></em></i>
+<span>(</span><a title="GstVulkan.VulkanInstance" href="vulkanlib/vkinstance.html#GstVulkanInstance">GstVulkan.VulkanInstance</a><span>)</span>
+–
+</div>
+<p>a <a href="vulkanlib/vkinstance.html#GstVulkanInstance">GstVulkan.VulkanInstance</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<p><b>Returns a tuple made of:</b></p>
+				
+<div class="symbol-detail">
+	<div>
+		<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>
+<span>)</span>
+–
+	</div>
+			<p>whether <em>instance</em> contains a valid <a href="vulkanlib/vkinstance.html#GstVulkanInstance">GstVulkan.VulkanInstance</a></p>
+
+	</div>
+
+				
+<div class="symbol-detail">
+	<div>
+				<i><em><code>instance</code></em></i>
+		<span>(</span><a title="GstVulkan.VulkanInstance" href="vulkanlib/vkinstance.html#GstVulkanInstance">GstVulkan.VulkanInstance</a>
+<span>)</span>
+–
+	</div>
+			<p>whether <em>instance</em> contains a valid <a href="vulkanlib/vkinstance.html#GstVulkanInstance">GstVulkan.VulkanInstance</a></p>
+
+	</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_vulkan_instance_run_context_query">
+	<i>GstVulkan.VulkanInstance.run_context_query</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstVulkan.VulkanInstance.run_context_query (element, instance):
+    #python wrapper for 'gst_vulkan_instance_run_context_query'</code></pre>
+
+<p>Attempt to retrieve a <a href="vulkanlib/vkinstance.html#GstVulkanInstance">GstVulkan.VulkanInstance</a> using <a href="gstreamer/gstquery.html#GST_QUERY_CONTEXT">Gst.QueryType.CONTEXT</a> from the
+surrounding elements of <em>element</em>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>element</code></em></i>
+<span>(</span><a title="Gst.Element" href="gstreamer/gstelement.html#GstElement">Gst.Element</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gstelement.html#GstElement">Gst.Element</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>instance</code></em></i>
+<span>(</span><a title="GstVulkan.VulkanInstance" href="vulkanlib/vkinstance.html#GstVulkanInstance">GstVulkan.VulkanInstance</a><span>)</span>
+–
+</div>
+<p>a <a href="vulkanlib/vkinstance.html#GstVulkanInstance">GstVulkan.VulkanInstance</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<p><b>Returns a tuple made of:</b></p>
+				
+<div class="symbol-detail">
+	<div>
+		<span>(</span><a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a>
+<span>)</span>
+–
+	</div>
+			<p>whether <em>instance</em> contains a valid <a href="vulkanlib/vkinstance.html#GstVulkanInstance">GstVulkan.VulkanInstance</a></p>
+
+	</div>
+
+				
+<div class="symbol-detail">
+	<div>
+				<i><em><code>instance</code></em></i>
+		<span>(</span><a title="GstVulkan.VulkanInstance" href="vulkanlib/vkinstance.html#GstVulkanInstance">GstVulkan.VulkanInstance</a>
+<span>)</span>
+–
+	</div>
+			<p>whether <em>instance</em> contains a valid <a href="vulkanlib/vkinstance.html#GstVulkanInstance">GstVulkan.VulkanInstance</a></p>
+
+	</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+
+            <h3 class="symbol_section">Signals</h3>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.26;" id="GstVulkanInstance::create-device">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstVulkanInstance::create-device">
+	<i>create-device</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GstVulkanDevice" href="vulkanlib/vkdevice.html#GstVulkanDevice">GstVulkanDevice</a> *
+create_device_callback (<a title="GstVulkanInstance" href="vulkanlib/vkinstance.html#GstVulkanInstance">GstVulkanInstance</a> * self,
+                        <a title="guint" href="https://docs.gtk.org/glib/types.html#guint">guint</a> device_index,
+                        <a title="gpointer" href="https://docs.gtk.org/glib/types.html#gpointer">gpointer</a> user_data)</pre>
+
+<p>Overrides the <a href="vulkanlib/vkdevice.html#GstVulkanDevice">GstVulkanDevice</a> creation mechanism.
+It can be called from any thread.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>device_index</code></em></i>
+–
+</div>
+<p>the index of the device</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>user_data</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span>
+<span class="annotation">[<abbr title="Free data after the code is done"><span class="acronym">transfer: full</span></abbr>]</span><span>)</span>
+–
+			</div>
+							<p>the newly created <a href="vulkanlib/vkdevice.html#GstVulkanDevice">GstVulkanDevice</a>.</p>
+
+					</div>
+	</div>
+
+
+<p>
+	<b>Flags:</b>	
+	
+		
+				<a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS">Run Last</a>
+			
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.26
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GstVulkanInstance::create-device">
+	<i>create-device</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function create_device_callback(self: <a title="GstVulkan.VulkanInstance" href="vulkanlib/vkinstance.html#GstVulkanInstance">GstVulkan.VulkanInstance</a>, device_index: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>, user_data: <a title="Object" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>): {
+    // javascript callback for the 'create-device' signal
+}</code></pre>
+
+<p>Overrides the <a href="vulkanlib/vkdevice.html#GstVulkanDevice">GstVulkan.VulkanDevice</a> creation mechanism.
+It can be called from any thread.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+<span>(</span><a title="GstVulkan.VulkanInstance" href="vulkanlib/vkinstance.html#GstVulkanInstance">GstVulkan.VulkanInstance</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>device_index</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>the index of the device</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>user_data</code></em></i>
+<span>(</span><a title="Object" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GstVulkan.VulkanDevice" href="vulkanlib/vkdevice.html#GstVulkanDevice">GstVulkan.VulkanDevice</a><span>)</span>
+–
+			</div>
+							<p>the newly created <a href="vulkanlib/vkdevice.html#GstVulkanDevice">GstVulkan.VulkanDevice</a>.</p>
+
+					</div>
+	</div>
+
+
+<p>
+	<b>Flags:</b>	
+	
+		
+				<a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS">Run Last</a>
+			
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.26
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GstVulkanInstance::create-device">
+	<i>create-device</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def create_device_callback (self, device_index, *user_data):
+    #python callback for the 'create-device' signal</code></pre>
+
+<p>Overrides the <a href="vulkanlib/vkdevice.html#GstVulkanDevice">GstVulkan.VulkanDevice</a> creation mechanism.
+It can be called from any thread.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+<span>(</span><a title="GstVulkan.VulkanInstance" href="vulkanlib/vkinstance.html#GstVulkanInstance">GstVulkan.VulkanInstance</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>device_index</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<p>the index of the device</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>user_data</code></em></i>
+<span>(</span><a title="variadic" href="https://docs.python.org/dev/tutorial/controlflow.html#arbitrary-argument-lists">variadic</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GstVulkan.VulkanDevice" href="vulkanlib/vkdevice.html#GstVulkanDevice">GstVulkan.VulkanDevice</a><span>)</span>
+–
+			</div>
+							<p>the newly created <a href="vulkanlib/vkdevice.html#GstVulkanDevice">GstVulkan.VulkanDevice</a>.</p>
+
+					</div>
+	</div>
+
+
+<p>
+	<b>Flags:</b>	
+	
+		
+				<a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS">Run Last</a>
+			
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.26
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+
+            <h3 class="symbol_section">Properties</h3>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.18;" id="GstVulkanInstance:requested-api-major">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstVulkanInstance:requested-api-major">
+	<i>requested-api-major</i>
+</h4>
+
+
+<pre class="property_signature">
+“requested-api-major” <span class="type"><a title="guint" href="https://docs.gtk.org/glib/types.html#guint">guint</a></span>
+</pre>
+
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GstVulkanInstance:requested-api-major">
+	<i>requested-api-major</i>
+</h4>
+
+
+<pre class="property_signature">
+“requested-api-major” <span class="type"><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a></span>
+</pre>
+
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GstVulkanInstance:requested-api-major">
+	<i>requested_api_major</i>
+</h4>
+
+
+<pre class="property_signature">
+“self.props.requested_api_major” <span class="type"><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a></span>
+</pre>
+
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.18;" id="GstVulkanInstance:requested-api-minor">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstVulkanInstance:requested-api-minor">
+	<i>requested-api-minor</i>
+</h4>
+
+
+<pre class="property_signature">
+“requested-api-minor” <span class="type"><a title="guint" href="https://docs.gtk.org/glib/types.html#guint">guint</a></span>
+</pre>
+
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GstVulkanInstance:requested-api-minor">
+	<i>requested-api-minor</i>
+</h4>
+
+
+<pre class="property_signature">
+“requested-api-minor” <span class="type"><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a></span>
+</pre>
+
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GstVulkanInstance:requested-api-minor">
+	<i>requested_api_minor</i>
+</h4>
+
+
+<pre class="property_signature">
+“self.props.requested_api_minor” <span class="type"><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a></span>
+</pre>
+
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+
+        
+
+            <h2 class="symbol_section">Functions</h2>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.18;" id="gst_context_get_vulkan_instance">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="gst_context_get_vulkan_instance">
+	<i>gst_context_get_vulkan_instance</i>
+</h3>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a>
+gst_context_get_vulkan_instance (<a title="GstContext" href="gstreamer/gstcontext.html#GstContext">GstContext</a> * context,
+                                 <a title="GstVulkanInstance" href="vulkanlib/vkinstance.html#GstVulkanInstance">GstVulkanInstance</a> ** instance)</pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>context</code></em></i>
+–
+</div>
+<p>a <a href="gstreamer/gstcontext.html#GstContext">GstContext</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>instance</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="Parameter for returning results"><span class="acronym">out</span></abbr>]</span><span class="annotation">[<abbr title="NULL may be passed instead of a pointer to a location"><span class="acronym">optional</span></abbr>]</span><span class="annotation">[<abbr title="NULL may be passed to the value"><span class="acronym">nullable</span></abbr>]</span><span class="annotation">[<abbr title="Free data after the code is done"><span class="acronym">transfer: full</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>resulting <a href="vulkanlib/vkinstance.html#GstVulkanInstance">GstVulkanInstance</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p>Whether <em>instance</em> was in <em>context</em></p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3 data-hotdoc-id="gst_context_get_vulkan_instance">
+	<i>GstVulkan.prototype.context_get_vulkan_instance</i>
+</h3>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstVulkan.prototype.context_get_vulkan_instance(context: <a title="Gst.Context" href="gstreamer/gstcontext.html#GstContext">Gst.Context</a>): {
+    // javascript wrapper for 'gst_context_get_vulkan_instance'
+}</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>context</code></em></i>
+<span>(</span><a title="Gst.Context" href="gstreamer/gstcontext.html#GstContext">Gst.Context</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gstcontext.html#GstContext">Gst.Context</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<p><b>Returns a tuple made of:</b></p>
+				
+<div class="symbol-detail">
+	<div>
+		<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>
+<span>)</span>
+–
+	</div>
+			<p>Whether <em>instance</em> was in <em>context</em></p>
+
+	</div>
+
+				
+<div class="symbol-detail">
+	<div>
+				<i><em><code>instance</code></em></i>
+		<span>(</span><a title="GstVulkan.VulkanInstance" href="vulkanlib/vkinstance.html#GstVulkanInstance">GstVulkan.VulkanInstance</a>
+<span>)</span>
+–
+	</div>
+			<p>Whether <em>instance</em> was in <em>context</em></p>
+
+	</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3 data-hotdoc-id="gst_context_get_vulkan_instance">
+	<i>GstVulkan.context_get_vulkan_instance</i>
+</h3>
+
+
+<pre class="python-prototype language-python">
+<code>def GstVulkan.context_get_vulkan_instance (context):
+    #python wrapper for 'gst_context_get_vulkan_instance'</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>context</code></em></i>
+<span>(</span><a title="Gst.Context" href="gstreamer/gstcontext.html#GstContext">Gst.Context</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gstcontext.html#GstContext">Gst.Context</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<p><b>Returns a tuple made of:</b></p>
+				
+<div class="symbol-detail">
+	<div>
+		<span>(</span><a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a>
+<span>)</span>
+–
+	</div>
+			<p>Whether <em>instance</em> was in <em>context</em></p>
+
+	</div>
+
+				
+<div class="symbol-detail">
+	<div>
+				<i><em><code>instance</code></em></i>
+		<span>(</span><a title="GstVulkan.VulkanInstance" href="vulkanlib/vkinstance.html#GstVulkanInstance">GstVulkan.VulkanInstance</a>
+<span>)</span>
+–
+	</div>
+			<p>Whether <em>instance</em> was in <em>context</em></p>
+
+	</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.18;" id="gst_context_set_vulkan_instance">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="gst_context_set_vulkan_instance">
+	<i>gst_context_set_vulkan_instance</i>
+</h3>
+
+
+
+
+<pre class="c-prototype language-c">
+gst_context_set_vulkan_instance (<a title="GstContext" href="gstreamer/gstcontext.html#GstContext">GstContext</a> * context,
+                                 <a title="GstVulkanInstance" href="vulkanlib/vkinstance.html#GstVulkanInstance">GstVulkanInstance</a> * instance)</pre>
+
+<p>Sets <em>instance</em> on <em>context</em></p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>context</code></em></i>
+–
+</div>
+<p>a <a href="gstreamer/gstcontext.html#GstContext">GstContext</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>instance</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="Don't free data after the code is done"><span class="acronym">transfer: none</span></abbr>]</span><span class="annotation">[<abbr title="NULL may be passed to the value"><span class="acronym">nullable</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>a <a href="vulkanlib/vkinstance.html#GstVulkanInstance">GstVulkanInstance</a></p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3 data-hotdoc-id="gst_context_set_vulkan_instance">
+	<i>GstVulkan.prototype.context_set_vulkan_instance</i>
+</h3>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstVulkan.prototype.context_set_vulkan_instance(context: <a title="Gst.Context" href="gstreamer/gstcontext.html#GstContext">Gst.Context</a>, instance: <a title="GstVulkan.VulkanInstance" href="vulkanlib/vkinstance.html#GstVulkanInstance">GstVulkan.VulkanInstance</a>): {
+    // javascript wrapper for 'gst_context_set_vulkan_instance'
+}</code></pre>
+
+<p>Sets <em>instance</em> on <em>context</em></p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>context</code></em></i>
+<span>(</span><a title="Gst.Context" href="gstreamer/gstcontext.html#GstContext">Gst.Context</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gstcontext.html#GstContext">Gst.Context</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>instance</code></em></i>
+<span>(</span><a title="GstVulkan.VulkanInstance" href="vulkanlib/vkinstance.html#GstVulkanInstance">GstVulkan.VulkanInstance</a><span>)</span>
+–
+</div>
+<p>a <a href="vulkanlib/vkinstance.html#GstVulkanInstance">GstVulkan.VulkanInstance</a></p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3 data-hotdoc-id="gst_context_set_vulkan_instance">
+	<i>GstVulkan.context_set_vulkan_instance</i>
+</h3>
+
+
+<pre class="python-prototype language-python">
+<code>def GstVulkan.context_set_vulkan_instance (context, instance):
+    #python wrapper for 'gst_context_set_vulkan_instance'</code></pre>
+
+<p>Sets <em>instance</em> on <em>context</em></p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>context</code></em></i>
+<span>(</span><a title="Gst.Context" href="gstreamer/gstcontext.html#GstContext">Gst.Context</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gstcontext.html#GstContext">Gst.Context</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>instance</code></em></i>
+<span>(</span><a title="GstVulkan.VulkanInstance" href="vulkanlib/vkinstance.html#GstVulkanInstance">GstVulkan.VulkanInstance</a><span>)</span>
+–
+</div>
+<p>a <a href="vulkanlib/vkinstance.html#GstVulkanInstance">GstVulkan.VulkanInstance</a></p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+
+            <h2 class="symbol_section">Constants</h2>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.18;" id="GST_VULKAN_INSTANCE_CONTEXT_TYPE_STR">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_VULKAN_INSTANCE_CONTEXT_TYPE_STR">
+	<i>GST_VULKAN_INSTANCE_CONTEXT_TYPE_STR</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_VULKAN_INSTANCE_CONTEXT_TYPE_STR "gst.vulkan.instance"
+</pre>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3 data-hotdoc-id="GST_VULKAN_INSTANCE_CONTEXT_TYPE_STR">
+	<i>GstVulkan.VULKAN_INSTANCE_CONTEXT_TYPE_STR</i>
+</h3>
+
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3 data-hotdoc-id="GST_VULKAN_INSTANCE_CONTEXT_TYPE_STR">
+	<i>GstVulkan.VULKAN_INSTANCE_CONTEXT_TYPE_STR</i>
+</h3>
+
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+
+
+
+
+
+		
+	</div>
+	<div id="search_results">
+		<p>The results of the search are</p>
+	</div>
+	<div id="footer">
+		    
+
+	</div>
+</div>
+
+<div id="toc-column">
+	
+		<div class="edit-button">
+		
+
+	</div>
+		<div id="toc-wrapper">
+		<nav id="toc"></nav>
+	</div>
+</div>
+</div>
+</main>
+
+
+<script src="assets/js/navbar_offset_scroller.js"></script>
+</body>
+</html>

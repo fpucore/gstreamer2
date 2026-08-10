@@ -1,0 +1,2026 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<base href="..">
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<title>gstdxvaav1decoder</title>
+
+<link rel="stylesheet" href="assets/css/dark-frontend.css" type="text/css" title="dark">
+<link rel="alternate stylesheet" href="assets/css/light-frontend.css" type="text/css" title="light">
+<link rel="stylesheet" href="assets/css/bootstrap-toc.min.css" type="text/css">
+<link rel="stylesheet" href="assets/css/jquery.mCustomScrollbar.min.css">
+<link rel="stylesheet" href="assets/js/search/enable_search.css" type="text/css">
+
+<link rel="stylesheet" href="assets/css/extra_frontend.css" type="text/css">
+<link rel="stylesheet" href="assets/css/devhelp.css" type="text/css">
+
+<link rel="stylesheet" href="assets/css/prism-tomorrow.css" type="text/css" title="dark">
+
+<link rel="alternate stylesheet" href="assets/css/prism.css" type="text/css" title="light">
+
+<script src="assets/js/mustache.min.js"></script>
+<script src="assets/js/jquery.js"></script>
+<script src="assets/js/bootstrap.js"></script>
+<script src="assets/js/scrollspy.js"></script>
+<script src="assets/js/typeahead.jquery.min.js"></script>
+<script src="assets/js/search.js"></script>
+<script src="assets/js/compare-versions.js"></script>
+<script src="assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="assets/js/bootstrap-toc.min.js"></script>
+<script src="assets/js/jquery.touchSwipe.min.js"></script>
+<script src="assets/js/anchor.min.js"></script>
+<script src="assets/js/tag_filtering.js"></script>
+<script src="assets/js/language_switching.js"></script>
+<script src="assets/js/styleswitcher.js"></script>
+
+<script src="assets/js/lines_around_headings.js"></script>
+
+<script src="assets/js/prism-core.js"></script>
+<script src="assets/js/prism-autoloader.js"></script>
+<script src="assets/js/prism_autoloader_path_override.js"></script>
+<script src="assets/js/trie.js"></script>
+
+<!-- generic -->
+<link rel="icon" type="image/png" href="assets/images/favicon-16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="assets/images/favicon-32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="assets/images/favicon-57.png" sizes="57x57">
+<link rel="icon" type="image/png" href="assets/images/favicon-64.png" sizes="64x64">
+<link rel="icon" type="image/png" href="assets/images/favicon-76.png" sizes="76x76">
+<link rel="icon" type="image/png" href="assets/images/favicon-96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="assets/images/favicon-128.png" sizes="128x128">
+<link rel="icon" type="image/png" href="assets/images/favicon-192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="assets/images/favicon-228.png" sizes="228x228">
+
+<!-- Android -->
+<link rel="shortcut icon" sizes="196x196" href="assets/images/favicon-196.png">
+
+<!-- iOS -->
+<link rel="apple-touch-icon" href="assets/images/favicon-120.png" sizes="120x120">
+<link rel="apple-touch-icon" href="assets/images/favicon-152.png" sizes="152x152">
+<link rel="apple-touch-icon" href="assets/images/favicon-180.png" sizes="180x180">
+
+</head>
+
+<body class="no-script
+">
+
+<script>
+$('body').removeClass('no-script');
+</script>
+
+<nav class="navbar navbar-fixed-top navbar-default" id="topnav">
+	<div class="container-fluid">
+		<div class="navbar-right">
+			<a id="toc-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-wrapper" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<span title="light mode switch" class="glyphicon glyphicon-sunglasses pull-right" id="lightmode-icon"></span>
+			<form class="navbar-form pull-right" id="navbar-search-form">
+                               <div class="form-group has-feedback">
+                                       <input type="text" class="form-control input-sm" name="search" id="sidenav-lookup-field" placeholder="search" disabled>
+				       <span class="glyphicon glyphicon-search form-control-feedback" id="search-mgn-glass"></span>
+                               </div>
+                        </form>
+		</div>
+		<div class="navbar-header">
+			<a id="sidenav-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<a id="home-link" href="index.html" class="hotdoc-navbar-brand">
+				<img src="assets/images/gstreamer-logo.svg" alt="Home">
+			</a>
+		</div>
+		<div class="navbar-collapse collapse" id="navbar-wrapper">
+			<ul class="nav navbar-nav" id="menu">
+				
+<li class="dropdown">
+    <a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        API References<span class="caret"></span>
+    </a>
+	<ul class="dropdown-menu" id="modules-menu">
+					<li>
+				<a href="gstreamer/gi-index.html">GStreamer core</a>
+			</li>
+					<li>
+				<a href="libs.html">GStreamer Libraries</a>
+			</li>
+					<li>
+				<a href="plugins_doc.html">GStreamer Plugins</a>
+			</li>
+		</ul>
+</li>
+
+<li>
+    <a href="application-development/index.html">Application manual</a>
+</li>
+
+
+<li>
+    <a href="tutorials/index.html">Tutorials</a>
+</li>
+
+			</ul>
+			<div class="hidden-xs hidden-sm navbar-text navbar-center">
+							</div>
+		</div>
+	</div>
+</nav>
+
+<main>
+<div data-extension="gi-extension" data-hotdoc-in-toplevel="False" data-hotdoc-project="dxva" data-hotdoc-ref="gstdxvaav1decoder.html" class="page_container" id="page-wrapper" data-hotdoc-meta-gi-languages="['c', 'javascript', 'python']" data-hotdoc-meta-gi-language="c">
+<script src="assets/js/utils.js"></script>
+
+<div class="panel panel-collapse oc-collapsed" id="sidenav" data-hotdoc-role="navigation">
+	<script src="assets/js/full-width.js"></script>
+  <div id="sitenav-wrapper">
+    <iframe src="hotdoc-sitemap.html" id="sitenav-frame"></iframe>
+  </div>
+</div>
+
+<div id="body">
+	<div id="main">
+				    <div id="page-description" data-hotdoc-role="main">
+    </div>
+        
+        
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.24;" id="GstDxvaAV1Decoder">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h2 data-hotdoc-id="GstDxvaAV1Decoder">
+	<i>GstDxvaAV1Decoder</i>
+</h2>
+
+
+<div class="hierarchy_container">
+	<div class="hierarchy_details">
+<pre>
+<a title="GObject" href="https://docs.gtk.org/gobject/class.Object.html">GObject</a>
+    <span class="lineart">╰──</span><a title="GInitiallyUnowned" href="https://docs.gtk.org/gobject/class.InitiallyUnowned.html">GInitiallyUnowned</a>
+        <span class="lineart">╰──</span><a title="GstObject" href="gstreamer/gstobject.html#GstObject">GstObject</a>
+            <span class="lineart">╰──</span><a title="GstElement" href="gstreamer/gstelement.html#GstElement">GstElement</a>
+                <span class="lineart">╰──</span><a title="GstVideoDecoder" href="video/gstvideodecoder.html#GstVideoDecoder">GstVideoDecoder</a>
+                    <span class="lineart">╰──</span><a title="GstAV1Decoder" href="codecs/gstav1decoder.html#GstAV1Decoder">GstAV1Decoder</a>
+                        <span class="lineart">╰──</span>GstDxvaAV1Decoder
+</pre>
+
+</div>
+
+</div>
+
+
+
+
+	<div class="members-container">
+		<h3>Members</h3>
+					
+<div class="symbol-detail" data-hotdoc-id="GstDxvaAV1Decoder.parent">
+	<div>
+		<i><em><code>parent</code></em></i>
+		(<a title="GstAV1Decoder" href="codecs/gstav1decoder.html#GstAV1Decoder">GstAV1Decoder</a>)
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+<h3>Class structure</h3>
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstDxvaAV1DecoderClass">
+	<i>GstDxvaAV1DecoderClass</i>
+</h4>
+
+
+
+
+
+	<div class="members-container">
+		<h5>Fields</h5>
+					
+<div class="symbol-detail" data-hotdoc-id="GstDxvaAV1DecoderClass.parent_class">
+	<div>
+		<i><em><code>parent_class</code></em></i>
+		(<a title="GstAV1DecoderClass" href="GstAV1DecoderClass">GstAV1DecoderClass</a>)
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3>
+	GstDxva.DxvaAV1DecoderClass
+</h3>
+
+
+
+
+
+	<div class="members-container">
+		<h5>Attributes</h5>
+					
+<div class="symbol-detail" data-hotdoc-id="GstDxvaAV1DecoderClass.parent_class">
+	<div>
+		<i><em><code>parent_class</code></em></i>
+		(<a title="GstCodecs.AV1DecoderClass" href="GstAV1DecoderClass">GstCodecs.AV1DecoderClass</a>)
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3>
+	GstDxva.DxvaAV1DecoderClass
+</h3>
+
+
+
+
+
+	<div class="members-container">
+		<h5>Attributes</h5>
+					
+<div class="symbol-detail" data-hotdoc-id="GstDxvaAV1DecoderClass.parent_class">
+	<div>
+		<i><em><code>parent_class</code></em></i>
+		(<a title="GstCodecs.AV1DecoderClass" href="GstAV1DecoderClass">GstCodecs.AV1DecoderClass</a>)
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h2 data-hotdoc-id="GstDxvaAV1Decoder">
+	<i>GstDxva.DxvaAV1Decoder</i>
+</h2>
+
+
+<div class="hierarchy_container">
+	<div class="hierarchy_details">
+<pre>
+<a title="GObject.Object" href="https://docs.gtk.org/gobject/class.Object.html">GObject.Object</a>
+    <span class="lineart">╰──</span><a title="GObject.InitiallyUnowned" href="https://docs.gtk.org/gobject/class.InitiallyUnowned.html">GObject.InitiallyUnowned</a>
+        <span class="lineart">╰──</span><a title="Gst.Object" href="gstreamer/gstobject.html#GstObject">Gst.Object</a>
+            <span class="lineart">╰──</span><a title="Gst.Element" href="gstreamer/gstelement.html#GstElement">Gst.Element</a>
+                <span class="lineart">╰──</span><a title="GstVideo.VideoDecoder" href="video/gstvideodecoder.html#GstVideoDecoder">GstVideo.VideoDecoder</a>
+                    <span class="lineart">╰──</span><a title="GstCodecs.AV1Decoder" href="codecs/gstav1decoder.html#GstAV1Decoder">GstCodecs.AV1Decoder</a>
+                        <span class="lineart">╰──</span>GstDxva.DxvaAV1Decoder
+</pre>
+
+</div>
+
+</div>
+
+
+
+
+	<div class="members-container">
+		<h3>Members</h3>
+					
+<div class="symbol-detail" data-hotdoc-id="GstDxvaAV1Decoder.parent">
+	<div>
+		<i><em><code>parent</code></em></i>
+		(<a title="GstCodecs.AV1Decoder" href="codecs/gstav1decoder.html#GstAV1Decoder">GstCodecs.AV1Decoder</a>)
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h2 data-hotdoc-id="GstDxvaAV1Decoder">
+	<i>GstDxva.DxvaAV1Decoder</i>
+</h2>
+
+
+<div class="hierarchy_container">
+	<div class="hierarchy_details">
+<pre>
+<a title="GObject.Object" href="https://docs.gtk.org/gobject/class.Object.html">GObject.Object</a>
+    <span class="lineart">╰──</span><a title="GObject.InitiallyUnowned" href="https://docs.gtk.org/gobject/class.InitiallyUnowned.html">GObject.InitiallyUnowned</a>
+        <span class="lineart">╰──</span><a title="Gst.Object" href="gstreamer/gstobject.html#GstObject">Gst.Object</a>
+            <span class="lineart">╰──</span><a title="Gst.Element" href="gstreamer/gstelement.html#GstElement">Gst.Element</a>
+                <span class="lineart">╰──</span><a title="GstVideo.VideoDecoder" href="video/gstvideodecoder.html#GstVideoDecoder">GstVideo.VideoDecoder</a>
+                    <span class="lineart">╰──</span><a title="GstCodecs.AV1Decoder" href="codecs/gstav1decoder.html#GstAV1Decoder">GstCodecs.AV1Decoder</a>
+                        <span class="lineart">╰──</span>GstDxva.DxvaAV1Decoder
+</pre>
+
+</div>
+
+</div>
+
+
+
+
+	<div class="members-container">
+		<h3>Members</h3>
+					
+<div class="symbol-detail" data-hotdoc-id="GstDxvaAV1Decoder.parent">
+	<div>
+		<i><em><code>parent</code></em></i>
+		(<a title="GstCodecs.AV1Decoder" href="codecs/gstav1decoder.html#GstAV1Decoder">GstCodecs.AV1Decoder</a>)
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+
+            <h3 class="symbol_section">Virtual Methods</h3>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstDxvaAV1DecoderClass::configure">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstDxvaAV1DecoderClass::configure">
+	<i>configure</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GstFlowReturn" href="gstreamer/gstpad.html#GstFlowReturn">GstFlowReturn</a>
+configure (<a title="GstDxvaAV1Decoder" href="dxva/gstdxvaav1decoder.html#GstDxvaAV1Decoder">GstDxvaAV1Decoder</a> * decoder,
+           <a title="GstVideoCodecState" href="video/gstvideoutils.html#GstVideoCodecState">GstVideoCodecState</a> * input_state,
+           const <a title="GstVideoInfo" href="video/video-info.html#GstVideoInfo">GstVideoInfo</a> * info,
+           <a title="gint" href="https://docs.gtk.org/glib/types.html#gint">gint</a> crop_x,
+           <a title="gint" href="https://docs.gtk.org/glib/types.html#gint">gint</a> crop_y,
+           <a title="gint" href="https://docs.gtk.org/glib/types.html#gint">gint</a> coded_width,
+           <a title="gint" href="https://docs.gtk.org/glib/types.html#gint">gint</a> coded_height,
+           <a title="gint" href="https://docs.gtk.org/glib/types.html#gint">gint</a> max_dpb_size)</pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>decoder</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>input_state</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>info</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>crop_x</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>crop_y</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>coded_width</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>coded_height</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>max_dpb_size</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GstDxvaAV1DecoderClass::configure">
+	<i>vfunc_configure</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function vfunc_configure(decoder: <a title="GstDxva.DxvaAV1Decoder" href="dxva/gstdxvaav1decoder.html#GstDxvaAV1Decoder">GstDxva.DxvaAV1Decoder</a>, input_state: <a title="GstVideo.VideoCodecState" href="video/gstvideoutils.html#GstVideoCodecState">GstVideo.VideoCodecState</a>, info: <a title="GstVideo.VideoInfo" href="video/video-info.html#GstVideoInfo">GstVideo.VideoInfo</a>, crop_x: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>, crop_y: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>, coded_width: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>, coded_height: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>, max_dpb_size: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>): {
+    // javascript implementation of the 'configure' virtual method
+}</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>decoder</code></em></i>
+<span>(</span><a title="GstDxva.DxvaAV1Decoder" href="dxva/gstdxvaav1decoder.html#GstDxvaAV1Decoder">GstDxva.DxvaAV1Decoder</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>input_state</code></em></i>
+<span>(</span><a title="GstVideo.VideoCodecState" href="video/gstvideoutils.html#GstVideoCodecState">GstVideo.VideoCodecState</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>info</code></em></i>
+<span>(</span><a title="GstVideo.VideoInfo" href="video/video-info.html#GstVideoInfo">GstVideo.VideoInfo</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>crop_x</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>crop_y</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>coded_width</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>coded_height</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>max_dpb_size</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Gst.FlowReturn" href="gstreamer/gstpad.html#GstFlowReturn">Gst.FlowReturn</a><span>)</span>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GstDxvaAV1DecoderClass::configure">
+	<i>do_configure</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def do_configure (decoder, input_state, info, crop_x, crop_y, coded_width, coded_height, max_dpb_size):
+    #python implementation of the 'configure' virtual method</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>decoder</code></em></i>
+<span>(</span><a title="GstDxva.DxvaAV1Decoder" href="dxva/gstdxvaav1decoder.html#GstDxvaAV1Decoder">GstDxva.DxvaAV1Decoder</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>input_state</code></em></i>
+<span>(</span><a title="GstVideo.VideoCodecState" href="video/gstvideoutils.html#GstVideoCodecState">GstVideo.VideoCodecState</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>info</code></em></i>
+<span>(</span><a title="GstVideo.VideoInfo" href="video/video-info.html#GstVideoInfo">GstVideo.VideoInfo</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>crop_x</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>crop_y</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>coded_width</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>coded_height</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>max_dpb_size</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Gst.FlowReturn" href="gstreamer/gstpad.html#GstFlowReturn">Gst.FlowReturn</a><span>)</span>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstDxvaAV1DecoderClass::duplicate_picture">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstDxvaAV1DecoderClass::duplicate_picture">
+	<i>duplicate_picture</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GstFlowReturn" href="gstreamer/gstpad.html#GstFlowReturn">GstFlowReturn</a>
+duplicate_picture (<a title="GstDxvaAV1Decoder" href="dxva/gstdxvaav1decoder.html#GstDxvaAV1Decoder">GstDxvaAV1Decoder</a> * decoder,
+                   <a title="GstCodecPicture" href="codecs/gstcodecpicture.html#GstCodecPicture">GstCodecPicture</a> * src,
+                   <a title="GstCodecPicture" href="codecs/gstcodecpicture.html#GstCodecPicture">GstCodecPicture</a> * dst)</pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>decoder</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>src</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>dst</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GstDxvaAV1DecoderClass::duplicate_picture">
+	<i>vfunc_duplicate_picture</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function vfunc_duplicate_picture(decoder: <a title="GstDxva.DxvaAV1Decoder" href="dxva/gstdxvaav1decoder.html#GstDxvaAV1Decoder">GstDxva.DxvaAV1Decoder</a>, src: <a title="GstCodecs.CodecPicture" href="codecs/gstcodecpicture.html#GstCodecPicture">GstCodecs.CodecPicture</a>, dst: <a title="GstCodecs.CodecPicture" href="codecs/gstcodecpicture.html#GstCodecPicture">GstCodecs.CodecPicture</a>): {
+    // javascript implementation of the 'duplicate_picture' virtual method
+}</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>decoder</code></em></i>
+<span>(</span><a title="GstDxva.DxvaAV1Decoder" href="dxva/gstdxvaav1decoder.html#GstDxvaAV1Decoder">GstDxva.DxvaAV1Decoder</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>src</code></em></i>
+<span>(</span><a title="GstCodecs.CodecPicture" href="codecs/gstcodecpicture.html#GstCodecPicture">GstCodecs.CodecPicture</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>dst</code></em></i>
+<span>(</span><a title="GstCodecs.CodecPicture" href="codecs/gstcodecpicture.html#GstCodecPicture">GstCodecs.CodecPicture</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Gst.FlowReturn" href="gstreamer/gstpad.html#GstFlowReturn">Gst.FlowReturn</a><span>)</span>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GstDxvaAV1DecoderClass::duplicate_picture">
+	<i>do_duplicate_picture</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def do_duplicate_picture (decoder, src, dst):
+    #python implementation of the 'duplicate_picture' virtual method</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>decoder</code></em></i>
+<span>(</span><a title="GstDxva.DxvaAV1Decoder" href="dxva/gstdxvaav1decoder.html#GstDxvaAV1Decoder">GstDxva.DxvaAV1Decoder</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>src</code></em></i>
+<span>(</span><a title="GstCodecs.CodecPicture" href="codecs/gstcodecpicture.html#GstCodecPicture">GstCodecs.CodecPicture</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>dst</code></em></i>
+<span>(</span><a title="GstCodecs.CodecPicture" href="codecs/gstcodecpicture.html#GstCodecPicture">GstCodecs.CodecPicture</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Gst.FlowReturn" href="gstreamer/gstpad.html#GstFlowReturn">Gst.FlowReturn</a><span>)</span>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstDxvaAV1DecoderClass::end_picture">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstDxvaAV1DecoderClass::end_picture">
+	<i>end_picture</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GstFlowReturn" href="gstreamer/gstpad.html#GstFlowReturn">GstFlowReturn</a>
+end_picture (<a title="GstDxvaAV1Decoder" href="dxva/gstdxvaav1decoder.html#GstDxvaAV1Decoder">GstDxvaAV1Decoder</a> * decoder,
+             <a title="GstCodecPicture" href="codecs/gstcodecpicture.html#GstCodecPicture">GstCodecPicture</a> * picture,
+             <a title="GPtrArray" href="https://docs.gtk.org/glib/struct.PtrArray.html">GPtrArray</a> * ref_pics,
+             const <a title="GstDxvaDecodingArgs" href="dxva/gstdxvatypes.html#GstDxvaDecodingArgs">GstDxvaDecodingArgs</a> * args)</pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>decoder</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>picture</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>ref_pics</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>args</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstDxvaAV1DecoderClass::get_picture_id">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstDxvaAV1DecoderClass::get_picture_id">
+	<i>get_picture_id</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="guint8" href="https://docs.gtk.org/glib/types.html#guint8">guint8</a>
+get_picture_id (<a title="GstDxvaAV1Decoder" href="dxva/gstdxvaav1decoder.html#GstDxvaAV1Decoder">GstDxvaAV1Decoder</a> * decoder,
+                <a title="GstCodecPicture" href="codecs/gstcodecpicture.html#GstCodecPicture">GstCodecPicture</a> * picture)</pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>decoder</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>picture</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GstDxvaAV1DecoderClass::get_picture_id">
+	<i>vfunc_get_picture_id</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function vfunc_get_picture_id(decoder: <a title="GstDxva.DxvaAV1Decoder" href="dxva/gstdxvaav1decoder.html#GstDxvaAV1Decoder">GstDxva.DxvaAV1Decoder</a>, picture: <a title="GstCodecs.CodecPicture" href="codecs/gstcodecpicture.html#GstCodecPicture">GstCodecs.CodecPicture</a>): {
+    // javascript implementation of the 'get_picture_id' virtual method
+}</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>decoder</code></em></i>
+<span>(</span><a title="GstDxva.DxvaAV1Decoder" href="dxva/gstdxvaav1decoder.html#GstDxvaAV1Decoder">GstDxva.DxvaAV1Decoder</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>picture</code></em></i>
+<span>(</span><a title="GstCodecs.CodecPicture" href="codecs/gstcodecpicture.html#GstCodecPicture">GstCodecs.CodecPicture</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GstDxvaAV1DecoderClass::get_picture_id">
+	<i>do_get_picture_id</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def do_get_picture_id (decoder, picture):
+    #python implementation of the 'get_picture_id' virtual method</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>decoder</code></em></i>
+<span>(</span><a title="GstDxva.DxvaAV1Decoder" href="dxva/gstdxvaav1decoder.html#GstDxvaAV1Decoder">GstDxva.DxvaAV1Decoder</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>picture</code></em></i>
+<span>(</span><a title="GstCodecs.CodecPicture" href="codecs/gstcodecpicture.html#GstCodecPicture">GstCodecs.CodecPicture</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstDxvaAV1DecoderClass::new_picture">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstDxvaAV1DecoderClass::new_picture">
+	<i>new_picture</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GstFlowReturn" href="gstreamer/gstpad.html#GstFlowReturn">GstFlowReturn</a>
+new_picture (<a title="GstDxvaAV1Decoder" href="dxva/gstdxvaav1decoder.html#GstDxvaAV1Decoder">GstDxvaAV1Decoder</a> * decoder,
+             <a title="GstCodecPicture" href="codecs/gstcodecpicture.html#GstCodecPicture">GstCodecPicture</a> * picture)</pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>decoder</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>picture</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GstDxvaAV1DecoderClass::new_picture">
+	<i>vfunc_new_picture</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function vfunc_new_picture(decoder: <a title="GstDxva.DxvaAV1Decoder" href="dxva/gstdxvaav1decoder.html#GstDxvaAV1Decoder">GstDxva.DxvaAV1Decoder</a>, picture: <a title="GstCodecs.CodecPicture" href="codecs/gstcodecpicture.html#GstCodecPicture">GstCodecs.CodecPicture</a>): {
+    // javascript implementation of the 'new_picture' virtual method
+}</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>decoder</code></em></i>
+<span>(</span><a title="GstDxva.DxvaAV1Decoder" href="dxva/gstdxvaav1decoder.html#GstDxvaAV1Decoder">GstDxva.DxvaAV1Decoder</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>picture</code></em></i>
+<span>(</span><a title="GstCodecs.CodecPicture" href="codecs/gstcodecpicture.html#GstCodecPicture">GstCodecs.CodecPicture</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Gst.FlowReturn" href="gstreamer/gstpad.html#GstFlowReturn">Gst.FlowReturn</a><span>)</span>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GstDxvaAV1DecoderClass::new_picture">
+	<i>do_new_picture</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def do_new_picture (decoder, picture):
+    #python implementation of the 'new_picture' virtual method</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>decoder</code></em></i>
+<span>(</span><a title="GstDxva.DxvaAV1Decoder" href="dxva/gstdxvaav1decoder.html#GstDxvaAV1Decoder">GstDxva.DxvaAV1Decoder</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>picture</code></em></i>
+<span>(</span><a title="GstCodecs.CodecPicture" href="codecs/gstcodecpicture.html#GstCodecPicture">GstCodecs.CodecPicture</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Gst.FlowReturn" href="gstreamer/gstpad.html#GstFlowReturn">Gst.FlowReturn</a><span>)</span>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstDxvaAV1DecoderClass::output_picture">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstDxvaAV1DecoderClass::output_picture">
+	<i>output_picture</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GstFlowReturn" href="gstreamer/gstpad.html#GstFlowReturn">GstFlowReturn</a>
+output_picture (<a title="GstDxvaAV1Decoder" href="dxva/gstdxvaav1decoder.html#GstDxvaAV1Decoder">GstDxvaAV1Decoder</a> * decoder,
+                <a title="GstVideoCodecFrame" href="video/gstvideoutils.html#GstVideoCodecFrame">GstVideoCodecFrame</a> * frame,
+                <a title="GstCodecPicture" href="codecs/gstcodecpicture.html#GstCodecPicture">GstCodecPicture</a> * picture,
+                <a title="GstVideoBufferFlags" href="video/video-frame.html#GstVideoBufferFlags">GstVideoBufferFlags</a> buffer_flags,
+                <a title="gint" href="https://docs.gtk.org/glib/types.html#gint">gint</a> display_width,
+                <a title="gint" href="https://docs.gtk.org/glib/types.html#gint">gint</a> display_height)</pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>decoder</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>frame</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>picture</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>buffer_flags</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>display_width</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>display_height</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GstDxvaAV1DecoderClass::output_picture">
+	<i>vfunc_output_picture</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function vfunc_output_picture(decoder: <a title="GstDxva.DxvaAV1Decoder" href="dxva/gstdxvaav1decoder.html#GstDxvaAV1Decoder">GstDxva.DxvaAV1Decoder</a>, frame: <a title="GstVideo.VideoCodecFrame" href="video/gstvideoutils.html#GstVideoCodecFrame">GstVideo.VideoCodecFrame</a>, picture: <a title="GstCodecs.CodecPicture" href="codecs/gstcodecpicture.html#GstCodecPicture">GstCodecs.CodecPicture</a>, buffer_flags: <a title="GstVideo.VideoBufferFlags" href="video/video-frame.html#GstVideoBufferFlags">GstVideo.VideoBufferFlags</a>, display_width: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>, display_height: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>): {
+    // javascript implementation of the 'output_picture' virtual method
+}</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>decoder</code></em></i>
+<span>(</span><a title="GstDxva.DxvaAV1Decoder" href="dxva/gstdxvaav1decoder.html#GstDxvaAV1Decoder">GstDxva.DxvaAV1Decoder</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>frame</code></em></i>
+<span>(</span><a title="GstVideo.VideoCodecFrame" href="video/gstvideoutils.html#GstVideoCodecFrame">GstVideo.VideoCodecFrame</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>picture</code></em></i>
+<span>(</span><a title="GstCodecs.CodecPicture" href="codecs/gstcodecpicture.html#GstCodecPicture">GstCodecs.CodecPicture</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>buffer_flags</code></em></i>
+<span>(</span><a title="GstVideo.VideoBufferFlags" href="video/video-frame.html#GstVideoBufferFlags">GstVideo.VideoBufferFlags</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>display_width</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>display_height</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Gst.FlowReturn" href="gstreamer/gstpad.html#GstFlowReturn">Gst.FlowReturn</a><span>)</span>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GstDxvaAV1DecoderClass::output_picture">
+	<i>do_output_picture</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def do_output_picture (decoder, frame, picture, buffer_flags, display_width, display_height):
+    #python implementation of the 'output_picture' virtual method</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>decoder</code></em></i>
+<span>(</span><a title="GstDxva.DxvaAV1Decoder" href="dxva/gstdxvaav1decoder.html#GstDxvaAV1Decoder">GstDxva.DxvaAV1Decoder</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>frame</code></em></i>
+<span>(</span><a title="GstVideo.VideoCodecFrame" href="video/gstvideoutils.html#GstVideoCodecFrame">GstVideo.VideoCodecFrame</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>picture</code></em></i>
+<span>(</span><a title="GstCodecs.CodecPicture" href="codecs/gstcodecpicture.html#GstCodecPicture">GstCodecs.CodecPicture</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>buffer_flags</code></em></i>
+<span>(</span><a title="GstVideo.VideoBufferFlags" href="video/video-frame.html#GstVideoBufferFlags">GstVideo.VideoBufferFlags</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>display_width</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>display_height</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Gst.FlowReturn" href="gstreamer/gstpad.html#GstFlowReturn">Gst.FlowReturn</a><span>)</span>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstDxvaAV1DecoderClass::start_picture">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstDxvaAV1DecoderClass::start_picture">
+	<i>start_picture</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GstFlowReturn" href="gstreamer/gstpad.html#GstFlowReturn">GstFlowReturn</a>
+start_picture (<a title="GstDxvaAV1Decoder" href="dxva/gstdxvaav1decoder.html#GstDxvaAV1Decoder">GstDxvaAV1Decoder</a> * decoder,
+               <a title="GstCodecPicture" href="codecs/gstcodecpicture.html#GstCodecPicture">GstCodecPicture</a> * picture,
+               <a title="guint8" href="https://docs.gtk.org/glib/types.html#guint8">guint8</a> * picture_id)</pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>decoder</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>picture</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>picture_id</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GstDxvaAV1DecoderClass::start_picture">
+	<i>vfunc_start_picture</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function vfunc_start_picture(decoder: <a title="GstDxva.DxvaAV1Decoder" href="dxva/gstdxvaav1decoder.html#GstDxvaAV1Decoder">GstDxva.DxvaAV1Decoder</a>, picture: <a title="GstCodecs.CodecPicture" href="codecs/gstcodecpicture.html#GstCodecPicture">GstCodecs.CodecPicture</a>, picture_id: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>): {
+    // javascript implementation of the 'start_picture' virtual method
+}</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>decoder</code></em></i>
+<span>(</span><a title="GstDxva.DxvaAV1Decoder" href="dxva/gstdxvaav1decoder.html#GstDxvaAV1Decoder">GstDxva.DxvaAV1Decoder</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>picture</code></em></i>
+<span>(</span><a title="GstCodecs.CodecPicture" href="codecs/gstcodecpicture.html#GstCodecPicture">GstCodecs.CodecPicture</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>picture_id</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Gst.FlowReturn" href="gstreamer/gstpad.html#GstFlowReturn">Gst.FlowReturn</a><span>)</span>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GstDxvaAV1DecoderClass::start_picture">
+	<i>do_start_picture</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def do_start_picture (decoder, picture, picture_id):
+    #python implementation of the 'start_picture' virtual method</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>decoder</code></em></i>
+<span>(</span><a title="GstDxva.DxvaAV1Decoder" href="dxva/gstdxvaav1decoder.html#GstDxvaAV1Decoder">GstDxva.DxvaAV1Decoder</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>picture</code></em></i>
+<span>(</span><a title="GstCodecs.CodecPicture" href="codecs/gstcodecpicture.html#GstCodecPicture">GstCodecs.CodecPicture</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>picture_id</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Gst.FlowReturn" href="gstreamer/gstpad.html#GstFlowReturn">Gst.FlowReturn</a><span>)</span>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+
+
+
+
+
+		
+	</div>
+	<div id="search_results">
+		<p>The results of the search are</p>
+	</div>
+	<div id="footer">
+		    
+
+	</div>
+</div>
+
+<div id="toc-column">
+	
+		<div class="edit-button">
+		
+
+	</div>
+		<div id="toc-wrapper">
+		<nav id="toc"></nav>
+	</div>
+</div>
+</div>
+</main>
+
+
+<script src="assets/js/navbar_offset_scroller.js"></script>
+</body>
+</html>

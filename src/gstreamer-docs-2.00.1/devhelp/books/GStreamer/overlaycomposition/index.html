@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<base href="..">
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<title>overlaycomposition</title>
+
+<link rel="stylesheet" href="assets/css/dark-frontend.css" type="text/css" title="dark">
+<link rel="alternate stylesheet" href="assets/css/light-frontend.css" type="text/css" title="light">
+<link rel="stylesheet" href="assets/css/bootstrap-toc.min.css" type="text/css">
+<link rel="stylesheet" href="assets/css/jquery.mCustomScrollbar.min.css">
+<link rel="stylesheet" href="assets/js/search/enable_search.css" type="text/css">
+
+<link rel="stylesheet" href="assets/css/extra_frontend.css" type="text/css">
+<link rel="stylesheet" href="assets/css/devhelp.css" type="text/css">
+
+<link rel="stylesheet" href="assets/css/prism-tomorrow.css" type="text/css" title="dark">
+
+<link rel="alternate stylesheet" href="assets/css/prism.css" type="text/css" title="light">
+
+<script src="assets/js/mustache.min.js"></script>
+<script src="assets/js/jquery.js"></script>
+<script src="assets/js/bootstrap.js"></script>
+<script src="assets/js/scrollspy.js"></script>
+<script src="assets/js/typeahead.jquery.min.js"></script>
+<script src="assets/js/search.js"></script>
+<script src="assets/js/compare-versions.js"></script>
+<script src="assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="assets/js/bootstrap-toc.min.js"></script>
+<script src="assets/js/jquery.touchSwipe.min.js"></script>
+<script src="assets/js/anchor.min.js"></script>
+<script src="assets/js/tag_filtering.js"></script>
+<script src="assets/js/language_switching.js"></script>
+<script src="assets/js/styleswitcher.js"></script>
+
+<script src="assets/js/lines_around_headings.js"></script>
+
+<script src="assets/js/prism-core.js"></script>
+<script src="assets/js/prism-autoloader.js"></script>
+<script src="assets/js/prism_autoloader_path_override.js"></script>
+<script src="assets/js/trie.js"></script>
+
+<!-- generic -->
+<link rel="icon" type="image/png" href="assets/images/favicon-16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="assets/images/favicon-32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="assets/images/favicon-57.png" sizes="57x57">
+<link rel="icon" type="image/png" href="assets/images/favicon-64.png" sizes="64x64">
+<link rel="icon" type="image/png" href="assets/images/favicon-76.png" sizes="76x76">
+<link rel="icon" type="image/png" href="assets/images/favicon-96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="assets/images/favicon-128.png" sizes="128x128">
+<link rel="icon" type="image/png" href="assets/images/favicon-192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="assets/images/favicon-228.png" sizes="228x228">
+
+<!-- Android -->
+<link rel="shortcut icon" sizes="196x196" href="assets/images/favicon-196.png">
+
+<!-- iOS -->
+<link rel="apple-touch-icon" href="assets/images/favicon-120.png" sizes="120x120">
+<link rel="apple-touch-icon" href="assets/images/favicon-152.png" sizes="152x152">
+<link rel="apple-touch-icon" href="assets/images/favicon-180.png" sizes="180x180">
+
+</head>
+
+<body class="no-script
+">
+
+<script>
+$('body').removeClass('no-script');
+</script>
+
+<nav class="navbar navbar-fixed-top navbar-default" id="topnav">
+	<div class="container-fluid">
+		<div class="navbar-right">
+			<a id="toc-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-wrapper" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<span title="light mode switch" class="glyphicon glyphicon-sunglasses pull-right" id="lightmode-icon"></span>
+			<form class="navbar-form pull-right" id="navbar-search-form">
+                               <div class="form-group has-feedback">
+                                       <input type="text" class="form-control input-sm" name="search" id="sidenav-lookup-field" placeholder="search" disabled>
+				       <span class="glyphicon glyphicon-search form-control-feedback" id="search-mgn-glass"></span>
+                               </div>
+                        </form>
+		</div>
+		<div class="navbar-header">
+			<a id="sidenav-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<a id="home-link" href="index.html" class="hotdoc-navbar-brand">
+				<img src="assets/images/gstreamer-logo.svg" alt="Home">
+			</a>
+		</div>
+		<div class="navbar-collapse collapse" id="navbar-wrapper">
+			<ul class="nav navbar-nav" id="menu">
+				
+<li class="dropdown">
+    <a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        API References<span class="caret"></span>
+    </a>
+	<ul class="dropdown-menu" id="modules-menu">
+					<li>
+				<a href="gstreamer/gi-index.html">GStreamer core</a>
+			</li>
+					<li>
+				<a href="libs.html">GStreamer Libraries</a>
+			</li>
+					<li>
+				<a href="plugins_doc.html">GStreamer Plugins</a>
+			</li>
+		</ul>
+</li>
+
+<li>
+    <a href="application-development/index.html">Application manual</a>
+</li>
+
+
+<li>
+    <a href="tutorials/index.html">Tutorials</a>
+</li>
+
+			</ul>
+			<div class="hidden-xs hidden-sm navbar-text navbar-center">
+							</div>
+		</div>
+	</div>
+</nav>
+
+<main>
+<div data-extension="gst-extension" data-hotdoc-in-toplevel="False" data-hotdoc-project="overlaycomposition" data-hotdoc-ref="index.html" class="page_container" id="page-wrapper" data-hotdoc-meta-gi-languages="['c', 'javascript', 'python']">
+<script src="assets/js/utils.js"></script>
+
+<div class="panel panel-collapse oc-collapsed" id="sidenav" data-hotdoc-role="navigation">
+	<script src="assets/js/full-width.js"></script>
+  <div id="sitenav-wrapper">
+    <iframe src="hotdoc-sitemap.html" id="sitenav-frame"></iframe>
+  </div>
+</div>
+
+<div id="body">
+	<div id="main">
+				    <div id="page-description" data-hotdoc-role="main">
+        <h1 id="overlaycomposition-page">overlaycomposition</h1>
+<p>The overlaycomposition element renders an overlay using an application
+provided draw function.</p>
+<h2 id="example-code">Example code</h2>
+<pre><code class="language-c">#include &lt;gst/gst.h&gt;
+#include &lt;gst/video/video.h&gt;
+
+#include &lt;math.h&gt;
+
+#include &lt;gio/gio.h&gt;
+#include &lt;stdlib.h&gt;
+
+#define VIDEO_WIDTH 720
+#define VIDEO_HEIGHT 480
+#define VIDEO_FPS 50
+
+/* GdkPixbuf RGBA C-Source image dump from gdk-pixbuf-csource --raw,
+ * gzipped and then base64 encoded */
+const gchar gzipped_pixdata_base64[] =
+    "H4sICPX/Z1QAA2xvZ28ucGl4AO2dsZHrNhCG+ewK2II64ClyrhmnTtSBh4kLUOLQAUuwEhSgFtiA"
+    "A7agwA2wBT5AXJ5w4P5LgKLEO97ezDf2SCAIAftjFwuQ7/c///ojy/77+8eP7Jcs+/WfLMv+t/zW"
+    "dV32pSmK3HK6sXZbFOXV9PZfWipLbWksHdHQZxVpZP+Ee7u62/d7rt0fivIqimJnOX+w/zhauq68"
+    "aWjevfdUR1h3vXq/KMqzufueFN1J1FE+stf8KfCzobZ3q/ePojyT3v8gDSyB09GFND7g/N014rpl"
+    "41xF+Wz0/i817nwFjepP+Rb0PnDwOUOehePyQq1eurlrSkXZOkVx7OblbGK43upf+zcqyldhOT22"
+    "5GvV9ynKXIriQDpKye242Ldcve2KskX6deaRWVeebnpdu32Koryc4t/iaKksmm9Vvg3W3neWk+Vs"
+    "qS2tpSOu9NmZtLG4f7R15paS7jXct1q7XxTl2ZDd157dp1A/6q9I+1Wg+QH1g8pmcb7M0szUHseV"
+    "/KTTtJg39XyudH/NASmbhfzOUtqTNHmhew1cglhT9ad8O16kv7m4eFT3/pVNQ77IX8shLgW/RnsW"
+    "Li7V5y4UJaDo9wnOT9Sjq1fzn4oSQXHft4tZ00Vpr5jI3yiKwmO1sy/63GZKzNpS+dVyLsaYneVk"
+    "Ud+rbIqi32M/kC7DtaXzn6vt9Vm95ZbS0lg64rx2nynKdyHQ3oC+A06ZxdtbkztWundpqS1fKo5j"
+    "9OfQ8+jKJNbW987eye47QGO5WE6u/BPakJP2rt4927X7JhanNaBBzQUpEMbmU2hJk66O2ftt7lrS"
+    "f8vc4yl+0P7llspyWapOl3th9Hdde4yVz4m17eMD2pP8ZBXjI0l3J7oG1Rf1DlH7dyBOpKuB2+dB"
+    "2ZzKXS3ugw9+lnKZB49oH2bL1owGH9K4vX5P7Yg+0+O1/Uj/XSRm8ep9Ws6LclrRfe+N1+xYIxjz"
+    "49Jrh6D+m68inSypPeQja7pXRZp3/z1P6M7XM+xX+7eznElHc3E63Hv2xWmoo89H4yLEnpDg+orq"
+    "DsnJFq7oWqYtLhd7sbTg3i3dL2VO2Xlt5Oo7DzY1Uc8VtOng9eMZtP0ctpnmJa787Tcm/jbUtmHc"
+    "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";
+
+static GstBuffer *logo_buf;
+
+static GMainLoop *main_loop;
+static gint count;
+
+static GstBuffer *
+create_overlay_buffer (void)
+{
+  GZlibDecompressor *decompress;
+  GConverterResult decomp_res GST_UNUSED_ASSERT;
+  guchar *gzipped_pixdata, *pixdata;
+  gsize gzipped_size, bytes_read, pixdata_size;
+  GstBuffer *logo_pixels;
+  guint w, h, stride;
+
+  gzipped_pixdata = g_base64_decode (gzipped_pixdata_base64, &amp;gzipped_size);
+  g_assert (gzipped_pixdata != NULL);
+
+  pixdata = g_malloc (64 * 1024);
+
+  decompress = g_zlib_decompressor_new (G_ZLIB_COMPRESSOR_FORMAT_GZIP);
+  decomp_res = g_converter_convert (G_CONVERTER (decompress),
+      gzipped_pixdata, gzipped_size, pixdata, 64 * 1024,
+      G_CONVERTER_INPUT_AT_END, &amp;bytes_read, &amp;pixdata_size, NULL);
+  g_assert (decomp_res == G_CONVERTER_FINISHED);
+  g_assert (bytes_read == gzipped_size);
+  g_free (gzipped_pixdata);
+  g_object_unref (decompress);
+
+  /* 0: Pixbuf magic (0x47646b50) */
+  g_assert (GST_READ_UINT32_BE (pixdata) == 0x47646b50);
+
+  /* 4: length incl. header */
+  /* 8: pixdata_type */
+  /* 12: rowstride (900) */
+  stride = GST_READ_UINT32_BE (pixdata + 12);
+  /* 16: width (225) */
+  w = GST_READ_UINT32_BE (pixdata + 16);
+  /* 20: height (57) */
+  h = GST_READ_UINT32_BE (pixdata + 20);
+  /* 24: pixel_data */
+  GST_LOG ("%dx%d @ %d", w, h, stride);
+  /* we assume that the last line also has padding at the end */
+  g_assert (pixdata_size - 24 &gt;= h * stride);
+
+  logo_pixels = gst_buffer_new_and_alloc (h * stride);
+  gst_buffer_fill (logo_pixels, 0, pixdata + 24, h * stride);
+  gst_buffer_add_video_meta (logo_pixels, GST_VIDEO_FRAME_FLAG_NONE,
+      GST_VIDEO_OVERLAY_COMPOSITION_FORMAT_RGB, w, h);
+
+  g_free (pixdata);
+
+  return logo_pixels;
+}
+
+static gboolean
+message_cb (GstBus * bus, GstMessage * message, gpointer user_data)
+{
+  switch (GST_MESSAGE_TYPE (message)) {
+    case GST_MESSAGE_ERROR:{
+      GError *err = NULL;
+      gchar *name, *debug = NULL;
+
+      name = gst_object_get_path_string (message-&gt;src);
+      gst_message_parse_error (message, &amp;err, &amp;debug);
+
+      g_printerr ("ERROR: from element %s: %s\n", name, err-&gt;message);
+      if (debug != NULL)
+        g_printerr ("Additional debug info:\n%s\n", debug);
+
+      g_error_free (err);
+      g_free (debug);
+      g_free (name);
+
+      g_main_loop_quit (main_loop);
+      break;
+    }
+    case GST_MESSAGE_WARNING:{
+      GError *err = NULL;
+      gchar *name, *debug = NULL;
+
+      name = gst_object_get_path_string (message-&gt;src);
+      gst_message_parse_warning (message, &amp;err, &amp;debug);
+
+      g_printerr ("ERROR: from element %s: %s\n", name, err-&gt;message);
+      if (debug != NULL)
+        g_printerr ("Additional debug info:\n%s\n", debug);
+
+      g_error_free (err);
+      g_free (debug);
+      g_free (name);
+      break;
+    }
+    case GST_MESSAGE_EOS:
+      g_print ("Got EOS\n");
+      g_main_loop_quit (main_loop);
+      break;
+    default:
+      break;
+  }
+
+  return TRUE;
+}
+
+typedef struct
+{
+  gboolean valid;
+  GstVideoInfo info;
+} OverlayState;
+
+static void
+prepare_overlay (GstElement * overlay, GstCaps * caps, gint window_width,
+    gint window_height, gpointer user_data)
+{
+  OverlayState *s = (OverlayState *) user_data;
+
+  if (gst_video_info_from_caps (&amp;s-&gt;info, caps))
+    s-&gt;valid = TRUE;
+  else
+    s-&gt;valid = FALSE;
+}
+
+#define SPEED_SCALE_FACTOR (VIDEO_FPS * 4)
+
+/* nicked from videotestsrc's ball pattern renderer */
+static void
+calculate_position (gint * x, gint * y, guint logo_w, guint logo_h, guint n)
+{
+  guint r_x = logo_w / 2;
+  guint r_y = logo_h / 2;
+  guint w = VIDEO_WIDTH + logo_w;
+  guint h = VIDEO_HEIGHT + logo_h;
+
+  *x = r_x + (0.5 + 0.5 * sin (2 * G_PI * n / SPEED_SCALE_FACTOR))
+      * (w - 2 * r_x);
+  *y = r_y + (0.5 + 0.5 * sin (2 * G_PI * sqrt (2) * n / SPEED_SCALE_FACTOR))
+      * (h - 2 * r_y);
+
+  *x -= logo_w;
+  *y -= logo_h;
+}
+
+static GstVideoOverlayComposition *
+draw_overlay (GstElement * overlay, GstSample * sample, gpointer user_data)
+{
+  OverlayState *s = (OverlayState *) user_data;
+  GstVideoOverlayRectangle *rect;
+  GstVideoOverlayComposition *comp;
+  GstVideoMeta *vmeta;
+  gint x, y;
+
+  if (!s-&gt;valid)
+    return NULL;
+
+  vmeta = gst_buffer_get_video_meta (logo_buf);
+  calculate_position (&amp;x, &amp;y, vmeta-&gt;width, vmeta-&gt;height, ++count);
+
+  rect = gst_video_overlay_rectangle_new_raw (logo_buf, x, y,
+      vmeta-&gt;width, vmeta-&gt;height, GST_VIDEO_OVERLAY_FORMAT_FLAG_NONE);
+  comp = gst_video_overlay_composition_new (rect);
+  gst_video_overlay_rectangle_unref (rect);
+
+  return comp;
+}
+
+int
+main (int argc, char **argv)
+{
+  GstElement *pipeline;
+  GstElement *src, *capsfilter, *overlay, *conv, *sink;
+  GstBus *bus;
+  GstCaps *filter_caps;
+  OverlayState overlay_state = { 0, };
+  GOptionContext *option_ctx;
+  GError *error = NULL;
+  gchar *video_sink = NULL;
+  gboolean ret;
+  GOptionEntry options[] = {
+    {"videosink", 0, 0, G_OPTION_ARG_STRING, &amp;video_sink,
+        "Video sink element to use (default is autovideosink)", NULL},
+    {NULL}
+  };
+
+  option_ctx = g_option_context_new ("- test overlaycomposition");
+  g_option_context_add_main_entries (option_ctx, options, NULL);
+  g_option_context_add_group (option_ctx, gst_init_get_option_group ());
+  ret = g_option_context_parse (option_ctx, &amp;argc, &amp;argv, &amp;error);
+  g_option_context_free (option_ctx);
+
+  if (!ret) {
+    g_printerr ("option parsing failed: %s\n", error-&gt;message);
+    g_clear_error (&amp;error);
+    exit (1);
+  }
+
+  pipeline = gst_pipeline_new (NULL);
+  src = gst_element_factory_make ("videotestsrc", NULL);
+  capsfilter = gst_element_factory_make ("capsfilter", NULL);
+  overlay = gst_element_factory_make ("overlaycomposition", NULL);
+  conv = gst_element_factory_make ("videoconvert", NULL);
+
+  if (!video_sink)
+    video_sink = g_strdup ("autovideosink");
+
+  sink = gst_element_factory_make (video_sink, NULL);
+  g_free (video_sink);
+
+  if (!pipeline || !src || !capsfilter || !overlay || !conv || !sink) {
+    g_error ("Failed to create elements");
+    return -1;
+  }
+
+  gst_bin_add_many (GST_BIN (pipeline), src, capsfilter, overlay, conv, sink,
+      NULL);
+  if (!gst_element_link_many (src, capsfilter, overlay, conv, sink, NULL)) {
+    g_error ("Failed to link elements");
+    return -2;
+  }
+
+  filter_caps = gst_caps_from_string ("video/x-raw, format = "
+      GST_VIDEO_OVERLAY_COMPOSITION_BLEND_FORMATS);
+  gst_caps_set_simple (filter_caps,
+      "width", G_TYPE_INT, VIDEO_WIDTH,
+      "height", G_TYPE_INT, VIDEO_HEIGHT,
+      "framerate", GST_TYPE_FRACTION, VIDEO_FPS, 1, NULL);
+  g_object_set (capsfilter, "caps", filter_caps, NULL);
+  gst_caps_unref (filter_caps);
+
+  g_signal_connect (overlay, "draw", G_CALLBACK (draw_overlay), &amp;overlay_state);
+  g_signal_connect (overlay, "caps-changed",
+      G_CALLBACK (prepare_overlay), &amp;overlay_state);
+
+  count = 0;
+  logo_buf = create_overlay_buffer ();
+
+  main_loop = g_main_loop_new (NULL, FALSE);
+
+  bus = gst_pipeline_get_bus (GST_PIPELINE (pipeline));
+  gst_bus_add_signal_watch (bus);
+  g_signal_connect (G_OBJECT (bus), "message", G_CALLBACK (message_cb), NULL);
+  gst_object_unref (GST_OBJECT (bus));
+
+  if (gst_element_set_state (pipeline,
+          GST_STATE_PLAYING) == GST_STATE_CHANGE_FAILURE) {
+    g_error ("Failed to go into PLAYING state");
+    return -3;
+  }
+
+  g_main_loop_run (main_loop);
+
+  gst_element_set_state (pipeline, GST_STATE_NULL);
+
+  g_main_loop_unref (main_loop);
+  gst_object_unref (pipeline);
+
+  return 0;
+}
+
+</code></pre>
+
+    </div>
+        
+        
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="plugin-overlaycomposition">
+	
+        <div class="base_symbol_container">
+        </div>
+
+</div>
+
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="overlaycomposition">
+	
+        
+
+        <h2>Hierarchy</h2>
+            <div class="hierarchy_container">
+                <div class="hierarchy_details">
+<pre>
+<a title="GObject" href="https://docs.gtk.org/gobject/class.Object.html" data-gi-href-javascript="https://docs.gtk.org/gobject/class.Object.html" data-gi-title-javascript="GObject.Object" data-gi-href-python="https://docs.gtk.org/gobject/class.Object.html" data-gi-title-python="GObject.Object">GObject</a>
+    <span class="lineart">╰──</span><a title="GInitiallyUnowned" href="https://docs.gtk.org/gobject/class.InitiallyUnowned.html" data-gi-href-javascript="https://docs.gtk.org/gobject/class.InitiallyUnowned.html" data-gi-title-javascript="GObject.InitiallyUnowned" data-gi-href-python="https://docs.gtk.org/gobject/class.InitiallyUnowned.html" data-gi-title-python="GObject.InitiallyUnowned">GInitiallyUnowned</a>
+        <span class="lineart">╰──</span><a title="GstObject" href="gstreamer/gstobject.html#GstObject" data-gi-href-javascript="gstreamer/gstobject.html#GstObject" data-gi-title-javascript="Gst.Object" data-gi-href-python="gstreamer/gstobject.html#GstObject" data-gi-title-python="Gst.Object">GstObject</a>
+            <span class="lineart">╰──</span><a title="GstElement" href="gstreamer/gstelement.html#GstElement" data-gi-href-javascript="gstreamer/gstelement.html#GstElement" data-gi-title-javascript="Gst.Element" data-gi-href-python="gstreamer/gstelement.html#GstElement" data-gi-title-python="Gst.Element">GstElement</a>
+                <span class="lineart">╰──</span>overlaycomposition
+</pre>
+
+</div>
+
+            </div>
+        <h2 class="symbol_section">Factory details</h2>
+        <div class="symbol-detail">
+            <p><b>Authors:</b> – Sebastian Dröge <sebastian@centricular.com></sebastian@centricular.com></p>
+            <p><b>Classification:</b> – <code>Filter/Editor/Video</code></p>
+            <p><b>Rank</b> – none</p>
+            <p><b>Plugin</b> – overlaycomposition</p>
+            <p><b>Package</b> – GStreamer Base Plug-ins</p>
+        </div>
+
+</div>
+
+
+            <h2 class="symbol_section">Pad Templates</h2>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstOverlayComposition!sink">
+	
+
+
+
+        <h3><span><code>sink</code></span></h3>
+
+
+        <div>
+            
+            <pre class="language-yaml"><code class="language-yaml">video/x-raw:
+         format: { A444_16LE, A444_16BE, Y416_LE, AYUV64, RGBA64_LE, ARGB64, ARGB64_LE, BGRA64_LE, ABGR64_LE, Y416_BE, RGBA64_BE, ARGB64_BE, BGRA64_BE, ABGR64_BE, A422_16LE, A422_16BE, A420_16LE, A420_16BE, A444_12LE, GBRA_12LE, A444_12BE, GBRA_12BE, Y412_LE, Y412_BE, A422_12LE, A422_12BE, A420_12LE, A420_12BE, A444_10LE, GBRA_10LE, A444_10BE, GBRA_10BE, A422_10LE, A422_10BE, A420_10LE, A420_10BE, BGR10A2_LE, RGB10A2_LE, Y410, A444, GBRA, AYUV, VUYA, RGBA, RBGA, ARGB, BGRA, ABGR, A422, A420, AV12, Y444_16LE, GBR_16LE, Y444_16BE, GBR_16BE, Y216_LE, Y216_BE, v216, P016_LE, P016_BE, Y444_12LE, GBR_12LE, Y444_12BE, GBR_12BE, I422_12LE, I422_12BE, Y212_LE, Y212_BE, I420_12LE, I420_12BE, P012_LE, P012_BE, Y444_10LE, GBR_10LE, Y444_10BE, GBR_10BE, BGR10x2_LE, RGB10x2_LE, r210, I422_10LE, I422_10BE, NV16_10LE40, NV16_10LE32, Y210, UYVP, v210, I420_10LE, I420_10BE, P010_10LE, NV12_10LE40, NV12_10LE32, P010_10BE, MT2110R, MT2110T, NV12_10BE_8L128, NV12_10LE40_4L4, Y444, BGRP, GBR, RGBP, NV24, v308, IYU2, RGBx, xRGB, BGRx, xBGR, RGB, BGR, Y42B, NV16, NV61, YUY2, YVYU, UYVY, VYUY, I420, YV12, NV12, NV21, NV12_16L32S, NV12_32L32, NV12_4L4, NV12_64Z32, NV12_8L128, Y41B, IYU1, YUV9, YVU9, BGR16, RGB16, BGR15, RGB15, RGB8P, GRAY16_LE, GRAY16_BE, GRAY10_LE16, GRAY10_LE32, GRAY8 }
+          width: [ 1, 2147483647 ]
+         height: [ 1, 2147483647 ]
+      framerate: [ 0/1, 2147483647/1 ]
+
+video/x-raw(ANY):
+         format: { DMA_DRM, A444_16LE, A444_16BE, Y416_LE, AYUV64, RGBA64_LE, ARGB64, ARGB64_LE, BGRA64_LE, ABGR64_LE, Y416_BE, RGBA64_BE, ARGB64_BE, BGRA64_BE, ABGR64_BE, A422_16LE, A422_16BE, A420_16LE, A420_16BE, A444_12LE, GBRA_12LE, A444_12BE, GBRA_12BE, Y412_LE, Y412_BE, A422_12LE, A422_12BE, A420_12LE, A420_12BE, A444_10LE, GBRA_10LE, A444_10BE, GBRA_10BE, A422_10LE, A422_10BE, A420_10LE, A420_10BE, BGR10A2_LE, RGB10A2_LE, Y410, A444, GBRA, AYUV, VUYA, RGBA, RBGA, ARGB, BGRA, ABGR, A422, A420, AV12, Y444_16LE, GBR_16LE, Y444_16BE, GBR_16BE, Y216_LE, Y216_BE, v216, P016_LE, P016_BE, Y444_12LE, GBR_12LE, Y444_12BE, GBR_12BE, I422_12LE, I422_12BE, Y212_LE, Y212_BE, I420_12LE, I420_12BE, P012_LE, P012_BE, Y444_10LE, GBR_10LE, Y444_10BE, GBR_10BE, BGR10x2_LE, RGB10x2_LE, r210, I422_10LE, I422_10BE, NV16_10LE40, NV16_10LE32, Y210, UYVP, v210, I420_10LE, I420_10BE, P010_10LE, NV12_10LE40, NV12_10LE32, P010_10BE, MT2110R, MT2110T, NV12_10BE_8L128, NV12_10LE40_4L4, Y444, BGRP, GBR, RGBP, NV24, v308, IYU2, RGBx, xRGB, BGRx, xBGR, RGB, BGR, Y42B, NV16, NV61, YUY2, YVYU, UYVY, VYUY, I420, YV12, NV12, NV21, NV12_16L32S, NV12_32L32, NV12_4L4, NV12_64Z32, NV12_8L128, Y41B, IYU1, YUV9, YVU9, BGR16, RGB16, BGR15, RGB15, RGB8P, GRAY16_LE, GRAY16_BE, GRAY10_LE16, GRAY10_LE32, GRAY8 }
+          width: [ 1, 2147483647 ]
+         height: [ 1, 2147483647 ]
+      framerate: [ 0/1, 2147483647/1 ]
+</code></pre>
+            <div class="symbol-detail">
+                <p><b>Presence</b> – <i>always</i></p>
+                <p><b>Direction</b> – <i>sink</i></p>
+                    <p><b>Object type</b> – <a title="GstPad" href="gstreamer/gstpad.html#GstPad" data-gi-href-javascript="gstreamer/gstpad.html#GstPad" data-gi-title-javascript="Gst.Pad" data-gi-href-python="gstreamer/gstpad.html#GstPad" data-gi-title-python="Gst.Pad">GstPad</a></p>
+            </div>
+        </div>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstOverlayComposition!src">
+	
+
+
+
+        <h3><span><code>src</code></span></h3>
+
+
+        <div>
+            
+            <pre class="language-yaml"><code class="language-yaml">video/x-raw:
+         format: { A444_16LE, A444_16BE, Y416_LE, AYUV64, RGBA64_LE, ARGB64, ARGB64_LE, BGRA64_LE, ABGR64_LE, Y416_BE, RGBA64_BE, ARGB64_BE, BGRA64_BE, ABGR64_BE, A422_16LE, A422_16BE, A420_16LE, A420_16BE, A444_12LE, GBRA_12LE, A444_12BE, GBRA_12BE, Y412_LE, Y412_BE, A422_12LE, A422_12BE, A420_12LE, A420_12BE, A444_10LE, GBRA_10LE, A444_10BE, GBRA_10BE, A422_10LE, A422_10BE, A420_10LE, A420_10BE, BGR10A2_LE, RGB10A2_LE, Y410, A444, GBRA, AYUV, VUYA, RGBA, RBGA, ARGB, BGRA, ABGR, A422, A420, AV12, Y444_16LE, GBR_16LE, Y444_16BE, GBR_16BE, Y216_LE, Y216_BE, v216, P016_LE, P016_BE, Y444_12LE, GBR_12LE, Y444_12BE, GBR_12BE, I422_12LE, I422_12BE, Y212_LE, Y212_BE, I420_12LE, I420_12BE, P012_LE, P012_BE, Y444_10LE, GBR_10LE, Y444_10BE, GBR_10BE, BGR10x2_LE, RGB10x2_LE, r210, I422_10LE, I422_10BE, NV16_10LE40, NV16_10LE32, Y210, UYVP, v210, I420_10LE, I420_10BE, P010_10LE, NV12_10LE40, NV12_10LE32, P010_10BE, MT2110R, MT2110T, NV12_10BE_8L128, NV12_10LE40_4L4, Y444, BGRP, GBR, RGBP, NV24, v308, IYU2, RGBx, xRGB, BGRx, xBGR, RGB, BGR, Y42B, NV16, NV61, YUY2, YVYU, UYVY, VYUY, I420, YV12, NV12, NV21, NV12_16L32S, NV12_32L32, NV12_4L4, NV12_64Z32, NV12_8L128, Y41B, IYU1, YUV9, YVU9, BGR16, RGB16, BGR15, RGB15, RGB8P, GRAY16_LE, GRAY16_BE, GRAY10_LE16, GRAY10_LE32, GRAY8 }
+          width: [ 1, 2147483647 ]
+         height: [ 1, 2147483647 ]
+      framerate: [ 0/1, 2147483647/1 ]
+
+video/x-raw(ANY):
+         format: { DMA_DRM, A444_16LE, A444_16BE, Y416_LE, AYUV64, RGBA64_LE, ARGB64, ARGB64_LE, BGRA64_LE, ABGR64_LE, Y416_BE, RGBA64_BE, ARGB64_BE, BGRA64_BE, ABGR64_BE, A422_16LE, A422_16BE, A420_16LE, A420_16BE, A444_12LE, GBRA_12LE, A444_12BE, GBRA_12BE, Y412_LE, Y412_BE, A422_12LE, A422_12BE, A420_12LE, A420_12BE, A444_10LE, GBRA_10LE, A444_10BE, GBRA_10BE, A422_10LE, A422_10BE, A420_10LE, A420_10BE, BGR10A2_LE, RGB10A2_LE, Y410, A444, GBRA, AYUV, VUYA, RGBA, RBGA, ARGB, BGRA, ABGR, A422, A420, AV12, Y444_16LE, GBR_16LE, Y444_16BE, GBR_16BE, Y216_LE, Y216_BE, v216, P016_LE, P016_BE, Y444_12LE, GBR_12LE, Y444_12BE, GBR_12BE, I422_12LE, I422_12BE, Y212_LE, Y212_BE, I420_12LE, I420_12BE, P012_LE, P012_BE, Y444_10LE, GBR_10LE, Y444_10BE, GBR_10BE, BGR10x2_LE, RGB10x2_LE, r210, I422_10LE, I422_10BE, NV16_10LE40, NV16_10LE32, Y210, UYVP, v210, I420_10LE, I420_10BE, P010_10LE, NV12_10LE40, NV12_10LE32, P010_10BE, MT2110R, MT2110T, NV12_10BE_8L128, NV12_10LE40_4L4, Y444, BGRP, GBR, RGBP, NV24, v308, IYU2, RGBx, xRGB, BGRx, xBGR, RGB, BGR, Y42B, NV16, NV61, YUY2, YVYU, UYVY, VYUY, I420, YV12, NV12, NV21, NV12_16L32S, NV12_32L32, NV12_4L4, NV12_64Z32, NV12_8L128, Y41B, IYU1, YUV9, YVU9, BGR16, RGB16, BGR15, RGB15, RGB8P, GRAY16_LE, GRAY16_BE, GRAY10_LE16, GRAY10_LE32, GRAY8 }
+          width: [ 1, 2147483647 ]
+         height: [ 1, 2147483647 ]
+      framerate: [ 0/1, 2147483647/1 ]
+</code></pre>
+            <div class="symbol-detail">
+                <p><b>Presence</b> – <i>always</i></p>
+                <p><b>Direction</b> – <i>src</i></p>
+                    <p><b>Object type</b> – <a title="GstPad" href="gstreamer/gstpad.html#GstPad" data-gi-href-javascript="gstreamer/gstpad.html#GstPad" data-gi-title-javascript="Gst.Pad" data-gi-href-python="gstreamer/gstpad.html#GstPad" data-gi-title-python="Gst.Pad">GstPad</a></p>
+            </div>
+        </div>
+
+
+
+<hr>
+
+</div>
+
+
+            <h2 class="symbol_section">Signals</h2>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="overlaycomposition::caps-changed">
+	
+
+
+
+<h3 data-hotdoc-id="overlaycomposition::caps-changed">
+	<i>caps-changed</i>
+</h3>
+
+
+
+
+<pre class="c-prototype language-c">
+caps_changed_callback (<a title="GstElement" href="gstreamer/gstelement.html#GstElement" data-gi-href-javascript="gstreamer/gstelement.html#GstElement" data-gi-title-javascript="Gst.Element" data-gi-href-python="gstreamer/gstelement.html#GstElement" data-gi-title-python="Gst.Element">GstElement</a> <span class="pointer-token">*</span> overlay,
+                       <a title="GstCaps" href="gstreamer/gstcaps.html#GstCaps" data-gi-href-javascript="gstreamer/gstcaps.html#GstCaps" data-gi-title-javascript="Gst.Caps" data-gi-href-python="gstreamer/gstcaps.html#GstCaps" data-gi-title-python="Gst.Caps">GstCaps</a> <span class="pointer-token">*</span> caps,
+                       <a title="guint" href="https://docs.gtk.org/glib/types.html#guint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">guint</a> window_width,
+                       <a title="guint" href="https://docs.gtk.org/glib/types.html#guint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">guint</a> window_height,
+                       <a title="gpointer" href="https://docs.gtk.org/glib/types.html#gpointer" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" data-gi-title-javascript="Object" data-gi-href-python="https://docs.python.org/3/library/functions.html#object" data-gi-title-python="object">gpointer</a> udata)</pre>
+<pre class="python-prototype language-python">
+<code>def caps_changed_callback (overlay, caps, window_width, window_height, udata):
+    #python callback for the 'caps-changed' signal</code></pre>
+<pre class="javascript-prototype language-javascript">
+<code>function caps_changed_callback(overlay: <a title="GstElement" href="gstreamer/gstelement.html#GstElement" data-gi-href-javascript="gstreamer/gstelement.html#GstElement" data-gi-title-javascript="Gst.Element" data-gi-href-python="gstreamer/gstelement.html#GstElement" data-gi-title-python="Gst.Element">GstElement</a> <span class="pointer-token">*</span> overlay, caps: <a title="GstCaps" href="gstreamer/gstcaps.html#GstCaps" data-gi-href-javascript="gstreamer/gstcaps.html#GstCaps" data-gi-title-javascript="Gst.Caps" data-gi-href-python="gstreamer/gstcaps.html#GstCaps" data-gi-title-python="Gst.Caps">GstCaps</a> <span class="pointer-token">*</span> caps, window_width: <a title="guint" href="https://docs.gtk.org/glib/types.html#guint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">guint</a> window_width, window_height: <a title="guint" href="https://docs.gtk.org/glib/types.html#guint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">guint</a> window_height, udata: <a title="gpointer" href="https://docs.gtk.org/glib/types.html#gpointer" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" data-gi-title-javascript="Object" data-gi-href-python="https://docs.python.org/3/library/functions.html#object" data-gi-title-python="object">gpointer</a> udata): {
+    // javascript callback for the 'caps-changed' signal
+}</code></pre>
+
+<p>This signal is emitted when the caps of the element has changed.</p>
+<p>The window width and height define the resolution at which the frame is
+going to be rendered in the end by e.g. a video sink (i.e. the window
+size).</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>overlay</code></em></i>
+–
+</div>
+<p>Overlay element emitting the signal.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>caps</code></em></i>
+–
+</div>
+<p>The <a href="gstreamer/gstcaps.html#GstCaps" data-gi-href-javascript="gstreamer/gstcaps.html#GstCaps" data-gi-title-javascript="Gst.Caps" data-gi-href-python="gstreamer/gstcaps.html#GstCaps" data-gi-title-python="Gst.Caps">GstCaps</a> of the element.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>window_width</code></em></i>
+–
+</div>
+<p>The window render width of downstream, or 0.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>window_height</code></em></i>
+–
+</div>
+<p>The window render height of downstream, or 0.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>udata</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+<p>
+	<b>Flags:</b>	
+
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="overlaycomposition::draw">
+	
+
+
+
+<h3 data-hotdoc-id="overlaycomposition::draw">
+	<i>draw</i>
+</h3>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GstVideoOverlayComposition" href="video/gstvideooverlaycomposition.html#GstVideoOverlayComposition" data-gi-href-javascript="video/gstvideooverlaycomposition.html#GstVideoOverlayComposition" data-gi-title-javascript="GstVideo.VideoOverlayComposition" data-gi-href-python="video/gstvideooverlaycomposition.html#GstVideoOverlayComposition" data-gi-title-python="GstVideo.VideoOverlayComposition">GstVideoOverlayComposition</a> <span class="pointer-token">*</span>
+draw_callback (<a title="GstElement" href="gstreamer/gstelement.html#GstElement" data-gi-href-javascript="gstreamer/gstelement.html#GstElement" data-gi-title-javascript="Gst.Element" data-gi-href-python="gstreamer/gstelement.html#GstElement" data-gi-title-python="Gst.Element">GstElement</a> <span class="pointer-token">*</span> overlay,
+               <a title="GstSample" href="gstreamer/gstsample.html#GstSample" data-gi-href-javascript="gstreamer/gstsample.html#GstSample" data-gi-title-javascript="Gst.Sample" data-gi-href-python="gstreamer/gstsample.html#GstSample" data-gi-title-python="Gst.Sample">GstSample</a> <span class="pointer-token">*</span> sample,
+               <a title="gpointer" href="https://docs.gtk.org/glib/types.html#gpointer" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" data-gi-title-javascript="Object" data-gi-href-python="https://docs.python.org/3/library/functions.html#object" data-gi-title-python="object">gpointer</a> udata)</pre>
+<pre class="python-prototype language-python">
+<code>def draw_callback (overlay, sample, udata):
+    #python callback for the 'draw' signal</code></pre>
+<pre class="javascript-prototype language-javascript">
+<code>function draw_callback(overlay: <a title="GstElement" href="gstreamer/gstelement.html#GstElement" data-gi-href-javascript="gstreamer/gstelement.html#GstElement" data-gi-title-javascript="Gst.Element" data-gi-href-python="gstreamer/gstelement.html#GstElement" data-gi-title-python="Gst.Element">GstElement</a> <span class="pointer-token">*</span> overlay, sample: <a title="GstSample" href="gstreamer/gstsample.html#GstSample" data-gi-href-javascript="gstreamer/gstsample.html#GstSample" data-gi-title-javascript="Gst.Sample" data-gi-href-python="gstreamer/gstsample.html#GstSample" data-gi-title-python="Gst.Sample">GstSample</a> <span class="pointer-token">*</span> sample, udata: <a title="gpointer" href="https://docs.gtk.org/glib/types.html#gpointer" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" data-gi-title-javascript="Object" data-gi-href-python="https://docs.python.org/3/library/functions.html#object" data-gi-title-python="object">gpointer</a> udata): {
+    // javascript callback for the 'draw' signal
+}</code></pre>
+
+<p>This signal is emitted when the overlay should be drawn.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>overlay</code></em></i>
+–
+</div>
+<p>Overlay element emitting the signal.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>sample</code></em></i>
+–
+</div>
+<p><a href="gstreamer/gstsample.html#GstSample" data-gi-href-javascript="gstreamer/gstsample.html#GstSample" data-gi-title-javascript="Gst.Sample" data-gi-href-python="gstreamer/gstsample.html#GstSample" data-gi-title-python="Gst.Sample">GstSample</a> containing the current buffer, caps and segment.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>udata</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GstVideoOverlayComposition" href="video/gstvideooverlaycomposition.html#GstVideoOverlayComposition" data-gi-href-javascript="video/gstvideooverlaycomposition.html#GstVideoOverlayComposition" data-gi-title-javascript="GstVideo.VideoOverlayComposition" data-gi-href-python="video/gstvideooverlaycomposition.html#GstVideoOverlayComposition" data-gi-title-python="GstVideo.VideoOverlayComposition">GstVideoOverlayComposition</a> <span class="pointer-token">*</span><span>)</span>
+–
+			</div>
+							<p><a href="video/gstvideooverlaycomposition.html#GstVideoOverlayComposition" data-gi-href-javascript="video/gstvideooverlaycomposition.html#GstVideoOverlayComposition" data-gi-title-javascript="GstVideo.VideoOverlayComposition" data-gi-href-python="video/gstvideooverlaycomposition.html#GstVideoOverlayComposition" data-gi-title-python="GstVideo.VideoOverlayComposition">GstVideoOverlayComposition</a> or <a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#NULL:CAPS" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null" data-gi-title-javascript="null" data-gi-href-python="https://docs.python.org/3/library/constants.html#None" data-gi-title-python="None">NULL</a></p>
+
+					</div>
+	</div>
+
+
+<p>
+	<b>Flags:</b>	
+
+</p>
+
+
+
+<hr>
+
+</div>
+
+
+
+
+
+
+		
+	</div>
+	<div id="search_results">
+		<p>The results of the search are</p>
+	</div>
+	<div id="footer">
+		    
+
+	</div>
+</div>
+
+<div id="toc-column">
+	
+		<div class="edit-button">
+		
+
+	</div>
+		<div id="toc-wrapper">
+		<nav id="toc"></nav>
+	</div>
+</div>
+</div>
+</main>
+
+
+<script src="assets/js/navbar_offset_scroller.js"></script>
+</body>
+</html>

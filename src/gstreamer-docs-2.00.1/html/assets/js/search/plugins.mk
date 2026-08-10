@@ -1,0 +1,1 @@
+urls_downloaded_cb({"token":"plugins.mk","urls":[{"url":"installing/for-android-development.html#creating-new-projects","node_type":"p","page":"Installing for Android development","sections":["Installing for Android development","Configure your development environment","Creating new projects"],"context":{"gi-language":["default"]}}]});

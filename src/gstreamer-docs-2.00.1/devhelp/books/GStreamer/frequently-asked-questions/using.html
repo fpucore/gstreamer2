@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<base href="..">
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<title>Using GStreamer</title>
+
+<link rel="stylesheet" href="assets/css/dark-frontend.css" type="text/css" title="dark">
+<link rel="alternate stylesheet" href="assets/css/light-frontend.css" type="text/css" title="light">
+<link rel="stylesheet" href="assets/css/bootstrap-toc.min.css" type="text/css">
+<link rel="stylesheet" href="assets/css/jquery.mCustomScrollbar.min.css">
+<link rel="stylesheet" href="assets/js/search/enable_search.css" type="text/css">
+
+<link rel="stylesheet" href="assets/css/extra_frontend.css" type="text/css">
+<link rel="stylesheet" href="assets/css/devhelp.css" type="text/css">
+
+<link rel="stylesheet" href="assets/css/prism-tomorrow.css" type="text/css" title="dark">
+
+<link rel="alternate stylesheet" href="assets/css/prism.css" type="text/css" title="light">
+
+<script src="assets/js/mustache.min.js"></script>
+<script src="assets/js/jquery.js"></script>
+<script src="assets/js/bootstrap.js"></script>
+<script src="assets/js/scrollspy.js"></script>
+<script src="assets/js/typeahead.jquery.min.js"></script>
+<script src="assets/js/search.js"></script>
+<script src="assets/js/compare-versions.js"></script>
+<script src="assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="assets/js/bootstrap-toc.min.js"></script>
+<script src="assets/js/jquery.touchSwipe.min.js"></script>
+<script src="assets/js/anchor.min.js"></script>
+<script src="assets/js/tag_filtering.js"></script>
+<script src="assets/js/language_switching.js"></script>
+<script src="assets/js/styleswitcher.js"></script>
+
+<script src="assets/js/lines_around_headings.js"></script>
+
+<script src="assets/js/prism-core.js"></script>
+<script src="assets/js/prism-autoloader.js"></script>
+<script src="assets/js/prism_autoloader_path_override.js"></script>
+<script src="assets/js/trie.js"></script>
+
+<!-- generic -->
+<link rel="icon" type="image/png" href="assets/images/favicon-16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="assets/images/favicon-32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="assets/images/favicon-57.png" sizes="57x57">
+<link rel="icon" type="image/png" href="assets/images/favicon-64.png" sizes="64x64">
+<link rel="icon" type="image/png" href="assets/images/favicon-76.png" sizes="76x76">
+<link rel="icon" type="image/png" href="assets/images/favicon-96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="assets/images/favicon-128.png" sizes="128x128">
+<link rel="icon" type="image/png" href="assets/images/favicon-192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="assets/images/favicon-228.png" sizes="228x228">
+
+<!-- Android -->
+<link rel="shortcut icon" sizes="196x196" href="assets/images/favicon-196.png">
+
+<!-- iOS -->
+<link rel="apple-touch-icon" href="assets/images/favicon-120.png" sizes="120x120">
+<link rel="apple-touch-icon" href="assets/images/favicon-152.png" sizes="152x152">
+<link rel="apple-touch-icon" href="assets/images/favicon-180.png" sizes="180x180">
+
+</head>
+
+<body class="no-script
+">
+
+<script>
+$('body').removeClass('no-script');
+</script>
+
+<nav class="navbar navbar-fixed-top navbar-default" id="topnav">
+	<div class="container-fluid">
+		<div class="navbar-right">
+			<a id="toc-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-wrapper" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<span title="light mode switch" class="glyphicon glyphicon-sunglasses pull-right" id="lightmode-icon"></span>
+			<form class="navbar-form pull-right" id="navbar-search-form">
+                               <div class="form-group has-feedback">
+                                       <input type="text" class="form-control input-sm" name="search" id="sidenav-lookup-field" placeholder="search" disabled>
+				       <span class="glyphicon glyphicon-search form-control-feedback" id="search-mgn-glass"></span>
+                               </div>
+                        </form>
+		</div>
+		<div class="navbar-header">
+			<a id="sidenav-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<a id="home-link" href="index.html" class="hotdoc-navbar-brand">
+				<img src="assets/images/gstreamer-logo.svg" alt="Home">
+			</a>
+		</div>
+		<div class="navbar-collapse collapse" id="navbar-wrapper">
+			<ul class="nav navbar-nav" id="menu">
+				
+<li class="dropdown">
+    <a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        API References<span class="caret"></span>
+    </a>
+	<ul class="dropdown-menu" id="modules-menu">
+					<li>
+				<a href="gstreamer/gi-index.html">GStreamer core</a>
+			</li>
+					<li>
+				<a href="libs.html">GStreamer Libraries</a>
+			</li>
+					<li>
+				<a href="plugins_doc.html">GStreamer Plugins</a>
+			</li>
+		</ul>
+</li>
+
+<li>
+    <a href="application-development/index.html">Application manual</a>
+</li>
+
+
+<li>
+    <a href="tutorials/index.html">Tutorials</a>
+</li>
+
+			</ul>
+			<div class="hidden-xs hidden-sm navbar-text navbar-center">
+							</div>
+		</div>
+	</div>
+</nav>
+
+<main>
+<div data-extension="gi-extension" data-hotdoc-in-toplevel="True" data-hotdoc-project="GStreamer" data-hotdoc-ref="frequently-asked-questions/using.html" class="page_container" id="page-wrapper" data-hotdoc-meta-gi-languages="['c', 'javascript', 'python']" data-hotdoc-meta-gi-language="c">
+<script src="assets/js/utils.js"></script>
+
+<div class="panel panel-collapse oc-collapsed" id="sidenav" data-hotdoc-role="navigation">
+	<script src="assets/js/full-width.js"></script>
+  <div id="sitenav-wrapper">
+    <iframe src="hotdoc-sitemap.html" id="sitenav-frame"></iframe>
+  </div>
+</div>
+
+<div id="body">
+	<div id="main">
+				    <div id="page-description" data-hotdoc-role="main">
+        <h1 id="using-gstreamer">Using GStreamer</h1>
+<h2 id="ok-ive-installed-gstreamer-what-can-i-do-next">Ok, I've installed GStreamer. What can I do next?</h2>
+<p>First of all, verify that you have a working installation and that
+you can inspect plugins by typing</p>
+<pre><code>$ gst-inspect-1.0 fakesrc
+</code></pre>
+<p>This should print out a bunch of information about this particular
+element. If this tells you that there is "no such element or plugin",
+you haven't installed GStreamer correctly. Please check <a href="frequently-asked-questions/using.html#chapter-getting">how to get
+GStreamer</a> If this fails with any other message, we
+would appreciate a <a href="frequently-asked-questions/using.html#using-bugs-where">bug report</a>.</p>
+<p>It's time to try out a few things. Start with gst-launch and two
+plug-ins that you really should have : fakesrc and fakesink. They do
+nothing except pass empty buffers. Type this at the command-line:</p>
+<pre><code>$ gst-launch-1.0 -v fakesrc silent=false num-buffers=3 ! fakesink silent=false
+</code></pre>
+<p>This will print out output that looks similar to this:</p>
+<pre><code>RUNNING pipeline ...
+fakesrc0: last-message = "get      ******* (fakesrc0:src)gt; (0 bytes, 0) 0x8057510"
+fakesink0: last-message = "chain   ******* (fakesink0:sink)lt; (0 bytes, 0) 0x8057510"
+fakesrc0: last-message = "get      ******* (fakesrc0:src)gt; (0 bytes, 1) 0x8057510"
+fakesink0: last-message = "chain   ******* (fakesink0:sink)lt; (0 bytes, 1) 0x8057510"
+fakesrc0: last-message = "get      ******* (fakesrc0:src)gt; (0 bytes, 2) 0x8057510"
+fakesink0: last-message = "chain   ******* (fakesink0:sink)lt; (0 bytes, 2) 0x8057510"
+execution ended after 5 iterations (sum 301479000 ns, average 60295800 ns, min 3000 ns, max 105482000 ns)
+</code></pre>
+<p>(Some parts of output have been removed for clarity) If it looks
+similar, then GStreamer itself is running correctly.</p>
+<p>To get a test video displayed, try:</p>
+<pre><code>$ gst-launch-1.0 videotestsrc ! videoconvert ! autovideosink
+</code></pre>
+<p>If <code>autovideosink</code> doesn't work, try an element that's specific for your
+operating system and windowing system, such as <code>ximagesink</code> or <code>glimagesink</code>
+or (on windows) <code>d3dvideosink</code>.</p>
+<h2 id="can-my-system-play-sound-through-gstreamer">Can my system play sound through GStreamer?</h2>
+<p>You can test this by trying to play a sine tone. For this, you
+need to link the audiotestsrc element to an output element that matches
+your hardware. A (non-complete) list of output plug-ins for audio is</p>
+<ul>
+<li>
+<p><code>pulsesink</code> for Pulseaudio output</p>
+</li>
+<li>
+<p><code>alsasink</code> for ALSA output</p>
+</li>
+<li>
+<p><code>osssink</code> and <code>oss4sink</code> for OSS/OSSv4 output</p>
+</li>
+<li>
+<p><code>jackaudiosink</code> for JACK output</p>
+</li>
+<li>
+<p><code>autoaudiosink</code> for automatic audio output selection</p>
+</li>
+</ul>
+<p>First of all, run gst-inspect-1.0 on the output plug-in you want to use
+to make sure you have it installed. For example, if you use Pulseaudio,
+run</p>
+<pre><code>$ gst-inspect-1.0 pulsesink
+</code></pre>
+<p>and see if that prints out a bunch of properties for the plug-in.</p>
+<p>Then try to play the sine tone by
+running</p>
+<pre><code>$ gst-launch-1.0 audiotestsrc ! audioconvert ! audioresample ! pulsesink
+</code></pre>
+<p>and see if you hear something. Make sure your volume is turned up, but
+also make sure it is not too loud and you are not wearing your
+headphones.</p>
+<h2 id="how-can-i-see-what-gstreamer-plugins-i-have-on-my-system">How can I see what GStreamer plugins I have on my system?</h2>
+<p>To do this you use the gst-inspect command-line tool, which comes
+standard with GStreamer. Invoked without any arguments,</p>
+<pre><code>$ gst-inspect-1.0
+</code></pre>
+<p>will print out a listing of installed plugins. To learn more about a
+particular plugin, pass its name on the command line. For example,</p>
+<pre><code>$ gst-inspect-1.0 volume
+</code></pre>
+<p>will give you information about the volume plugin.</p>
+<h2 id="where-should-i-report-issues">Where should I report issues?</h2>
+<p>Issues are tracked in Freedesktop.org's Gitlab at
+<a href="https://gitlab.freedesktop.org/gstreamer">https://gitlab.freedesktop.org/gstreamer</a>. Using Gitlab you can view past
+issues, report new issues, submit merge requests etc. Gitlab requires you to
+create an account there, which might seem cumbersome, but allows us to at least
+have a chance at contacting you for further information, as we will often have
+to do.</p>
+<h2 id="how-should-i-report-bugs">How should I report bugs?</h2>
+<p>When doing a bug report, you should at least describe</p>
+<ul>
+<li>
+<p>your distribution, distribution version and GStreamer version</p>
+</li>
+<li>
+<p>how you installed GStreamer (from git, source, packages, which?)</p>
+</li>
+<li>
+<p>if you installed GStreamer before</p>
+</li>
+</ul>
+<p>If the application you are having problems with is segfaulting, then
+provide us with the necessary gdb output. See
+<a href="frequently-asked-questions/using.html#troubleshooting-segfault">???</a></p>
+<h2 id="how-do-i-use-the-gstreamer-command-line-interface">How do I use the GStreamer command line interface?</h2>
+<p>You access the GStreamer command line interface using the command
+<code>gst-launch-1.0</code>. For example, to play a file you could just use</p>
+<pre><code>gst-launch-1.0 playbin uri=file:///path/to/song.mp3
+</code></pre>
+<p>You can also use <code>gst-play</code>:</p>
+<pre><code>gst-play-1.0 song.mp3
+</code></pre>
+<p>To decode an mp3 audio file and play it through Pulseaudio, you could use:</p>
+<pre><code>gst-launch-1.0 filesrc location=thesong.mp3 ! mpegaudioparse ! mpg123audiodec ! audioconvert ! pulsesink
+</code></pre>
+<p>To automatically detect and select the right decoder for a given encoded stream
+in a pipeline, try any of the following:</p>
+<pre><code>gst-launch-1.0 filesrc location=thesong.mp3 ! decodebin ! audioconvert ! pulsesink
+</code></pre>
+<pre><code>gst-launch-1.0 filesrc location=my-random-media-file.mpeg ! decodebin ! pulsesink
+</code></pre>
+<pre><code>gst-launch-1.0 filesrc location=my-random-media-file.mpeg ! decodebin ! videoconvert ! xvimagesink
+</code></pre>
+<p>Or even something more complicated like:</p>
+<pre><code>gst-launch-1.0 filesrc location=my-random-media-file.mpeg !decodebin name=decoder \
+       decoder. ! queue ! videoconvert ! xvimagesink \
+       decoder. ! queue ! audioconvert ! pulsesink
+</code></pre>
+<p>Building from the previous example, you can let GStreamer select an appropriate
+set of default sinks by replacing the specific output elements with these automatic
+alternatives:</p>
+<pre><code>gst-launch-1.0 filesrc location=my-random-media-file.mpeg !decodebin name=decoder \
+       decoder. ! queue ! videoconvert ! autovideosink \
+       decoder. ! queue ! audioconvert ! autoaudiosink
+</code></pre>
+<p>GStreamer also provides <code>playbin</code>, a basic media-playback plugin that
+automatically takes care of most playback details. The following example shows
+how to play any file as long as its format is supported, ie. you have the
+necessary demuxing and decoding plugins installed:</p>
+<pre><code>gst-launch-1.0 playbin uri=file:///home/joe/my-random-media-file.mpeg
+</code></pre>
+<p>Additional examples can be found in the <code>gst-launch</code> manual page.</p>
+
+    </div>
+        
+
+
+
+
+		
+	</div>
+	<div id="search_results">
+		<p>The results of the search are</p>
+	</div>
+	<div id="footer">
+		    
+
+	</div>
+</div>
+
+<div id="toc-column">
+	
+		<div class="edit-button">
+		<a href="https://gitlab.freedesktop.org/gstreamer/gst-docs//edit/master/subprojects/gst-docs/markdown/frequently-asked-questions/using.md" data-hotdoc-role="edit-button">Edit on GitLab</a>
+
+	</div>
+		<div id="toc-wrapper">
+		<nav id="toc"></nav>
+	</div>
+</div>
+</div>
+</main>
+
+
+<script src="assets/js/navbar_offset_scroller.js"></script>
+</body>
+</html>

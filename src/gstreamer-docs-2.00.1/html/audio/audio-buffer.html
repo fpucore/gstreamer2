@@ -1,0 +1,2384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<base href="..">
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<title>audio buffer</title>
+
+<link rel="stylesheet" href="assets/css/dark-frontend.css" type="text/css" title="dark">
+<link rel="alternate stylesheet" href="assets/css/light-frontend.css" type="text/css" title="light">
+<link rel="stylesheet" href="assets/css/bootstrap-toc.min.css" type="text/css">
+<link rel="stylesheet" href="assets/css/jquery.mCustomScrollbar.min.css">
+<link rel="stylesheet" href="assets/js/search/enable_search.css" type="text/css">
+
+<link rel="stylesheet" href="assets/css/extra_frontend.css" type="text/css">
+<link rel="stylesheet" href="assets/css/devhelp.css" type="text/css">
+
+<link rel="stylesheet" href="assets/css/prism-tomorrow.css" type="text/css" title="dark">
+
+<link rel="alternate stylesheet" href="assets/css/prism.css" type="text/css" title="light">
+
+<script src="assets/js/mustache.min.js"></script>
+<script src="assets/js/jquery.js"></script>
+<script src="assets/js/bootstrap.js"></script>
+<script src="assets/js/scrollspy.js"></script>
+<script src="assets/js/typeahead.jquery.min.js"></script>
+<script src="assets/js/search.js"></script>
+<script src="assets/js/compare-versions.js"></script>
+<script src="assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="assets/js/bootstrap-toc.min.js"></script>
+<script src="assets/js/jquery.touchSwipe.min.js"></script>
+<script src="assets/js/anchor.min.js"></script>
+<script src="assets/js/tag_filtering.js"></script>
+<script src="assets/js/language_switching.js"></script>
+<script src="assets/js/styleswitcher.js"></script>
+
+<script src="assets/js/lines_around_headings.js"></script>
+
+<script src="assets/js/prism-core.js"></script>
+<script src="assets/js/prism-autoloader.js"></script>
+<script src="assets/js/prism_autoloader_path_override.js"></script>
+<script src="assets/js/trie.js"></script>
+
+<!-- generic -->
+<link rel="icon" type="image/png" href="assets/images/favicon-16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="assets/images/favicon-32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="assets/images/favicon-57.png" sizes="57x57">
+<link rel="icon" type="image/png" href="assets/images/favicon-64.png" sizes="64x64">
+<link rel="icon" type="image/png" href="assets/images/favicon-76.png" sizes="76x76">
+<link rel="icon" type="image/png" href="assets/images/favicon-96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="assets/images/favicon-128.png" sizes="128x128">
+<link rel="icon" type="image/png" href="assets/images/favicon-192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="assets/images/favicon-228.png" sizes="228x228">
+
+<!-- Android -->
+<link rel="shortcut icon" sizes="196x196" href="assets/images/favicon-196.png">
+
+<!-- iOS -->
+<link rel="apple-touch-icon" href="assets/images/favicon-120.png" sizes="120x120">
+<link rel="apple-touch-icon" href="assets/images/favicon-152.png" sizes="152x152">
+<link rel="apple-touch-icon" href="assets/images/favicon-180.png" sizes="180x180">
+
+</head>
+
+<body class="no-script
+">
+
+<script>
+$('body').removeClass('no-script');
+</script>
+
+<nav class="navbar navbar-fixed-top navbar-default" id="topnav">
+	<div class="container-fluid">
+		<div class="navbar-right">
+			<a id="toc-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-wrapper" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<span title="light mode switch" class="glyphicon glyphicon-sunglasses pull-right" id="lightmode-icon"></span>
+			<form class="navbar-form pull-right" id="navbar-search-form">
+                               <div class="form-group has-feedback">
+                                       <input type="text" class="form-control input-sm" name="search" id="sidenav-lookup-field" placeholder="search" disabled>
+				       <span class="glyphicon glyphicon-search form-control-feedback" id="search-mgn-glass"></span>
+                               </div>
+                        </form>
+		</div>
+		<div class="navbar-header">
+			<a id="sidenav-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<a id="home-link" href="index.html" class="hotdoc-navbar-brand">
+				<img src="assets/images/gstreamer-logo.svg" alt="Home">
+			</a>
+		</div>
+		<div class="navbar-collapse collapse" id="navbar-wrapper">
+			<ul class="nav navbar-nav" id="menu">
+				
+<li class="dropdown">
+    <a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        API References<span class="caret"></span>
+    </a>
+	<ul class="dropdown-menu" id="modules-menu">
+					<li>
+				<a href="gstreamer/gi-index.html">GStreamer core</a>
+			</li>
+					<li>
+				<a href="libs.html">GStreamer Libraries</a>
+			</li>
+					<li>
+				<a href="plugins_doc.html">GStreamer Plugins</a>
+			</li>
+		</ul>
+</li>
+
+<li>
+    <a href="application-development/index.html">Application manual</a>
+</li>
+
+
+<li>
+    <a href="tutorials/index.html">Tutorials</a>
+</li>
+
+			</ul>
+			<div class="hidden-xs hidden-sm navbar-text navbar-center">
+							</div>
+		</div>
+	</div>
+</nav>
+
+<main>
+<div data-extension="gi-extension" data-hotdoc-in-toplevel="False" data-hotdoc-project="audio" data-hotdoc-ref="audio-buffer.html" class="page_container" id="page-wrapper" data-hotdoc-meta-gi-languages="['c', 'javascript', 'python']" data-hotdoc-meta-gi-language="c">
+<script src="assets/js/utils.js"></script>
+
+<div class="panel panel-collapse oc-collapsed" id="sidenav" data-hotdoc-role="navigation">
+	<script src="assets/js/full-width.js"></script>
+  <div id="sitenav-wrapper">
+    <iframe src="hotdoc-sitemap.html" id="sitenav-frame"></iframe>
+  </div>
+</div>
+
+<div id="body">
+	<div id="main">
+				    <div id="page-description" data-hotdoc-role="main">
+    </div>
+        
+        
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.16;" id="GstAudioBuffer">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h2 data-hotdoc-id="GstAudioBuffer">
+	<i>GstAudioBuffer</i>
+</h2>
+
+
+
+<div class="class_details">
+	<p>A structure containing the result of an audio buffer map operation,
+which is executed with <a href="audio/audio-buffer.html#gst_audio_buffer_map">gst_audio_buffer_map</a>. For non-interleaved (planar)
+buffers, the beginning of each channel in the buffer has its own pointer in
+the <em>planes</em> array. For interleaved buffers, the <em>planes</em> array only contains
+one item, which is the pointer to the beginning of the buffer, and <em>n_planes</em>
+equals 1.</p>
+<p>The different channels in <em>planes</em> are always in the GStreamer channel order.</p>
+
+</div>
+
+
+
+	<div class="members-container">
+		<h3>Members</h3>
+					
+<div class="symbol-detail" data-hotdoc-id="GstAudioBuffer.info">
+	<div>
+		<i><em><code>info</code></em></i>
+		(<a title="GstAudioInfo" href="audio/audio-info.html#GstAudioInfo">GstAudioInfo</a>)
+		–
+	</div>
+			<p>a <a href="audio/audio-info.html#GstAudioInfo">GstAudioInfo</a> describing the audio properties of this buffer</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstAudioBuffer.n_samples">
+	<div>
+		<i><em><code>n_samples</code></em></i>
+		(<a title="gsize" href="https://docs.gtk.org/glib/types.html#gsize">gsize</a>)
+		–
+	</div>
+			<p>the size of the buffer in samples</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstAudioBuffer.n_planes">
+	<div>
+		<i><em><code>n_planes</code></em></i>
+		(<a title="gint" href="https://docs.gtk.org/glib/types.html#gint">gint</a>)
+		–
+	</div>
+			<p>the number of planes available</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstAudioBuffer.planes">
+	<div>
+		<i><em><code>planes</code></em></i>
+		(<a title="gpointer" href="https://docs.gtk.org/glib/types.html#gpointer">gpointer</a> *)
+		–
+	</div>
+			<p>an array of <em>n_planes</em> pointers pointing to the start of each
+plane in the mapped buffer</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstAudioBuffer.buffer">
+	<div>
+		<i><em><code>buffer</code></em></i>
+		(<a title="GstBuffer" href="gstreamer/gstbuffer.html#GstBuffer">GstBuffer</a> *)
+		–
+	</div>
+			<p>the mapped buffer</p>
+
+	</div>
+
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.16
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h2 data-hotdoc-id="GstAudioBuffer">
+	<i>GstAudio.AudioBuffer</i>
+</h2>
+
+
+
+<div class="class_details">
+	<p>A structure containing the result of an audio buffer map operation,
+which is executed with <a href="audio/audio-buffer.html#gst_audio_buffer_map">GstAudio.prototype.audio_buffer_map</a>. For non-interleaved (planar)
+buffers, the beginning of each channel in the buffer has its own pointer in
+the <em>planes</em> array. For interleaved buffers, the <em>planes</em> array only contains
+one item, which is the pointer to the beginning of the buffer, and <em>n_planes</em>
+equals 1.</p>
+<p>The different channels in <em>planes</em> are always in the GStreamer channel order.</p>
+
+</div>
+
+
+
+	<div class="members-container">
+		<h3>Members</h3>
+					
+<div class="symbol-detail" data-hotdoc-id="GstAudioBuffer.info">
+	<div>
+		<i><em><code>info</code></em></i>
+		(<a title="GstAudio.AudioInfo" href="audio/audio-info.html#GstAudioInfo">GstAudio.AudioInfo</a>)
+		–
+	</div>
+			<p>a <a href="audio/audio-info.html#GstAudioInfo">GstAudio.AudioInfo</a> describing the audio properties of this buffer</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstAudioBuffer.n_samples">
+	<div>
+		<i><em><code>n_samples</code></em></i>
+		(<a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>)
+		–
+	</div>
+			<p>the size of the buffer in samples</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstAudioBuffer.n_planes">
+	<div>
+		<i><em><code>n_planes</code></em></i>
+		(<a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>)
+		–
+	</div>
+			<p>the number of planes available</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstAudioBuffer.planes">
+	<div>
+		<i><em><code>planes</code></em></i>
+		(<a title="Object" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)
+		–
+	</div>
+			<p>an array of <em>n_planes</em> pointers pointing to the start of each
+plane in the mapped buffer</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstAudioBuffer.buffer">
+	<div>
+		<i><em><code>buffer</code></em></i>
+		(<a title="Gst.Buffer" href="gstreamer/gstbuffer.html#GstBuffer">Gst.Buffer</a>)
+		–
+	</div>
+			<p>the mapped buffer</p>
+
+	</div>
+
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.16
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h2 data-hotdoc-id="GstAudioBuffer">
+	<i>GstAudio.AudioBuffer</i>
+</h2>
+
+
+
+<div class="class_details">
+	<p>A structure containing the result of an audio buffer map operation,
+which is executed with <a href="audio/audio-buffer.html#gst_audio_buffer_map">GstAudio.audio_buffer_map</a>. For non-interleaved (planar)
+buffers, the beginning of each channel in the buffer has its own pointer in
+the <em>planes</em> array. For interleaved buffers, the <em>planes</em> array only contains
+one item, which is the pointer to the beginning of the buffer, and <em>n_planes</em>
+equals 1.</p>
+<p>The different channels in <em>planes</em> are always in the GStreamer channel order.</p>
+
+</div>
+
+
+
+	<div class="members-container">
+		<h3>Members</h3>
+					
+<div class="symbol-detail" data-hotdoc-id="GstAudioBuffer.info">
+	<div>
+		<i><em><code>info</code></em></i>
+		(<a title="GstAudio.AudioInfo" href="audio/audio-info.html#GstAudioInfo">GstAudio.AudioInfo</a>)
+		–
+	</div>
+			<p>a <a href="audio/audio-info.html#GstAudioInfo">GstAudio.AudioInfo</a> describing the audio properties of this buffer</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstAudioBuffer.n_samples">
+	<div>
+		<i><em><code>n_samples</code></em></i>
+		(<a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a>)
+		–
+	</div>
+			<p>the size of the buffer in samples</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstAudioBuffer.n_planes">
+	<div>
+		<i><em><code>n_planes</code></em></i>
+		(<a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a>)
+		–
+	</div>
+			<p>the number of planes available</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstAudioBuffer.planes">
+	<div>
+		<i><em><code>planes</code></em></i>
+		(<a title="object" href="https://docs.python.org/3/library/functions.html#object">object</a>)
+		–
+	</div>
+			<p>an array of <em>n_planes</em> pointers pointing to the start of each
+plane in the mapped buffer</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstAudioBuffer.buffer">
+	<div>
+		<i><em><code>buffer</code></em></i>
+		(<a title="Gst.Buffer" href="gstreamer/gstbuffer.html#GstBuffer">Gst.Buffer</a>)
+		–
+	</div>
+			<p>the mapped buffer</p>
+
+	</div>
+
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.16
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+
+            <h3 class="symbol_section">Methods</h3>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.16;" id="gst_audio_buffer_unmap">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_audio_buffer_unmap">
+	<i>gst_audio_buffer_unmap</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+gst_audio_buffer_unmap (<a title="GstAudioBuffer" href="audio/audio-buffer.html#GstAudioBuffer">GstAudioBuffer</a> * buffer)</pre>
+
+<p>Unmaps an audio buffer that was previously mapped with
+<a href="audio/audio-buffer.html#gst_audio_buffer_map">gst_audio_buffer_map</a>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>buffer</code></em></i>
+–
+</div>
+<p>the <a href="audio/audio-buffer.html#GstAudioBuffer">GstAudioBuffer</a> to unmap</p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.16
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_audio_buffer_unmap">
+	<i>GstAudio.AudioBuffer.prototype.unmap</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstAudio.AudioBuffer.prototype.unmap(): {
+    // javascript wrapper for 'gst_audio_buffer_unmap'
+}</code></pre>
+
+<p>Unmaps an audio buffer that was previously mapped with
+<a href="audio/audio-buffer.html#gst_audio_buffer_map">GstAudio.prototype.audio_buffer_map</a>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>buffer</code></em></i>
+<span>(</span><a title="GstAudio.AudioBuffer" href="audio/audio-buffer.html#GstAudioBuffer">GstAudio.AudioBuffer</a><span>)</span>
+–
+</div>
+<p>the <a href="audio/audio-buffer.html#GstAudioBuffer">GstAudio.AudioBuffer</a> to unmap</p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.16
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_audio_buffer_unmap">
+	<i>GstAudio.AudioBuffer.unmap</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstAudio.AudioBuffer.unmap (self):
+    #python wrapper for 'gst_audio_buffer_unmap'</code></pre>
+
+<p>Unmaps an audio buffer that was previously mapped with
+<a href="audio/audio-buffer.html#gst_audio_buffer_map">GstAudio.audio_buffer_map</a>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>buffer</code></em></i>
+<span>(</span><a title="GstAudio.AudioBuffer" href="audio/audio-buffer.html#GstAudioBuffer">GstAudio.AudioBuffer</a><span>)</span>
+–
+</div>
+<p>the <a href="audio/audio-buffer.html#GstAudioBuffer">GstAudio.AudioBuffer</a> to unmap</p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.16
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+
+            <h3 class="symbol_section">Functions</h3>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_audio_buffer_clip">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_audio_buffer_clip">
+	<i>gst_audio_buffer_clip</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GstBuffer" href="gstreamer/gstbuffer.html#GstBuffer">GstBuffer</a> *
+gst_audio_buffer_clip (<a title="GstBuffer" href="gstreamer/gstbuffer.html#GstBuffer">GstBuffer</a> * buffer,
+                       const <a title="GstSegment" href="gstreamer/gstsegment.html#GstSegment">GstSegment</a> * segment,
+                       <a title="gint" href="https://docs.gtk.org/glib/types.html#gint">gint</a> rate,
+                       <a title="gint" href="https://docs.gtk.org/glib/types.html#gint">gint</a> bpf)</pre>
+
+<p>Clip the buffer to the given <a href="gstreamer/gstsegment.html#GstSegment">GstSegment</a>.</p>
+<p>After calling this function the caller does not own a reference to
+<em>buffer</em> anymore.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>buffer</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="Free data after the code is done"><span class="acronym">transfer: full</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>The buffer to clip.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>segment</code></em></i>
+–
+</div>
+<p>Segment in <a href="gstreamer/gstformat.html#GST_FORMAT_TIME">GST_FORMAT_TIME</a> or <a href="gstreamer/gstformat.html#GST_FORMAT_DEFAULT">GST_FORMAT_DEFAULT</a> to which
+the buffer should be clipped.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>rate</code></em></i>
+–
+</div>
+<p>sample rate.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>bpf</code></em></i>
+–
+</div>
+<p>size of one audio frame in bytes. This is the size of one sample *
+number of channels.</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span>
+<span class="annotation">[<abbr title="Free data after the code is done"><span class="acronym">transfer: full</span></abbr>]</span><span class="annotation">[<abbr title="NULL may be passed to the value"><span class="acronym">nullable</span></abbr>]</span><span>)</span>
+–
+			</div>
+							<p><a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#NULL:CAPS">NULL</a> if the buffer is completely outside the configured segment,
+otherwise the clipped buffer is returned.</p>
+<p>If the buffer has no timestamp, it is assumed to be inside the segment and
+is not clipped</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_audio_buffer_clip">
+	<i>GstAudio.prototype.audio_buffer_clip</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstAudio.prototype.audio_buffer_clip(buffer: <a title="Gst.Buffer" href="gstreamer/gstbuffer.html#GstBuffer">Gst.Buffer</a>, segment: <a title="Gst.Segment" href="gstreamer/gstsegment.html#GstSegment">Gst.Segment</a>, rate: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>, bpf: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>): {
+    // javascript wrapper for 'gst_audio_buffer_clip'
+}</code></pre>
+
+<p>Clip the buffer to the given <a href="gstreamer/gstsegment.html#GstSegment">Gst.Segment</a>.</p>
+<p>After calling this function the caller does not own a reference to
+<em>buffer</em> anymore.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>buffer</code></em></i>
+<span>(</span><a title="Gst.Buffer" href="gstreamer/gstbuffer.html#GstBuffer">Gst.Buffer</a><span>)</span>
+–
+</div>
+<p>The buffer to clip.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>segment</code></em></i>
+<span>(</span><a title="Gst.Segment" href="gstreamer/gstsegment.html#GstSegment">Gst.Segment</a><span>)</span>
+–
+</div>
+<p>Segment in <a href="gstreamer/gstformat.html#GST_FORMAT_TIME">Gst.Format.TIME</a> or <a href="gstreamer/gstformat.html#GST_FORMAT_DEFAULT">Gst.Format.DEFAULT</a> to which
+the buffer should be clipped.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>rate</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>sample rate.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>bpf</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>size of one audio frame in bytes. This is the size of one sample *
+number of channels.</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Gst.Buffer" href="gstreamer/gstbuffer.html#GstBuffer">Gst.Buffer</a><span>)</span>
+–
+			</div>
+							<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null">null</a> if the buffer is completely outside the configured segment,
+otherwise the clipped buffer is returned.</p>
+<p>If the buffer has no timestamp, it is assumed to be inside the segment and
+is not clipped</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_audio_buffer_clip">
+	<i>GstAudio.audio_buffer_clip</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstAudio.audio_buffer_clip (buffer, segment, rate, bpf):
+    #python wrapper for 'gst_audio_buffer_clip'</code></pre>
+
+<p>Clip the buffer to the given <a href="gstreamer/gstsegment.html#GstSegment">Gst.Segment</a>.</p>
+<p>After calling this function the caller does not own a reference to
+<em>buffer</em> anymore.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>buffer</code></em></i>
+<span>(</span><a title="Gst.Buffer" href="gstreamer/gstbuffer.html#GstBuffer">Gst.Buffer</a><span>)</span>
+–
+</div>
+<p>The buffer to clip.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>segment</code></em></i>
+<span>(</span><a title="Gst.Segment" href="gstreamer/gstsegment.html#GstSegment">Gst.Segment</a><span>)</span>
+–
+</div>
+<p>Segment in <a href="gstreamer/gstformat.html#GST_FORMAT_TIME">Gst.Format.TIME</a> or <a href="gstreamer/gstformat.html#GST_FORMAT_DEFAULT">Gst.Format.DEFAULT</a> to which
+the buffer should be clipped.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>rate</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<p>sample rate.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>bpf</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<p>size of one audio frame in bytes. This is the size of one sample *
+number of channels.</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Gst.Buffer" href="gstreamer/gstbuffer.html#GstBuffer">Gst.Buffer</a><span>)</span>
+–
+			</div>
+							<p><a href="https://docs.python.org/3/library/constants.html#None">None</a> if the buffer is completely outside the configured segment,
+otherwise the clipped buffer is returned.</p>
+<p>If the buffer has no timestamp, it is assumed to be inside the segment and
+is not clipped</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.16;" id="gst_audio_buffer_map">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_audio_buffer_map">
+	<i>gst_audio_buffer_map</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a>
+gst_audio_buffer_map (<a title="GstAudioBuffer" href="audio/audio-buffer.html#GstAudioBuffer">GstAudioBuffer</a> * buffer,
+                      const <a title="GstAudioInfo" href="audio/audio-info.html#GstAudioInfo">GstAudioInfo</a> * info,
+                      <a title="GstBuffer" href="gstreamer/gstbuffer.html#GstBuffer">GstBuffer</a> * gstbuffer,
+                      <a title="GstMapFlags" href="gstreamer/gstmemory.html#GstMapFlags">GstMapFlags</a> flags)</pre>
+
+<p>Maps an audio <em>gstbuffer</em> so that it can be read or written and stores the
+result of the map operation in <em>buffer</em>.</p>
+<p>This is especially useful when the <em>gstbuffer</em> is in non-interleaved (planar)
+layout, in which case this function will use the information in the
+<em>gstbuffer</em>'s attached <a href="audio/gstaudiometa.html#GstAudioMeta">GstAudioMeta</a> in order to map each channel in a
+separate "plane" in <a href="audio/audio-buffer.html#GstAudioBuffer">GstAudioBuffer</a>. If a <a href="audio/gstaudiometa.html#GstAudioMeta">GstAudioMeta</a> is not attached
+on the <em>gstbuffer</em>, then it must be in interleaved layout.</p>
+<p>If a <a href="audio/gstaudiometa.html#GstAudioMeta">GstAudioMeta</a> is attached, then the <a href="audio/audio-info.html#GstAudioInfo">GstAudioInfo</a> on the meta is checked
+against <em>info</em>. Normally, they should be equal, but in case they are not,
+a g_critical will be printed and the <a href="audio/audio-info.html#GstAudioInfo">GstAudioInfo</a> from the meta will be
+used.</p>
+<p>In non-interleaved buffers, it is possible to have each channel on a separate
+<a href="gstreamer/gstmemory.html#GstMemory">GstMemory</a>. In this case, each memory will be mapped separately to avoid
+copying their contents in a larger memory area. Do note though that it is
+not supported to have a single channel spanning over two or more different
+<a href="gstreamer/gstmemory.html#GstMemory">GstMemory</a> objects. Although the map operation will likely succeed in this
+case, it will be highly sub-optimal and it is recommended to merge all the
+memories in the buffer before calling this function.</p>
+<p>Note: The actual <a href="gstreamer/gstbuffer.html#GstBuffer">GstBuffer</a> is not ref'ed, but it is required to stay valid
+as long as it's mapped.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>buffer</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="Parameter for returning results"><span class="acronym">out</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>pointer to a <a href="audio/audio-buffer.html#GstAudioBuffer">GstAudioBuffer</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>info</code></em></i>
+–
+</div>
+<p>the audio properties of the buffer</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>gstbuffer</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="Don't free data after the code is done"><span class="acronym">transfer: none</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>the <a href="gstreamer/gstbuffer.html#GstBuffer">GstBuffer</a> to be mapped</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>flags</code></em></i>
+–
+</div>
+<p>the access mode for the memory</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p><a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#TRUE:CAPS">TRUE</a> if the map operation succeeded or <a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#FALSE:CAPS">FALSE</a> on failure</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.16
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_audio_buffer_map">
+	<i>GstAudio.prototype.audio_buffer_map</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstAudio.prototype.audio_buffer_map(info: <a title="GstAudio.AudioInfo" href="audio/audio-info.html#GstAudioInfo">GstAudio.AudioInfo</a>, gstbuffer: <a title="Gst.Buffer" href="gstreamer/gstbuffer.html#GstBuffer">Gst.Buffer</a>, flags: <a title="Gst.MapFlags" href="gstreamer/gstmemory.html#GstMapFlags">Gst.MapFlags</a>): {
+    // javascript wrapper for 'gst_audio_buffer_map'
+}</code></pre>
+
+<p>Maps an audio <em>gstbuffer</em> so that it can be read or written and stores the
+result of the map operation in <em>buffer</em>.</p>
+<p>This is especially useful when the <em>gstbuffer</em> is in non-interleaved (planar)
+layout, in which case this function will use the information in the
+<em>gstbuffer</em>'s attached <a href="audio/gstaudiometa.html#GstAudioMeta">GstAudio.AudioMeta</a> in order to map each channel in a
+separate "plane" in <a href="audio/audio-buffer.html#GstAudioBuffer">GstAudio.AudioBuffer</a>. If a <a href="audio/gstaudiometa.html#GstAudioMeta">GstAudio.AudioMeta</a> is not attached
+on the <em>gstbuffer</em>, then it must be in interleaved layout.</p>
+<p>If a <a href="audio/gstaudiometa.html#GstAudioMeta">GstAudio.AudioMeta</a> is attached, then the <a href="audio/audio-info.html#GstAudioInfo">GstAudio.AudioInfo</a> on the meta is checked
+against <em>info</em>. Normally, they should be equal, but in case they are not,
+a g_critical will be printed and the <a href="audio/audio-info.html#GstAudioInfo">GstAudio.AudioInfo</a> from the meta will be
+used.</p>
+<p>In non-interleaved buffers, it is possible to have each channel on a separate
+<a href="gstreamer/gstmemory.html#GstMemory">Gst.Memory</a>. In this case, each memory will be mapped separately to avoid
+copying their contents in a larger memory area. Do note though that it is
+not supported to have a single channel spanning over two or more different
+<a href="gstreamer/gstmemory.html#GstMemory">Gst.Memory</a> objects. Although the map operation will likely succeed in this
+case, it will be highly sub-optimal and it is recommended to merge all the
+memories in the buffer before calling this function.</p>
+<p>Note: The actual <a href="gstreamer/gstbuffer.html#GstBuffer">Gst.Buffer</a> is not ref'ed, but it is required to stay valid
+as long as it's mapped.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>info</code></em></i>
+<span>(</span><a title="GstAudio.AudioInfo" href="audio/audio-info.html#GstAudioInfo">GstAudio.AudioInfo</a><span>)</span>
+–
+</div>
+<p>the audio properties of the buffer</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>gstbuffer</code></em></i>
+<span>(</span><a title="Gst.Buffer" href="gstreamer/gstbuffer.html#GstBuffer">Gst.Buffer</a><span>)</span>
+–
+</div>
+<p>the <a href="gstreamer/gstbuffer.html#GstBuffer">Gst.Buffer</a> to be mapped</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>flags</code></em></i>
+<span>(</span><a title="Gst.MapFlags" href="gstreamer/gstmemory.html#GstMapFlags">Gst.MapFlags</a><span>)</span>
+–
+</div>
+<p>the access mode for the memory</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<p><b>Returns a tuple made of:</b></p>
+				
+<div class="symbol-detail">
+	<div>
+		<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>
+<span>)</span>
+–
+	</div>
+			<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">true</a> if the map operation succeeded or <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">false</a> on failure</p>
+
+	</div>
+
+				
+<div class="symbol-detail">
+	<div>
+				<i><em><code>buffer</code></em></i>
+		<span>(</span><a title="GstAudio.AudioBuffer" href="audio/audio-buffer.html#GstAudioBuffer">GstAudio.AudioBuffer</a>
+<span>)</span>
+–
+	</div>
+			<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">true</a> if the map operation succeeded or <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">false</a> on failure</p>
+
+	</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.16
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_audio_buffer_map">
+	<i>GstAudio.audio_buffer_map</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstAudio.audio_buffer_map (info, gstbuffer, flags):
+    #python wrapper for 'gst_audio_buffer_map'</code></pre>
+
+<p>Maps an audio <em>gstbuffer</em> so that it can be read or written and stores the
+result of the map operation in <em>buffer</em>.</p>
+<p>This is especially useful when the <em>gstbuffer</em> is in non-interleaved (planar)
+layout, in which case this function will use the information in the
+<em>gstbuffer</em>'s attached <a href="audio/gstaudiometa.html#GstAudioMeta">GstAudio.AudioMeta</a> in order to map each channel in a
+separate "plane" in <a href="audio/audio-buffer.html#GstAudioBuffer">GstAudio.AudioBuffer</a>. If a <a href="audio/gstaudiometa.html#GstAudioMeta">GstAudio.AudioMeta</a> is not attached
+on the <em>gstbuffer</em>, then it must be in interleaved layout.</p>
+<p>If a <a href="audio/gstaudiometa.html#GstAudioMeta">GstAudio.AudioMeta</a> is attached, then the <a href="audio/audio-info.html#GstAudioInfo">GstAudio.AudioInfo</a> on the meta is checked
+against <em>info</em>. Normally, they should be equal, but in case they are not,
+a g_critical will be printed and the <a href="audio/audio-info.html#GstAudioInfo">GstAudio.AudioInfo</a> from the meta will be
+used.</p>
+<p>In non-interleaved buffers, it is possible to have each channel on a separate
+<a href="gstreamer/gstmemory.html#GstMemory">Gst.Memory</a>. In this case, each memory will be mapped separately to avoid
+copying their contents in a larger memory area. Do note though that it is
+not supported to have a single channel spanning over two or more different
+<a href="gstreamer/gstmemory.html#GstMemory">Gst.Memory</a> objects. Although the map operation will likely succeed in this
+case, it will be highly sub-optimal and it is recommended to merge all the
+memories in the buffer before calling this function.</p>
+<p>Note: The actual <a href="gstreamer/gstbuffer.html#GstBuffer">Gst.Buffer</a> is not ref'ed, but it is required to stay valid
+as long as it's mapped.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>info</code></em></i>
+<span>(</span><a title="GstAudio.AudioInfo" href="audio/audio-info.html#GstAudioInfo">GstAudio.AudioInfo</a><span>)</span>
+–
+</div>
+<p>the audio properties of the buffer</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>gstbuffer</code></em></i>
+<span>(</span><a title="Gst.Buffer" href="gstreamer/gstbuffer.html#GstBuffer">Gst.Buffer</a><span>)</span>
+–
+</div>
+<p>the <a href="gstreamer/gstbuffer.html#GstBuffer">Gst.Buffer</a> to be mapped</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>flags</code></em></i>
+<span>(</span><a title="Gst.MapFlags" href="gstreamer/gstmemory.html#GstMapFlags">Gst.MapFlags</a><span>)</span>
+–
+</div>
+<p>the access mode for the memory</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<p><b>Returns a tuple made of:</b></p>
+				
+<div class="symbol-detail">
+	<div>
+		<span>(</span><a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a>
+<span>)</span>
+–
+	</div>
+			<p><a href="https://docs.python.org/3/library/constants.html#True">True</a> if the map operation succeeded or <a href="https://docs.python.org/3/library/constants.html#False">False</a> on failure</p>
+
+	</div>
+
+				
+<div class="symbol-detail">
+	<div>
+				<i><em><code>buffer</code></em></i>
+		<span>(</span><a title="GstAudio.AudioBuffer" href="audio/audio-buffer.html#GstAudioBuffer">GstAudio.AudioBuffer</a>
+<span>)</span>
+–
+	</div>
+			<p><a href="https://docs.python.org/3/library/constants.html#True">True</a> if the map operation succeeded or <a href="https://docs.python.org/3/library/constants.html#False">False</a> on failure</p>
+
+	</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.16
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_audio_buffer_reorder_channels">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_audio_buffer_reorder_channels">
+	<i>gst_audio_buffer_reorder_channels</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a>
+gst_audio_buffer_reorder_channels (<a title="GstBuffer" href="gstreamer/gstbuffer.html#GstBuffer">GstBuffer</a> * buffer,
+                                   <a title="GstAudioFormat" href="audio/audio-format.html#GstAudioFormat">GstAudioFormat</a> format,
+                                   <a title="gint" href="https://docs.gtk.org/glib/types.html#gint">gint</a> channels,
+                                   const <a title="GstAudioChannelPosition" href="audio/gstaudiochannels.html#GstAudioChannelPosition">GstAudioChannelPosition</a> * from,
+                                   const <a title="GstAudioChannelPosition" href="audio/gstaudiochannels.html#GstAudioChannelPosition">GstAudioChannelPosition</a> * to)</pre>
+
+<p>Reorders <em>buffer</em> from the channel positions <em>from</em> to the channel
+positions <em>to</em>. <em>from</em> and <em>to</em> must contain the same number of
+positions and the same positions, only in a different order.
+<em>buffer</em> must be writable.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>buffer</code></em></i>
+–
+</div>
+<p>The buffer to reorder.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>format</code></em></i>
+–
+</div>
+<p>The <a href="audio/audio-format.html#GstAudioFormat">GstAudioFormat</a> of the buffer.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>channels</code></em></i>
+–
+</div>
+<p>The number of channels.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>from</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="Parameter points to an array of items"><span class="acronym">array</span></abbr> length=channels]</span><span>)</span>
+–
+</div>
+<p>The channel positions in the buffer.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>to</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="Parameter points to an array of items"><span class="acronym">array</span></abbr> length=channels]</span><span>)</span>
+–
+</div>
+<p>The channel positions to convert to.</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p><a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#TRUE:CAPS">TRUE</a> if the reordering was possible.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_audio_buffer_reorder_channels">
+	<i>GstAudio.prototype.audio_buffer_reorder_channels</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstAudio.prototype.audio_buffer_reorder_channels(buffer: <a title="Gst.Buffer" href="gstreamer/gstbuffer.html#GstBuffer">Gst.Buffer</a>, format: <a title="GstAudio.AudioFormat" href="audio/audio-format.html#GstAudioFormat">GstAudio.AudioFormat</a>, channels: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>, from: [ <a title="GstAudio.AudioChannelPosition" href="audio/gstaudiochannels.html#GstAudioChannelPosition">GstAudio.AudioChannelPosition</a> ], to: [ <a title="GstAudio.AudioChannelPosition" href="audio/gstaudiochannels.html#GstAudioChannelPosition">GstAudio.AudioChannelPosition</a> ]): {
+    // javascript wrapper for 'gst_audio_buffer_reorder_channels'
+}</code></pre>
+
+<p>Reorders <em>buffer</em> from the channel positions <em>from</em> to the channel
+positions <em>to</em>. <em>from</em> and <em>to</em> must contain the same number of
+positions and the same positions, only in a different order.
+<em>buffer</em> must be writable.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>buffer</code></em></i>
+<span>(</span><a title="Gst.Buffer" href="gstreamer/gstbuffer.html#GstBuffer">Gst.Buffer</a><span>)</span>
+–
+</div>
+<p>The buffer to reorder.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>format</code></em></i>
+<span>(</span><a title="GstAudio.AudioFormat" href="audio/audio-format.html#GstAudioFormat">GstAudio.AudioFormat</a><span>)</span>
+–
+</div>
+<p>The <a href="audio/audio-format.html#GstAudioFormat">GstAudio.AudioFormat</a> of the buffer.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>channels</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>The number of channels.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>from</code></em></i>
+<span>(</span>[ <a title="GstAudio.AudioChannelPosition" href="audio/gstaudiochannels.html#GstAudioChannelPosition">GstAudio.AudioChannelPosition</a> ]<span>)</span>
+–
+</div>
+<p>The channel positions in the buffer.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>to</code></em></i>
+<span>(</span>[ <a title="GstAudio.AudioChannelPosition" href="audio/gstaudiochannels.html#GstAudioChannelPosition">GstAudio.AudioChannelPosition</a> ]<span>)</span>
+–
+</div>
+<p>The channel positions to convert to.</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+			</div>
+							<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">true</a> if the reordering was possible.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_audio_buffer_reorder_channels">
+	<i>GstAudio.audio_buffer_reorder_channels</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstAudio.audio_buffer_reorder_channels (buffer, format, channels, from, to):
+    #python wrapper for 'gst_audio_buffer_reorder_channels'</code></pre>
+
+<p>Reorders <em>buffer</em> from the channel positions <em>from</em> to the channel
+positions <em>to</em>. <em>from</em> and <em>to</em> must contain the same number of
+positions and the same positions, only in a different order.
+<em>buffer</em> must be writable.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>buffer</code></em></i>
+<span>(</span><a title="Gst.Buffer" href="gstreamer/gstbuffer.html#GstBuffer">Gst.Buffer</a><span>)</span>
+–
+</div>
+<p>The buffer to reorder.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>format</code></em></i>
+<span>(</span><a title="GstAudio.AudioFormat" href="audio/audio-format.html#GstAudioFormat">GstAudio.AudioFormat</a><span>)</span>
+–
+</div>
+<p>The <a href="audio/audio-format.html#GstAudioFormat">GstAudio.AudioFormat</a> of the buffer.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>channels</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<p>The number of channels.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>from</code></em></i>
+<span>(</span>[ <a title="GstAudio.AudioChannelPosition" href="audio/gstaudiochannels.html#GstAudioChannelPosition">GstAudio.AudioChannelPosition</a> ]<span>)</span>
+–
+</div>
+<p>The channel positions in the buffer.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>to</code></em></i>
+<span>(</span>[ <a title="GstAudio.AudioChannelPosition" href="audio/gstaudiochannels.html#GstAudioChannelPosition">GstAudio.AudioChannelPosition</a> ]<span>)</span>
+–
+</div>
+<p>The channel positions to convert to.</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a><span>)</span>
+–
+			</div>
+							<p><a href="https://docs.python.org/3/library/constants.html#True">True</a> if the reordering was possible.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.16;" id="gst_audio_buffer_truncate">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_audio_buffer_truncate">
+	<i>gst_audio_buffer_truncate</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GstBuffer" href="gstreamer/gstbuffer.html#GstBuffer">GstBuffer</a> *
+gst_audio_buffer_truncate (<a title="GstBuffer" href="gstreamer/gstbuffer.html#GstBuffer">GstBuffer</a> * buffer,
+                           <a title="gint" href="https://docs.gtk.org/glib/types.html#gint">gint</a> bpf,
+                           <a title="gsize" href="https://docs.gtk.org/glib/types.html#gsize">gsize</a> trim,
+                           <a title="gsize" href="https://docs.gtk.org/glib/types.html#gsize">gsize</a> samples)</pre>
+
+<p>Truncate the buffer to finally have <em>samples</em> number of samples, removing
+the necessary amount of samples from the end and <em>trim</em> number of samples
+from the beginning.</p>
+<p>This function does not know the audio rate, therefore the caller is
+responsible for re-setting the correct timestamp and duration to the
+buffer. However, timestamp will be preserved if trim == 0, and duration
+will also be preserved if there is no trimming to be done. Offset and
+offset end will be preserved / updated.</p>
+<p>After calling this function the caller does not own a reference to
+<em>buffer</em> anymore.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>buffer</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="Free data after the code is done"><span class="acronym">transfer: full</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>The buffer to truncate.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>bpf</code></em></i>
+–
+</div>
+<p>size of one audio frame in bytes. This is the size of one sample *
+number of channels.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>trim</code></em></i>
+–
+</div>
+<p>the number of samples to remove from the beginning of the buffer</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>samples</code></em></i>
+–
+</div>
+<p>the final number of samples that should exist in this buffer or -1
+to use all the remaining samples if you are only removing samples from the
+beginning.</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span>
+<span class="annotation">[<abbr title="Free data after the code is done"><span class="acronym">transfer: full</span></abbr>]</span><span>)</span>
+–
+			</div>
+							<p>the truncated buffer</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.16
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_audio_buffer_truncate">
+	<i>GstAudio.prototype.audio_buffer_truncate</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstAudio.prototype.audio_buffer_truncate(buffer: <a title="Gst.Buffer" href="gstreamer/gstbuffer.html#GstBuffer">Gst.Buffer</a>, bpf: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>, trim: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>, samples: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>): {
+    // javascript wrapper for 'gst_audio_buffer_truncate'
+}</code></pre>
+
+<p>Truncate the buffer to finally have <em>samples</em> number of samples, removing
+the necessary amount of samples from the end and <em>trim</em> number of samples
+from the beginning.</p>
+<p>This function does not know the audio rate, therefore the caller is
+responsible for re-setting the correct timestamp and duration to the
+buffer. However, timestamp will be preserved if trim == 0, and duration
+will also be preserved if there is no trimming to be done. Offset and
+offset end will be preserved / updated.</p>
+<p>After calling this function the caller does not own a reference to
+<em>buffer</em> anymore.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>buffer</code></em></i>
+<span>(</span><a title="Gst.Buffer" href="gstreamer/gstbuffer.html#GstBuffer">Gst.Buffer</a><span>)</span>
+–
+</div>
+<p>The buffer to truncate.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>bpf</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>size of one audio frame in bytes. This is the size of one sample *
+number of channels.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>trim</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>the number of samples to remove from the beginning of the buffer</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>samples</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>the final number of samples that should exist in this buffer or -1
+to use all the remaining samples if you are only removing samples from the
+beginning.</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Gst.Buffer" href="gstreamer/gstbuffer.html#GstBuffer">Gst.Buffer</a><span>)</span>
+–
+			</div>
+							<p>the truncated buffer</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.16
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_audio_buffer_truncate">
+	<i>GstAudio.audio_buffer_truncate</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstAudio.audio_buffer_truncate (buffer, bpf, trim, samples):
+    #python wrapper for 'gst_audio_buffer_truncate'</code></pre>
+
+<p>Truncate the buffer to finally have <em>samples</em> number of samples, removing
+the necessary amount of samples from the end and <em>trim</em> number of samples
+from the beginning.</p>
+<p>This function does not know the audio rate, therefore the caller is
+responsible for re-setting the correct timestamp and duration to the
+buffer. However, timestamp will be preserved if trim == 0, and duration
+will also be preserved if there is no trimming to be done. Offset and
+offset end will be preserved / updated.</p>
+<p>After calling this function the caller does not own a reference to
+<em>buffer</em> anymore.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>buffer</code></em></i>
+<span>(</span><a title="Gst.Buffer" href="gstreamer/gstbuffer.html#GstBuffer">Gst.Buffer</a><span>)</span>
+–
+</div>
+<p>The buffer to truncate.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>bpf</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<p>size of one audio frame in bytes. This is the size of one sample *
+number of channels.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>trim</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<p>the number of samples to remove from the beginning of the buffer</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>samples</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<p>the final number of samples that should exist in this buffer or -1
+to use all the remaining samples if you are only removing samples from the
+beginning.</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Gst.Buffer" href="gstreamer/gstbuffer.html#GstBuffer">Gst.Buffer</a><span>)</span>
+–
+			</div>
+							<p>the truncated buffer</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.16
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+
+        
+
+            <h2 class="symbol_section">Function Macros</h2>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GST_AUDIO_BUFFER_BPF">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_AUDIO_BUFFER_BPF">
+	<i>GST_AUDIO_BUFFER_BPF</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_AUDIO_BUFFER_BPF(b)             (GST_AUDIO_INFO_BPF(&amp;(b)-&gt;info))
+</pre>
+
+
+
+
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GST_AUDIO_BUFFER_BPS">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_AUDIO_BUFFER_BPS">
+	<i>GST_AUDIO_BUFFER_BPS</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_AUDIO_BUFFER_BPS(b)             (GST_AUDIO_INFO_DEPTH(&amp;(b)-&gt;info) &gt;&gt; 3)
+</pre>
+
+
+
+
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GST_AUDIO_BUFFER_CHANNELS">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_AUDIO_BUFFER_CHANNELS">
+	<i>GST_AUDIO_BUFFER_CHANNELS</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_AUDIO_BUFFER_CHANNELS(b)        (GST_AUDIO_INFO_CHANNELS(&amp;(b)-&gt;info))
+</pre>
+
+
+
+
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GST_AUDIO_BUFFER_DEPTH">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_AUDIO_BUFFER_DEPTH">
+	<i>GST_AUDIO_BUFFER_DEPTH</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_AUDIO_BUFFER_DEPTH(b)           (GST_AUDIO_INFO_DEPTH(&amp;(b)-&gt;info))
+</pre>
+
+
+
+
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GST_AUDIO_BUFFER_FORMAT">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_AUDIO_BUFFER_FORMAT">
+	<i>GST_AUDIO_BUFFER_FORMAT</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_AUDIO_BUFFER_FORMAT(b)          (GST_AUDIO_INFO_FORMAT(&amp;(b)-&gt;info))
+</pre>
+
+
+
+
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GST_AUDIO_BUFFER_LAYOUT">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_AUDIO_BUFFER_LAYOUT">
+	<i>GST_AUDIO_BUFFER_LAYOUT</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_AUDIO_BUFFER_LAYOUT(b)          (GST_AUDIO_INFO_LAYOUT(&amp;(b)-&gt;info))
+</pre>
+
+
+
+
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GST_AUDIO_BUFFER_N_PLANES">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_AUDIO_BUFFER_N_PLANES">
+	<i>GST_AUDIO_BUFFER_N_PLANES</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_AUDIO_BUFFER_N_PLANES(b)        ((b)-&gt;n_planes)
+</pre>
+
+
+
+
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GST_AUDIO_BUFFER_N_SAMPLES">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_AUDIO_BUFFER_N_SAMPLES">
+	<i>GST_AUDIO_BUFFER_N_SAMPLES</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_AUDIO_BUFFER_N_SAMPLES(b)       ((b)-&gt;n_samples)
+</pre>
+
+
+
+
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GST_AUDIO_BUFFER_PLANE_DATA">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_AUDIO_BUFFER_PLANE_DATA">
+	<i>GST_AUDIO_BUFFER_PLANE_DATA</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_AUDIO_BUFFER_PLANE_DATA(b,p)    ((b)-&gt;planes[p])
+</pre>
+
+
+
+
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GST_AUDIO_BUFFER_PLANE_SIZE">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_AUDIO_BUFFER_PLANE_SIZE">
+	<i>GST_AUDIO_BUFFER_PLANE_SIZE</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_AUDIO_BUFFER_PLANE_SIZE(b)      \
+    (GST_AUDIO_BUFFER_N_SAMPLES(b) * GST_AUDIO_BUFFER_SAMPLE_STRIDE(b) * \
+     GST_AUDIO_BUFFER_CHANNELS(b) / GST_AUDIO_BUFFER_N_PLANES(b))
+</pre>
+
+
+
+
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GST_AUDIO_BUFFER_RATE">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_AUDIO_BUFFER_RATE">
+	<i>GST_AUDIO_BUFFER_RATE</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_AUDIO_BUFFER_RATE(b)            (GST_AUDIO_INFO_RATE(&amp;(b)-&gt;info))
+</pre>
+
+
+
+
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GST_AUDIO_BUFFER_SAMPLE_STRIDE">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_AUDIO_BUFFER_SAMPLE_STRIDE">
+	<i>GST_AUDIO_BUFFER_SAMPLE_STRIDE</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_AUDIO_BUFFER_SAMPLE_STRIDE(b)   (GST_AUDIO_INFO_WIDTH(&amp;(b)-&gt;info) &gt;&gt; 3)
+</pre>
+
+
+
+
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GST_AUDIO_BUFFER_WIDTH">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_AUDIO_BUFFER_WIDTH">
+	<i>GST_AUDIO_BUFFER_WIDTH</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_AUDIO_BUFFER_WIDTH(b)           (GST_AUDIO_INFO_WIDTH(&amp;(b)-&gt;info))
+</pre>
+
+
+
+
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+
+            <h2 class="symbol_section">Constants</h2>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.28;" id="GST_AUDIO_BUFFER_INIT">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_AUDIO_BUFFER_INIT">
+	<i>GST_AUDIO_BUFFER_INIT</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_AUDIO_BUFFER_INIT { { NULL, }, }
+</pre>
+
+<p>Initializer for <a href="audio/audio-buffer.html#GstAudioBuffer">GstAudioBuffer</a></p>
+
+
+
+	<p>
+	<b>Since</b>			: 1.28
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+
+
+
+
+
+		
+	</div>
+	<div id="search_results">
+		<p>The results of the search are</p>
+	</div>
+	<div id="footer">
+		    
+
+	</div>
+</div>
+
+<div id="toc-column">
+	
+		<div class="edit-button">
+		
+
+	</div>
+		<div id="toc-wrapper">
+		<nav id="toc"></nav>
+	</div>
+</div>
+</div>
+</main>
+
+
+<script src="assets/js/navbar_offset_scroller.js"></script>
+</body>
+</html>

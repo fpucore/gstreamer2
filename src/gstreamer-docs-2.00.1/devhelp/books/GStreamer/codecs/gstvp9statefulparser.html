@@ -1,0 +1,7169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<base href="..">
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<title>GstVp9StatefulParser</title>
+
+<link rel="stylesheet" href="assets/css/dark-frontend.css" type="text/css" title="dark">
+<link rel="alternate stylesheet" href="assets/css/light-frontend.css" type="text/css" title="light">
+<link rel="stylesheet" href="assets/css/bootstrap-toc.min.css" type="text/css">
+<link rel="stylesheet" href="assets/css/jquery.mCustomScrollbar.min.css">
+<link rel="stylesheet" href="assets/js/search/enable_search.css" type="text/css">
+
+<link rel="stylesheet" href="assets/css/extra_frontend.css" type="text/css">
+<link rel="stylesheet" href="assets/css/devhelp.css" type="text/css">
+
+<link rel="stylesheet" href="assets/css/prism-tomorrow.css" type="text/css" title="dark">
+
+<link rel="alternate stylesheet" href="assets/css/prism.css" type="text/css" title="light">
+
+<script src="assets/js/mustache.min.js"></script>
+<script src="assets/js/jquery.js"></script>
+<script src="assets/js/bootstrap.js"></script>
+<script src="assets/js/scrollspy.js"></script>
+<script src="assets/js/typeahead.jquery.min.js"></script>
+<script src="assets/js/search.js"></script>
+<script src="assets/js/compare-versions.js"></script>
+<script src="assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="assets/js/bootstrap-toc.min.js"></script>
+<script src="assets/js/jquery.touchSwipe.min.js"></script>
+<script src="assets/js/anchor.min.js"></script>
+<script src="assets/js/tag_filtering.js"></script>
+<script src="assets/js/language_switching.js"></script>
+<script src="assets/js/styleswitcher.js"></script>
+
+<script src="assets/js/lines_around_headings.js"></script>
+
+<script src="assets/js/prism-core.js"></script>
+<script src="assets/js/prism-autoloader.js"></script>
+<script src="assets/js/prism_autoloader_path_override.js"></script>
+<script src="assets/js/trie.js"></script>
+
+<!-- generic -->
+<link rel="icon" type="image/png" href="assets/images/favicon-16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="assets/images/favicon-32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="assets/images/favicon-57.png" sizes="57x57">
+<link rel="icon" type="image/png" href="assets/images/favicon-64.png" sizes="64x64">
+<link rel="icon" type="image/png" href="assets/images/favicon-76.png" sizes="76x76">
+<link rel="icon" type="image/png" href="assets/images/favicon-96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="assets/images/favicon-128.png" sizes="128x128">
+<link rel="icon" type="image/png" href="assets/images/favicon-192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="assets/images/favicon-228.png" sizes="228x228">
+
+<!-- Android -->
+<link rel="shortcut icon" sizes="196x196" href="assets/images/favicon-196.png">
+
+<!-- iOS -->
+<link rel="apple-touch-icon" href="assets/images/favicon-120.png" sizes="120x120">
+<link rel="apple-touch-icon" href="assets/images/favicon-152.png" sizes="152x152">
+<link rel="apple-touch-icon" href="assets/images/favicon-180.png" sizes="180x180">
+
+</head>
+
+<body class="no-script
+">
+
+<script>
+$('body').removeClass('no-script');
+</script>
+
+<nav class="navbar navbar-fixed-top navbar-default" id="topnav">
+	<div class="container-fluid">
+		<div class="navbar-right">
+			<a id="toc-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-wrapper" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<span title="light mode switch" class="glyphicon glyphicon-sunglasses pull-right" id="lightmode-icon"></span>
+			<form class="navbar-form pull-right" id="navbar-search-form">
+                               <div class="form-group has-feedback">
+                                       <input type="text" class="form-control input-sm" name="search" id="sidenav-lookup-field" placeholder="search" disabled>
+				       <span class="glyphicon glyphicon-search form-control-feedback" id="search-mgn-glass"></span>
+                               </div>
+                        </form>
+		</div>
+		<div class="navbar-header">
+			<a id="sidenav-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<a id="home-link" href="index.html" class="hotdoc-navbar-brand">
+				<img src="assets/images/gstreamer-logo.svg" alt="Home">
+			</a>
+		</div>
+		<div class="navbar-collapse collapse" id="navbar-wrapper">
+			<ul class="nav navbar-nav" id="menu">
+				
+<li class="dropdown">
+    <a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        API References<span class="caret"></span>
+    </a>
+	<ul class="dropdown-menu" id="modules-menu">
+					<li>
+				<a href="gstreamer/gi-index.html">GStreamer core</a>
+			</li>
+					<li>
+				<a href="libs.html">GStreamer Libraries</a>
+			</li>
+					<li>
+				<a href="plugins_doc.html">GStreamer Plugins</a>
+			</li>
+		</ul>
+</li>
+
+<li>
+    <a href="application-development/index.html">Application manual</a>
+</li>
+
+
+<li>
+    <a href="tutorials/index.html">Tutorials</a>
+</li>
+
+			</ul>
+			<div class="hidden-xs hidden-sm navbar-text navbar-center">
+							</div>
+		</div>
+	</div>
+</nav>
+
+<main>
+<div data-extension="gi-extension" data-hotdoc-in-toplevel="False" data-hotdoc-project="codecs" data-hotdoc-ref="gstvp9statefulparser.html" class="page_container" id="page-wrapper" data-hotdoc-meta-gi-languages="['c', 'javascript', 'python']" data-hotdoc-meta-gi-language="c">
+<script src="assets/js/utils.js"></script>
+
+<div class="panel panel-collapse oc-collapsed" id="sidenav" data-hotdoc-role="navigation">
+	<script src="assets/js/full-width.js"></script>
+  <div id="sitenav-wrapper">
+    <iframe src="hotdoc-sitemap.html" id="sitenav-frame"></iframe>
+  </div>
+</div>
+
+<div id="body">
+	<div id="main">
+				    <div id="page-description" data-hotdoc-role="main">
+        <h1 id="gstvp9statefulparser-page">GstVp9StatefulParser</h1>
+<p>This object is used to parse VP9 bitstream header.</p>
+
+    </div>
+        
+        
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="GstVp9DeltaProbabilities">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h2 data-hotdoc-id="GstVp9DeltaProbabilities">
+	<i>GstVp9DeltaProbabilities</i>
+</h2>
+
+
+
+<div class="class_details">
+	<p>Stores probabilities updates. This is from the spec
+and can be used as a binary.</p>
+
+</div>
+
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h2 data-hotdoc-id="GstVp9DeltaProbabilities">
+	<i>GstCodecs.Vp9DeltaProbabilities</i>
+</h2>
+
+
+
+<div class="class_details">
+	<p>Stores probabilities updates. This is from the spec
+and can be used as a binary.</p>
+
+</div>
+
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h2 data-hotdoc-id="GstVp9DeltaProbabilities">
+	<i>GstCodecs.Vp9DeltaProbabilities</i>
+</h2>
+
+
+
+<div class="class_details">
+	<p>Stores probabilities updates. This is from the spec
+and can be used as a binary.</p>
+
+</div>
+
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+
+        
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="GstVp9FrameHeader">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h2 data-hotdoc-id="GstVp9FrameHeader">
+	<i>GstVp9FrameHeader</i>
+</h2>
+
+
+
+
+
+
+	<div class="members-container">
+		<h3>Members</h3>
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9FrameHeader.profile">
+	<div>
+		<i><em><code>profile</code></em></i>
+		(<a title="guint8" href="https://docs.gtk.org/glib/types.html#guint8">guint8</a>)
+		–
+	</div>
+			<p>encoded profile</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9FrameHeader.bit_depth">
+	<div>
+		<i><em><code>bit_depth</code></em></i>
+		(<a title="guint8" href="https://docs.gtk.org/glib/types.html#guint8">guint8</a>)
+		–
+	</div>
+			<p>encoded bit depth</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9FrameHeader.subsampling_x">
+	<div>
+		<i><em><code>subsampling_x</code></em></i>
+		(<a title="guint8" href="https://docs.gtk.org/glib/types.html#guint8">guint8</a>)
+		–
+	</div>
+			<p>specify the chroma subsampling format for x coordinate</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9FrameHeader.subsampling_y">
+	<div>
+		<i><em><code>subsampling_y</code></em></i>
+		(<a title="guint8" href="https://docs.gtk.org/glib/types.html#guint8">guint8</a>)
+		–
+	</div>
+			<p>specify the chroma subsampling format for y coordinate</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9FrameHeader.color_space">
+	<div>
+		<i><em><code>color_space</code></em></i>
+		(<a title="guint8" href="https://docs.gtk.org/glib/types.html#guint8">guint8</a>)
+		–
+	</div>
+			<p>specifies the color space of the stream</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9FrameHeader.color_range">
+	<div>
+		<i><em><code>color_range</code></em></i>
+		(<a title="guint8" href="https://docs.gtk.org/glib/types.html#guint8">guint8</a>)
+		–
+	</div>
+			<p>specifies the black level and range of the luma and chroma
+signals</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9FrameHeader.show_existing_frame">
+	<div>
+		<i><em><code>show_existing_frame</code></em></i>
+		(<a title="guint8" href="https://docs.gtk.org/glib/types.html#guint8">guint8</a>)
+		–
+	</div>
+			<p>equal to 1, indicates the frame indexed by
+frame_to_show_map_idx is to be displayed</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9FrameHeader.frame_to_show_map_idx">
+	<div>
+		<i><em><code>frame_to_show_map_idx</code></em></i>
+		(<a title="guint8" href="https://docs.gtk.org/glib/types.html#guint8">guint8</a>)
+		–
+	</div>
+			<p>specifies the frame to be displayed.
+It is only available if show_existing_frame is 1</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9FrameHeader.frame_type">
+	<div>
+		<i><em><code>frame_type</code></em></i>
+		(<a title="guint8" href="https://docs.gtk.org/glib/types.html#guint8">guint8</a>)
+		–
+	</div>
+			<p>equal to 0 indicates that the current frame is a key frame</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9FrameHeader.show_frame">
+	<div>
+		<i><em><code>show_frame</code></em></i>
+		(<a title="guint8" href="https://docs.gtk.org/glib/types.html#guint8">guint8</a>)
+		–
+	</div>
+			<p>indicate whether it is a displayable frame or not</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9FrameHeader.error_resilient_mode">
+	<div>
+		<i><em><code>error_resilient_mode</code></em></i>
+		(<a title="guint8" href="https://docs.gtk.org/glib/types.html#guint8">guint8</a>)
+		–
+	</div>
+			<p>equal to 1 indicates that error resilient mode is
+enabled</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9FrameHeader.width">
+	<div>
+		<i><em><code>width</code></em></i>
+		(<a title="guint32" href="https://docs.gtk.org/glib/types.html#guint32">guint32</a>)
+		–
+	</div>
+			<p>coded frame width</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9FrameHeader.height">
+	<div>
+		<i><em><code>height</code></em></i>
+		(<a title="guint32" href="https://docs.gtk.org/glib/types.html#guint32">guint32</a>)
+		–
+	</div>
+			<p>coded frame height</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9FrameHeader.render_and_frame_size_different">
+	<div>
+		<i><em><code>render_and_frame_size_different</code></em></i>
+		(<a title="guint8" href="https://docs.gtk.org/glib/types.html#guint8">guint8</a>)
+		–
+	</div>
+			<p>equal to 0 means that the render width and
+height are inferred from the frame width and height</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9FrameHeader.render_width">
+	<div>
+		<i><em><code>render_width</code></em></i>
+		(<a title="guint32" href="https://docs.gtk.org/glib/types.html#guint32">guint32</a>)
+		–
+	</div>
+			<p>render width of the frame</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9FrameHeader.render_height">
+	<div>
+		<i><em><code>render_height</code></em></i>
+		(<a title="guint32" href="https://docs.gtk.org/glib/types.html#guint32">guint32</a>)
+		–
+	</div>
+			<p>render width of the frame</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9FrameHeader.intra_only">
+	<div>
+		<i><em><code>intra_only</code></em></i>
+		(<a title="guint8" href="https://docs.gtk.org/glib/types.html#guint8">guint8</a>)
+		–
+	</div>
+			<p>equal to 1 indicates that the frame is an intra-only frame</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9FrameHeader.reset_frame_context">
+	<div>
+		<i><em><code>reset_frame_context</code></em></i>
+		(<a title="guint8" href="https://docs.gtk.org/glib/types.html#guint8">guint8</a>)
+		–
+	</div>
+			<p>specifies whether the frame context should be reset to
+default values</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9FrameHeader.refresh_frame_flags">
+	<div>
+		<i><em><code>refresh_frame_flags</code></em></i>
+		(<a title="guint8" href="https://docs.gtk.org/glib/types.html#guint8">guint8</a>)
+		–
+	</div>
+			<p>contains a bitmask that specifies which reference frame
+slots will be updated with the current frame after it is decoded</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9FrameHeader.ref_frame_idx">
+	<div>
+		<i><em><code>ref_frame_idx</code></em></i>
+		(<a title="guint8" href="https://docs.gtk.org/glib/types.html#guint8">guint8</a> *)
+		–
+	</div>
+			<p>specifies which reference frames are used by inter frames</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9FrameHeader.ref_frame_sign_bias">
+	<div>
+		<i><em><code>ref_frame_sign_bias</code></em></i>
+		(<a title="guint8" href="https://docs.gtk.org/glib/types.html#guint8">guint8</a> *)
+		–
+	</div>
+			<p>specifies the intended direction of the motion vector
+in time for each reference frame. A sign bias equal to 0 indicates that
+the reference frame is a backwards reference</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9FrameHeader.allow_high_precision_mv">
+	<div>
+		<i><em><code>allow_high_precision_mv</code></em></i>
+		(<a title="guint8" href="https://docs.gtk.org/glib/types.html#guint8">guint8</a>)
+		–
+	</div>
+			<p>equal to 0 specifies that motion vectors are
+specified to quarter pel precision</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9FrameHeader.interpolation_filter">
+	<div>
+		<i><em><code>interpolation_filter</code></em></i>
+		(<a title="guint8" href="https://docs.gtk.org/glib/types.html#guint8">guint8</a>)
+		–
+	</div>
+			<p>specifies the filter selection used for performing
+inter prediction</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9FrameHeader.refresh_frame_context">
+	<div>
+		<i><em><code>refresh_frame_context</code></em></i>
+		(<a title="guint8" href="https://docs.gtk.org/glib/types.html#guint8">guint8</a>)
+		–
+	</div>
+			<p>equal to 1 indicates that the probabilities computed
+for this frame</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9FrameHeader.frame_parallel_decoding_mode">
+	<div>
+		<i><em><code>frame_parallel_decoding_mode</code></em></i>
+		(<a title="guint8" href="https://docs.gtk.org/glib/types.html#guint8">guint8</a>)
+		–
+	</div>
+			<p>equal to 1 indicates that parallel decoding
+mode is enabled</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9FrameHeader.frame_context_idx">
+	<div>
+		<i><em><code>frame_context_idx</code></em></i>
+		(<a title="guint8" href="https://docs.gtk.org/glib/types.html#guint8">guint8</a>)
+		–
+	</div>
+			<p>indicates the frame context to use</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9FrameHeader.loop_filter_params">
+	<div>
+		<i><em><code>loop_filter_params</code></em></i>
+		(<a title="GstVp9LoopFilterParams" href="codecs/gstvp9statefulparser.html#GstVp9LoopFilterParams">GstVp9LoopFilterParams</a>)
+		–
+	</div>
+			<p>a <a href="codecs/gstvp9statefulparser.html#GstVp9LoopFilterParams">GstVp9LoopFilterParams</a></p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9FrameHeader.quantization_params">
+	<div>
+		<i><em><code>quantization_params</code></em></i>
+		(<a title="GstVp9QuantizationParams" href="codecs/gstvp9statefulparser.html#GstVp9QuantizationParams">GstVp9QuantizationParams</a>)
+		–
+	</div>
+			<p>a <a href="codecs/gstvp9statefulparser.html#GstVp9QuantizationParams">GstVp9QuantizationParams</a></p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9FrameHeader.segmentation_params">
+	<div>
+		<i><em><code>segmentation_params</code></em></i>
+		(<a title="GstVp9SegmentationParams" href="codecs/gstvp9statefulparser.html#GstVp9SegmentationParams">GstVp9SegmentationParams</a>)
+		–
+	</div>
+			<p>a <a href="codecs/gstvp9statefulparser.html#GstVp9SegmentationParams">GstVp9SegmentationParams</a></p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9FrameHeader.tile_cols_log2">
+	<div>
+		<i><em><code>tile_cols_log2</code></em></i>
+		(<a title="guint8" href="https://docs.gtk.org/glib/types.html#guint8">guint8</a>)
+		–
+	</div>
+			<p>specifies the base 2 logarithm of the width of each tile</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9FrameHeader.tile_rows_log2">
+	<div>
+		<i><em><code>tile_rows_log2</code></em></i>
+		(<a title="guint8" href="https://docs.gtk.org/glib/types.html#guint8">guint8</a>)
+		–
+	</div>
+			<p>specifies the base 2 logarithm of the height of each tile</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9FrameHeader.header_size_in_bytes">
+	<div>
+		<i><em><code>header_size_in_bytes</code></em></i>
+		(<a title="guint16" href="https://docs.gtk.org/glib/types.html#guint16">guint16</a>)
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9FrameHeader.tx_mode">
+	<div>
+		<i><em><code>tx_mode</code></em></i>
+		(<a title="GstVp9TxMode" href="codecs/gstvp9statefulparser.html#GstVp9TxMode">GstVp9TxMode</a>)
+		–
+	</div>
+			<p>Specifies how the transform size is determined.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9FrameHeader.reference_mode">
+	<div>
+		<i><em><code>reference_mode</code></em></i>
+		(<a title="GstVp9ReferenceMode" href="codecs/gstvp9statefulparser.html#GstVp9ReferenceMode">GstVp9ReferenceMode</a>)
+		–
+	</div>
+			<p>Is a derived syntax element that specifies the type of
+inter prediction to be used.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9FrameHeader.delta_probabilities">
+	<div>
+		<i><em><code>delta_probabilities</code></em></i>
+		(<a title="GstVp9DeltaProbabilities" href="codecs/gstvp9statefulparser.html#GstVp9DeltaProbabilities">GstVp9DeltaProbabilities</a>)
+		–
+	</div>
+			<p>Modification to the probabilities encoded in the bitstream.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9FrameHeader.lossless_flag">
+	<div>
+		<i><em><code>lossless_flag</code></em></i>
+		(<a title="guint8" href="https://docs.gtk.org/glib/types.html#guint8">guint8</a>)
+		–
+	</div>
+			<p>lossless mode decode</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9FrameHeader.frame_header_length_in_bytes">
+	<div>
+		<i><em><code>frame_header_length_in_bytes</code></em></i>
+		(<a title="guint32" href="https://docs.gtk.org/glib/types.html#guint32">guint32</a>)
+		–
+	</div>
+			<p>length of uncompressed header</p>
+
+	</div>
+
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h2 data-hotdoc-id="GstVp9FrameHeader">
+	<i>GstCodecs.Vp9FrameHeader</i>
+</h2>
+
+
+
+
+
+
+	<div class="members-container">
+		<h3>Members</h3>
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9FrameHeader.profile">
+	<div>
+		<i><em><code>profile</code></em></i>
+		(<a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>)
+		–
+	</div>
+			<p>encoded profile</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9FrameHeader.bit_depth">
+	<div>
+		<i><em><code>bit_depth</code></em></i>
+		(<a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>)
+		–
+	</div>
+			<p>encoded bit depth</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9FrameHeader.subsampling_x">
+	<div>
+		<i><em><code>subsampling_x</code></em></i>
+		(<a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>)
+		–
+	</div>
+			<p>specify the chroma subsampling format for x coordinate</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9FrameHeader.subsampling_y">
+	<div>
+		<i><em><code>subsampling_y</code></em></i>
+		(<a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>)
+		–
+	</div>
+			<p>specify the chroma subsampling format for y coordinate</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9FrameHeader.color_space">
+	<div>
+		<i><em><code>color_space</code></em></i>
+		(<a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>)
+		–
+	</div>
+			<p>specifies the color space of the stream</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9FrameHeader.color_range">
+	<div>
+		<i><em><code>color_range</code></em></i>
+		(<a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>)
+		–
+	</div>
+			<p>specifies the black level and range of the luma and chroma
+signals</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9FrameHeader.show_existing_frame">
+	<div>
+		<i><em><code>show_existing_frame</code></em></i>
+		(<a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>)
+		–
+	</div>
+			<p>equal to 1, indicates the frame indexed by
+frame_to_show_map_idx is to be displayed</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9FrameHeader.frame_to_show_map_idx">
+	<div>
+		<i><em><code>frame_to_show_map_idx</code></em></i>
+		(<a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>)
+		–
+	</div>
+			<p>specifies the frame to be displayed.
+It is only available if show_existing_frame is 1</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9FrameHeader.frame_type">
+	<div>
+		<i><em><code>frame_type</code></em></i>
+		(<a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>)
+		–
+	</div>
+			<p>equal to 0 indicates that the current frame is a key frame</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9FrameHeader.show_frame">
+	<div>
+		<i><em><code>show_frame</code></em></i>
+		(<a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>)
+		–
+	</div>
+			<p>indicate whether it is a displayable frame or not</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9FrameHeader.error_resilient_mode">
+	<div>
+		<i><em><code>error_resilient_mode</code></em></i>
+		(<a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>)
+		–
+	</div>
+			<p>equal to 1 indicates that error resilient mode is
+enabled</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9FrameHeader.width">
+	<div>
+		<i><em><code>width</code></em></i>
+		(<a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>)
+		–
+	</div>
+			<p>coded frame width</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9FrameHeader.height">
+	<div>
+		<i><em><code>height</code></em></i>
+		(<a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>)
+		–
+	</div>
+			<p>coded frame height</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9FrameHeader.render_and_frame_size_different">
+	<div>
+		<i><em><code>render_and_frame_size_different</code></em></i>
+		(<a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>)
+		–
+	</div>
+			<p>equal to 0 means that the render width and
+height are inferred from the frame width and height</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9FrameHeader.render_width">
+	<div>
+		<i><em><code>render_width</code></em></i>
+		(<a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>)
+		–
+	</div>
+			<p>render width of the frame</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9FrameHeader.render_height">
+	<div>
+		<i><em><code>render_height</code></em></i>
+		(<a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>)
+		–
+	</div>
+			<p>render width of the frame</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9FrameHeader.intra_only">
+	<div>
+		<i><em><code>intra_only</code></em></i>
+		(<a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>)
+		–
+	</div>
+			<p>equal to 1 indicates that the frame is an intra-only frame</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9FrameHeader.reset_frame_context">
+	<div>
+		<i><em><code>reset_frame_context</code></em></i>
+		(<a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>)
+		–
+	</div>
+			<p>specifies whether the frame context should be reset to
+default values</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9FrameHeader.refresh_frame_flags">
+	<div>
+		<i><em><code>refresh_frame_flags</code></em></i>
+		(<a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>)
+		–
+	</div>
+			<p>contains a bitmask that specifies which reference frame
+slots will be updated with the current frame after it is decoded</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9FrameHeader.ref_frame_idx">
+	<div>
+		<i><em><code>ref_frame_idx</code></em></i>
+		([ <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a> ])
+		–
+	</div>
+			<p>specifies which reference frames are used by inter frames</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9FrameHeader.ref_frame_sign_bias">
+	<div>
+		<i><em><code>ref_frame_sign_bias</code></em></i>
+		([ <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a> ])
+		–
+	</div>
+			<p>specifies the intended direction of the motion vector
+in time for each reference frame. A sign bias equal to 0 indicates that
+the reference frame is a backwards reference</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9FrameHeader.allow_high_precision_mv">
+	<div>
+		<i><em><code>allow_high_precision_mv</code></em></i>
+		(<a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>)
+		–
+	</div>
+			<p>equal to 0 specifies that motion vectors are
+specified to quarter pel precision</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9FrameHeader.interpolation_filter">
+	<div>
+		<i><em><code>interpolation_filter</code></em></i>
+		(<a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>)
+		–
+	</div>
+			<p>specifies the filter selection used for performing
+inter prediction</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9FrameHeader.refresh_frame_context">
+	<div>
+		<i><em><code>refresh_frame_context</code></em></i>
+		(<a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>)
+		–
+	</div>
+			<p>equal to 1 indicates that the probabilities computed
+for this frame</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9FrameHeader.frame_parallel_decoding_mode">
+	<div>
+		<i><em><code>frame_parallel_decoding_mode</code></em></i>
+		(<a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>)
+		–
+	</div>
+			<p>equal to 1 indicates that parallel decoding
+mode is enabled</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9FrameHeader.frame_context_idx">
+	<div>
+		<i><em><code>frame_context_idx</code></em></i>
+		(<a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>)
+		–
+	</div>
+			<p>indicates the frame context to use</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9FrameHeader.loop_filter_params">
+	<div>
+		<i><em><code>loop_filter_params</code></em></i>
+		(<a title="GstCodecs.Vp9LoopFilterParams" href="codecs/gstvp9statefulparser.html#GstVp9LoopFilterParams">GstCodecs.Vp9LoopFilterParams</a>)
+		–
+	</div>
+			<p>a <a href="codecs/gstvp9statefulparser.html#GstVp9LoopFilterParams">GstCodecs.Vp9LoopFilterParams</a></p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9FrameHeader.quantization_params">
+	<div>
+		<i><em><code>quantization_params</code></em></i>
+		(<a title="GstCodecs.Vp9QuantizationParams" href="codecs/gstvp9statefulparser.html#GstVp9QuantizationParams">GstCodecs.Vp9QuantizationParams</a>)
+		–
+	</div>
+			<p>a <a href="codecs/gstvp9statefulparser.html#GstVp9QuantizationParams">GstCodecs.Vp9QuantizationParams</a></p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9FrameHeader.segmentation_params">
+	<div>
+		<i><em><code>segmentation_params</code></em></i>
+		(<a title="GstCodecs.Vp9SegmentationParams" href="codecs/gstvp9statefulparser.html#GstVp9SegmentationParams">GstCodecs.Vp9SegmentationParams</a>)
+		–
+	</div>
+			<p>a <a href="codecs/gstvp9statefulparser.html#GstVp9SegmentationParams">GstCodecs.Vp9SegmentationParams</a></p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9FrameHeader.tile_cols_log2">
+	<div>
+		<i><em><code>tile_cols_log2</code></em></i>
+		(<a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>)
+		–
+	</div>
+			<p>specifies the base 2 logarithm of the width of each tile</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9FrameHeader.tile_rows_log2">
+	<div>
+		<i><em><code>tile_rows_log2</code></em></i>
+		(<a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>)
+		–
+	</div>
+			<p>specifies the base 2 logarithm of the height of each tile</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9FrameHeader.header_size_in_bytes">
+	<div>
+		<i><em><code>header_size_in_bytes</code></em></i>
+		(<a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>)
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9FrameHeader.tx_mode">
+	<div>
+		<i><em><code>tx_mode</code></em></i>
+		(<a title="GstCodecs.Vp9TxMode" href="codecs/gstvp9statefulparser.html#GstVp9TxMode">GstCodecs.Vp9TxMode</a>)
+		–
+	</div>
+			<p>Specifies how the transform size is determined.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9FrameHeader.reference_mode">
+	<div>
+		<i><em><code>reference_mode</code></em></i>
+		(<a title="GstCodecs.Vp9ReferenceMode" href="codecs/gstvp9statefulparser.html#GstVp9ReferenceMode">GstCodecs.Vp9ReferenceMode</a>)
+		–
+	</div>
+			<p>Is a derived syntax element that specifies the type of
+inter prediction to be used.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9FrameHeader.delta_probabilities">
+	<div>
+		<i><em><code>delta_probabilities</code></em></i>
+		(<a title="GstCodecs.Vp9DeltaProbabilities" href="codecs/gstvp9statefulparser.html#GstVp9DeltaProbabilities">GstCodecs.Vp9DeltaProbabilities</a>)
+		–
+	</div>
+			<p>Modification to the probabilities encoded in the bitstream.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9FrameHeader.lossless_flag">
+	<div>
+		<i><em><code>lossless_flag</code></em></i>
+		(<a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>)
+		–
+	</div>
+			<p>lossless mode decode</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9FrameHeader.frame_header_length_in_bytes">
+	<div>
+		<i><em><code>frame_header_length_in_bytes</code></em></i>
+		(<a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>)
+		–
+	</div>
+			<p>length of uncompressed header</p>
+
+	</div>
+
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h2 data-hotdoc-id="GstVp9FrameHeader">
+	<i>GstCodecs.Vp9FrameHeader</i>
+</h2>
+
+
+
+
+
+
+	<div class="members-container">
+		<h3>Members</h3>
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9FrameHeader.profile">
+	<div>
+		<i><em><code>profile</code></em></i>
+		(<a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a>)
+		–
+	</div>
+			<p>encoded profile</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9FrameHeader.bit_depth">
+	<div>
+		<i><em><code>bit_depth</code></em></i>
+		(<a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a>)
+		–
+	</div>
+			<p>encoded bit depth</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9FrameHeader.subsampling_x">
+	<div>
+		<i><em><code>subsampling_x</code></em></i>
+		(<a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a>)
+		–
+	</div>
+			<p>specify the chroma subsampling format for x coordinate</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9FrameHeader.subsampling_y">
+	<div>
+		<i><em><code>subsampling_y</code></em></i>
+		(<a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a>)
+		–
+	</div>
+			<p>specify the chroma subsampling format for y coordinate</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9FrameHeader.color_space">
+	<div>
+		<i><em><code>color_space</code></em></i>
+		(<a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a>)
+		–
+	</div>
+			<p>specifies the color space of the stream</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9FrameHeader.color_range">
+	<div>
+		<i><em><code>color_range</code></em></i>
+		(<a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a>)
+		–
+	</div>
+			<p>specifies the black level and range of the luma and chroma
+signals</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9FrameHeader.show_existing_frame">
+	<div>
+		<i><em><code>show_existing_frame</code></em></i>
+		(<a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a>)
+		–
+	</div>
+			<p>equal to 1, indicates the frame indexed by
+frame_to_show_map_idx is to be displayed</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9FrameHeader.frame_to_show_map_idx">
+	<div>
+		<i><em><code>frame_to_show_map_idx</code></em></i>
+		(<a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a>)
+		–
+	</div>
+			<p>specifies the frame to be displayed.
+It is only available if show_existing_frame is 1</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9FrameHeader.frame_type">
+	<div>
+		<i><em><code>frame_type</code></em></i>
+		(<a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a>)
+		–
+	</div>
+			<p>equal to 0 indicates that the current frame is a key frame</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9FrameHeader.show_frame">
+	<div>
+		<i><em><code>show_frame</code></em></i>
+		(<a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a>)
+		–
+	</div>
+			<p>indicate whether it is a displayable frame or not</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9FrameHeader.error_resilient_mode">
+	<div>
+		<i><em><code>error_resilient_mode</code></em></i>
+		(<a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a>)
+		–
+	</div>
+			<p>equal to 1 indicates that error resilient mode is
+enabled</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9FrameHeader.width">
+	<div>
+		<i><em><code>width</code></em></i>
+		(<a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a>)
+		–
+	</div>
+			<p>coded frame width</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9FrameHeader.height">
+	<div>
+		<i><em><code>height</code></em></i>
+		(<a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a>)
+		–
+	</div>
+			<p>coded frame height</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9FrameHeader.render_and_frame_size_different">
+	<div>
+		<i><em><code>render_and_frame_size_different</code></em></i>
+		(<a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a>)
+		–
+	</div>
+			<p>equal to 0 means that the render width and
+height are inferred from the frame width and height</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9FrameHeader.render_width">
+	<div>
+		<i><em><code>render_width</code></em></i>
+		(<a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a>)
+		–
+	</div>
+			<p>render width of the frame</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9FrameHeader.render_height">
+	<div>
+		<i><em><code>render_height</code></em></i>
+		(<a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a>)
+		–
+	</div>
+			<p>render width of the frame</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9FrameHeader.intra_only">
+	<div>
+		<i><em><code>intra_only</code></em></i>
+		(<a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a>)
+		–
+	</div>
+			<p>equal to 1 indicates that the frame is an intra-only frame</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9FrameHeader.reset_frame_context">
+	<div>
+		<i><em><code>reset_frame_context</code></em></i>
+		(<a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a>)
+		–
+	</div>
+			<p>specifies whether the frame context should be reset to
+default values</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9FrameHeader.refresh_frame_flags">
+	<div>
+		<i><em><code>refresh_frame_flags</code></em></i>
+		(<a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a>)
+		–
+	</div>
+			<p>contains a bitmask that specifies which reference frame
+slots will be updated with the current frame after it is decoded</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9FrameHeader.ref_frame_idx">
+	<div>
+		<i><em><code>ref_frame_idx</code></em></i>
+		([ <a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a> ])
+		–
+	</div>
+			<p>specifies which reference frames are used by inter frames</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9FrameHeader.ref_frame_sign_bias">
+	<div>
+		<i><em><code>ref_frame_sign_bias</code></em></i>
+		([ <a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a> ])
+		–
+	</div>
+			<p>specifies the intended direction of the motion vector
+in time for each reference frame. A sign bias equal to 0 indicates that
+the reference frame is a backwards reference</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9FrameHeader.allow_high_precision_mv">
+	<div>
+		<i><em><code>allow_high_precision_mv</code></em></i>
+		(<a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a>)
+		–
+	</div>
+			<p>equal to 0 specifies that motion vectors are
+specified to quarter pel precision</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9FrameHeader.interpolation_filter">
+	<div>
+		<i><em><code>interpolation_filter</code></em></i>
+		(<a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a>)
+		–
+	</div>
+			<p>specifies the filter selection used for performing
+inter prediction</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9FrameHeader.refresh_frame_context">
+	<div>
+		<i><em><code>refresh_frame_context</code></em></i>
+		(<a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a>)
+		–
+	</div>
+			<p>equal to 1 indicates that the probabilities computed
+for this frame</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9FrameHeader.frame_parallel_decoding_mode">
+	<div>
+		<i><em><code>frame_parallel_decoding_mode</code></em></i>
+		(<a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a>)
+		–
+	</div>
+			<p>equal to 1 indicates that parallel decoding
+mode is enabled</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9FrameHeader.frame_context_idx">
+	<div>
+		<i><em><code>frame_context_idx</code></em></i>
+		(<a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a>)
+		–
+	</div>
+			<p>indicates the frame context to use</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9FrameHeader.loop_filter_params">
+	<div>
+		<i><em><code>loop_filter_params</code></em></i>
+		(<a title="GstCodecs.Vp9LoopFilterParams" href="codecs/gstvp9statefulparser.html#GstVp9LoopFilterParams">GstCodecs.Vp9LoopFilterParams</a>)
+		–
+	</div>
+			<p>a <a href="codecs/gstvp9statefulparser.html#GstVp9LoopFilterParams">GstCodecs.Vp9LoopFilterParams</a></p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9FrameHeader.quantization_params">
+	<div>
+		<i><em><code>quantization_params</code></em></i>
+		(<a title="GstCodecs.Vp9QuantizationParams" href="codecs/gstvp9statefulparser.html#GstVp9QuantizationParams">GstCodecs.Vp9QuantizationParams</a>)
+		–
+	</div>
+			<p>a <a href="codecs/gstvp9statefulparser.html#GstVp9QuantizationParams">GstCodecs.Vp9QuantizationParams</a></p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9FrameHeader.segmentation_params">
+	<div>
+		<i><em><code>segmentation_params</code></em></i>
+		(<a title="GstCodecs.Vp9SegmentationParams" href="codecs/gstvp9statefulparser.html#GstVp9SegmentationParams">GstCodecs.Vp9SegmentationParams</a>)
+		–
+	</div>
+			<p>a <a href="codecs/gstvp9statefulparser.html#GstVp9SegmentationParams">GstCodecs.Vp9SegmentationParams</a></p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9FrameHeader.tile_cols_log2">
+	<div>
+		<i><em><code>tile_cols_log2</code></em></i>
+		(<a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a>)
+		–
+	</div>
+			<p>specifies the base 2 logarithm of the width of each tile</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9FrameHeader.tile_rows_log2">
+	<div>
+		<i><em><code>tile_rows_log2</code></em></i>
+		(<a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a>)
+		–
+	</div>
+			<p>specifies the base 2 logarithm of the height of each tile</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9FrameHeader.header_size_in_bytes">
+	<div>
+		<i><em><code>header_size_in_bytes</code></em></i>
+		(<a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a>)
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9FrameHeader.tx_mode">
+	<div>
+		<i><em><code>tx_mode</code></em></i>
+		(<a title="GstCodecs.Vp9TxMode" href="codecs/gstvp9statefulparser.html#GstVp9TxMode">GstCodecs.Vp9TxMode</a>)
+		–
+	</div>
+			<p>Specifies how the transform size is determined.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9FrameHeader.reference_mode">
+	<div>
+		<i><em><code>reference_mode</code></em></i>
+		(<a title="GstCodecs.Vp9ReferenceMode" href="codecs/gstvp9statefulparser.html#GstVp9ReferenceMode">GstCodecs.Vp9ReferenceMode</a>)
+		–
+	</div>
+			<p>Is a derived syntax element that specifies the type of
+inter prediction to be used.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9FrameHeader.delta_probabilities">
+	<div>
+		<i><em><code>delta_probabilities</code></em></i>
+		(<a title="GstCodecs.Vp9DeltaProbabilities" href="codecs/gstvp9statefulparser.html#GstVp9DeltaProbabilities">GstCodecs.Vp9DeltaProbabilities</a>)
+		–
+	</div>
+			<p>Modification to the probabilities encoded in the bitstream.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9FrameHeader.lossless_flag">
+	<div>
+		<i><em><code>lossless_flag</code></em></i>
+		(<a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a>)
+		–
+	</div>
+			<p>lossless mode decode</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9FrameHeader.frame_header_length_in_bytes">
+	<div>
+		<i><em><code>frame_header_length_in_bytes</code></em></i>
+		(<a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a>)
+		–
+	</div>
+			<p>length of uncompressed header</p>
+
+	</div>
+
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+
+        
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="GstVp9LoopFilterParams">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h2 data-hotdoc-id="GstVp9LoopFilterParams">
+	<i>GstVp9LoopFilterParams</i>
+</h2>
+
+
+
+<div class="class_details">
+	<p>Loop filter params. See "6.2.8 Loop filter params syntax" and
+"7.2.8 Loop filter semantics".</p>
+<p>If syntax elements for <em>update_ref_delta</em>
+and/or <em>loop_filter_mode_deltas</em> are not present in bitstream,
+parser will fill <em>loop_filter_ref_deltas</em> and <em>loop_filter_mode_deltas</em> values
+by using previously parsed values.</p>
+
+</div>
+
+
+
+	<div class="members-container">
+		<h3>Members</h3>
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9LoopFilterParams.loop_filter_level">
+	<div>
+		<i><em><code>loop_filter_level</code></em></i>
+		(<a title="guint8" href="https://docs.gtk.org/glib/types.html#guint8">guint8</a>)
+		–
+	</div>
+			<p>indicates the loop filter strength</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9LoopFilterParams.loop_filter_sharpness">
+	<div>
+		<i><em><code>loop_filter_sharpness</code></em></i>
+		(<a title="guint8" href="https://docs.gtk.org/glib/types.html#guint8">guint8</a>)
+		–
+	</div>
+			<p>indicates the sharpness level</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9LoopFilterParams.loop_filter_delta_enabled">
+	<div>
+		<i><em><code>loop_filter_delta_enabled</code></em></i>
+		(<a title="guint8" href="https://docs.gtk.org/glib/types.html#guint8">guint8</a>)
+		–
+	</div>
+			<p>equal to 1 means that the filter level depends
+on the mode and reference frame used to predict a block</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9LoopFilterParams.loop_filter_delta_update">
+	<div>
+		<i><em><code>loop_filter_delta_update</code></em></i>
+		(<a title="guint8" href="https://docs.gtk.org/glib/types.html#guint8">guint8</a>)
+		–
+	</div>
+			<p>equal to 1 means that the bitstream contains
+additional syntax elements that specify which mode and reference frame
+deltas are to be updated</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9LoopFilterParams.update_ref_delta">
+	<div>
+		<i><em><code>update_ref_delta</code></em></i>
+		(<a title="guint8" href="https://docs.gtk.org/glib/types.html#guint8">guint8</a> *)
+		–
+	</div>
+			<p>equal to 1 means that the bitstream contains the syntax
+element loop_filter_ref_delta</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9LoopFilterParams.loop_filter_ref_deltas">
+	<div>
+		<i><em><code>loop_filter_ref_deltas</code></em></i>
+		(<a title="gint8" href="https://docs.gtk.org/glib/types.html#gint8">gint8</a> *)
+		–
+	</div>
+			<p>contains the adjustment needed for the filter level
+based on the chosen reference frame</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9LoopFilterParams.update_mode_delta">
+	<div>
+		<i><em><code>update_mode_delta</code></em></i>
+		(<a title="guint8" href="https://docs.gtk.org/glib/types.html#guint8">guint8</a> *)
+		–
+	</div>
+			<p>equal to 1 means that the bitstream contains the syntax
+element loop_filter_mode_deltas</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9LoopFilterParams.loop_filter_mode_deltas">
+	<div>
+		<i><em><code>loop_filter_mode_deltas</code></em></i>
+		(<a title="gint8" href="https://docs.gtk.org/glib/types.html#gint8">gint8</a> *)
+		–
+	</div>
+			<p>contains the adjustment needed for the filter level
+based on the chosen mode</p>
+
+	</div>
+
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h2 data-hotdoc-id="GstVp9LoopFilterParams">
+	<i>GstCodecs.Vp9LoopFilterParams</i>
+</h2>
+
+
+
+<div class="class_details">
+	<p>Loop filter params. See "6.2.8 Loop filter params syntax" and
+"7.2.8 Loop filter semantics".</p>
+<p>If syntax elements for <em>update_ref_delta</em>
+and/or <em>loop_filter_mode_deltas</em> are not present in bitstream,
+parser will fill <em>loop_filter_ref_deltas</em> and <em>loop_filter_mode_deltas</em> values
+by using previously parsed values.</p>
+
+</div>
+
+
+
+	<div class="members-container">
+		<h3>Members</h3>
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9LoopFilterParams.loop_filter_level">
+	<div>
+		<i><em><code>loop_filter_level</code></em></i>
+		(<a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>)
+		–
+	</div>
+			<p>indicates the loop filter strength</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9LoopFilterParams.loop_filter_sharpness">
+	<div>
+		<i><em><code>loop_filter_sharpness</code></em></i>
+		(<a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>)
+		–
+	</div>
+			<p>indicates the sharpness level</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9LoopFilterParams.loop_filter_delta_enabled">
+	<div>
+		<i><em><code>loop_filter_delta_enabled</code></em></i>
+		(<a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>)
+		–
+	</div>
+			<p>equal to 1 means that the filter level depends
+on the mode and reference frame used to predict a block</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9LoopFilterParams.loop_filter_delta_update">
+	<div>
+		<i><em><code>loop_filter_delta_update</code></em></i>
+		(<a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>)
+		–
+	</div>
+			<p>equal to 1 means that the bitstream contains
+additional syntax elements that specify which mode and reference frame
+deltas are to be updated</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9LoopFilterParams.update_ref_delta">
+	<div>
+		<i><em><code>update_ref_delta</code></em></i>
+		([ <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a> ])
+		–
+	</div>
+			<p>equal to 1 means that the bitstream contains the syntax
+element loop_filter_ref_delta</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9LoopFilterParams.loop_filter_ref_deltas">
+	<div>
+		<i><em><code>loop_filter_ref_deltas</code></em></i>
+		([ <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a> ])
+		–
+	</div>
+			<p>contains the adjustment needed for the filter level
+based on the chosen reference frame</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9LoopFilterParams.update_mode_delta">
+	<div>
+		<i><em><code>update_mode_delta</code></em></i>
+		([ <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a> ])
+		–
+	</div>
+			<p>equal to 1 means that the bitstream contains the syntax
+element loop_filter_mode_deltas</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9LoopFilterParams.loop_filter_mode_deltas">
+	<div>
+		<i><em><code>loop_filter_mode_deltas</code></em></i>
+		([ <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a> ])
+		–
+	</div>
+			<p>contains the adjustment needed for the filter level
+based on the chosen mode</p>
+
+	</div>
+
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h2 data-hotdoc-id="GstVp9LoopFilterParams">
+	<i>GstCodecs.Vp9LoopFilterParams</i>
+</h2>
+
+
+
+<div class="class_details">
+	<p>Loop filter params. See "6.2.8 Loop filter params syntax" and
+"7.2.8 Loop filter semantics".</p>
+<p>If syntax elements for <em>update_ref_delta</em>
+and/or <em>loop_filter_mode_deltas</em> are not present in bitstream,
+parser will fill <em>loop_filter_ref_deltas</em> and <em>loop_filter_mode_deltas</em> values
+by using previously parsed values.</p>
+
+</div>
+
+
+
+	<div class="members-container">
+		<h3>Members</h3>
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9LoopFilterParams.loop_filter_level">
+	<div>
+		<i><em><code>loop_filter_level</code></em></i>
+		(<a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a>)
+		–
+	</div>
+			<p>indicates the loop filter strength</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9LoopFilterParams.loop_filter_sharpness">
+	<div>
+		<i><em><code>loop_filter_sharpness</code></em></i>
+		(<a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a>)
+		–
+	</div>
+			<p>indicates the sharpness level</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9LoopFilterParams.loop_filter_delta_enabled">
+	<div>
+		<i><em><code>loop_filter_delta_enabled</code></em></i>
+		(<a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a>)
+		–
+	</div>
+			<p>equal to 1 means that the filter level depends
+on the mode and reference frame used to predict a block</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9LoopFilterParams.loop_filter_delta_update">
+	<div>
+		<i><em><code>loop_filter_delta_update</code></em></i>
+		(<a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a>)
+		–
+	</div>
+			<p>equal to 1 means that the bitstream contains
+additional syntax elements that specify which mode and reference frame
+deltas are to be updated</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9LoopFilterParams.update_ref_delta">
+	<div>
+		<i><em><code>update_ref_delta</code></em></i>
+		([ <a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a> ])
+		–
+	</div>
+			<p>equal to 1 means that the bitstream contains the syntax
+element loop_filter_ref_delta</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9LoopFilterParams.loop_filter_ref_deltas">
+	<div>
+		<i><em><code>loop_filter_ref_deltas</code></em></i>
+		([ <a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a> ])
+		–
+	</div>
+			<p>contains the adjustment needed for the filter level
+based on the chosen reference frame</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9LoopFilterParams.update_mode_delta">
+	<div>
+		<i><em><code>update_mode_delta</code></em></i>
+		([ <a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a> ])
+		–
+	</div>
+			<p>equal to 1 means that the bitstream contains the syntax
+element loop_filter_mode_deltas</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9LoopFilterParams.loop_filter_mode_deltas">
+	<div>
+		<i><em><code>loop_filter_mode_deltas</code></em></i>
+		([ <a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a> ])
+		–
+	</div>
+			<p>contains the adjustment needed for the filter level
+based on the chosen mode</p>
+
+	</div>
+
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+
+        
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="GstVp9MvDeltaProbs">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h2 data-hotdoc-id="GstVp9MvDeltaProbs">
+	<i>GstVp9MvDeltaProbs</i>
+</h2>
+
+
+
+<div class="class_details">
+	<p>Stores motion vectors probabilities updates. This is from the spec
+and can be used as a binary.</p>
+
+</div>
+
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h2 data-hotdoc-id="GstVp9MvDeltaProbs">
+	<i>GstCodecs.Vp9MvDeltaProbs</i>
+</h2>
+
+
+
+<div class="class_details">
+	<p>Stores motion vectors probabilities updates. This is from the spec
+and can be used as a binary.</p>
+
+</div>
+
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h2 data-hotdoc-id="GstVp9MvDeltaProbs">
+	<i>GstCodecs.Vp9MvDeltaProbs</i>
+</h2>
+
+
+
+<div class="class_details">
+	<p>Stores motion vectors probabilities updates. This is from the spec
+and can be used as a binary.</p>
+
+</div>
+
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+
+        
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="GstVp9QuantizationParams">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h2 data-hotdoc-id="GstVp9QuantizationParams">
+	<i>GstVp9QuantizationParams</i>
+</h2>
+
+
+
+
+
+
+	<div class="members-container">
+		<h3>Members</h3>
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9QuantizationParams.base_q_idx">
+	<div>
+		<i><em><code>base_q_idx</code></em></i>
+		(<a title="guint8" href="https://docs.gtk.org/glib/types.html#guint8">guint8</a>)
+		–
+	</div>
+			<p>indicates the base frame qindex. This is used for Y AC
+coefficients and as the base value for the other quantizers</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9QuantizationParams.delta_q_y_dc">
+	<div>
+		<i><em><code>delta_q_y_dc</code></em></i>
+		(<a title="gint8" href="https://docs.gtk.org/glib/types.html#gint8">gint8</a>)
+		–
+	</div>
+			<p>indicates the Y DC quantizer relative to base_q_idx</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9QuantizationParams.delta_q_uv_dc">
+	<div>
+		<i><em><code>delta_q_uv_dc</code></em></i>
+		(<a title="gint8" href="https://docs.gtk.org/glib/types.html#gint8">gint8</a>)
+		–
+	</div>
+			<p>indicates the UV DC quantizer relative to base_q_idx</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9QuantizationParams.delta_q_uv_ac">
+	<div>
+		<i><em><code>delta_q_uv_ac</code></em></i>
+		(<a title="gint8" href="https://docs.gtk.org/glib/types.html#gint8">gint8</a>)
+		–
+	</div>
+			<p>indicates the UV AC quantizer relative to base_q_idx</p>
+
+	</div>
+
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h2 data-hotdoc-id="GstVp9QuantizationParams">
+	<i>GstCodecs.Vp9QuantizationParams</i>
+</h2>
+
+
+
+
+
+
+	<div class="members-container">
+		<h3>Members</h3>
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9QuantizationParams.base_q_idx">
+	<div>
+		<i><em><code>base_q_idx</code></em></i>
+		(<a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>)
+		–
+	</div>
+			<p>indicates the base frame qindex. This is used for Y AC
+coefficients and as the base value for the other quantizers</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9QuantizationParams.delta_q_y_dc">
+	<div>
+		<i><em><code>delta_q_y_dc</code></em></i>
+		(<a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>)
+		–
+	</div>
+			<p>indicates the Y DC quantizer relative to base_q_idx</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9QuantizationParams.delta_q_uv_dc">
+	<div>
+		<i><em><code>delta_q_uv_dc</code></em></i>
+		(<a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>)
+		–
+	</div>
+			<p>indicates the UV DC quantizer relative to base_q_idx</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9QuantizationParams.delta_q_uv_ac">
+	<div>
+		<i><em><code>delta_q_uv_ac</code></em></i>
+		(<a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>)
+		–
+	</div>
+			<p>indicates the UV AC quantizer relative to base_q_idx</p>
+
+	</div>
+
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h2 data-hotdoc-id="GstVp9QuantizationParams">
+	<i>GstCodecs.Vp9QuantizationParams</i>
+</h2>
+
+
+
+
+
+
+	<div class="members-container">
+		<h3>Members</h3>
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9QuantizationParams.base_q_idx">
+	<div>
+		<i><em><code>base_q_idx</code></em></i>
+		(<a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a>)
+		–
+	</div>
+			<p>indicates the base frame qindex. This is used for Y AC
+coefficients and as the base value for the other quantizers</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9QuantizationParams.delta_q_y_dc">
+	<div>
+		<i><em><code>delta_q_y_dc</code></em></i>
+		(<a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a>)
+		–
+	</div>
+			<p>indicates the Y DC quantizer relative to base_q_idx</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9QuantizationParams.delta_q_uv_dc">
+	<div>
+		<i><em><code>delta_q_uv_dc</code></em></i>
+		(<a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a>)
+		–
+	</div>
+			<p>indicates the UV DC quantizer relative to base_q_idx</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9QuantizationParams.delta_q_uv_ac">
+	<div>
+		<i><em><code>delta_q_uv_ac</code></em></i>
+		(<a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a>)
+		–
+	</div>
+			<p>indicates the UV AC quantizer relative to base_q_idx</p>
+
+	</div>
+
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+
+        
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="GstVp9SegmentationParams">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h2 data-hotdoc-id="GstVp9SegmentationParams">
+	<i>GstVp9SegmentationParams</i>
+</h2>
+
+
+
+<div class="class_details">
+	<p>See "6.2.11 Segmentation params syntax" and
+"7.2.10 Segmentation params syntax". When <em>segmentation_update_data</em> is equal
+to zero, parser will fill <em>feature_enabled</em> and by <em>feature_data</em>
+using previously parsed values.</p>
+
+</div>
+
+
+
+	<div class="members-container">
+		<h3>Members</h3>
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9SegmentationParams.segmentation_enabled">
+	<div>
+		<i><em><code>segmentation_enabled</code></em></i>
+		(<a title="guint8" href="https://docs.gtk.org/glib/types.html#guint8">guint8</a>)
+		–
+	</div>
+			<p>equal to 1 indicates that this frame makes use of the
+segmentation tool</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9SegmentationParams.segmentation_update_map">
+	<div>
+		<i><em><code>segmentation_update_map</code></em></i>
+		(<a title="guint8" href="https://docs.gtk.org/glib/types.html#guint8">guint8</a>)
+		–
+	</div>
+			<p>equal to 1 indicates that the segmentation map
+should be updated during the decoding of this frame</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9SegmentationParams.segmentation_tree_probs">
+	<div>
+		<i><em><code>segmentation_tree_probs</code></em></i>
+		(<a title="guint8" href="https://docs.gtk.org/glib/types.html#guint8">guint8</a> *)
+		–
+	</div>
+			<p>specify the probability values to be used when
+decoding segment_id</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9SegmentationParams.segmentation_pred_prob">
+	<div>
+		<i><em><code>segmentation_pred_prob</code></em></i>
+		(<a title="guint8" href="https://docs.gtk.org/glib/types.html#guint8">guint8</a> *)
+		–
+	</div>
+			<p>specify the probability values to be used when
+decoding seg_id_predicted</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9SegmentationParams.segmentation_temporal_update">
+	<div>
+		<i><em><code>segmentation_temporal_update</code></em></i>
+		(<a title="guint8" href="https://docs.gtk.org/glib/types.html#guint8">guint8</a>)
+		–
+	</div>
+			<p>equal to 1 indicates that the updates to
+the segmentation map are coded relative to the existing segmentation map</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9SegmentationParams.segmentation_update_data">
+	<div>
+		<i><em><code>segmentation_update_data</code></em></i>
+		(<a title="guint8" href="https://docs.gtk.org/glib/types.html#guint8">guint8</a>)
+		–
+	</div>
+			<p>equal to 1 indicates that new parameters are
+about to be specified for each segment</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9SegmentationParams.segmentation_abs_or_delta_update">
+	<div>
+		<i><em><code>segmentation_abs_or_delta_update</code></em></i>
+		(<a title="guint8" href="https://docs.gtk.org/glib/types.html#guint8">guint8</a>)
+		–
+	</div>
+			<p>equal to 0 indicates that the segmentation
+parameters represent adjustments relative to the standard values.
+equal to 1 indicates that the segmentation parameters represent the actual
+values to be used</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9SegmentationParams.feature_enabled">
+	<div>
+		<i><em><code>feature_enabled</code></em></i>
+		(<a title="guint8" href="https://docs.gtk.org/glib/types.html#guint8">guint8</a> *)
+		–
+	</div>
+			<p>indicates whether feature is enabled or not</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9SegmentationParams.feature_data">
+	<div>
+		<i><em><code>feature_data</code></em></i>
+		(<a title="gint16" href="https://docs.gtk.org/glib/types.html#gint16">gint16</a> *)
+		–
+	</div>
+			<p>segmentation feature data</p>
+
+	</div>
+
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h2 data-hotdoc-id="GstVp9SegmentationParams">
+	<i>GstCodecs.Vp9SegmentationParams</i>
+</h2>
+
+
+
+<div class="class_details">
+	<p>See "6.2.11 Segmentation params syntax" and
+"7.2.10 Segmentation params syntax". When <em>segmentation_update_data</em> is equal
+to zero, parser will fill <em>feature_enabled</em> and by <em>feature_data</em>
+using previously parsed values.</p>
+
+</div>
+
+
+
+	<div class="members-container">
+		<h3>Members</h3>
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9SegmentationParams.segmentation_enabled">
+	<div>
+		<i><em><code>segmentation_enabled</code></em></i>
+		(<a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>)
+		–
+	</div>
+			<p>equal to 1 indicates that this frame makes use of the
+segmentation tool</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9SegmentationParams.segmentation_update_map">
+	<div>
+		<i><em><code>segmentation_update_map</code></em></i>
+		(<a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>)
+		–
+	</div>
+			<p>equal to 1 indicates that the segmentation map
+should be updated during the decoding of this frame</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9SegmentationParams.segmentation_tree_probs">
+	<div>
+		<i><em><code>segmentation_tree_probs</code></em></i>
+		([ <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a> ])
+		–
+	</div>
+			<p>specify the probability values to be used when
+decoding segment_id</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9SegmentationParams.segmentation_pred_prob">
+	<div>
+		<i><em><code>segmentation_pred_prob</code></em></i>
+		([ <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a> ])
+		–
+	</div>
+			<p>specify the probability values to be used when
+decoding seg_id_predicted</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9SegmentationParams.segmentation_temporal_update">
+	<div>
+		<i><em><code>segmentation_temporal_update</code></em></i>
+		(<a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>)
+		–
+	</div>
+			<p>equal to 1 indicates that the updates to
+the segmentation map are coded relative to the existing segmentation map</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9SegmentationParams.segmentation_update_data">
+	<div>
+		<i><em><code>segmentation_update_data</code></em></i>
+		(<a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>)
+		–
+	</div>
+			<p>equal to 1 indicates that new parameters are
+about to be specified for each segment</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9SegmentationParams.segmentation_abs_or_delta_update">
+	<div>
+		<i><em><code>segmentation_abs_or_delta_update</code></em></i>
+		(<a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>)
+		–
+	</div>
+			<p>equal to 0 indicates that the segmentation
+parameters represent adjustments relative to the standard values.
+equal to 1 indicates that the segmentation parameters represent the actual
+values to be used</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9SegmentationParams.feature_enabled">
+	<div>
+		<i><em><code>feature_enabled</code></em></i>
+		([ <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a> ])
+		–
+	</div>
+			<p>indicates whether feature is enabled or not</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9SegmentationParams.feature_data">
+	<div>
+		<i><em><code>feature_data</code></em></i>
+		([ <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a> ])
+		–
+	</div>
+			<p>segmentation feature data</p>
+
+	</div>
+
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h2 data-hotdoc-id="GstVp9SegmentationParams">
+	<i>GstCodecs.Vp9SegmentationParams</i>
+</h2>
+
+
+
+<div class="class_details">
+	<p>See "6.2.11 Segmentation params syntax" and
+"7.2.10 Segmentation params syntax". When <em>segmentation_update_data</em> is equal
+to zero, parser will fill <em>feature_enabled</em> and by <em>feature_data</em>
+using previously parsed values.</p>
+
+</div>
+
+
+
+	<div class="members-container">
+		<h3>Members</h3>
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9SegmentationParams.segmentation_enabled">
+	<div>
+		<i><em><code>segmentation_enabled</code></em></i>
+		(<a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a>)
+		–
+	</div>
+			<p>equal to 1 indicates that this frame makes use of the
+segmentation tool</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9SegmentationParams.segmentation_update_map">
+	<div>
+		<i><em><code>segmentation_update_map</code></em></i>
+		(<a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a>)
+		–
+	</div>
+			<p>equal to 1 indicates that the segmentation map
+should be updated during the decoding of this frame</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9SegmentationParams.segmentation_tree_probs">
+	<div>
+		<i><em><code>segmentation_tree_probs</code></em></i>
+		([ <a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a> ])
+		–
+	</div>
+			<p>specify the probability values to be used when
+decoding segment_id</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9SegmentationParams.segmentation_pred_prob">
+	<div>
+		<i><em><code>segmentation_pred_prob</code></em></i>
+		([ <a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a> ])
+		–
+	</div>
+			<p>specify the probability values to be used when
+decoding seg_id_predicted</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9SegmentationParams.segmentation_temporal_update">
+	<div>
+		<i><em><code>segmentation_temporal_update</code></em></i>
+		(<a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a>)
+		–
+	</div>
+			<p>equal to 1 indicates that the updates to
+the segmentation map are coded relative to the existing segmentation map</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9SegmentationParams.segmentation_update_data">
+	<div>
+		<i><em><code>segmentation_update_data</code></em></i>
+		(<a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a>)
+		–
+	</div>
+			<p>equal to 1 indicates that new parameters are
+about to be specified for each segment</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9SegmentationParams.segmentation_abs_or_delta_update">
+	<div>
+		<i><em><code>segmentation_abs_or_delta_update</code></em></i>
+		(<a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a>)
+		–
+	</div>
+			<p>equal to 0 indicates that the segmentation
+parameters represent adjustments relative to the standard values.
+equal to 1 indicates that the segmentation parameters represent the actual
+values to be used</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9SegmentationParams.feature_enabled">
+	<div>
+		<i><em><code>feature_enabled</code></em></i>
+		([ <a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a> ])
+		–
+	</div>
+			<p>indicates whether feature is enabled or not</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9SegmentationParams.feature_data">
+	<div>
+		<i><em><code>feature_data</code></em></i>
+		([ <a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a> ])
+		–
+	</div>
+			<p>segmentation feature data</p>
+
+	</div>
+
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+
+        
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="GstVp9StatefulParser">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h2 data-hotdoc-id="GstVp9StatefulParser">
+	<i>GstVp9StatefulParser</i>
+</h2>
+
+
+
+<div class="class_details">
+	<p>Opaque VP9 parser struct.
+The size of this object and member variables are not API</p>
+
+</div>
+
+
+
+	<div class="members-container">
+		<h3>Members</h3>
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9StatefulParser.reference">
+	<div>
+		<i><em><code>reference</code></em></i>
+		(<a title="gpointer" href="https://docs.gtk.org/glib/types.html#gpointer">gpointer</a> *)
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h2 data-hotdoc-id="GstVp9StatefulParser">
+	<i>GstCodecs.Vp9StatefulParser</i>
+</h2>
+
+
+
+<div class="class_details">
+	<p>Opaque VP9 parser struct.
+The size of this object and member variables are not API</p>
+
+</div>
+
+
+
+	<div class="members-container">
+		<h3>Members</h3>
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9StatefulParser.reference">
+	<div>
+		<i><em><code>reference</code></em></i>
+		([ <a title="Object" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a> ])
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h2 data-hotdoc-id="GstVp9StatefulParser">
+	<i>GstCodecs.Vp9StatefulParser</i>
+</h2>
+
+
+
+<div class="class_details">
+	<p>Opaque VP9 parser struct.
+The size of this object and member variables are not API</p>
+
+</div>
+
+
+
+	<div class="members-container">
+		<h3>Members</h3>
+					
+<div class="symbol-detail" data-hotdoc-id="GstVp9StatefulParser.reference">
+	<div>
+		<i><em><code>reference</code></em></i>
+		([ <a title="object" href="https://docs.python.org/3/library/functions.html#object">object</a> ])
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+
+            <h3 class="symbol_section">Methods</h3>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="gst_vp9_stateful_parser_free">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_vp9_stateful_parser_free">
+	<i>gst_vp9_stateful_parser_free</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+gst_vp9_stateful_parser_free (<a title="GstVp9StatefulParser" href="codecs/gstvp9statefulparser.html#GstVp9StatefulParser">GstVp9StatefulParser</a> * parser)</pre>
+
+<p>Frees <em>parser</em>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>parser</code></em></i>
+–
+</div>
+<p>the <a href="codecs/gstvp9statefulparser.html#GstVp9StatefulParser">GstVp9StatefulParser</a> to free</p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_vp9_stateful_parser_free">
+	<i>GstCodecs.Vp9StatefulParser.prototype.free</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstCodecs.Vp9StatefulParser.prototype.free(): {
+    // javascript wrapper for 'gst_vp9_stateful_parser_free'
+}</code></pre>
+
+<p>Frees <em>parser</em>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>parser</code></em></i>
+<span>(</span><a title="GstCodecs.Vp9StatefulParser" href="codecs/gstvp9statefulparser.html#GstVp9StatefulParser">GstCodecs.Vp9StatefulParser</a><span>)</span>
+–
+</div>
+<p>the <a href="codecs/gstvp9statefulparser.html#GstVp9StatefulParser">GstCodecs.Vp9StatefulParser</a> to free</p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_vp9_stateful_parser_free">
+	<i>GstCodecs.Vp9StatefulParser.free</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstCodecs.Vp9StatefulParser.free (self):
+    #python wrapper for 'gst_vp9_stateful_parser_free'</code></pre>
+
+<p>Frees <em>parser</em>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>parser</code></em></i>
+<span>(</span><a title="GstCodecs.Vp9StatefulParser" href="codecs/gstvp9statefulparser.html#GstVp9StatefulParser">GstCodecs.Vp9StatefulParser</a><span>)</span>
+–
+</div>
+<p>the <a href="codecs/gstvp9statefulparser.html#GstVp9StatefulParser">GstCodecs.Vp9StatefulParser</a> to free</p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="gst_vp9_stateful_parser_parse_compressed_frame_header">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_vp9_stateful_parser_parse_compressed_frame_header">
+	<i>gst_vp9_stateful_parser_parse_compressed_frame_header</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GstVp9ParserResult" href="codecparsers/gstvp9parser.html#GstVp9ParserResult">GstVp9ParserResult</a>
+gst_vp9_stateful_parser_parse_compressed_frame_header (<a title="GstVp9StatefulParser" href="codecs/gstvp9statefulparser.html#GstVp9StatefulParser">GstVp9StatefulParser</a> * parser,
+                                                       <a title="GstVp9FrameHeader" href="codecs/gstvp9statefulparser.html#GstVp9FrameHeader">GstVp9FrameHeader</a> * header,
+                                                       const <a title="guint8" href="https://docs.gtk.org/glib/types.html#guint8">guint8</a> * data,
+                                                       <a title="gsize" href="https://docs.gtk.org/glib/types.html#gsize">gsize</a> size)</pre>
+
+<p>Parses the compressed information in the VP9 bitstream contained in <em>data</em>,
+and fills in <em>header</em> with the parsed values.
+The <em>size</em> argument represent the whole frame size.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>parser</code></em></i>
+–
+</div>
+<p>The <a href="codecs/gstvp9statefulparser.html#GstVp9StatefulParser">GstVp9StatefulParser</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>header</code></em></i>
+–
+</div>
+<p>The <a href="codecs/gstvp9statefulparser.html#GstVp9FrameHeader">GstVp9FrameHeader</a> to fill</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>data</code></em></i>
+–
+</div>
+<p>The data to parse</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>size</code></em></i>
+–
+</div>
+<p>The size of the <em>data</em> to parse</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p>a <a href="codecparsers/gstvp9parser.html#GstVp9ParserResult">GstVp9ParserResult</a></p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_vp9_stateful_parser_parse_compressed_frame_header">
+	<i>GstCodecs.Vp9StatefulParser.prototype.parse_compressed_frame_header</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstCodecs.Vp9StatefulParser.prototype.parse_compressed_frame_header(header: <a title="GstCodecs.Vp9FrameHeader" href="codecs/gstvp9statefulparser.html#GstVp9FrameHeader">GstCodecs.Vp9FrameHeader</a>, data: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>, size: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>): {
+    // javascript wrapper for 'gst_vp9_stateful_parser_parse_compressed_frame_header'
+}</code></pre>
+
+<p>Parses the compressed information in the VP9 bitstream contained in <em>data</em>,
+and fills in <em>header</em> with the parsed values.
+The <em>size</em> argument represent the whole frame size.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>parser</code></em></i>
+<span>(</span><a title="GstCodecs.Vp9StatefulParser" href="codecs/gstvp9statefulparser.html#GstVp9StatefulParser">GstCodecs.Vp9StatefulParser</a><span>)</span>
+–
+</div>
+<p>The <a href="codecs/gstvp9statefulparser.html#GstVp9StatefulParser">GstCodecs.Vp9StatefulParser</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>header</code></em></i>
+<span>(</span><a title="GstCodecs.Vp9FrameHeader" href="codecs/gstvp9statefulparser.html#GstVp9FrameHeader">GstCodecs.Vp9FrameHeader</a><span>)</span>
+–
+</div>
+<p>The <a href="codecs/gstvp9statefulparser.html#GstVp9FrameHeader">GstCodecs.Vp9FrameHeader</a> to fill</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>data</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>The data to parse</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>size</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>The size of the <em>data</em> to parse</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GstCodecParsers.Vp9ParserResult" href="codecparsers/gstvp9parser.html#GstVp9ParserResult">GstCodecParsers.Vp9ParserResult</a><span>)</span>
+–
+			</div>
+							<p>a <a href="codecparsers/gstvp9parser.html#GstVp9ParserResult">GstCodecParsers.Vp9ParserResult</a></p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_vp9_stateful_parser_parse_compressed_frame_header">
+	<i>GstCodecs.Vp9StatefulParser.parse_compressed_frame_header</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstCodecs.Vp9StatefulParser.parse_compressed_frame_header (self, header, data, size):
+    #python wrapper for 'gst_vp9_stateful_parser_parse_compressed_frame_header'</code></pre>
+
+<p>Parses the compressed information in the VP9 bitstream contained in <em>data</em>,
+and fills in <em>header</em> with the parsed values.
+The <em>size</em> argument represent the whole frame size.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>parser</code></em></i>
+<span>(</span><a title="GstCodecs.Vp9StatefulParser" href="codecs/gstvp9statefulparser.html#GstVp9StatefulParser">GstCodecs.Vp9StatefulParser</a><span>)</span>
+–
+</div>
+<p>The <a href="codecs/gstvp9statefulparser.html#GstVp9StatefulParser">GstCodecs.Vp9StatefulParser</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>header</code></em></i>
+<span>(</span><a title="GstCodecs.Vp9FrameHeader" href="codecs/gstvp9statefulparser.html#GstVp9FrameHeader">GstCodecs.Vp9FrameHeader</a><span>)</span>
+–
+</div>
+<p>The <a href="codecs/gstvp9statefulparser.html#GstVp9FrameHeader">GstCodecs.Vp9FrameHeader</a> to fill</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>data</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<p>The data to parse</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>size</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<p>The size of the <em>data</em> to parse</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GstCodecParsers.Vp9ParserResult" href="codecparsers/gstvp9parser.html#GstVp9ParserResult">GstCodecParsers.Vp9ParserResult</a><span>)</span>
+–
+			</div>
+							<p>a <a href="codecparsers/gstvp9parser.html#GstVp9ParserResult">GstCodecParsers.Vp9ParserResult</a></p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="gst_vp9_stateful_parser_parse_uncompressed_frame_header">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_vp9_stateful_parser_parse_uncompressed_frame_header">
+	<i>gst_vp9_stateful_parser_parse_uncompressed_frame_header</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GstVp9ParserResult" href="codecparsers/gstvp9parser.html#GstVp9ParserResult">GstVp9ParserResult</a>
+gst_vp9_stateful_parser_parse_uncompressed_frame_header (<a title="GstVp9StatefulParser" href="codecs/gstvp9statefulparser.html#GstVp9StatefulParser">GstVp9StatefulParser</a> * parser,
+                                                         <a title="GstVp9FrameHeader" href="codecs/gstvp9statefulparser.html#GstVp9FrameHeader">GstVp9FrameHeader</a> * header,
+                                                         const <a title="guint8" href="https://docs.gtk.org/glib/types.html#guint8">guint8</a> * data,
+                                                         <a title="gsize" href="https://docs.gtk.org/glib/types.html#gsize">gsize</a> size)</pre>
+
+<p>Parses the VP9 bitstream contained in <em>data</em>, and fills in <em>header</em>
+with the information. The <em>size</em> argument represent the whole frame size.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>parser</code></em></i>
+–
+</div>
+<p>The <a href="codecs/gstvp9statefulparser.html#GstVp9StatefulParser">GstVp9StatefulParser</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>header</code></em></i>
+–
+</div>
+<p>The <a href="codecs/gstvp9statefulparser.html#GstVp9FrameHeader">GstVp9FrameHeader</a> to fill</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>data</code></em></i>
+–
+</div>
+<p>The data to parse</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>size</code></em></i>
+–
+</div>
+<p>The size of the <em>data</em> to parse</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p>a <a href="codecparsers/gstvp9parser.html#GstVp9ParserResult">GstVp9ParserResult</a></p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_vp9_stateful_parser_parse_uncompressed_frame_header">
+	<i>GstCodecs.Vp9StatefulParser.prototype.parse_uncompressed_frame_header</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstCodecs.Vp9StatefulParser.prototype.parse_uncompressed_frame_header(header: <a title="GstCodecs.Vp9FrameHeader" href="codecs/gstvp9statefulparser.html#GstVp9FrameHeader">GstCodecs.Vp9FrameHeader</a>, data: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>, size: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>): {
+    // javascript wrapper for 'gst_vp9_stateful_parser_parse_uncompressed_frame_header'
+}</code></pre>
+
+<p>Parses the VP9 bitstream contained in <em>data</em>, and fills in <em>header</em>
+with the information. The <em>size</em> argument represent the whole frame size.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>parser</code></em></i>
+<span>(</span><a title="GstCodecs.Vp9StatefulParser" href="codecs/gstvp9statefulparser.html#GstVp9StatefulParser">GstCodecs.Vp9StatefulParser</a><span>)</span>
+–
+</div>
+<p>The <a href="codecs/gstvp9statefulparser.html#GstVp9StatefulParser">GstCodecs.Vp9StatefulParser</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>header</code></em></i>
+<span>(</span><a title="GstCodecs.Vp9FrameHeader" href="codecs/gstvp9statefulparser.html#GstVp9FrameHeader">GstCodecs.Vp9FrameHeader</a><span>)</span>
+–
+</div>
+<p>The <a href="codecs/gstvp9statefulparser.html#GstVp9FrameHeader">GstCodecs.Vp9FrameHeader</a> to fill</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>data</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>The data to parse</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>size</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>The size of the <em>data</em> to parse</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GstCodecParsers.Vp9ParserResult" href="codecparsers/gstvp9parser.html#GstVp9ParserResult">GstCodecParsers.Vp9ParserResult</a><span>)</span>
+–
+			</div>
+							<p>a <a href="codecparsers/gstvp9parser.html#GstVp9ParserResult">GstCodecParsers.Vp9ParserResult</a></p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_vp9_stateful_parser_parse_uncompressed_frame_header">
+	<i>GstCodecs.Vp9StatefulParser.parse_uncompressed_frame_header</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstCodecs.Vp9StatefulParser.parse_uncompressed_frame_header (self, header, data, size):
+    #python wrapper for 'gst_vp9_stateful_parser_parse_uncompressed_frame_header'</code></pre>
+
+<p>Parses the VP9 bitstream contained in <em>data</em>, and fills in <em>header</em>
+with the information. The <em>size</em> argument represent the whole frame size.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>parser</code></em></i>
+<span>(</span><a title="GstCodecs.Vp9StatefulParser" href="codecs/gstvp9statefulparser.html#GstVp9StatefulParser">GstCodecs.Vp9StatefulParser</a><span>)</span>
+–
+</div>
+<p>The <a href="codecs/gstvp9statefulparser.html#GstVp9StatefulParser">GstCodecs.Vp9StatefulParser</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>header</code></em></i>
+<span>(</span><a title="GstCodecs.Vp9FrameHeader" href="codecs/gstvp9statefulparser.html#GstVp9FrameHeader">GstCodecs.Vp9FrameHeader</a><span>)</span>
+–
+</div>
+<p>The <a href="codecs/gstvp9statefulparser.html#GstVp9FrameHeader">GstCodecs.Vp9FrameHeader</a> to fill</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>data</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<p>The data to parse</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>size</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<p>The size of the <em>data</em> to parse</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GstCodecParsers.Vp9ParserResult" href="codecparsers/gstvp9parser.html#GstVp9ParserResult">GstCodecParsers.Vp9ParserResult</a><span>)</span>
+–
+			</div>
+							<p>a <a href="codecparsers/gstvp9parser.html#GstVp9ParserResult">GstCodecParsers.Vp9ParserResult</a></p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+
+            <h3 class="symbol_section">Functions</h3>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="gst_vp9_stateful_parser_new">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_vp9_stateful_parser_new">
+	<i>gst_vp9_stateful_parser_new</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GstVp9StatefulParser" href="codecs/gstvp9statefulparser.html#GstVp9StatefulParser">GstVp9StatefulParser</a> *
+gst_vp9_stateful_parser_new ()</pre>
+
+<p>Creates a new <a href="codecs/gstvp9statefulparser.html#GstVp9StatefulParser">GstVp9StatefulParser</a>. It should be freed with
+<a href="codecs/gstvp9statefulparser.html#gst_vp9_stateful_parser_free">gst_vp9_stateful_parser_free</a> after use.</p>
+
+
+
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p>a new <a href="codecs/gstvp9statefulparser.html#GstVp9StatefulParser">GstVp9StatefulParser</a></p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+
+        
+
+            <h2 class="symbol_section">Functions</h2>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="gst_vp9_get_ac_quant">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="gst_vp9_get_ac_quant">
+	<i>gst_vp9_get_ac_quant</i>
+</h3>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gint16" href="https://docs.gtk.org/glib/types.html#gint16">gint16</a>
+gst_vp9_get_ac_quant (<a title="guint8" href="https://docs.gtk.org/glib/types.html#guint8">guint8</a> qindex,
+                      <a title="gint8" href="https://docs.gtk.org/glib/types.html#gint8">gint8</a> delta_q_ac,
+                      <a title="guint8" href="https://docs.gtk.org/glib/types.html#guint8">guint8</a> bit_depth)</pre>
+
+<p>An implementation of "ac_q" function specified in
+"8.6.1 Dequantization functions"</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>qindex</code></em></i>
+–
+</div>
+<p>the quantizer index</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>delta_q_ac</code></em></i>
+–
+</div>
+<p>a delta_q_ac value</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>bit_depth</code></em></i>
+–
+</div>
+<p>coded bit depth</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p>the quantizer value for the ac coefficient</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3 data-hotdoc-id="gst_vp9_get_ac_quant">
+	<i>GstCodecs.prototype.vp9_get_ac_quant</i>
+</h3>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstCodecs.prototype.vp9_get_ac_quant(qindex: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>, delta_q_ac: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>, bit_depth: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>): {
+    // javascript wrapper for 'gst_vp9_get_ac_quant'
+}</code></pre>
+
+<p>An implementation of "ac_q" function specified in
+"8.6.1 Dequantization functions"</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>qindex</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>the quantizer index</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>delta_q_ac</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>a delta_q_ac value</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>bit_depth</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>coded bit depth</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+			</div>
+							<p>the quantizer value for the ac coefficient</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3 data-hotdoc-id="gst_vp9_get_ac_quant">
+	<i>GstCodecs.vp9_get_ac_quant</i>
+</h3>
+
+
+<pre class="python-prototype language-python">
+<code>def GstCodecs.vp9_get_ac_quant (qindex, delta_q_ac, bit_depth):
+    #python wrapper for 'gst_vp9_get_ac_quant'</code></pre>
+
+<p>An implementation of "ac_q" function specified in
+"8.6.1 Dequantization functions"</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>qindex</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<p>the quantizer index</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>delta_q_ac</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<p>a delta_q_ac value</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>bit_depth</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<p>coded bit depth</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+			</div>
+							<p>the quantizer value for the ac coefficient</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="gst_vp9_get_dc_quant">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="gst_vp9_get_dc_quant">
+	<i>gst_vp9_get_dc_quant</i>
+</h3>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gint16" href="https://docs.gtk.org/glib/types.html#gint16">gint16</a>
+gst_vp9_get_dc_quant (<a title="guint8" href="https://docs.gtk.org/glib/types.html#guint8">guint8</a> qindex,
+                      <a title="gint8" href="https://docs.gtk.org/glib/types.html#gint8">gint8</a> delta_q_dc,
+                      <a title="guint8" href="https://docs.gtk.org/glib/types.html#guint8">guint8</a> bit_depth)</pre>
+
+<p>An implementation of "dc_q" function specified in
+"8.6.1 Dequantization functions"</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>qindex</code></em></i>
+–
+</div>
+<p>the quantizer index</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>delta_q_dc</code></em></i>
+–
+</div>
+<p>a delta_q_dc value</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>bit_depth</code></em></i>
+–
+</div>
+<p>coded bit depth</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p>the quantizer value for the dc coefficient</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3 data-hotdoc-id="gst_vp9_get_dc_quant">
+	<i>GstCodecs.prototype.vp9_get_dc_quant</i>
+</h3>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstCodecs.prototype.vp9_get_dc_quant(qindex: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>, delta_q_dc: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>, bit_depth: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>): {
+    // javascript wrapper for 'gst_vp9_get_dc_quant'
+}</code></pre>
+
+<p>An implementation of "dc_q" function specified in
+"8.6.1 Dequantization functions"</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>qindex</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>the quantizer index</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>delta_q_dc</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>a delta_q_dc value</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>bit_depth</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>coded bit depth</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+			</div>
+							<p>the quantizer value for the dc coefficient</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3 data-hotdoc-id="gst_vp9_get_dc_quant">
+	<i>GstCodecs.vp9_get_dc_quant</i>
+</h3>
+
+
+<pre class="python-prototype language-python">
+<code>def GstCodecs.vp9_get_dc_quant (qindex, delta_q_dc, bit_depth):
+    #python wrapper for 'gst_vp9_get_dc_quant'</code></pre>
+
+<p>An implementation of "dc_q" function specified in
+"8.6.1 Dequantization functions"</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>qindex</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<p>the quantizer index</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>delta_q_dc</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<p>a delta_q_dc value</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>bit_depth</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<p>coded bit depth</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+			</div>
+							<p>the quantizer value for the dc coefficient</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="gst_vp9_get_qindex">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="gst_vp9_get_qindex">
+	<i>gst_vp9_get_qindex</i>
+</h3>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="guint8" href="https://docs.gtk.org/glib/types.html#guint8">guint8</a>
+gst_vp9_get_qindex (const <a title="GstVp9SegmentationParams" href="codecs/gstvp9statefulparser.html#GstVp9SegmentationParams">GstVp9SegmentationParams</a> * segmentation_params,
+                    const <a title="GstVp9QuantizationParams" href="codecs/gstvp9statefulparser.html#GstVp9QuantizationParams">GstVp9QuantizationParams</a> * quantization_params,
+                    <a title="guint8" href="https://docs.gtk.org/glib/types.html#guint8">guint8</a> segment_id)</pre>
+
+<p>An implementation of "get_qindex" function specfied in
+"8.6.1 Dequantization functions"</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>segmentation_params</code></em></i>
+–
+</div>
+<p>a <a href="codecs/gstvp9statefulparser.html#GstVp9SegmentationParams">GstVp9SegmentationParams</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>quantization_params</code></em></i>
+–
+</div>
+<p>a <a href="codecs/gstvp9statefulparser.html#GstVp9QuantizationParams">GstVp9QuantizationParams</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>segment_id</code></em></i>
+–
+</div>
+<p>a segment id</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p>the quantizer index</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3 data-hotdoc-id="gst_vp9_get_qindex">
+	<i>GstCodecs.prototype.vp9_get_qindex</i>
+</h3>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstCodecs.prototype.vp9_get_qindex(segmentation_params: <a title="GstCodecs.Vp9SegmentationParams" href="codecs/gstvp9statefulparser.html#GstVp9SegmentationParams">GstCodecs.Vp9SegmentationParams</a>, quantization_params: <a title="GstCodecs.Vp9QuantizationParams" href="codecs/gstvp9statefulparser.html#GstVp9QuantizationParams">GstCodecs.Vp9QuantizationParams</a>, segment_id: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>): {
+    // javascript wrapper for 'gst_vp9_get_qindex'
+}</code></pre>
+
+<p>An implementation of "get_qindex" function specfied in
+"8.6.1 Dequantization functions"</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>segmentation_params</code></em></i>
+<span>(</span><a title="GstCodecs.Vp9SegmentationParams" href="codecs/gstvp9statefulparser.html#GstVp9SegmentationParams">GstCodecs.Vp9SegmentationParams</a><span>)</span>
+–
+</div>
+<p>a <a href="codecs/gstvp9statefulparser.html#GstVp9SegmentationParams">GstCodecs.Vp9SegmentationParams</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>quantization_params</code></em></i>
+<span>(</span><a title="GstCodecs.Vp9QuantizationParams" href="codecs/gstvp9statefulparser.html#GstVp9QuantizationParams">GstCodecs.Vp9QuantizationParams</a><span>)</span>
+–
+</div>
+<p>a <a href="codecs/gstvp9statefulparser.html#GstVp9QuantizationParams">GstCodecs.Vp9QuantizationParams</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>segment_id</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>a segment id</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+			</div>
+							<p>the quantizer index</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3 data-hotdoc-id="gst_vp9_get_qindex">
+	<i>GstCodecs.vp9_get_qindex</i>
+</h3>
+
+
+<pre class="python-prototype language-python">
+<code>def GstCodecs.vp9_get_qindex (segmentation_params, quantization_params, segment_id):
+    #python wrapper for 'gst_vp9_get_qindex'</code></pre>
+
+<p>An implementation of "get_qindex" function specfied in
+"8.6.1 Dequantization functions"</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>segmentation_params</code></em></i>
+<span>(</span><a title="GstCodecs.Vp9SegmentationParams" href="codecs/gstvp9statefulparser.html#GstVp9SegmentationParams">GstCodecs.Vp9SegmentationParams</a><span>)</span>
+–
+</div>
+<p>a <a href="codecs/gstvp9statefulparser.html#GstVp9SegmentationParams">GstCodecs.Vp9SegmentationParams</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>quantization_params</code></em></i>
+<span>(</span><a title="GstCodecs.Vp9QuantizationParams" href="codecs/gstvp9statefulparser.html#GstVp9QuantizationParams">GstCodecs.Vp9QuantizationParams</a><span>)</span>
+–
+</div>
+<p>a <a href="codecs/gstvp9statefulparser.html#GstVp9QuantizationParams">GstCodecs.Vp9QuantizationParams</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>segment_id</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<p>a segment id</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+			</div>
+							<p>the quantizer index</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="gst_vp9_seg_feature_active">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="gst_vp9_seg_feature_active">
+	<i>gst_vp9_seg_feature_active</i>
+</h3>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a>
+gst_vp9_seg_feature_active (const <a title="GstVp9SegmentationParams" href="codecs/gstvp9statefulparser.html#GstVp9SegmentationParams">GstVp9SegmentationParams</a> * params,
+                            <a title="guint8" href="https://docs.gtk.org/glib/types.html#guint8">guint8</a> segment_id,
+                            <a title="guint8" href="https://docs.gtk.org/glib/types.html#guint8">guint8</a> feature)</pre>
+
+<p>An implementation of "seg_feature_active" function specified in
+"6.4.9 Segmentation feature active syntax"</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>params</code></em></i>
+–
+</div>
+<p>a <a href="codecs/gstvp9statefulparser.html#GstVp9SegmentationParams">GstVp9SegmentationParams</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>segment_id</code></em></i>
+–
+</div>
+<p>a segment id</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>feature</code></em></i>
+–
+</div>
+<p>a segmentation feature</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p><a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#TRUE:CAPS">TRUE</a> if feature is active</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3 data-hotdoc-id="gst_vp9_seg_feature_active">
+	<i>GstCodecs.prototype.vp9_seg_feature_active</i>
+</h3>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstCodecs.prototype.vp9_seg_feature_active(params: <a title="GstCodecs.Vp9SegmentationParams" href="codecs/gstvp9statefulparser.html#GstVp9SegmentationParams">GstCodecs.Vp9SegmentationParams</a>, segment_id: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>, feature: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>): {
+    // javascript wrapper for 'gst_vp9_seg_feature_active'
+}</code></pre>
+
+<p>An implementation of "seg_feature_active" function specified in
+"6.4.9 Segmentation feature active syntax"</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>params</code></em></i>
+<span>(</span><a title="GstCodecs.Vp9SegmentationParams" href="codecs/gstvp9statefulparser.html#GstVp9SegmentationParams">GstCodecs.Vp9SegmentationParams</a><span>)</span>
+–
+</div>
+<p>a <a href="codecs/gstvp9statefulparser.html#GstVp9SegmentationParams">GstCodecs.Vp9SegmentationParams</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>segment_id</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>a segment id</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>feature</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>a segmentation feature</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+			</div>
+							<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">true</a> if feature is active</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3 data-hotdoc-id="gst_vp9_seg_feature_active">
+	<i>GstCodecs.vp9_seg_feature_active</i>
+</h3>
+
+
+<pre class="python-prototype language-python">
+<code>def GstCodecs.vp9_seg_feature_active (params, segment_id, feature):
+    #python wrapper for 'gst_vp9_seg_feature_active'</code></pre>
+
+<p>An implementation of "seg_feature_active" function specified in
+"6.4.9 Segmentation feature active syntax"</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>params</code></em></i>
+<span>(</span><a title="GstCodecs.Vp9SegmentationParams" href="codecs/gstvp9statefulparser.html#GstVp9SegmentationParams">GstCodecs.Vp9SegmentationParams</a><span>)</span>
+–
+</div>
+<p>a <a href="codecs/gstvp9statefulparser.html#GstVp9SegmentationParams">GstCodecs.Vp9SegmentationParams</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>segment_id</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<p>a segment id</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>feature</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<p>a segmentation feature</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a><span>)</span>
+–
+			</div>
+							<p><a href="https://docs.python.org/3/library/constants.html#True">True</a> if feature is active</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+
+            <h2 class="symbol_section">Enumerations</h2>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="GstVp9ReferenceMode">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GstVp9ReferenceMode">
+	<i>GstVp9ReferenceMode</i>
+</h3>
+
+
+<p>Reference modes: Specify the type of inter prediction to be used</p>
+
+
+
+
+	<div class="members-container">
+		<h5>Members</h5>
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VP9_REFERENCE_MODE_SINGLE_REFERENCE">
+	<div>
+		<i><em><code>GST_VP9_REFERENCE_MODE_SINGLE_REFERENCE</code></em></i>
+		(<span class="value">0</span>)
+		–
+	</div>
+			<p>Indicates that all the inter blocks use only a single reference frame</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VP9_REFERENCE_MODE_COMPOUND_REFERENCE">
+	<div>
+		<i><em><code>GST_VP9_REFERENCE_MODE_COMPOUND_REFERENCE</code></em></i>
+		(<span class="value">1</span>)
+		–
+	</div>
+			<p>Requires all the inter blocks to use compound mode</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VP9_REFERENCE_MODE_SELECT">
+	<div>
+		<i><em><code>GST_VP9_REFERENCE_MODE_SELECT</code></em></i>
+		(<span class="value">2</span>)
+		–
+	</div>
+			<p>Allows each individual inter block to select between single and compound prediction modes</p>
+
+	</div>
+
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3 data-hotdoc-id="GstVp9ReferenceMode">
+	<i>GstCodecs.Vp9ReferenceMode</i>
+</h3>
+
+
+<p>Reference modes: Specify the type of inter prediction to be used</p>
+
+
+
+
+	<div class="members-container">
+		<h5>Members</h5>
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VP9_REFERENCE_MODE_SINGLE_REFERENCE">
+	<div>
+		<i><em><code>GstCodecs.Vp9ReferenceMode.SINGLE_REFERENCE</code></em></i>
+		(<span class="value">0</span>)
+		–
+	</div>
+			<p>Indicates that all the inter blocks use only a single reference frame</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VP9_REFERENCE_MODE_COMPOUND_REFERENCE">
+	<div>
+		<i><em><code>GstCodecs.Vp9ReferenceMode.COMPOUND_REFERENCE</code></em></i>
+		(<span class="value">1</span>)
+		–
+	</div>
+			<p>Requires all the inter blocks to use compound mode</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VP9_REFERENCE_MODE_SELECT">
+	<div>
+		<i><em><code>GstCodecs.Vp9ReferenceMode.SELECT</code></em></i>
+		(<span class="value">2</span>)
+		–
+	</div>
+			<p>Allows each individual inter block to select between single and compound prediction modes</p>
+
+	</div>
+
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3 data-hotdoc-id="GstVp9ReferenceMode">
+	<i>GstCodecs.Vp9ReferenceMode</i>
+</h3>
+
+
+<p>Reference modes: Specify the type of inter prediction to be used</p>
+
+
+
+
+	<div class="members-container">
+		<h5>Members</h5>
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VP9_REFERENCE_MODE_SINGLE_REFERENCE">
+	<div>
+		<i><em><code>GstCodecs.Vp9ReferenceMode.SINGLE_REFERENCE</code></em></i>
+		(<span class="value">0</span>)
+		–
+	</div>
+			<p>Indicates that all the inter blocks use only a single reference frame</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VP9_REFERENCE_MODE_COMPOUND_REFERENCE">
+	<div>
+		<i><em><code>GstCodecs.Vp9ReferenceMode.COMPOUND_REFERENCE</code></em></i>
+		(<span class="value">1</span>)
+		–
+	</div>
+			<p>Requires all the inter blocks to use compound mode</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VP9_REFERENCE_MODE_SELECT">
+	<div>
+		<i><em><code>GstCodecs.Vp9ReferenceMode.SELECT</code></em></i>
+		(<span class="value">2</span>)
+		–
+	</div>
+			<p>Allows each individual inter block to select between single and compound prediction modes</p>
+
+	</div>
+
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="GstVp9TxMode">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GstVp9TxMode">
+	<i>GstVp9TxMode</i>
+</h3>
+
+
+<p>TxMode: Specifies how the transform size is determined</p>
+
+
+
+
+	<div class="members-container">
+		<h5>Members</h5>
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VP9_TX_MODE_ONLY_4x4">
+	<div>
+		<i><em><code>GST_VP9_TX_MODE_ONLY_4x4</code></em></i>
+		(<span class="value">0</span>)
+		–
+	</div>
+			<p>Only 4x4</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VP9_TX_MODE_ALLOW_8x8">
+	<div>
+		<i><em><code>GST_VP9_TX_MODE_ALLOW_8x8</code></em></i>
+		(<span class="value">1</span>)
+		–
+	</div>
+			<p>Allow 8x8</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VP9_TX_MODE_ALLOW_16x16">
+	<div>
+		<i><em><code>GST_VP9_TX_MODE_ALLOW_16x16</code></em></i>
+		(<span class="value">2</span>)
+		–
+	</div>
+			<p>Allow 16x16</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VP9_TX_MODE_ALLOW_32x32">
+	<div>
+		<i><em><code>GST_VP9_TX_MODE_ALLOW_32x32</code></em></i>
+		(<span class="value">3</span>)
+		–
+	</div>
+			<p>Allow 32x32</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VP9_TX_MODE_SELECT">
+	<div>
+		<i><em><code>GST_VP9_TX_MODE_SELECT</code></em></i>
+		(<span class="value">4</span>)
+		–
+	</div>
+			<p>The choice is specified explicitly for each block</p>
+
+	</div>
+
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3 data-hotdoc-id="GstVp9TxMode">
+	<i>GstCodecs.Vp9TxMode</i>
+</h3>
+
+
+<p>TxMode: Specifies how the transform size is determined</p>
+
+
+
+
+	<div class="members-container">
+		<h5>Members</h5>
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VP9_TX_MODE_ONLY_4x4">
+	<div>
+		<i><em><code>GstCodecs.Vp9TxMode.ONLY_4X4</code></em></i>
+		(<span class="value">0</span>)
+		–
+	</div>
+			<p>Only 4x4</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VP9_TX_MODE_ALLOW_8x8">
+	<div>
+		<i><em><code>GstCodecs.Vp9TxMode.ALLOW_8X8</code></em></i>
+		(<span class="value">1</span>)
+		–
+	</div>
+			<p>Allow 8x8</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VP9_TX_MODE_ALLOW_16x16">
+	<div>
+		<i><em><code>GstCodecs.Vp9TxMode.ALLOW_16X16</code></em></i>
+		(<span class="value">2</span>)
+		–
+	</div>
+			<p>Allow 16x16</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VP9_TX_MODE_ALLOW_32x32">
+	<div>
+		<i><em><code>GstCodecs.Vp9TxMode.ALLOW_32X32</code></em></i>
+		(<span class="value">3</span>)
+		–
+	</div>
+			<p>Allow 32x32</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VP9_TX_MODE_SELECT">
+	<div>
+		<i><em><code>GstCodecs.Vp9TxMode.SELECT</code></em></i>
+		(<span class="value">4</span>)
+		–
+	</div>
+			<p>The choice is specified explicitly for each block</p>
+
+	</div>
+
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3 data-hotdoc-id="GstVp9TxMode">
+	<i>GstCodecs.Vp9TxMode</i>
+</h3>
+
+
+<p>TxMode: Specifies how the transform size is determined</p>
+
+
+
+
+	<div class="members-container">
+		<h5>Members</h5>
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VP9_TX_MODE_ONLY_4x4">
+	<div>
+		<i><em><code>GstCodecs.Vp9TxMode.ONLY_4X4</code></em></i>
+		(<span class="value">0</span>)
+		–
+	</div>
+			<p>Only 4x4</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VP9_TX_MODE_ALLOW_8x8">
+	<div>
+		<i><em><code>GstCodecs.Vp9TxMode.ALLOW_8X8</code></em></i>
+		(<span class="value">1</span>)
+		–
+	</div>
+			<p>Allow 8x8</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VP9_TX_MODE_ALLOW_16x16">
+	<div>
+		<i><em><code>GstCodecs.Vp9TxMode.ALLOW_16X16</code></em></i>
+		(<span class="value">2</span>)
+		–
+	</div>
+			<p>Allow 16x16</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VP9_TX_MODE_ALLOW_32x32">
+	<div>
+		<i><em><code>GstCodecs.Vp9TxMode.ALLOW_32X32</code></em></i>
+		(<span class="value">3</span>)
+		–
+	</div>
+			<p>Allow 32x32</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VP9_TX_MODE_SELECT">
+	<div>
+		<i><em><code>GstCodecs.Vp9TxMode.SELECT</code></em></i>
+		(<span class="value">4</span>)
+		–
+	</div>
+			<p>The choice is specified explicitly for each block</p>
+
+	</div>
+
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="GstVp9TxSize">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GstVp9TxSize">
+	<i>GstVp9TxSize</i>
+</h3>
+
+
+<p>TxSize: Specifies the transform size</p>
+
+
+
+
+	<div class="members-container">
+		<h5>Members</h5>
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VP9_TX_4x4">
+	<div>
+		<i><em><code>GST_VP9_TX_4x4</code></em></i>
+		(<span class="value">0</span>)
+		–
+	</div>
+			<p>4x4</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VP9_TX_8x8">
+	<div>
+		<i><em><code>GST_VP9_TX_8x8</code></em></i>
+		(<span class="value">1</span>)
+		–
+	</div>
+			<p>8x8</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VP9_TX_16x16">
+	<div>
+		<i><em><code>GST_VP9_TX_16x16</code></em></i>
+		(<span class="value">2</span>)
+		–
+	</div>
+			<p>16x16</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VP9_TX_32x32">
+	<div>
+		<i><em><code>GST_VP9_TX_32x32</code></em></i>
+		(<span class="value">3</span>)
+		–
+	</div>
+			<p>32x32</p>
+
+	</div>
+
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3 data-hotdoc-id="GstVp9TxSize">
+	<i>GstCodecs.Vp9TxSize</i>
+</h3>
+
+
+<p>TxSize: Specifies the transform size</p>
+
+
+
+
+	<div class="members-container">
+		<h5>Members</h5>
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VP9_TX_4x4">
+	<div>
+		<i><em><code>GstCodecs.Vp9TxSize.4X4</code></em></i>
+		(<span class="value">0</span>)
+		–
+	</div>
+			<p>4x4</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VP9_TX_8x8">
+	<div>
+		<i><em><code>GstCodecs.Vp9TxSize.8X8</code></em></i>
+		(<span class="value">1</span>)
+		–
+	</div>
+			<p>8x8</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VP9_TX_16x16">
+	<div>
+		<i><em><code>GstCodecs.Vp9TxSize.16X16</code></em></i>
+		(<span class="value">2</span>)
+		–
+	</div>
+			<p>16x16</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VP9_TX_32x32">
+	<div>
+		<i><em><code>GstCodecs.Vp9TxSize.32X32</code></em></i>
+		(<span class="value">3</span>)
+		–
+	</div>
+			<p>32x32</p>
+
+	</div>
+
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3 data-hotdoc-id="GstVp9TxSize">
+	<i>GstCodecs.Vp9TxSize</i>
+</h3>
+
+
+<p>TxSize: Specifies the transform size</p>
+
+
+
+
+	<div class="members-container">
+		<h5>Members</h5>
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VP9_TX_4x4">
+	<div>
+		<i><em><code>GstCodecs.Vp9TxSize.4X4</code></em></i>
+		(<span class="value">0</span>)
+		–
+	</div>
+			<p>4x4</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VP9_TX_8x8">
+	<div>
+		<i><em><code>GstCodecs.Vp9TxSize.8X8</code></em></i>
+		(<span class="value">1</span>)
+		–
+	</div>
+			<p>8x8</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VP9_TX_16x16">
+	<div>
+		<i><em><code>GstCodecs.Vp9TxSize.16X16</code></em></i>
+		(<span class="value">2</span>)
+		–
+	</div>
+			<p>16x16</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VP9_TX_32x32">
+	<div>
+		<i><em><code>GstCodecs.Vp9TxSize.32X32</code></em></i>
+		(<span class="value">3</span>)
+		–
+	</div>
+			<p>32x32</p>
+
+	</div>
+
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+
+            <h2 class="symbol_section">Constants</h2>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="GST_VP9_BLOCK_SIZE_GROUPS">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_VP9_BLOCK_SIZE_GROUPS">
+	<i>GST_VP9_BLOCK_SIZE_GROUPS</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_VP9_BLOCK_SIZE_GROUPS 4
+</pre>
+
+<p>Number of contexts when decoding intra_mode</p>
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3 data-hotdoc-id="GST_VP9_BLOCK_SIZE_GROUPS">
+	<i>GstCodecs.VP9_BLOCK_SIZE_GROUPS</i>
+</h3>
+
+
+<p>Number of contexts when decoding intra_mode</p>
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3 data-hotdoc-id="GST_VP9_BLOCK_SIZE_GROUPS">
+	<i>GstCodecs.VP9_BLOCK_SIZE_GROUPS</i>
+</h3>
+
+
+<p>Number of contexts when decoding intra_mode</p>
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="GST_VP9_CLASS0_SIZE">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_VP9_CLASS0_SIZE">
+	<i>GST_VP9_CLASS0_SIZE</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_VP9_CLASS0_SIZE 2
+</pre>
+
+<p>Number of values for mv_classO_bit</p>
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3 data-hotdoc-id="GST_VP9_CLASS0_SIZE">
+	<i>GstCodecs.VP9_CLASS0_SIZE</i>
+</h3>
+
+
+<p>Number of values for mv_classO_bit</p>
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3 data-hotdoc-id="GST_VP9_CLASS0_SIZE">
+	<i>GstCodecs.VP9_CLASS0_SIZE</i>
+</h3>
+
+
+<p>Number of values for mv_classO_bit</p>
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="GST_VP9_COMP_MODE_CONTEXTS">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_VP9_COMP_MODE_CONTEXTS">
+	<i>GST_VP9_COMP_MODE_CONTEXTS</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_VP9_COMP_MODE_CONTEXTS 5
+</pre>
+
+<p>Number of contexts for comp_mode</p>
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3 data-hotdoc-id="GST_VP9_COMP_MODE_CONTEXTS">
+	<i>GstCodecs.VP9_COMP_MODE_CONTEXTS</i>
+</h3>
+
+
+<p>Number of contexts for comp_mode</p>
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3 data-hotdoc-id="GST_VP9_COMP_MODE_CONTEXTS">
+	<i>GstCodecs.VP9_COMP_MODE_CONTEXTS</i>
+</h3>
+
+
+<p>Number of contexts for comp_mode</p>
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="GST_VP9_INTERP_FILTER_CONTEXTS">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_VP9_INTERP_FILTER_CONTEXTS">
+	<i>GST_VP9_INTERP_FILTER_CONTEXTS</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_VP9_INTERP_FILTER_CONTEXTS 4
+</pre>
+
+<p>Number of contexts for interp_filter</p>
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3 data-hotdoc-id="GST_VP9_INTERP_FILTER_CONTEXTS">
+	<i>GstCodecs.VP9_INTERP_FILTER_CONTEXTS</i>
+</h3>
+
+
+<p>Number of contexts for interp_filter</p>
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3 data-hotdoc-id="GST_VP9_INTERP_FILTER_CONTEXTS">
+	<i>GstCodecs.VP9_INTERP_FILTER_CONTEXTS</i>
+</h3>
+
+
+<p>Number of contexts for interp_filter</p>
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="GST_VP9_INTER_MODES">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_VP9_INTER_MODES">
+	<i>GST_VP9_INTER_MODES</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_VP9_INTER_MODES 4
+</pre>
+
+<p>Number of values for inter_mode</p>
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3 data-hotdoc-id="GST_VP9_INTER_MODES">
+	<i>GstCodecs.VP9_INTER_MODES</i>
+</h3>
+
+
+<p>Number of values for inter_mode</p>
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3 data-hotdoc-id="GST_VP9_INTER_MODES">
+	<i>GstCodecs.VP9_INTER_MODES</i>
+</h3>
+
+
+<p>Number of values for inter_mode</p>
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="GST_VP9_INTER_MODE_CONTEXTS">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_VP9_INTER_MODE_CONTEXTS">
+	<i>GST_VP9_INTER_MODE_CONTEXTS</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_VP9_INTER_MODE_CONTEXTS 7
+</pre>
+
+<p>Number of contexts for inter_mode</p>
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3 data-hotdoc-id="GST_VP9_INTER_MODE_CONTEXTS">
+	<i>GstCodecs.VP9_INTER_MODE_CONTEXTS</i>
+</h3>
+
+
+<p>Number of contexts for inter_mode</p>
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3 data-hotdoc-id="GST_VP9_INTER_MODE_CONTEXTS">
+	<i>GstCodecs.VP9_INTER_MODE_CONTEXTS</i>
+</h3>
+
+
+<p>Number of contexts for inter_mode</p>
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="GST_VP9_INTRA_MODES">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_VP9_INTRA_MODES">
+	<i>GST_VP9_INTRA_MODES</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_VP9_INTRA_MODES 10
+</pre>
+
+<p>Number of values for intra_mode</p>
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3 data-hotdoc-id="GST_VP9_INTRA_MODES">
+	<i>GstCodecs.VP9_INTRA_MODES</i>
+</h3>
+
+
+<p>Number of values for intra_mode</p>
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3 data-hotdoc-id="GST_VP9_INTRA_MODES">
+	<i>GstCodecs.VP9_INTRA_MODES</i>
+</h3>
+
+
+<p>Number of values for intra_mode</p>
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="GST_VP9_IS_INTER_CONTEXTS">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_VP9_IS_INTER_CONTEXTS">
+	<i>GST_VP9_IS_INTER_CONTEXTS</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_VP9_IS_INTER_CONTEXTS 4
+</pre>
+
+<p>Number of contexts for interp_filter</p>
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3 data-hotdoc-id="GST_VP9_IS_INTER_CONTEXTS">
+	<i>GstCodecs.VP9_IS_INTER_CONTEXTS</i>
+</h3>
+
+
+<p>Number of contexts for interp_filter</p>
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3 data-hotdoc-id="GST_VP9_IS_INTER_CONTEXTS">
+	<i>GstCodecs.VP9_IS_INTER_CONTEXTS</i>
+</h3>
+
+
+<p>Number of contexts for interp_filter</p>
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="GST_VP9_MV_CLASSES">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_VP9_MV_CLASSES">
+	<i>GST_VP9_MV_CLASSES</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_VP9_MV_CLASSES 11
+</pre>
+
+<p>Number of values for mv_class</p>
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3 data-hotdoc-id="GST_VP9_MV_CLASSES">
+	<i>GstCodecs.VP9_MV_CLASSES</i>
+</h3>
+
+
+<p>Number of values for mv_class</p>
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3 data-hotdoc-id="GST_VP9_MV_CLASSES">
+	<i>GstCodecs.VP9_MV_CLASSES</i>
+</h3>
+
+
+<p>Number of values for mv_class</p>
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="GST_VP9_MV_FR_SIZE">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_VP9_MV_FR_SIZE">
+	<i>GST_VP9_MV_FR_SIZE</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_VP9_MV_FR_SIZE 4
+</pre>
+
+<p>Number of values that can be decoded for mv_fr</p>
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3 data-hotdoc-id="GST_VP9_MV_FR_SIZE">
+	<i>GstCodecs.VP9_MV_FR_SIZE</i>
+</h3>
+
+
+<p>Number of values that can be decoded for mv_fr</p>
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3 data-hotdoc-id="GST_VP9_MV_FR_SIZE">
+	<i>GstCodecs.VP9_MV_FR_SIZE</i>
+</h3>
+
+
+<p>Number of values that can be decoded for mv_fr</p>
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="GST_VP9_MV_JOINTS">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_VP9_MV_JOINTS">
+	<i>GST_VP9_MV_JOINTS</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_VP9_MV_JOINTS 4
+</pre>
+
+<p>Number of values for partition</p>
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3 data-hotdoc-id="GST_VP9_MV_JOINTS">
+	<i>GstCodecs.VP9_MV_JOINTS</i>
+</h3>
+
+
+<p>Number of values for partition</p>
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3 data-hotdoc-id="GST_VP9_MV_JOINTS">
+	<i>GstCodecs.VP9_MV_JOINTS</i>
+</h3>
+
+
+<p>Number of values for partition</p>
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="GST_VP9_MV_OFFSET_BITS">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_VP9_MV_OFFSET_BITS">
+	<i>GST_VP9_MV_OFFSET_BITS</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_VP9_MV_OFFSET_BITS 10
+</pre>
+
+<p>Maximum number of bits for decoding motion vectors</p>
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3 data-hotdoc-id="GST_VP9_MV_OFFSET_BITS">
+	<i>GstCodecs.VP9_MV_OFFSET_BITS</i>
+</h3>
+
+
+<p>Maximum number of bits for decoding motion vectors</p>
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3 data-hotdoc-id="GST_VP9_MV_OFFSET_BITS">
+	<i>GstCodecs.VP9_MV_OFFSET_BITS</i>
+</h3>
+
+
+<p>Maximum number of bits for decoding motion vectors</p>
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="GST_VP9_PARTITION_CONTEXTS">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_VP9_PARTITION_CONTEXTS">
+	<i>GST_VP9_PARTITION_CONTEXTS</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_VP9_PARTITION_CONTEXTS 16
+</pre>
+
+<p>Number of contexts when decoding partition</p>
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3 data-hotdoc-id="GST_VP9_PARTITION_CONTEXTS">
+	<i>GstCodecs.VP9_PARTITION_CONTEXTS</i>
+</h3>
+
+
+<p>Number of contexts when decoding partition</p>
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3 data-hotdoc-id="GST_VP9_PARTITION_CONTEXTS">
+	<i>GstCodecs.VP9_PARTITION_CONTEXTS</i>
+</h3>
+
+
+<p>Number of contexts when decoding partition</p>
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="GST_VP9_PARTITION_TYPES">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_VP9_PARTITION_TYPES">
+	<i>GST_VP9_PARTITION_TYPES</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_VP9_PARTITION_TYPES 4
+</pre>
+
+<p>Number of values for partition</p>
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3 data-hotdoc-id="GST_VP9_PARTITION_TYPES">
+	<i>GstCodecs.VP9_PARTITION_TYPES</i>
+</h3>
+
+
+<p>Number of values for partition</p>
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3 data-hotdoc-id="GST_VP9_PARTITION_TYPES">
+	<i>GstCodecs.VP9_PARTITION_TYPES</i>
+</h3>
+
+
+<p>Number of values for partition</p>
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="GST_VP9_REF_CONTEXTS">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_VP9_REF_CONTEXTS">
+	<i>GST_VP9_REF_CONTEXTS</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_VP9_REF_CONTEXTS 5
+</pre>
+
+<p>Number of contexts for single_ref and comp_ref</p>
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3 data-hotdoc-id="GST_VP9_REF_CONTEXTS">
+	<i>GstCodecs.VP9_REF_CONTEXTS</i>
+</h3>
+
+
+<p>Number of contexts for single_ref and comp_ref</p>
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3 data-hotdoc-id="GST_VP9_REF_CONTEXTS">
+	<i>GstCodecs.VP9_REF_CONTEXTS</i>
+</h3>
+
+
+<p>Number of contexts for single_ref and comp_ref</p>
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="GST_VP9_SEG_LVL_ALT_L">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_VP9_SEG_LVL_ALT_L">
+	<i>GST_VP9_SEG_LVL_ALT_L</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_VP9_SEG_LVL_ALT_L 1
+</pre>
+
+<p>Index for loop filter segment feature</p>
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3 data-hotdoc-id="GST_VP9_SEG_LVL_ALT_L">
+	<i>GstCodecs.VP9_SEG_LVL_ALT_L</i>
+</h3>
+
+
+<p>Index for loop filter segment feature</p>
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3 data-hotdoc-id="GST_VP9_SEG_LVL_ALT_L">
+	<i>GstCodecs.VP9_SEG_LVL_ALT_L</i>
+</h3>
+
+
+<p>Index for loop filter segment feature</p>
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="GST_VP9_SEG_LVL_ALT_Q">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_VP9_SEG_LVL_ALT_Q">
+	<i>GST_VP9_SEG_LVL_ALT_Q</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_VP9_SEG_LVL_ALT_Q 0
+</pre>
+
+<p>Index for quantizer segment feature</p>
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3 data-hotdoc-id="GST_VP9_SEG_LVL_ALT_Q">
+	<i>GstCodecs.VP9_SEG_LVL_ALT_Q</i>
+</h3>
+
+
+<p>Index for quantizer segment feature</p>
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3 data-hotdoc-id="GST_VP9_SEG_LVL_ALT_Q">
+	<i>GstCodecs.VP9_SEG_LVL_ALT_Q</i>
+</h3>
+
+
+<p>Index for quantizer segment feature</p>
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="GST_VP9_SEG_LVL_MAX">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_VP9_SEG_LVL_MAX">
+	<i>GST_VP9_SEG_LVL_MAX</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_VP9_SEG_LVL_MAX 4
+</pre>
+
+<p>Number of segment features</p>
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3 data-hotdoc-id="GST_VP9_SEG_LVL_MAX">
+	<i>GstCodecs.VP9_SEG_LVL_MAX</i>
+</h3>
+
+
+<p>Number of segment features</p>
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3 data-hotdoc-id="GST_VP9_SEG_LVL_MAX">
+	<i>GstCodecs.VP9_SEG_LVL_MAX</i>
+</h3>
+
+
+<p>Number of segment features</p>
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="GST_VP9_SEG_LVL_REF_FRAME">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_VP9_SEG_LVL_REF_FRAME">
+	<i>GST_VP9_SEG_LVL_REF_FRAME</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_VP9_SEG_LVL_REF_FRAME 2
+</pre>
+
+<p>Index for reference frame segment feature</p>
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3 data-hotdoc-id="GST_VP9_SEG_LVL_REF_FRAME">
+	<i>GstCodecs.VP9_SEG_LVL_REF_FRAME</i>
+</h3>
+
+
+<p>Index for reference frame segment feature</p>
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3 data-hotdoc-id="GST_VP9_SEG_LVL_REF_FRAME">
+	<i>GstCodecs.VP9_SEG_LVL_REF_FRAME</i>
+</h3>
+
+
+<p>Index for reference frame segment feature</p>
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="GST_VP9_SEG_SEG_LVL_SKIP">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_VP9_SEG_SEG_LVL_SKIP">
+	<i>GST_VP9_SEG_SEG_LVL_SKIP</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_VP9_SEG_SEG_LVL_SKIP 3
+</pre>
+
+<p>Index for skip segment feature</p>
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3 data-hotdoc-id="GST_VP9_SEG_SEG_LVL_SKIP">
+	<i>GstCodecs.VP9_SEG_SEG_LVL_SKIP</i>
+</h3>
+
+
+<p>Index for skip segment feature</p>
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3 data-hotdoc-id="GST_VP9_SEG_SEG_LVL_SKIP">
+	<i>GstCodecs.VP9_SEG_SEG_LVL_SKIP</i>
+</h3>
+
+
+<p>Index for skip segment feature</p>
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="GST_VP9_SKIP_CONTEXTS">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_VP9_SKIP_CONTEXTS">
+	<i>GST_VP9_SKIP_CONTEXTS</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_VP9_SKIP_CONTEXTS 3
+</pre>
+
+<p>Number of contexts for decoding skip</p>
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3 data-hotdoc-id="GST_VP9_SKIP_CONTEXTS">
+	<i>GstCodecs.VP9_SKIP_CONTEXTS</i>
+</h3>
+
+
+<p>Number of contexts for decoding skip</p>
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3 data-hotdoc-id="GST_VP9_SKIP_CONTEXTS">
+	<i>GstCodecs.VP9_SKIP_CONTEXTS</i>
+</h3>
+
+
+<p>Number of contexts for decoding skip</p>
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="GST_VP9_SWITCHABLE_FILTERS">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_VP9_SWITCHABLE_FILTERS">
+	<i>GST_VP9_SWITCHABLE_FILTERS</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_VP9_SWITCHABLE_FILTERS 3
+</pre>
+
+<p>Number of contexts for interp_filter</p>
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3 data-hotdoc-id="GST_VP9_SWITCHABLE_FILTERS">
+	<i>GstCodecs.VP9_SWITCHABLE_FILTERS</i>
+</h3>
+
+
+<p>Number of contexts for interp_filter</p>
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3 data-hotdoc-id="GST_VP9_SWITCHABLE_FILTERS">
+	<i>GstCodecs.VP9_SWITCHABLE_FILTERS</i>
+</h3>
+
+
+<p>Number of contexts for interp_filter</p>
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="GST_VP9_TX_MODES">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_VP9_TX_MODES">
+	<i>GST_VP9_TX_MODES</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_VP9_TX_MODES 5
+</pre>
+
+<p>Number of values for tx_mode</p>
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3 data-hotdoc-id="GST_VP9_TX_MODES">
+	<i>GstCodecs.VP9_TX_MODES</i>
+</h3>
+
+
+<p>Number of values for tx_mode</p>
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3 data-hotdoc-id="GST_VP9_TX_MODES">
+	<i>GstCodecs.VP9_TX_MODES</i>
+</h3>
+
+
+<p>Number of values for tx_mode</p>
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="GST_VP9_TX_SIZES">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_VP9_TX_SIZES">
+	<i>GST_VP9_TX_SIZES</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_VP9_TX_SIZES 4
+</pre>
+
+<p>Number of values for tx_size</p>
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3 data-hotdoc-id="GST_VP9_TX_SIZES">
+	<i>GstCodecs.VP9_TX_SIZES</i>
+</h3>
+
+
+<p>Number of values for tx_size</p>
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3 data-hotdoc-id="GST_VP9_TX_SIZES">
+	<i>GstCodecs.VP9_TX_SIZES</i>
+</h3>
+
+
+<p>Number of values for tx_size</p>
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="GST_VP9_TX_SIZE_CONTEXTS">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_VP9_TX_SIZE_CONTEXTS">
+	<i>GST_VP9_TX_SIZE_CONTEXTS</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_VP9_TX_SIZE_CONTEXTS 2
+</pre>
+
+<p>Number of contexts for transform size</p>
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3 data-hotdoc-id="GST_VP9_TX_SIZE_CONTEXTS">
+	<i>GstCodecs.VP9_TX_SIZE_CONTEXTS</i>
+</h3>
+
+
+<p>Number of contexts for transform size</p>
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3 data-hotdoc-id="GST_VP9_TX_SIZE_CONTEXTS">
+	<i>GstCodecs.VP9_TX_SIZE_CONTEXTS</i>
+</h3>
+
+
+<p>Number of contexts for transform size</p>
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+
+
+
+
+
+		
+	</div>
+	<div id="search_results">
+		<p>The results of the search are</p>
+	</div>
+	<div id="footer">
+		    
+
+	</div>
+</div>
+
+<div id="toc-column">
+	
+		<div class="edit-button">
+		
+
+	</div>
+		<div id="toc-wrapper">
+		<nav id="toc"></nav>
+	</div>
+</div>
+</div>
+</main>
+
+
+<script src="assets/js/navbar_offset_scroller.js"></script>
+</body>
+</html>

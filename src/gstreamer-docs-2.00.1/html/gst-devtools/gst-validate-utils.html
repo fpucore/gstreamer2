@@ -1,0 +1,3778 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<base href="..">
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<title>gst validate utils</title>
+
+<link rel="stylesheet" href="assets/css/dark-frontend.css" type="text/css" title="dark">
+<link rel="alternate stylesheet" href="assets/css/light-frontend.css" type="text/css" title="light">
+<link rel="stylesheet" href="assets/css/bootstrap-toc.min.css" type="text/css">
+<link rel="stylesheet" href="assets/css/jquery.mCustomScrollbar.min.css">
+<link rel="stylesheet" href="assets/js/search/enable_search.css" type="text/css">
+
+<link rel="stylesheet" href="assets/css/extra_frontend.css" type="text/css">
+<link rel="stylesheet" href="assets/css/devhelp.css" type="text/css">
+
+<link rel="stylesheet" href="assets/css/prism-tomorrow.css" type="text/css" title="dark">
+
+<link rel="alternate stylesheet" href="assets/css/prism.css" type="text/css" title="light">
+
+<script src="assets/js/mustache.min.js"></script>
+<script src="assets/js/jquery.js"></script>
+<script src="assets/js/bootstrap.js"></script>
+<script src="assets/js/scrollspy.js"></script>
+<script src="assets/js/typeahead.jquery.min.js"></script>
+<script src="assets/js/search.js"></script>
+<script src="assets/js/compare-versions.js"></script>
+<script src="assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="assets/js/bootstrap-toc.min.js"></script>
+<script src="assets/js/jquery.touchSwipe.min.js"></script>
+<script src="assets/js/anchor.min.js"></script>
+<script src="assets/js/tag_filtering.js"></script>
+<script src="assets/js/language_switching.js"></script>
+<script src="assets/js/styleswitcher.js"></script>
+
+<script src="assets/js/lines_around_headings.js"></script>
+
+<script src="assets/js/prism-core.js"></script>
+<script src="assets/js/prism-autoloader.js"></script>
+<script src="assets/js/prism_autoloader_path_override.js"></script>
+<script src="assets/js/trie.js"></script>
+
+<!-- generic -->
+<link rel="icon" type="image/png" href="assets/images/favicon-16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="assets/images/favicon-32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="assets/images/favicon-57.png" sizes="57x57">
+<link rel="icon" type="image/png" href="assets/images/favicon-64.png" sizes="64x64">
+<link rel="icon" type="image/png" href="assets/images/favicon-76.png" sizes="76x76">
+<link rel="icon" type="image/png" href="assets/images/favicon-96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="assets/images/favicon-128.png" sizes="128x128">
+<link rel="icon" type="image/png" href="assets/images/favicon-192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="assets/images/favicon-228.png" sizes="228x228">
+
+<!-- Android -->
+<link rel="shortcut icon" sizes="196x196" href="assets/images/favicon-196.png">
+
+<!-- iOS -->
+<link rel="apple-touch-icon" href="assets/images/favicon-120.png" sizes="120x120">
+<link rel="apple-touch-icon" href="assets/images/favicon-152.png" sizes="152x152">
+<link rel="apple-touch-icon" href="assets/images/favicon-180.png" sizes="180x180">
+
+</head>
+
+<body class="no-script
+">
+
+<script>
+$('body').removeClass('no-script');
+</script>
+
+<nav class="navbar navbar-fixed-top navbar-default" id="topnav">
+	<div class="container-fluid">
+		<div class="navbar-right">
+			<a id="toc-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-wrapper" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<span title="light mode switch" class="glyphicon glyphicon-sunglasses pull-right" id="lightmode-icon"></span>
+			<form class="navbar-form pull-right" id="navbar-search-form">
+                               <div class="form-group has-feedback">
+                                       <input type="text" class="form-control input-sm" name="search" id="sidenav-lookup-field" placeholder="search" disabled>
+				       <span class="glyphicon glyphicon-search form-control-feedback" id="search-mgn-glass"></span>
+                               </div>
+                        </form>
+		</div>
+		<div class="navbar-header">
+			<a id="sidenav-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<a id="home-link" href="index.html" class="hotdoc-navbar-brand">
+				<img src="assets/images/gstreamer-logo.svg" alt="Home">
+			</a>
+		</div>
+		<div class="navbar-collapse collapse" id="navbar-wrapper">
+			<ul class="nav navbar-nav" id="menu">
+				
+<li class="dropdown">
+    <a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        API References<span class="caret"></span>
+    </a>
+	<ul class="dropdown-menu" id="modules-menu">
+					<li>
+				<a href="gstreamer/gi-index.html">GStreamer core</a>
+			</li>
+					<li>
+				<a href="libs.html">GStreamer Libraries</a>
+			</li>
+					<li>
+				<a href="plugins_doc.html">GStreamer Plugins</a>
+			</li>
+		</ul>
+</li>
+
+<li>
+    <a href="application-development/index.html">Application manual</a>
+</li>
+
+
+<li>
+    <a href="tutorials/index.html">Tutorials</a>
+</li>
+
+			</ul>
+			<div class="hidden-xs hidden-sm navbar-text navbar-center">
+							</div>
+		</div>
+	</div>
+</nav>
+
+<main>
+<div data-extension="gi-extension" data-hotdoc-in-toplevel="False" data-hotdoc-project="gst-devtools" data-hotdoc-ref="gst-validate-utils.html" class="page_container" id="page-wrapper" data-hotdoc-meta-gi-languages="['c', 'javascript', 'python']" data-hotdoc-meta-gi-language="c">
+<script src="assets/js/utils.js"></script>
+
+<div class="panel panel-collapse oc-collapsed" id="sidenav" data-hotdoc-role="navigation">
+	<script src="assets/js/full-width.js"></script>
+  <div id="sitenav-wrapper">
+    <iframe src="hotdoc-sitemap.html" id="sitenav-frame"></iframe>
+  </div>
+</div>
+
+<div id="body">
+	<div id="main">
+				    <div id="page-description" data-hotdoc-role="main">
+    </div>
+        
+        
+
+            <h2 class="symbol_section">Functions</h2>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_validate_element_has_klass">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="gst_validate_element_has_klass">
+	<i>gst_validate_element_has_klass</i>
+</h3>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a>
+gst_validate_element_has_klass (<a title="GstElement" href="gstreamer/gstelement.html#GstElement">GstElement</a> * element,
+                                const <a title="gchar" href="https://docs.gtk.org/glib/types.html#gchar">gchar</a> * klass)</pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>element</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>klass</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3 data-hotdoc-id="gst_validate_element_has_klass">
+	<i>GstValidate.prototype.element_has_klass</i>
+</h3>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstValidate.prototype.element_has_klass(element: <a title="Gst.Element" href="gstreamer/gstelement.html#GstElement">Gst.Element</a>, klass: <a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>): {
+    // javascript wrapper for 'gst_validate_element_has_klass'
+}</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>element</code></em></i>
+<span>(</span><a title="Gst.Element" href="gstreamer/gstelement.html#GstElement">Gst.Element</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>klass</code></em></i>
+<span>(</span><a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3 data-hotdoc-id="gst_validate_element_has_klass">
+	<i>GstValidate.element_has_klass</i>
+</h3>
+
+
+<pre class="python-prototype language-python">
+<code>def GstValidate.element_has_klass (element, klass):
+    #python wrapper for 'gst_validate_element_has_klass'</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>element</code></em></i>
+<span>(</span><a title="Gst.Element" href="gstreamer/gstelement.html#GstElement">Gst.Element</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>klass</code></em></i>
+<span>(</span><a title="str" href="https://docs.python.org/3/library/functions.html#func-str">str</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a><span>)</span>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_validate_element_matches_target">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="gst_validate_element_matches_target">
+	<i>gst_validate_element_matches_target</i>
+</h3>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a>
+gst_validate_element_matches_target (<a title="GstElement" href="gstreamer/gstelement.html#GstElement">GstElement</a> * element,
+                                     <a title="GstStructure" href="gstreamer/gststructure.html#GstStructure">GstStructure</a> * s)</pre>
+
+<p>Check if <em>element</em> matches one of the 'target-element-name',
+'target-element-klass' or 'target-element-factory-name' defined in <em>s</em>.</p>
+<p>Return: <a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#TRUE:CAPS">TRUE</a> if it matches, <a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#FALSE:CAPS">FALSE</a> otherwise or if <em>s</em> doesn't contain any
+target-element field.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>element</code></em></i>
+–
+</div>
+<p>a <a href="gstreamer/gstelement.html#GstElement">GstElement</a> to check</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>s</code></em></i>
+–
+</div>
+<p>a <a href="gstreamer/gststructure.html#GstStructure">GstStructure</a> to use for matching</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3 data-hotdoc-id="gst_validate_element_matches_target">
+	<i>GstValidate.prototype.element_matches_target</i>
+</h3>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstValidate.prototype.element_matches_target(element: <a title="Gst.Element" href="gstreamer/gstelement.html#GstElement">Gst.Element</a>, s: <a title="Gst.Structure" href="gstreamer/gststructure.html#GstStructure">Gst.Structure</a>): {
+    // javascript wrapper for 'gst_validate_element_matches_target'
+}</code></pre>
+
+<p>Check if <em>element</em> matches one of the 'target-element-name',
+'target-element-klass' or 'target-element-factory-name' defined in <em>s</em>.</p>
+<p>Return: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">true</a> if it matches, <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">false</a> otherwise or if <em>s</em> doesn't contain any
+target-element field.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>element</code></em></i>
+<span>(</span><a title="Gst.Element" href="gstreamer/gstelement.html#GstElement">Gst.Element</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gstelement.html#GstElement">Gst.Element</a> to check</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>s</code></em></i>
+<span>(</span><a title="Gst.Structure" href="gstreamer/gststructure.html#GstStructure">Gst.Structure</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gststructure.html#GstStructure">Gst.Structure</a> to use for matching</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3 data-hotdoc-id="gst_validate_element_matches_target">
+	<i>GstValidate.element_matches_target</i>
+</h3>
+
+
+<pre class="python-prototype language-python">
+<code>def GstValidate.element_matches_target (element, s):
+    #python wrapper for 'gst_validate_element_matches_target'</code></pre>
+
+<p>Check if <em>element</em> matches one of the 'target-element-name',
+'target-element-klass' or 'target-element-factory-name' defined in <em>s</em>.</p>
+<p>Return: <a href="https://docs.python.org/3/library/constants.html#True">True</a> if it matches, <a href="https://docs.python.org/3/library/constants.html#False">False</a> otherwise or if <em>s</em> doesn't contain any
+target-element field.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>element</code></em></i>
+<span>(</span><a title="Gst.Element" href="gstreamer/gstelement.html#GstElement">Gst.Element</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gstelement.html#GstElement">Gst.Element</a> to check</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>s</code></em></i>
+<span>(</span><a title="Gst.Structure" href="gstreamer/gststructure.html#GstStructure">Gst.Structure</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gststructure.html#GstStructure">Gst.Structure</a> to use for matching</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a><span>)</span>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_validate_fail_on_missing_plugin">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="gst_validate_fail_on_missing_plugin">
+	<i>gst_validate_fail_on_missing_plugin</i>
+</h3>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a>
+gst_validate_fail_on_missing_plugin ()</pre>
+
+
+
+
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3 data-hotdoc-id="gst_validate_fail_on_missing_plugin">
+	<i>GstValidate.prototype.fail_on_missing_plugin</i>
+</h3>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstValidate.prototype.fail_on_missing_plugin(): {
+    // javascript wrapper for 'gst_validate_fail_on_missing_plugin'
+}</code></pre>
+
+
+
+
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3 data-hotdoc-id="gst_validate_fail_on_missing_plugin">
+	<i>GstValidate.fail_on_missing_plugin</i>
+</h3>
+
+
+<pre class="python-prototype language-python">
+<code>def GstValidate.fail_on_missing_plugin ():
+    #python wrapper for 'gst_validate_fail_on_missing_plugin'</code></pre>
+
+
+
+
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a><span>)</span>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_validate_has_colored_output">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="gst_validate_has_colored_output">
+	<i>gst_validate_has_colored_output</i>
+</h3>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a>
+gst_validate_has_colored_output ()</pre>
+
+
+
+
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3 data-hotdoc-id="gst_validate_has_colored_output">
+	<i>GstValidate.prototype.has_colored_output</i>
+</h3>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstValidate.prototype.has_colored_output(): {
+    // javascript wrapper for 'gst_validate_has_colored_output'
+}</code></pre>
+
+
+
+
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3 data-hotdoc-id="gst_validate_has_colored_output">
+	<i>GstValidate.has_colored_output</i>
+</h3>
+
+
+<pre class="python-prototype language-python">
+<code>def GstValidate.has_colored_output ():
+    #python wrapper for 'gst_validate_has_colored_output'</code></pre>
+
+
+
+
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a><span>)</span>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_validate_object_set_property">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="gst_validate_object_set_property">
+	<i>gst_validate_object_set_property</i>
+</h3>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GstValidateActionReturn" href="gst-devtools/gst-validate-scenario.html#GstValidateActionReturn">GstValidateActionReturn</a>
+gst_validate_object_set_property (<a title="GstValidateReporter" href="gst-devtools/gst-validate-reporter.html#GstValidateReporter">GstValidateReporter</a> * reporter,
+                                  <a title="GObject" href="https://docs.gtk.org/gobject/class.Object.html">GObject</a> * object,
+                                  const <a title="gchar" href="https://docs.gtk.org/glib/types.html#gchar">gchar</a> * property,
+                                  const <a title="GValue" href="https://docs.gtk.org/gobject/struct.Value.html">GValue</a> * value,
+                                  <a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a> optional)</pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>reporter</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>object</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>property</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>value</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>optional</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3 data-hotdoc-id="gst_validate_object_set_property">
+	<i>GstValidate.prototype.object_set_property</i>
+</h3>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstValidate.prototype.object_set_property(reporter: <a title="GstValidate.Reporter" href="gst-devtools/gst-validate-reporter.html#GstValidateReporter">GstValidate.Reporter</a>, object: <a title="GObject.Object" href="https://docs.gtk.org/gobject/class.Object.html">GObject.Object</a>, property: <a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>, value: <a title="GObject.Value" href="https://docs.gtk.org/gobject/struct.Value.html">GObject.Value</a>, optional: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>): {
+    // javascript wrapper for 'gst_validate_object_set_property'
+}</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>reporter</code></em></i>
+<span>(</span><a title="GstValidate.Reporter" href="gst-devtools/gst-validate-reporter.html#GstValidateReporter">GstValidate.Reporter</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>object</code></em></i>
+<span>(</span><a title="GObject.Object" href="https://docs.gtk.org/gobject/class.Object.html">GObject.Object</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>property</code></em></i>
+<span>(</span><a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>value</code></em></i>
+<span>(</span><a title="GObject.Value" href="https://docs.gtk.org/gobject/struct.Value.html">GObject.Value</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>optional</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GstValidate.ActionReturn" href="gst-devtools/gst-validate-scenario.html#GstValidateActionReturn">GstValidate.ActionReturn</a><span>)</span>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3 data-hotdoc-id="gst_validate_object_set_property">
+	<i>GstValidate.object_set_property</i>
+</h3>
+
+
+<pre class="python-prototype language-python">
+<code>def GstValidate.object_set_property (reporter, object, property, value, optional):
+    #python wrapper for 'gst_validate_object_set_property'</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>reporter</code></em></i>
+<span>(</span><a title="GstValidate.Reporter" href="gst-devtools/gst-validate-reporter.html#GstValidateReporter">GstValidate.Reporter</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>object</code></em></i>
+<span>(</span><a title="GObject.Object" href="https://docs.gtk.org/gobject/class.Object.html">GObject.Object</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>property</code></em></i>
+<span>(</span><a title="str" href="https://docs.python.org/3/library/functions.html#func-str">str</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>value</code></em></i>
+<span>(</span><a title="GObject.Value" href="https://docs.gtk.org/gobject/struct.Value.html">GObject.Value</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>optional</code></em></i>
+<span>(</span><a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GstValidate.ActionReturn" href="gst-devtools/gst-validate-scenario.html#GstValidateActionReturn">GstValidate.ActionReturn</a><span>)</span>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.24;" id="gst_validate_object_set_property_full">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="gst_validate_object_set_property_full">
+	<i>gst_validate_object_set_property_full</i>
+</h3>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GstValidateActionReturn" href="gst-devtools/gst-validate-scenario.html#GstValidateActionReturn">GstValidateActionReturn</a>
+gst_validate_object_set_property_full (<a title="GstValidateReporter" href="gst-devtools/gst-validate-reporter.html#GstValidateReporter">GstValidateReporter</a> * reporter,
+                                       <a title="GObject" href="https://docs.gtk.org/gobject/class.Object.html">GObject</a> * object,
+                                       const <a title="gchar" href="https://docs.gtk.org/glib/types.html#gchar">gchar</a> * property,
+                                       const <a title="GValue" href="https://docs.gtk.org/gobject/struct.Value.html">GValue</a> * value,
+                                       <a title="GstValidateObjectSetPropertyFlags" href="gst-devtools/gst-validate-enums.html#GstValidateObjectSetPropertyFlags">GstValidateObjectSetPropertyFlags</a> flags)</pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>reporter</code></em></i>
+–
+</div>
+<p>The <a href="gst-devtools/gst-validate-reporter.html#GstValidateReporter">GstValidateReporter</a> to use to report errors</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>object</code></em></i>
+–
+</div>
+<p>The <a href="https://docs.gtk.org/gobject/class.Object.html">GObject</a> to set the property on</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>property</code></em></i>
+–
+</div>
+<p>The name of the property to set</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>value</code></em></i>
+–
+</div>
+<p>The value to set the property to</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>flags</code></em></i>
+–
+</div>
+<p>The <a href="gst-devtools/gst-validate-enums.html#GstValidateObjectSetPropertyFlags">GstValidateObjectSetPropertyFlags</a> to use</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3 data-hotdoc-id="gst_validate_object_set_property_full">
+	<i>GstValidate.prototype.object_set_property_full</i>
+</h3>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstValidate.prototype.object_set_property_full(reporter: <a title="GstValidate.Reporter" href="gst-devtools/gst-validate-reporter.html#GstValidateReporter">GstValidate.Reporter</a>, object: <a title="GObject.Object" href="https://docs.gtk.org/gobject/class.Object.html">GObject.Object</a>, property: <a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>, value: <a title="GObject.Value" href="https://docs.gtk.org/gobject/struct.Value.html">GObject.Value</a>, flags: <a title="GstValidate.ObjectSetPropertyFlags" href="gst-devtools/gst-validate-enums.html#GstValidateObjectSetPropertyFlags">GstValidate.ObjectSetPropertyFlags</a>): {
+    // javascript wrapper for 'gst_validate_object_set_property_full'
+}</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>reporter</code></em></i>
+<span>(</span><a title="GstValidate.Reporter" href="gst-devtools/gst-validate-reporter.html#GstValidateReporter">GstValidate.Reporter</a><span>)</span>
+–
+</div>
+<p>The <a href="gst-devtools/gst-validate-reporter.html#GstValidateReporter">GstValidate.Reporter</a> to use to report errors</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>object</code></em></i>
+<span>(</span><a title="GObject.Object" href="https://docs.gtk.org/gobject/class.Object.html">GObject.Object</a><span>)</span>
+–
+</div>
+<p>The <a href="https://docs.gtk.org/gobject/class.Object.html">GObject.Object</a> to set the property on</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>property</code></em></i>
+<span>(</span><a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a><span>)</span>
+–
+</div>
+<p>The name of the property to set</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>value</code></em></i>
+<span>(</span><a title="GObject.Value" href="https://docs.gtk.org/gobject/struct.Value.html">GObject.Value</a><span>)</span>
+–
+</div>
+<p>The value to set the property to</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>flags</code></em></i>
+<span>(</span><a title="GstValidate.ObjectSetPropertyFlags" href="gst-devtools/gst-validate-enums.html#GstValidateObjectSetPropertyFlags">GstValidate.ObjectSetPropertyFlags</a><span>)</span>
+–
+</div>
+<p>The <a href="gst-devtools/gst-validate-enums.html#GstValidateObjectSetPropertyFlags">GstValidate.ObjectSetPropertyFlags</a> to use</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GstValidate.ActionReturn" href="gst-devtools/gst-validate-scenario.html#GstValidateActionReturn">GstValidate.ActionReturn</a><span>)</span>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3 data-hotdoc-id="gst_validate_object_set_property_full">
+	<i>GstValidate.object_set_property_full</i>
+</h3>
+
+
+<pre class="python-prototype language-python">
+<code>def GstValidate.object_set_property_full (reporter, object, property, value, flags):
+    #python wrapper for 'gst_validate_object_set_property_full'</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>reporter</code></em></i>
+<span>(</span><a title="GstValidate.Reporter" href="gst-devtools/gst-validate-reporter.html#GstValidateReporter">GstValidate.Reporter</a><span>)</span>
+–
+</div>
+<p>The <a href="gst-devtools/gst-validate-reporter.html#GstValidateReporter">GstValidate.Reporter</a> to use to report errors</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>object</code></em></i>
+<span>(</span><a title="GObject.Object" href="https://docs.gtk.org/gobject/class.Object.html">GObject.Object</a><span>)</span>
+–
+</div>
+<p>The <a href="https://docs.gtk.org/gobject/class.Object.html">GObject.Object</a> to set the property on</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>property</code></em></i>
+<span>(</span><a title="str" href="https://docs.python.org/3/library/functions.html#func-str">str</a><span>)</span>
+–
+</div>
+<p>The name of the property to set</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>value</code></em></i>
+<span>(</span><a title="GObject.Value" href="https://docs.gtk.org/gobject/struct.Value.html">GObject.Value</a><span>)</span>
+–
+</div>
+<p>The value to set the property to</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>flags</code></em></i>
+<span>(</span><a title="GstValidate.ObjectSetPropertyFlags" href="gst-devtools/gst-validate-enums.html#GstValidateObjectSetPropertyFlags">GstValidate.ObjectSetPropertyFlags</a><span>)</span>
+–
+</div>
+<p>The <a href="gst-devtools/gst-validate-enums.html#GstValidateObjectSetPropertyFlags">GstValidate.ObjectSetPropertyFlags</a> to use</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GstValidate.ActionReturn" href="gst-devtools/gst-validate-scenario.html#GstValidateActionReturn">GstValidate.ActionReturn</a><span>)</span>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_validate_replace_variables_in_string">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="gst_validate_replace_variables_in_string">
+	<i>gst_validate_replace_variables_in_string</i>
+</h3>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gchar" href="https://docs.gtk.org/glib/types.html#gchar">gchar</a> *
+gst_validate_replace_variables_in_string (<a title="gpointer" href="https://docs.gtk.org/glib/types.html#gpointer">gpointer</a> incom,
+                                          <a title="GstStructure" href="gstreamer/gststructure.html#GstStructure">GstStructure</a> * local_vars,
+                                          const <a title="gchar" href="https://docs.gtk.org/glib/types.html#gchar">gchar</a> * in_string,
+                                          <a title="GstValidateStructureResolveVariablesFlags" href="gst-devtools/gst-validate-enums.html#GstValidateStructureResolveVariablesFlags">GstValidateStructureResolveVariablesFlags</a> flags)</pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>incom</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>local_vars</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>in_string</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>flags</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3 data-hotdoc-id="gst_validate_replace_variables_in_string">
+	<i>GstValidate.prototype.replace_variables_in_string</i>
+</h3>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstValidate.prototype.replace_variables_in_string(incom: <a title="Object" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>, local_vars: <a title="Gst.Structure" href="gstreamer/gststructure.html#GstStructure">Gst.Structure</a>, in_string: <a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>, flags: <a title="GstValidate.StructureResolveVariablesFlags" href="gst-devtools/gst-validate-enums.html#GstValidateStructureResolveVariablesFlags">GstValidate.StructureResolveVariablesFlags</a>): {
+    // javascript wrapper for 'gst_validate_replace_variables_in_string'
+}</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>incom</code></em></i>
+<span>(</span><a title="Object" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>local_vars</code></em></i>
+<span>(</span><a title="Gst.Structure" href="gstreamer/gststructure.html#GstStructure">Gst.Structure</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>in_string</code></em></i>
+<span>(</span><a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>flags</code></em></i>
+<span>(</span><a title="GstValidate.StructureResolveVariablesFlags" href="gst-devtools/gst-validate-enums.html#GstValidateStructureResolveVariablesFlags">GstValidate.StructureResolveVariablesFlags</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a><span>)</span>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3 data-hotdoc-id="gst_validate_replace_variables_in_string">
+	<i>GstValidate.replace_variables_in_string</i>
+</h3>
+
+
+<pre class="python-prototype language-python">
+<code>def GstValidate.replace_variables_in_string (incom, local_vars, in_string, flags):
+    #python wrapper for 'gst_validate_replace_variables_in_string'</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>incom</code></em></i>
+<span>(</span><a title="object" href="https://docs.python.org/3/library/functions.html#object">object</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>local_vars</code></em></i>
+<span>(</span><a title="Gst.Structure" href="gstreamer/gststructure.html#GstStructure">Gst.Structure</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>in_string</code></em></i>
+<span>(</span><a title="str" href="https://docs.python.org/3/library/functions.html#func-str">str</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>flags</code></em></i>
+<span>(</span><a title="GstValidate.StructureResolveVariablesFlags" href="gst-devtools/gst-validate-enums.html#GstValidateStructureResolveVariablesFlags">GstValidate.StructureResolveVariablesFlags</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="str" href="https://docs.python.org/3/library/functions.html#func-str">str</a><span>)</span>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_validate_set_globals">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="gst_validate_set_globals">
+	<i>gst_validate_set_globals</i>
+</h3>
+
+
+
+
+<pre class="c-prototype language-c">
+gst_validate_set_globals (<a title="GstStructure" href="gstreamer/gststructure.html#GstStructure">GstStructure</a> * structure)</pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>structure</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3 data-hotdoc-id="gst_validate_set_globals">
+	<i>GstValidate.prototype.set_globals</i>
+</h3>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstValidate.prototype.set_globals(structure: <a title="Gst.Structure" href="gstreamer/gststructure.html#GstStructure">Gst.Structure</a>): {
+    // javascript wrapper for 'gst_validate_set_globals'
+}</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>structure</code></em></i>
+<span>(</span><a title="Gst.Structure" href="gstreamer/gststructure.html#GstStructure">Gst.Structure</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3 data-hotdoc-id="gst_validate_set_globals">
+	<i>GstValidate.set_globals</i>
+</h3>
+
+
+<pre class="python-prototype language-python">
+<code>def GstValidate.set_globals (structure):
+    #python wrapper for 'gst_validate_set_globals'</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>structure</code></em></i>
+<span>(</span><a title="Gst.Structure" href="gstreamer/gststructure.html#GstStructure">Gst.Structure</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_validate_spin_on_fault_signals">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="gst_validate_spin_on_fault_signals">
+	<i>gst_validate_spin_on_fault_signals</i>
+</h3>
+
+
+
+
+<pre class="c-prototype language-c">
+gst_validate_spin_on_fault_signals ()</pre>
+
+
+
+
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3 data-hotdoc-id="gst_validate_spin_on_fault_signals">
+	<i>GstValidate.prototype.spin_on_fault_signals</i>
+</h3>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstValidate.prototype.spin_on_fault_signals(): {
+    // javascript wrapper for 'gst_validate_spin_on_fault_signals'
+}</code></pre>
+
+
+
+
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3 data-hotdoc-id="gst_validate_spin_on_fault_signals">
+	<i>GstValidate.spin_on_fault_signals</i>
+</h3>
+
+
+<pre class="python-prototype language-python">
+<code>def GstValidate.spin_on_fault_signals ():
+    #python wrapper for 'gst_validate_spin_on_fault_signals'</code></pre>
+
+
+
+
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_validate_structs_parse_from_gfile">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="gst_validate_structs_parse_from_gfile">
+	<i>gst_validate_structs_parse_from_gfile</i>
+</h3>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GList" href="https://docs.gtk.org/glib/struct.List.html">GList</a> *
+gst_validate_structs_parse_from_gfile (<a title="GFile" href="https://docs.gtk.org/gio/iface.File.html">GFile</a> * scenario_file,
+                                       <a title="GstValidateGetIncludePathsFunc" href="gst-devtools/gst-validate-utils.html#GstValidateGetIncludePathsFunc">GstValidateGetIncludePathsFunc</a> get_include_paths_func)</pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>scenario_file</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>get_include_paths_func</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_validate_structure_resolve_variables">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="gst_validate_structure_resolve_variables">
+	<i>gst_validate_structure_resolve_variables</i>
+</h3>
+
+
+
+
+<pre class="c-prototype language-c">
+gst_validate_structure_resolve_variables (<a title="gpointer" href="https://docs.gtk.org/glib/types.html#gpointer">gpointer</a> source,
+                                          <a title="GstStructure" href="gstreamer/gststructure.html#GstStructure">GstStructure</a> * structure,
+                                          <a title="GstStructure" href="gstreamer/gststructure.html#GstStructure">GstStructure</a> * local_variables,
+                                          <a title="GstValidateStructureResolveVariablesFlags" href="gst-devtools/gst-validate-enums.html#GstValidateStructureResolveVariablesFlags">GstValidateStructureResolveVariablesFlags</a> flags)</pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>source</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>structure</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>local_variables</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>flags</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3 data-hotdoc-id="gst_validate_structure_resolve_variables">
+	<i>GstValidate.prototype.structure_resolve_variables</i>
+</h3>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstValidate.prototype.structure_resolve_variables(source: <a title="Object" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>, structure: <a title="Gst.Structure" href="gstreamer/gststructure.html#GstStructure">Gst.Structure</a>, local_variables: <a title="Gst.Structure" href="gstreamer/gststructure.html#GstStructure">Gst.Structure</a>, flags: <a title="GstValidate.StructureResolveVariablesFlags" href="gst-devtools/gst-validate-enums.html#GstValidateStructureResolveVariablesFlags">GstValidate.StructureResolveVariablesFlags</a>): {
+    // javascript wrapper for 'gst_validate_structure_resolve_variables'
+}</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>source</code></em></i>
+<span>(</span><a title="Object" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>structure</code></em></i>
+<span>(</span><a title="Gst.Structure" href="gstreamer/gststructure.html#GstStructure">Gst.Structure</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>local_variables</code></em></i>
+<span>(</span><a title="Gst.Structure" href="gstreamer/gststructure.html#GstStructure">Gst.Structure</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>flags</code></em></i>
+<span>(</span><a title="GstValidate.StructureResolveVariablesFlags" href="gst-devtools/gst-validate-enums.html#GstValidateStructureResolveVariablesFlags">GstValidate.StructureResolveVariablesFlags</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3 data-hotdoc-id="gst_validate_structure_resolve_variables">
+	<i>GstValidate.structure_resolve_variables</i>
+</h3>
+
+
+<pre class="python-prototype language-python">
+<code>def GstValidate.structure_resolve_variables (source, structure, local_variables, flags):
+    #python wrapper for 'gst_validate_structure_resolve_variables'</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>source</code></em></i>
+<span>(</span><a title="object" href="https://docs.python.org/3/library/functions.html#object">object</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>structure</code></em></i>
+<span>(</span><a title="Gst.Structure" href="gstreamer/gststructure.html#GstStructure">Gst.Structure</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>local_variables</code></em></i>
+<span>(</span><a title="Gst.Structure" href="gstreamer/gststructure.html#GstStructure">Gst.Structure</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>flags</code></em></i>
+<span>(</span><a title="GstValidate.StructureResolveVariablesFlags" href="gst-devtools/gst-validate-enums.html#GstValidateStructureResolveVariablesFlags">GstValidate.StructureResolveVariablesFlags</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_validate_structure_set_variables_from_struct_file">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="gst_validate_structure_set_variables_from_struct_file">
+	<i>gst_validate_structure_set_variables_from_struct_file</i>
+</h3>
+
+
+
+
+<pre class="c-prototype language-c">
+gst_validate_structure_set_variables_from_struct_file (<a title="GstStructure" href="gstreamer/gststructure.html#GstStructure">GstStructure</a> * vars,
+                                                       const <a title="gchar" href="https://docs.gtk.org/glib/types.html#gchar">gchar</a> * struct_file)</pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>vars</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>struct_file</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3 data-hotdoc-id="gst_validate_structure_set_variables_from_struct_file">
+	<i>GstValidate.prototype.structure_set_variables_from_struct_file</i>
+</h3>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstValidate.prototype.structure_set_variables_from_struct_file(vars: <a title="Gst.Structure" href="gstreamer/gststructure.html#GstStructure">Gst.Structure</a>, struct_file: <a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>): {
+    // javascript wrapper for 'gst_validate_structure_set_variables_from_struct_file'
+}</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>vars</code></em></i>
+<span>(</span><a title="Gst.Structure" href="gstreamer/gststructure.html#GstStructure">Gst.Structure</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>struct_file</code></em></i>
+<span>(</span><a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3 data-hotdoc-id="gst_validate_structure_set_variables_from_struct_file">
+	<i>GstValidate.structure_set_variables_from_struct_file</i>
+</h3>
+
+
+<pre class="python-prototype language-python">
+<code>def GstValidate.structure_set_variables_from_struct_file (vars, struct_file):
+    #python wrapper for 'gst_validate_structure_set_variables_from_struct_file'</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>vars</code></em></i>
+<span>(</span><a title="Gst.Structure" href="gstreamer/gststructure.html#GstStructure">Gst.Structure</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>struct_file</code></em></i>
+<span>(</span><a title="str" href="https://docs.python.org/3/library/functions.html#func-str">str</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_validate_utils_enum_from_str">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="gst_validate_utils_enum_from_str">
+	<i>gst_validate_utils_enum_from_str</i>
+</h3>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a>
+gst_validate_utils_enum_from_str (<a title="GType" href="https://docs.gtk.org/gobject/alias.Type.html">GType</a> type,
+                                  const <a title="gchar" href="https://docs.gtk.org/glib/types.html#gchar">gchar</a> * str_enum,
+                                  <a title="guint" href="https://docs.gtk.org/glib/types.html#guint">guint</a> * enum_value)</pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>type</code></em></i>
+–
+</div>
+<p>The <a href="https://docs.gtk.org/gobject/alias.Type.html">GType</a> of the enum we are trying to retrieve the enum value from</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>str_enum</code></em></i>
+–
+</div>
+<p>The string representation of the value</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>enum_value</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="Parameter for returning results"><span class="acronym">out</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>The value of the enum</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p><a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#TRUE:CAPS">TRUE</a> on success <a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#FALSE:CAPS">FALSE</a> otherwise</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3 data-hotdoc-id="gst_validate_utils_enum_from_str">
+	<i>GstValidate.prototype.utils_enum_from_str</i>
+</h3>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstValidate.prototype.utils_enum_from_str(type: <a title="GObject.Type" href="https://developer.gnome.org/gobject/stable/gobject-Type-Information.html#GType">GObject.Type</a>, str_enum: <a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>): {
+    // javascript wrapper for 'gst_validate_utils_enum_from_str'
+}</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>type</code></em></i>
+<span>(</span><a title="GObject.Type" href="https://developer.gnome.org/gobject/stable/gobject-Type-Information.html#GType">GObject.Type</a><span>)</span>
+–
+</div>
+<p>The <a href="https://developer.gnome.org/gobject/stable/gobject-Type-Information.html#GType">GObject.Type</a> of the enum we are trying to retrieve the enum value from</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>str_enum</code></em></i>
+<span>(</span><a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a><span>)</span>
+–
+</div>
+<p>The string representation of the value</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<p><b>Returns a tuple made of:</b></p>
+				
+<div class="symbol-detail">
+	<div>
+		<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>
+<span>)</span>
+–
+	</div>
+			<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">true</a> on success <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">false</a> otherwise</p>
+
+	</div>
+
+				
+<div class="symbol-detail">
+	<div>
+				<i><em><code>enum_value</code></em></i>
+		<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>
+<span>)</span>
+–
+	</div>
+			<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">true</a> on success <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">false</a> otherwise</p>
+
+	</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3 data-hotdoc-id="gst_validate_utils_enum_from_str">
+	<i>GstValidate.utils_enum_from_str</i>
+</h3>
+
+
+<pre class="python-prototype language-python">
+<code>def GstValidate.utils_enum_from_str (type, str_enum):
+    #python wrapper for 'gst_validate_utils_enum_from_str'</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>type</code></em></i>
+<span>(</span><a title="GObject.Type" href="https://developer.gnome.org/gobject/stable/gobject-Type-Information.html#GType">GObject.Type</a><span>)</span>
+–
+</div>
+<p>The <a href="https://developer.gnome.org/gobject/stable/gobject-Type-Information.html#GType">GObject.Type</a> of the enum we are trying to retrieve the enum value from</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>str_enum</code></em></i>
+<span>(</span><a title="str" href="https://docs.python.org/3/library/functions.html#func-str">str</a><span>)</span>
+–
+</div>
+<p>The string representation of the value</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<p><b>Returns a tuple made of:</b></p>
+				
+<div class="symbol-detail">
+	<div>
+		<span>(</span><a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a>
+<span>)</span>
+–
+	</div>
+			<p><a href="https://docs.python.org/3/library/constants.html#True">True</a> on success <a href="https://docs.python.org/3/library/constants.html#False">False</a> otherwise</p>
+
+	</div>
+
+				
+<div class="symbol-detail">
+	<div>
+				<i><em><code>enum_value</code></em></i>
+		<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a>
+<span>)</span>
+–
+	</div>
+			<p><a href="https://docs.python.org/3/library/constants.html#True">True</a> on success <a href="https://docs.python.org/3/library/constants.html#False">False</a> otherwise</p>
+
+	</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_validate_utils_flags_from_str">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="gst_validate_utils_flags_from_str">
+	<i>gst_validate_utils_flags_from_str</i>
+</h3>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="guint" href="https://docs.gtk.org/glib/types.html#guint">guint</a>
+gst_validate_utils_flags_from_str (<a title="GType" href="https://docs.gtk.org/gobject/alias.Type.html">GType</a> type,
+                                   const <a title="gchar" href="https://docs.gtk.org/glib/types.html#gchar">gchar</a> * str_flags)</pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>type</code></em></i>
+–
+</div>
+<p>The <a href="https://docs.gtk.org/gobject/alias.Type.html">GType</a> of the flags we are trying to retrieve the flags from</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>str_flags</code></em></i>
+–
+</div>
+<p>The string representation of the value</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p>The flags set in <em>str_flags</em></p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3 data-hotdoc-id="gst_validate_utils_flags_from_str">
+	<i>GstValidate.prototype.utils_flags_from_str</i>
+</h3>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstValidate.prototype.utils_flags_from_str(type: <a title="GObject.Type" href="https://developer.gnome.org/gobject/stable/gobject-Type-Information.html#GType">GObject.Type</a>, str_flags: <a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>): {
+    // javascript wrapper for 'gst_validate_utils_flags_from_str'
+}</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>type</code></em></i>
+<span>(</span><a title="GObject.Type" href="https://developer.gnome.org/gobject/stable/gobject-Type-Information.html#GType">GObject.Type</a><span>)</span>
+–
+</div>
+<p>The <a href="https://developer.gnome.org/gobject/stable/gobject-Type-Information.html#GType">GObject.Type</a> of the flags we are trying to retrieve the flags from</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>str_flags</code></em></i>
+<span>(</span><a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a><span>)</span>
+–
+</div>
+<p>The string representation of the value</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+			</div>
+							<p>The flags set in <em>str_flags</em></p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3 data-hotdoc-id="gst_validate_utils_flags_from_str">
+	<i>GstValidate.utils_flags_from_str</i>
+</h3>
+
+
+<pre class="python-prototype language-python">
+<code>def GstValidate.utils_flags_from_str (type, str_flags):
+    #python wrapper for 'gst_validate_utils_flags_from_str'</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>type</code></em></i>
+<span>(</span><a title="GObject.Type" href="https://developer.gnome.org/gobject/stable/gobject-Type-Information.html#GType">GObject.Type</a><span>)</span>
+–
+</div>
+<p>The <a href="https://developer.gnome.org/gobject/stable/gobject-Type-Information.html#GType">GObject.Type</a> of the flags we are trying to retrieve the flags from</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>str_flags</code></em></i>
+<span>(</span><a title="str" href="https://docs.python.org/3/library/functions.html#func-str">str</a><span>)</span>
+–
+</div>
+<p>The string representation of the value</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+			</div>
+							<p>The flags set in <em>str_flags</em></p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_validate_utils_get_clocktime">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="gst_validate_utils_get_clocktime">
+	<i>gst_validate_utils_get_clocktime</i>
+</h3>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a>
+gst_validate_utils_get_clocktime (<a title="GstStructure" href="gstreamer/gststructure.html#GstStructure">GstStructure</a> * structure,
+                                  const <a title="gchar" href="https://docs.gtk.org/glib/types.html#gchar">gchar</a> * name,
+                                  <a title="GstClockTime" href="gstreamer/gstclock.html#GstClockTime">GstClockTime</a> * retval)</pre>
+
+<p>Get <em>name</em> from <em>structure</em> as a <a href="gstreamer/gstclock.html#GstClockTime">GstClockTime</a>, it handles various types
+for the value, if it is a double, it considers the value to be in second
+it can be a gint, gint64 a guint, a gint64.</p>
+<p>Return: <a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#TRUE:CAPS">TRUE</a> in case of success, <a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#FALSE:CAPS">FALSE</a> otherwise.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>structure</code></em></i>
+–
+</div>
+<p>A <a href="gstreamer/gststructure.html#GstStructure">GstStructure</a> to retrieve <em>name</em> as a GstClockTime.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>name</code></em></i>
+–
+</div>
+<p>The name of the field containing a <a href="gstreamer/gstclock.html#GstClockTime">GstClockTime</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>retval</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="Parameter for returning results"><span class="acronym">out</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>The clocktime contained in <em>structure</em></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3 data-hotdoc-id="gst_validate_utils_get_clocktime">
+	<i>GstValidate.prototype.utils_get_clocktime</i>
+</h3>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstValidate.prototype.utils_get_clocktime(structure: <a title="Gst.Structure" href="gstreamer/gststructure.html#GstStructure">Gst.Structure</a>, name: <a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>): {
+    // javascript wrapper for 'gst_validate_utils_get_clocktime'
+}</code></pre>
+
+<p>Get <em>name</em> from <em>structure</em> as a <a href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>, it handles various types
+for the value, if it is a double, it considers the value to be in second
+it can be a gint, gint64 a guint, a gint64.</p>
+<p>Return: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">true</a> in case of success, <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">false</a> otherwise.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>structure</code></em></i>
+<span>(</span><a title="Gst.Structure" href="gstreamer/gststructure.html#GstStructure">Gst.Structure</a><span>)</span>
+–
+</div>
+<p>A <a href="gstreamer/gststructure.html#GstStructure">Gst.Structure</a> to retrieve <em>name</em> as a GstClockTime.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>name</code></em></i>
+<span>(</span><a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a><span>)</span>
+–
+</div>
+<p>The name of the field containing a <a href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<p><b>Returns a tuple made of:</b></p>
+				
+<div class="symbol-detail">
+	<div>
+		<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>
+<span>)</span>
+–
+	</div>
+			<i>No description available</i>
+	</div>
+
+				
+<div class="symbol-detail">
+	<div>
+				<i><em><code>retval</code></em></i>
+		<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>
+<span>)</span>
+–
+	</div>
+			<i>No description available</i>
+	</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3 data-hotdoc-id="gst_validate_utils_get_clocktime">
+	<i>GstValidate.utils_get_clocktime</i>
+</h3>
+
+
+<pre class="python-prototype language-python">
+<code>def GstValidate.utils_get_clocktime (structure, name):
+    #python wrapper for 'gst_validate_utils_get_clocktime'</code></pre>
+
+<p>Get <em>name</em> from <em>structure</em> as a <a href="https://docs.python.org/3/library/functions.html#int">int</a>, it handles various types
+for the value, if it is a double, it considers the value to be in second
+it can be a gint, gint64 a guint, a gint64.</p>
+<p>Return: <a href="https://docs.python.org/3/library/constants.html#True">True</a> in case of success, <a href="https://docs.python.org/3/library/constants.html#False">False</a> otherwise.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>structure</code></em></i>
+<span>(</span><a title="Gst.Structure" href="gstreamer/gststructure.html#GstStructure">Gst.Structure</a><span>)</span>
+–
+</div>
+<p>A <a href="gstreamer/gststructure.html#GstStructure">Gst.Structure</a> to retrieve <em>name</em> as a GstClockTime.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>name</code></em></i>
+<span>(</span><a title="str" href="https://docs.python.org/3/library/functions.html#func-str">str</a><span>)</span>
+–
+</div>
+<p>The name of the field containing a <a href="https://docs.python.org/3/library/functions.html#int">int</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<p><b>Returns a tuple made of:</b></p>
+				
+<div class="symbol-detail">
+	<div>
+		<span>(</span><a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a>
+<span>)</span>
+–
+	</div>
+			<i>No description available</i>
+	</div>
+
+				
+<div class="symbol-detail">
+	<div>
+				<i><em><code>retval</code></em></i>
+		<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a>
+<span>)</span>
+–
+	</div>
+			<i>No description available</i>
+	</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_validate_utils_get_strv">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="gst_validate_utils_get_strv">
+	<i>gst_validate_utils_get_strv</i>
+</h3>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gchar" href="https://docs.gtk.org/glib/types.html#gchar">gchar</a> **
+gst_validate_utils_get_strv (<a title="GstStructure" href="gstreamer/gststructure.html#GstStructure">GstStructure</a> * str,
+                             const <a title="gchar" href="https://docs.gtk.org/glib/types.html#gchar">gchar</a> * fieldname)</pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>str</code></em></i>
+–
+</div>
+<p>A GstStructure</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>fieldname</code></em></i>
+–
+</div>
+<p>A fieldname containing a GstValueList or is not defined</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span>
+<span class="annotation">[<abbr title="Free data after the code is done"><span class="acronym">transfer: full</span></abbr>]</span><span>)</span>
+–
+			</div>
+							<p>An array of strings from the GstValueList defined in <em>fieldname</em></p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3 data-hotdoc-id="gst_validate_utils_get_strv">
+	<i>GstValidate.prototype.utils_get_strv</i>
+</h3>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstValidate.prototype.utils_get_strv(str: <a title="Gst.Structure" href="gstreamer/gststructure.html#GstStructure">Gst.Structure</a>, fieldname: <a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>): {
+    // javascript wrapper for 'gst_validate_utils_get_strv'
+}</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>str</code></em></i>
+<span>(</span><a title="Gst.Structure" href="gstreamer/gststructure.html#GstStructure">Gst.Structure</a><span>)</span>
+–
+</div>
+<p>A GstStructure</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>fieldname</code></em></i>
+<span>(</span><a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a><span>)</span>
+–
+</div>
+<p>A fieldname containing a GstValueList or is not defined</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span>[ <a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a> ]<span>)</span>
+–
+			</div>
+							<p>An array of strings from the GstValueList defined in <em>fieldname</em></p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3 data-hotdoc-id="gst_validate_utils_get_strv">
+	<i>GstValidate.utils_get_strv</i>
+</h3>
+
+
+<pre class="python-prototype language-python">
+<code>def GstValidate.utils_get_strv (str, fieldname):
+    #python wrapper for 'gst_validate_utils_get_strv'</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>str</code></em></i>
+<span>(</span><a title="Gst.Structure" href="gstreamer/gststructure.html#GstStructure">Gst.Structure</a><span>)</span>
+–
+</div>
+<p>A GstStructure</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>fieldname</code></em></i>
+<span>(</span><a title="str" href="https://docs.python.org/3/library/functions.html#func-str">str</a><span>)</span>
+–
+</div>
+<p>A fieldname containing a GstValueList or is not defined</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span>[ <a title="str" href="https://docs.python.org/3/library/functions.html#func-str">str</a> ]<span>)</span>
+–
+			</div>
+							<p>An array of strings from the GstValueList defined in <em>fieldname</em></p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_validate_utils_parse_expression">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="gst_validate_utils_parse_expression">
+	<i>gst_validate_utils_parse_expression</i>
+</h3>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gdouble" href="https://docs.gtk.org/glib/types.html#gdouble">gdouble</a>
+gst_validate_utils_parse_expression (const <a title="gchar" href="https://docs.gtk.org/glib/types.html#gchar">gchar</a> * expr,
+                                     <a title="GstValidateParseVariableFunc" href="gst-devtools/gst-validate-utils.html#GstValidateParseVariableFunc">GstValidateParseVariableFunc</a> variable_func,
+                                     <a title="gpointer" href="https://docs.gtk.org/glib/types.html#gpointer">gpointer</a> user_data,
+                                     <a title="gchar" href="https://docs.gtk.org/glib/types.html#gchar">gchar</a> ** error)</pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>expr</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>variable_func</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>user_data</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>error</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_validate_utils_structs_parse_from_filename">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="gst_validate_utils_structs_parse_from_filename">
+	<i>gst_validate_utils_structs_parse_from_filename</i>
+</h3>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GList" href="https://docs.gtk.org/glib/struct.List.html">GList</a> *
+gst_validate_utils_structs_parse_from_filename (const <a title="gchar" href="https://docs.gtk.org/glib/types.html#gchar">gchar</a> * scenario_file,
+                                                <a title="GstValidateGetIncludePathsFunc" href="gst-devtools/gst-validate-utils.html#GstValidateGetIncludePathsFunc">GstValidateGetIncludePathsFunc</a> get_include_paths_func,
+                                                <a title="gchar" href="https://docs.gtk.org/glib/types.html#gchar">gchar</a> ** file_path)</pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>scenario_file</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>get_include_paths_func</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>file_path</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_validate_utils_test_file_get_meta">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="gst_validate_utils_test_file_get_meta">
+	<i>gst_validate_utils_test_file_get_meta</i>
+</h3>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GstStructure" href="gstreamer/gststructure.html#GstStructure">GstStructure</a> *
+gst_validate_utils_test_file_get_meta (const <a title="gchar" href="https://docs.gtk.org/glib/types.html#gchar">gchar</a> * testfile,
+                                       <a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a> use_fakesinks)</pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>testfile</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>use_fakesinks</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3 data-hotdoc-id="gst_validate_utils_test_file_get_meta">
+	<i>GstValidate.prototype.utils_test_file_get_meta</i>
+</h3>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstValidate.prototype.utils_test_file_get_meta(testfile: <a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>, use_fakesinks: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>): {
+    // javascript wrapper for 'gst_validate_utils_test_file_get_meta'
+}</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>testfile</code></em></i>
+<span>(</span><a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>use_fakesinks</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Gst.Structure" href="gstreamer/gststructure.html#GstStructure">Gst.Structure</a><span>)</span>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3 data-hotdoc-id="gst_validate_utils_test_file_get_meta">
+	<i>GstValidate.utils_test_file_get_meta</i>
+</h3>
+
+
+<pre class="python-prototype language-python">
+<code>def GstValidate.utils_test_file_get_meta (testfile, use_fakesinks):
+    #python wrapper for 'gst_validate_utils_test_file_get_meta'</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>testfile</code></em></i>
+<span>(</span><a title="str" href="https://docs.python.org/3/library/functions.html#func-str">str</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>use_fakesinks</code></em></i>
+<span>(</span><a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Gst.Structure" href="gstreamer/gststructure.html#GstStructure">Gst.Structure</a><span>)</span>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+
+            <h2 class="symbol_section">Callbacks</h2>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstValidateGetIncludePathsFunc">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GstValidateGetIncludePathsFunc">
+	<i>GstValidateGetIncludePathsFunc</i>
+</h3>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gchar" href="https://docs.gtk.org/glib/types.html#gchar">gchar</a> **
+(*GstValidateGetIncludePathsFunc) (const <a title="gchar" href="https://docs.gtk.org/glib/types.html#gchar">gchar</a> * includer_file)</pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>includer_file</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstValidateParseVariableFunc">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GstValidateParseVariableFunc">
+	<i>GstValidateParseVariableFunc</i>
+</h3>
+
+
+
+
+<pre class="c-prototype language-c">
+int
+(*GstValidateParseVariableFunc) (const <a title="gchar" href="https://docs.gtk.org/glib/types.html#gchar">gchar</a> * name,
+                                 double* value,
+                                 <a title="gpointer" href="https://docs.gtk.org/glib/types.html#gpointer">gpointer</a> user_data)</pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>name</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>value</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>user_data</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3 data-hotdoc-id="GstValidateParseVariableFunc">
+	<i>GstValidate.ParseVariableFunc</i>
+</h3>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstValidate.ParseVariableFunc(name: <a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>, value: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>, user_data: <a title="Object" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>): {
+    // javascript wrapper for 'GstValidateParseVariableFunc'
+}</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>name</code></em></i>
+<span>(</span><a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>value</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>user_data</code></em></i>
+<span>(</span><a title="Object" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3 data-hotdoc-id="GstValidateParseVariableFunc">
+	<i>GstValidate.ParseVariableFunc</i>
+</h3>
+
+
+<pre class="python-prototype language-python">
+<code>def GstValidate.ParseVariableFunc (name, value, *user_data):
+    #python wrapper for 'GstValidateParseVariableFunc'</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>name</code></em></i>
+<span>(</span><a title="str" href="https://docs.python.org/3/library/functions.html#func-str">str</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>value</code></em></i>
+<span>(</span><a title="float" href="https://docs.python.org/3/library/functions.html#float">float</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>user_data</code></em></i>
+<span>(</span><a title="variadic" href="https://docs.python.org/dev/tutorial/controlflow.html#arbitrary-argument-lists">variadic</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+
+
+
+
+
+		
+	</div>
+	<div id="search_results">
+		<p>The results of the search are</p>
+	</div>
+	<div id="footer">
+		    
+
+	</div>
+</div>
+
+<div id="toc-column">
+	
+		<div class="edit-button">
+		
+
+	</div>
+		<div id="toc-wrapper">
+		<nav id="toc"></nav>
+	</div>
+</div>
+</div>
+</main>
+
+
+<script src="assets/js/navbar_offset_scroller.js"></script>
+</body>
+</html>

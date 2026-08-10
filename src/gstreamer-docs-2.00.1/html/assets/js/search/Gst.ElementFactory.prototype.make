@@ -1,0 +1,1 @@
+urls_downloaded_cb({"token":"Gst.ElementFactory.prototype.make","urls":[{"url":"gstreamer/gstelementfactory.html#gst_element_factory_make","node_type":"symbol","page":"GstElementFactory","sections":["Functions"],"context":{"gi-language":["javascript"]}}]});

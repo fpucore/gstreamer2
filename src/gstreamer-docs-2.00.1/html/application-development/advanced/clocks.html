@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<base href="../..">
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<title>Clocks and synchronization in GStreamer</title>
+
+<link rel="stylesheet" href="assets/css/dark-frontend.css" type="text/css" title="dark">
+<link rel="alternate stylesheet" href="assets/css/light-frontend.css" type="text/css" title="light">
+<link rel="stylesheet" href="assets/css/bootstrap-toc.min.css" type="text/css">
+<link rel="stylesheet" href="assets/css/jquery.mCustomScrollbar.min.css">
+<link rel="stylesheet" href="assets/js/search/enable_search.css" type="text/css">
+
+<link rel="stylesheet" href="assets/css/extra_frontend.css" type="text/css">
+<link rel="stylesheet" href="assets/css/devhelp.css" type="text/css">
+
+<link rel="stylesheet" href="assets/css/prism-tomorrow.css" type="text/css" title="dark">
+
+<link rel="alternate stylesheet" href="assets/css/prism.css" type="text/css" title="light">
+
+<script src="assets/js/mustache.min.js"></script>
+<script src="assets/js/jquery.js"></script>
+<script src="assets/js/bootstrap.js"></script>
+<script src="assets/js/scrollspy.js"></script>
+<script src="assets/js/typeahead.jquery.min.js"></script>
+<script src="assets/js/search.js"></script>
+<script src="assets/js/compare-versions.js"></script>
+<script src="assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="assets/js/bootstrap-toc.min.js"></script>
+<script src="assets/js/jquery.touchSwipe.min.js"></script>
+<script src="assets/js/anchor.min.js"></script>
+<script src="assets/js/tag_filtering.js"></script>
+<script src="assets/js/language_switching.js"></script>
+<script src="assets/js/styleswitcher.js"></script>
+
+<script src="assets/js/lines_around_headings.js"></script>
+
+<script src="assets/js/prism-core.js"></script>
+<script src="assets/js/prism-autoloader.js"></script>
+<script src="assets/js/prism_autoloader_path_override.js"></script>
+<script src="assets/js/trie.js"></script>
+
+<!-- generic -->
+<link rel="icon" type="image/png" href="assets/images/favicon-16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="assets/images/favicon-32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="assets/images/favicon-57.png" sizes="57x57">
+<link rel="icon" type="image/png" href="assets/images/favicon-64.png" sizes="64x64">
+<link rel="icon" type="image/png" href="assets/images/favicon-76.png" sizes="76x76">
+<link rel="icon" type="image/png" href="assets/images/favicon-96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="assets/images/favicon-128.png" sizes="128x128">
+<link rel="icon" type="image/png" href="assets/images/favicon-192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="assets/images/favicon-228.png" sizes="228x228">
+
+<!-- Android -->
+<link rel="shortcut icon" sizes="196x196" href="assets/images/favicon-196.png">
+
+<!-- iOS -->
+<link rel="apple-touch-icon" href="assets/images/favicon-120.png" sizes="120x120">
+<link rel="apple-touch-icon" href="assets/images/favicon-152.png" sizes="152x152">
+<link rel="apple-touch-icon" href="assets/images/favicon-180.png" sizes="180x180">
+
+</head>
+
+<body class="no-script
+">
+
+<script>
+$('body').removeClass('no-script');
+</script>
+
+<nav class="navbar navbar-fixed-top navbar-default" id="topnav">
+	<div class="container-fluid">
+		<div class="navbar-right">
+			<a id="toc-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-wrapper" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<span title="light mode switch" class="glyphicon glyphicon-sunglasses pull-right" id="lightmode-icon"></span>
+			<form class="navbar-form pull-right" id="navbar-search-form">
+                               <div class="form-group has-feedback">
+                                       <input type="text" class="form-control input-sm" name="search" id="sidenav-lookup-field" placeholder="search" disabled>
+				       <span class="glyphicon glyphicon-search form-control-feedback" id="search-mgn-glass"></span>
+                               </div>
+                        </form>
+		</div>
+		<div class="navbar-header">
+			<a id="sidenav-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<a id="home-link" href="index.html" class="hotdoc-navbar-brand">
+				<img src="assets/images/gstreamer-logo.svg" alt="Home">
+			</a>
+		</div>
+		<div class="navbar-collapse collapse" id="navbar-wrapper">
+			<ul class="nav navbar-nav" id="menu">
+				
+<li class="dropdown">
+    <a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        API References<span class="caret"></span>
+    </a>
+	<ul class="dropdown-menu" id="modules-menu">
+					<li>
+				<a href="gstreamer/gi-index.html">GStreamer core</a>
+			</li>
+					<li>
+				<a href="libs.html">GStreamer Libraries</a>
+			</li>
+					<li>
+				<a href="plugins_doc.html">GStreamer Plugins</a>
+			</li>
+		</ul>
+</li>
+
+<li>
+    <a href="application-development/index.html">Application manual</a>
+</li>
+
+
+<li>
+    <a href="tutorials/index.html">Tutorials</a>
+</li>
+
+			</ul>
+			<div class="hidden-xs hidden-sm navbar-text navbar-center">
+							</div>
+		</div>
+	</div>
+</nav>
+
+<main>
+<div data-extension="gi-extension" data-hotdoc-in-toplevel="True" data-hotdoc-project="GStreamer" data-hotdoc-ref="application-development/advanced/clocks.html" class="page_container" id="page-wrapper" data-hotdoc-meta-gi-languages="['c', 'javascript', 'python']" data-hotdoc-meta-gi-language="c">
+<script src="assets/js/utils.js"></script>
+
+<div class="panel panel-collapse oc-collapsed" id="sidenav" data-hotdoc-role="navigation">
+	<script src="assets/js/full-width.js"></script>
+  <div id="sitenav-wrapper">
+    <iframe src="hotdoc-sitemap.html" id="sitenav-frame"></iframe>
+  </div>
+</div>
+
+<div id="body">
+	<div id="main">
+				    <div id="page-description" data-hotdoc-role="main">
+        <h1 id="clocks-and-synchronization-in-gstreamer">Clocks and synchronization in GStreamer</h1>
+<p>When playing complex media, each sound and video sample must be played
+in a specific order at a specific time. For this purpose, GStreamer
+provides a synchronization mechanism.</p>
+<p>GStreamer provides support for the following use cases:</p>
+<ul>
+<li>
+<p>Non-live sources with access faster than playback rate. This is the
+case where one is reading media from a file and playing it back in a
+synchronized fashion. In this case, multiple streams need to be
+synchronized, like audio, video and subtitles.</p>
+</li>
+<li>
+<p>Capture and synchronized muxing/mixing of media from multiple live
+sources. This is a typical use case where you record audio and video
+from a microphone/camera and mux it into a file for storage.</p>
+</li>
+<li>
+<p>Streaming from (slow) network streams with buffering. This is the
+typical web streaming case where you access content from a streaming
+server using HTTP.</p>
+</li>
+<li>
+<p>Capture from live source and playback with configurable latency. This
+is used, for example, when capturing from a camera, applying an
+effect and displaying the result. It is also used when streaming
+low latency content over a network with UDP.</p>
+</li>
+<li>
+<p>Simultaneous live capture and playback from prerecorded content.
+This is used in audio recording cases where you play a previously
+recorded audio and record new samples, the purpose is to have the
+new audio perfectly in sync with the previously recorded data.</p>
+</li>
+</ul>
+<p>GStreamer uses a <code>GstClock</code> object, buffer timestamps and a <code>SEGMENT</code>
+event to synchronize streams in a pipeline as we will see in the next
+sections.</p>
+<h2 id="clock-runningtime">Clock running-time</h2>
+<p>In a typical computer, there are many sources that can be used as a time
+source, e.g., the system time, soundcards, CPU performance counters, etc.
+For this reason, GStreamer has many <code>GstClock</code> implementations available.
+Note that clock time doesn't have to start from 0 or any other known
+value. Some clocks start counting from a particular start date, others
+from the last reboot, etc.</p>
+<p>A <code>GstClock</code> returns the <strong>absolute-time</strong> according to that clock with
+<code>gst_clock_get_time ()</code>. The <strong>absolute-time</strong> (or clock time) of a clock
+is monotonically increasing.</p>
+<p>A <strong>running-time</strong> is the difference between a previous snapshot of the
+<strong>absolute-time</strong> called the <strong>base-time</strong>, and any other <strong>absolute-time</strong>.</p>
+<pre><code>running-time = absolute-time - base-time
+</code></pre>
+<p>A GStreamer <code>GstPipeline</code> object maintains a <code>GstClock</code> object and a
+base-time when it goes to the <code>PLAYING</code> state. The pipeline gives a handle
+to the selected <code>GstClock</code> to each element in the pipeline along with
+selected base-time. The pipeline will select a base-time in such a way
+that the running-time reflects the total time spent in the <code>PLAYING</code>
+state. As a result, when the pipeline is <code>PAUSED</code>, the running-time stands
+still.</p>
+<p>Because all objects in the pipeline have the same clock and base-time,
+they can thus all calculate the running-time according to the pipeline
+clock.</p>
+<h2 id="buffer-runningtime">Buffer running-time</h2>
+<p>To calculate a buffer running-time, we need a buffer timestamp and the
+<code>SEGMENT</code> event that preceded the buffer. First we can convert the
+<code>SEGMENT</code> event into a <code>GstSegment</code> object and then we can use the
+<code>gst_segment_to_running_time ()</code> function to perform the calculation of
+the buffer running-time.</p>
+<p>Synchronization is now a matter of making sure that a buffer with a
+certain running-time is played when the clock reaches the same
+running-time. Usually, this task is performed by sink elements. These
+elements also have to take into account the configured pipeline's latency
+and add it to the buffer running-time before synchronizing to the pipeline
+clock.</p>
+<p>Non-live sources timestamp buffers with a running-time starting from 0.
+After a flushing seek, they will produce buffers again from a
+running-time of 0.</p>
+<p>Live sources need to timestamp buffers with a running-time matching the
+pipeline running-time when the first byte of the buffer was captured.</p>
+<h2 id="buffer-streamtime">Buffer stream-time</h2>
+<p>The buffer stream-time, also known as the position in the stream, is
+a value between 0 and the total duration of the media and it's calculated
+from the buffer timestamps and the preceding <code>SEGMENT</code> event.</p>
+<p>The stream-time is used in:</p>
+<ul>
+<li>
+<p>Report the current position in the stream with the <code>POSITION</code> query.</p>
+</li>
+<li>
+<p>The position used in the seek events and queries.</p>
+</li>
+<li>
+<p>The position used to synchronize controlled values.</p>
+</li>
+</ul>
+<p>The stream-time is never used to synchronize streams, this is only done
+with the running-time.</p>
+<h2 id="time-overview">Time overview</h2>
+<p>Here is an overview of the various timelines used in GStreamer.</p>
+<p>The image below represents the different times in the pipeline when
+playing a 100ms sample and repeating the part between 50ms and 100ms.</p>
+<p><img src="application-development/advanced/images/clocks.png" alt="GStreamer clock and various times" title="fig:" id="gstreamer-clock-and-various-times"></p>
+<p>You can see how the running-time of a buffer always increments
+monotonically along with the clock-time. Buffers are played when their
+running-time is equal to the clock-time - base-time. The stream-time
+represents the position in the stream and jumps backwards when
+repeating.</p>
+<h2 id="clock-providers">Clock providers</h2>
+<p>A clock provider is an element in the pipeline that can provide a
+<code>GstClock</code> object. The clock object needs to report an absolute-time
+that is monotonically increasing when the element is in the <code>PLAYING</code>
+state. It is allowed to pause the clock while the element is <code>PAUSED</code>.</p>
+<p>Clock providers exist because they play back media at some rate, and
+this rate is not necessarily the same as the system clock rate. For
+example, a soundcard may play back at 44.1 kHz, but that doesn't mean
+that after <em>exactly</em> 1 second <em>according to the system clock</em>, the
+soundcard has played back 44100 samples. This is only true by
+approximation. In fact, the audio device has an internal clock based on
+the number of samples played that we can expose.</p>
+<p>If an element with an internal clock needs to synchronize, it needs to
+estimate when a time according to the pipeline clock will take place
+according to the internal clock. To estimate this, it needs to slave its
+clock to the pipeline clock.</p>
+<p>If the pipeline clock is exactly the internal clock of an element, the
+element can skip the slaving step and directly use the pipeline clock to
+schedule playback. This can be both faster and more accurate. Therefore,
+generally, elements with an internal clock like audio input or output
+devices will be a clock provider for the pipeline.</p>
+<p>When the pipeline goes to the <code>PLAYING</code> state, it will go over all
+elements in the pipeline from sink to source and ask each element if
+they can provide a clock. The last element that can provide a clock will
+be used as the clock provider in the pipeline. This algorithm prefers a
+clock from an audio sink in a typical playback pipeline and a clock from
+source elements in a typical capture pipeline.</p>
+<p>There exist some bus messages to let you know about the clock and clock
+providers in the pipeline. You can see what clock is selected in the
+pipeline by looking at the <code>NEW_CLOCK</code> message on the bus. When a clock
+provider is removed from the pipeline, a <code>CLOCK_LOST</code> message is posted
+and the application should go to <code>PAUSED</code> and back to <code>PLAYING</code> to select a
+new clock.</p>
+<h2 id="latency">Latency</h2>
+<p>The latency is the time it takes for a sample captured at timestamp X to
+reach the sink. This time is measured against the clock in the pipeline.
+For pipelines where the only elements that synchronize against the clock
+are the sinks, the latency is always 0 since no other element is
+delaying the buffer.</p>
+<p>For pipelines with live sources, a latency is introduced, mostly because
+of the way a live source works. Consider an audio source, it will start
+capturing the first sample at time 0. If the source pushes buffers with
+44100 samples at a time at 44100Hz it will have collected the buffer at
+second 1. Since the timestamp of the buffer is 0 and the time of the
+clock is now <code>&gt;= 1</code> second, the sink will drop this buffer because it is
+too late. Without any latency compensation in the sink, all buffers will
+be dropped.</p>
+<h3 id="latency-compensation">Latency compensation</h3>
+<p>Before the pipeline goes to the <code>PLAYING</code> state, it will, in addition to
+selecting a clock and calculating a base-time, calculate the latency in
+the pipeline. It does this by doing a <code>LATENCY</code> query on all the sinks in
+the pipeline. The pipeline then selects the maximum latency in the
+pipeline and configures this with a <code>LATENCY</code> event.</p>
+<p>All sink elements will delay playback by the value in the <code>LATENCY</code> event.
+Since all sinks delay with the same amount of time, they will be
+relatively in sync.</p>
+<h3 id="dynamic-latency">Dynamic Latency</h3>
+<p>Adding/removing elements to/from a pipeline or changing element
+properties can change the latency in a pipeline. An element can request
+a latency change in the pipeline by posting a <code>LATENCY</code> message on the
+bus. The application can then decide to query and redistribute a new
+latency or not. Changing the latency in a pipeline might cause visual or
+audible glitches and should therefore only be done by the application
+when it is allowed.</p>
+
+    </div>
+        
+
+
+
+
+		
+	</div>
+	<div id="search_results">
+		<p>The results of the search are</p>
+	</div>
+	<div id="footer">
+		    
+
+	</div>
+</div>
+
+<div id="toc-column">
+	
+		<div class="edit-button">
+		<a href="https://gitlab.freedesktop.org/gstreamer/gst-docs//edit/master/subprojects/gst-docs/markdown/application-development/advanced/clocks.md" data-hotdoc-role="edit-button">Edit on GitLab</a>
+
+	</div>
+		<div id="toc-wrapper">
+		<nav id="toc"></nav>
+	</div>
+</div>
+</div>
+</main>
+
+
+<script src="assets/js/navbar_offset_scroller.js"></script>
+</body>
+</html>

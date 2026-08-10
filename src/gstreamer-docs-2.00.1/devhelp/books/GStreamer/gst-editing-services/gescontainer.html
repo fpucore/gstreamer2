@@ -1,0 +1,4066 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<base href="..">
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<title>GESContainer</title>
+
+<link rel="stylesheet" href="assets/css/dark-frontend.css" type="text/css" title="dark">
+<link rel="alternate stylesheet" href="assets/css/light-frontend.css" type="text/css" title="light">
+<link rel="stylesheet" href="assets/css/bootstrap-toc.min.css" type="text/css">
+<link rel="stylesheet" href="assets/css/jquery.mCustomScrollbar.min.css">
+<link rel="stylesheet" href="assets/js/search/enable_search.css" type="text/css">
+
+<link rel="stylesheet" href="assets/css/extra_frontend.css" type="text/css">
+<link rel="stylesheet" href="assets/css/devhelp.css" type="text/css">
+
+<link rel="stylesheet" href="assets/css/prism-tomorrow.css" type="text/css" title="dark">
+
+<link rel="alternate stylesheet" href="assets/css/prism.css" type="text/css" title="light">
+
+<script src="assets/js/mustache.min.js"></script>
+<script src="assets/js/jquery.js"></script>
+<script src="assets/js/bootstrap.js"></script>
+<script src="assets/js/scrollspy.js"></script>
+<script src="assets/js/typeahead.jquery.min.js"></script>
+<script src="assets/js/search.js"></script>
+<script src="assets/js/compare-versions.js"></script>
+<script src="assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="assets/js/bootstrap-toc.min.js"></script>
+<script src="assets/js/jquery.touchSwipe.min.js"></script>
+<script src="assets/js/anchor.min.js"></script>
+<script src="assets/js/tag_filtering.js"></script>
+<script src="assets/js/language_switching.js"></script>
+<script src="assets/js/styleswitcher.js"></script>
+
+<script src="assets/js/lines_around_headings.js"></script>
+
+<script src="assets/js/prism-core.js"></script>
+<script src="assets/js/prism-autoloader.js"></script>
+<script src="assets/js/prism_autoloader_path_override.js"></script>
+<script src="assets/js/trie.js"></script>
+
+<!-- generic -->
+<link rel="icon" type="image/png" href="assets/images/favicon-16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="assets/images/favicon-32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="assets/images/favicon-57.png" sizes="57x57">
+<link rel="icon" type="image/png" href="assets/images/favicon-64.png" sizes="64x64">
+<link rel="icon" type="image/png" href="assets/images/favicon-76.png" sizes="76x76">
+<link rel="icon" type="image/png" href="assets/images/favicon-96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="assets/images/favicon-128.png" sizes="128x128">
+<link rel="icon" type="image/png" href="assets/images/favicon-192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="assets/images/favicon-228.png" sizes="228x228">
+
+<!-- Android -->
+<link rel="shortcut icon" sizes="196x196" href="assets/images/favicon-196.png">
+
+<!-- iOS -->
+<link rel="apple-touch-icon" href="assets/images/favicon-120.png" sizes="120x120">
+<link rel="apple-touch-icon" href="assets/images/favicon-152.png" sizes="152x152">
+<link rel="apple-touch-icon" href="assets/images/favicon-180.png" sizes="180x180">
+
+</head>
+
+<body class="no-script
+">
+
+<script>
+$('body').removeClass('no-script');
+</script>
+
+<nav class="navbar navbar-fixed-top navbar-default" id="topnav">
+	<div class="container-fluid">
+		<div class="navbar-right">
+			<a id="toc-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-wrapper" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<span title="light mode switch" class="glyphicon glyphicon-sunglasses pull-right" id="lightmode-icon"></span>
+			<form class="navbar-form pull-right" id="navbar-search-form">
+                               <div class="form-group has-feedback">
+                                       <input type="text" class="form-control input-sm" name="search" id="sidenav-lookup-field" placeholder="search" disabled>
+				       <span class="glyphicon glyphicon-search form-control-feedback" id="search-mgn-glass"></span>
+                               </div>
+                        </form>
+		</div>
+		<div class="navbar-header">
+			<a id="sidenav-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<a id="home-link" href="index.html" class="hotdoc-navbar-brand">
+				<img src="assets/images/gstreamer-logo.svg" alt="Home">
+			</a>
+		</div>
+		<div class="navbar-collapse collapse" id="navbar-wrapper">
+			<ul class="nav navbar-nav" id="menu">
+				
+<li class="dropdown">
+    <a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        API References<span class="caret"></span>
+    </a>
+	<ul class="dropdown-menu" id="modules-menu">
+					<li>
+				<a href="gstreamer/gi-index.html">GStreamer core</a>
+			</li>
+					<li>
+				<a href="libs.html">GStreamer Libraries</a>
+			</li>
+					<li>
+				<a href="plugins_doc.html">GStreamer Plugins</a>
+			</li>
+		</ul>
+</li>
+
+<li>
+    <a href="application-development/index.html">Application manual</a>
+</li>
+
+
+<li>
+    <a href="tutorials/index.html">Tutorials</a>
+</li>
+
+			</ul>
+			<div class="hidden-xs hidden-sm navbar-text navbar-center">
+							</div>
+		</div>
+	</div>
+</nav>
+
+<main>
+<div data-extension="gi-extension" data-hotdoc-in-toplevel="False" data-hotdoc-project="gst-editing-services" data-hotdoc-ref="gescontainer.html" class="page_container" id="page-wrapper" data-hotdoc-meta-gi-languages="['c', 'javascript', 'python']" data-hotdoc-meta-gi-language="c">
+<script src="assets/js/utils.js"></script>
+
+<div class="panel panel-collapse oc-collapsed" id="sidenav" data-hotdoc-role="navigation">
+	<script src="assets/js/full-width.js"></script>
+  <div id="sitenav-wrapper">
+    <iframe src="hotdoc-sitemap.html" id="sitenav-frame"></iframe>
+  </div>
+</div>
+
+<div id="body">
+	<div id="main">
+				    <div id="page-description" data-hotdoc-role="main">
+        <h1 id="gescontainer-page">GESContainer</h1>
+<p>A <a href="gst-editing-services/gescontainer.html#GESContainer" data-gi-href-javascript="gst-editing-services/gescontainer.html#GESContainer" data-gi-title-javascript="GES.Container" data-gi-href-python="gst-editing-services/gescontainer.html#GESContainer" data-gi-title-python="GES.Container">GESContainer</a> is a timeline element that controls other
+<a href="gst-editing-services/gestimelineelement.html#GESTimelineElement" data-gi-href-javascript="gst-editing-services/gestimelineelement.html#GESTimelineElement" data-gi-title-javascript="GES.TimelineElement" data-gi-href-python="gst-editing-services/gestimelineelement.html#GESTimelineElement" data-gi-title-python="GES.TimelineElement">GESTimelineElement</a>-s, which are its children. In particular, it is
+responsible for maintaining the relative <a href="gst-editing-services/gestimelineelement.html#GESTimelineElement:start" data-gi-href-javascript="gst-editing-services/gestimelineelement.html#GESTimelineElement:start" data-gi-title-javascript="start" data-gi-href-python="gst-editing-services/gestimelineelement.html#GESTimelineElement:start" data-gi-title-python="start">start</a> and
+<a href="gst-editing-services/gestimelineelement.html#GESTimelineElement:duration" data-gi-href-javascript="gst-editing-services/gestimelineelement.html#GESTimelineElement:duration" data-gi-title-javascript="duration" data-gi-href-python="gst-editing-services/gestimelineelement.html#GESTimelineElement:duration" data-gi-title-python="duration">duration</a> times of its children. Therefore, if a
+container is temporally adjusted or moved to a new layer, it may
+accordingly adjust and move its children. Similarly, a change in one of
+its children may prompt the parent to correspondingly change its
+siblings.</p>
+
+    </div>
+        
+        
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GESContainer">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h2 data-hotdoc-id="GESContainer">
+	<i>GESContainer</i>
+</h2>
+
+
+<div class="hierarchy_container">
+	<div class="hierarchy_details">
+<pre>
+<a title="GObject" href="https://docs.gtk.org/gobject/class.Object.html">GObject</a>
+    <span class="lineart">╰──</span><a title="GInitiallyUnowned" href="https://docs.gtk.org/gobject/class.InitiallyUnowned.html">GInitiallyUnowned</a>
+        <span class="lineart">╰──</span><a title="GESTimelineElement" href="gst-editing-services/gestimelineelement.html#GESTimelineElement">GESTimelineElement</a>
+            <span class="lineart">╰──</span>GESContainer
+                <span class="lineart">╰──</span><a title="GESClip" href="gst-editing-services/gesclip.html#GESClip">GESClip</a>
+                <span class="lineart">╰──</span><a title="GESGroup" href="gst-editing-services/gesgroup.html#GESGroup">GESGroup</a>
+</pre>
+
+</div>
+
+</div>
+
+<div class="class_details">
+	<p>Note, you may read, but should not modify these properties.</p>
+
+</div>
+
+
+
+	<div class="members-container">
+		<h3>Members</h3>
+					
+<div class="symbol-detail" data-hotdoc-id="GESContainer.parent">
+	<div>
+		<i><em><code>parent</code></em></i>
+		(<a title="GESTimelineElement" href="gst-editing-services/gestimelineelement.html#GESTimelineElement">GESTimelineElement</a>)
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GESContainer.children">
+	<div>
+		<i><em><code>children</code></em></i>
+		(<a title="GList" href="https://docs.gtk.org/glib/struct.List.html">GList</a> *)
+		–
+	</div>
+			<p>The list of
+<a href="gst-editing-services/gestimelineelement.html#GESTimelineElement">GESTimelineElement</a>-s controlled by this Container</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GESContainer.height">
+	<div>
+		<i><em><code>height</code></em></i>
+		(<a title="guint32" href="https://docs.gtk.org/glib/types.html#guint32">guint32</a>)
+		–
+	</div>
+			<p>The <a href="gst-editing-services/gescontainer.html#GESContainer:height">height</a> of <em>obj</em></p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GESContainer.children_control_mode">
+	<div>
+		<i><em><code>children_control_mode</code></em></i>
+		(<a title="GESChildrenControlMode" href="gst-editing-services/gescontainer.html#GESChildrenControlMode">GESChildrenControlMode</a>)
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GESContainer.initiated_move">
+	<div>
+		<i><em><code>initiated_move</code></em></i>
+		(<a title="GESTimelineElement" href="gst-editing-services/gestimelineelement.html#GESTimelineElement">GESTimelineElement</a> *)
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+			</div>
+
+
+
+
+<hr>
+<h3>Class structure</h3>
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GESContainerClass">
+	<i>GESContainerClass</i>
+</h4>
+
+
+
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3>
+	GES.ContainerClass
+</h3>
+
+
+
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3>
+	GES.ContainerClass
+</h3>
+
+
+
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h2 data-hotdoc-id="GESContainer">
+	<i>GES.Container</i>
+</h2>
+
+
+<div class="hierarchy_container">
+	<div class="hierarchy_details">
+<pre>
+<a title="GObject.Object" href="https://docs.gtk.org/gobject/class.Object.html">GObject.Object</a>
+    <span class="lineart">╰──</span><a title="GObject.InitiallyUnowned" href="https://docs.gtk.org/gobject/class.InitiallyUnowned.html">GObject.InitiallyUnowned</a>
+        <span class="lineart">╰──</span><a title="GES.TimelineElement" href="gst-editing-services/gestimelineelement.html#GESTimelineElement">GES.TimelineElement</a>
+            <span class="lineart">╰──</span>GES.Container
+                <span class="lineart">╰──</span><a title="GES.Clip" href="gst-editing-services/gesclip.html#GESClip">GES.Clip</a>
+                <span class="lineart">╰──</span><a title="GES.Group" href="gst-editing-services/gesgroup.html#GESGroup">GES.Group</a>
+</pre>
+
+</div>
+
+</div>
+
+<div class="class_details">
+	<p>Note, you may read, but should not modify these properties.</p>
+
+</div>
+
+
+
+	<div class="members-container">
+		<h3>Members</h3>
+					
+<div class="symbol-detail" data-hotdoc-id="GESContainer.parent">
+	<div>
+		<i><em><code>parent</code></em></i>
+		(<a title="GES.TimelineElement" href="gst-editing-services/gestimelineelement.html#GESTimelineElement">GES.TimelineElement</a>)
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GESContainer.children">
+	<div>
+		<i><em><code>children</code></em></i>
+		([ <a title="GES.TimelineElement" href="gst-editing-services/gestimelineelement.html#GESTimelineElement">GES.TimelineElement</a> ])
+		–
+	</div>
+			<p>The list of
+<a href="gst-editing-services/gestimelineelement.html#GESTimelineElement">GES.TimelineElement</a>-s controlled by this Container</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GESContainer.height">
+	<div>
+		<i><em><code>height</code></em></i>
+		(<a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>)
+		–
+	</div>
+			<p>The <a href="gst-editing-services/gescontainer.html#GESContainer:height">height</a> of <em>obj</em></p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GESContainer.children_control_mode">
+	<div>
+		<i><em><code>children_control_mode</code></em></i>
+		(<a title="GES.ChildrenControlMode" href="gst-editing-services/gescontainer.html#GESChildrenControlMode">GES.ChildrenControlMode</a>)
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GESContainer.initiated_move">
+	<div>
+		<i><em><code>initiated_move</code></em></i>
+		(<a title="GES.TimelineElement" href="gst-editing-services/gestimelineelement.html#GESTimelineElement">GES.TimelineElement</a>)
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+			</div>
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h2 data-hotdoc-id="GESContainer">
+	<i>GES.Container</i>
+</h2>
+
+
+<div class="hierarchy_container">
+	<div class="hierarchy_details">
+<pre>
+<a title="GObject.Object" href="https://docs.gtk.org/gobject/class.Object.html">GObject.Object</a>
+    <span class="lineart">╰──</span><a title="GObject.InitiallyUnowned" href="https://docs.gtk.org/gobject/class.InitiallyUnowned.html">GObject.InitiallyUnowned</a>
+        <span class="lineart">╰──</span><a title="GES.TimelineElement" href="gst-editing-services/gestimelineelement.html#GESTimelineElement">GES.TimelineElement</a>
+            <span class="lineart">╰──</span>GES.Container
+                <span class="lineart">╰──</span><a title="GES.Clip" href="gst-editing-services/gesclip.html#GESClip">GES.Clip</a>
+                <span class="lineart">╰──</span><a title="GES.Group" href="gst-editing-services/gesgroup.html#GESGroup">GES.Group</a>
+</pre>
+
+</div>
+
+</div>
+
+<div class="class_details">
+	<p>Note, you may read, but should not modify these properties.</p>
+
+</div>
+
+
+
+	<div class="members-container">
+		<h3>Members</h3>
+					
+<div class="symbol-detail" data-hotdoc-id="GESContainer.parent">
+	<div>
+		<i><em><code>parent</code></em></i>
+		(<a title="GES.TimelineElement" href="gst-editing-services/gestimelineelement.html#GESTimelineElement">GES.TimelineElement</a>)
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GESContainer.children">
+	<div>
+		<i><em><code>children</code></em></i>
+		([ <a title="GES.TimelineElement" href="gst-editing-services/gestimelineelement.html#GESTimelineElement">GES.TimelineElement</a> ])
+		–
+	</div>
+			<p>The list of
+<a href="gst-editing-services/gestimelineelement.html#GESTimelineElement">GES.TimelineElement</a>-s controlled by this Container</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GESContainer.height">
+	<div>
+		<i><em><code>height</code></em></i>
+		(<a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a>)
+		–
+	</div>
+			<p>The <a href="gst-editing-services/gescontainer.html#GESContainer:height">height</a> of <em>obj</em></p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GESContainer.children_control_mode">
+	<div>
+		<i><em><code>children_control_mode</code></em></i>
+		(<a title="GES.ChildrenControlMode" href="gst-editing-services/gescontainer.html#GESChildrenControlMode">GES.ChildrenControlMode</a>)
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GESContainer.initiated_move">
+	<div>
+		<i><em><code>initiated_move</code></em></i>
+		(<a title="GES.TimelineElement" href="gst-editing-services/gestimelineelement.html#GESTimelineElement">GES.TimelineElement</a>)
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+			</div>
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+
+            <h3 class="symbol_section">Methods</h3>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="ges_container_add">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="ges_container_add">
+	<i>ges_container_add</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a>
+ges_container_add (<a title="GESContainer" href="gst-editing-services/gescontainer.html#GESContainer">GESContainer</a> * container,
+                   <a title="GESTimelineElement" href="gst-editing-services/gestimelineelement.html#GESTimelineElement">GESTimelineElement</a> * child)</pre>
+
+<p>Adds a timeline element to the container. The element will now be a
+child of the container (and the container will be the
+<a href="gst-editing-services/gestimelineelement.html#GESTimelineElement:parent">parent</a> of the added element), which means that it
+is now controlled by the container. This may change the properties of
+the child or the container, depending on the subclass.</p>
+<p>Additionally, the children properties of the newly added element will
+be shared with the container, meaning they can also be read and set
+using <a href="gst-editing-services/gestimelineelement.html#ges_timeline_element_get_child_property">ges_timeline_element_get_child_property</a> and
+<a href="gst-editing-services/gestimelineelement.html#ges_timeline_element_set_child_property">ges_timeline_element_set_child_property</a> on the container.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>container</code></em></i>
+–
+</div>
+<p>A <a href="gst-editing-services/gescontainer.html#GESContainer">GESContainer</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>child</code></em></i>
+–
+</div>
+<p>The element to add as a child</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p><a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#TRUE:CAPS">TRUE</a> if <em>child</em> was successfully added to <em>container</em>.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="ges_container_add">
+	<i>GES.Container.prototype.add</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GES.Container.prototype.add(child: <a title="GES.TimelineElement" href="gst-editing-services/gestimelineelement.html#GESTimelineElement">GES.TimelineElement</a>): {
+    // javascript wrapper for 'ges_container_add'
+}</code></pre>
+
+<p>Adds a timeline element to the container. The element will now be a
+child of the container (and the container will be the
+<a href="gst-editing-services/gestimelineelement.html#GESTimelineElement:parent">parent</a> of the added element), which means that it
+is now controlled by the container. This may change the properties of
+the child or the container, depending on the subclass.</p>
+<p>Additionally, the children properties of the newly added element will
+be shared with the container, meaning they can also be read and set
+using <a href="gst-editing-services/gestimelineelement.html#ges_timeline_element_get_child_property">GES.TimelineElement.prototype.get_child_property</a> and
+<a href="gst-editing-services/gestimelineelement.html#ges_timeline_element_set_child_property">GES.TimelineElement.prototype.set_child_property</a> on the container.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>container</code></em></i>
+<span>(</span><a title="GES.Container" href="gst-editing-services/gescontainer.html#GESContainer">GES.Container</a><span>)</span>
+–
+</div>
+<p>A <a href="gst-editing-services/gescontainer.html#GESContainer">GES.Container</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>child</code></em></i>
+<span>(</span><a title="GES.TimelineElement" href="gst-editing-services/gestimelineelement.html#GESTimelineElement">GES.TimelineElement</a><span>)</span>
+–
+</div>
+<p>The element to add as a child</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+			</div>
+							<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">true</a> if <em>child</em> was successfully added to <em>container</em>.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="ges_container_add">
+	<i>GES.Container.add</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GES.Container.add (self, child):
+    #python wrapper for 'ges_container_add'</code></pre>
+
+<p>Adds a timeline element to the container. The element will now be a
+child of the container (and the container will be the
+<a href="gst-editing-services/gestimelineelement.html#GESTimelineElement:parent">parent</a> of the added element), which means that it
+is now controlled by the container. This may change the properties of
+the child or the container, depending on the subclass.</p>
+<p>Additionally, the children properties of the newly added element will
+be shared with the container, meaning they can also be read and set
+using <a href="gst-editing-services/gestimelineelement.html#ges_timeline_element_get_child_property">GES.TimelineElement.get_child_property</a> and
+<a href="gst-editing-services/gestimelineelement.html#ges_timeline_element_set_child_property">GES.TimelineElement.set_child_property</a> on the container.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>container</code></em></i>
+<span>(</span><a title="GES.Container" href="gst-editing-services/gescontainer.html#GESContainer">GES.Container</a><span>)</span>
+–
+</div>
+<p>A <a href="gst-editing-services/gescontainer.html#GESContainer">GES.Container</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>child</code></em></i>
+<span>(</span><a title="GES.TimelineElement" href="gst-editing-services/gestimelineelement.html#GESTimelineElement">GES.TimelineElement</a><span>)</span>
+–
+</div>
+<p>The element to add as a child</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a><span>)</span>
+–
+			</div>
+							<p><a href="https://docs.python.org/3/library/constants.html#True">True</a> if <em>child</em> was successfully added to <em>container</em>.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="deprecated:1.18;" id="ges_container_edit">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="ges_container_edit">
+	<i>ges_container_edit</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a>
+ges_container_edit (<a title="GESContainer" href="gst-editing-services/gescontainer.html#GESContainer">GESContainer</a> * container,
+                    <a title="GList" href="https://docs.gtk.org/glib/struct.List.html">GList</a> * layers,
+                    <a title="gint" href="https://docs.gtk.org/glib/types.html#gint">gint</a> new_layer_priority,
+                    <a title="GESEditMode" href="gst-editing-services/ges-enums.html#GESEditMode">GESEditMode</a> mode,
+                    <a title="GESEdge" href="gst-editing-services/ges-enums.html#GESEdge">GESEdge</a> edge,
+                    <a title="guint64" href="https://docs.gtk.org/glib/types.html#guint64">guint64</a> position)</pre>
+
+<p>Edits the container within its timeline.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>container</code></em></i>
+–
+</div>
+<p>The <a href="gst-editing-services/gescontainer.html#GESContainer">GESContainer</a> to edit</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>layers</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="Generic and defining element of containers and arrays"><span class="acronym">element-type</span></abbr> GESLayer]</span><span class="annotation">[<abbr title="NULL may be passed to the value"><span class="acronym">nullable</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>A whitelist of layers
+where the edit can be performed, <a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#NULL:CAPS">NULL</a> allows all layers in the
+timeline</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>new_layer_priority</code></em></i>
+–
+</div>
+<p>The priority/index of the layer <em>container</em> should
+be moved to. -1 means no move</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>mode</code></em></i>
+–
+</div>
+<p>The edit mode</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>edge</code></em></i>
+–
+</div>
+<p>The edge of <em>container</em> where the edit should occur</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>position</code></em></i>
+–
+</div>
+<p>The edit position: a new location for the edge of <em>container</em>
+(in nanoseconds)</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p><a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#TRUE:CAPS">TRUE</a> if the edit of <em>container</em> completed, <a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#FALSE:CAPS">FALSE</a> on failure.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>deprecated</b>			: 1.18: use #ges_timeline_element_edit instead.
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="ges_container_edit">
+	<i>GES.Container.prototype.edit</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GES.Container.prototype.edit(layers: [ <a title="GES.Layer" href="gst-editing-services/geslayer.html#GESLayer">GES.Layer</a> ], new_layer_priority: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>, mode: <a title="GES.EditMode" href="gst-editing-services/ges-enums.html#GESEditMode">GES.EditMode</a>, edge: <a title="GES.Edge" href="gst-editing-services/ges-enums.html#GESEdge">GES.Edge</a>, position: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>): {
+    // javascript wrapper for 'ges_container_edit'
+}</code></pre>
+
+<p>Edits the container within its timeline.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>container</code></em></i>
+<span>(</span><a title="GES.Container" href="gst-editing-services/gescontainer.html#GESContainer">GES.Container</a><span>)</span>
+–
+</div>
+<p>The <a href="gst-editing-services/gescontainer.html#GESContainer">GES.Container</a> to edit</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>layers</code></em></i>
+<span>(</span>[ <a title="GES.Layer" href="gst-editing-services/geslayer.html#GESLayer">GES.Layer</a> ]<span>)</span>
+–
+</div>
+<p>A whitelist of layers
+where the edit can be performed, <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null">null</a> allows all layers in the
+timeline</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>new_layer_priority</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>The priority/index of the layer <em>container</em> should
+be moved to. -1 means no move</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>mode</code></em></i>
+<span>(</span><a title="GES.EditMode" href="gst-editing-services/ges-enums.html#GESEditMode">GES.EditMode</a><span>)</span>
+–
+</div>
+<p>The edit mode</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>edge</code></em></i>
+<span>(</span><a title="GES.Edge" href="gst-editing-services/ges-enums.html#GESEdge">GES.Edge</a><span>)</span>
+–
+</div>
+<p>The edge of <em>container</em> where the edit should occur</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>position</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>The edit position: a new location for the edge of <em>container</em>
+(in nanoseconds)</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+			</div>
+							<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">true</a> if the edit of <em>container</em> completed, <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">false</a> on failure.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>deprecated</b>			: 1.18: use #ges_timeline_element_edit instead.
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="ges_container_edit">
+	<i>GES.Container.edit</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GES.Container.edit (self, layers, new_layer_priority, mode, edge, position):
+    #python wrapper for 'ges_container_edit'</code></pre>
+
+<p>Edits the container within its timeline.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>container</code></em></i>
+<span>(</span><a title="GES.Container" href="gst-editing-services/gescontainer.html#GESContainer">GES.Container</a><span>)</span>
+–
+</div>
+<p>The <a href="gst-editing-services/gescontainer.html#GESContainer">GES.Container</a> to edit</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>layers</code></em></i>
+<span>(</span>[ <a title="GES.Layer" href="gst-editing-services/geslayer.html#GESLayer">GES.Layer</a> ]<span>)</span>
+–
+</div>
+<p>A whitelist of layers
+where the edit can be performed, <a href="https://docs.python.org/3/library/constants.html#None">None</a> allows all layers in the
+timeline</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>new_layer_priority</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<p>The priority/index of the layer <em>container</em> should
+be moved to. -1 means no move</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>mode</code></em></i>
+<span>(</span><a title="GES.EditMode" href="gst-editing-services/ges-enums.html#GESEditMode">GES.EditMode</a><span>)</span>
+–
+</div>
+<p>The edit mode</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>edge</code></em></i>
+<span>(</span><a title="GES.Edge" href="gst-editing-services/ges-enums.html#GESEdge">GES.Edge</a><span>)</span>
+–
+</div>
+<p>The edge of <em>container</em> where the edit should occur</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>position</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<p>The edit position: a new location for the edge of <em>container</em>
+(in nanoseconds)</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a><span>)</span>
+–
+			</div>
+							<p><a href="https://docs.python.org/3/library/constants.html#True">True</a> if the edit of <em>container</em> completed, <a href="https://docs.python.org/3/library/constants.html#False">False</a> on failure.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>deprecated</b>			: 1.18: use #ges_timeline_element_edit instead.
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="ges_container_get_children">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="ges_container_get_children">
+	<i>ges_container_get_children</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GList" href="https://docs.gtk.org/glib/struct.List.html">GList</a> *
+ges_container_get_children (<a title="GESContainer" href="gst-editing-services/gescontainer.html#GESContainer">GESContainer</a> * container,
+                            <a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a> recursive)</pre>
+
+<p>Get the list of timeline elements contained in the container. If
+<em>recursive</em> is <a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#TRUE:CAPS">TRUE</a>, and the container contains other containers as
+children, then their children will be added to the list, in addition to
+themselves, and so on.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>container</code></em></i>
+–
+</div>
+<p>A <a href="gst-editing-services/gescontainer.html#GESContainer">GESContainer</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>recursive</code></em></i>
+–
+</div>
+<p>Whether to recursively get children in <em>container</em></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span>
+<span class="annotation">[<abbr title="Free data after the code is done"><span class="acronym">transfer: full</span></abbr>]</span><span class="annotation">[<abbr title="Generic and defining element of containers and arrays"><span class="acronym">element-type</span></abbr> GESTimelineElement]</span><span>)</span>
+–
+			</div>
+							<p>The list of
+<a href="gst-editing-services/gestimelineelement.html#GESTimelineElement">GESTimelineElement</a>-s contained in <em>container</em>.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="ges_container_get_children">
+	<i>GES.Container.prototype.get_children</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GES.Container.prototype.get_children(recursive: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>): {
+    // javascript wrapper for 'ges_container_get_children'
+}</code></pre>
+
+<p>Get the list of timeline elements contained in the container. If
+<em>recursive</em> is <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">true</a>, and the container contains other containers as
+children, then their children will be added to the list, in addition to
+themselves, and so on.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>container</code></em></i>
+<span>(</span><a title="GES.Container" href="gst-editing-services/gescontainer.html#GESContainer">GES.Container</a><span>)</span>
+–
+</div>
+<p>A <a href="gst-editing-services/gescontainer.html#GESContainer">GES.Container</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>recursive</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>Whether to recursively get children in <em>container</em></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span>[ <a title="GES.TimelineElement" href="gst-editing-services/gestimelineelement.html#GESTimelineElement">GES.TimelineElement</a> ]<span>)</span>
+–
+			</div>
+							<p>The list of
+<a href="gst-editing-services/gestimelineelement.html#GESTimelineElement">GES.TimelineElement</a>-s contained in <em>container</em>.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="ges_container_get_children">
+	<i>GES.Container.get_children</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GES.Container.get_children (self, recursive):
+    #python wrapper for 'ges_container_get_children'</code></pre>
+
+<p>Get the list of timeline elements contained in the container. If
+<em>recursive</em> is <a href="https://docs.python.org/3/library/constants.html#True">True</a>, and the container contains other containers as
+children, then their children will be added to the list, in addition to
+themselves, and so on.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>container</code></em></i>
+<span>(</span><a title="GES.Container" href="gst-editing-services/gescontainer.html#GESContainer">GES.Container</a><span>)</span>
+–
+</div>
+<p>A <a href="gst-editing-services/gescontainer.html#GESContainer">GES.Container</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>recursive</code></em></i>
+<span>(</span><a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a><span>)</span>
+–
+</div>
+<p>Whether to recursively get children in <em>container</em></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span>[ <a title="GES.TimelineElement" href="gst-editing-services/gestimelineelement.html#GESTimelineElement">GES.TimelineElement</a> ]<span>)</span>
+–
+			</div>
+							<p>The list of
+<a href="gst-editing-services/gestimelineelement.html#GESTimelineElement">GES.TimelineElement</a>-s contained in <em>container</em>.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="ges_container_remove">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="ges_container_remove">
+	<i>ges_container_remove</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a>
+ges_container_remove (<a title="GESContainer" href="gst-editing-services/gescontainer.html#GESContainer">GESContainer</a> * container,
+                      <a title="GESTimelineElement" href="gst-editing-services/gestimelineelement.html#GESTimelineElement">GESTimelineElement</a> * child)</pre>
+
+<p>Removes a timeline element from the container. The element will no
+longer be controlled by the container.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>container</code></em></i>
+–
+</div>
+<p>A <a href="gst-editing-services/gescontainer.html#GESContainer">GESContainer</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>child</code></em></i>
+–
+</div>
+<p>The child to remove</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p><a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#TRUE:CAPS">TRUE</a> if <em>child</em> was successfully removed from <em>container</em>.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="ges_container_remove">
+	<i>GES.Container.prototype.remove</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GES.Container.prototype.remove(child: <a title="GES.TimelineElement" href="gst-editing-services/gestimelineelement.html#GESTimelineElement">GES.TimelineElement</a>): {
+    // javascript wrapper for 'ges_container_remove'
+}</code></pre>
+
+<p>Removes a timeline element from the container. The element will no
+longer be controlled by the container.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>container</code></em></i>
+<span>(</span><a title="GES.Container" href="gst-editing-services/gescontainer.html#GESContainer">GES.Container</a><span>)</span>
+–
+</div>
+<p>A <a href="gst-editing-services/gescontainer.html#GESContainer">GES.Container</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>child</code></em></i>
+<span>(</span><a title="GES.TimelineElement" href="gst-editing-services/gestimelineelement.html#GESTimelineElement">GES.TimelineElement</a><span>)</span>
+–
+</div>
+<p>The child to remove</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+			</div>
+							<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">true</a> if <em>child</em> was successfully removed from <em>container</em>.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="ges_container_remove">
+	<i>GES.Container.remove</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GES.Container.remove (self, child):
+    #python wrapper for 'ges_container_remove'</code></pre>
+
+<p>Removes a timeline element from the container. The element will no
+longer be controlled by the container.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>container</code></em></i>
+<span>(</span><a title="GES.Container" href="gst-editing-services/gescontainer.html#GESContainer">GES.Container</a><span>)</span>
+–
+</div>
+<p>A <a href="gst-editing-services/gescontainer.html#GESContainer">GES.Container</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>child</code></em></i>
+<span>(</span><a title="GES.TimelineElement" href="gst-editing-services/gestimelineelement.html#GESTimelineElement">GES.TimelineElement</a><span>)</span>
+–
+</div>
+<p>The child to remove</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a><span>)</span>
+–
+			</div>
+							<p><a href="https://docs.python.org/3/library/constants.html#True">True</a> if <em>child</em> was successfully removed from <em>container</em>.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="ges_container_ungroup">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="ges_container_ungroup">
+	<i>ges_container_ungroup</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GList" href="https://docs.gtk.org/glib/struct.List.html">GList</a> *
+ges_container_ungroup (<a title="GESContainer" href="gst-editing-services/gescontainer.html#GESContainer">GESContainer</a> * container,
+                       <a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a> recursive)</pre>
+
+<p>Ungroups the container by splitting it into several containers
+containing various children of the original. The rules for how the
+container splits depends on the subclass. A <a href="gst-editing-services/gesgroup.html#GESGroup">GESGroup</a> will simply split
+into its children. A <a href="gst-editing-services/gesclip.html#GESClip">GESClip</a> will split into one <a href="gst-editing-services/gesclip.html#GESClip">GESClip</a> per
+<a href="gst-editing-services/ges-enums.html#GESTrackType">GESTrackType</a> it overlaps with (so an audio-video clip will split into
+an audio clip and a video clip), where each clip contains all the
+<a href="gst-editing-services/gestrackelement.html#GESTrackElement">GESTrackElement</a>-s from the original clip with a matching
+<a href="gst-editing-services/gestrackelement.html#GESTrackElement:track-type">track-type</a>.</p>
+<p>If <em>recursive</em> is <a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#TRUE:CAPS">TRUE</a>, and the container contains other containers as
+children, then they will also be ungrouped, and so on.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>container</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="Free data after the code is done"><span class="acronym">transfer: full</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>The container to ungroup</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>recursive</code></em></i>
+–
+</div>
+<p>Whether to recursively ungroup <em>container</em></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span>
+<span class="annotation">[<abbr title="Free data after the code is done"><span class="acronym">transfer: full</span></abbr>]</span><span class="annotation">[<abbr title="Generic and defining element of containers and arrays"><span class="acronym">element-type</span></abbr> GESContainer]</span><span>)</span>
+–
+			</div>
+							<p>The list of
+new <a href="gst-editing-services/gescontainer.html#GESContainer">GESContainer</a>-s created from the splitting of <em>container</em>.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="ges_container_ungroup">
+	<i>GES.Container.prototype.ungroup</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GES.Container.prototype.ungroup(recursive: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>): {
+    // javascript wrapper for 'ges_container_ungroup'
+}</code></pre>
+
+<p>Ungroups the container by splitting it into several containers
+containing various children of the original. The rules for how the
+container splits depends on the subclass. A <a href="gst-editing-services/gesgroup.html#GESGroup">GES.Group</a> will simply split
+into its children. A <a href="gst-editing-services/gesclip.html#GESClip">GES.Clip</a> will split into one <a href="gst-editing-services/gesclip.html#GESClip">GES.Clip</a> per
+<a href="gst-editing-services/ges-enums.html#GESTrackType">GES.TrackType</a> it overlaps with (so an audio-video clip will split into
+an audio clip and a video clip), where each clip contains all the
+<a href="gst-editing-services/gestrackelement.html#GESTrackElement">GES.TrackElement</a>-s from the original clip with a matching
+<a href="gst-editing-services/gestrackelement.html#GESTrackElement:track-type">track-type</a>.</p>
+<p>If <em>recursive</em> is <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">true</a>, and the container contains other containers as
+children, then they will also be ungrouped, and so on.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>container</code></em></i>
+<span>(</span><a title="GES.Container" href="gst-editing-services/gescontainer.html#GESContainer">GES.Container</a><span>)</span>
+–
+</div>
+<p>The container to ungroup</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>recursive</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>Whether to recursively ungroup <em>container</em></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span>[ <a title="GES.Container" href="gst-editing-services/gescontainer.html#GESContainer">GES.Container</a> ]<span>)</span>
+–
+			</div>
+							<p>The list of
+new <a href="gst-editing-services/gescontainer.html#GESContainer">GES.Container</a>-s created from the splitting of <em>container</em>.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="ges_container_ungroup">
+	<i>GES.Container.ungroup</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GES.Container.ungroup (self, recursive):
+    #python wrapper for 'ges_container_ungroup'</code></pre>
+
+<p>Ungroups the container by splitting it into several containers
+containing various children of the original. The rules for how the
+container splits depends on the subclass. A <a href="gst-editing-services/gesgroup.html#GESGroup">GES.Group</a> will simply split
+into its children. A <a href="gst-editing-services/gesclip.html#GESClip">GES.Clip</a> will split into one <a href="gst-editing-services/gesclip.html#GESClip">GES.Clip</a> per
+<a href="gst-editing-services/ges-enums.html#GESTrackType">GES.TrackType</a> it overlaps with (so an audio-video clip will split into
+an audio clip and a video clip), where each clip contains all the
+<a href="gst-editing-services/gestrackelement.html#GESTrackElement">GES.TrackElement</a>-s from the original clip with a matching
+<a href="gst-editing-services/gestrackelement.html#GESTrackElement:track-type">track_type</a>.</p>
+<p>If <em>recursive</em> is <a href="https://docs.python.org/3/library/constants.html#True">True</a>, and the container contains other containers as
+children, then they will also be ungrouped, and so on.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>container</code></em></i>
+<span>(</span><a title="GES.Container" href="gst-editing-services/gescontainer.html#GESContainer">GES.Container</a><span>)</span>
+–
+</div>
+<p>The container to ungroup</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>recursive</code></em></i>
+<span>(</span><a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a><span>)</span>
+–
+</div>
+<p>Whether to recursively ungroup <em>container</em></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span>[ <a title="GES.Container" href="gst-editing-services/gescontainer.html#GESContainer">GES.Container</a> ]<span>)</span>
+–
+			</div>
+							<p>The list of
+new <a href="gst-editing-services/gescontainer.html#GESContainer">GES.Container</a>-s created from the splitting of <em>container</em>.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+
+            <h3 class="symbol_section">Functions</h3>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="ges_container_group">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="ges_container_group">
+	<i>ges_container_group</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GESContainer" href="gst-editing-services/gescontainer.html#GESContainer">GESContainer</a> *
+ges_container_group (<a title="GList" href="https://docs.gtk.org/glib/struct.List.html">GList</a> * containers)</pre>
+
+<p>Groups the containers into a single container by merging them. The
+containers must all belong to the same <a href="gst-editing-services/gestimelineelement.html#GESTimelineElement:timeline">timeline</a>.</p>
+<p>If the elements are all <a href="gst-editing-services/gesclip.html#GESClip">GESClip</a>-s then this method will attempt to
+combine them all into a single <a href="gst-editing-services/gesclip.html#GESClip">GESClip</a>. This should succeed if they:
+share the same <a href="gst-editing-services/gestimelineelement.html#GESTimelineElement:start">start</a>, <a href="gst-editing-services/gestimelineelement.html#GESTimelineElement:duration">duration</a>
+and <a href="gst-editing-services/gestimelineelement.html#GESTimelineElement:in-point">in-point</a>; exist in the same layer; and all of
+the sources share the same <a href="gst-editing-services/gesasset.html#GESAsset">GESAsset</a>. If this fails, or one of the
+elements is not a <a href="gst-editing-services/gesclip.html#GESClip">GESClip</a>, this method will try to create a <a href="gst-editing-services/gesgroup.html#GESGroup">GESGroup</a>
+instead.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>containers</code></em></i>
+–
+</div>
+<p>(transfer none) (element-type GESContainer) (nullable):
+The <a href="gst-editing-services/gescontainer.html#GESContainer">GESContainer</a>-s to group</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span>
+<span class="annotation">[<abbr title="Alias for transfer none, used for objects with floating refs"><span class="acronym">transfer: floating</span></abbr>]</span><span class="annotation">[<abbr title="NULL may be passed to the value"><span class="acronym">nullable</span></abbr>]</span><span>)</span>
+–
+			</div>
+							<p>The container created by merging
+<em>containers</em>, or <a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#NULL:CAPS">NULL</a> if they could not be merged into a single
+container.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="ges_container_group">
+	<i>GES.Container.prototype.group</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GES.Container.prototype.group(containers: [ <a title="GES.Container" href="gst-editing-services/gescontainer.html#GESContainer">GES.Container</a> ]): {
+    // javascript wrapper for 'ges_container_group'
+}</code></pre>
+
+<p>Groups the containers into a single container by merging them. The
+containers must all belong to the same <a href="gst-editing-services/gestimelineelement.html#GESTimelineElement:timeline">timeline</a>.</p>
+<p>If the elements are all <a href="gst-editing-services/gesclip.html#GESClip">GES.Clip</a>-s then this method will attempt to
+combine them all into a single <a href="gst-editing-services/gesclip.html#GESClip">GES.Clip</a>. This should succeed if they:
+share the same <a href="gst-editing-services/gestimelineelement.html#GESTimelineElement:start">start</a>, <a href="gst-editing-services/gestimelineelement.html#GESTimelineElement:duration">duration</a>
+and <a href="gst-editing-services/gestimelineelement.html#GESTimelineElement:in-point">in-point</a>; exist in the same layer; and all of
+the sources share the same <a href="gst-editing-services/gesasset.html#GESAsset">GES.Asset</a>. If this fails, or one of the
+elements is not a <a href="gst-editing-services/gesclip.html#GESClip">GES.Clip</a>, this method will try to create a <a href="gst-editing-services/gesgroup.html#GESGroup">GES.Group</a>
+instead.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>containers</code></em></i>
+<span>(</span>[ <a title="GES.Container" href="gst-editing-services/gescontainer.html#GESContainer">GES.Container</a> ]<span>)</span>
+–
+</div>
+<p>(transfer none) (element-type GESContainer) (nullable):
+The <a href="gst-editing-services/gescontainer.html#GESContainer">GES.Container</a>-s to group</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GES.Container" href="gst-editing-services/gescontainer.html#GESContainer">GES.Container</a><span>)</span>
+–
+			</div>
+							<p>The container created by merging
+<em>containers</em>, or <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null">null</a> if they could not be merged into a single
+container.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="ges_container_group">
+	<i>GES.Container.group</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GES.Container.group (containers):
+    #python wrapper for 'ges_container_group'</code></pre>
+
+<p>Groups the containers into a single container by merging them. The
+containers must all belong to the same <a href="gst-editing-services/gestimelineelement.html#GESTimelineElement:timeline">timeline</a>.</p>
+<p>If the elements are all <a href="gst-editing-services/gesclip.html#GESClip">GES.Clip</a>-s then this method will attempt to
+combine them all into a single <a href="gst-editing-services/gesclip.html#GESClip">GES.Clip</a>. This should succeed if they:
+share the same <a href="gst-editing-services/gestimelineelement.html#GESTimelineElement:start">start</a>, <a href="gst-editing-services/gestimelineelement.html#GESTimelineElement:duration">duration</a>
+and <a href="gst-editing-services/gestimelineelement.html#GESTimelineElement:in-point">in_point</a>; exist in the same layer; and all of
+the sources share the same <a href="gst-editing-services/gesasset.html#GESAsset">GES.Asset</a>. If this fails, or one of the
+elements is not a <a href="gst-editing-services/gesclip.html#GESClip">GES.Clip</a>, this method will try to create a <a href="gst-editing-services/gesgroup.html#GESGroup">GES.Group</a>
+instead.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>containers</code></em></i>
+<span>(</span>[ <a title="GES.Container" href="gst-editing-services/gescontainer.html#GESContainer">GES.Container</a> ]<span>)</span>
+–
+</div>
+<p>(transfer none) (element-type GESContainer) (nullable):
+The <a href="gst-editing-services/gescontainer.html#GESContainer">GES.Container</a>-s to group</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GES.Container" href="gst-editing-services/gescontainer.html#GESContainer">GES.Container</a><span>)</span>
+–
+			</div>
+							<p>The container created by merging
+<em>containers</em>, or <a href="https://docs.python.org/3/library/constants.html#None">None</a> if they could not be merged into a single
+container.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+
+            <h3 class="symbol_section">Signals</h3>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GESContainer::child-added">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GESContainer::child-added">
+	<i>child-added</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+child_added_callback (<a title="GESContainer" href="gst-editing-services/gescontainer.html#GESContainer">GESContainer</a> * self,
+                      <a title="GESTimelineElement" href="gst-editing-services/gestimelineelement.html#GESTimelineElement">GESTimelineElement</a> * element,
+                      <a title="gpointer" href="https://docs.gtk.org/glib/types.html#gpointer">gpointer</a> user_data)</pre>
+
+<p>Will be emitted after a child is added to the container. Usually,
+you should connect with <a href="https://docs.gtk.org/gobject/func.signal_connect_after.html">g_signal_connect_after</a> since the signal
+may be stopped internally.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>element</code></em></i>
+–
+</div>
+<p>The child that was added</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>user_data</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+<p>
+	<b>Flags:</b>	
+	
+		
+				<a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-FIRST:CAPS">Run First</a>
+			
+</p>
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GESContainer::child-added">
+	<i>child-added</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function child_added_callback(self: <a title="GES.Container" href="gst-editing-services/gescontainer.html#GESContainer">GES.Container</a>, element: <a title="GES.TimelineElement" href="gst-editing-services/gestimelineelement.html#GESTimelineElement">GES.TimelineElement</a>, user_data: <a title="Object" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>): {
+    // javascript callback for the 'child-added' signal
+}</code></pre>
+
+<p>Will be emitted after a child is added to the container. Usually,
+you should connect with <a href="https://docs.gtk.org/gobject/func.signal_connect_after.html">g_signal_connect_after (not introspectable)</a> since the signal
+may be stopped internally.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+<span>(</span><a title="GES.Container" href="gst-editing-services/gescontainer.html#GESContainer">GES.Container</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>element</code></em></i>
+<span>(</span><a title="GES.TimelineElement" href="gst-editing-services/gestimelineelement.html#GESTimelineElement">GES.TimelineElement</a><span>)</span>
+–
+</div>
+<p>The child that was added</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>user_data</code></em></i>
+<span>(</span><a title="Object" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+<p>
+	<b>Flags:</b>	
+	
+		
+				<a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-FIRST:CAPS">Run First</a>
+			
+</p>
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GESContainer::child-added">
+	<i>child-added</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def child_added_callback (self, element, *user_data):
+    #python callback for the 'child-added' signal</code></pre>
+
+<p>Will be emitted after a child is added to the container. Usually,
+you should connect with <a href="https://docs.gtk.org/gobject/func.signal_connect_after.html">g_signal_connect_after (not introspectable)</a> since the signal
+may be stopped internally.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+<span>(</span><a title="GES.Container" href="gst-editing-services/gescontainer.html#GESContainer">GES.Container</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>element</code></em></i>
+<span>(</span><a title="GES.TimelineElement" href="gst-editing-services/gestimelineelement.html#GESTimelineElement">GES.TimelineElement</a><span>)</span>
+–
+</div>
+<p>The child that was added</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>user_data</code></em></i>
+<span>(</span><a title="variadic" href="https://docs.python.org/dev/tutorial/controlflow.html#arbitrary-argument-lists">variadic</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+<p>
+	<b>Flags:</b>	
+	
+		
+				<a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-FIRST:CAPS">Run First</a>
+			
+</p>
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GESContainer::child-removed">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GESContainer::child-removed">
+	<i>child-removed</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+child_removed_callback (<a title="GESContainer" href="gst-editing-services/gescontainer.html#GESContainer">GESContainer</a> * self,
+                        <a title="GESTimelineElement" href="gst-editing-services/gestimelineelement.html#GESTimelineElement">GESTimelineElement</a> * element,
+                        <a title="gpointer" href="https://docs.gtk.org/glib/types.html#gpointer">gpointer</a> user_data)</pre>
+
+<p>Will be emitted after a child is removed from the container.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>element</code></em></i>
+–
+</div>
+<p>The child that was removed</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>user_data</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+<p>
+	<b>Flags:</b>	
+	
+		
+				<a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS">Run Last</a>
+			
+</p>
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GESContainer::child-removed">
+	<i>child-removed</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function child_removed_callback(self: <a title="GES.Container" href="gst-editing-services/gescontainer.html#GESContainer">GES.Container</a>, element: <a title="GES.TimelineElement" href="gst-editing-services/gestimelineelement.html#GESTimelineElement">GES.TimelineElement</a>, user_data: <a title="Object" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>): {
+    // javascript callback for the 'child-removed' signal
+}</code></pre>
+
+<p>Will be emitted after a child is removed from the container.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+<span>(</span><a title="GES.Container" href="gst-editing-services/gescontainer.html#GESContainer">GES.Container</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>element</code></em></i>
+<span>(</span><a title="GES.TimelineElement" href="gst-editing-services/gestimelineelement.html#GESTimelineElement">GES.TimelineElement</a><span>)</span>
+–
+</div>
+<p>The child that was removed</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>user_data</code></em></i>
+<span>(</span><a title="Object" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+<p>
+	<b>Flags:</b>	
+	
+		
+				<a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS">Run Last</a>
+			
+</p>
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GESContainer::child-removed">
+	<i>child-removed</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def child_removed_callback (self, element, *user_data):
+    #python callback for the 'child-removed' signal</code></pre>
+
+<p>Will be emitted after a child is removed from the container.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+<span>(</span><a title="GES.Container" href="gst-editing-services/gescontainer.html#GESContainer">GES.Container</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>element</code></em></i>
+<span>(</span><a title="GES.TimelineElement" href="gst-editing-services/gestimelineelement.html#GESTimelineElement">GES.TimelineElement</a><span>)</span>
+–
+</div>
+<p>The child that was removed</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>user_data</code></em></i>
+<span>(</span><a title="variadic" href="https://docs.python.org/dev/tutorial/controlflow.html#arbitrary-argument-lists">variadic</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+<p>
+	<b>Flags:</b>	
+	
+		
+				<a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS">Run Last</a>
+			
+</p>
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+
+            <h3 class="symbol_section">Properties</h3>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GESContainer:height">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GESContainer:height">
+	<i>height</i>
+</h4>
+
+
+<pre class="property_signature">
+“height” <span class="type"><a title="guint" href="https://docs.gtk.org/glib/types.html#guint">guint</a></span>
+</pre>
+
+<p>The span of the container's children's <a href="gst-editing-services/gestimelineelement.html#GESTimelineElement:priority">priority</a>
+values, which is the number of integers that lie between (inclusive)
+the minimum and maximum priorities found amongst the container's
+children (maximum - minimum + 1).</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+</p>
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GESContainer:height">
+	<i>height</i>
+</h4>
+
+
+<pre class="property_signature">
+“height” <span class="type"><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a></span>
+</pre>
+
+<p>The span of the container's children's <a href="gst-editing-services/gestimelineelement.html#GESTimelineElement:priority">priority</a>
+values, which is the number of integers that lie between (inclusive)
+the minimum and maximum priorities found amongst the container's
+children (maximum - minimum + 1).</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+</p>
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GESContainer:height">
+	<i>height</i>
+</h4>
+
+
+<pre class="property_signature">
+“self.props.height” <span class="type"><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a></span>
+</pre>
+
+<p>The span of the container's children's <a href="gst-editing-services/gestimelineelement.html#GESTimelineElement:priority">priority</a>
+values, which is the number of integers that lie between (inclusive)
+the minimum and maximum priorities found amongst the container's
+children (maximum - minimum + 1).</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+</p>
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+
+            <h3 class="symbol_section">Virtual Methods</h3>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GESContainerClass::add_child">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GESContainerClass::add_child">
+	<i>add_child</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a>
+add_child (<a title="GESContainer" href="gst-editing-services/gescontainer.html#GESContainer">GESContainer</a> * container,
+           <a title="GESTimelineElement" href="gst-editing-services/gestimelineelement.html#GESTimelineElement">GESTimelineElement</a> * element)</pre>
+
+<p>Virtual method to add a child</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>container</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>element</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GESContainerClass::add_child">
+	<i>vfunc_add_child</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function vfunc_add_child(container: <a title="GES.Container" href="gst-editing-services/gescontainer.html#GESContainer">GES.Container</a>, element: <a title="GES.TimelineElement" href="gst-editing-services/gestimelineelement.html#GESTimelineElement">GES.TimelineElement</a>): {
+    // javascript implementation of the 'add_child' virtual method
+}</code></pre>
+
+<p>Virtual method to add a child</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>container</code></em></i>
+<span>(</span><a title="GES.Container" href="gst-editing-services/gescontainer.html#GESContainer">GES.Container</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>element</code></em></i>
+<span>(</span><a title="GES.TimelineElement" href="gst-editing-services/gestimelineelement.html#GESTimelineElement">GES.TimelineElement</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GESContainerClass::add_child">
+	<i>do_add_child</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def do_add_child (container, element):
+    #python implementation of the 'add_child' virtual method</code></pre>
+
+<p>Virtual method to add a child</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>container</code></em></i>
+<span>(</span><a title="GES.Container" href="gst-editing-services/gescontainer.html#GESContainer">GES.Container</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>element</code></em></i>
+<span>(</span><a title="GES.TimelineElement" href="gst-editing-services/gestimelineelement.html#GESTimelineElement">GES.TimelineElement</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a><span>)</span>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GESContainerClass::child_added">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GESContainerClass::child_added">
+	<i>child_added</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+child_added (<a title="GESContainer" href="gst-editing-services/gescontainer.html#GESContainer">GESContainer</a> * container,
+             <a title="GESTimelineElement" href="gst-editing-services/gestimelineelement.html#GESTimelineElement">GESTimelineElement</a> * element)</pre>
+
+<p>Virtual method that is called right after a <a href="gst-editing-services/gestimelineelement.html#GESTimelineElement">GESTimelineElement</a> is added</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>container</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>element</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GESContainerClass::child_added">
+	<i>vfunc_child_added</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function vfunc_child_added(container: <a title="GES.Container" href="gst-editing-services/gescontainer.html#GESContainer">GES.Container</a>, element: <a title="GES.TimelineElement" href="gst-editing-services/gestimelineelement.html#GESTimelineElement">GES.TimelineElement</a>): {
+    // javascript implementation of the 'child_added' virtual method
+}</code></pre>
+
+<p>Virtual method that is called right after a <a href="gst-editing-services/gestimelineelement.html#GESTimelineElement">GES.TimelineElement</a> is added</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>container</code></em></i>
+<span>(</span><a title="GES.Container" href="gst-editing-services/gescontainer.html#GESContainer">GES.Container</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>element</code></em></i>
+<span>(</span><a title="GES.TimelineElement" href="gst-editing-services/gestimelineelement.html#GESTimelineElement">GES.TimelineElement</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GESContainerClass::child_added">
+	<i>do_child_added</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def do_child_added (container, element):
+    #python implementation of the 'child_added' virtual method</code></pre>
+
+<p>Virtual method that is called right after a <a href="gst-editing-services/gestimelineelement.html#GESTimelineElement">GES.TimelineElement</a> is added</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>container</code></em></i>
+<span>(</span><a title="GES.Container" href="gst-editing-services/gescontainer.html#GESContainer">GES.Container</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>element</code></em></i>
+<span>(</span><a title="GES.TimelineElement" href="gst-editing-services/gestimelineelement.html#GESTimelineElement">GES.TimelineElement</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GESContainerClass::child_removed">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GESContainerClass::child_removed">
+	<i>child_removed</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+child_removed (<a title="GESContainer" href="gst-editing-services/gescontainer.html#GESContainer">GESContainer</a> * container,
+               <a title="GESTimelineElement" href="gst-editing-services/gestimelineelement.html#GESTimelineElement">GESTimelineElement</a> * element)</pre>
+
+<p>Virtual method that is called right after a <a href="gst-editing-services/gestimelineelement.html#GESTimelineElement">GESTimelineElement</a> is removed</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>container</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>element</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GESContainerClass::child_removed">
+	<i>vfunc_child_removed</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function vfunc_child_removed(container: <a title="GES.Container" href="gst-editing-services/gescontainer.html#GESContainer">GES.Container</a>, element: <a title="GES.TimelineElement" href="gst-editing-services/gestimelineelement.html#GESTimelineElement">GES.TimelineElement</a>): {
+    // javascript implementation of the 'child_removed' virtual method
+}</code></pre>
+
+<p>Virtual method that is called right after a <a href="gst-editing-services/gestimelineelement.html#GESTimelineElement">GES.TimelineElement</a> is removed</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>container</code></em></i>
+<span>(</span><a title="GES.Container" href="gst-editing-services/gescontainer.html#GESContainer">GES.Container</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>element</code></em></i>
+<span>(</span><a title="GES.TimelineElement" href="gst-editing-services/gestimelineelement.html#GESTimelineElement">GES.TimelineElement</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GESContainerClass::child_removed">
+	<i>do_child_removed</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def do_child_removed (container, element):
+    #python implementation of the 'child_removed' virtual method</code></pre>
+
+<p>Virtual method that is called right after a <a href="gst-editing-services/gestimelineelement.html#GESTimelineElement">GES.TimelineElement</a> is removed</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>container</code></em></i>
+<span>(</span><a title="GES.Container" href="gst-editing-services/gescontainer.html#GESContainer">GES.Container</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>element</code></em></i>
+<span>(</span><a title="GES.TimelineElement" href="gst-editing-services/gestimelineelement.html#GESTimelineElement">GES.TimelineElement</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GESContainerClass::edit">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GESContainerClass::edit">
+	<i>edit</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a>
+edit (<a title="GESContainer" href="gst-editing-services/gescontainer.html#GESContainer">GESContainer</a> * container,
+      <a title="GList" href="https://docs.gtk.org/glib/struct.List.html">GList</a> * layers,
+      <a title="gint" href="https://docs.gtk.org/glib/types.html#gint">gint</a> new_layer_priority,
+      <a title="GESEditMode" href="gst-editing-services/ges-enums.html#GESEditMode">GESEditMode</a> mode,
+      <a title="GESEdge" href="gst-editing-services/ges-enums.html#GESEdge">GESEdge</a> edge,
+      <a title="guint64" href="https://docs.gtk.org/glib/types.html#guint64">guint64</a> position)</pre>
+
+<p>Deprecated</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>container</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>layers</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>new_layer_priority</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>mode</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>edge</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>position</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GESContainerClass::edit">
+	<i>vfunc_edit</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function vfunc_edit(container: <a title="GES.Container" href="gst-editing-services/gescontainer.html#GESContainer">GES.Container</a>, layers: [ <a title="GES.Layer" href="gst-editing-services/geslayer.html#GESLayer">GES.Layer</a> ], new_layer_priority: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>, mode: <a title="GES.EditMode" href="gst-editing-services/ges-enums.html#GESEditMode">GES.EditMode</a>, edge: <a title="GES.Edge" href="gst-editing-services/ges-enums.html#GESEdge">GES.Edge</a>, position: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>): {
+    // javascript implementation of the 'edit' virtual method
+}</code></pre>
+
+<p>Deprecated</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>container</code></em></i>
+<span>(</span><a title="GES.Container" href="gst-editing-services/gescontainer.html#GESContainer">GES.Container</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>layers</code></em></i>
+<span>(</span>[ <a title="GES.Layer" href="gst-editing-services/geslayer.html#GESLayer">GES.Layer</a> ]<span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>new_layer_priority</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>mode</code></em></i>
+<span>(</span><a title="GES.EditMode" href="gst-editing-services/ges-enums.html#GESEditMode">GES.EditMode</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>edge</code></em></i>
+<span>(</span><a title="GES.Edge" href="gst-editing-services/ges-enums.html#GESEdge">GES.Edge</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>position</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GESContainerClass::edit">
+	<i>do_edit</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def do_edit (container, layers, new_layer_priority, mode, edge, position):
+    #python implementation of the 'edit' virtual method</code></pre>
+
+<p>Deprecated</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>container</code></em></i>
+<span>(</span><a title="GES.Container" href="gst-editing-services/gescontainer.html#GESContainer">GES.Container</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>layers</code></em></i>
+<span>(</span>[ <a title="GES.Layer" href="gst-editing-services/geslayer.html#GESLayer">GES.Layer</a> ]<span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>new_layer_priority</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>mode</code></em></i>
+<span>(</span><a title="GES.EditMode" href="gst-editing-services/ges-enums.html#GESEditMode">GES.EditMode</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>edge</code></em></i>
+<span>(</span><a title="GES.Edge" href="gst-editing-services/ges-enums.html#GESEdge">GES.Edge</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>position</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a><span>)</span>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GESContainerClass::remove_child">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GESContainerClass::remove_child">
+	<i>remove_child</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a>
+remove_child (<a title="GESContainer" href="gst-editing-services/gescontainer.html#GESContainer">GESContainer</a> * container,
+              <a title="GESTimelineElement" href="gst-editing-services/gestimelineelement.html#GESTimelineElement">GESTimelineElement</a> * element)</pre>
+
+<p>Virtual method to remove a child</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>container</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>element</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GESContainerClass::remove_child">
+	<i>vfunc_remove_child</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function vfunc_remove_child(container: <a title="GES.Container" href="gst-editing-services/gescontainer.html#GESContainer">GES.Container</a>, element: <a title="GES.TimelineElement" href="gst-editing-services/gestimelineelement.html#GESTimelineElement">GES.TimelineElement</a>): {
+    // javascript implementation of the 'remove_child' virtual method
+}</code></pre>
+
+<p>Virtual method to remove a child</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>container</code></em></i>
+<span>(</span><a title="GES.Container" href="gst-editing-services/gescontainer.html#GESContainer">GES.Container</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>element</code></em></i>
+<span>(</span><a title="GES.TimelineElement" href="gst-editing-services/gestimelineelement.html#GESTimelineElement">GES.TimelineElement</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GESContainerClass::remove_child">
+	<i>do_remove_child</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def do_remove_child (container, element):
+    #python implementation of the 'remove_child' virtual method</code></pre>
+
+<p>Virtual method to remove a child</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>container</code></em></i>
+<span>(</span><a title="GES.Container" href="gst-editing-services/gescontainer.html#GESContainer">GES.Container</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>element</code></em></i>
+<span>(</span><a title="GES.TimelineElement" href="gst-editing-services/gestimelineelement.html#GESTimelineElement">GES.TimelineElement</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a><span>)</span>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GESContainerClass::ungroup">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GESContainerClass::ungroup">
+	<i>ungroup</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GList" href="https://docs.gtk.org/glib/struct.List.html">GList</a> *
+ungroup (<a title="GESContainer" href="gst-editing-services/gescontainer.html#GESContainer">GESContainer</a> * container,
+         <a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a> recursive)</pre>
+
+<p>Virtual method to ungroup a container into a list of
+containers</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>container</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>recursive</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GESContainerClass::ungroup">
+	<i>vfunc_ungroup</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function vfunc_ungroup(container: <a title="GES.Container" href="gst-editing-services/gescontainer.html#GESContainer">GES.Container</a>, recursive: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>): {
+    // javascript implementation of the 'ungroup' virtual method
+}</code></pre>
+
+<p>Virtual method to ungroup a container into a list of
+containers</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>container</code></em></i>
+<span>(</span><a title="GES.Container" href="gst-editing-services/gescontainer.html#GESContainer">GES.Container</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>recursive</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span>[ <a title="GES.Container" href="gst-editing-services/gescontainer.html#GESContainer">GES.Container</a> ]<span>)</span>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GESContainerClass::ungroup">
+	<i>do_ungroup</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def do_ungroup (container, recursive):
+    #python implementation of the 'ungroup' virtual method</code></pre>
+
+<p>Virtual method to ungroup a container into a list of
+containers</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>container</code></em></i>
+<span>(</span><a title="GES.Container" href="gst-editing-services/gescontainer.html#GESContainer">GES.Container</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>recursive</code></em></i>
+<span>(</span><a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span>[ <a title="GES.Container" href="gst-editing-services/gescontainer.html#GESContainer">GES.Container</a> ]<span>)</span>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+
+        
+
+            <h2 class="symbol_section">Function Macros</h2>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GES_CONTAINER_CHILDREN">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GES_CONTAINER_CHILDREN">
+	<i>GES_CONTAINER_CHILDREN</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GES_CONTAINER_CHILDREN(obj) (((GESContainer*)obj)-&gt;children)
+</pre>
+
+<p>The <a href="https://docs.gtk.org/glib/struct.List.html">GList</a> containing the children of <em>obj</em>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>obj</code></em></i>
+–
+</div>
+<p>a <a href="gst-editing-services/gescontainer.html#GESContainer">GESContainer</a></p>
+
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GES_CONTAINER_HEIGHT">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GES_CONTAINER_HEIGHT">
+	<i>GES_CONTAINER_HEIGHT</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GES_CONTAINER_HEIGHT(obj) (((GESContainer*)obj)-&gt;height)
+</pre>
+
+<p>The <a href="gst-editing-services/gescontainer.html#GESContainer:height">height</a> of <em>obj</em>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>obj</code></em></i>
+–
+</div>
+<p>a <a href="gst-editing-services/gescontainer.html#GESContainer">GESContainer</a></p>
+
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+
+            <h2 class="symbol_section">Enumerations</h2>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GESChildrenControlMode">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GESChildrenControlMode">
+	<i>GESChildrenControlMode</i>
+</h3>
+
+
+<p>To be used by subclasses only. This indicate how to handle a change in
+a child.</p>
+
+
+
+
+	<div class="members-container">
+		<h5>Members</h5>
+					
+<div class="symbol-detail" data-hotdoc-id="GES_CHILDREN_UPDATE">
+	<div>
+		<i><em><code>GES_CHILDREN_UPDATE</code></em></i>
+		(<span class="value">0</span>)
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GES_CHILDREN_IGNORE_NOTIFIES">
+	<div>
+		<i><em><code>GES_CHILDREN_IGNORE_NOTIFIES</code></em></i>
+		(<span class="value">1</span>)
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GES_CHILDREN_UPDATE_OFFSETS">
+	<div>
+		<i><em><code>GES_CHILDREN_UPDATE_OFFSETS</code></em></i>
+		(<span class="value">2</span>)
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GES_CHILDREN_UPDATE_ALL_VALUES">
+	<div>
+		<i><em><code>GES_CHILDREN_UPDATE_ALL_VALUES</code></em></i>
+		(<span class="value">3</span>)
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GES_CHILDREN_LAST">
+	<div>
+		<i><em><code>GES_CHILDREN_LAST</code></em></i>
+		(<span class="value">4</span>)
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+			</div>
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3 data-hotdoc-id="GESChildrenControlMode">
+	<i>GES.ChildrenControlMode</i>
+</h3>
+
+
+<p>To be used by subclasses only. This indicate how to handle a change in
+a child.</p>
+
+
+
+
+	<div class="members-container">
+		<h5>Members</h5>
+					
+<div class="symbol-detail" data-hotdoc-id="GES_CHILDREN_UPDATE">
+	<div>
+		<i><em><code>GES.ChildrenControlMode.UPDATE</code></em></i>
+		(<span class="value">0</span>)
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GES_CHILDREN_IGNORE_NOTIFIES">
+	<div>
+		<i><em><code>GES.ChildrenControlMode.IGNORE_NOTIFIES</code></em></i>
+		(<span class="value">1</span>)
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GES_CHILDREN_UPDATE_OFFSETS">
+	<div>
+		<i><em><code>GES.ChildrenControlMode.UPDATE_OFFSETS</code></em></i>
+		(<span class="value">2</span>)
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GES_CHILDREN_UPDATE_ALL_VALUES">
+	<div>
+		<i><em><code>GES.ChildrenControlMode.UPDATE_ALL_VALUES</code></em></i>
+		(<span class="value">3</span>)
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GES_CHILDREN_LAST">
+	<div>
+		<i><em><code>GES.ChildrenControlMode.LAST</code></em></i>
+		(<span class="value">4</span>)
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+			</div>
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3 data-hotdoc-id="GESChildrenControlMode">
+	<i>GES.ChildrenControlMode</i>
+</h3>
+
+
+<p>To be used by subclasses only. This indicate how to handle a change in
+a child.</p>
+
+
+
+
+	<div class="members-container">
+		<h5>Members</h5>
+					
+<div class="symbol-detail" data-hotdoc-id="GES_CHILDREN_UPDATE">
+	<div>
+		<i><em><code>GES.ChildrenControlMode.UPDATE</code></em></i>
+		(<span class="value">0</span>)
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GES_CHILDREN_IGNORE_NOTIFIES">
+	<div>
+		<i><em><code>GES.ChildrenControlMode.IGNORE_NOTIFIES</code></em></i>
+		(<span class="value">1</span>)
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GES_CHILDREN_UPDATE_OFFSETS">
+	<div>
+		<i><em><code>GES.ChildrenControlMode.UPDATE_OFFSETS</code></em></i>
+		(<span class="value">2</span>)
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GES_CHILDREN_UPDATE_ALL_VALUES">
+	<div>
+		<i><em><code>GES.ChildrenControlMode.UPDATE_ALL_VALUES</code></em></i>
+		(<span class="value">3</span>)
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GES_CHILDREN_LAST">
+	<div>
+		<i><em><code>GES.ChildrenControlMode.LAST</code></em></i>
+		(<span class="value">4</span>)
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+			</div>
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+
+            <h2 class="symbol_section">Constants</h2>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GES_TYPE_CONTAINER">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GES_TYPE_CONTAINER">
+	<i>GES_TYPE_CONTAINER</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GES_TYPE_CONTAINER             ges_container_get_type()
+</pre>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+
+
+
+
+
+		
+	</div>
+	<div id="search_results">
+		<p>The results of the search are</p>
+	</div>
+	<div id="footer">
+		    
+
+	</div>
+</div>
+
+<div id="toc-column">
+	
+		<div class="edit-button">
+		
+
+	</div>
+		<div id="toc-wrapper">
+		<nav id="toc"></nav>
+	</div>
+</div>
+</div>
+</main>
+
+
+<script src="assets/js/navbar_offset_scroller.js"></script>
+</body>
+</html>

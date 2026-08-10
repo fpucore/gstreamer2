@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<base href="../..">
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<title>What to do when a plugin is missing</title>
+
+<link rel="stylesheet" href="assets/css/dark-frontend.css" type="text/css" title="dark">
+<link rel="alternate stylesheet" href="assets/css/light-frontend.css" type="text/css" title="light">
+<link rel="stylesheet" href="assets/css/bootstrap-toc.min.css" type="text/css">
+<link rel="stylesheet" href="assets/css/jquery.mCustomScrollbar.min.css">
+<link rel="stylesheet" href="assets/js/search/enable_search.css" type="text/css">
+
+<link rel="stylesheet" href="assets/css/extra_frontend.css" type="text/css">
+<link rel="stylesheet" href="assets/css/devhelp.css" type="text/css">
+
+<link rel="stylesheet" href="assets/css/prism-tomorrow.css" type="text/css" title="dark">
+
+<link rel="alternate stylesheet" href="assets/css/prism.css" type="text/css" title="light">
+
+<script src="assets/js/mustache.min.js"></script>
+<script src="assets/js/jquery.js"></script>
+<script src="assets/js/bootstrap.js"></script>
+<script src="assets/js/scrollspy.js"></script>
+<script src="assets/js/typeahead.jquery.min.js"></script>
+<script src="assets/js/search.js"></script>
+<script src="assets/js/compare-versions.js"></script>
+<script src="assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="assets/js/bootstrap-toc.min.js"></script>
+<script src="assets/js/jquery.touchSwipe.min.js"></script>
+<script src="assets/js/anchor.min.js"></script>
+<script src="assets/js/tag_filtering.js"></script>
+<script src="assets/js/language_switching.js"></script>
+<script src="assets/js/styleswitcher.js"></script>
+
+<script src="assets/js/lines_around_headings.js"></script>
+
+<script src="assets/js/prism-core.js"></script>
+<script src="assets/js/prism-autoloader.js"></script>
+<script src="assets/js/prism_autoloader_path_override.js"></script>
+<script src="assets/js/trie.js"></script>
+
+<!-- generic -->
+<link rel="icon" type="image/png" href="assets/images/favicon-16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="assets/images/favicon-32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="assets/images/favicon-57.png" sizes="57x57">
+<link rel="icon" type="image/png" href="assets/images/favicon-64.png" sizes="64x64">
+<link rel="icon" type="image/png" href="assets/images/favicon-76.png" sizes="76x76">
+<link rel="icon" type="image/png" href="assets/images/favicon-96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="assets/images/favicon-128.png" sizes="128x128">
+<link rel="icon" type="image/png" href="assets/images/favicon-192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="assets/images/favicon-228.png" sizes="228x228">
+
+<!-- Android -->
+<link rel="shortcut icon" sizes="196x196" href="assets/images/favicon-196.png">
+
+<!-- iOS -->
+<link rel="apple-touch-icon" href="assets/images/favicon-120.png" sizes="120x120">
+<link rel="apple-touch-icon" href="assets/images/favicon-152.png" sizes="152x152">
+<link rel="apple-touch-icon" href="assets/images/favicon-180.png" sizes="180x180">
+
+</head>
+
+<body class="no-script
+">
+
+<script>
+$('body').removeClass('no-script');
+</script>
+
+<nav class="navbar navbar-fixed-top navbar-default" id="topnav">
+	<div class="container-fluid">
+		<div class="navbar-right">
+			<a id="toc-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-wrapper" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<span title="light mode switch" class="glyphicon glyphicon-sunglasses pull-right" id="lightmode-icon"></span>
+			<form class="navbar-form pull-right" id="navbar-search-form">
+                               <div class="form-group has-feedback">
+                                       <input type="text" class="form-control input-sm" name="search" id="sidenav-lookup-field" placeholder="search" disabled>
+				       <span class="glyphicon glyphicon-search form-control-feedback" id="search-mgn-glass"></span>
+                               </div>
+                        </form>
+		</div>
+		<div class="navbar-header">
+			<a id="sidenav-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<a id="home-link" href="index.html" class="hotdoc-navbar-brand">
+				<img src="assets/images/gstreamer-logo.svg" alt="Home">
+			</a>
+		</div>
+		<div class="navbar-collapse collapse" id="navbar-wrapper">
+			<ul class="nav navbar-nav" id="menu">
+				
+<li class="dropdown">
+    <a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        API References<span class="caret"></span>
+    </a>
+	<ul class="dropdown-menu" id="modules-menu">
+					<li>
+				<a href="gstreamer/gi-index.html">GStreamer core</a>
+			</li>
+					<li>
+				<a href="libs.html">GStreamer Libraries</a>
+			</li>
+					<li>
+				<a href="plugins_doc.html">GStreamer Plugins</a>
+			</li>
+		</ul>
+</li>
+
+<li>
+    <a href="application-development/index.html">Application manual</a>
+</li>
+
+
+<li>
+    <a href="tutorials/index.html">Tutorials</a>
+</li>
+
+			</ul>
+			<div class="hidden-xs hidden-sm navbar-text navbar-center">
+							</div>
+		</div>
+	</div>
+</nav>
+
+<main>
+<div data-extension="gi-extension" data-hotdoc-in-toplevel="True" data-hotdoc-project="GStreamer" data-hotdoc-ref="additional/design/missing-plugins.html" class="page_container" id="page-wrapper" data-hotdoc-meta-gi-languages="['c', 'javascript', 'python']" data-hotdoc-meta-gi-language="c">
+<script src="assets/js/utils.js"></script>
+
+<div class="panel panel-collapse oc-collapsed" id="sidenav" data-hotdoc-role="navigation">
+	<script src="assets/js/full-width.js"></script>
+  <div id="sitenav-wrapper">
+    <iframe src="hotdoc-sitemap.html" id="sitenav-frame"></iframe>
+  </div>
+</div>
+
+<div id="body">
+	<div id="main">
+				    <div id="page-description" data-hotdoc-role="main">
+        <h1 id="what-to-do-when-a-plugin-is-missing">What to do when a plugin is missing</h1>
+<p>The mechanism and API described in this document requires GStreamer core
+and gst-plugins-base versions &gt;= 0.10.12. Further information on some
+aspects of this document can be found in the libgstbaseutils API
+reference.</p>
+<p>We only discuss playback pipelines for now.</p>
+<p>A three step process:</p>
+<h1 id="gstreamer-level">GStreamer level</h1>
+<p>Elements will use a "missing-plugin" element message to report
+missing plugins, with the following fields set:</p>
+<ul>
+<li>
+<p><strong><code>type</code></strong>: (string) { "urisource", "urisink", "decoder", "encoder",
+"element" } (we do not distinguish between demuxer/decoders/parsers etc.)</p>
+</li>
+<li>
+<p><strong><code>detail</code></strong>: (string) or (caps) depending on the type { ANY } ex: "rtsp,
+"rtspt", "audio/x-mp3,rate=48000,…"</p>
+</li>
+<li>
+<p><strong><code>name</code></strong>: (string) { ANY } ex: "RTSP protocol handler",..</p>
+</li>
+</ul>
+<h3 id="missing-uri-handler">missing uri handler</h3>
+<p>ex. rtsp://some.camera/stream1</p>
+<p>When no protocol handler is installed for rtsp://, the application will not be
+able to instantiate an element for that uri (<code>gst_element_make_from_uri()</code>
+returns NULL).</p>
+<p>Playbin will post a <code>missing-plugin</code> element message with the type set to
+"urisource", detail set to "rtsp". Optionally the friendly name can be filled
+in as well.</p>
+<h3 id="missing-typefind-function">missing typefind function</h3>
+<p>We don't recognize the type of the file, this should normally not happen
+because all the typefinders are in the basic GStreamer installation.
+There is not much useful information we can give about how to resolve this
+issue. It is possible to use the first N bytes of the data to determine the
+type (and needed plugin) on the server. We don't explore this option in this
+document yet, but the proposal is flexible enough to accommodate this in the
+future should the need arise.</p>
+<h3 id="missing-demuxer">missing demuxer</h3>
+<p>Typically after running typefind on the data we determine the type of the
+file. If there is no plugin found for the type, a <code>missing-plugin</code> element
+message is posted by decodebin with the following fields: Type set to
+"decoder", detail set to the caps for witch no plugin was found. Optionally
+the friendly name can be filled in as well.</p>
+<h3 id="missing-decoder">missing decoder</h3>
+<p>The demuxer will dynamically create new pads with specific caps while it
+figures out the contents of the container format. Decodebin tries to find the
+decoders for these formats in the registry. If there is no decoder found, a
+<code>missing-plugin</code> element message is posted by decodebin with the following
+fields: Type set to "decoder", detail set to the caps for which no plugin
+was found. Optionally the friendly name can be filled in as well. There is
+no distinction made between the missing demuxer and decoder at the
+application level.</p>
+<h3 id="missing-element">missing element</h3>
+<p>Decodebin and playbin will create a set of helper elements when they set up
+their decoding pipeline. These elements are typically colorspace, sample rate,
+audio sinks,... Their presence on the system is required for the functionality
+of decodebin. It is typically a package dependency error if they are not
+present but in case of a corrupted system the following <code>missing-plugin</code>
+element message will be emitted: type set to "element", detail set to the
+element factory name and the friendly name optionally set to a description
+of the element's functionality in the decoding pipeline.</p>
+<p>Except for reporting the missing plugins, no further policy is enforced at the
+GStreamer level. It is up to the application to decide whether a missing
+plugin constitutes a problem or not.</p>
+<h2 id="application-level">Application level</h2>
+<p>The application's job is to listen for the <code>missing-plugin</code> element messages
+and to decide on a policy to handle them. Following cases exist:</p>
+<h3 id="partially-missing-plugins">partially missing plugins</h3>
+<p>The application will be able to complete a state change to PAUSED but there
+will be a <code>missing-plugin</code> element message on the <code>GstBus</code>.</p>
+<p>This means that it will be possible to play back part of the media file but not
+all of it.</p>
+<p>For example: suppose we have an .avi file with mp3 audio and divx video. If we
+have the mp3 audio decoder but not the divx video decoder, it will be possible
+to play only the audio part but not the video part. For an audio playback
+application, this is not a problem but a video player might want to decide on:</p>
+<ul>
+<li>require the use to install the additionally required plugins.</li>
+<li>inform the user that only the audio will be played back</li>
+<li>ask the user if it should download the additional codec or only play
+the audio part.</li>
+<li>…</li>
+</ul>
+<h3 id="completely-unplayable-stream">completely unplayable stream</h3>
+<p>The application will receive an ERROR message from GStreamer informing it that
+playback stopped (before it could reach PAUSED). This happens because none of
+the streams is connected to a decoder. The error code and domain should be one
+of the following in this case:</p>
+<ul>
+<li>
+<code>GST_CORE_ERROR_MISSING_PLUGIN</code> (domain: <code>GST_CORE_ERROR</code>)</li>
+<li>
+<code>GST_STREAM_ERROR_CODEC_NOT_FOUND</code> (domain: <code>GST_STREAM_ERROR</code>)</li>
+</ul>
+<p>The application can then see that there are a set of <code>missing-plugin</code> element
+messages on the <code>GstBus</code> and can decide to trigger the download procedure. It
+does that as described in the following section.</p>
+<p><code>missing-plugin</code> element messages can be identified using the function
+<code>gst_is_missing_plugin_message()</code>.</p>
+<h2 id="plugin-download-stage">Plugin download stage</h2>
+<p>At this point the application has</p>
+<ul>
+<li>collected one or more <code>missing-plugin</code> element messages</li>
+<li>made a decision that additional plugins should be installed</li>
+</ul>
+<p>It will call a GStreamer utility function to convert each <code>missing-plugin</code>
+message into an identifier string describing the missing capability. This is
+done using the function <code>gst_missing_plugin_message_get_installer_detail()</code>.</p>
+<p>The application will then pass these strings to <code>gst_install_plugins_async()</code>
+or <code>gst_install_plugins_sync()</code> to initiate the download. See the API
+documentation there (<code>libgstbaseutils</code>, part of <code>gst-plugins-base</code>) for more
+details.</p>
+<p>When new plugins have been installed, the application will have to initiate
+a re-scan of the GStreamer plugin registry using <code>gst_update_registry()</code>.</p>
+<h3 id="format-of-the-utf8-string-id-passed-to-the-external-installer-system">Format of the (UTF-8) string ID passed to the external installer system</h3>
+<p>The string is made up of several fields, separated by '|' characters.
+The fields are:</p>
+<ul>
+<li>
+<p>plugin system identifier, ie. "gstreamer" This identifier determines
+the format of the rest of the detail string. Automatic plugin
+installers should not process detail strings with unknown
+identifiers. This allows other plugin-based libraries to use the
+same mechanism for their automatic plugin installation needs, or for
+the format to be changed should it turn out to be insufficient.</p>
+</li>
+<li>
+<p>plugin system version, e.g. "1.0" This is required so that when
+there is a GStreamer-2.0 or GStreamer-3.0 at some point in future,
+the different major versions can still co-exist and use the same
+plugin install mechanism in the same way.</p>
+</li>
+<li>
+<p>application identifier, e.g. "totem" This may also be in the form of
+"pid/12345" if the program name can’t be obtained for some reason.</p>
+</li>
+<li>
+<p>human-readable localised description of the required component, e.g.
+"Vorbis audio decoder"</p>
+</li>
+<li>
+<p>identifier string for the required component, e.g.</p>
+</li>
+<li>
+<p>urisource-(<code>PROTOCOL_REQUIRED</code>) e.g. <code>urisource-http</code> or <code>urisource-rtsp</code></p>
+</li>
+<li>
+<p>element-(<code>ELEMENT_REQUIRED</code>), e.g. <code>element-videoconvert</code></p>
+</li>
+<li>
+<p>decoder-(<code>CAPS_REQUIRED</code>) e.g. <code>decoder-audio/x-vorbis</code> or
+<code>decoder-application/ogg</code> or <code>decoder-audio/mpeg, mpegversion=(int)4</code> or
+<code>decoder-video/mpeg, systemstream=(boolean)true, mpegversion=(int)2</code></p>
+</li>
+<li>
+<p>encoder-(<code>CAPS_REQUIRED</code>) e.g. <code>encoder-audio/x-vorbis</code></p>
+</li>
+<li>
+<p>optional further fields not yet specified</p>
+</li>
+</ul>
+<ul>
+<li>
+<p>An entire ID string might then look like this, for example:
+<code>gstreamer|0.10|totem|Vorbis audio decoder|decoder-audio/x-vorbis</code></p>
+</li>
+<li>
+<p>Plugin installers parsing this ID string should expect further fields also
+separated by '|' symbols and either ignore them, warn the user, or error
+out when encountering them.</p>
+</li>
+<li>
+<p>The human-readable description string is provided by the libgstbaseutils
+library that can be found in gst-plugins-base versions &gt;= 0.10.12 and can
+also be used by demuxers to find out the codec names for taglists from given
+caps in a unified and consistent way.</p>
+</li>
+<li>
+<p>Applications can create these detail strings using the function
+<code>gst_missing_plugin_message_get_installer_detail()</code> on a given missing-plugin
+message.</p>
+</li>
+</ul>
+<h3 id="using-missingplugin-messages-for-error-reporting">Using missing-plugin messages for error reporting:</h3>
+<p>Missing-plugin messages are also useful for error reporting purposes, either in
+the case where the application does not support libgimme-codec, or the external
+installer is not available or not able to install the required plugins.</p>
+<p>When creating error messages, applications may use the function
+<code>gst_missing_plugin_message_get_description()</code> to obtain a possibly translated
+description from each missing-plugin message (e.g. "Matroska demuxer" or
+"Theora video depayloader"). This can be used to report to the user exactly
+what it is that is missing.</p>
+<h2 id="notes-for-packagers">Notes for packagers</h2>
+<p>An easy way to introspect plugin .so files is:</p>
+<pre><code>$ gst-inspect --print-plugin-auto-install-info /path/to/libgstfoo.so
+</code></pre>
+<p>The output will be something like:</p>
+<pre><code>decoder-audio/x-vorbis
+element-vorbisdec
+element-vorbisenc
+element-vorbisparse
+element-vorbistag
+encoder-audio/x-vorbis
+</code></pre>
+<p>BUT could also be like this (from the faad element in this case):</p>
+<pre><code>decoder-audio/mpeg, mpegversion=(int){ 2, 4 }
+</code></pre>
+<p>NOTE that this does not exactly match the caps string that the installer
+will get from the application. The application will always ever ask for
+one of</p>
+<pre><code>decoder-audio/mpeg, mpegversion=(int)2
+decoder-audio/mpeg, mpegversion=(int)4
+</code></pre>
+<p>When introspecting, keep in mind that there are GStreamer plugins
+that in turn load external plugins. Examples of these are pitfdll,
+ladspa, or the GStreamer libvisual plugin. Those plugins will only
+announce elements for the currently installed external plugins at
+the time of introspection! With the exception of pitfdll, this is
+not really relevant to the playback case, but may become an issue in
+future when applications like buzztard, jokosher or pitivi start
+requestion elements by name, for example ladspa effect elements or
+so.</p>
+<p>This case could be handled if those wrapper plugins would also provide a
+<code>gst-install-xxx-plugins-helper</code>, where xxx={ladspa|visual|...}. Thus if the
+distro specific <code>gst-install-plugins-helper</code> can't resolve a request for e.g.
+<code>element-bml-sonicverb</code> it can forward the request to
+<code>gst-install-bml-plugins-helper</code> (bml is the buzz machine loader).</p>
+<h2 id="further-references">Further references:</h2>
+<p><a href="http://gstreamer.freedesktop.org/data/doc/gstreamer/head/gst-plugins-base-libs/html/gstreamer-base-utils.html">http://gstreamer.freedesktop.org/data/doc/gstreamer/head/gst-plugins-base-libs/html/gstreamer-base-utils.html</a></p>
+
+    </div>
+        
+
+
+
+
+		
+	</div>
+	<div id="search_results">
+		<p>The results of the search are</p>
+	</div>
+	<div id="footer">
+		    
+
+	</div>
+</div>
+
+<div id="toc-column">
+	
+		<div class="edit-button">
+		<a href="https://gitlab.freedesktop.org/gstreamer/gst-docs//edit/master/subprojects/gst-docs/markdown/additional/design/missing-plugins.md" data-hotdoc-role="edit-button">Edit on GitLab</a>
+
+	</div>
+		<div id="toc-wrapper">
+		<nav id="toc"></nav>
+	</div>
+</div>
+</div>
+</main>
+
+
+<script src="assets/js/navbar_offset_scroller.js"></script>
+</body>
+</html>

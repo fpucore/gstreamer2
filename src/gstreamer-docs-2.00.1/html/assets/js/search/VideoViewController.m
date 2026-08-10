@@ -1,0 +1,1 @@
+urls_downloaded_cb({"token":"VideoViewController.m","urls":[{"url":"tutorials/ios/a-basic-media-player.html#the-video-view-controller","node_type":"p","page":"iOS tutorial 4: A basic media player","sections":["iOS tutorial 4: A basic media player","The Video View Controller"],"context":{"gi-language":["default"]}}]});

@@ -1,0 +1,1512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<base href="../..">
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<title>Pipeline manipulation</title>
+
+<link rel="stylesheet" href="assets/css/dark-frontend.css" type="text/css" title="dark">
+<link rel="alternate stylesheet" href="assets/css/light-frontend.css" type="text/css" title="light">
+<link rel="stylesheet" href="assets/css/bootstrap-toc.min.css" type="text/css">
+<link rel="stylesheet" href="assets/css/jquery.mCustomScrollbar.min.css">
+<link rel="stylesheet" href="assets/js/search/enable_search.css" type="text/css">
+
+<link rel="stylesheet" href="assets/css/extra_frontend.css" type="text/css">
+<link rel="stylesheet" href="assets/css/devhelp.css" type="text/css">
+
+<link rel="stylesheet" href="assets/css/prism-tomorrow.css" type="text/css" title="dark">
+
+<link rel="alternate stylesheet" href="assets/css/prism.css" type="text/css" title="light">
+
+<script src="assets/js/mustache.min.js"></script>
+<script src="assets/js/jquery.js"></script>
+<script src="assets/js/bootstrap.js"></script>
+<script src="assets/js/scrollspy.js"></script>
+<script src="assets/js/typeahead.jquery.min.js"></script>
+<script src="assets/js/search.js"></script>
+<script src="assets/js/compare-versions.js"></script>
+<script src="assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="assets/js/bootstrap-toc.min.js"></script>
+<script src="assets/js/jquery.touchSwipe.min.js"></script>
+<script src="assets/js/anchor.min.js"></script>
+<script src="assets/js/tag_filtering.js"></script>
+<script src="assets/js/language_switching.js"></script>
+<script src="assets/js/styleswitcher.js"></script>
+
+<script src="assets/js/lines_around_headings.js"></script>
+
+<script src="assets/js/prism-core.js"></script>
+<script src="assets/js/prism-autoloader.js"></script>
+<script src="assets/js/prism_autoloader_path_override.js"></script>
+<script src="assets/js/trie.js"></script>
+
+<!-- generic -->
+<link rel="icon" type="image/png" href="assets/images/favicon-16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="assets/images/favicon-32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="assets/images/favicon-57.png" sizes="57x57">
+<link rel="icon" type="image/png" href="assets/images/favicon-64.png" sizes="64x64">
+<link rel="icon" type="image/png" href="assets/images/favicon-76.png" sizes="76x76">
+<link rel="icon" type="image/png" href="assets/images/favicon-96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="assets/images/favicon-128.png" sizes="128x128">
+<link rel="icon" type="image/png" href="assets/images/favicon-192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="assets/images/favicon-228.png" sizes="228x228">
+
+<!-- Android -->
+<link rel="shortcut icon" sizes="196x196" href="assets/images/favicon-196.png">
+
+<!-- iOS -->
+<link rel="apple-touch-icon" href="assets/images/favicon-120.png" sizes="120x120">
+<link rel="apple-touch-icon" href="assets/images/favicon-152.png" sizes="152x152">
+<link rel="apple-touch-icon" href="assets/images/favicon-180.png" sizes="180x180">
+
+</head>
+
+<body class="no-script
+">
+
+<script>
+$('body').removeClass('no-script');
+</script>
+
+<nav class="navbar navbar-fixed-top navbar-default" id="topnav">
+	<div class="container-fluid">
+		<div class="navbar-right">
+			<a id="toc-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-wrapper" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<span title="light mode switch" class="glyphicon glyphicon-sunglasses pull-right" id="lightmode-icon"></span>
+			<form class="navbar-form pull-right" id="navbar-search-form">
+                               <div class="form-group has-feedback">
+                                       <input type="text" class="form-control input-sm" name="search" id="sidenav-lookup-field" placeholder="search" disabled>
+				       <span class="glyphicon glyphicon-search form-control-feedback" id="search-mgn-glass"></span>
+                               </div>
+                        </form>
+		</div>
+		<div class="navbar-header">
+			<a id="sidenav-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<a id="home-link" href="index.html" class="hotdoc-navbar-brand">
+				<img src="assets/images/gstreamer-logo.svg" alt="Home">
+			</a>
+		</div>
+		<div class="navbar-collapse collapse" id="navbar-wrapper">
+			<ul class="nav navbar-nav" id="menu">
+				
+<li class="dropdown">
+    <a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        API References<span class="caret"></span>
+    </a>
+	<ul class="dropdown-menu" id="modules-menu">
+					<li>
+				<a href="gstreamer/gi-index.html">GStreamer core</a>
+			</li>
+					<li>
+				<a href="libs.html">GStreamer Libraries</a>
+			</li>
+					<li>
+				<a href="plugins_doc.html">GStreamer Plugins</a>
+			</li>
+		</ul>
+</li>
+
+<li>
+    <a href="application-development/index.html">Application manual</a>
+</li>
+
+
+<li>
+    <a href="tutorials/index.html">Tutorials</a>
+</li>
+
+			</ul>
+			<div class="hidden-xs hidden-sm navbar-text navbar-center">
+							</div>
+		</div>
+	</div>
+</nav>
+
+<main>
+<div data-extension="gi-extension" data-hotdoc-in-toplevel="True" data-hotdoc-project="GStreamer" data-hotdoc-ref="application-development/advanced/pipeline-manipulation.html" class="page_container" id="page-wrapper" data-hotdoc-meta-gi-languages="['c', 'javascript', 'python']" data-hotdoc-meta-gi-language="c">
+<script src="assets/js/utils.js"></script>
+
+<div class="panel panel-collapse oc-collapsed" id="sidenav" data-hotdoc-role="navigation">
+	<script src="assets/js/full-width.js"></script>
+  <div id="sitenav-wrapper">
+    <iframe src="hotdoc-sitemap.html" id="sitenav-frame"></iframe>
+  </div>
+</div>
+
+<div id="body">
+	<div id="main">
+				    <div id="page-description" data-hotdoc-role="main">
+        <h1 id="pipeline-manipulation">Pipeline manipulation</h1>
+<p>This chapter presents many ways in which you can manipulate pipelines from
+your application. These are some of the topics that will be covered:</p>
+<ul>
+<li>How to insert data from an application into a pipeline</li>
+<li>How to read data from a pipeline</li>
+<li>How to manipulate the pipeline's speed, length and starting point</li>
+<li>How to <em>listen</em> to a pipeline's data processing.</li>
+</ul>
+<p>Parts of this chapter are very low level so you'll need some programming
+experience and a good understanding of GStreamer to follow them.</p>
+<h2 id="using-probes">Using probes</h2>
+<p>Probing is best envisioned as having access to a pad listener. Technically, a
+probe is nothing more than a callback that can be attached to a pad using
+<code>gst_pad_add_probe ()</code>. Conversely, you can use <code>gst_pad_remove_probe ()</code> to
+remove the callback. While attached, the probe notifies you of any activity
+on the pad. You can define what kind of notifications you are interested in when
+you add the probe.</p>
+<p>Probe types:</p>
+<ul>
+<li>
+<p>A buffer is pushed or pulled. You want to specify the
+<code>GST_PAD_PROBE_TYPE_BUFFER</code> when registering the probe. Because
+the pad can be scheduled in different ways. It is also possible to
+specify in what scheduling mode you are interested with the optional
+<code>GST_PAD_PROBE_TYPE_PUSH</code> and <code>GST_PAD_PROBE_TYPE_PULL</code> flags.
+You can use this probe to inspect, modify or drop the buffer. See
+<a href="application-development/advanced/pipeline-manipulation.html#data-probes">Data probes</a>.</p>
+</li>
+<li>
+<p>A buffer list is pushed. Use the <code>GST_PAD_PROBE_TYPE_BUFFER_LIST</code>
+when registering the probe.</p>
+</li>
+<li>
+<p>An event travels over a pad. Use the
+<code>GST_PAD_PROBE_TYPE_EVENT_DOWNSTREAM</code> and
+<code>GST_PAD_PROBE_TYPE_EVENT_UPSTREAM</code> flags to select downstream
+and upstream events. There is also a convenience
+<code>GST_PAD_PROBE_TYPE_EVENT_BOTH</code> to be notified of events going
+in both directions. By default, flush events do not cause
+a notification. You need to explicitly enable
+<code>GST_PAD_PROBE_TYPE_EVENT_FLUSH</code> to receive callbacks from
+flushing events. Events are always only notified in push mode.
+You can use this type of probe to inspect, modify or drop the event.</p>
+</li>
+<li>
+<p>A query travels over a pad. Use the
+<code>GST_PAD_PROBE_TYPE_QUERY_DOWNSTREAM</code> and
+<code>GST_PAD_PROBE_TYPE_QUERY_UPSTREAM</code> flags to select downstream
+and upstream queries. The convenience
+<code>GST_PAD_PROBE_TYPE_QUERY_BOTH</code> can also be used to select both
+directions. Query probes are notified twice: when the query
+travels upstream/downstream and when the query result is
+returned. You can select in what stage the callback will be called
+with the <code>GST_PAD_PROBE_TYPE_PUSH</code> and
+<code>GST_PAD_PROBE_TYPE_PULL</code>, respectively when the query is
+performed and when the query result is returned.</p>
+<p>You can use a query probe to inspect or modify queries, or even to answer
+them in the probe callback. To answer a query you place the result value
+in the query and return <code>GST_PAD_PROBE_DROP</code> from the callback.</p>
+</li>
+<li>
+<p>In addition to notifying you of dataflow, you can also ask the probe
+to block the dataflow when the callback returns. This is called a
+blocking probe and is activated by specifying the
+<code>GST_PAD_PROBE_TYPE_BLOCK</code> flag. You can use this flag with the
+other flags to only block dataflow on selected activity. A pad
+becomes unblocked again if you remove the probe or when you return
+<code>GST_PAD_PROBE_REMOVE</code> from the callback. You can let only the
+currently blocked item pass by returning <code>GST_PAD_PROBE_PASS</code> from
+the callback, it will block again on the next item.</p>
+<p>Blocking probes are used to temporarily block pads because they are
+unlinked or because you are going to unlink them. If the dataflow is
+not blocked, the pipeline would go into an error state if data is
+pushed on an unlinked pad. We will see how to use blocking probes to
+partially preroll a pipeline. See also <a href="application-development/advanced/pipeline-manipulation.html#play-a-section-of-a-media-file">Play a section of a media
+file</a>.</p>
+</li>
+<li>
+<p>Be notified when no activity is happening on a pad. You install this
+probe with the <code>GST_PAD_PROBE_TYPE_IDLE</code> flag. You can specify
+<code>GST_PAD_PROBE_TYPE_PUSH</code> and/or <code>GST_PAD_PROBE_TYPE_PULL</code> to
+only be notified depending on the pad scheduling mode. The IDLE
+probe is also a blocking probe in that it will not let any data pass
+on the pad for as long as the IDLE probe is installed.</p>
+<p>You can use idle probes to dynamically relink a pad. We will see how
+to use idle probes to replace an element in the pipeline. See also
+<a href="application-development/advanced/pipeline-manipulation.html#dynamically-changing-the-pipeline">Dynamically changing the
+pipeline</a>.</p>
+</li>
+</ul>
+<h3 id="data-probes">Data probes</h3>
+<p>Data probes notify you when there is data passing on a pad. Pass
+<code>GST_PAD_PROBE_TYPE_BUFFER</code> and/or <code>GST_PAD_PROBE_TYPE_BUFFER_LIST</code> to
+<code>gst_pad_add_probe ()</code> for creating this kind of probe. Most common buffer
+operations elements can do in <code>_chain ()</code> functions, can be done in probe
+callbacks.</p>
+<p>Data probes run in the pipeline's streaming thread context, so callbacks
+should try to avoid blocking and generally, avoid doing weird stuff. Doing so
+could have a negative impact on the pipeline's performance or, in case of bugs,
+lead to deadlocks or crashes. More precisely, one should usually avoid calling
+GUI-related functions from within a probe callback, nor try to change the state
+of the pipeline. An application may post custom messages on the pipeline's bus
+to communicate with the main application thread and have it do things like stop
+the pipeline.</p>
+<p>The following is an example on using data probes. Compare this program's output
+with that of <code>gst-launch-1.0 videotestsrc ! xvimagesink</code> if you are not
+sure what to look for:</p>
+<pre><code class="language-c">#include &lt;gst/gst.h&gt;
+
+static GstPadProbeReturn
+cb_have_data (GstPad          *pad,
+              GstPadProbeInfo *info,
+              gpointer         user_data)
+{
+  gint x, y;
+  GstMapInfo map;
+  guint16 *ptr, t;
+  GstBuffer *buffer;
+
+  buffer = GST_PAD_PROBE_INFO_BUFFER (info);
+
+  buffer = gst_buffer_make_writable (buffer);
+
+  /* Making a buffer writable can fail (for example if it
+   * cannot be copied and is used more than once)
+   */
+  if (buffer == NULL)
+    return GST_PAD_PROBE_OK;
+
+  /* Mapping a buffer can fail (non-writable) */
+  if (gst_buffer_map (buffer, &amp;map, GST_MAP_WRITE)) {
+    ptr = (guint16 *) map.data;
+    /* invert data */
+    for (y = 0; y &lt; 288; y++) {
+      for (x = 0; x &lt; 384 / 2; x++) {
+        t = ptr[384 - 1 - x];
+        ptr[384 - 1 - x] = ptr[x];
+        ptr[x] = t;
+      }
+      ptr += 384;
+    }
+    gst_buffer_unmap (buffer, &amp;map);
+  }
+
+  GST_PAD_PROBE_INFO_DATA (info) = buffer;
+
+  return GST_PAD_PROBE_OK;
+}
+
+gint
+main (gint   argc,
+      gchar *argv[])
+{
+  GMainLoop *loop;
+  GstElement *pipeline, *src, *sink, *filter, *csp;
+  GstCaps *filtercaps;
+  GstPad *pad;
+
+  /* init GStreamer */
+  gst_init (&amp;argc, &amp;argv);
+  loop = g_main_loop_new (NULL, FALSE);
+
+  /* build */
+  pipeline = gst_pipeline_new ("my-pipeline");
+  src = gst_element_factory_make ("videotestsrc", "src");
+  if (src == NULL)
+    g_error ("Could not create 'videotestsrc' element");
+
+  filter = gst_element_factory_make ("capsfilter", "filter");
+  g_assert (filter != NULL); /* should always exist */
+
+  csp = gst_element_factory_make ("videoconvert", "csp");
+  if (csp == NULL)
+    g_error ("Could not create 'videoconvert' element");
+
+  sink = gst_element_factory_make ("xvimagesink", "sink");
+  if (sink == NULL) {
+    sink = gst_element_factory_make ("ximagesink", "sink");
+    if (sink == NULL)
+      g_error ("Could not create neither 'xvimagesink' nor 'ximagesink' element");
+  }
+
+  gst_bin_add_many (GST_BIN (pipeline), src, filter, csp, sink, NULL);
+  gst_element_link_many (src, filter, csp, sink, NULL);
+  filtercaps = gst_caps_new_simple ("video/x-raw",
+               "format", G_TYPE_STRING, "RGB16",
+               "width", G_TYPE_INT, 384,
+               "height", G_TYPE_INT, 288,
+               "framerate", GST_TYPE_FRACTION, 25, 1,
+               NULL);
+  g_object_set (G_OBJECT (filter), "caps", filtercaps, NULL);
+  gst_caps_unref (filtercaps);
+
+  pad = gst_element_get_static_pad (src, "src");
+  gst_pad_add_probe (pad, GST_PAD_PROBE_TYPE_BUFFER,
+      (GstPadProbeCallback) cb_have_data, NULL, NULL);
+  gst_object_unref (pad);
+
+  /* run */
+  gst_element_set_state (pipeline, GST_STATE_PLAYING);
+
+  /* wait until it's up and running or failed */
+  if (gst_element_get_state (pipeline, NULL, NULL, -1) == GST_STATE_CHANGE_FAILURE) {
+    g_error ("Failed to go into PLAYING state");
+  }
+
+  g_print ("Running ...\n");
+  g_main_loop_run (loop);
+
+  /* exit */
+  gst_element_set_state (pipeline, GST_STATE_NULL);
+  gst_object_unref (pipeline);
+
+  return 0;
+}
+</code></pre>
+<p>Strictly speaking, a pad probe callback is only allowed to modify the
+buffer content if the buffer is writable. Whether this is the case or
+not depends a lot on the pipeline and the elements involved. Often
+enough, this is the case, but sometimes it is not, and if it is not then
+unexpected modification of the data or metadata can introduce bugs that
+are very hard to debug and track down. You can check if a buffer is
+writable with <code>gst_buffer_is_writable ()</code>. Since you can pass back a
+different buffer than the one passed in, it is a good idea to make the
+buffer writable in the callback function with <code>gst_buffer_make_writable ()</code>.</p>
+<p>Pad probes are best suited for looking at data as it passes through the
+pipeline. If you need to modify data, you should rather write your own
+GStreamer element. Base classes like <code>GstAudioFilter</code>, <code>GstVideoFilter</code> or
+<code>GstBaseTransform</code> make this fairly easy.</p>
+<p>If you just want to inspect buffers as they pass through the pipeline,
+you don't even need to set up pad probes. You could also just insert an
+identity element into the pipeline and connect to its "handoff" signal.
+The identity element also provides a few useful debugging tools like the
+<code>dump</code> and <code>last-message</code> properties; the latter is enabled by
+passing the '-v' switch to <code>gst-launch</code> and setting the <code>silent</code> property
+on the identity to <code>FALSE</code>.</p>
+<h3 id="play-a-section-of-a-media-file">Play a section of a media file</h3>
+<p>In this example we will show you how to play back a section of a media
+file. The goal is to only play the part from 2 to 5 seconds and then
+quit.</p>
+<p>In a first step we will set a <code>uridecodebin</code> element to the <code>PAUSED</code> state
+and make sure that we block all the source pads that are created. When
+all the source pads are blocked, we have data on all of them and we say
+that the <code>uridecodebin</code> is prerolled.</p>
+<p>In a prerolled pipeline we can ask for the duration of the media and we
+can also perform seeks. We are interested in performing a seek operation
+on the pipeline to select the 2-to-5-seconds section.</p>
+<p>After we configure the section we want, we can link the sink element, unblock the
+source pads and set the pipeline to the <code>PLAYING</code> state. You will see that
+exactly the requested region is displayed by the sink before it goes to <code>EOS</code>.</p>
+<p>Here is the code:</p>
+<pre><code class="language-c">#include &lt;gst/gst.h&gt;
+
+static GMainLoop *loop;
+static gint counter;
+static GstBus *bus;
+static gboolean prerolled = FALSE;
+static GstPad *sinkpad;
+
+static void
+dec_counter (GstElement * pipeline)
+{
+  if (prerolled)
+    return;
+
+  if (g_atomic_int_dec_and_test (&amp;counter)) {
+    /* all probes blocked and no-more-pads signaled, post
+     * message on the bus. */
+    prerolled = TRUE;
+
+    gst_bus_post (bus, gst_message_new_application (
+          GST_OBJECT_CAST (pipeline),
+          gst_structure_new_empty ("ExPrerolled")));
+  }
+}
+
+/* called when a source pad of uridecodebin is blocked */
+static GstPadProbeReturn
+cb_blocked (GstPad          *pad,
+            GstPadProbeInfo *info,
+            gpointer         user_data)
+{
+  GstElement *pipeline = GST_ELEMENT (user_data);
+
+  if (prerolled)
+    return GST_PAD_PROBE_REMOVE;
+
+  dec_counter (pipeline);
+
+  return GST_PAD_PROBE_OK;
+}
+
+/* called when uridecodebin has a new pad */
+static void
+cb_pad_added (GstElement *element,
+              GstPad     *pad,
+              gpointer    user_data)
+{
+  GstElement *pipeline = GST_ELEMENT (user_data);
+
+  if (prerolled)
+    return;
+
+  g_atomic_int_inc (&amp;counter);
+
+  gst_pad_add_probe (pad, GST_PAD_PROBE_TYPE_BLOCK_DOWNSTREAM,
+      (GstPadProbeCallback) cb_blocked, pipeline, NULL);
+
+  /* try to link to the video pad */
+  gst_pad_link (pad, sinkpad);
+}
+
+/* called when uridecodebin has created all pads */
+static void
+cb_no_more_pads (GstElement *element,
+                 gpointer    user_data)
+{
+  GstElement *pipeline = GST_ELEMENT (user_data);
+
+  if (prerolled)
+    return;
+
+  dec_counter (pipeline);
+}
+
+/* called when a new message is posted on the bus */
+static void
+cb_message (GstBus     *bus,
+            GstMessage *message,
+            gpointer    user_data)
+{
+  GstElement *pipeline = GST_ELEMENT (user_data);
+
+  switch (GST_MESSAGE_TYPE (message)) {
+    case GST_MESSAGE_ERROR:
+      g_print ("we received an error!\n");
+      g_main_loop_quit (loop);
+      break;
+    case GST_MESSAGE_EOS:
+      g_print ("we reached EOS\n");
+      g_main_loop_quit (loop);
+      break;
+    case GST_MESSAGE_APPLICATION:
+    {
+      if (gst_message_has_name (message, "ExPrerolled")) {
+        /* it's our message */
+        g_print ("we are all prerolled, do seek\n");
+        gst_element_seek (pipeline,
+            1.0, GST_FORMAT_TIME,
+            GST_SEEK_FLAG_FLUSH | GST_SEEK_FLAG_ACCURATE,
+            GST_SEEK_TYPE_SET, 2 * GST_SECOND,
+            GST_SEEK_TYPE_SET, 5 * GST_SECOND);
+
+        gst_element_set_state (pipeline, GST_STATE_PLAYING);
+      }
+      break;
+    }
+    default:
+      break;
+  }
+}
+
+gint
+main (gint   argc,
+      gchar *argv[])
+{
+  GstElement *pipeline, *src, *csp, *vs, *sink;
+
+  /* init GStreamer */
+  gst_init (&amp;argc, &amp;argv);
+  loop = g_main_loop_new (NULL, FALSE);
+
+  if (argc &lt; 2) {
+    g_print ("usage: %s &lt;uri&gt;", argv[0]);
+    return -1;
+  }
+
+  /* build */
+  pipeline = gst_pipeline_new ("my-pipeline");
+
+  bus = gst_pipeline_get_bus (GST_PIPELINE (pipeline));
+  gst_bus_add_signal_watch (bus);
+  g_signal_connect (bus, "message", (GCallback) cb_message,
+      pipeline);
+
+  src = gst_element_factory_make ("uridecodebin", "src");
+  if (src == NULL)
+    g_error ("Could not create 'uridecodebin' element");
+
+  g_object_set (src, "uri", argv[1], NULL);
+
+  csp = gst_element_factory_make ("videoconvert", "csp");
+  if (csp == NULL)
+    g_error ("Could not create 'videoconvert' element");
+
+  vs = gst_element_factory_make ("videoscale", "vs");
+  if (vs == NULL)
+    g_error ("Could not create 'videoscale' element");
+
+  sink = gst_element_factory_make ("autovideosink", "sink");
+  if (sink == NULL)
+    g_error ("Could not create 'autovideosink' element");
+
+  gst_bin_add_many (GST_BIN (pipeline), src, csp, vs, sink, NULL);
+
+  /* can't link src yet, it has no pads */
+  gst_element_link_many (csp, vs, sink, NULL);
+
+  sinkpad = gst_element_get_static_pad (csp, "sink");
+
+  /* for each pad block that is installed, we will increment
+   * the counter. for each pad block that is signaled, we
+   * decrement the counter. When the counter is 0 we post
+   * an app message to tell the app that all pads are
+   * blocked. Start with 1 that is decremented when no-more-pads
+   * is signaled to make sure that we only post the message
+   * after no-more-pads */
+  g_atomic_int_set (&amp;counter, 1);
+
+  g_signal_connect (src, "pad-added",
+      (GCallback) cb_pad_added, pipeline);
+  g_signal_connect (src, "no-more-pads",
+      (GCallback) cb_no_more_pads, pipeline);
+
+  gst_element_set_state (pipeline, GST_STATE_PAUSED);
+
+  g_main_loop_run (loop);
+
+  gst_element_set_state (pipeline, GST_STATE_NULL);
+
+  gst_object_unref (sinkpad);
+  gst_object_unref (bus);
+  gst_object_unref (pipeline);
+  g_main_loop_unref (loop);
+
+  return 0;
+}
+</code></pre>
+<p>Note that we use a custom application message to signal the main thread that the
+<code>uridecodebin</code> is prerolled. The main thread will then issue a flushing seek to
+the requested region. The flush will temporarily unblock the pad and reblock
+them when new data arrives again. We detect this second block to remove the
+probes. Then we set the pipeline to <code>PLAYING</code> and it should play the selected
+2-to-5-seconds section; the application waits for the <code>EOS</code> message and quits.</p>
+<h2 id="manually-adding-or-removing-data-fromto-a-pipeline">Manually adding or removing data from/to a pipeline</h2>
+<p>Many people have expressed the wish to use their own sources to inject data into
+a pipeline, others, the wish to grab a pipeline's output and take care of it in
+their application. While these methods are strongly discouraged, GStreamer
+offers support for them -- <em>Beware! You need to know what you are doing</em> --.
+Since you don't have any support from a base class you need to thoroughly
+understand state changes and synchronization. If it doesn't work, there are a
+million ways to shoot yourself in the foot. It's always better to simply write a
+plugin and have the base class manage it. See the Plugin Writer's Guide for more
+information on this topic. Additionally, review the next section, which explains
+how to statically embed plugins in your application.</p>
+<p>There are two possible elements that you can use for the above-mentioned
+purposes: <code>appsrc</code> (an imaginary source) and <code>appsink</code> (an imaginary sink). The
+same method applies to these elements. We will discuss how to use them to insert
+(using <code>appsrc</code>) or to grab (using <code>appsink</code>) data from a pipeline, and how to set
+negotiation.</p>
+<p>Both <code>appsrc</code> and <code>appsink</code> provide 2 sets of API. One API uses standard
+<code>GObject</code> (action) signals and properties. The same API is also available
+as a regular C API. The C API is more performant but requires you to
+link to the app library in order to use the elements.</p>
+<h3 id="inserting-data-with-appsrc">Inserting data with appsrc</h3>
+<p>Let's take a look at <code>appsrc</code> and how to insert application data into the
+pipeline.</p>
+<p><code>appsrc</code> has some configuration options that control the way it operates. You
+should decide about the following:</p>
+<ul>
+<li>
+<p>Will <code>appsrc</code> operate in push or pull mode. The <code>stream-type</code>
+property can be used to control this. A <code>random-access</code> <code>stream-type</code>
+will make <code>appsrc</code> activate pull mode scheduling while the other
+<code>stream-types</code> activate push mode.</p>
+</li>
+<li>
+<p>The caps of the buffers that <code>appsrc</code> will push out. This needs to be
+configured with the <code>caps</code> property. This property must be set to a fixed
+caps and will be used to negotiate a format downstream.</p>
+</li>
+<li>
+<p>Whether <code>appsrc</code> operates in live mode or not. This is configured
+with the <code>is-live</code> property. When operating in live-mode it is
+also important to set the <code>min-latency</code> and <code>max-latency</code> properties.
+<code>min-latency</code> should be set to the amount of time it takes between
+capturing a buffer and when it is pushed inside <code>appsrc</code>. In live
+mode, you should timestamp the buffers with the pipeline <code>running-time</code>
+when the first byte of the buffer was captured before feeding them to
+<code>appsrc</code>. You can let <code>appsrc</code> do the timestamping with
+the <code>do-timestamp</code> property, but then the <code>min-latency</code> must be set to 0
+because <code>appsrc</code> timestamps based on what was the <code>running-time</code> when it got
+a given buffer.</p>
+</li>
+<li>
+<p>The format of the SEGMENT event that <code>appsrc</code> will push. This format
+has implications for how the buffers' <code>running-time</code> will be calculated,
+so you must be sure you understand this. For live sources
+you probably want to set the format property to <code>GST_FORMAT_TIME</code>.
+For non-live sources, it depends on the media type that you are
+handling. If you plan to timestamp the buffers, you should probably
+use <code>GST_FORMAT_TIME</code> as format, if you don't, <code>GST_FORMAT_BYTES</code> might
+be appropriate.</p>
+</li>
+<li>
+<p>If <code>appsrc</code> operates in random-access mode, it is important to
+configure the size property with the number of bytes in the stream. This
+will allow downstream elements to know the size of the media and seek to the
+end of the stream when needed.</p>
+</li>
+</ul>
+<p>The main way of handling data to <code>appsrc</code> is by using the
+<code>gst_app_src_push_buffer ()</code> function or by emitting the <code>push-buffer</code> action
+signal. This will put the buffer onto a queue from which <code>appsrc</code> will
+read in its streaming thread. It's important to note that data
+transport will not happen from the thread that performed the <code>push-buffer</code>
+call.</p>
+<p>The <code>max-bytes</code> property controls how much data can be queued in <code>appsrc</code>
+before <code>appsrc</code> considers the queue full. A filled internal queue will
+always signal the <code>enough-data</code> signal, which signals the application
+that it should stop pushing data into <code>appsrc</code>. The <code>block</code> property will
+cause <code>appsrc</code> to block the <code>push-buffer</code> method until free data becomes
+available again.</p>
+<p>When the internal queue is running out of data, the <code>need-data</code> signal
+is emitted, which signals the application that it should start pushing
+more data into <code>appsrc</code>.</p>
+<p>In addition to the <code>need-data</code> and <code>enough-data</code> signals, <code>appsrc</code> can
+emit <code>seek-data</code> when the <code>stream-mode</code> property is set to
+<code>seekable</code> or <code>random-access</code>. The signal argument will contain the
+new desired position in the stream expressed in the unit set with the
+<code>format</code> property. After receiving the <code>seek-data</code> signal, the
+application should push buffers from the new position.</p>
+<p>When the last byte is pushed into <code>appsrc</code>, you must call
+<code>gst_app_src_end_of_stream ()</code> to make it send an <code>EOS</code> downstream.</p>
+<p>These signals allow the application to operate <code>appsrc</code> in push and pull
+mode as will be explained next.</p>
+<h4 id="using-appsrc-in-push-mode">Using appsrc in push mode</h4>
+<p>When <code>appsrc</code> is configured in push mode (<code>stream-type</code> is stream or
+seekable), the application repeatedly calls the <code>push-buffer</code> method with
+a new buffer. Optionally, the queue size in the <code>appsrc</code> can be controlled
+with the <code>enough-data</code> and <code>need-data</code> signals by respectively
+stopping/starting the <code>push-buffer</code> calls. The value of the <code>min-percent</code>
+property defines how empty the internal <code>appsrc</code> queue needs to be before
+the <code>need-data</code> signal is issued. You can set this to some positive value
+to avoid completely draining the queue.</p>
+<p>Don't forget to implement a <code>seek-data</code> callback when the <code>stream-type</code> is
+set to <code>GST_APP_STREAM_TYPE_SEEKABLE</code>.</p>
+<p>Use this mode when implementing various network protocols or hardware
+devices.</p>
+<h4 id="using-appsrc-in-pull-mode">Using appsrc in pull mode</h4>
+<p>In pull mode, data is fed to <code>appsrc</code> from the <code>need-data</code> signal
+handler. You should push exactly the amount of bytes requested in the
+<code>need-data</code> signal. You are only allowed to push less bytes when you are
+at the end of the stream.</p>
+<p>Use this mode for file access or other randomly accessible sources.</p>
+<h4 id="appsrc-example">Appsrc example</h4>
+<p>This example application will generate black/white (it switches every
+second) video to an Xv-window output by using <code>appsrc</code> as a source with
+caps to force a format. We use a colorspace conversion element to make
+sure that we feed the right format to the X server. We configure a
+video stream with a variable framerate (0/1) and we set the timestamps
+on the outgoing buffers in such a way that we play 2 frames per second.</p>
+<p>Note how we use the pull mode method of pushing new buffers into <code>appsrc</code>
+although <code>appsrc</code> is running in push mode.</p>
+<pre><code class="language-c">#include &lt;gst/gst.h&gt;
+
+static GMainLoop *loop;
+
+static void
+cb_need_data (GstElement *appsrc,
+          guint       unused_size,
+          gpointer    user_data)
+{
+  static gboolean white = FALSE;
+  static GstClockTime timestamp = 0;
+  GstBuffer *buffer;
+  guint size;
+  GstFlowReturn ret;
+
+  size = 385 * 288 * 2;
+
+  buffer = gst_buffer_new_allocate (NULL, size, NULL);
+
+  /* this makes the image black/white */
+  gst_buffer_memset (buffer, 0, white ? 0xff : 0x0, size);
+
+  white = !white;
+
+  GST_BUFFER_PTS (buffer) = timestamp;
+  GST_BUFFER_DURATION (buffer) = gst_util_uint64_scale_int (1, GST_SECOND, 2);
+
+  timestamp += GST_BUFFER_DURATION (buffer);
+
+  g_signal_emit_by_name (appsrc, "push-buffer", buffer, &amp;ret);
+  gst_buffer_unref (buffer);
+
+  if (ret != GST_FLOW_OK) {
+    /* something wrong, stop pushing */
+    g_main_loop_quit (loop);
+  }
+}
+
+gint
+main (gint   argc,
+      gchar *argv[])
+{
+  GstElement *pipeline, *appsrc, *conv, *videosink;
+
+  /* init GStreamer */
+  gst_init (&amp;argc, &amp;argv);
+  loop = g_main_loop_new (NULL, FALSE);
+
+  /* setup pipeline */
+  pipeline = gst_pipeline_new ("pipeline");
+  appsrc = gst_element_factory_make ("appsrc", "source");
+  conv = gst_element_factory_make ("videoconvert", "conv");
+  videosink = gst_element_factory_make ("xvimagesink", "videosink");
+
+  /* setup */
+  g_object_set (G_OBJECT (appsrc), "caps",
+        gst_caps_new_simple ("video/x-raw",
+                     "format", G_TYPE_STRING, "RGB16",
+                     "width", G_TYPE_INT, 384,
+                     "height", G_TYPE_INT, 288,
+                     "framerate", GST_TYPE_FRACTION, 0, 1,
+                     NULL), NULL);
+  gst_bin_add_many (GST_BIN (pipeline), appsrc, conv, videosink, NULL);
+  gst_element_link_many (appsrc, conv, videosink, NULL);
+
+  /* setup appsrc */
+  g_object_set (G_OBJECT (appsrc),
+        "stream-type", 0,
+        "format", GST_FORMAT_TIME, NULL);
+  g_signal_connect (appsrc, "need-data", G_CALLBACK (cb_need_data), NULL);
+
+  /* play */
+  gst_element_set_state (pipeline, GST_STATE_PLAYING);
+  g_main_loop_run (loop);
+
+  /* clean up */
+  gst_element_set_state (pipeline, GST_STATE_NULL);
+  gst_object_unref (GST_OBJECT (pipeline));
+  g_main_loop_unref (loop);
+
+  return 0;
+}
+</code></pre>
+<h3 id="grabbing-data-with-appsink">Grabbing data with appsink</h3>
+<p>Unlike <code>appsrc</code>, <code>appsink</code> is a little easier to use. It also supports
+pull and push-based modes for getting data from the pipeline.</p>
+<p>The normal way of retrieving samples from appsink is by using the
+<code>gst_app_sink_pull_sample()</code> and <code>gst_app_sink_pull_preroll()</code> methods
+or by using the <code>pull-sample</code> and <code>pull-preroll</code> signals. These methods
+block until a sample becomes available in the sink or when the sink is
+shut down or reaches <code>EOS</code>.</p>
+<p><code>appsink</code> will internally use a queue to collect buffers from the
+streaming thread. If the application is not pulling samples fast enough,
+this queue will consume a lot of memory over time. The <code>max-buffers</code>
+property can be used to limit the queue size. The <code>drop</code> property
+controls whether the streaming thread blocks or if older buffers are
+dropped when the maximum queue size is reached. Note that blocking the
+streaming thread can negatively affect real-time performance and should
+be avoided.</p>
+<p>If a blocking behaviour is not desirable, setting the <code>emit-signals</code>
+property to <code>TRUE</code> will make appsink emit the <code>new-sample</code> and
+<code>new-preroll</code> signals when a sample can be pulled without blocking.</p>
+<p>The <code>caps</code> property on <code>appsink</code> can be used to control the formats that
+the latter can receive. This property can contain non-fixed caps, the
+format of the pulled samples can be obtained by getting the sample caps.</p>
+<p>If one of the pull-preroll or pull-sample methods return <code>NULL</code>, the
+<code>appsink</code> is stopped or in the <code>EOS</code> state. You can check for the <code>EOS</code> state
+with the <code>eos</code> property or with the <code>gst_app_sink_is_eos()</code> method.</p>
+<p>The <code>eos</code> signal can also be used to be informed when the <code>EOS</code> state is
+reached to avoid polling.</p>
+<p>Consider configuring the following properties in the <code>appsink</code>:</p>
+<ul>
+<li>
+<p>The <code>sync</code> property if you want to have the sink base class
+synchronize the buffer against the pipeline clock before handing you
+the sample.</p>
+</li>
+<li>
+<p>Enable Quality-of-Service with the <code>qos</code> property. If you are
+dealing with raw video frames and let the base class synchronize on
+the clock. It might also be a good idea to let the base class send
+<code>QOS</code> events upstream.</p>
+</li>
+<li>
+<p>The caps property that contains the accepted caps. Upstream elements
+will try to convert the format so that it matches the configured
+caps on <code>appsink</code>. You must still check the <code>GstSample</code> to get the
+actual caps of the buffer.</p>
+</li>
+</ul>
+<h4 id="appsink-example">Appsink example</h4>
+<p>What follows is an example on how to capture a snapshot of a video
+stream using <code>appsink</code>.</p>
+<pre><code class="language-c">#include &lt;gst/gst.h&gt;
+#ifdef HAVE_GTK
+#include &lt;gtk/gtk.h&gt;
+#endif
+
+#include &lt;stdlib.h&gt;
+
+#define CAPS "video/x-raw,format=RGB,width=160,pixel-aspect-ratio=1/1"
+
+int
+main (int argc, char *argv[])
+{
+  GstElement *pipeline, *sink;
+  gint width, height;
+  GstSample *sample;
+  gchar *descr;
+  GError *error = NULL;
+  gint64 duration, position;
+  GstStateChangeReturn ret;
+  gboolean res;
+  GstMapInfo map;
+
+  gst_init (&amp;argc, &amp;argv);
+
+  if (argc != 2) {
+    g_print ("usage: %s &lt;uri&gt;\n Writes snapshot.png in the current directory\n",
+        argv[0]);
+    exit (-1);
+  }
+
+  /* create a new pipeline */
+  descr =
+      g_strdup_printf ("uridecodebin uri=%s ! videoconvert ! videoscale ! "
+      " appsink name=sink caps=\"" CAPS "\"", argv[1]);
+  pipeline = gst_parse_launch (descr, &amp;error);
+
+  if (error != NULL) {
+    g_print ("could not construct pipeline: %s\n", error-&gt;message);
+    g_clear_error (&amp;error);
+    exit (-1);
+  }
+
+  /* get sink */
+  sink = gst_bin_get_by_name (GST_BIN (pipeline), "sink");
+
+  /* set to PAUSED to make the first frame arrive in the sink */
+  ret = gst_element_set_state (pipeline, GST_STATE_PAUSED);
+  switch (ret) {
+    case GST_STATE_CHANGE_FAILURE:
+      g_print ("failed to play the file\n");
+      exit (-1);
+    case GST_STATE_CHANGE_NO_PREROLL:
+      /* for live sources, we need to set the pipeline to PLAYING before we can
+       * receive a buffer. We don't do that yet */
+      g_print ("live sources not supported yet\n");
+      exit (-1);
+    default:
+      break;
+  }
+  /* This can block for up to 5 seconds. If your machine is really overloaded,
+   * it might time out before the pipeline prerolled and we generate an error. A
+   * better way is to run a mainloop and catch errors there. */
+  ret = gst_element_get_state (pipeline, NULL, NULL, 5 * GST_SECOND);
+  if (ret == GST_STATE_CHANGE_FAILURE) {
+    g_print ("failed to play the file\n");
+    exit (-1);
+  }
+
+  /* get the duration */
+  gst_element_query_duration (pipeline, GST_FORMAT_TIME, &amp;duration);
+
+  if (duration != -1)
+    /* we have a duration, seek to 5% */
+    position = duration * 5 / 100;
+  else
+    /* no duration, seek to 1 second, this could EOS */
+    position = 1 * GST_SECOND;
+
+  /* seek to the position in the file. Most files have a black first frame so
+   * by seeking to somewhere else we have a bigger chance of getting something
+   * more interesting. An optimisation would be to detect black images and then
+   * seek a little more */
+  gst_element_seek_simple (pipeline, GST_FORMAT_TIME,
+      GST_SEEK_FLAG_KEY_UNIT | GST_SEEK_FLAG_FLUSH, position);
+
+  /* get the preroll buffer from appsink, this block untils appsink really
+   * prerolls */
+  g_signal_emit_by_name (sink, "pull-preroll", &amp;sample, NULL);
+
+  /* if we have a buffer now, convert it to a pixbuf. It's possible that we
+   * don't have a buffer because we went EOS right away or had an error. */
+  if (sample) {
+    GstBuffer *buffer;
+    GstCaps *caps;
+    GstStructure *s;
+
+    /* get the snapshot buffer format now. We set the caps on the appsink so
+     * that it can only be an rgb buffer. The only thing we have not specified
+     * on the caps is the height, which is dependant on the pixel-aspect-ratio
+     * of the source material */
+    caps = gst_sample_get_caps (sample);
+    if (!caps) {
+      g_print ("could not get snapshot format\n");
+      exit (-1);
+    }
+    s = gst_caps_get_structure (caps, 0);
+
+    /* we need to get the final caps on the buffer to get the size */
+    res = gst_structure_get_int (s, "width", &amp;width);
+    res |= gst_structure_get_int (s, "height", &amp;height);
+    if (!res) {
+      g_print ("could not get snapshot dimension\n");
+      exit (-1);
+    }
+
+    /* create pixmap from buffer and save, gstreamer video buffers have a stride
+     * that is rounded up to the nearest multiple of 4 */
+    buffer = gst_sample_get_buffer (sample);
+    /* Mapping a buffer can fail (non-readable) */
+    if (gst_buffer_map (buffer, &amp;map, GST_MAP_READ)) {
+#ifdef HAVE_GTK
+      pixbuf = gdk_pixbuf_new_from_data (map.data,
+          GDK_COLORSPACE_RGB, FALSE, 8, width, height,
+          GST_ROUND_UP_4 (width * 3), NULL, NULL);
+
+      /* save the pixbuf */
+      gdk_pixbuf_save (pixbuf, "snapshot.png", "png", &amp;error, NULL);
+#endif
+      gst_buffer_unmap (buffer, &amp;map);
+    }
+    gst_sample_unref (sample);
+  } else {
+    g_print ("could not make snapshot\n");
+  }
+
+  /* cleanup and exit */
+  gst_element_set_state (pipeline, GST_STATE_NULL);
+  gst_object_unref (sink);
+  gst_object_unref (pipeline);
+
+  exit (0);
+}
+</code></pre>
+<h2 id="forcing-a-format">Forcing a format</h2>
+<p>Sometimes you'll want to set a specific format. You can do this with a
+<code>capsfilter</code> element.</p>
+<p>If you want, for example, a specific video size and color format or an audio
+bitsize and a number of channels; you can force a specific <code>GstCaps</code> on the
+pipeline using <em>filtered caps</em>. You set <em>filtered caps</em> on a link by putting a
+<code>capsfilter</code> between two elements and specifying your desired <code>GstCaps</code> in its
+<code>caps</code> property. The <code>capsfilter</code> will only allow types compatible with these
+capabilities to be negotiated.</p>
+<p>See also <a href="application-development/basics/pads.html#creating-capabilities-for-filtering">Creating capabilities for filtering</a>.</p>
+<h3 id="changing-format-in-a-playing-pipeline">Changing format in a PLAYING pipeline</h3>
+<p>It is also possible to dynamically change the format in a pipeline while
+<code>PLAYING</code>. This can simply be done by changing the <code>caps</code> property on a
+<code>capsfilter</code>. The <code>capsfilter</code> will send a <code>RECONFIGURE</code> event upstream that
+will make the upstream element attempt to renegotiate a new format and
+allocator. This only works if the upstream element is not using fixed caps on
+its source pad.</p>
+<p>Below is an example of how you can change the caps of a pipeline while
+in the <code>PLAYING</code> state:</p>
+<pre><code class="language-c">#include &lt;stdlib.h&gt;
+
+#include &lt;gst/gst.h&gt;
+
+#define MAX_ROUND 100
+
+int
+main (int argc, char **argv)
+{
+  GstElement *pipe, *filter;
+  GstCaps *caps;
+  gint width, height;
+  gint xdir, ydir;
+  gint round;
+  GstMessage *message;
+
+  gst_init (&amp;argc, &amp;argv);
+
+  pipe = gst_parse_launch_full ("videotestsrc ! capsfilter name=filter ! "
+             "ximagesink", NULL, GST_PARSE_FLAG_NONE, NULL);
+  g_assert (pipe != NULL);
+
+  filter = gst_bin_get_by_name (GST_BIN (pipe), "filter");
+  g_assert (filter);
+
+  width = 320;
+  height = 240;
+  xdir = ydir = -10;
+
+  for (round = 0; round &lt; MAX_ROUND; round++) {
+    gchar *capsstr;
+    g_print ("resize to %dx%d (%d/%d)   \r", width, height, round, MAX_ROUND);
+
+    /* we prefer our fixed width and height but allow other dimensions to pass
+     * as well */
+    capsstr = g_strdup_printf ("video/x-raw, width=(int)%d, height=(int)%d",
+        width, height);
+
+    caps = gst_caps_from_string (capsstr);
+    g_free (capsstr);
+    g_object_set (filter, "caps", caps, NULL);
+    gst_caps_unref (caps);
+
+    if (round == 0)
+      gst_element_set_state (pipe, GST_STATE_PLAYING);
+
+    width += xdir;
+    if (width &gt;= 320)
+      xdir = -10;
+    else if (width &lt; 200)
+      xdir = 10;
+
+    height += ydir;
+    if (height &gt;= 240)
+      ydir = -10;
+    else if (height &lt; 150)
+      ydir = 10;
+
+    message =
+        gst_bus_poll (GST_ELEMENT_BUS (pipe), GST_MESSAGE_ERROR,
+        50 * GST_MSECOND);
+    if (message) {
+      g_print ("got error           \n");
+
+      gst_message_unref (message);
+    }
+  }
+  g_print ("done                    \n");
+
+  gst_object_unref (filter);
+  gst_element_set_state (pipe, GST_STATE_NULL);
+  gst_object_unref (pipe);
+
+  return 0;
+}
+</code></pre>
+<p>Note how we use <code>gst_bus_poll()</code> with a small timeout to get messages
+and also introduce a short sleep.</p>
+<p>It is possible to set multiple caps for the capsfilter separated with a
+<code>;</code>. The capsfilter will try to renegotiate to the first possible format
+from the list.</p>
+<h2 id="dynamically-changing-the-pipeline">Dynamically changing the pipeline</h2>
+<p>In this section we talk about some techniques for dynamically modifying
+the pipeline. We are talking specifically about changing the pipeline
+while in <code>PLAYING</code> state and without interrupting the data flow.</p>
+<p>There are some important things to consider when building dynamic
+pipelines:</p>
+<ul>
+<li>
+<p>There are <code>insertbin</code> and <code>switchbin</code> elements, that target some
+cases of dynamical pipeline changes, and might fulfill your needs.</p>
+</li>
+<li>
+<p>When removing elements from the pipeline, make sure that there is no
+dataflow on unlinked pads because that will cause a fatal pipeline
+error. Always block source pads (in push mode) or sink pads (in pull
+mode) before unlinking pads. See also <a href="application-development/advanced/pipeline-manipulation.html#changing-elements-in-a-pipeline">Changing elements in a
+pipeline</a>.</p>
+</li>
+<li>
+<p>When adding elements to a pipeline, make sure to put the element
+into the right state, usually the same state as the parent, before
+allowing dataflow. When an element is newly created, it is in the
+<code>NULL</code> state and will return an error when it receives data.
+See also <a href="application-development/advanced/pipeline-manipulation.html#changing-elements-in-a-pipeline">Changing elements in a pipeline</a>.</p>
+</li>
+<li>
+<p>When adding elements to a pipeline, GStreamer will by default set
+the clock and base-time on the element to the current values of the
+pipeline. This means that the element will be able to construct the
+same pipeline running-time as the other elements in the pipeline.
+This means that sinks will synchronize buffers like the other sinks
+in the pipeline and that sources produce buffers with a running-time
+that matches the other sources.</p>
+</li>
+<li>
+<p>When unlinking elements from an upstream chain, always make sure to
+flush any queued data in the element by sending an <code>EOS</code> event down
+the element sink pad(s) and by waiting that the <code>EOS</code> leaves the
+elements (with an event probe).</p>
+<p>If you don't perform a flush, you will lose the data buffered by the
+unlinked element. This can result in a simple frame loss (a few video frames,
+several milliseconds of audio, etc) but If you remove a muxer -- and in
+some cases an encoder or similar elements --, you risk getting a corrupted
+file which can't be played properly because some relevant metadata (header,
+seek/index tables, internal sync tags) might not be properly stored or updated.</p>
+<p>See also <a href="application-development/advanced/pipeline-manipulation.html#changing-elements-in-a-pipeline">Changing elements in a pipeline</a>.</p>
+</li>
+<li>
+<p>A live source will produce buffers with a <code>running-time</code> equal to the
+pipeline's current <code>running-time</code>.</p>
+<p>A pipeline without a live source produces buffers with a
+<code>running-time</code> starting from 0. Likewise, after a flushing seek, these
+pipelines reset the <code>running-time</code> back to 0.</p>
+<p>The <code>running-time</code> can be changed with <code>gst_pad_set_offset ()</code>. It is
+important to know the <code>running-time</code> of the elements in the pipeline
+in order to maintain synchronization.</p>
+</li>
+<li>
+<p>Adding elements might change the state of the pipeline. Adding a
+non-prerolled sink, for example, brings the pipeline back to the
+prerolling state. Removing a non-prerolled sink, for example, might
+change the pipeline to PAUSED and PLAYING state.</p>
+<p>Adding a live source cancels the preroll stage and puts the pipeline
+in the playing state. Adding any live element might also change the
+pipeline's latency.</p>
+<p>Adding or removing pipeline's elements might change the clock
+selection of the pipeline. If the newly added element provides a
+clock, it might be good for the pipeline to use the new clock. If, on
+the other hand, the element that is providing the clock for the
+pipeline is removed, a new clock has to be selected.</p>
+</li>
+<li>
+<p>Adding and removing elements might cause upstream or downstream
+elements to renegotiate caps and/or allocators. You don't really
+need to do anything from the application, plugins largely adapt
+themselves to the new pipeline topology in order to optimize their
+formats and allocation strategy.</p>
+<p>What is important is that when you add, remove or change elements in
+a pipeline, it is possible that the pipeline needs to negotiate a
+new format and this can fail. Usually you can fix this by inserting
+the right converter elements where needed. See also <a href="application-development/advanced/pipeline-manipulation.html#changing-elements-in-a-pipeline">Changing
+elements in a pipeline</a>.</p>
+</li>
+</ul>
+<p>GStreamer offers support for doing almost any dynamic pipeline modification but
+you need to know a few details before you can do this without causing pipeline
+errors. In the following sections we will demonstrate a few typical modification
+use-cases.</p>
+<h3 id="changing-elements-in-a-pipeline">Changing elements in a pipeline</h3>
+<p>In this example we have the following element chain:</p>
+<pre><code>   - ----.      .----------.      .---- -
+element1 |      | element2 |      | element3
+       src -&gt; sink       src -&gt; sink
+   - ----'      '----------'      '---- -
+
+</code></pre>
+<p>We want to replace element2 by element4 while the pipeline is in the
+PLAYING state. Let's say that element2 is a visualization and that you
+want to switch the visualization in the pipeline.</p>
+<p>We can't just unlink element2's sinkpad from element1's source pad
+because that would leave element1's source pad unlinked and would cause
+a streaming error in the pipeline when data is pushed on the source pad.
+The technique is to block the dataflow from element1's source pad before
+we replace element2 by element4 and then resume dataflow as shown in the
+following steps:</p>
+<ul>
+<li>
+<p>Block element1's source pad with a blocking pad probe. When the pad
+is blocked, the probe callback will be called.</p>
+</li>
+<li>
+<p>Inside the block callback nothing is flowing between element1 and
+element2 and nothing will flow until unblocked.</p>
+</li>
+<li>
+<p>Unlink element1 and element2.</p>
+</li>
+<li>
+<p>Make sure data is flushed out of element2. Some elements might
+internally keep some data, you need to make sure not to lose any by
+forcing it out of element2. You can do this by pushing <code>EOS</code> into
+element2, like this:</p>
+<ul>
+<li>
+<p>Put an event probe on element2's source pad.</p>
+</li>
+<li>
+<p>Send <code>EOS</code> to element2's sink pad. This makes sure that all the data
+inside element2 is forced out.</p>
+</li>
+<li>
+<p>Wait for the <code>EOS</code> event to appear on element2's source pad. When
+the <code>EOS</code> is received, drop it and remove the event probe.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Unlink element2 and element3. You can now also remove element2 from
+the pipeline and set the state to <code>NULL</code>.</p>
+</li>
+<li>
+<p>Add element4 to the pipeline, if not already added. Link element4
+and element3. Link element1 and element4.</p>
+</li>
+<li>
+<p>Make sure element4 is in the same state as the rest of the elements
+in the pipeline. It should be at least in the <code>PAUSED</code> state before it
+can receive buffers and events.</p>
+</li>
+<li>
+<p>Unblock element1's source pad probe. This will let new data into
+element4 and continue streaming.</p>
+</li>
+</ul>
+<p>The above algorithm works when the source pad is blocked, i.e. when
+there is dataflow in the pipeline. If there is no dataflow, there is
+also no point in changing the element (just yet) so this algorithm can
+be used in the <code>PAUSED</code> state as well.</p>
+<p>This example changes the video effect on a simple pipeline once per
+second:</p>
+<pre><code class="language-c">#include &lt;gst/gst.h&gt;
+
+static gchar *opt_effects = NULL;
+
+#define DEFAULT_EFFECTS "identity,exclusion,navigationtest," \
+    "agingtv,videoflip,vertigotv,gaussianblur,shagadelictv,edgetv"
+
+static GstPad *blockpad;
+static GstElement *conv_before;
+static GstElement *conv_after;
+static GstElement *cur_effect;
+static GstElement *pipeline;
+
+static GQueue effects = G_QUEUE_INIT;
+
+static GstPadProbeReturn
+event_probe_cb (GstPad * pad, GstPadProbeInfo * info, gpointer user_data)
+{
+  GMainLoop *loop = user_data;
+  GstElement *next;
+
+  if (GST_EVENT_TYPE (GST_PAD_PROBE_INFO_DATA (info)) != GST_EVENT_EOS)
+    return GST_PAD_PROBE_OK;
+
+  gst_pad_remove_probe (pad, GST_PAD_PROBE_INFO_ID (info));
+
+  /* take next effect from the queue */
+  next = g_queue_pop_head (&amp;effects);
+  if (next == NULL) {
+    GST_DEBUG_OBJECT (pad, "no more effects");
+    g_main_loop_quit (loop);
+    return GST_PAD_PROBE_DROP;
+  }
+
+  g_print ("Switching from '%s' to '%s'..\n", GST_OBJECT_NAME (cur_effect),
+      GST_OBJECT_NAME (next));
+
+  gst_element_set_state (cur_effect, GST_STATE_NULL);
+
+  /* remove unlinks automatically */
+  GST_DEBUG_OBJECT (pipeline, "removing %" GST_PTR_FORMAT, cur_effect);
+  gst_bin_remove (GST_BIN (pipeline), cur_effect);
+
+  /* push current effect back into the queue */
+  g_queue_push_tail (&amp;effects, g_steal_pointer (&amp;cur_effect));
+
+  /* add, link and start the new effect */
+  GST_DEBUG_OBJECT (pipeline, "adding   %" GST_PTR_FORMAT, next);
+  gst_bin_add (GST_BIN (pipeline), next);
+
+  GST_DEBUG_OBJECT (pipeline, "linking..");
+  gst_element_link_many (conv_before, next, conv_after, NULL);
+
+  gst_element_set_state (next, GST_STATE_PLAYING);
+
+  cur_effect = next;
+  GST_DEBUG_OBJECT (pipeline, "done");
+
+  return GST_PAD_PROBE_DROP;
+}
+
+static GstPadProbeReturn
+pad_probe_cb (GstPad * pad, GstPadProbeInfo * info, gpointer user_data)
+{
+  GstPad *srcpad, *sinkpad;
+
+  GST_DEBUG_OBJECT (pad, "pad is blocked now");
+
+  /* remove the probe first */
+  gst_pad_remove_probe (pad, GST_PAD_PROBE_INFO_ID (info));
+
+  /* install new probe for EOS */
+  srcpad = gst_element_get_static_pad (cur_effect, "src");
+  gst_pad_add_probe (srcpad, GST_PAD_PROBE_TYPE_BLOCK |
+      GST_PAD_PROBE_TYPE_EVENT_DOWNSTREAM, event_probe_cb, user_data, NULL);
+  gst_object_unref (srcpad);
+
+  /* push EOS into the element, the probe will be fired when the
+   * EOS leaves the effect and it has thus drained all of its data */
+  sinkpad = gst_element_get_static_pad (cur_effect, "sink");
+  gst_pad_send_event (sinkpad, gst_event_new_eos ());
+  gst_object_unref (sinkpad);
+
+  return GST_PAD_PROBE_OK;
+}
+
+static gboolean
+timeout_cb (gpointer user_data)
+{
+  gst_pad_add_probe (blockpad, GST_PAD_PROBE_TYPE_BLOCK_DOWNSTREAM,
+      pad_probe_cb, user_data, NULL);
+
+  return TRUE;
+}
+
+static gboolean
+bus_cb (GstBus * bus, GstMessage * msg, gpointer user_data)
+{
+  GMainLoop *loop = user_data;
+
+  switch (GST_MESSAGE_TYPE (msg)) {
+    case GST_MESSAGE_ERROR:{
+      GError *err = NULL;
+      gchar *dbg;
+
+      gst_message_parse_error (msg, &amp;err, &amp;dbg);
+      gst_object_default_error (msg-&gt;src, err, dbg);
+      g_clear_error (&amp;err);
+      g_free (dbg);
+      g_main_loop_quit (loop);
+      break;
+    }
+    default:
+      break;
+  }
+  return TRUE;
+}
+
+int
+main (int argc, char **argv)
+{
+  GOptionEntry options[] = {
+    {"effects", 'e', 0, G_OPTION_ARG_STRING, &amp;opt_effects,
+        "Effects to use (comma-separated list of element names)", NULL},
+    {NULL}
+  };
+  GOptionContext *ctx;
+  GError *err = NULL;
+  GMainLoop *loop;
+  GstElement *src, *q1, *q2, *effect, *filter, *sink;
+  gchar **effect_names, **e;
+
+  ctx = g_option_context_new ("");
+  g_option_context_add_main_entries (ctx, options, GETTEXT_PACKAGE);
+  g_option_context_add_group (ctx, gst_init_get_option_group ());
+  if (!g_option_context_parse (ctx, &amp;argc, &amp;argv, &amp;err)) {
+    g_error ("Error initializing: %s\n", err-&gt;message);
+    return 1;
+  }
+  g_option_context_free (ctx);
+
+  if (opt_effects != NULL)
+    effect_names = g_strsplit (opt_effects, ",", -1);
+  else
+    effect_names = g_strsplit (DEFAULT_EFFECTS, ",", -1);
+
+  for (e = effect_names; e != NULL &amp;&amp; *e != NULL; ++e) {
+    GstElement *el;
+
+    el = gst_element_factory_make (*e, NULL);
+    if (el) {
+      g_print ("Adding effect '%s'\n", *e);
+      g_queue_push_tail (&amp;effects, gst_object_ref_sink (el));
+    }
+  }
+
+  pipeline = gst_pipeline_new ("pipeline");
+
+  src = gst_element_factory_make ("videotestsrc", NULL);
+  g_object_set (src, "is-live", TRUE, NULL);
+
+  filter = gst_element_factory_make ("capsfilter", NULL);
+  gst_util_set_object_arg (G_OBJECT (filter), "caps",
+      "video/x-raw, width=320, height=240, "
+      "format={ I420, YV12, YUY2, UYVY, AYUV, Y41B, Y42B, "
+      "YVYU, Y444, v210, v216, NV12, NV21, UYVP, A420, YUV9, YVU9, IYU1 }");
+
+  q1 = gst_element_factory_make ("queue", NULL);
+
+  blockpad = gst_element_get_static_pad (q1, "src");
+
+  conv_before = gst_element_factory_make ("videoconvert", NULL);
+
+  effect = g_queue_pop_head (&amp;effects);
+  cur_effect = effect;
+
+  conv_after = gst_element_factory_make ("videoconvert", NULL);
+
+  q2 = gst_element_factory_make ("queue", NULL);
+
+  sink = gst_element_factory_make ("ximagesink", NULL);
+
+  gst_bin_add_many (GST_BIN (pipeline), src, filter, q1, conv_before, effect,
+      conv_after, q2, sink, NULL);
+
+  gst_element_link_many (src, filter, q1, conv_before, effect, conv_after,
+      q2, sink, NULL);
+
+  if (gst_element_set_state (pipeline,
+          GST_STATE_PLAYING) == GST_STATE_CHANGE_FAILURE) {
+    g_error ("Error starting pipeline");
+    return 1;
+  }
+
+  loop = g_main_loop_new (NULL, FALSE);
+
+  gst_bus_add_watch (GST_ELEMENT_BUS (pipeline), bus_cb, loop);
+
+  g_timeout_add_seconds (1, timeout_cb, loop);
+
+  g_main_loop_run (loop);
+
+  gst_element_set_state (pipeline, GST_STATE_NULL);
+
+  gst_object_unref (blockpad);
+  gst_bus_remove_watch (GST_ELEMENT_BUS (pipeline));
+  gst_object_unref (pipeline);
+  g_main_loop_unref (loop);
+
+  g_queue_clear_full (&amp;effects, (GDestroyNotify) gst_object_unref);
+  gst_object_unref (cur_effect);
+  g_strfreev (effect_names);
+
+  return 0;
+}
+</code></pre>
+<p>Note how we added <code>videoconvert</code> elements before and after the effect.
+This is needed because some elements might operate in different
+colorspaces; by inserting the conversion elements, we can help ensure
+a proper format can be negotiated.</p>
+
+    </div>
+        
+
+
+
+
+		
+	</div>
+	<div id="search_results">
+		<p>The results of the search are</p>
+	</div>
+	<div id="footer">
+		    
+
+	</div>
+</div>
+
+<div id="toc-column">
+	
+		<div class="edit-button">
+		<a href="https://gitlab.freedesktop.org/gstreamer/gst-docs//edit/master/subprojects/gst-docs/markdown/application-development/advanced/pipeline-manipulation.md" data-hotdoc-role="edit-button">Edit on GitLab</a>
+
+	</div>
+		<div id="toc-wrapper">
+		<nav id="toc"></nav>
+	</div>
+</div>
+</div>
+</main>
+
+
+<script src="assets/js/navbar_offset_scroller.js"></script>
+</body>
+</html>

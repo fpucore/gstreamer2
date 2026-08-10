@@ -1,0 +1,6656 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<base href="..">
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<title>GstRTPBasePayload</title>
+
+<link rel="stylesheet" href="assets/css/dark-frontend.css" type="text/css" title="dark">
+<link rel="alternate stylesheet" href="assets/css/light-frontend.css" type="text/css" title="light">
+<link rel="stylesheet" href="assets/css/bootstrap-toc.min.css" type="text/css">
+<link rel="stylesheet" href="assets/css/jquery.mCustomScrollbar.min.css">
+<link rel="stylesheet" href="assets/js/search/enable_search.css" type="text/css">
+
+<link rel="stylesheet" href="assets/css/extra_frontend.css" type="text/css">
+<link rel="stylesheet" href="assets/css/devhelp.css" type="text/css">
+
+<link rel="stylesheet" href="assets/css/prism-tomorrow.css" type="text/css" title="dark">
+
+<link rel="alternate stylesheet" href="assets/css/prism.css" type="text/css" title="light">
+
+<script src="assets/js/mustache.min.js"></script>
+<script src="assets/js/jquery.js"></script>
+<script src="assets/js/bootstrap.js"></script>
+<script src="assets/js/scrollspy.js"></script>
+<script src="assets/js/typeahead.jquery.min.js"></script>
+<script src="assets/js/search.js"></script>
+<script src="assets/js/compare-versions.js"></script>
+<script src="assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="assets/js/bootstrap-toc.min.js"></script>
+<script src="assets/js/jquery.touchSwipe.min.js"></script>
+<script src="assets/js/anchor.min.js"></script>
+<script src="assets/js/tag_filtering.js"></script>
+<script src="assets/js/language_switching.js"></script>
+<script src="assets/js/styleswitcher.js"></script>
+
+<script src="assets/js/lines_around_headings.js"></script>
+
+<script src="assets/js/prism-core.js"></script>
+<script src="assets/js/prism-autoloader.js"></script>
+<script src="assets/js/prism_autoloader_path_override.js"></script>
+<script src="assets/js/trie.js"></script>
+
+<!-- generic -->
+<link rel="icon" type="image/png" href="assets/images/favicon-16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="assets/images/favicon-32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="assets/images/favicon-57.png" sizes="57x57">
+<link rel="icon" type="image/png" href="assets/images/favicon-64.png" sizes="64x64">
+<link rel="icon" type="image/png" href="assets/images/favicon-76.png" sizes="76x76">
+<link rel="icon" type="image/png" href="assets/images/favicon-96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="assets/images/favicon-128.png" sizes="128x128">
+<link rel="icon" type="image/png" href="assets/images/favicon-192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="assets/images/favicon-228.png" sizes="228x228">
+
+<!-- Android -->
+<link rel="shortcut icon" sizes="196x196" href="assets/images/favicon-196.png">
+
+<!-- iOS -->
+<link rel="apple-touch-icon" href="assets/images/favicon-120.png" sizes="120x120">
+<link rel="apple-touch-icon" href="assets/images/favicon-152.png" sizes="152x152">
+<link rel="apple-touch-icon" href="assets/images/favicon-180.png" sizes="180x180">
+
+</head>
+
+<body class="no-script
+">
+
+<script>
+$('body').removeClass('no-script');
+</script>
+
+<nav class="navbar navbar-fixed-top navbar-default" id="topnav">
+	<div class="container-fluid">
+		<div class="navbar-right">
+			<a id="toc-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-wrapper" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<span title="light mode switch" class="glyphicon glyphicon-sunglasses pull-right" id="lightmode-icon"></span>
+			<form class="navbar-form pull-right" id="navbar-search-form">
+                               <div class="form-group has-feedback">
+                                       <input type="text" class="form-control input-sm" name="search" id="sidenav-lookup-field" placeholder="search" disabled>
+				       <span class="glyphicon glyphicon-search form-control-feedback" id="search-mgn-glass"></span>
+                               </div>
+                        </form>
+		</div>
+		<div class="navbar-header">
+			<a id="sidenav-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<a id="home-link" href="index.html" class="hotdoc-navbar-brand">
+				<img src="assets/images/gstreamer-logo.svg" alt="Home">
+			</a>
+		</div>
+		<div class="navbar-collapse collapse" id="navbar-wrapper">
+			<ul class="nav navbar-nav" id="menu">
+				
+<li class="dropdown">
+    <a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        API References<span class="caret"></span>
+    </a>
+	<ul class="dropdown-menu" id="modules-menu">
+					<li>
+				<a href="gstreamer/gi-index.html">GStreamer core</a>
+			</li>
+					<li>
+				<a href="libs.html">GStreamer Libraries</a>
+			</li>
+					<li>
+				<a href="plugins_doc.html">GStreamer Plugins</a>
+			</li>
+		</ul>
+</li>
+
+<li>
+    <a href="application-development/index.html">Application manual</a>
+</li>
+
+
+<li>
+    <a href="tutorials/index.html">Tutorials</a>
+</li>
+
+			</ul>
+			<div class="hidden-xs hidden-sm navbar-text navbar-center">
+							</div>
+		</div>
+	</div>
+</nav>
+
+<main>
+<div data-extension="gi-extension" data-hotdoc-in-toplevel="False" data-hotdoc-project="rtplib" data-hotdoc-ref="gstrtpbasepayload.html" class="page_container" id="page-wrapper" data-hotdoc-meta-gi-languages="['c', 'javascript', 'python']" data-hotdoc-meta-gi-language="c">
+<script src="assets/js/utils.js"></script>
+
+<div class="panel panel-collapse oc-collapsed" id="sidenav" data-hotdoc-role="navigation">
+	<script src="assets/js/full-width.js"></script>
+  <div id="sitenav-wrapper">
+    <iframe src="hotdoc-sitemap.html" id="sitenav-frame"></iframe>
+  </div>
+</div>
+
+<div id="body">
+	<div id="main">
+				    <div id="page-description" data-hotdoc-role="main">
+        <h1 id="gstrtpbasepayload-page">GstRTPBasePayload</h1>
+<p>Provides a base class for RTP payloaders</p>
+
+    </div>
+        
+        
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstRTPBasePayload">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h2 data-hotdoc-id="GstRTPBasePayload">
+	<i>GstRTPBasePayload</i>
+</h2>
+
+
+<div class="hierarchy_container">
+	<div class="hierarchy_details">
+<pre>
+<a title="GObject" href="https://docs.gtk.org/gobject/class.Object.html">GObject</a>
+    <span class="lineart">╰──</span><a title="GInitiallyUnowned" href="https://docs.gtk.org/gobject/class.InitiallyUnowned.html">GInitiallyUnowned</a>
+        <span class="lineart">╰──</span><a title="GstObject" href="gstreamer/gstobject.html#GstObject">GstObject</a>
+            <span class="lineart">╰──</span><a title="GstElement" href="gstreamer/gstelement.html#GstElement">GstElement</a>
+                <span class="lineart">╰──</span>GstRTPBasePayload
+                    <span class="lineart">╰──</span><a title="GstRTPBaseAudioPayload" href="rtplib/gstrtpbaseaudiopayload.html#GstRTPBaseAudioPayload">GstRTPBaseAudioPayload</a>
+</pre>
+
+</div>
+
+</div>
+
+
+
+
+	<div class="members-container">
+		<h3>Members</h3>
+					
+<div class="symbol-detail" data-hotdoc-id="GstRTPBasePayload.element">
+	<div>
+		<i><em><code>element</code></em></i>
+		(<a title="GstElement" href="gstreamer/gstelement.html#GstElement">GstElement</a>)
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+			</div>
+
+
+
+
+<hr>
+<h3>Class structure</h3>
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstRTPBasePayloadClass">
+	<i>GstRTPBasePayloadClass</i>
+</h4>
+
+
+<p>Base class for audio RTP payloader.</p>
+
+
+
+
+	<div class="members-container">
+		<h5>Fields</h5>
+					
+<div class="symbol-detail" data-hotdoc-id="GstRTPBasePayloadClass.parent_class">
+	<div>
+		<i><em><code>parent_class</code></em></i>
+		(<a title="GstElementClass" href="GstElementClass">GstElementClass</a>)
+		–
+	</div>
+			<p>the parent class</p>
+
+	</div>
+
+			</div>
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3>
+	GstRtp.RTPBasePayloadClass
+</h3>
+
+
+<p>Base class for audio RTP payloader.</p>
+
+
+
+
+	<div class="members-container">
+		<h5>Attributes</h5>
+					
+<div class="symbol-detail" data-hotdoc-id="GstRTPBasePayloadClass.parent_class">
+	<div>
+		<i><em><code>parent_class</code></em></i>
+		(<a title="Gst.ElementClass" href="GstElementClass">Gst.ElementClass</a>)
+		–
+	</div>
+			<p>the parent class</p>
+
+	</div>
+
+			</div>
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3>
+	GstRtp.RTPBasePayloadClass
+</h3>
+
+
+<p>Base class for audio RTP payloader.</p>
+
+
+
+
+	<div class="members-container">
+		<h5>Attributes</h5>
+					
+<div class="symbol-detail" data-hotdoc-id="GstRTPBasePayloadClass.parent_class">
+	<div>
+		<i><em><code>parent_class</code></em></i>
+		(<a title="Gst.ElementClass" href="GstElementClass">Gst.ElementClass</a>)
+		–
+	</div>
+			<p>the parent class</p>
+
+	</div>
+
+			</div>
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h2 data-hotdoc-id="GstRTPBasePayload">
+	<i>GstRtp.RTPBasePayload</i>
+</h2>
+
+
+<div class="hierarchy_container">
+	<div class="hierarchy_details">
+<pre>
+<a title="GObject.Object" href="https://docs.gtk.org/gobject/class.Object.html">GObject.Object</a>
+    <span class="lineart">╰──</span><a title="GObject.InitiallyUnowned" href="https://docs.gtk.org/gobject/class.InitiallyUnowned.html">GObject.InitiallyUnowned</a>
+        <span class="lineart">╰──</span><a title="Gst.Object" href="gstreamer/gstobject.html#GstObject">Gst.Object</a>
+            <span class="lineart">╰──</span><a title="Gst.Element" href="gstreamer/gstelement.html#GstElement">Gst.Element</a>
+                <span class="lineart">╰──</span>GstRtp.RTPBasePayload
+                    <span class="lineart">╰──</span><a title="GstRtp.RTPBaseAudioPayload" href="rtplib/gstrtpbaseaudiopayload.html#GstRTPBaseAudioPayload">GstRtp.RTPBaseAudioPayload</a>
+</pre>
+
+</div>
+
+</div>
+
+
+
+
+	<div class="members-container">
+		<h3>Members</h3>
+					
+<div class="symbol-detail" data-hotdoc-id="GstRTPBasePayload.element">
+	<div>
+		<i><em><code>element</code></em></i>
+		(<a title="Gst.Element" href="gstreamer/gstelement.html#GstElement">Gst.Element</a>)
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+			</div>
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h2 data-hotdoc-id="GstRTPBasePayload">
+	<i>GstRtp.RTPBasePayload</i>
+</h2>
+
+
+<div class="hierarchy_container">
+	<div class="hierarchy_details">
+<pre>
+<a title="GObject.Object" href="https://docs.gtk.org/gobject/class.Object.html">GObject.Object</a>
+    <span class="lineart">╰──</span><a title="GObject.InitiallyUnowned" href="https://docs.gtk.org/gobject/class.InitiallyUnowned.html">GObject.InitiallyUnowned</a>
+        <span class="lineart">╰──</span><a title="Gst.Object" href="gstreamer/gstobject.html#GstObject">Gst.Object</a>
+            <span class="lineart">╰──</span><a title="Gst.Element" href="gstreamer/gstelement.html#GstElement">Gst.Element</a>
+                <span class="lineart">╰──</span>GstRtp.RTPBasePayload
+                    <span class="lineart">╰──</span><a title="GstRtp.RTPBaseAudioPayload" href="rtplib/gstrtpbaseaudiopayload.html#GstRTPBaseAudioPayload">GstRtp.RTPBaseAudioPayload</a>
+</pre>
+
+</div>
+
+</div>
+
+
+
+
+	<div class="members-container">
+		<h3>Members</h3>
+					
+<div class="symbol-detail" data-hotdoc-id="GstRTPBasePayload.element">
+	<div>
+		<i><em><code>element</code></em></i>
+		(<a title="Gst.Element" href="gstreamer/gstelement.html#GstElement">Gst.Element</a>)
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+			</div>
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+
+            <h3 class="symbol_section">Methods</h3>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.16;" id="gst_rtp_base_payload_allocate_output_buffer">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_rtp_base_payload_allocate_output_buffer">
+	<i>gst_rtp_base_payload_allocate_output_buffer</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GstBuffer" href="gstreamer/gstbuffer.html#GstBuffer">GstBuffer</a> *
+gst_rtp_base_payload_allocate_output_buffer (<a title="GstRTPBasePayload" href="rtplib/gstrtpbasepayload.html#GstRTPBasePayload">GstRTPBasePayload</a> * payload,
+                                             <a title="guint" href="https://docs.gtk.org/glib/types.html#guint">guint</a> payload_len,
+                                             <a title="guint8" href="https://docs.gtk.org/glib/types.html#guint8">guint8</a> pad_len,
+                                             <a title="guint8" href="https://docs.gtk.org/glib/types.html#guint8">guint8</a> csrc_count)</pre>
+
+<p>Allocate a new <a href="gstreamer/gstbuffer.html#GstBuffer">GstBuffer</a> with enough data to hold an RTP packet with
+minimum <em>csrc_count</em> CSRCs, a payload length of <em>payload_len</em> and padding of
+<em>pad_len</em>. If <em>payload</em> has <a href="rtplib/gstrtpbasepayload.html#GstRTPBasePayload:source-info">source-info</a> <a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#TRUE:CAPS">TRUE</a> additional
+CSRCs may be allocated and filled with RTP source information.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>payload</code></em></i>
+–
+</div>
+<p>a <a href="rtplib/gstrtpbasepayload.html#GstRTPBasePayload">GstRTPBasePayload</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>payload_len</code></em></i>
+–
+</div>
+<p>the length of the payload</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>pad_len</code></em></i>
+–
+</div>
+<p>the amount of padding</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>csrc_count</code></em></i>
+–
+</div>
+<p>the minimum number of CSRC entries</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p>A newly allocated buffer that can hold an RTP packet with given
+parameters.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.16
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_rtp_base_payload_allocate_output_buffer">
+	<i>GstRtp.RTPBasePayload.prototype.allocate_output_buffer</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstRtp.RTPBasePayload.prototype.allocate_output_buffer(payload_len: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>, pad_len: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>, csrc_count: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>): {
+    // javascript wrapper for 'gst_rtp_base_payload_allocate_output_buffer'
+}</code></pre>
+
+<p>Allocate a new <a href="gstreamer/gstbuffer.html#GstBuffer">Gst.Buffer</a> with enough data to hold an RTP packet with
+minimum <em>csrc_count</em> CSRCs, a payload length of <em>payload_len</em> and padding of
+<em>pad_len</em>. If <em>payload</em> has <a href="rtplib/gstrtpbasepayload.html#GstRTPBasePayload:source-info">source-info</a> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">true</a> additional
+CSRCs may be allocated and filled with RTP source information.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>payload</code></em></i>
+<span>(</span><a title="GstRtp.RTPBasePayload" href="rtplib/gstrtpbasepayload.html#GstRTPBasePayload">GstRtp.RTPBasePayload</a><span>)</span>
+–
+</div>
+<p>a <a href="rtplib/gstrtpbasepayload.html#GstRTPBasePayload">GstRtp.RTPBasePayload</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>payload_len</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>the length of the payload</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>pad_len</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>the amount of padding</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>csrc_count</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>the minimum number of CSRC entries</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Gst.Buffer" href="gstreamer/gstbuffer.html#GstBuffer">Gst.Buffer</a><span>)</span>
+–
+			</div>
+							<p>A newly allocated buffer that can hold an RTP packet with given
+parameters.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.16
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_rtp_base_payload_allocate_output_buffer">
+	<i>GstRtp.RTPBasePayload.allocate_output_buffer</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstRtp.RTPBasePayload.allocate_output_buffer (self, payload_len, pad_len, csrc_count):
+    #python wrapper for 'gst_rtp_base_payload_allocate_output_buffer'</code></pre>
+
+<p>Allocate a new <a href="gstreamer/gstbuffer.html#GstBuffer">Gst.Buffer</a> with enough data to hold an RTP packet with
+minimum <em>csrc_count</em> CSRCs, a payload length of <em>payload_len</em> and padding of
+<em>pad_len</em>. If <em>payload</em> has <a href="rtplib/gstrtpbasepayload.html#GstRTPBasePayload:source-info">source_info</a> <a href="https://docs.python.org/3/library/constants.html#True">True</a> additional
+CSRCs may be allocated and filled with RTP source information.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>payload</code></em></i>
+<span>(</span><a title="GstRtp.RTPBasePayload" href="rtplib/gstrtpbasepayload.html#GstRTPBasePayload">GstRtp.RTPBasePayload</a><span>)</span>
+–
+</div>
+<p>a <a href="rtplib/gstrtpbasepayload.html#GstRTPBasePayload">GstRtp.RTPBasePayload</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>payload_len</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<p>the length of the payload</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>pad_len</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<p>the amount of padding</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>csrc_count</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<p>the minimum number of CSRC entries</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Gst.Buffer" href="gstreamer/gstbuffer.html#GstBuffer">Gst.Buffer</a><span>)</span>
+–
+			</div>
+							<p>A newly allocated buffer that can hold an RTP packet with given
+parameters.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.16
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.16;" id="gst_rtp_base_payload_get_source_count">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_rtp_base_payload_get_source_count">
+	<i>gst_rtp_base_payload_get_source_count</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="guint" href="https://docs.gtk.org/glib/types.html#guint">guint</a>
+gst_rtp_base_payload_get_source_count (<a title="GstRTPBasePayload" href="rtplib/gstrtpbasepayload.html#GstRTPBasePayload">GstRTPBasePayload</a> * payload,
+                                       <a title="GstBuffer" href="gstreamer/gstbuffer.html#GstBuffer">GstBuffer</a> * buffer)</pre>
+
+<p>Count the total number of RTP sources found in the meta of <em>buffer</em>, which
+will be automically added by <a href="rtplib/gstrtpbasepayload.html#gst_rtp_base_payload_allocate_output_buffer">gst_rtp_base_payload_allocate_output_buffer</a>.
+If <a href="rtplib/gstrtpbasepayload.html#GstRTPBasePayload:source-info">source-info</a> is <a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#FALSE:CAPS">FALSE</a> the count will be 0.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>payload</code></em></i>
+–
+</div>
+<p>a <a href="rtplib/gstrtpbasepayload.html#GstRTPBasePayload">GstRTPBasePayload</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>buffer</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="Don't free data after the code is done"><span class="acronym">transfer: none</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gstbuffer.html#GstBuffer">GstBuffer</a>, typically the buffer to payload</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p>The number of sources.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.16
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_rtp_base_payload_get_source_count">
+	<i>GstRtp.RTPBasePayload.prototype.get_source_count</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstRtp.RTPBasePayload.prototype.get_source_count(buffer: <a title="Gst.Buffer" href="gstreamer/gstbuffer.html#GstBuffer">Gst.Buffer</a>): {
+    // javascript wrapper for 'gst_rtp_base_payload_get_source_count'
+}</code></pre>
+
+<p>Count the total number of RTP sources found in the meta of <em>buffer</em>, which
+will be automically added by <a href="rtplib/gstrtpbasepayload.html#gst_rtp_base_payload_allocate_output_buffer">GstRtp.RTPBasePayload.prototype.allocate_output_buffer</a>.
+If <a href="rtplib/gstrtpbasepayload.html#GstRTPBasePayload:source-info">source-info</a> is <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">false</a> the count will be 0.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>payload</code></em></i>
+<span>(</span><a title="GstRtp.RTPBasePayload" href="rtplib/gstrtpbasepayload.html#GstRTPBasePayload">GstRtp.RTPBasePayload</a><span>)</span>
+–
+</div>
+<p>a <a href="rtplib/gstrtpbasepayload.html#GstRTPBasePayload">GstRtp.RTPBasePayload</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>buffer</code></em></i>
+<span>(</span><a title="Gst.Buffer" href="gstreamer/gstbuffer.html#GstBuffer">Gst.Buffer</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gstbuffer.html#GstBuffer">Gst.Buffer</a>, typically the buffer to payload</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+			</div>
+							<p>The number of sources.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.16
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_rtp_base_payload_get_source_count">
+	<i>GstRtp.RTPBasePayload.get_source_count</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstRtp.RTPBasePayload.get_source_count (self, buffer):
+    #python wrapper for 'gst_rtp_base_payload_get_source_count'</code></pre>
+
+<p>Count the total number of RTP sources found in the meta of <em>buffer</em>, which
+will be automically added by <a href="rtplib/gstrtpbasepayload.html#gst_rtp_base_payload_allocate_output_buffer">GstRtp.RTPBasePayload.allocate_output_buffer</a>.
+If <a href="rtplib/gstrtpbasepayload.html#GstRTPBasePayload:source-info">source_info</a> is <a href="https://docs.python.org/3/library/constants.html#False">False</a> the count will be 0.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>payload</code></em></i>
+<span>(</span><a title="GstRtp.RTPBasePayload" href="rtplib/gstrtpbasepayload.html#GstRTPBasePayload">GstRtp.RTPBasePayload</a><span>)</span>
+–
+</div>
+<p>a <a href="rtplib/gstrtpbasepayload.html#GstRTPBasePayload">GstRtp.RTPBasePayload</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>buffer</code></em></i>
+<span>(</span><a title="Gst.Buffer" href="gstreamer/gstbuffer.html#GstBuffer">Gst.Buffer</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gstbuffer.html#GstBuffer">Gst.Buffer</a>, typically the buffer to payload</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+			</div>
+							<p>The number of sources.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.16
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_rtp_base_payload_is_filled">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_rtp_base_payload_is_filled">
+	<i>gst_rtp_base_payload_is_filled</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a>
+gst_rtp_base_payload_is_filled (<a title="GstRTPBasePayload" href="rtplib/gstrtpbasepayload.html#GstRTPBasePayload">GstRTPBasePayload</a> * payload,
+                                <a title="guint" href="https://docs.gtk.org/glib/types.html#guint">guint</a> size,
+                                <a title="GstClockTime" href="gstreamer/gstclock.html#GstClockTime">GstClockTime</a> duration)</pre>
+
+<p>Check if the packet with <em>size</em> and <em>duration</em> would exceed the configured
+maximum size.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>payload</code></em></i>
+–
+</div>
+<p>a <a href="rtplib/gstrtpbasepayload.html#GstRTPBasePayload">GstRTPBasePayload</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>size</code></em></i>
+–
+</div>
+<p>the size of the packet</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>duration</code></em></i>
+–
+</div>
+<p>the duration of the packet</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p><a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#TRUE:CAPS">TRUE</a> if the packet of <em>size</em> and <em>duration</em> would exceed the
+configured MTU or max_ptime.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_rtp_base_payload_is_filled">
+	<i>GstRtp.RTPBasePayload.prototype.is_filled</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstRtp.RTPBasePayload.prototype.is_filled(size: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>, duration: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>): {
+    // javascript wrapper for 'gst_rtp_base_payload_is_filled'
+}</code></pre>
+
+<p>Check if the packet with <em>size</em> and <em>duration</em> would exceed the configured
+maximum size.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>payload</code></em></i>
+<span>(</span><a title="GstRtp.RTPBasePayload" href="rtplib/gstrtpbasepayload.html#GstRTPBasePayload">GstRtp.RTPBasePayload</a><span>)</span>
+–
+</div>
+<p>a <a href="rtplib/gstrtpbasepayload.html#GstRTPBasePayload">GstRtp.RTPBasePayload</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>size</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>the size of the packet</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>duration</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>the duration of the packet</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+			</div>
+							<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">true</a> if the packet of <em>size</em> and <em>duration</em> would exceed the
+configured MTU or max_ptime.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_rtp_base_payload_is_filled">
+	<i>GstRtp.RTPBasePayload.is_filled</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstRtp.RTPBasePayload.is_filled (self, size, duration):
+    #python wrapper for 'gst_rtp_base_payload_is_filled'</code></pre>
+
+<p>Check if the packet with <em>size</em> and <em>duration</em> would exceed the configured
+maximum size.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>payload</code></em></i>
+<span>(</span><a title="GstRtp.RTPBasePayload" href="rtplib/gstrtpbasepayload.html#GstRTPBasePayload">GstRtp.RTPBasePayload</a><span>)</span>
+–
+</div>
+<p>a <a href="rtplib/gstrtpbasepayload.html#GstRTPBasePayload">GstRtp.RTPBasePayload</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>size</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<p>the size of the packet</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>duration</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<p>the duration of the packet</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a><span>)</span>
+–
+			</div>
+							<p><a href="https://docs.python.org/3/library/constants.html#True">True</a> if the packet of <em>size</em> and <em>duration</em> would exceed the
+configured MTU or max_ptime.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.16;" id="gst_rtp_base_payload_is_source_info_enabled">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_rtp_base_payload_is_source_info_enabled">
+	<i>gst_rtp_base_payload_is_source_info_enabled</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a>
+gst_rtp_base_payload_is_source_info_enabled (<a title="GstRTPBasePayload" href="rtplib/gstrtpbasepayload.html#GstRTPBasePayload">GstRTPBasePayload</a> * payload)</pre>
+
+<p>Queries whether the payloader will add contributing sources (CSRCs) to the
+RTP header from <a href="rtplib/gstrtpmeta.html#GstRTPSourceMeta">GstRTPSourceMeta</a>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>payload</code></em></i>
+–
+</div>
+<p>a <a href="rtplib/gstrtpbasepayload.html#GstRTPBasePayload">GstRTPBasePayload</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p><a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#TRUE:CAPS">TRUE</a> if source-info is enabled.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.16
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_rtp_base_payload_is_source_info_enabled">
+	<i>GstRtp.RTPBasePayload.prototype.is_source_info_enabled</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstRtp.RTPBasePayload.prototype.is_source_info_enabled(): {
+    // javascript wrapper for 'gst_rtp_base_payload_is_source_info_enabled'
+}</code></pre>
+
+<p>Queries whether the payloader will add contributing sources (CSRCs) to the
+RTP header from <a href="rtplib/gstrtpmeta.html#GstRTPSourceMeta">GstRtp.RTPSourceMeta</a>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>payload</code></em></i>
+<span>(</span><a title="GstRtp.RTPBasePayload" href="rtplib/gstrtpbasepayload.html#GstRTPBasePayload">GstRtp.RTPBasePayload</a><span>)</span>
+–
+</div>
+<p>a <a href="rtplib/gstrtpbasepayload.html#GstRTPBasePayload">GstRtp.RTPBasePayload</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+			</div>
+							<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">true</a> if source-info is enabled.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.16
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_rtp_base_payload_is_source_info_enabled">
+	<i>GstRtp.RTPBasePayload.is_source_info_enabled</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstRtp.RTPBasePayload.is_source_info_enabled (self):
+    #python wrapper for 'gst_rtp_base_payload_is_source_info_enabled'</code></pre>
+
+<p>Queries whether the payloader will add contributing sources (CSRCs) to the
+RTP header from <a href="rtplib/gstrtpmeta.html#GstRTPSourceMeta">GstRtp.RTPSourceMeta</a>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>payload</code></em></i>
+<span>(</span><a title="GstRtp.RTPBasePayload" href="rtplib/gstrtpbasepayload.html#GstRTPBasePayload">GstRtp.RTPBasePayload</a><span>)</span>
+–
+</div>
+<p>a <a href="rtplib/gstrtpbasepayload.html#GstRTPBasePayload">GstRtp.RTPBasePayload</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a><span>)</span>
+–
+			</div>
+							<p><a href="https://docs.python.org/3/library/constants.html#True">True</a> if source-info is enabled.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.16
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_rtp_base_payload_push">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_rtp_base_payload_push">
+	<i>gst_rtp_base_payload_push</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GstFlowReturn" href="gstreamer/gstpad.html#GstFlowReturn">GstFlowReturn</a>
+gst_rtp_base_payload_push (<a title="GstRTPBasePayload" href="rtplib/gstrtpbasepayload.html#GstRTPBasePayload">GstRTPBasePayload</a> * payload,
+                           <a title="GstBuffer" href="gstreamer/gstbuffer.html#GstBuffer">GstBuffer</a> * buffer)</pre>
+
+<p>Push <em>buffer</em> to the peer element of the payloader. The SSRC, payload type,
+seqnum and timestamp of the RTP buffer will be updated first.</p>
+<p>This function takes ownership of <em>buffer</em>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>payload</code></em></i>
+–
+</div>
+<p>a <a href="rtplib/gstrtpbasepayload.html#GstRTPBasePayload">GstRTPBasePayload</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>buffer</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="Free data after the code is done"><span class="acronym">transfer: full</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gstbuffer.html#GstBuffer">GstBuffer</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p>a <a href="gstreamer/gstpad.html#GstFlowReturn">GstFlowReturn</a>.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_rtp_base_payload_push">
+	<i>GstRtp.RTPBasePayload.prototype.push</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstRtp.RTPBasePayload.prototype.push(buffer: <a title="Gst.Buffer" href="gstreamer/gstbuffer.html#GstBuffer">Gst.Buffer</a>): {
+    // javascript wrapper for 'gst_rtp_base_payload_push'
+}</code></pre>
+
+<p>Push <em>buffer</em> to the peer element of the payloader. The SSRC, payload type,
+seqnum and timestamp of the RTP buffer will be updated first.</p>
+<p>This function takes ownership of <em>buffer</em>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>payload</code></em></i>
+<span>(</span><a title="GstRtp.RTPBasePayload" href="rtplib/gstrtpbasepayload.html#GstRTPBasePayload">GstRtp.RTPBasePayload</a><span>)</span>
+–
+</div>
+<p>a <a href="rtplib/gstrtpbasepayload.html#GstRTPBasePayload">GstRtp.RTPBasePayload</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>buffer</code></em></i>
+<span>(</span><a title="Gst.Buffer" href="gstreamer/gstbuffer.html#GstBuffer">Gst.Buffer</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gstbuffer.html#GstBuffer">Gst.Buffer</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Gst.FlowReturn" href="gstreamer/gstpad.html#GstFlowReturn">Gst.FlowReturn</a><span>)</span>
+–
+			</div>
+							<p>a <a href="gstreamer/gstpad.html#GstFlowReturn">Gst.FlowReturn</a>.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_rtp_base_payload_push">
+	<i>GstRtp.RTPBasePayload.push</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstRtp.RTPBasePayload.push (self, buffer):
+    #python wrapper for 'gst_rtp_base_payload_push'</code></pre>
+
+<p>Push <em>buffer</em> to the peer element of the payloader. The SSRC, payload type,
+seqnum and timestamp of the RTP buffer will be updated first.</p>
+<p>This function takes ownership of <em>buffer</em>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>payload</code></em></i>
+<span>(</span><a title="GstRtp.RTPBasePayload" href="rtplib/gstrtpbasepayload.html#GstRTPBasePayload">GstRtp.RTPBasePayload</a><span>)</span>
+–
+</div>
+<p>a <a href="rtplib/gstrtpbasepayload.html#GstRTPBasePayload">GstRtp.RTPBasePayload</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>buffer</code></em></i>
+<span>(</span><a title="Gst.Buffer" href="gstreamer/gstbuffer.html#GstBuffer">Gst.Buffer</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gstbuffer.html#GstBuffer">Gst.Buffer</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Gst.FlowReturn" href="gstreamer/gstpad.html#GstFlowReturn">Gst.FlowReturn</a><span>)</span>
+–
+			</div>
+							<p>a <a href="gstreamer/gstpad.html#GstFlowReturn">Gst.FlowReturn</a>.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_rtp_base_payload_push_list">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_rtp_base_payload_push_list">
+	<i>gst_rtp_base_payload_push_list</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GstFlowReturn" href="gstreamer/gstpad.html#GstFlowReturn">GstFlowReturn</a>
+gst_rtp_base_payload_push_list (<a title="GstRTPBasePayload" href="rtplib/gstrtpbasepayload.html#GstRTPBasePayload">GstRTPBasePayload</a> * payload,
+                                <a title="GstBufferList" href="gstreamer/gstbufferlist.html#GstBufferList">GstBufferList</a> * list)</pre>
+
+<p>Push <em>list</em> to the peer element of the payloader. The SSRC, payload type,
+seqnum and timestamp of the RTP buffer will be updated first.</p>
+<p>This function takes ownership of <em>list</em>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>payload</code></em></i>
+–
+</div>
+<p>a <a href="rtplib/gstrtpbasepayload.html#GstRTPBasePayload">GstRTPBasePayload</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>list</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="Free data after the code is done"><span class="acronym">transfer: full</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gstbufferlist.html#GstBufferList">GstBufferList</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p>a <a href="gstreamer/gstpad.html#GstFlowReturn">GstFlowReturn</a>.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_rtp_base_payload_push_list">
+	<i>GstRtp.RTPBasePayload.prototype.push_list</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstRtp.RTPBasePayload.prototype.push_list(list: <a title="Gst.BufferList" href="gstreamer/gstbufferlist.html#GstBufferList">Gst.BufferList</a>): {
+    // javascript wrapper for 'gst_rtp_base_payload_push_list'
+}</code></pre>
+
+<p>Push <em>list</em> to the peer element of the payloader. The SSRC, payload type,
+seqnum and timestamp of the RTP buffer will be updated first.</p>
+<p>This function takes ownership of <em>list</em>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>payload</code></em></i>
+<span>(</span><a title="GstRtp.RTPBasePayload" href="rtplib/gstrtpbasepayload.html#GstRTPBasePayload">GstRtp.RTPBasePayload</a><span>)</span>
+–
+</div>
+<p>a <a href="rtplib/gstrtpbasepayload.html#GstRTPBasePayload">GstRtp.RTPBasePayload</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>list</code></em></i>
+<span>(</span><a title="Gst.BufferList" href="gstreamer/gstbufferlist.html#GstBufferList">Gst.BufferList</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gstbufferlist.html#GstBufferList">Gst.BufferList</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Gst.FlowReturn" href="gstreamer/gstpad.html#GstFlowReturn">Gst.FlowReturn</a><span>)</span>
+–
+			</div>
+							<p>a <a href="gstreamer/gstpad.html#GstFlowReturn">Gst.FlowReturn</a>.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_rtp_base_payload_push_list">
+	<i>GstRtp.RTPBasePayload.push_list</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstRtp.RTPBasePayload.push_list (self, list):
+    #python wrapper for 'gst_rtp_base_payload_push_list'</code></pre>
+
+<p>Push <em>list</em> to the peer element of the payloader. The SSRC, payload type,
+seqnum and timestamp of the RTP buffer will be updated first.</p>
+<p>This function takes ownership of <em>list</em>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>payload</code></em></i>
+<span>(</span><a title="GstRtp.RTPBasePayload" href="rtplib/gstrtpbasepayload.html#GstRTPBasePayload">GstRtp.RTPBasePayload</a><span>)</span>
+–
+</div>
+<p>a <a href="rtplib/gstrtpbasepayload.html#GstRTPBasePayload">GstRtp.RTPBasePayload</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>list</code></em></i>
+<span>(</span><a title="Gst.BufferList" href="gstreamer/gstbufferlist.html#GstBufferList">Gst.BufferList</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gstbufferlist.html#GstBufferList">Gst.BufferList</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Gst.FlowReturn" href="gstreamer/gstpad.html#GstFlowReturn">Gst.FlowReturn</a><span>)</span>
+–
+			</div>
+							<p>a <a href="gstreamer/gstpad.html#GstFlowReturn">Gst.FlowReturn</a>.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_rtp_base_payload_set_options">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_rtp_base_payload_set_options">
+	<i>gst_rtp_base_payload_set_options</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+gst_rtp_base_payload_set_options (<a title="GstRTPBasePayload" href="rtplib/gstrtpbasepayload.html#GstRTPBasePayload">GstRTPBasePayload</a> * payload,
+                                  const <a title="gchar" href="https://docs.gtk.org/glib/types.html#gchar">gchar</a> * media,
+                                  <a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a> dynamic,
+                                  const <a title="gchar" href="https://docs.gtk.org/glib/types.html#gchar">gchar</a> * encoding_name,
+                                  <a title="guint32" href="https://docs.gtk.org/glib/types.html#guint32">guint32</a> clock_rate)</pre>
+
+<p>Set the rtp options of the payloader. These options will be set in the caps
+of the payloader. Subclasses must call this method before calling
+<a href="rtplib/gstrtpbasepayload.html#gst_rtp_base_payload_push">gst_rtp_base_payload_push</a> or <a href="rtplib/gstrtpbasepayload.html#gst_rtp_base_payload_set_outcaps">gst_rtp_base_payload_set_outcaps</a>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>payload</code></em></i>
+–
+</div>
+<p>a <a href="rtplib/gstrtpbasepayload.html#GstRTPBasePayload">GstRTPBasePayload</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>media</code></em></i>
+–
+</div>
+<p>the media type (typically "audio" or "video")</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>dynamic</code></em></i>
+–
+</div>
+<p>if the payload type is dynamic</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>encoding_name</code></em></i>
+–
+</div>
+<p>the encoding name</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>clock_rate</code></em></i>
+–
+</div>
+<p>the clock rate of the media</p>
+
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_rtp_base_payload_set_options">
+	<i>GstRtp.RTPBasePayload.prototype.set_options</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstRtp.RTPBasePayload.prototype.set_options(media: <a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>, dynamic: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>, encoding_name: <a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>, clock_rate: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>): {
+    // javascript wrapper for 'gst_rtp_base_payload_set_options'
+}</code></pre>
+
+<p>Set the rtp options of the payloader. These options will be set in the caps
+of the payloader. Subclasses must call this method before calling
+<a href="rtplib/gstrtpbasepayload.html#gst_rtp_base_payload_push">GstRtp.RTPBasePayload.prototype.push</a> or <a href="rtplib/gstrtpbasepayload.html#gst_rtp_base_payload_set_outcaps">gst_rtp_base_payload_set_outcaps (not introspectable)</a>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>payload</code></em></i>
+<span>(</span><a title="GstRtp.RTPBasePayload" href="rtplib/gstrtpbasepayload.html#GstRTPBasePayload">GstRtp.RTPBasePayload</a><span>)</span>
+–
+</div>
+<p>a <a href="rtplib/gstrtpbasepayload.html#GstRTPBasePayload">GstRtp.RTPBasePayload</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>media</code></em></i>
+<span>(</span><a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a><span>)</span>
+–
+</div>
+<p>the media type (typically "audio" or "video")</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>dynamic</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>if the payload type is dynamic</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>encoding_name</code></em></i>
+<span>(</span><a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a><span>)</span>
+–
+</div>
+<p>the encoding name</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>clock_rate</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>the clock rate of the media</p>
+
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_rtp_base_payload_set_options">
+	<i>GstRtp.RTPBasePayload.set_options</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstRtp.RTPBasePayload.set_options (self, media, dynamic, encoding_name, clock_rate):
+    #python wrapper for 'gst_rtp_base_payload_set_options'</code></pre>
+
+<p>Set the rtp options of the payloader. These options will be set in the caps
+of the payloader. Subclasses must call this method before calling
+<a href="rtplib/gstrtpbasepayload.html#gst_rtp_base_payload_push">GstRtp.RTPBasePayload.push</a> or <a href="rtplib/gstrtpbasepayload.html#gst_rtp_base_payload_set_outcaps">gst_rtp_base_payload_set_outcaps (not introspectable)</a>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>payload</code></em></i>
+<span>(</span><a title="GstRtp.RTPBasePayload" href="rtplib/gstrtpbasepayload.html#GstRTPBasePayload">GstRtp.RTPBasePayload</a><span>)</span>
+–
+</div>
+<p>a <a href="rtplib/gstrtpbasepayload.html#GstRTPBasePayload">GstRtp.RTPBasePayload</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>media</code></em></i>
+<span>(</span><a title="str" href="https://docs.python.org/3/library/functions.html#func-str">str</a><span>)</span>
+–
+</div>
+<p>the media type (typically "audio" or "video")</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>dynamic</code></em></i>
+<span>(</span><a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a><span>)</span>
+–
+</div>
+<p>if the payload type is dynamic</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>encoding_name</code></em></i>
+<span>(</span><a title="str" href="https://docs.python.org/3/library/functions.html#func-str">str</a><span>)</span>
+–
+</div>
+<p>the encoding name</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>clock_rate</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<p>the clock rate of the media</p>
+
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_rtp_base_payload_set_outcaps">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_rtp_base_payload_set_outcaps">
+	<i>gst_rtp_base_payload_set_outcaps</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a>
+gst_rtp_base_payload_set_outcaps (<a title="GstRTPBasePayload" href="rtplib/gstrtpbasepayload.html#GstRTPBasePayload">GstRTPBasePayload</a> * payload,
+                                  const <a title="gchar" href="https://docs.gtk.org/glib/types.html#gchar">gchar</a> * fieldname,
+                                  ... ...)</pre>
+
+<p>Configure the output caps with the optional parameters.</p>
+<p>Variable arguments should be in the form field name, field type
+(as a GType), value(s).  The last variable argument should be NULL.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>payload</code></em></i>
+–
+</div>
+<p>a <a href="rtplib/gstrtpbasepayload.html#GstRTPBasePayload">GstRTPBasePayload</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>fieldname</code></em></i>
+–
+</div>
+<p>the first field name or <a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#NULL:CAPS">NULL</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>...</code></em></i>
+–
+</div>
+<p>field values</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p><a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#TRUE:CAPS">TRUE</a> if the caps could be set.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="gst_rtp_base_payload_set_outcaps_structure">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_rtp_base_payload_set_outcaps_structure">
+	<i>gst_rtp_base_payload_set_outcaps_structure</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a>
+gst_rtp_base_payload_set_outcaps_structure (<a title="GstRTPBasePayload" href="rtplib/gstrtpbasepayload.html#GstRTPBasePayload">GstRTPBasePayload</a> * payload,
+                                            <a title="GstStructure" href="gstreamer/gststructure.html#GstStructure">GstStructure</a> * s)</pre>
+
+<p>Configure the output caps with the optional fields.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>payload</code></em></i>
+–
+</div>
+<p>a <a href="rtplib/gstrtpbasepayload.html#GstRTPBasePayload">GstRTPBasePayload</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>s</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="NULL may be passed to the value"><span class="acronym">nullable</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gststructure.html#GstStructure">GstStructure</a> with the caps fields</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p><a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#TRUE:CAPS">TRUE</a> if the caps could be set.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_rtp_base_payload_set_outcaps_structure">
+	<i>GstRtp.RTPBasePayload.prototype.set_outcaps_structure</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstRtp.RTPBasePayload.prototype.set_outcaps_structure(s: <a title="Gst.Structure" href="gstreamer/gststructure.html#GstStructure">Gst.Structure</a>): {
+    // javascript wrapper for 'gst_rtp_base_payload_set_outcaps_structure'
+}</code></pre>
+
+<p>Configure the output caps with the optional fields.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>payload</code></em></i>
+<span>(</span><a title="GstRtp.RTPBasePayload" href="rtplib/gstrtpbasepayload.html#GstRTPBasePayload">GstRtp.RTPBasePayload</a><span>)</span>
+–
+</div>
+<p>a <a href="rtplib/gstrtpbasepayload.html#GstRTPBasePayload">GstRtp.RTPBasePayload</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>s</code></em></i>
+<span>(</span><a title="Gst.Structure" href="gstreamer/gststructure.html#GstStructure">Gst.Structure</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gststructure.html#GstStructure">Gst.Structure</a> with the caps fields</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+			</div>
+							<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">true</a> if the caps could be set.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_rtp_base_payload_set_outcaps_structure">
+	<i>GstRtp.RTPBasePayload.set_outcaps_structure</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstRtp.RTPBasePayload.set_outcaps_structure (self, s):
+    #python wrapper for 'gst_rtp_base_payload_set_outcaps_structure'</code></pre>
+
+<p>Configure the output caps with the optional fields.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>payload</code></em></i>
+<span>(</span><a title="GstRtp.RTPBasePayload" href="rtplib/gstrtpbasepayload.html#GstRTPBasePayload">GstRtp.RTPBasePayload</a><span>)</span>
+–
+</div>
+<p>a <a href="rtplib/gstrtpbasepayload.html#GstRTPBasePayload">GstRtp.RTPBasePayload</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>s</code></em></i>
+<span>(</span><a title="Gst.Structure" href="gstreamer/gststructure.html#GstStructure">Gst.Structure</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gststructure.html#GstStructure">Gst.Structure</a> with the caps fields</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a><span>)</span>
+–
+			</div>
+							<p><a href="https://docs.python.org/3/library/constants.html#True">True</a> if the caps could be set.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.16;" id="gst_rtp_base_payload_set_source_info_enabled">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_rtp_base_payload_set_source_info_enabled">
+	<i>gst_rtp_base_payload_set_source_info_enabled</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+gst_rtp_base_payload_set_source_info_enabled (<a title="GstRTPBasePayload" href="rtplib/gstrtpbasepayload.html#GstRTPBasePayload">GstRTPBasePayload</a> * payload,
+                                              <a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a> enable)</pre>
+
+<p>Enable or disable adding contributing sources to RTP packets from
+<a href="rtplib/gstrtpmeta.html#GstRTPSourceMeta">GstRTPSourceMeta</a>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>payload</code></em></i>
+–
+</div>
+<p>a <a href="rtplib/gstrtpbasepayload.html#GstRTPBasePayload">GstRTPBasePayload</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>enable</code></em></i>
+–
+</div>
+<p>whether to add contributing sources to RTP packets</p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.16
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_rtp_base_payload_set_source_info_enabled">
+	<i>GstRtp.RTPBasePayload.prototype.set_source_info_enabled</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstRtp.RTPBasePayload.prototype.set_source_info_enabled(enable: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>): {
+    // javascript wrapper for 'gst_rtp_base_payload_set_source_info_enabled'
+}</code></pre>
+
+<p>Enable or disable adding contributing sources to RTP packets from
+<a href="rtplib/gstrtpmeta.html#GstRTPSourceMeta">GstRtp.RTPSourceMeta</a>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>payload</code></em></i>
+<span>(</span><a title="GstRtp.RTPBasePayload" href="rtplib/gstrtpbasepayload.html#GstRTPBasePayload">GstRtp.RTPBasePayload</a><span>)</span>
+–
+</div>
+<p>a <a href="rtplib/gstrtpbasepayload.html#GstRTPBasePayload">GstRtp.RTPBasePayload</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>enable</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>whether to add contributing sources to RTP packets</p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.16
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_rtp_base_payload_set_source_info_enabled">
+	<i>GstRtp.RTPBasePayload.set_source_info_enabled</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstRtp.RTPBasePayload.set_source_info_enabled (self, enable):
+    #python wrapper for 'gst_rtp_base_payload_set_source_info_enabled'</code></pre>
+
+<p>Enable or disable adding contributing sources to RTP packets from
+<a href="rtplib/gstrtpmeta.html#GstRTPSourceMeta">GstRtp.RTPSourceMeta</a>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>payload</code></em></i>
+<span>(</span><a title="GstRtp.RTPBasePayload" href="rtplib/gstrtpbasepayload.html#GstRTPBasePayload">GstRtp.RTPBasePayload</a><span>)</span>
+–
+</div>
+<p>a <a href="rtplib/gstrtpbasepayload.html#GstRTPBasePayload">GstRtp.RTPBasePayload</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>enable</code></em></i>
+<span>(</span><a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a><span>)</span>
+–
+</div>
+<p>whether to add contributing sources to RTP packets</p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.16
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+
+            <h3 class="symbol_section">Signals</h3>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="GstRTPBasePayload::request-extension">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstRTPBasePayload::request-extension">
+	<i>request-extension</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GstRTPHeaderExtension" href="rtplib/gstrtphdrext.html#GstRTPHeaderExtension">GstRTPHeaderExtension</a> *
+request_extension_callback (<a title="GstRTPBasePayload" href="rtplib/gstrtpbasepayload.html#GstRTPBasePayload">GstRTPBasePayload</a> * self,
+                            <a title="guint" href="https://docs.gtk.org/glib/types.html#guint">guint</a> ext_id,
+                            <a title="gchar" href="https://docs.gtk.org/glib/types.html#gchar">gchar</a> * ext_uri,
+                            <a title="gpointer" href="https://docs.gtk.org/glib/types.html#gpointer">gpointer</a> user_data)</pre>
+
+<p>The returned <em>ext</em> must be configured with the correct <em>ext_id</em> and with the
+necessary attributes as required by the extension implementation.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>ext_id</code></em></i>
+–
+</div>
+<p>the extension id being requested</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>ext_uri</code></em></i>
+–
+</div>
+<p>the extension URI being requested</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>user_data</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span>
+<span class="annotation">[<abbr title="Free data after the code is done"><span class="acronym">transfer: full</span></abbr>]</span><span class="annotation">[<abbr title="NULL may be passed to the value"><span class="acronym">nullable</span></abbr>]</span><span>)</span>
+–
+			</div>
+							<p>the <a href="rtplib/gstrtphdrext.html#GstRTPHeaderExtension">GstRTPHeaderExtension</a> for <em>ext_id</em>, or <a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#NULL:CAPS">NULL</a></p>
+
+					</div>
+	</div>
+
+
+<p>
+	<b>Flags:</b>	
+	
+		
+				<a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS">Run Last</a>
+			
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GstRTPBasePayload::request-extension">
+	<i>request-extension</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function request_extension_callback(self: <a title="GstRtp.RTPBasePayload" href="rtplib/gstrtpbasepayload.html#GstRTPBasePayload">GstRtp.RTPBasePayload</a>, ext_id: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>, ext_uri: <a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>, user_data: <a title="Object" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>): {
+    // javascript callback for the 'request-extension' signal
+}</code></pre>
+
+<p>The returned <em>ext</em> must be configured with the correct <em>ext_id</em> and with the
+necessary attributes as required by the extension implementation.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+<span>(</span><a title="GstRtp.RTPBasePayload" href="rtplib/gstrtpbasepayload.html#GstRTPBasePayload">GstRtp.RTPBasePayload</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>ext_id</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>the extension id being requested</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>ext_uri</code></em></i>
+<span>(</span><a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a><span>)</span>
+–
+</div>
+<p>the extension URI being requested</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>user_data</code></em></i>
+<span>(</span><a title="Object" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GstRtp.RTPHeaderExtension" href="rtplib/gstrtphdrext.html#GstRTPHeaderExtension">GstRtp.RTPHeaderExtension</a><span>)</span>
+–
+			</div>
+							<p>the <a href="rtplib/gstrtphdrext.html#GstRTPHeaderExtension">GstRtp.RTPHeaderExtension</a> for <em>ext_id</em>, or <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null">null</a></p>
+
+					</div>
+	</div>
+
+
+<p>
+	<b>Flags:</b>	
+	
+		
+				<a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS">Run Last</a>
+			
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GstRTPBasePayload::request-extension">
+	<i>request-extension</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def request_extension_callback (self, ext_id, ext_uri, *user_data):
+    #python callback for the 'request-extension' signal</code></pre>
+
+<p>The returned <em>ext</em> must be configured with the correct <em>ext_id</em> and with the
+necessary attributes as required by the extension implementation.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+<span>(</span><a title="GstRtp.RTPBasePayload" href="rtplib/gstrtpbasepayload.html#GstRTPBasePayload">GstRtp.RTPBasePayload</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>ext_id</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<p>the extension id being requested</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>ext_uri</code></em></i>
+<span>(</span><a title="str" href="https://docs.python.org/3/library/functions.html#func-str">str</a><span>)</span>
+–
+</div>
+<p>the extension URI being requested</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>user_data</code></em></i>
+<span>(</span><a title="variadic" href="https://docs.python.org/dev/tutorial/controlflow.html#arbitrary-argument-lists">variadic</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GstRtp.RTPHeaderExtension" href="rtplib/gstrtphdrext.html#GstRTPHeaderExtension">GstRtp.RTPHeaderExtension</a><span>)</span>
+–
+			</div>
+							<p>the <a href="rtplib/gstrtphdrext.html#GstRTPHeaderExtension">GstRtp.RTPHeaderExtension</a> for <em>ext_id</em>, or <a href="https://docs.python.org/3/library/constants.html#None">None</a></p>
+
+					</div>
+	</div>
+
+
+<p>
+	<b>Flags:</b>	
+	
+		
+				<a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS">Run Last</a>
+			
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+
+            <h3 class="symbol_section">Action Signals</h3>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="GstRTPBasePayload::add-extension">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstRTPBasePayload::add-extension">
+	<i>add-extension</i>
+</h4>
+
+
+
+<pre class="c-prototype language-c">
+g_signal_emit_by_name (self, "add-extension", ext, user_data);</pre>
+
+<p>Add <em>ext</em> as an extension for writing part of an RTP header extension onto
+outgoing RTP packets.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+<span>(</span><a title="GstRTPBasePayload" href="rtplib/gstrtpbasepayload.html#GstRTPBasePayload">GstRTPBasePayload</a> *<span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>ext</code></em></i>
+<span>(</span><a title="GstRTPHeaderExtension" href="rtplib/gstrtphdrext.html#GstRTPHeaderExtension">GstRTPHeaderExtension</a> *, 
+<span class="annotation">[<abbr title="Free data after the code is done"><span class="acronym">transfer: full</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>the <a href="rtplib/gstrtphdrext.html#GstRTPHeaderExtension">GstRTPHeaderExtension</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>user_data</code></em></i>
+<span>(</span><a title="gpointer" href="https://docs.gtk.org/glib/types.html#gpointer">gpointer</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+<p>
+	<b>Flags:</b>	
+	
+		
+				<a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS">Run Last</a>
+			
+				/		
+				<a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-ACTION:CAPS">Action</a>
+			
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GstRTPBasePayload::add-extension">
+	<i>add-extension</i>
+</h4>
+
+
+
+<pre class="javascript-prototype language-javascript">
+let ret = self.emit ("add-extension", ext, user_data);</pre>
+
+<p>Add <em>ext</em> as an extension for writing part of an RTP header extension onto
+outgoing RTP packets.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+<span>(</span><a title="GstRtp.RTPBasePayload" href="rtplib/gstrtpbasepayload.html#GstRTPBasePayload">GstRtp.RTPBasePayload</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>ext</code></em></i>
+<span>(</span><a title="GstRtp.RTPHeaderExtension" href="rtplib/gstrtphdrext.html#GstRTPHeaderExtension">GstRtp.RTPHeaderExtension</a><span>)</span>
+–
+</div>
+<p>the <a href="rtplib/gstrtphdrext.html#GstRTPHeaderExtension">GstRtp.RTPHeaderExtension</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>user_data</code></em></i>
+<span>(</span><a title="Object" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+<p>
+	<b>Flags:</b>	
+	
+		
+				<a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS">Run Last</a>
+			
+				/		
+				<a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-ACTION:CAPS">Action</a>
+			
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GstRTPBasePayload::add-extension">
+	<i>add-extension</i>
+</h4>
+
+
+
+<pre class="python-prototype language-python">
+ret = self.emit ("add-extension", ext, user_data)</pre>
+
+<p>Add <em>ext</em> as an extension for writing part of an RTP header extension onto
+outgoing RTP packets.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+<span>(</span><a title="GstRtp.RTPBasePayload" href="rtplib/gstrtpbasepayload.html#GstRTPBasePayload">GstRtp.RTPBasePayload</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>ext</code></em></i>
+<span>(</span><a title="GstRtp.RTPHeaderExtension" href="rtplib/gstrtphdrext.html#GstRTPHeaderExtension">GstRtp.RTPHeaderExtension</a><span>)</span>
+–
+</div>
+<p>the <a href="rtplib/gstrtphdrext.html#GstRTPHeaderExtension">GstRtp.RTPHeaderExtension</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>user_data</code></em></i>
+<span>(</span><a title="variadic" href="https://docs.python.org/dev/tutorial/controlflow.html#arbitrary-argument-lists">variadic</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+<p>
+	<b>Flags:</b>	
+	
+		
+				<a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS">Run Last</a>
+			
+				/		
+				<a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-ACTION:CAPS">Action</a>
+			
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="GstRTPBasePayload::clear-extensions">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstRTPBasePayload::clear-extensions">
+	<i>clear-extensions</i>
+</h4>
+
+
+
+<pre class="c-prototype language-c">
+g_signal_emit_by_name (self, "clear-extensions", user_data);</pre>
+
+<p>Clear all RTP header extensions used by this payloader.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+<span>(</span><a title="GstRTPBasePayload" href="rtplib/gstrtpbasepayload.html#GstRTPBasePayload">GstRTPBasePayload</a> *<span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>user_data</code></em></i>
+<span>(</span><a title="gpointer" href="https://docs.gtk.org/glib/types.html#gpointer">gpointer</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+<p>
+	<b>Flags:</b>	
+	
+		
+				<a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS">Run Last</a>
+			
+				/		
+				<a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-ACTION:CAPS">Action</a>
+			
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GstRTPBasePayload::clear-extensions">
+	<i>clear-extensions</i>
+</h4>
+
+
+
+<pre class="javascript-prototype language-javascript">
+let ret = self.emit ("clear-extensions", user_data);</pre>
+
+<p>Clear all RTP header extensions used by this payloader.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+<span>(</span><a title="GstRtp.RTPBasePayload" href="rtplib/gstrtpbasepayload.html#GstRTPBasePayload">GstRtp.RTPBasePayload</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>user_data</code></em></i>
+<span>(</span><a title="Object" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+<p>
+	<b>Flags:</b>	
+	
+		
+				<a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS">Run Last</a>
+			
+				/		
+				<a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-ACTION:CAPS">Action</a>
+			
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GstRTPBasePayload::clear-extensions">
+	<i>clear-extensions</i>
+</h4>
+
+
+
+<pre class="python-prototype language-python">
+ret = self.emit ("clear-extensions", user_data)</pre>
+
+<p>Clear all RTP header extensions used by this payloader.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+<span>(</span><a title="GstRtp.RTPBasePayload" href="rtplib/gstrtpbasepayload.html#GstRTPBasePayload">GstRtp.RTPBasePayload</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>user_data</code></em></i>
+<span>(</span><a title="variadic" href="https://docs.python.org/dev/tutorial/controlflow.html#arbitrary-argument-lists">variadic</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+<p>
+	<b>Flags:</b>	
+	
+		
+				<a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS">Run Last</a>
+			
+				/		
+				<a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-ACTION:CAPS">Action</a>
+			
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+
+            <h3 class="symbol_section">Properties</h3>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="GstRTPBasePayload:auto-header-extension">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstRTPBasePayload:auto-header-extension">
+	<i>auto-header-extension</i>
+</h4>
+
+
+<pre class="property_signature">
+“auto-header-extension” <span class="type"><a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a></span>
+</pre>
+
+<p>If enabled, the payloader will automatically try to enable all the
+RTP header extensions provided in the src caps, saving the application
+the need to handle these extensions manually using the
+GstRTPBasePayload::request-extension: signal.</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GstRTPBasePayload:auto-header-extension">
+	<i>auto-header-extension</i>
+</h4>
+
+
+<pre class="property_signature">
+“auto-header-extension” <span class="type"><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a></span>
+</pre>
+
+<p>If enabled, the payloader will automatically try to enable all the
+RTP header extensions provided in the src caps, saving the application
+the need to handle these extensions manually using the
+GstRTPBasePayload::request-extension: signal.</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GstRTPBasePayload:auto-header-extension">
+	<i>auto_header_extension</i>
+</h4>
+
+
+<pre class="property_signature">
+“self.props.auto_header_extension” <span class="type"><a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a></span>
+</pre>
+
+<p>If enabled, the payloader will automatically try to enable all the
+RTP header extensions provided in the src caps, saving the application
+the need to handle these extensions manually using the
+GstRTPBasePayload::request-extension: signal.</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.24;" id="GstRTPBasePayload:extensions">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstRTPBasePayload:extensions">
+	<i>extensions</i>
+</h4>
+
+
+<pre class="property_signature">
+“extensions” <span class="type"><a title="GstValueArray" href="gstreamer/gstvalue.html#GstValueArray">GstValueArray</a> *</span>
+</pre>
+
+<p>A list of already enabled RTP header extensions. This may be useful for finding
+out which extensions are already enabled (with add-extension signal) and picking a non-conflicting
+ID for a new extension that needs to be added on top of the existing ones.</p>
+<p>Note that the value returned by reading this property is not dynamically updated when the set of
+enabled extensions changes by any of existing action signals. Rather, it represents the current state
+at the time the property is read.</p>
+<p>Dynamic updates of this property can be received by subscribing to its corresponding "notify" signal, i.e.
+"notify::extensions".</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GstRTPBasePayload:extensions">
+	<i>extensions</i>
+</h4>
+
+
+<pre class="property_signature">
+“extensions” <span class="type"><a title="Gst.ValueArray" href="gstreamer/gstvalue.html#GstValueArray">Gst.ValueArray</a></span>
+</pre>
+
+<p>A list of already enabled RTP header extensions. This may be useful for finding
+out which extensions are already enabled (with add-extension signal) and picking a non-conflicting
+ID for a new extension that needs to be added on top of the existing ones.</p>
+<p>Note that the value returned by reading this property is not dynamically updated when the set of
+enabled extensions changes by any of existing action signals. Rather, it represents the current state
+at the time the property is read.</p>
+<p>Dynamic updates of this property can be received by subscribing to its corresponding "notify" signal, i.e.
+"notify::extensions".</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GstRTPBasePayload:extensions">
+	<i>extensions</i>
+</h4>
+
+
+<pre class="property_signature">
+“self.props.extensions” <span class="type"><a title="Gst.ValueArray" href="gstreamer/gstvalue.html#GstValueArray">Gst.ValueArray</a></span>
+</pre>
+
+<p>A list of already enabled RTP header extensions. This may be useful for finding
+out which extensions are already enabled (with add-extension signal) and picking a non-conflicting
+ID for a new extension that needs to be added on top of the existing ones.</p>
+<p>Note that the value returned by reading this property is not dynamically updated when the set of
+enabled extensions changes by any of existing action signals. Rather, it represents the current state
+at the time the property is read.</p>
+<p>Dynamic updates of this property can be received by subscribing to its corresponding "notify" signal, i.e.
+"notify::extensions".</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstRTPBasePayload:max-ptime">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstRTPBasePayload:max-ptime">
+	<i>max-ptime</i>
+</h4>
+
+
+<pre class="property_signature">
+“max-ptime” <span class="type"><a title="gint64" href="https://docs.gtk.org/glib/types.html#gint64">gint64</a></span>
+</pre>
+
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GstRTPBasePayload:max-ptime">
+	<i>max-ptime</i>
+</h4>
+
+
+<pre class="property_signature">
+“max-ptime” <span class="type"><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a></span>
+</pre>
+
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GstRTPBasePayload:max-ptime">
+	<i>max_ptime</i>
+</h4>
+
+
+<pre class="property_signature">
+“self.props.max_ptime” <span class="type"><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a></span>
+</pre>
+
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstRTPBasePayload:min-ptime">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstRTPBasePayload:min-ptime">
+	<i>min-ptime</i>
+</h4>
+
+
+<pre class="property_signature">
+“min-ptime” <span class="type"><a title="gint64" href="https://docs.gtk.org/glib/types.html#gint64">gint64</a></span>
+</pre>
+
+<p>Minimum duration of the packet data in ns (can't go above MTU)</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GstRTPBasePayload:min-ptime">
+	<i>min-ptime</i>
+</h4>
+
+
+<pre class="property_signature">
+“min-ptime” <span class="type"><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a></span>
+</pre>
+
+<p>Minimum duration of the packet data in ns (can't go above MTU)</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GstRTPBasePayload:min-ptime">
+	<i>min_ptime</i>
+</h4>
+
+
+<pre class="property_signature">
+“self.props.min_ptime” <span class="type"><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a></span>
+</pre>
+
+<p>Minimum duration of the packet data in ns (can't go above MTU)</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstRTPBasePayload:mtu">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstRTPBasePayload:mtu">
+	<i>mtu</i>
+</h4>
+
+
+<pre class="property_signature">
+“mtu” <span class="type"><a title="guint" href="https://docs.gtk.org/glib/types.html#guint">guint</a></span>
+</pre>
+
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GstRTPBasePayload:mtu">
+	<i>mtu</i>
+</h4>
+
+
+<pre class="property_signature">
+“mtu” <span class="type"><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a></span>
+</pre>
+
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GstRTPBasePayload:mtu">
+	<i>mtu</i>
+</h4>
+
+
+<pre class="property_signature">
+“self.props.mtu” <span class="type"><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a></span>
+</pre>
+
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.16;" id="GstRTPBasePayload:onvif-no-rate-control">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstRTPBasePayload:onvif-no-rate-control">
+	<i>onvif-no-rate-control</i>
+</h4>
+
+
+<pre class="property_signature">
+“onvif-no-rate-control” <span class="type"><a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a></span>
+</pre>
+
+<p>Make the payloader timestamp packets according to the Rate-Control=no
+behaviour specified in the ONVIF replay spec.</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.16
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GstRTPBasePayload:onvif-no-rate-control">
+	<i>onvif-no-rate-control</i>
+</h4>
+
+
+<pre class="property_signature">
+“onvif-no-rate-control” <span class="type"><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a></span>
+</pre>
+
+<p>Make the payloader timestamp packets according to the Rate-Control=no
+behaviour specified in the ONVIF replay spec.</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.16
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GstRTPBasePayload:onvif-no-rate-control">
+	<i>onvif_no_rate_control</i>
+</h4>
+
+
+<pre class="property_signature">
+“self.props.onvif_no_rate_control” <span class="type"><a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a></span>
+</pre>
+
+<p>Make the payloader timestamp packets according to the Rate-Control=no
+behaviour specified in the ONVIF replay spec.</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.16
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstRTPBasePayload:perfect-rtptime">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstRTPBasePayload:perfect-rtptime">
+	<i>perfect-rtptime</i>
+</h4>
+
+
+<pre class="property_signature">
+“perfect-rtptime” <span class="type"><a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a></span>
+</pre>
+
+<p>Try to use the offset fields to generate perfect RTP timestamps. When this
+option is disabled, RTP timestamps are generated from GST_BUFFER_PTS of
+each payloaded buffer. The PTSes of buffers may not necessarily increment
+with the amount of data in each input buffer, consider e.g. the case where
+the buffer arrives from a network which means that the PTS is unrelated to
+the amount of data. Because the RTP timestamps are generated from
+GST_BUFFER_PTS this can result in RTP timestamps that also don't increment
+with the amount of data in the payloaded packet. To circumvent this it is
+possible to set the perfect rtptime option enabled. When this option is
+enabled the payloader will increment the RTP timestamps based on
+GST_BUFFER_OFFSET which relates to the amount of data in each packet
+rather than the GST_BUFFER_PTS of each buffer and therefore the RTP
+timestamps will more closely correlate with the amount of data in each
+buffer. Currently GstRTPBasePayload is limited to handling perfect RTP
+timestamps for audio streams.</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GstRTPBasePayload:perfect-rtptime">
+	<i>perfect-rtptime</i>
+</h4>
+
+
+<pre class="property_signature">
+“perfect-rtptime” <span class="type"><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a></span>
+</pre>
+
+<p>Try to use the offset fields to generate perfect RTP timestamps. When this
+option is disabled, RTP timestamps are generated from GST_BUFFER_PTS of
+each payloaded buffer. The PTSes of buffers may not necessarily increment
+with the amount of data in each input buffer, consider e.g. the case where
+the buffer arrives from a network which means that the PTS is unrelated to
+the amount of data. Because the RTP timestamps are generated from
+GST_BUFFER_PTS this can result in RTP timestamps that also don't increment
+with the amount of data in the payloaded packet. To circumvent this it is
+possible to set the perfect rtptime option enabled. When this option is
+enabled the payloader will increment the RTP timestamps based on
+GST_BUFFER_OFFSET which relates to the amount of data in each packet
+rather than the GST_BUFFER_PTS of each buffer and therefore the RTP
+timestamps will more closely correlate with the amount of data in each
+buffer. Currently GstRTPBasePayload is limited to handling perfect RTP
+timestamps for audio streams.</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GstRTPBasePayload:perfect-rtptime">
+	<i>perfect_rtptime</i>
+</h4>
+
+
+<pre class="property_signature">
+“self.props.perfect_rtptime” <span class="type"><a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a></span>
+</pre>
+
+<p>Try to use the offset fields to generate perfect RTP timestamps. When this
+option is disabled, RTP timestamps are generated from GST_BUFFER_PTS of
+each payloaded buffer. The PTSes of buffers may not necessarily increment
+with the amount of data in each input buffer, consider e.g. the case where
+the buffer arrives from a network which means that the PTS is unrelated to
+the amount of data. Because the RTP timestamps are generated from
+GST_BUFFER_PTS this can result in RTP timestamps that also don't increment
+with the amount of data in the payloaded packet. To circumvent this it is
+possible to set the perfect rtptime option enabled. When this option is
+enabled the payloader will increment the RTP timestamps based on
+GST_BUFFER_OFFSET which relates to the amount of data in each packet
+rather than the GST_BUFFER_PTS of each buffer and therefore the RTP
+timestamps will more closely correlate with the amount of data in each
+buffer. Currently GstRTPBasePayload is limited to handling perfect RTP
+timestamps for audio streams.</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstRTPBasePayload:pt">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstRTPBasePayload:pt">
+	<i>pt</i>
+</h4>
+
+
+<pre class="property_signature">
+“pt” <span class="type"><a title="guint" href="https://docs.gtk.org/glib/types.html#guint">guint</a></span>
+</pre>
+
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GstRTPBasePayload:pt">
+	<i>pt</i>
+</h4>
+
+
+<pre class="property_signature">
+“pt” <span class="type"><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a></span>
+</pre>
+
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GstRTPBasePayload:pt">
+	<i>pt</i>
+</h4>
+
+
+<pre class="property_signature">
+“self.props.pt” <span class="type"><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a></span>
+</pre>
+
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstRTPBasePayload:ptime-multiple">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstRTPBasePayload:ptime-multiple">
+	<i>ptime-multiple</i>
+</h4>
+
+
+<pre class="property_signature">
+“ptime-multiple” <span class="type"><a title="gint64" href="https://docs.gtk.org/glib/types.html#gint64">gint64</a></span>
+</pre>
+
+<p>Force buffers to be multiples of this duration in ns (0 disables)</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GstRTPBasePayload:ptime-multiple">
+	<i>ptime-multiple</i>
+</h4>
+
+
+<pre class="property_signature">
+“ptime-multiple” <span class="type"><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a></span>
+</pre>
+
+<p>Force buffers to be multiples of this duration in ns (0 disables)</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GstRTPBasePayload:ptime-multiple">
+	<i>ptime_multiple</i>
+</h4>
+
+
+<pre class="property_signature">
+“self.props.ptime_multiple” <span class="type"><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a></span>
+</pre>
+
+<p>Force buffers to be multiples of this duration in ns (0 disables)</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.18;" id="GstRTPBasePayload:scale-rtptime">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstRTPBasePayload:scale-rtptime">
+	<i>scale-rtptime</i>
+</h4>
+
+
+<pre class="property_signature">
+“scale-rtptime” <span class="type"><a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a></span>
+</pre>
+
+<p>Make the RTP packets' timestamps be scaled with the segment's rate
+(corresponding to RTSP speed parameter). Disabling this property means
+the timestamps will not be affected by the set delivery speed (RTSP speed).</p>
+<p>Example: A server wants to allow streaming a recorded video in double
+speed but still have the timestamps correspond to the position in the
+video. This is achieved by the client setting RTSP Speed to 2 while the
+server has this property disabled.</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GstRTPBasePayload:scale-rtptime">
+	<i>scale-rtptime</i>
+</h4>
+
+
+<pre class="property_signature">
+“scale-rtptime” <span class="type"><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a></span>
+</pre>
+
+<p>Make the RTP packets' timestamps be scaled with the segment's rate
+(corresponding to RTSP speed parameter). Disabling this property means
+the timestamps will not be affected by the set delivery speed (RTSP speed).</p>
+<p>Example: A server wants to allow streaming a recorded video in double
+speed but still have the timestamps correspond to the position in the
+video. This is achieved by the client setting RTSP Speed to 2 while the
+server has this property disabled.</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GstRTPBasePayload:scale-rtptime">
+	<i>scale_rtptime</i>
+</h4>
+
+
+<pre class="property_signature">
+“self.props.scale_rtptime” <span class="type"><a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a></span>
+</pre>
+
+<p>Make the RTP packets' timestamps be scaled with the segment's rate
+(corresponding to RTSP speed parameter). Disabling this property means
+the timestamps will not be affected by the set delivery speed (RTSP speed).</p>
+<p>Example: A server wants to allow streaming a recorded video in double
+speed but still have the timestamps correspond to the position in the
+video. This is achieved by the client setting RTSP Speed to 2 while the
+server has this property disabled.</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstRTPBasePayload:seqnum">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstRTPBasePayload:seqnum">
+	<i>seqnum</i>
+</h4>
+
+
+<pre class="property_signature">
+“seqnum” <span class="type"><a title="guint" href="https://docs.gtk.org/glib/types.html#guint">guint</a></span>
+</pre>
+
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+</p>
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GstRTPBasePayload:seqnum">
+	<i>seqnum</i>
+</h4>
+
+
+<pre class="property_signature">
+“seqnum” <span class="type"><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a></span>
+</pre>
+
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+</p>
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GstRTPBasePayload:seqnum">
+	<i>seqnum</i>
+</h4>
+
+
+<pre class="property_signature">
+“self.props.seqnum” <span class="type"><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a></span>
+</pre>
+
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+</p>
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstRTPBasePayload:seqnum-offset">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstRTPBasePayload:seqnum-offset">
+	<i>seqnum-offset</i>
+</h4>
+
+
+<pre class="property_signature">
+“seqnum-offset” <span class="type"><a title="gint" href="https://docs.gtk.org/glib/types.html#gint">gint</a></span>
+</pre>
+
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GstRTPBasePayload:seqnum-offset">
+	<i>seqnum-offset</i>
+</h4>
+
+
+<pre class="property_signature">
+“seqnum-offset” <span class="type"><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a></span>
+</pre>
+
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GstRTPBasePayload:seqnum-offset">
+	<i>seqnum_offset</i>
+</h4>
+
+
+<pre class="property_signature">
+“self.props.seqnum_offset” <span class="type"><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a></span>
+</pre>
+
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.16;" id="GstRTPBasePayload:source-info">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstRTPBasePayload:source-info">
+	<i>source-info</i>
+</h4>
+
+
+<pre class="property_signature">
+“source-info” <span class="type"><a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a></span>
+</pre>
+
+<p>Enable writing the CSRC field in allocated RTP header based on RTP source
+information found in the input buffer's <a href="rtplib/gstrtpmeta.html#GstRTPSourceMeta">GstRTPSourceMeta</a>.</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.16
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GstRTPBasePayload:source-info">
+	<i>source-info</i>
+</h4>
+
+
+<pre class="property_signature">
+“source-info” <span class="type"><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a></span>
+</pre>
+
+<p>Enable writing the CSRC field in allocated RTP header based on RTP source
+information found in the input buffer's <a href="rtplib/gstrtpmeta.html#GstRTPSourceMeta">GstRtp.RTPSourceMeta</a>.</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.16
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GstRTPBasePayload:source-info">
+	<i>source_info</i>
+</h4>
+
+
+<pre class="property_signature">
+“self.props.source_info” <span class="type"><a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a></span>
+</pre>
+
+<p>Enable writing the CSRC field in allocated RTP header based on RTP source
+information found in the input buffer's <a href="rtplib/gstrtpmeta.html#GstRTPSourceMeta">GstRtp.RTPSourceMeta</a>.</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.16
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstRTPBasePayload:ssrc">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstRTPBasePayload:ssrc">
+	<i>ssrc</i>
+</h4>
+
+
+<pre class="property_signature">
+“ssrc” <span class="type"><a title="guint" href="https://docs.gtk.org/glib/types.html#guint">guint</a></span>
+</pre>
+
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GstRTPBasePayload:ssrc">
+	<i>ssrc</i>
+</h4>
+
+
+<pre class="property_signature">
+“ssrc” <span class="type"><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a></span>
+</pre>
+
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GstRTPBasePayload:ssrc">
+	<i>ssrc</i>
+</h4>
+
+
+<pre class="property_signature">
+“self.props.ssrc” <span class="type"><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a></span>
+</pre>
+
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstRTPBasePayload:stats">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstRTPBasePayload:stats">
+	<i>stats</i>
+</h4>
+
+
+<pre class="property_signature">
+“stats” <span class="type"><a title="GstStructure" href="gstreamer/gststructure.html#GstStructure">GstStructure</a> *</span>
+</pre>
+
+<p>Various payloader statistics retrieved atomically (and are therefore
+synchroized with each other), these can be used e.g. to generate an
+RTP-Info header. This property return a GstStructure named
+application/x-rtp-payload-stats containing the following fields relating to
+the last processed buffer and current state of the stream being payloaded:</p>
+<ul>
+<li>
+<code>clock-rate</code> :#G_TYPE_UINT, clock-rate of the stream</li>
+<li>
+<code>running-time</code> :#G_TYPE_UINT64, running time</li>
+<li>
+<code>seqnum</code> :#G_TYPE_UINT, sequence number, same as <a href="rtplib/gstrtpbasepayload.html#GstRTPBasePayload:seqnum">seqnum</a>
+</li>
+<li>
+<code>timestamp</code> :#G_TYPE_UINT, RTP timestamp, same as <a href="rtplib/gstrtpbasepayload.html#GstRTPBasePayload:timestamp">timestamp</a>
+</li>
+<li>
+<code>ssrc</code> :#G_TYPE_UINT, The SSRC in use</li>
+<li>
+<code>pt</code> :#G_TYPE_UINT, The Payload type in use, same as <a href="rtplib/gstrtpbasepayload.html#GstRTPBasePayload:pt">pt</a>
+</li>
+<li>
+<code>seqnum-offset</code> :#G_TYPE_UINT, The current offset added to the seqnum</li>
+<li>
+<code>timestamp-offset</code> :#G_TYPE_UINT, The current offset added to the timestamp</li>
+</ul>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+</p>
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GstRTPBasePayload:stats">
+	<i>stats</i>
+</h4>
+
+
+<pre class="property_signature">
+“stats” <span class="type"><a title="Gst.Structure" href="gstreamer/gststructure.html#GstStructure">Gst.Structure</a></span>
+</pre>
+
+<p>Various payloader statistics retrieved atomically (and are therefore
+synchroized with each other), these can be used e.g. to generate an
+RTP-Info header. This property return a GstStructure named
+application/x-rtp-payload-stats containing the following fields relating to
+the last processed buffer and current state of the stream being payloaded:</p>
+<ul>
+<li>
+<code>clock-rate</code> :#G_TYPE_UINT, clock-rate of the stream</li>
+<li>
+<code>running-time</code> :#G_TYPE_UINT64, running time</li>
+<li>
+<code>seqnum</code> :#G_TYPE_UINT, sequence number, same as <a href="rtplib/gstrtpbasepayload.html#GstRTPBasePayload:seqnum">seqnum</a>
+</li>
+<li>
+<code>timestamp</code> :#G_TYPE_UINT, RTP timestamp, same as <a href="rtplib/gstrtpbasepayload.html#GstRTPBasePayload:timestamp">timestamp</a>
+</li>
+<li>
+<code>ssrc</code> :#G_TYPE_UINT, The SSRC in use</li>
+<li>
+<code>pt</code> :#G_TYPE_UINT, The Payload type in use, same as <a href="rtplib/gstrtpbasepayload.html#GstRTPBasePayload:pt">pt</a>
+</li>
+<li>
+<code>seqnum-offset</code> :#G_TYPE_UINT, The current offset added to the seqnum</li>
+<li>
+<code>timestamp-offset</code> :#G_TYPE_UINT, The current offset added to the timestamp</li>
+</ul>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+</p>
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GstRTPBasePayload:stats">
+	<i>stats</i>
+</h4>
+
+
+<pre class="property_signature">
+“self.props.stats” <span class="type"><a title="Gst.Structure" href="gstreamer/gststructure.html#GstStructure">Gst.Structure</a></span>
+</pre>
+
+<p>Various payloader statistics retrieved atomically (and are therefore
+synchroized with each other), these can be used e.g. to generate an
+RTP-Info header. This property return a GstStructure named
+application/x-rtp-payload-stats containing the following fields relating to
+the last processed buffer and current state of the stream being payloaded:</p>
+<ul>
+<li>
+<code>clock-rate</code> :#G_TYPE_UINT, clock-rate of the stream</li>
+<li>
+<code>running-time</code> :#G_TYPE_UINT64, running time</li>
+<li>
+<code>seqnum</code> :#G_TYPE_UINT, sequence number, same as <a href="rtplib/gstrtpbasepayload.html#GstRTPBasePayload:seqnum">seqnum</a>
+</li>
+<li>
+<code>timestamp</code> :#G_TYPE_UINT, RTP timestamp, same as <a href="rtplib/gstrtpbasepayload.html#GstRTPBasePayload:timestamp">timestamp</a>
+</li>
+<li>
+<code>ssrc</code> :#G_TYPE_UINT, The SSRC in use</li>
+<li>
+<code>pt</code> :#G_TYPE_UINT, The Payload type in use, same as <a href="rtplib/gstrtpbasepayload.html#GstRTPBasePayload:pt">pt</a>
+</li>
+<li>
+<code>seqnum-offset</code> :#G_TYPE_UINT, The current offset added to the seqnum</li>
+<li>
+<code>timestamp-offset</code> :#G_TYPE_UINT, The current offset added to the timestamp</li>
+</ul>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+</p>
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstRTPBasePayload:timestamp">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstRTPBasePayload:timestamp">
+	<i>timestamp</i>
+</h4>
+
+
+<pre class="property_signature">
+“timestamp” <span class="type"><a title="guint" href="https://docs.gtk.org/glib/types.html#guint">guint</a></span>
+</pre>
+
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+</p>
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GstRTPBasePayload:timestamp">
+	<i>timestamp</i>
+</h4>
+
+
+<pre class="property_signature">
+“timestamp” <span class="type"><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a></span>
+</pre>
+
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+</p>
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GstRTPBasePayload:timestamp">
+	<i>timestamp</i>
+</h4>
+
+
+<pre class="property_signature">
+“self.props.timestamp” <span class="type"><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a></span>
+</pre>
+
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+</p>
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstRTPBasePayload:timestamp-offset">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstRTPBasePayload:timestamp-offset">
+	<i>timestamp-offset</i>
+</h4>
+
+
+<pre class="property_signature">
+“timestamp-offset” <span class="type"><a title="guint" href="https://docs.gtk.org/glib/types.html#guint">guint</a></span>
+</pre>
+
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GstRTPBasePayload:timestamp-offset">
+	<i>timestamp-offset</i>
+</h4>
+
+
+<pre class="property_signature">
+“timestamp-offset” <span class="type"><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a></span>
+</pre>
+
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GstRTPBasePayload:timestamp-offset">
+	<i>timestamp_offset</i>
+</h4>
+
+
+<pre class="property_signature">
+“self.props.timestamp_offset” <span class="type"><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a></span>
+</pre>
+
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+
+            <h3 class="symbol_section">Virtual Methods</h3>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstRTPBasePayloadClass::get_caps">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstRTPBasePayloadClass::get_caps">
+	<i>get_caps</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GstCaps" href="gstreamer/gstcaps.html#GstCaps">GstCaps</a> *
+get_caps (<a title="GstRTPBasePayload" href="rtplib/gstrtpbasepayload.html#GstRTPBasePayload">GstRTPBasePayload</a> * payload,
+          <a title="GstPad" href="gstreamer/gstpad.html#GstPad">GstPad</a> * pad,
+          <a title="GstCaps" href="gstreamer/gstcaps.html#GstCaps">GstCaps</a> * filter)</pre>
+
+<p>get desired caps</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>payload</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>pad</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>filter</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GstRTPBasePayloadClass::get_caps">
+	<i>vfunc_get_caps</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function vfunc_get_caps(payload: <a title="GstRtp.RTPBasePayload" href="rtplib/gstrtpbasepayload.html#GstRTPBasePayload">GstRtp.RTPBasePayload</a>, pad: <a title="Gst.Pad" href="gstreamer/gstpad.html#GstPad">Gst.Pad</a>, filter: <a title="Gst.Caps" href="gstreamer/gstcaps.html#GstCaps">Gst.Caps</a>): {
+    // javascript implementation of the 'get_caps' virtual method
+}</code></pre>
+
+<p>get desired caps</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>payload</code></em></i>
+<span>(</span><a title="GstRtp.RTPBasePayload" href="rtplib/gstrtpbasepayload.html#GstRTPBasePayload">GstRtp.RTPBasePayload</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>pad</code></em></i>
+<span>(</span><a title="Gst.Pad" href="gstreamer/gstpad.html#GstPad">Gst.Pad</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>filter</code></em></i>
+<span>(</span><a title="Gst.Caps" href="gstreamer/gstcaps.html#GstCaps">Gst.Caps</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Gst.Caps" href="gstreamer/gstcaps.html#GstCaps">Gst.Caps</a><span>)</span>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GstRTPBasePayloadClass::get_caps">
+	<i>do_get_caps</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def do_get_caps (payload, pad, filter):
+    #python implementation of the 'get_caps' virtual method</code></pre>
+
+<p>get desired caps</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>payload</code></em></i>
+<span>(</span><a title="GstRtp.RTPBasePayload" href="rtplib/gstrtpbasepayload.html#GstRTPBasePayload">GstRtp.RTPBasePayload</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>pad</code></em></i>
+<span>(</span><a title="Gst.Pad" href="gstreamer/gstpad.html#GstPad">Gst.Pad</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>filter</code></em></i>
+<span>(</span><a title="Gst.Caps" href="gstreamer/gstcaps.html#GstCaps">Gst.Caps</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Gst.Caps" href="gstreamer/gstcaps.html#GstCaps">Gst.Caps</a><span>)</span>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstRTPBasePayloadClass::handle_buffer">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstRTPBasePayloadClass::handle_buffer">
+	<i>handle_buffer</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GstFlowReturn" href="gstreamer/gstpad.html#GstFlowReturn">GstFlowReturn</a>
+handle_buffer (<a title="GstRTPBasePayload" href="rtplib/gstrtpbasepayload.html#GstRTPBasePayload">GstRTPBasePayload</a> * payload,
+               <a title="GstBuffer" href="gstreamer/gstbuffer.html#GstBuffer">GstBuffer</a> * buffer)</pre>
+
+<p>process data</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>payload</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>buffer</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GstRTPBasePayloadClass::handle_buffer">
+	<i>vfunc_handle_buffer</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function vfunc_handle_buffer(payload: <a title="GstRtp.RTPBasePayload" href="rtplib/gstrtpbasepayload.html#GstRTPBasePayload">GstRtp.RTPBasePayload</a>, buffer: <a title="Gst.Buffer" href="gstreamer/gstbuffer.html#GstBuffer">Gst.Buffer</a>): {
+    // javascript implementation of the 'handle_buffer' virtual method
+}</code></pre>
+
+<p>process data</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>payload</code></em></i>
+<span>(</span><a title="GstRtp.RTPBasePayload" href="rtplib/gstrtpbasepayload.html#GstRTPBasePayload">GstRtp.RTPBasePayload</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>buffer</code></em></i>
+<span>(</span><a title="Gst.Buffer" href="gstreamer/gstbuffer.html#GstBuffer">Gst.Buffer</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Gst.FlowReturn" href="gstreamer/gstpad.html#GstFlowReturn">Gst.FlowReturn</a><span>)</span>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GstRTPBasePayloadClass::handle_buffer">
+	<i>do_handle_buffer</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def do_handle_buffer (payload, buffer):
+    #python implementation of the 'handle_buffer' virtual method</code></pre>
+
+<p>process data</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>payload</code></em></i>
+<span>(</span><a title="GstRtp.RTPBasePayload" href="rtplib/gstrtpbasepayload.html#GstRTPBasePayload">GstRtp.RTPBasePayload</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>buffer</code></em></i>
+<span>(</span><a title="Gst.Buffer" href="gstreamer/gstbuffer.html#GstBuffer">Gst.Buffer</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Gst.FlowReturn" href="gstreamer/gstpad.html#GstFlowReturn">Gst.FlowReturn</a><span>)</span>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstRTPBasePayloadClass::query">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstRTPBasePayloadClass::query">
+	<i>query</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a>
+query (<a title="GstRTPBasePayload" href="rtplib/gstrtpbasepayload.html#GstRTPBasePayload">GstRTPBasePayload</a> * payload,
+       <a title="GstPad" href="gstreamer/gstpad.html#GstPad">GstPad</a> * pad,
+       <a title="GstQuery" href="gstreamer/gstquery.html#GstQuery">GstQuery</a> * query)</pre>
+
+<p>custom query handling</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>payload</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>pad</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>query</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GstRTPBasePayloadClass::query">
+	<i>vfunc_query</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function vfunc_query(payload: <a title="GstRtp.RTPBasePayload" href="rtplib/gstrtpbasepayload.html#GstRTPBasePayload">GstRtp.RTPBasePayload</a>, pad: <a title="Gst.Pad" href="gstreamer/gstpad.html#GstPad">Gst.Pad</a>, query: <a title="Gst.Query" href="gstreamer/gstquery.html#GstQuery">Gst.Query</a>): {
+    // javascript implementation of the 'query' virtual method
+}</code></pre>
+
+<p>custom query handling</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>payload</code></em></i>
+<span>(</span><a title="GstRtp.RTPBasePayload" href="rtplib/gstrtpbasepayload.html#GstRTPBasePayload">GstRtp.RTPBasePayload</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>pad</code></em></i>
+<span>(</span><a title="Gst.Pad" href="gstreamer/gstpad.html#GstPad">Gst.Pad</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>query</code></em></i>
+<span>(</span><a title="Gst.Query" href="gstreamer/gstquery.html#GstQuery">Gst.Query</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GstRTPBasePayloadClass::query">
+	<i>do_query</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def do_query (payload, pad, query):
+    #python implementation of the 'query' virtual method</code></pre>
+
+<p>custom query handling</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>payload</code></em></i>
+<span>(</span><a title="GstRtp.RTPBasePayload" href="rtplib/gstrtpbasepayload.html#GstRTPBasePayload">GstRtp.RTPBasePayload</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>pad</code></em></i>
+<span>(</span><a title="Gst.Pad" href="gstreamer/gstpad.html#GstPad">Gst.Pad</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>query</code></em></i>
+<span>(</span><a title="Gst.Query" href="gstreamer/gstquery.html#GstQuery">Gst.Query</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a><span>)</span>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstRTPBasePayloadClass::set_caps">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstRTPBasePayloadClass::set_caps">
+	<i>set_caps</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a>
+set_caps (<a title="GstRTPBasePayload" href="rtplib/gstrtpbasepayload.html#GstRTPBasePayload">GstRTPBasePayload</a> * payload,
+          <a title="GstCaps" href="gstreamer/gstcaps.html#GstCaps">GstCaps</a> * caps)</pre>
+
+<p>configure the payloader</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>payload</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>caps</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GstRTPBasePayloadClass::set_caps">
+	<i>vfunc_set_caps</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function vfunc_set_caps(payload: <a title="GstRtp.RTPBasePayload" href="rtplib/gstrtpbasepayload.html#GstRTPBasePayload">GstRtp.RTPBasePayload</a>, caps: <a title="Gst.Caps" href="gstreamer/gstcaps.html#GstCaps">Gst.Caps</a>): {
+    // javascript implementation of the 'set_caps' virtual method
+}</code></pre>
+
+<p>configure the payloader</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>payload</code></em></i>
+<span>(</span><a title="GstRtp.RTPBasePayload" href="rtplib/gstrtpbasepayload.html#GstRTPBasePayload">GstRtp.RTPBasePayload</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>caps</code></em></i>
+<span>(</span><a title="Gst.Caps" href="gstreamer/gstcaps.html#GstCaps">Gst.Caps</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GstRTPBasePayloadClass::set_caps">
+	<i>do_set_caps</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def do_set_caps (payload, caps):
+    #python implementation of the 'set_caps' virtual method</code></pre>
+
+<p>configure the payloader</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>payload</code></em></i>
+<span>(</span><a title="GstRtp.RTPBasePayload" href="rtplib/gstrtpbasepayload.html#GstRTPBasePayload">GstRtp.RTPBasePayload</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>caps</code></em></i>
+<span>(</span><a title="Gst.Caps" href="gstreamer/gstcaps.html#GstCaps">Gst.Caps</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a><span>)</span>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstRTPBasePayloadClass::sink_event">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstRTPBasePayloadClass::sink_event">
+	<i>sink_event</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a>
+sink_event (<a title="GstRTPBasePayload" href="rtplib/gstrtpbasepayload.html#GstRTPBasePayload">GstRTPBasePayload</a> * payload,
+            <a title="GstEvent" href="gstreamer/gstevent.html#GstEvent">GstEvent</a> * event)</pre>
+
+<p>custom event handling on the sinkpad</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>payload</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>event</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GstRTPBasePayloadClass::sink_event">
+	<i>vfunc_sink_event</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function vfunc_sink_event(payload: <a title="GstRtp.RTPBasePayload" href="rtplib/gstrtpbasepayload.html#GstRTPBasePayload">GstRtp.RTPBasePayload</a>, event: <a title="Gst.Event" href="gstreamer/gstevent.html#GstEvent">Gst.Event</a>): {
+    // javascript implementation of the 'sink_event' virtual method
+}</code></pre>
+
+<p>custom event handling on the sinkpad</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>payload</code></em></i>
+<span>(</span><a title="GstRtp.RTPBasePayload" href="rtplib/gstrtpbasepayload.html#GstRTPBasePayload">GstRtp.RTPBasePayload</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>event</code></em></i>
+<span>(</span><a title="Gst.Event" href="gstreamer/gstevent.html#GstEvent">Gst.Event</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GstRTPBasePayloadClass::sink_event">
+	<i>do_sink_event</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def do_sink_event (payload, event):
+    #python implementation of the 'sink_event' virtual method</code></pre>
+
+<p>custom event handling on the sinkpad</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>payload</code></em></i>
+<span>(</span><a title="GstRtp.RTPBasePayload" href="rtplib/gstrtpbasepayload.html#GstRTPBasePayload">GstRtp.RTPBasePayload</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>event</code></em></i>
+<span>(</span><a title="Gst.Event" href="gstreamer/gstevent.html#GstEvent">Gst.Event</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a><span>)</span>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstRTPBasePayloadClass::src_event">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstRTPBasePayloadClass::src_event">
+	<i>src_event</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a>
+src_event (<a title="GstRTPBasePayload" href="rtplib/gstrtpbasepayload.html#GstRTPBasePayload">GstRTPBasePayload</a> * payload,
+           <a title="GstEvent" href="gstreamer/gstevent.html#GstEvent">GstEvent</a> * event)</pre>
+
+<p>custom event handling on the srcpad</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>payload</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>event</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GstRTPBasePayloadClass::src_event">
+	<i>vfunc_src_event</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function vfunc_src_event(payload: <a title="GstRtp.RTPBasePayload" href="rtplib/gstrtpbasepayload.html#GstRTPBasePayload">GstRtp.RTPBasePayload</a>, event: <a title="Gst.Event" href="gstreamer/gstevent.html#GstEvent">Gst.Event</a>): {
+    // javascript implementation of the 'src_event' virtual method
+}</code></pre>
+
+<p>custom event handling on the srcpad</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>payload</code></em></i>
+<span>(</span><a title="GstRtp.RTPBasePayload" href="rtplib/gstrtpbasepayload.html#GstRTPBasePayload">GstRtp.RTPBasePayload</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>event</code></em></i>
+<span>(</span><a title="Gst.Event" href="gstreamer/gstevent.html#GstEvent">Gst.Event</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GstRTPBasePayloadClass::src_event">
+	<i>do_src_event</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def do_src_event (payload, event):
+    #python implementation of the 'src_event' virtual method</code></pre>
+
+<p>custom event handling on the srcpad</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>payload</code></em></i>
+<span>(</span><a title="GstRtp.RTPBasePayload" href="rtplib/gstrtpbasepayload.html#GstRTPBasePayload">GstRtp.RTPBasePayload</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>event</code></em></i>
+<span>(</span><a title="Gst.Event" href="gstreamer/gstevent.html#GstEvent">Gst.Event</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a><span>)</span>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+
+        
+
+            <h2 class="symbol_section">Function Macros</h2>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GST_RTP_BASE_PAYLOAD_CAST">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_RTP_BASE_PAYLOAD_CAST">
+	<i>GST_RTP_BASE_PAYLOAD_CAST</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_RTP_BASE_PAYLOAD_CAST(obj) \
+        ((GstRTPBasePayload*)(obj))
+</pre>
+
+
+
+
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GST_RTP_BASE_PAYLOAD_MTU">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_RTP_BASE_PAYLOAD_MTU">
+	<i>GST_RTP_BASE_PAYLOAD_MTU</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_RTP_BASE_PAYLOAD_MTU(payload) (GST_RTP_BASE_PAYLOAD (payload)-&gt;mtu)
+</pre>
+
+<p>Get access to the configured MTU of <em>payload</em>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>payload</code></em></i>
+–
+</div>
+<p>a <a href="rtplib/gstrtpbasepayload.html#GstRTPBasePayload">GstRTPBasePayload</a></p>
+
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GST_RTP_BASE_PAYLOAD_PT">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_RTP_BASE_PAYLOAD_PT">
+	<i>GST_RTP_BASE_PAYLOAD_PT</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_RTP_BASE_PAYLOAD_PT(payload)  (GST_RTP_BASE_PAYLOAD (payload)-&gt;pt)
+</pre>
+
+<p>Get access to the configured payload type of <em>payload</em>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>payload</code></em></i>
+–
+</div>
+<p>a <a href="rtplib/gstrtpbasepayload.html#GstRTPBasePayload">GstRTPBasePayload</a></p>
+
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GST_RTP_BASE_PAYLOAD_SINKPAD">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_RTP_BASE_PAYLOAD_SINKPAD">
+	<i>GST_RTP_BASE_PAYLOAD_SINKPAD</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_RTP_BASE_PAYLOAD_SINKPAD(payload) (GST_RTP_BASE_PAYLOAD (payload)-&gt;sinkpad)
+</pre>
+
+<p>Get access to the sinkpad of <em>payload</em>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>payload</code></em></i>
+–
+</div>
+<p>a <a href="rtplib/gstrtpbasepayload.html#GstRTPBasePayload">GstRTPBasePayload</a></p>
+
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GST_RTP_BASE_PAYLOAD_SRCPAD">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_RTP_BASE_PAYLOAD_SRCPAD">
+	<i>GST_RTP_BASE_PAYLOAD_SRCPAD</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_RTP_BASE_PAYLOAD_SRCPAD(payload)  (GST_RTP_BASE_PAYLOAD (payload)-&gt;srcpad)
+</pre>
+
+<p>Get access to the srcpad of <em>payload</em>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>payload</code></em></i>
+–
+</div>
+<p>a <a href="rtplib/gstrtpbasepayload.html#GstRTPBasePayload">GstRTPBasePayload</a></p>
+
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+
+            <h2 class="symbol_section">Constants</h2>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GST_TYPE_RTP_BASE_PAYLOAD">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_TYPE_RTP_BASE_PAYLOAD">
+	<i>GST_TYPE_RTP_BASE_PAYLOAD</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_TYPE_RTP_BASE_PAYLOAD \
+        (gst_rtp_base_payload_get_type())
+</pre>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+
+
+
+
+
+		
+	</div>
+	<div id="search_results">
+		<p>The results of the search are</p>
+	</div>
+	<div id="footer">
+		    
+
+	</div>
+</div>
+
+<div id="toc-column">
+	
+		<div class="edit-button">
+		
+
+	</div>
+		<div id="toc-wrapper">
+		<nav id="toc"></nav>
+	</div>
+</div>
+</div>
+</main>
+
+
+<script src="assets/js/navbar_offset_scroller.js"></script>
+</body>
+</html>

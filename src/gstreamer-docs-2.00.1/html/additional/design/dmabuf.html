@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<base href="../..">
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<title>DMA buffers</title>
+
+<link rel="stylesheet" href="assets/css/dark-frontend.css" type="text/css" title="dark">
+<link rel="alternate stylesheet" href="assets/css/light-frontend.css" type="text/css" title="light">
+<link rel="stylesheet" href="assets/css/bootstrap-toc.min.css" type="text/css">
+<link rel="stylesheet" href="assets/css/jquery.mCustomScrollbar.min.css">
+<link rel="stylesheet" href="assets/js/search/enable_search.css" type="text/css">
+
+<link rel="stylesheet" href="assets/css/extra_frontend.css" type="text/css">
+<link rel="stylesheet" href="assets/css/devhelp.css" type="text/css">
+
+<link rel="stylesheet" href="assets/css/prism-tomorrow.css" type="text/css" title="dark">
+
+<link rel="alternate stylesheet" href="assets/css/prism.css" type="text/css" title="light">
+
+<script src="assets/js/mustache.min.js"></script>
+<script src="assets/js/jquery.js"></script>
+<script src="assets/js/bootstrap.js"></script>
+<script src="assets/js/scrollspy.js"></script>
+<script src="assets/js/typeahead.jquery.min.js"></script>
+<script src="assets/js/search.js"></script>
+<script src="assets/js/compare-versions.js"></script>
+<script src="assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="assets/js/bootstrap-toc.min.js"></script>
+<script src="assets/js/jquery.touchSwipe.min.js"></script>
+<script src="assets/js/anchor.min.js"></script>
+<script src="assets/js/tag_filtering.js"></script>
+<script src="assets/js/language_switching.js"></script>
+<script src="assets/js/styleswitcher.js"></script>
+
+<script src="assets/js/lines_around_headings.js"></script>
+
+<script src="assets/js/prism-core.js"></script>
+<script src="assets/js/prism-autoloader.js"></script>
+<script src="assets/js/prism_autoloader_path_override.js"></script>
+<script src="assets/js/trie.js"></script>
+
+<!-- generic -->
+<link rel="icon" type="image/png" href="assets/images/favicon-16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="assets/images/favicon-32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="assets/images/favicon-57.png" sizes="57x57">
+<link rel="icon" type="image/png" href="assets/images/favicon-64.png" sizes="64x64">
+<link rel="icon" type="image/png" href="assets/images/favicon-76.png" sizes="76x76">
+<link rel="icon" type="image/png" href="assets/images/favicon-96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="assets/images/favicon-128.png" sizes="128x128">
+<link rel="icon" type="image/png" href="assets/images/favicon-192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="assets/images/favicon-228.png" sizes="228x228">
+
+<!-- Android -->
+<link rel="shortcut icon" sizes="196x196" href="assets/images/favicon-196.png">
+
+<!-- iOS -->
+<link rel="apple-touch-icon" href="assets/images/favicon-120.png" sizes="120x120">
+<link rel="apple-touch-icon" href="assets/images/favicon-152.png" sizes="152x152">
+<link rel="apple-touch-icon" href="assets/images/favicon-180.png" sizes="180x180">
+
+</head>
+
+<body class="no-script
+">
+
+<script>
+$('body').removeClass('no-script');
+</script>
+
+<nav class="navbar navbar-fixed-top navbar-default" id="topnav">
+	<div class="container-fluid">
+		<div class="navbar-right">
+			<a id="toc-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-wrapper" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<span title="light mode switch" class="glyphicon glyphicon-sunglasses pull-right" id="lightmode-icon"></span>
+			<form class="navbar-form pull-right" id="navbar-search-form">
+                               <div class="form-group has-feedback">
+                                       <input type="text" class="form-control input-sm" name="search" id="sidenav-lookup-field" placeholder="search" disabled>
+				       <span class="glyphicon glyphicon-search form-control-feedback" id="search-mgn-glass"></span>
+                               </div>
+                        </form>
+		</div>
+		<div class="navbar-header">
+			<a id="sidenav-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<a id="home-link" href="index.html" class="hotdoc-navbar-brand">
+				<img src="assets/images/gstreamer-logo.svg" alt="Home">
+			</a>
+		</div>
+		<div class="navbar-collapse collapse" id="navbar-wrapper">
+			<ul class="nav navbar-nav" id="menu">
+				
+<li class="dropdown">
+    <a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        API References<span class="caret"></span>
+    </a>
+	<ul class="dropdown-menu" id="modules-menu">
+					<li>
+				<a href="gstreamer/gi-index.html">GStreamer core</a>
+			</li>
+					<li>
+				<a href="libs.html">GStreamer Libraries</a>
+			</li>
+					<li>
+				<a href="plugins_doc.html">GStreamer Plugins</a>
+			</li>
+		</ul>
+</li>
+
+<li>
+    <a href="application-development/index.html">Application manual</a>
+</li>
+
+
+<li>
+    <a href="tutorials/index.html">Tutorials</a>
+</li>
+
+			</ul>
+			<div class="hidden-xs hidden-sm navbar-text navbar-center">
+							</div>
+		</div>
+	</div>
+</nav>
+
+<main>
+<div data-extension="gi-extension" data-hotdoc-in-toplevel="True" data-hotdoc-project="GStreamer" data-hotdoc-ref="additional/design/dmabuf.html" class="page_container" id="page-wrapper" data-hotdoc-meta-gi-languages="['c', 'javascript', 'python']" data-hotdoc-meta-gi-language="c">
+<script src="assets/js/utils.js"></script>
+
+<div class="panel panel-collapse oc-collapsed" id="sidenav" data-hotdoc-role="navigation">
+	<script src="assets/js/full-width.js"></script>
+  <div id="sitenav-wrapper">
+    <iframe src="hotdoc-sitemap.html" id="sitenav-frame"></iframe>
+  </div>
+</div>
+
+<div id="body">
+	<div id="main">
+				    <div id="page-description" data-hotdoc-role="main">
+        <h1 id="dma-buffers">DMA buffers</h1>
+<p>This document describes the GStreamer caps negotiation of DMA buffers on
+Linux-like platforms.</p>
+<p>The DMA buffer sharing is the efficient way to share the buffer/memory
+between different Linux kernel driver, such as codecs/3D/display/cameras.
+For example, the decoder may want its output to be directly shared with the
+display server for rendering without a copy.</p>
+<p>Any device driver which is part of DMA buffer sharing, can do so as either
+the <em>exporter</em> or <em>importer</em> of buffers.</p>
+<p>This kind of buffer/memory is usually stored in non-system memory (maybe in
+device's local memory or something else not directly accessible by the
+CPU), then its memory mapping for CPU access may impose a big overhead and
+low performance, or even impossible.</p>
+<p>DMA buffers are exposed to user-space as <em>file descriptors</em> allowing to pass
+them between processes.</p>
+<h1 id="drm-prime-buffers">DRM PRIME buffers</h1>
+<p>PRIME is the cross device buffer sharing framework in DRM kernel
+subsystem. These are the ones normally used in GStreamer which might
+contain video frames.</p>
+<p>PRIME buffers requires some metadata to describe how to interpret them,
+such as a set of file descriptors (for example, one per plane), color
+definition in fourcc, and DRM-modifiers. If the frame is going to be mapped
+onto system's memory, also is needed padding, strides, offsets, etc.</p>
+<h2 id="file-descriptor">File descriptor</h2>
+<p>Each file descriptor represents a chunk of a frame, usually a plane. For
+example, when a DMA buffer contains NV12 format data, it might be
+composited by 2 planes: one for its Y component and the other for both UV
+components. Then, the hardware may use two detached memory chunks, one per
+plane, exposed as two file descriptors. Otherwise, if hardware uses only
+one continuous memory chunk for all the planes, the DMA buffer should just
+have one file descriptor.</p>
+<h2 id="drm-fourcc">DRM fourcc</h2>
+<p>Just like fourcc common usage, DRM-fourcc describes the underlying format
+of the video frame, such as <code>DRM_FORMAT_YVU420</code> or <code>DRM_FORMAT_NV12</code>. All
+of them with the prefix <code>DRM_FORMAT_</code>. Please refer to <code>drm_fourcc.h</code> in
+the kernel for a full list. This list of fourcc formats maps to GStreamer
+video formats, although the GStreamer formats may have a slighly different.
+For example, DRM_FORMAT_ARGB8888 corresponds to GST_VIDEO_FORMAT_BGRA.</p>
+<h2 id="drm-modifier">DRM modifier</h2>
+<p>DRM-modifier describes the translation mechanism between pixel to memory
+samples and the actual memory storage of the buffer. The most
+straightforward modifier is LINEAR, where each pixel has contiguous storage
+and pixel location in memory can be easily calculated with the stride. This
+is considered the baseline interchange format, and most convenient for CPU
+access. Nonetheless, modern hardware employs more sophisticated memory
+access mechanisms, such as tiling and possibly compression.  For example,
+the TILED modifier describes memory storage where pixels are stored in 4x4
+blocks arranged in row-major ordering. For example, the first tile in
+memory stores pixels (0,0) to (3,3) inclusive, and the second tile in
+memory stores pixels (4,0) to (7,3) inclusive, and so on.</p>
+<p>DRM-modifier is a sixteen hexadecimal digits to represent these memory
+layouts. For example, <code>0x0000000000000000</code> means linear,
+<code>0x0100000000000001</code> means Intel's X tile mode, etc. Please refer to
+<code>drm_fourcc.h</code> in kernel for a full list.</p>
+<p>Excepting the linear modifier, the first 8 bits represent the vendor ID and
+the other 56 bits describe the memory layout, which may be hardware
+dependent. Users should be careful when interpreting non-linear memory by
+themselves.</p>
+<p>Please bear in mind that, even for the linear modifier, as the access to
+DMA memory's content is through <code>map()</code> / <code>unmap()</code> functions, its
+read/write performance may be low or even bad, because of its cache type
+and coherence assurance. So, most of the times, it's advised to avoid that
+code path for upload or download frame data.</p>
+<h2 id="meta-data">Meta Data</h2>
+<p>The meta data contains information about how to interpret the memory
+holding the video frame, either when the frame mapped and its DRM modifier
+is linear, or by other API that imports those DMA buffers.</p>
+<h1 id="dmabufs-in-gstreamer">DMABufs in GStreamer</h1>
+<h2 id="representation">Representation</h2>
+<p>In GStreamer, a full DMA buffer-based video frame is mapped to a
+<code>GstBuffer</code>, and each file descriptor used to describe the whole frame is
+held by a <code>GstMemory</code> mini-object. A derived class of <code>GstDmaBufAllocator</code>
+would be implemented for every wrapped API <em>exporting</em> DMA buffers to
+user-space, as memory allocator.</p>
+<h2 id="drm-format-caps-field">DRM format caps field</h2>
+<p>The <em>GstCapsFeatures</em> <em>memory:DMABuf</em> is usually used to negotiate DMA
+buffers. It is recommended to allow DMAbuf to flow without the
+<em>GstCapsFeatures</em> <em>memory:DMABuf</em> if the DRM-modifier is linear.</p>
+<p>But also, in order to negotiate <em>memory:DMABuf</em> thoroughly, it's required
+to match the DRM-modifiers between upstream and downstream. Otherwise video
+sinks might end rendering wrong frames assuming linear access.</p>
+<p>Because DRM-fourcc and DRM-modifier are both necessary to render frames
+DMABuf-backed, we now consider both as a pair and combine them together to
+assure uniqueness. In caps, we use a <em>:</em> to link them together and write in
+the mode of <em>DRM_FORMAT:DRM_MODIFIER</em>, which represents a totally new single video
+format. For example, <code>NV12:0x0100000000000002</code> is a new video format
+combined by video format NV12 and the modifier <code>0x0100000000000002</code>. It's
+not NV12 and it's not its subset either.</p>
+<p>The 7 least significant bits of <em>DRM_FORMAT</em> is a fourcc. That fourcc is used
+to serialize it into a string. The result is different from the serialization of
+gstreamer video formats. The 8th bit is used to indicate that tis is a big
+endian format. In this case, the serializer will postfix the name with <code>_BE</code>.</p>
+<p>A modifier must always be present, except if the modifier is linear,
+then it should not be included, so <code>NV12:0x0000000000000000</code> is
+invalid, it must be <code>drm-format=NV12</code>. DRM fourcc are used
+instead of a <code>GstVideoFormat</code> to make it easier for non-GStreamer
+developers to understand what the system is trying to achieve.</p>
+<p>Please note that this form of video format only appears within
+<em>memory:DMABuf</em> feature. It must not appear in any other video caps
+feature.</p>
+<p>Unlike other type of video buffers, DMABuf frames might not be mappable and
+its internal format is opaque to the user. Then, unless the modifier is
+linear (0x0000000000000000) or some other well known tiled format such as
+NV12_4L4, NV12_16L16, NV12_64Z32, NV12_16L32S, etc. (which are defined in
+video-format.h), we always use <code>GST_VIDEO_FORMAT_DMA_DRM</code> in
+<code>GstVideoFormat</code> enum to represent its video format.</p>
+<p>In order to not misuse this new format with the common video format, <strong>in</strong>
+<em>memory:DMABuf</em> feature, the traditional <em>format</em> should be set to DMA_DRM.
+And a new <em>drm-format</em> field in caps is introduced to represent the video
+format in details(the composing of fourcc:modifier).</p>
+<p>So a DMABuf-backed video caps may look like:</p>
+<pre><code>     video/x-raw(memory:DMABuf), \
+                format=(string)DMA_DRM, \
+                drm-format=(string)NV12:0x0x0100000000000001, \
+                width=(int)1920, \
+                height=(int)1080, \
+                interlace-mode=(string)progressive, \
+                multiview-mode=(string)mono, \
+                multiview-flags=(GstVideoMultiviewFlagsSet)0:ffffffff:/right-view-first/left-flipped/left-flopped/right-flipped/right-flopped/half-aspect/mixed-mono, \
+                pixel-aspect-ratio=(fraction)1/1, \
+                framerate=(fraction)24/1, \
+                colorimetry=(string)bt709"
+</code></pre>
+<p>And when we call a video info API such as <code>gst_video_info_from_caps()</code> with
+this caps, it should return an video format as <code>GST_VIDEO_FORMAT_DMA_DRM</code>,
+leaving other fields unchanged as normal video caps.</p>
+<p>In addition, a new structure</p>
+<pre><code>struct GstDrmVideoInfo
+{
+  GstVideoInfo vinfo;
+  guint32 drm_fourcc;
+  guint64 drm_modifier;
+};
+</code></pre>
+<p>is introduced to represent more info of DMA video caps. User should use
+this DMABuf related API such as <code>gst_drm_video_info_from_caps()</code> to recognize
+the video format and parse the DMA info from caps.</p>
+<h2 id="meta-data1">Meta data</h2>
+<p>Besides the <em>file descriptors</em>, there may be a <code>GstVideoMeta</code> data attached
+to each <code>GstBuffer</code> to describe more information such as the width, height,
+pitches, strides and plane offsets for that DMA buffer (Please note that
+the mandatory width and height information appears both in "caps" and here,
+and they should be always equal). This kind of information is only obtained
+by each module's API, such as the functions
+<code>VkImageDrmFormatModifierExplicitCreateInfoEXT()</code> in Vulkan, and
+<code>vaExportSurfaceHandle()</code> in VA-API. The information should be translated
+into <code>GstVideoMeta</code>'s fields when the DMA buffer is created and
+exported. These meta data is useful when other module wants to import the
+DMA buffers.</p>
+<p>For example, we may create a <code>GstBuffer</code> using <code>vaExportSurfaceHandle()</code>
+VA-API, and set each field of <code>GstVideoMeta</code> with information from
+<code>VADRMPRIMESurfaceDescriptor</code>. Later, a downstream Vulkan element imports
+these DMA buffers with <code>VkImageDrmFormatModifierExplicitCreateInfoEXT()</code>,
+translating fields form buffer's <code>GstVideoMeta</code> into the
+<code>VkSubresourceLayout</code> parameter.</p>
+<p>In short, the <code>GstVideoMeta</code> contains the common extra video information
+about the DMA buffer, which can be interpreted by each module.</p>
+<p>Information in <code>GstVideoMeta</code> depends on the hardware context and
+setting. Its values, such as stride and pitch, may differ from the standard
+video format because of the hardware's requirement. For example, if a DMA
+buffer represents a compressed video in memory, its pitch and stride may be
+smaller than the standard linear one because of the compression. Please
+remind that users should not use this meta data to interpret and access the
+DMA buffer, <strong>unless the modifier is linear</strong>.</p>
+<h1 id="negotiation-of-dma-buffer">Negotiation of DMA buffer</h1>
+<p>If two elements of different modules (for example, VA-API decoder to
+Wayland sink) want to transfer dmabufs, the negotiation should ensure a
+common <em>drm-format</em> (<em>DRM_FORMAT:DRM_MODIFIER</em>).  As we already illustrate how to
+represent both of them in caps before, so the negotiation here in fact has
+no special operation except finding the intersection.</p>
+<h2 id="static-template-caps">Static Template Caps</h2>
+<p>If an element can list all the DRM fourcc/modifier composition at register
+time, <code>gst-inspect</code> result should look like:</p>
+<pre><code>SRC template: 'src'
+    Availability: Always
+      Capabilities:
+        video/x-raw(memory:DMABuf)
+          width:  [ 16, 16384 ]
+          height: [ 16, 16384 ]
+          format: DMA_DRM
+          drm-format: { (string)NV12:0x0100000000000001, \
+                        (string)YU12, (string)YV12, \
+                        (string)YUYV:0x0100000000000002, \
+                        (string)P010:0x0100000000000002, \
+                        (string)AR24:0x0100000000000002, \
+                        (string)AB24:0x0100000000000002, \
+                        (string)AR39:0x0100000000000002, \
+                        (string)AYUV:0x0100000000000002 }
+</code></pre>
+<p>But because sometimes it is impossible to enumerate and list all
+drm_fourcc/modifier composition in static templates (for example, we may
+need a runtime context which is not available at register time to detect
+the real modifers a HW can support), we can let the <em>drm-format</em> field
+absent to mean the super set of all formats.</p>
+<h2 id="renegotiation">Renegotiation</h2>
+<p>Sometimes, a renegotiation may happen if the downstream element is not
+pleased with the caps set by the upstream element. For example, some sink
+element may not know the preferred DRM fourcc/modifier until the real
+render target window is realized. Then, it will send a "reconfigure" event
+to upstream element to require a renegotiation. At this round negotiation,
+the downstream element will provide a more precise <em>drm-format</em> list.</p>
+<h2 id="example">Example</h2>
+<p>Consider the pipeline of:</p>
+<pre><code>vapostproc ! video/x-raw(memory:DMABuf) ! glupload
+</code></pre>
+<p>both <code>vapostproc</code> and <code>glupload</code> work on the same GPU. (DMABuf caps filter
+is just for illustration, it doesn't need to be specified, since DMA
+negotiation is well supported.)</p>
+<p>The VA-API based <code>vapostproc</code> element can detect the modifiers at the
+element registration time and the src template should be:</p>
+<pre><code>SRC template: 'src'
+    Availability: Always
+      Capabilities:
+        video/x-raw(memory:DMABuf)
+          width:  [ 16, 16384 ]
+          height: [ 16, 16384 ]
+          format: DMA_DRM
+          drm-format: { (string)NV12:0x0100000000000001, \
+                        (string)NV12, (string)I420, (string)YV12, \
+                        (string)BGRA:0x0100000000000002 }
+</code></pre>
+<p>While <code>glupload</code> needs the runtime EGL context to check the DRM fourcc and
+modifiers, so it can just leave the <em>drm-format</em> field absent in its sink
+template:</p>
+<pre><code>SINK template: 'sink'
+    Availability: Always
+      Capabilities:
+        video/x-raw(memory:DMABuf)
+          width:  [ 1, 2147483647 ]
+          height: [ 1, 2147483647 ]
+          format: DMA_DRM
+</code></pre>
+<p>At runtime, when the <code>vapostproc</code> wants to decide its src caps, it first
+query the downstream <code>glupload</code> element about all possible DMA caps. The
+<code>glupload</code> should answer that query based on the GL/EGL query result, such
+as:</p>
+<pre><code>drm-format: { (string)NV12:0x0100000000000001, (string)BGRA }
+</code></pre>
+<p>So, the intersection with <code>vapostproc</code>'s src caps will be
+<code>NV12:0x0100000000000001</code>. It will be the sent to downstream (<code>glupload</code>)
+by a CAPS event. The <code>vapostproc</code> element may also query the allocation
+after that CAPS event, but downstream <code>glupload</code> will not provide a DMA
+buffer pool because EGL API is mostly for DMAbuf importing. Then
+<code>vapostproc</code> will create its own DMA pool, the buffers created from that
+new pool should conform <em>drm-format</em>, described in this document, with
+<code>NV12:0x0100000000000001</code>. Also, the downstream <code>glupload</code> should make sure
+that it can import other DMA buffers which are not created in the pool it
+provided, as long as they conform with <em>drm-format</em>
+<code>NV12:0x0100000000000001</code>.</p>
+<p>Then, when <code>vapostproc</code> handles each frame, it creates GPU surfaces with
+<em>drm-format</em> <code>NV12:0x0100000000000001</code>. Each surface is also exported as a
+set of file descriptors, each one wrapped in <code>GstMemory</code> allocated by a
+subclass of <code>GstDmaBufAllocator</code>. All the <code>GstMemory</code> are appended to a
+<code>GstBuffer</code>. There may be some extra information about the pitch, stride
+and plane offset when we export the surface, we also need to translate them
+into <code>GstVideoMeta</code> and attached it to the <code>GstBuffer</code>.</p>
+<p>Later <code>glupload</code>, when it receives a <code>GstBuffer</code>, it can use those file
+descriptors with <em>drm-format</em> <code>NV12:0x0100000000000001</code> to import an
+EGLImage. If the <code>GstVideoMeta</code> exists, this extra parameters should also
+be provided to the importing API.</p>
+
+    </div>
+        
+
+
+
+
+		
+	</div>
+	<div id="search_results">
+		<p>The results of the search are</p>
+	</div>
+	<div id="footer">
+		    
+
+	</div>
+</div>
+
+<div id="toc-column">
+	
+		<div class="edit-button">
+		<a href="https://gitlab.freedesktop.org/gstreamer/gst-docs//edit/master/subprojects/gst-docs/markdown/additional/design/dmabuf.md" data-hotdoc-role="edit-button">Edit on GitLab</a>
+
+	</div>
+		<div id="toc-wrapper">
+		<nav id="toc"></nav>
+	</div>
+</div>
+</div>
+</main>
+
+
+<script src="assets/js/navbar_offset_scroller.js"></script>
+</body>
+</html>

@@ -1,0 +1,7970 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<base href="..">
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<title>GstVideoInfo</title>
+
+<link rel="stylesheet" href="assets/css/dark-frontend.css" type="text/css" title="dark">
+<link rel="alternate stylesheet" href="assets/css/light-frontend.css" type="text/css" title="light">
+<link rel="stylesheet" href="assets/css/bootstrap-toc.min.css" type="text/css">
+<link rel="stylesheet" href="assets/css/jquery.mCustomScrollbar.min.css">
+<link rel="stylesheet" href="assets/js/search/enable_search.css" type="text/css">
+
+<link rel="stylesheet" href="assets/css/extra_frontend.css" type="text/css">
+<link rel="stylesheet" href="assets/css/devhelp.css" type="text/css">
+
+<link rel="stylesheet" href="assets/css/prism-tomorrow.css" type="text/css" title="dark">
+
+<link rel="alternate stylesheet" href="assets/css/prism.css" type="text/css" title="light">
+
+<script src="assets/js/mustache.min.js"></script>
+<script src="assets/js/jquery.js"></script>
+<script src="assets/js/bootstrap.js"></script>
+<script src="assets/js/scrollspy.js"></script>
+<script src="assets/js/typeahead.jquery.min.js"></script>
+<script src="assets/js/search.js"></script>
+<script src="assets/js/compare-versions.js"></script>
+<script src="assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="assets/js/bootstrap-toc.min.js"></script>
+<script src="assets/js/jquery.touchSwipe.min.js"></script>
+<script src="assets/js/anchor.min.js"></script>
+<script src="assets/js/tag_filtering.js"></script>
+<script src="assets/js/language_switching.js"></script>
+<script src="assets/js/styleswitcher.js"></script>
+
+<script src="assets/js/lines_around_headings.js"></script>
+
+<script src="assets/js/prism-core.js"></script>
+<script src="assets/js/prism-autoloader.js"></script>
+<script src="assets/js/prism_autoloader_path_override.js"></script>
+<script src="assets/js/trie.js"></script>
+
+<!-- generic -->
+<link rel="icon" type="image/png" href="assets/images/favicon-16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="assets/images/favicon-32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="assets/images/favicon-57.png" sizes="57x57">
+<link rel="icon" type="image/png" href="assets/images/favicon-64.png" sizes="64x64">
+<link rel="icon" type="image/png" href="assets/images/favicon-76.png" sizes="76x76">
+<link rel="icon" type="image/png" href="assets/images/favicon-96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="assets/images/favicon-128.png" sizes="128x128">
+<link rel="icon" type="image/png" href="assets/images/favicon-192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="assets/images/favicon-228.png" sizes="228x228">
+
+<!-- Android -->
+<link rel="shortcut icon" sizes="196x196" href="assets/images/favicon-196.png">
+
+<!-- iOS -->
+<link rel="apple-touch-icon" href="assets/images/favicon-120.png" sizes="120x120">
+<link rel="apple-touch-icon" href="assets/images/favicon-152.png" sizes="152x152">
+<link rel="apple-touch-icon" href="assets/images/favicon-180.png" sizes="180x180">
+
+</head>
+
+<body class="no-script
+">
+
+<script>
+$('body').removeClass('no-script');
+</script>
+
+<nav class="navbar navbar-fixed-top navbar-default" id="topnav">
+	<div class="container-fluid">
+		<div class="navbar-right">
+			<a id="toc-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-wrapper" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<span title="light mode switch" class="glyphicon glyphicon-sunglasses pull-right" id="lightmode-icon"></span>
+			<form class="navbar-form pull-right" id="navbar-search-form">
+                               <div class="form-group has-feedback">
+                                       <input type="text" class="form-control input-sm" name="search" id="sidenav-lookup-field" placeholder="search" disabled>
+				       <span class="glyphicon glyphicon-search form-control-feedback" id="search-mgn-glass"></span>
+                               </div>
+                        </form>
+		</div>
+		<div class="navbar-header">
+			<a id="sidenav-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<a id="home-link" href="index.html" class="hotdoc-navbar-brand">
+				<img src="assets/images/gstreamer-logo.svg" alt="Home">
+			</a>
+		</div>
+		<div class="navbar-collapse collapse" id="navbar-wrapper">
+			<ul class="nav navbar-nav" id="menu">
+				
+<li class="dropdown">
+    <a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        API References<span class="caret"></span>
+    </a>
+	<ul class="dropdown-menu" id="modules-menu">
+					<li>
+				<a href="gstreamer/gi-index.html">GStreamer core</a>
+			</li>
+					<li>
+				<a href="libs.html">GStreamer Libraries</a>
+			</li>
+					<li>
+				<a href="plugins_doc.html">GStreamer Plugins</a>
+			</li>
+		</ul>
+</li>
+
+<li>
+    <a href="application-development/index.html">Application manual</a>
+</li>
+
+
+<li>
+    <a href="tutorials/index.html">Tutorials</a>
+</li>
+
+			</ul>
+			<div class="hidden-xs hidden-sm navbar-text navbar-center">
+							</div>
+		</div>
+	</div>
+</nav>
+
+<main>
+<div data-extension="gi-extension" data-hotdoc-in-toplevel="False" data-hotdoc-project="video" data-hotdoc-ref="video-info.html" class="page_container" id="page-wrapper" data-hotdoc-meta-gi-languages="['c', 'javascript', 'python']" data-hotdoc-meta-gi-language="c">
+<script src="assets/js/utils.js"></script>
+
+<div class="panel panel-collapse oc-collapsed" id="sidenav" data-hotdoc-role="navigation">
+	<script src="assets/js/full-width.js"></script>
+  <div id="sitenav-wrapper">
+    <iframe src="hotdoc-sitemap.html" id="sitenav-frame"></iframe>
+  </div>
+</div>
+
+<div id="body">
+	<div id="main">
+				    <div id="page-description" data-hotdoc-role="main">
+        <h1 id="gstvideoinfo-page">GstVideoInfo</h1>
+    </div>
+        
+        
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstVideoInfo">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h2 data-hotdoc-id="GstVideoInfo">
+	<i>GstVideoInfo</i>
+</h2>
+
+
+
+<div class="class_details">
+	<p>Information describing image properties. This information can be filled
+in from GstCaps with <a href="video/video-info.html#gst_video_info_from_caps">gst_video_info_from_caps</a>. The information is also used
+to store the specific video info when mapping a video frame with
+<a href="video/video-frame.html#gst_video_frame_map">gst_video_frame_map</a>.</p>
+<p>Use the provided macros to access the info in this structure.</p>
+
+</div>
+
+
+
+	<div class="members-container">
+		<h3>Members</h3>
+					
+<div class="symbol-detail" data-hotdoc-id="GstVideoInfo.finfo">
+	<div>
+		<i><em><code>finfo</code></em></i>
+		(const <a title="GstVideoFormatInfo" href="video/video-format.html#GstVideoFormatInfo">GstVideoFormatInfo</a> *)
+		–
+	</div>
+			<p>the format info of the video</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVideoInfo.interlace_mode">
+	<div>
+		<i><em><code>interlace_mode</code></em></i>
+		(<a title="GstVideoInterlaceMode" href="video/video-info.html#GstVideoInterlaceMode">GstVideoInterlaceMode</a>)
+		–
+	</div>
+			<p>the interlace mode</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVideoInfo.flags">
+	<div>
+		<i><em><code>flags</code></em></i>
+		(<a title="GstVideoFlags" href="video/video-info.html#GstVideoFlags">GstVideoFlags</a>)
+		–
+	</div>
+			<p>additional video flags</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVideoInfo.width">
+	<div>
+		<i><em><code>width</code></em></i>
+		(<a title="gint" href="https://docs.gtk.org/glib/types.html#gint">gint</a>)
+		–
+	</div>
+			<p>the width of the video</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVideoInfo.height">
+	<div>
+		<i><em><code>height</code></em></i>
+		(<a title="gint" href="https://docs.gtk.org/glib/types.html#gint">gint</a>)
+		–
+	</div>
+			<p>the height of the video</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVideoInfo.size">
+	<div>
+		<i><em><code>size</code></em></i>
+		(<a title="gsize" href="https://docs.gtk.org/glib/types.html#gsize">gsize</a>)
+		–
+	</div>
+			<p>the default size of one frame</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVideoInfo.views">
+	<div>
+		<i><em><code>views</code></em></i>
+		(<a title="gint" href="https://docs.gtk.org/glib/types.html#gint">gint</a>)
+		–
+	</div>
+			<p>the number of views for multiview video</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVideoInfo.chroma_site">
+	<div>
+		<i><em><code>chroma_site</code></em></i>
+		(<a title="GstVideoChromaSite" href="video/gstvideochroma.html#GstVideoChromaSite">GstVideoChromaSite</a>)
+		–
+	</div>
+			<p>a <a href="video/gstvideochroma.html#GstVideoChromaSite">GstVideoChromaSite</a>.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVideoInfo.colorimetry">
+	<div>
+		<i><em><code>colorimetry</code></em></i>
+		(<a title="GstVideoColorimetry" href="video/video-color.html#GstVideoColorimetry">GstVideoColorimetry</a>)
+		–
+	</div>
+			<p>the colorimetry info</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVideoInfo.par_n">
+	<div>
+		<i><em><code>par_n</code></em></i>
+		(<a title="gint" href="https://docs.gtk.org/glib/types.html#gint">gint</a>)
+		–
+	</div>
+			<p>the pixel-aspect-ratio numerator</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVideoInfo.par_d">
+	<div>
+		<i><em><code>par_d</code></em></i>
+		(<a title="gint" href="https://docs.gtk.org/glib/types.html#gint">gint</a>)
+		–
+	</div>
+			<p>the pixel-aspect-ratio denominator</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVideoInfo.fps_n">
+	<div>
+		<i><em><code>fps_n</code></em></i>
+		(<a title="gint" href="https://docs.gtk.org/glib/types.html#gint">gint</a>)
+		–
+	</div>
+			<p>the framerate numerator</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVideoInfo.fps_d">
+	<div>
+		<i><em><code>fps_d</code></em></i>
+		(<a title="gint" href="https://docs.gtk.org/glib/types.html#gint">gint</a>)
+		–
+	</div>
+			<p>the framerate denominator</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVideoInfo.offset">
+	<div>
+		<i><em><code>offset</code></em></i>
+		(<a title="gsize" href="https://docs.gtk.org/glib/types.html#gsize">gsize</a> *)
+		–
+	</div>
+			<p>offsets of the planes</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVideoInfo.stride">
+	<div>
+		<i><em><code>stride</code></em></i>
+		(<a title="gint" href="https://docs.gtk.org/glib/types.html#gint">gint</a> *)
+		–
+	</div>
+			<p>strides of the planes</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVideoInfo.ABI.abi.multiview_mode">
+	<div>
+		<i><em><code>ABI.abi.multiview_mode</code></em></i>
+		(<a title="GstVideoMultiviewMode" href="video/video-info.html#GstVideoMultiviewMode">GstVideoMultiviewMode</a>)
+		–
+	</div>
+			<p>delivery mode for multiple views. (Since: 1.6)</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVideoInfo.ABI.abi.multiview_flags">
+	<div>
+		<i><em><code>ABI.abi.multiview_flags</code></em></i>
+		(<a title="GstVideoMultiviewFlags" href="video/video-info.html#GstVideoMultiviewFlags">GstVideoMultiviewFlags</a>)
+		–
+	</div>
+			<p>flags for multiple views configuration (Since: 1.6)</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVideoInfo.ABI.abi.field_order">
+	<div>
+		<i><em><code>ABI.abi.field_order</code></em></i>
+		(<a title="GstVideoFieldOrder" href="video/video-info.html#GstVideoFieldOrder">GstVideoFieldOrder</a>)
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+			</div>
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h2 data-hotdoc-id="GstVideoInfo">
+	<i>GstVideo.VideoInfo</i>
+</h2>
+
+
+
+<div class="class_details">
+	<p>Information describing image properties. This information can be filled
+in from GstCaps with <a href="video/video-info.html#gst_video_info_from_caps">GstVideo.prototype.video_info_from_caps</a>. The information is also used
+to store the specific video info when mapping a video frame with
+<a href="video/video-frame.html#gst_video_frame_map">GstVideo.prototype.video_frame_map</a>.</p>
+<p>Use the provided macros to access the info in this structure.</p>
+
+</div>
+
+
+
+	<div class="members-container">
+		<h3>Members</h3>
+					
+<div class="symbol-detail" data-hotdoc-id="GstVideoInfo.finfo">
+	<div>
+		<i><em><code>finfo</code></em></i>
+		(<a title="GstVideo.VideoFormatInfo" href="video/video-format.html#GstVideoFormatInfo">GstVideo.VideoFormatInfo</a>)
+		–
+	</div>
+			<p>the format info of the video</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVideoInfo.interlace_mode">
+	<div>
+		<i><em><code>interlace_mode</code></em></i>
+		(<a title="GstVideo.VideoInterlaceMode" href="video/video-info.html#GstVideoInterlaceMode">GstVideo.VideoInterlaceMode</a>)
+		–
+	</div>
+			<p>the interlace mode</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVideoInfo.flags">
+	<div>
+		<i><em><code>flags</code></em></i>
+		(<a title="GstVideo.VideoFlags" href="video/video-info.html#GstVideoFlags">GstVideo.VideoFlags</a>)
+		–
+	</div>
+			<p>additional video flags</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVideoInfo.width">
+	<div>
+		<i><em><code>width</code></em></i>
+		(<a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>)
+		–
+	</div>
+			<p>the width of the video</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVideoInfo.height">
+	<div>
+		<i><em><code>height</code></em></i>
+		(<a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>)
+		–
+	</div>
+			<p>the height of the video</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVideoInfo.size">
+	<div>
+		<i><em><code>size</code></em></i>
+		(<a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>)
+		–
+	</div>
+			<p>the default size of one frame</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVideoInfo.views">
+	<div>
+		<i><em><code>views</code></em></i>
+		(<a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>)
+		–
+	</div>
+			<p>the number of views for multiview video</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVideoInfo.chroma_site">
+	<div>
+		<i><em><code>chroma_site</code></em></i>
+		(<a title="GstVideo.VideoChromaSite" href="video/gstvideochroma.html#GstVideoChromaSite">GstVideo.VideoChromaSite</a>)
+		–
+	</div>
+			<p>a <a href="video/gstvideochroma.html#GstVideoChromaSite">GstVideo.VideoChromaSite</a>.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVideoInfo.colorimetry">
+	<div>
+		<i><em><code>colorimetry</code></em></i>
+		(<a title="GstVideo.VideoColorimetry" href="video/video-color.html#GstVideoColorimetry">GstVideo.VideoColorimetry</a>)
+		–
+	</div>
+			<p>the colorimetry info</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVideoInfo.par_n">
+	<div>
+		<i><em><code>par_n</code></em></i>
+		(<a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>)
+		–
+	</div>
+			<p>the pixel-aspect-ratio numerator</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVideoInfo.par_d">
+	<div>
+		<i><em><code>par_d</code></em></i>
+		(<a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>)
+		–
+	</div>
+			<p>the pixel-aspect-ratio denominator</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVideoInfo.fps_n">
+	<div>
+		<i><em><code>fps_n</code></em></i>
+		(<a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>)
+		–
+	</div>
+			<p>the framerate numerator</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVideoInfo.fps_d">
+	<div>
+		<i><em><code>fps_d</code></em></i>
+		(<a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>)
+		–
+	</div>
+			<p>the framerate denominator</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVideoInfo.offset">
+	<div>
+		<i><em><code>offset</code></em></i>
+		([ <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a> ])
+		–
+	</div>
+			<p>offsets of the planes</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVideoInfo.stride">
+	<div>
+		<i><em><code>stride</code></em></i>
+		([ <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a> ])
+		–
+	</div>
+			<p>strides of the planes</p>
+
+	</div>
+
+			</div>
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h2 data-hotdoc-id="GstVideoInfo">
+	<i>GstVideo.VideoInfo</i>
+</h2>
+
+
+
+<div class="class_details">
+	<p>Information describing image properties. This information can be filled
+in from GstCaps with <a href="video/video-info.html#gst_video_info_from_caps">GstVideo.video_info_from_caps</a>. The information is also used
+to store the specific video info when mapping a video frame with
+<a href="video/video-frame.html#gst_video_frame_map">GstVideo.video_frame_map</a>.</p>
+<p>Use the provided macros to access the info in this structure.</p>
+
+</div>
+
+
+
+	<div class="members-container">
+		<h3>Members</h3>
+					
+<div class="symbol-detail" data-hotdoc-id="GstVideoInfo.finfo">
+	<div>
+		<i><em><code>finfo</code></em></i>
+		(<a title="GstVideo.VideoFormatInfo" href="video/video-format.html#GstVideoFormatInfo">GstVideo.VideoFormatInfo</a>)
+		–
+	</div>
+			<p>the format info of the video</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVideoInfo.interlace_mode">
+	<div>
+		<i><em><code>interlace_mode</code></em></i>
+		(<a title="GstVideo.VideoInterlaceMode" href="video/video-info.html#GstVideoInterlaceMode">GstVideo.VideoInterlaceMode</a>)
+		–
+	</div>
+			<p>the interlace mode</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVideoInfo.flags">
+	<div>
+		<i><em><code>flags</code></em></i>
+		(<a title="GstVideo.VideoFlags" href="video/video-info.html#GstVideoFlags">GstVideo.VideoFlags</a>)
+		–
+	</div>
+			<p>additional video flags</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVideoInfo.width">
+	<div>
+		<i><em><code>width</code></em></i>
+		(<a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a>)
+		–
+	</div>
+			<p>the width of the video</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVideoInfo.height">
+	<div>
+		<i><em><code>height</code></em></i>
+		(<a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a>)
+		–
+	</div>
+			<p>the height of the video</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVideoInfo.size">
+	<div>
+		<i><em><code>size</code></em></i>
+		(<a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a>)
+		–
+	</div>
+			<p>the default size of one frame</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVideoInfo.views">
+	<div>
+		<i><em><code>views</code></em></i>
+		(<a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a>)
+		–
+	</div>
+			<p>the number of views for multiview video</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVideoInfo.chroma_site">
+	<div>
+		<i><em><code>chroma_site</code></em></i>
+		(<a title="GstVideo.VideoChromaSite" href="video/gstvideochroma.html#GstVideoChromaSite">GstVideo.VideoChromaSite</a>)
+		–
+	</div>
+			<p>a <a href="video/gstvideochroma.html#GstVideoChromaSite">GstVideo.VideoChromaSite</a>.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVideoInfo.colorimetry">
+	<div>
+		<i><em><code>colorimetry</code></em></i>
+		(<a title="GstVideo.VideoColorimetry" href="video/video-color.html#GstVideoColorimetry">GstVideo.VideoColorimetry</a>)
+		–
+	</div>
+			<p>the colorimetry info</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVideoInfo.par_n">
+	<div>
+		<i><em><code>par_n</code></em></i>
+		(<a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a>)
+		–
+	</div>
+			<p>the pixel-aspect-ratio numerator</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVideoInfo.par_d">
+	<div>
+		<i><em><code>par_d</code></em></i>
+		(<a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a>)
+		–
+	</div>
+			<p>the pixel-aspect-ratio denominator</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVideoInfo.fps_n">
+	<div>
+		<i><em><code>fps_n</code></em></i>
+		(<a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a>)
+		–
+	</div>
+			<p>the framerate numerator</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVideoInfo.fps_d">
+	<div>
+		<i><em><code>fps_d</code></em></i>
+		(<a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a>)
+		–
+	</div>
+			<p>the framerate denominator</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVideoInfo.offset">
+	<div>
+		<i><em><code>offset</code></em></i>
+		([ <a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a> ])
+		–
+	</div>
+			<p>offsets of the planes</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVideoInfo.stride">
+	<div>
+		<i><em><code>stride</code></em></i>
+		([ <a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a> ])
+		–
+	</div>
+			<p>strides of the planes</p>
+
+	</div>
+
+			</div>
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+
+            <h3 class="symbol_section">Constructors</h3>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.6;" id="gst_video_info_new">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_video_info_new">
+	<i>gst_video_info_new</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GstVideoInfo" href="video/video-info.html#GstVideoInfo">GstVideoInfo</a> *
+gst_video_info_new ()</pre>
+
+<p>Allocate a new <a href="video/video-info.html#GstVideoInfo">GstVideoInfo</a> that is also initialized with
+<a href="video/video-info.html#gst_video_info_init">gst_video_info_init</a>.</p>
+
+
+
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span>
+<span class="annotation">[<abbr title="Free data after the code is done"><span class="acronym">transfer: full</span></abbr>]</span><span>)</span>
+–
+			</div>
+							<p>a new <a href="video/video-info.html#GstVideoInfo">GstVideoInfo</a>. free with <a href="video/video-info.html#gst_video_info_free">gst_video_info_free</a>.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.6
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_video_info_new">
+	<i>GstVideo.VideoInfo.prototype.new</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstVideo.VideoInfo.prototype.new(): {
+    // javascript wrapper for 'gst_video_info_new'
+}</code></pre>
+
+<p>Allocate a new <a href="video/video-info.html#GstVideoInfo">GstVideo.VideoInfo</a> that is also initialized with
+<a href="video/video-info.html#gst_video_info_init">GstVideo.prototype.video_info_init</a>.</p>
+
+
+
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GstVideo.VideoInfo" href="video/video-info.html#GstVideoInfo">GstVideo.VideoInfo</a><span>)</span>
+–
+			</div>
+							<p>a new <a href="video/video-info.html#GstVideoInfo">GstVideo.VideoInfo</a>. free with <a href="video/video-info.html#gst_video_info_free">GstVideo.VideoInfo.prototype.free</a>.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.6
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_video_info_new">
+	<i>GstVideo.VideoInfo.new</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstVideo.VideoInfo.new ():
+    #python wrapper for 'gst_video_info_new'</code></pre>
+
+<p>Allocate a new <a href="video/video-info.html#GstVideoInfo">GstVideo.VideoInfo</a> that is also initialized with
+<a href="video/video-info.html#gst_video_info_init">GstVideo.video_info_init</a>.</p>
+
+
+
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GstVideo.VideoInfo" href="video/video-info.html#GstVideoInfo">GstVideo.VideoInfo</a><span>)</span>
+–
+			</div>
+							<p>a new <a href="video/video-info.html#GstVideoInfo">GstVideo.VideoInfo</a>. free with <a href="video/video-info.html#gst_video_info_free">GstVideo.VideoInfo.free</a>.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.6
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="gst_video_info_new_from_caps">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_video_info_new_from_caps">
+	<i>gst_video_info_new_from_caps</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GstVideoInfo" href="video/video-info.html#GstVideoInfo">GstVideoInfo</a> *
+gst_video_info_new_from_caps (const <a title="GstCaps" href="gstreamer/gstcaps.html#GstCaps">GstCaps</a> * caps)</pre>
+
+<p>Parse <em>caps</em> to generate a <a href="video/video-info.html#GstVideoInfo">GstVideoInfo</a>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>caps</code></em></i>
+–
+</div>
+<p>a <a href="gstreamer/gstcaps.html#GstCaps">GstCaps</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span>
+<span class="annotation">[<abbr title="Free data after the code is done"><span class="acronym">transfer: full</span></abbr>]</span><span class="annotation">[<abbr title="NULL may be passed to the value"><span class="acronym">nullable</span></abbr>]</span><span>)</span>
+–
+			</div>
+							<p>A <a href="video/video-info.html#GstVideoInfo">GstVideoInfo</a>, or <a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#NULL:CAPS">NULL</a> if <em>caps</em> couldn't be parsed</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_video_info_new_from_caps">
+	<i>GstVideo.VideoInfo.prototype.new_from_caps</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstVideo.VideoInfo.prototype.new_from_caps(caps: <a title="Gst.Caps" href="gstreamer/gstcaps.html#GstCaps">Gst.Caps</a>): {
+    // javascript wrapper for 'gst_video_info_new_from_caps'
+}</code></pre>
+
+<p>Parse <em>caps</em> to generate a <a href="video/video-info.html#GstVideoInfo">GstVideo.VideoInfo</a>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>caps</code></em></i>
+<span>(</span><a title="Gst.Caps" href="gstreamer/gstcaps.html#GstCaps">Gst.Caps</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gstcaps.html#GstCaps">Gst.Caps</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GstVideo.VideoInfo" href="video/video-info.html#GstVideoInfo">GstVideo.VideoInfo</a><span>)</span>
+–
+			</div>
+							<p>A <a href="video/video-info.html#GstVideoInfo">GstVideo.VideoInfo</a>, or <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null">null</a> if <em>caps</em> couldn't be parsed</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_video_info_new_from_caps">
+	<i>GstVideo.VideoInfo.new_from_caps</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstVideo.VideoInfo.new_from_caps (caps):
+    #python wrapper for 'gst_video_info_new_from_caps'</code></pre>
+
+<p>Parse <em>caps</em> to generate a <a href="video/video-info.html#GstVideoInfo">GstVideo.VideoInfo</a>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>caps</code></em></i>
+<span>(</span><a title="Gst.Caps" href="gstreamer/gstcaps.html#GstCaps">Gst.Caps</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gstcaps.html#GstCaps">Gst.Caps</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GstVideo.VideoInfo" href="video/video-info.html#GstVideoInfo">GstVideo.VideoInfo</a><span>)</span>
+–
+			</div>
+							<p>A <a href="video/video-info.html#GstVideoInfo">GstVideo.VideoInfo</a>, or <a href="https://docs.python.org/3/library/constants.html#None">None</a> if <em>caps</em> couldn't be parsed</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+
+            <h3 class="symbol_section">Methods</h3>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_video_info_align">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_video_info_align">
+	<i>gst_video_info_align</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a>
+gst_video_info_align (<a title="GstVideoInfo" href="video/video-info.html#GstVideoInfo">GstVideoInfo</a> * info,
+                      <a title="GstVideoAlignment" href="video/gstvideo.html#GstVideoAlignment">GstVideoAlignment</a> * align)</pre>
+
+<p>Adjust the offset and stride fields in <em>info</em> so that the padding and
+stride alignment in <em>align</em> is respected.</p>
+<p>Extra padding will be added to the right side when stride alignment padding
+is required and <em>align</em> will be updated with the new padding values.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>info</code></em></i>
+–
+</div>
+<p>a <a href="video/video-info.html#GstVideoInfo">GstVideoInfo</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>align</code></em></i>
+–
+</div>
+<p>alignment parameters</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p><a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#FALSE:CAPS">FALSE</a> if alignment could not be applied, e.g. because the
+size of a frame can't be represented as a 32 bit integer (Since: 1.12)</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_video_info_align">
+	<i>GstVideo.VideoInfo.prototype.align</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstVideo.VideoInfo.prototype.align(align: <a title="GstVideo.VideoAlignment" href="video/gstvideo.html#GstVideoAlignment">GstVideo.VideoAlignment</a>): {
+    // javascript wrapper for 'gst_video_info_align'
+}</code></pre>
+
+<p>Adjust the offset and stride fields in <em>info</em> so that the padding and
+stride alignment in <em>align</em> is respected.</p>
+<p>Extra padding will be added to the right side when stride alignment padding
+is required and <em>align</em> will be updated with the new padding values.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>info</code></em></i>
+<span>(</span><a title="GstVideo.VideoInfo" href="video/video-info.html#GstVideoInfo">GstVideo.VideoInfo</a><span>)</span>
+–
+</div>
+<p>a <a href="video/video-info.html#GstVideoInfo">GstVideo.VideoInfo</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>align</code></em></i>
+<span>(</span><a title="GstVideo.VideoAlignment" href="video/gstvideo.html#GstVideoAlignment">GstVideo.VideoAlignment</a><span>)</span>
+–
+</div>
+<p>alignment parameters</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+			</div>
+							<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">false</a> if alignment could not be applied, e.g. because the
+size of a frame can't be represented as a 32 bit integer (Since: 1.12)</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_video_info_align">
+	<i>GstVideo.VideoInfo.align</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstVideo.VideoInfo.align (self, align):
+    #python wrapper for 'gst_video_info_align'</code></pre>
+
+<p>Adjust the offset and stride fields in <em>info</em> so that the padding and
+stride alignment in <em>align</em> is respected.</p>
+<p>Extra padding will be added to the right side when stride alignment padding
+is required and <em>align</em> will be updated with the new padding values.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>info</code></em></i>
+<span>(</span><a title="GstVideo.VideoInfo" href="video/video-info.html#GstVideoInfo">GstVideo.VideoInfo</a><span>)</span>
+–
+</div>
+<p>a <a href="video/video-info.html#GstVideoInfo">GstVideo.VideoInfo</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>align</code></em></i>
+<span>(</span><a title="GstVideo.VideoAlignment" href="video/gstvideo.html#GstVideoAlignment">GstVideo.VideoAlignment</a><span>)</span>
+–
+</div>
+<p>alignment parameters</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a><span>)</span>
+–
+			</div>
+							<p><a href="https://docs.python.org/3/library/constants.html#False">False</a> if alignment could not be applied, e.g. because the
+size of a frame can't be represented as a 32 bit integer (Since: 1.12)</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.18;" id="gst_video_info_align_full">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_video_info_align_full">
+	<i>gst_video_info_align_full</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a>
+gst_video_info_align_full (<a title="GstVideoInfo" href="video/video-info.html#GstVideoInfo">GstVideoInfo</a> * info,
+                           <a title="GstVideoAlignment" href="video/gstvideo.html#GstVideoAlignment">GstVideoAlignment</a> * align,
+                           <a title="gsize" href="https://docs.gtk.org/glib/types.html#gsize">gsize</a> * plane_size)</pre>
+
+<p>Extra padding will be added to the right side when stride alignment padding
+is required and <em>align</em> will be updated with the new padding values.</p>
+<p>This variant of <a href="video/video-info.html#gst_video_info_align">gst_video_info_align</a> provides the updated size, in bytes,
+of each video plane after the alignment, including all horizontal and vertical
+paddings.</p>
+<p>In case of GST_VIDEO_INTERLACE_MODE_ALTERNATE info, the returned sizes are the
+ones used to hold a single field, not the full frame.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>info</code></em></i>
+–
+</div>
+<p>a <a href="video/video-info.html#GstVideoInfo">GstVideoInfo</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>align</code></em></i>
+–
+</div>
+<p>alignment parameters</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>plane_size</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="Parameter for returning results"><span class="acronym">out</span></abbr>]</span><span class="annotation">[<abbr title="NULL may be passed instead of a pointer to a location"><span class="acronym">optional</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>array used to store the plane sizes</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p><a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#FALSE:CAPS">FALSE</a> if alignment could not be applied, e.g. because the
+size of a frame can't be represented as a 32 bit integer</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_video_info_align_full">
+	<i>GstVideo.VideoInfo.prototype.align_full</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstVideo.VideoInfo.prototype.align_full(align: <a title="GstVideo.VideoAlignment" href="video/gstvideo.html#GstVideoAlignment">GstVideo.VideoAlignment</a>): {
+    // javascript wrapper for 'gst_video_info_align_full'
+}</code></pre>
+
+<p>Extra padding will be added to the right side when stride alignment padding
+is required and <em>align</em> will be updated with the new padding values.</p>
+<p>This variant of <a href="video/video-info.html#gst_video_info_align">GstVideo.VideoInfo.prototype.align</a> provides the updated size, in bytes,
+of each video plane after the alignment, including all horizontal and vertical
+paddings.</p>
+<p>In case of GST_VIDEO_INTERLACE_MODE_ALTERNATE info, the returned sizes are the
+ones used to hold a single field, not the full frame.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>info</code></em></i>
+<span>(</span><a title="GstVideo.VideoInfo" href="video/video-info.html#GstVideoInfo">GstVideo.VideoInfo</a><span>)</span>
+–
+</div>
+<p>a <a href="video/video-info.html#GstVideoInfo">GstVideo.VideoInfo</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>align</code></em></i>
+<span>(</span><a title="GstVideo.VideoAlignment" href="video/gstvideo.html#GstVideoAlignment">GstVideo.VideoAlignment</a><span>)</span>
+–
+</div>
+<p>alignment parameters</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<p><b>Returns a tuple made of:</b></p>
+				
+<div class="symbol-detail">
+	<div>
+		<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>
+<span>)</span>
+–
+	</div>
+			<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">false</a> if alignment could not be applied, e.g. because the
+size of a frame can't be represented as a 32 bit integer</p>
+
+	</div>
+
+				
+<div class="symbol-detail">
+	<div>
+				<i><em><code>plane_size</code></em></i>
+		<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>
+<span>)</span>
+–
+	</div>
+			<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">false</a> if alignment could not be applied, e.g. because the
+size of a frame can't be represented as a 32 bit integer</p>
+
+	</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_video_info_align_full">
+	<i>GstVideo.VideoInfo.align_full</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstVideo.VideoInfo.align_full (self, align):
+    #python wrapper for 'gst_video_info_align_full'</code></pre>
+
+<p>Extra padding will be added to the right side when stride alignment padding
+is required and <em>align</em> will be updated with the new padding values.</p>
+<p>This variant of <a href="video/video-info.html#gst_video_info_align">GstVideo.VideoInfo.align</a> provides the updated size, in bytes,
+of each video plane after the alignment, including all horizontal and vertical
+paddings.</p>
+<p>In case of GST_VIDEO_INTERLACE_MODE_ALTERNATE info, the returned sizes are the
+ones used to hold a single field, not the full frame.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>info</code></em></i>
+<span>(</span><a title="GstVideo.VideoInfo" href="video/video-info.html#GstVideoInfo">GstVideo.VideoInfo</a><span>)</span>
+–
+</div>
+<p>a <a href="video/video-info.html#GstVideoInfo">GstVideo.VideoInfo</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>align</code></em></i>
+<span>(</span><a title="GstVideo.VideoAlignment" href="video/gstvideo.html#GstVideoAlignment">GstVideo.VideoAlignment</a><span>)</span>
+–
+</div>
+<p>alignment parameters</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<p><b>Returns a tuple made of:</b></p>
+				
+<div class="symbol-detail">
+	<div>
+		<span>(</span><a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a>
+<span>)</span>
+–
+	</div>
+			<p><a href="https://docs.python.org/3/library/constants.html#False">False</a> if alignment could not be applied, e.g. because the
+size of a frame can't be represented as a 32 bit integer</p>
+
+	</div>
+
+				
+<div class="symbol-detail">
+	<div>
+				<i><em><code>plane_size</code></em></i>
+		<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a>
+<span>)</span>
+–
+	</div>
+			<p><a href="https://docs.python.org/3/library/constants.html#False">False</a> if alignment could not be applied, e.g. because the
+size of a frame can't be represented as a 32 bit integer</p>
+
+	</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_video_info_convert">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_video_info_convert">
+	<i>gst_video_info_convert</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a>
+gst_video_info_convert (const <a title="GstVideoInfo" href="video/video-info.html#GstVideoInfo">GstVideoInfo</a> * info,
+                        <a title="GstFormat" href="gstreamer/gstformat.html#GstFormat">GstFormat</a> src_format,
+                        <a title="gint64" href="https://docs.gtk.org/glib/types.html#gint64">gint64</a> src_value,
+                        <a title="GstFormat" href="gstreamer/gstformat.html#GstFormat">GstFormat</a> dest_format,
+                        <a title="gint64" href="https://docs.gtk.org/glib/types.html#gint64">gint64</a> * dest_value)</pre>
+
+<p>Converts among various <a href="gstreamer/gstformat.html#GstFormat">GstFormat</a> types.  This function handles
+GST_FORMAT_BYTES, GST_FORMAT_TIME, and GST_FORMAT_DEFAULT.  For
+raw video, GST_FORMAT_DEFAULT corresponds to video frames.  This
+function can be used to handle pad queries of the type GST_QUERY_CONVERT.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>info</code></em></i>
+–
+</div>
+<p>a <a href="video/video-info.html#GstVideoInfo">GstVideoInfo</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>src_format</code></em></i>
+–
+</div>
+<p><a href="gstreamer/gstformat.html#GstFormat">GstFormat</a> of the <em>src_value</em></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>src_value</code></em></i>
+–
+</div>
+<p>value to convert</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>dest_format</code></em></i>
+–
+</div>
+<p><a href="gstreamer/gstformat.html#GstFormat">GstFormat</a> of the <em>dest_value</em></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>dest_value</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="Parameter for returning results"><span class="acronym">out</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>pointer to destination value</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p>TRUE if the conversion was successful.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_video_info_convert">
+	<i>GstVideo.VideoInfo.prototype.convert</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstVideo.VideoInfo.prototype.convert(src_format: <a title="Gst.Format" href="gstreamer/gstformat.html#GstFormat">Gst.Format</a>, src_value: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>, dest_format: <a title="Gst.Format" href="gstreamer/gstformat.html#GstFormat">Gst.Format</a>): {
+    // javascript wrapper for 'gst_video_info_convert'
+}</code></pre>
+
+<p>Converts among various <a href="gstreamer/gstformat.html#GstFormat">Gst.Format</a> types.  This function handles
+GST_FORMAT_BYTES, GST_FORMAT_TIME, and GST_FORMAT_DEFAULT.  For
+raw video, GST_FORMAT_DEFAULT corresponds to video frames.  This
+function can be used to handle pad queries of the type GST_QUERY_CONVERT.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>info</code></em></i>
+<span>(</span><a title="GstVideo.VideoInfo" href="video/video-info.html#GstVideoInfo">GstVideo.VideoInfo</a><span>)</span>
+–
+</div>
+<p>a <a href="video/video-info.html#GstVideoInfo">GstVideo.VideoInfo</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>src_format</code></em></i>
+<span>(</span><a title="Gst.Format" href="gstreamer/gstformat.html#GstFormat">Gst.Format</a><span>)</span>
+–
+</div>
+<p><a href="gstreamer/gstformat.html#GstFormat">Gst.Format</a> of the <em>src_value</em></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>src_value</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>value to convert</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>dest_format</code></em></i>
+<span>(</span><a title="Gst.Format" href="gstreamer/gstformat.html#GstFormat">Gst.Format</a><span>)</span>
+–
+</div>
+<p><a href="gstreamer/gstformat.html#GstFormat">Gst.Format</a> of the <em>dest_value</em></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<p><b>Returns a tuple made of:</b></p>
+				
+<div class="symbol-detail">
+	<div>
+		<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>
+<span>)</span>
+–
+	</div>
+			<p>TRUE if the conversion was successful.</p>
+
+	</div>
+
+				
+<div class="symbol-detail">
+	<div>
+				<i><em><code>dest_value</code></em></i>
+		<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>
+<span>)</span>
+–
+	</div>
+			<p>TRUE if the conversion was successful.</p>
+
+	</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_video_info_convert">
+	<i>GstVideo.VideoInfo.convert</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstVideo.VideoInfo.convert (self, src_format, src_value, dest_format):
+    #python wrapper for 'gst_video_info_convert'</code></pre>
+
+<p>Converts among various <a href="gstreamer/gstformat.html#GstFormat">Gst.Format</a> types.  This function handles
+GST_FORMAT_BYTES, GST_FORMAT_TIME, and GST_FORMAT_DEFAULT.  For
+raw video, GST_FORMAT_DEFAULT corresponds to video frames.  This
+function can be used to handle pad queries of the type GST_QUERY_CONVERT.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>info</code></em></i>
+<span>(</span><a title="GstVideo.VideoInfo" href="video/video-info.html#GstVideoInfo">GstVideo.VideoInfo</a><span>)</span>
+–
+</div>
+<p>a <a href="video/video-info.html#GstVideoInfo">GstVideo.VideoInfo</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>src_format</code></em></i>
+<span>(</span><a title="Gst.Format" href="gstreamer/gstformat.html#GstFormat">Gst.Format</a><span>)</span>
+–
+</div>
+<p><a href="gstreamer/gstformat.html#GstFormat">Gst.Format</a> of the <em>src_value</em></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>src_value</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<p>value to convert</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>dest_format</code></em></i>
+<span>(</span><a title="Gst.Format" href="gstreamer/gstformat.html#GstFormat">Gst.Format</a><span>)</span>
+–
+</div>
+<p><a href="gstreamer/gstformat.html#GstFormat">Gst.Format</a> of the <em>dest_value</em></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<p><b>Returns a tuple made of:</b></p>
+				
+<div class="symbol-detail">
+	<div>
+		<span>(</span><a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a>
+<span>)</span>
+–
+	</div>
+			<p>TRUE if the conversion was successful.</p>
+
+	</div>
+
+				
+<div class="symbol-detail">
+	<div>
+				<i><em><code>dest_value</code></em></i>
+		<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a>
+<span>)</span>
+–
+	</div>
+			<p>TRUE if the conversion was successful.</p>
+
+	</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.6;" id="gst_video_info_copy">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_video_info_copy">
+	<i>gst_video_info_copy</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GstVideoInfo" href="video/video-info.html#GstVideoInfo">GstVideoInfo</a> *
+gst_video_info_copy (const <a title="GstVideoInfo" href="video/video-info.html#GstVideoInfo">GstVideoInfo</a> * info)</pre>
+
+<p>Copy a GstVideoInfo structure.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>info</code></em></i>
+–
+</div>
+<p>a <a href="video/video-info.html#GstVideoInfo">GstVideoInfo</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span>
+<span class="annotation">[<abbr title="Free data after the code is done"><span class="acronym">transfer: full</span></abbr>]</span><span>)</span>
+–
+			</div>
+							<p>a new <a href="video/video-info.html#GstVideoInfo">GstVideoInfo</a>. free with gst_video_info_free.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.6
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_video_info_copy">
+	<i>GstVideo.VideoInfo.prototype.copy</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstVideo.VideoInfo.prototype.copy(): {
+    // javascript wrapper for 'gst_video_info_copy'
+}</code></pre>
+
+<p>Copy a GstVideoInfo structure.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>info</code></em></i>
+<span>(</span><a title="GstVideo.VideoInfo" href="video/video-info.html#GstVideoInfo">GstVideo.VideoInfo</a><span>)</span>
+–
+</div>
+<p>a <a href="video/video-info.html#GstVideoInfo">GstVideo.VideoInfo</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GstVideo.VideoInfo" href="video/video-info.html#GstVideoInfo">GstVideo.VideoInfo</a><span>)</span>
+–
+			</div>
+							<p>a new <a href="video/video-info.html#GstVideoInfo">GstVideo.VideoInfo</a>. free with gst_video_info_free.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.6
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_video_info_copy">
+	<i>GstVideo.VideoInfo.copy</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstVideo.VideoInfo.copy (self):
+    #python wrapper for 'gst_video_info_copy'</code></pre>
+
+<p>Copy a GstVideoInfo structure.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>info</code></em></i>
+<span>(</span><a title="GstVideo.VideoInfo" href="video/video-info.html#GstVideoInfo">GstVideo.VideoInfo</a><span>)</span>
+–
+</div>
+<p>a <a href="video/video-info.html#GstVideoInfo">GstVideo.VideoInfo</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GstVideo.VideoInfo" href="video/video-info.html#GstVideoInfo">GstVideo.VideoInfo</a><span>)</span>
+–
+			</div>
+							<p>a new <a href="video/video-info.html#GstVideoInfo">GstVideo.VideoInfo</a>. free with gst_video_info_free.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.6
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.6;" id="gst_video_info_free">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_video_info_free">
+	<i>gst_video_info_free</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+gst_video_info_free (<a title="GstVideoInfo" href="video/video-info.html#GstVideoInfo">GstVideoInfo</a> * info)</pre>
+
+<p>Free a GstVideoInfo structure previously allocated with <a href="video/video-info.html#gst_video_info_new">gst_video_info_new</a>
+or <a href="video/video-info.html#gst_video_info_copy">gst_video_info_copy</a>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>info</code></em></i>
+–
+</div>
+<p>a <a href="video/video-info.html#GstVideoInfo">GstVideoInfo</a></p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.6
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_video_info_free">
+	<i>GstVideo.VideoInfo.prototype.free</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstVideo.VideoInfo.prototype.free(): {
+    // javascript wrapper for 'gst_video_info_free'
+}</code></pre>
+
+<p>Free a GstVideoInfo structure previously allocated with <a href="video/video-info.html#gst_video_info_new">GstVideo.VideoInfo.prototype.new</a>
+or <a href="video/video-info.html#gst_video_info_copy">GstVideo.VideoInfo.prototype.copy</a>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>info</code></em></i>
+<span>(</span><a title="GstVideo.VideoInfo" href="video/video-info.html#GstVideoInfo">GstVideo.VideoInfo</a><span>)</span>
+–
+</div>
+<p>a <a href="video/video-info.html#GstVideoInfo">GstVideo.VideoInfo</a></p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.6
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_video_info_free">
+	<i>GstVideo.VideoInfo.free</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstVideo.VideoInfo.free (self):
+    #python wrapper for 'gst_video_info_free'</code></pre>
+
+<p>Free a GstVideoInfo structure previously allocated with <a href="video/video-info.html#gst_video_info_new">GstVideo.VideoInfo.new</a>
+or <a href="video/video-info.html#gst_video_info_copy">GstVideo.VideoInfo.copy</a>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>info</code></em></i>
+<span>(</span><a title="GstVideo.VideoInfo" href="video/video-info.html#GstVideoInfo">GstVideo.VideoInfo</a><span>)</span>
+–
+</div>
+<p>a <a href="video/video-info.html#GstVideoInfo">GstVideo.VideoInfo</a></p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.6
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_video_info_is_equal">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_video_info_is_equal">
+	<i>gst_video_info_is_equal</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a>
+gst_video_info_is_equal (const <a title="GstVideoInfo" href="video/video-info.html#GstVideoInfo">GstVideoInfo</a> * info,
+                         const <a title="GstVideoInfo" href="video/video-info.html#GstVideoInfo">GstVideoInfo</a> * other)</pre>
+
+<p>Compares two <a href="video/video-info.html#GstVideoInfo">GstVideoInfo</a> and returns whether they are equal or not</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>info</code></em></i>
+–
+</div>
+<p>a <a href="video/video-info.html#GstVideoInfo">GstVideoInfo</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>other</code></em></i>
+–
+</div>
+<p>a <a href="video/video-info.html#GstVideoInfo">GstVideoInfo</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p><a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#TRUE:CAPS">TRUE</a> if <em>info</em> and <em>other</em> are equal, else <a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#FALSE:CAPS">FALSE</a>.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_video_info_is_equal">
+	<i>GstVideo.VideoInfo.prototype.is_equal</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstVideo.VideoInfo.prototype.is_equal(other: <a title="GstVideo.VideoInfo" href="video/video-info.html#GstVideoInfo">GstVideo.VideoInfo</a>): {
+    // javascript wrapper for 'gst_video_info_is_equal'
+}</code></pre>
+
+<p>Compares two <a href="video/video-info.html#GstVideoInfo">GstVideo.VideoInfo</a> and returns whether they are equal or not</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>info</code></em></i>
+<span>(</span><a title="GstVideo.VideoInfo" href="video/video-info.html#GstVideoInfo">GstVideo.VideoInfo</a><span>)</span>
+–
+</div>
+<p>a <a href="video/video-info.html#GstVideoInfo">GstVideo.VideoInfo</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>other</code></em></i>
+<span>(</span><a title="GstVideo.VideoInfo" href="video/video-info.html#GstVideoInfo">GstVideo.VideoInfo</a><span>)</span>
+–
+</div>
+<p>a <a href="video/video-info.html#GstVideoInfo">GstVideo.VideoInfo</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+			</div>
+							<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">true</a> if <em>info</em> and <em>other</em> are equal, else <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">false</a>.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_video_info_is_equal">
+	<i>GstVideo.VideoInfo.is_equal</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstVideo.VideoInfo.is_equal (self, other):
+    #python wrapper for 'gst_video_info_is_equal'</code></pre>
+
+<p>Compares two <a href="video/video-info.html#GstVideoInfo">GstVideo.VideoInfo</a> and returns whether they are equal or not</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>info</code></em></i>
+<span>(</span><a title="GstVideo.VideoInfo" href="video/video-info.html#GstVideoInfo">GstVideo.VideoInfo</a><span>)</span>
+–
+</div>
+<p>a <a href="video/video-info.html#GstVideoInfo">GstVideo.VideoInfo</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>other</code></em></i>
+<span>(</span><a title="GstVideo.VideoInfo" href="video/video-info.html#GstVideoInfo">GstVideo.VideoInfo</a><span>)</span>
+–
+</div>
+<p>a <a href="video/video-info.html#GstVideoInfo">GstVideo.VideoInfo</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a><span>)</span>
+–
+			</div>
+							<p><a href="https://docs.python.org/3/library/constants.html#True">True</a> if <em>info</em> and <em>other</em> are equal, else <a href="https://docs.python.org/3/library/constants.html#False">False</a>.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_video_info_set_format">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_video_info_set_format">
+	<i>gst_video_info_set_format</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a>
+gst_video_info_set_format (<a title="GstVideoInfo" href="video/video-info.html#GstVideoInfo">GstVideoInfo</a> * info,
+                           <a title="GstVideoFormat" href="video/video-format.html#GstVideoFormat">GstVideoFormat</a> format,
+                           <a title="guint" href="https://docs.gtk.org/glib/types.html#guint">guint</a> width,
+                           <a title="guint" href="https://docs.gtk.org/glib/types.html#guint">guint</a> height)</pre>
+
+<p>Set the default info for a video frame of <em>format</em> and <em>width</em> and <em>height</em>.</p>
+<p>Note: This initializes <em>info</em> first, no values are preserved. This function
+does not set the offsets correctly for interlaced vertically
+subsampled formats.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>info</code></em></i>
+–
+</div>
+<p>a <a href="video/video-info.html#GstVideoInfo">GstVideoInfo</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>format</code></em></i>
+–
+</div>
+<p>the format</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>width</code></em></i>
+–
+</div>
+<p>a width</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>height</code></em></i>
+–
+</div>
+<p>a height</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p><a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#FALSE:CAPS">FALSE</a> if the returned video info is invalid, e.g. because the
+size of a frame can't be represented as a 32 bit integer (Since: 1.12)</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_video_info_set_format">
+	<i>GstVideo.VideoInfo.prototype.set_format</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstVideo.VideoInfo.prototype.set_format(format: <a title="GstVideo.VideoFormat" href="video/video-format.html#GstVideoFormat">GstVideo.VideoFormat</a>, width: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>, height: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>): {
+    // javascript wrapper for 'gst_video_info_set_format'
+}</code></pre>
+
+<p>Set the default info for a video frame of <em>format</em> and <em>width</em> and <em>height</em>.</p>
+<p>Note: This initializes <em>info</em> first, no values are preserved. This function
+does not set the offsets correctly for interlaced vertically
+subsampled formats.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>info</code></em></i>
+<span>(</span><a title="GstVideo.VideoInfo" href="video/video-info.html#GstVideoInfo">GstVideo.VideoInfo</a><span>)</span>
+–
+</div>
+<p>a <a href="video/video-info.html#GstVideoInfo">GstVideo.VideoInfo</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>format</code></em></i>
+<span>(</span><a title="GstVideo.VideoFormat" href="video/video-format.html#GstVideoFormat">GstVideo.VideoFormat</a><span>)</span>
+–
+</div>
+<p>the format</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>width</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>a width</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>height</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>a height</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+			</div>
+							<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">false</a> if the returned video info is invalid, e.g. because the
+size of a frame can't be represented as a 32 bit integer (Since: 1.12)</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_video_info_set_format">
+	<i>GstVideo.VideoInfo.set_format</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstVideo.VideoInfo.set_format (self, format, width, height):
+    #python wrapper for 'gst_video_info_set_format'</code></pre>
+
+<p>Set the default info for a video frame of <em>format</em> and <em>width</em> and <em>height</em>.</p>
+<p>Note: This initializes <em>info</em> first, no values are preserved. This function
+does not set the offsets correctly for interlaced vertically
+subsampled formats.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>info</code></em></i>
+<span>(</span><a title="GstVideo.VideoInfo" href="video/video-info.html#GstVideoInfo">GstVideo.VideoInfo</a><span>)</span>
+–
+</div>
+<p>a <a href="video/video-info.html#GstVideoInfo">GstVideo.VideoInfo</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>format</code></em></i>
+<span>(</span><a title="GstVideo.VideoFormat" href="video/video-format.html#GstVideoFormat">GstVideo.VideoFormat</a><span>)</span>
+–
+</div>
+<p>the format</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>width</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<p>a width</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>height</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<p>a height</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a><span>)</span>
+–
+			</div>
+							<p><a href="https://docs.python.org/3/library/constants.html#False">False</a> if the returned video info is invalid, e.g. because the
+size of a frame can't be represented as a 32 bit integer (Since: 1.12)</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.16;" id="gst_video_info_set_interlaced_format">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_video_info_set_interlaced_format">
+	<i>gst_video_info_set_interlaced_format</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a>
+gst_video_info_set_interlaced_format (<a title="GstVideoInfo" href="video/video-info.html#GstVideoInfo">GstVideoInfo</a> * info,
+                                      <a title="GstVideoFormat" href="video/video-format.html#GstVideoFormat">GstVideoFormat</a> format,
+                                      <a title="GstVideoInterlaceMode" href="video/video-info.html#GstVideoInterlaceMode">GstVideoInterlaceMode</a> mode,
+                                      <a title="guint" href="https://docs.gtk.org/glib/types.html#guint">guint</a> width,
+                                      <a title="guint" href="https://docs.gtk.org/glib/types.html#guint">guint</a> height)</pre>
+
+<p>Same as <a href="video/video-info.html#gst_video_info_set_format">gst_video_info_set_format</a> but also allowing to set the interlaced
+mode.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>info</code></em></i>
+–
+</div>
+<p>a <a href="video/video-info.html#GstVideoInfo">GstVideoInfo</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>format</code></em></i>
+–
+</div>
+<p>the format</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>mode</code></em></i>
+–
+</div>
+<p>a <a href="video/video-info.html#GstVideoInterlaceMode">GstVideoInterlaceMode</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>width</code></em></i>
+–
+</div>
+<p>a width</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>height</code></em></i>
+–
+</div>
+<p>a height</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p><a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#FALSE:CAPS">FALSE</a> if the returned video info is invalid, e.g. because the
+size of a frame can't be represented as a 32 bit integer.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.16
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_video_info_set_interlaced_format">
+	<i>GstVideo.VideoInfo.prototype.set_interlaced_format</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstVideo.VideoInfo.prototype.set_interlaced_format(format: <a title="GstVideo.VideoFormat" href="video/video-format.html#GstVideoFormat">GstVideo.VideoFormat</a>, mode: <a title="GstVideo.VideoInterlaceMode" href="video/video-info.html#GstVideoInterlaceMode">GstVideo.VideoInterlaceMode</a>, width: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>, height: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>): {
+    // javascript wrapper for 'gst_video_info_set_interlaced_format'
+}</code></pre>
+
+<p>Same as <a href="video/video-info.html#gst_video_info_set_format">GstVideo.VideoInfo.prototype.set_format</a> but also allowing to set the interlaced
+mode.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>info</code></em></i>
+<span>(</span><a title="GstVideo.VideoInfo" href="video/video-info.html#GstVideoInfo">GstVideo.VideoInfo</a><span>)</span>
+–
+</div>
+<p>a <a href="video/video-info.html#GstVideoInfo">GstVideo.VideoInfo</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>format</code></em></i>
+<span>(</span><a title="GstVideo.VideoFormat" href="video/video-format.html#GstVideoFormat">GstVideo.VideoFormat</a><span>)</span>
+–
+</div>
+<p>the format</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>mode</code></em></i>
+<span>(</span><a title="GstVideo.VideoInterlaceMode" href="video/video-info.html#GstVideoInterlaceMode">GstVideo.VideoInterlaceMode</a><span>)</span>
+–
+</div>
+<p>a <a href="video/video-info.html#GstVideoInterlaceMode">GstVideo.VideoInterlaceMode</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>width</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>a width</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>height</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>a height</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+			</div>
+							<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">false</a> if the returned video info is invalid, e.g. because the
+size of a frame can't be represented as a 32 bit integer.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.16
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_video_info_set_interlaced_format">
+	<i>GstVideo.VideoInfo.set_interlaced_format</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstVideo.VideoInfo.set_interlaced_format (self, format, mode, width, height):
+    #python wrapper for 'gst_video_info_set_interlaced_format'</code></pre>
+
+<p>Same as <a href="video/video-info.html#gst_video_info_set_format">GstVideo.VideoInfo.set_format</a> but also allowing to set the interlaced
+mode.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>info</code></em></i>
+<span>(</span><a title="GstVideo.VideoInfo" href="video/video-info.html#GstVideoInfo">GstVideo.VideoInfo</a><span>)</span>
+–
+</div>
+<p>a <a href="video/video-info.html#GstVideoInfo">GstVideo.VideoInfo</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>format</code></em></i>
+<span>(</span><a title="GstVideo.VideoFormat" href="video/video-format.html#GstVideoFormat">GstVideo.VideoFormat</a><span>)</span>
+–
+</div>
+<p>the format</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>mode</code></em></i>
+<span>(</span><a title="GstVideo.VideoInterlaceMode" href="video/video-info.html#GstVideoInterlaceMode">GstVideo.VideoInterlaceMode</a><span>)</span>
+–
+</div>
+<p>a <a href="video/video-info.html#GstVideoInterlaceMode">GstVideo.VideoInterlaceMode</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>width</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<p>a width</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>height</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<p>a height</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a><span>)</span>
+–
+			</div>
+							<p><a href="https://docs.python.org/3/library/constants.html#False">False</a> if the returned video info is invalid, e.g. because the
+size of a frame can't be represented as a 32 bit integer.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.16
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_video_info_to_caps">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_video_info_to_caps">
+	<i>gst_video_info_to_caps</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GstCaps" href="gstreamer/gstcaps.html#GstCaps">GstCaps</a> *
+gst_video_info_to_caps (const <a title="GstVideoInfo" href="video/video-info.html#GstVideoInfo">GstVideoInfo</a> * info)</pre>
+
+<p>Convert the values of <em>info</em> into a <a href="gstreamer/gstcaps.html#GstCaps">GstCaps</a>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>info</code></em></i>
+–
+</div>
+<p>a <a href="video/video-info.html#GstVideoInfo">GstVideoInfo</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span>
+<span class="annotation">[<abbr title="Free data after the code is done"><span class="acronym">transfer: full</span></abbr>]</span><span>)</span>
+–
+			</div>
+							<p>a new <a href="gstreamer/gstcaps.html#GstCaps">GstCaps</a> containing the info of <em>info</em>.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_video_info_to_caps">
+	<i>GstVideo.VideoInfo.prototype.to_caps</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstVideo.VideoInfo.prototype.to_caps(): {
+    // javascript wrapper for 'gst_video_info_to_caps'
+}</code></pre>
+
+<p>Convert the values of <em>info</em> into a <a href="gstreamer/gstcaps.html#GstCaps">Gst.Caps</a>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>info</code></em></i>
+<span>(</span><a title="GstVideo.VideoInfo" href="video/video-info.html#GstVideoInfo">GstVideo.VideoInfo</a><span>)</span>
+–
+</div>
+<p>a <a href="video/video-info.html#GstVideoInfo">GstVideo.VideoInfo</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Gst.Caps" href="gstreamer/gstcaps.html#GstCaps">Gst.Caps</a><span>)</span>
+–
+			</div>
+							<p>a new <a href="gstreamer/gstcaps.html#GstCaps">Gst.Caps</a> containing the info of <em>info</em>.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_video_info_to_caps">
+	<i>GstVideo.VideoInfo.to_caps</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstVideo.VideoInfo.to_caps (self):
+    #python wrapper for 'gst_video_info_to_caps'</code></pre>
+
+<p>Convert the values of <em>info</em> into a <a href="gstreamer/gstcaps.html#GstCaps">Gst.Caps</a>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>info</code></em></i>
+<span>(</span><a title="GstVideo.VideoInfo" href="video/video-info.html#GstVideoInfo">GstVideo.VideoInfo</a><span>)</span>
+–
+</div>
+<p>a <a href="video/video-info.html#GstVideoInfo">GstVideo.VideoInfo</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Gst.Caps" href="gstreamer/gstcaps.html#GstCaps">Gst.Caps</a><span>)</span>
+–
+			</div>
+							<p>a new <a href="gstreamer/gstcaps.html#GstCaps">Gst.Caps</a> containing the info of <em>info</em>.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+
+            <h3 class="symbol_section">Functions</h3>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_video_info_from_caps">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_video_info_from_caps">
+	<i>gst_video_info_from_caps</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a>
+gst_video_info_from_caps (<a title="GstVideoInfo" href="video/video-info.html#GstVideoInfo">GstVideoInfo</a> * info,
+                          const <a title="GstCaps" href="gstreamer/gstcaps.html#GstCaps">GstCaps</a> * caps)</pre>
+
+<p>Parse <em>caps</em> and update <em>info</em>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>info</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="Parameter for returning results"><span class="acronym">out</span></abbr>]</span><span>)</span>
+–
+</div>
+<p><a href="video/video-info.html#GstVideoInfo">GstVideoInfo</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>caps</code></em></i>
+–
+</div>
+<p>a <a href="gstreamer/gstcaps.html#GstCaps">GstCaps</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p>TRUE if <em>caps</em> could be parsed</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_video_info_from_caps">
+	<i>GstVideo.prototype.video_info_from_caps</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstVideo.prototype.video_info_from_caps(caps: <a title="Gst.Caps" href="gstreamer/gstcaps.html#GstCaps">Gst.Caps</a>): {
+    // javascript wrapper for 'gst_video_info_from_caps'
+}</code></pre>
+
+<p>Parse <em>caps</em> and update <em>info</em>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>caps</code></em></i>
+<span>(</span><a title="Gst.Caps" href="gstreamer/gstcaps.html#GstCaps">Gst.Caps</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gstcaps.html#GstCaps">Gst.Caps</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<p><b>Returns a tuple made of:</b></p>
+				
+<div class="symbol-detail">
+	<div>
+		<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>
+<span>)</span>
+–
+	</div>
+			<p>TRUE if <em>caps</em> could be parsed</p>
+
+	</div>
+
+				
+<div class="symbol-detail">
+	<div>
+				<i><em><code>info</code></em></i>
+		<span>(</span><a title="GstVideo.VideoInfo" href="video/video-info.html#GstVideoInfo">GstVideo.VideoInfo</a>
+<span>)</span>
+–
+	</div>
+			<p>TRUE if <em>caps</em> could be parsed</p>
+
+	</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_video_info_from_caps">
+	<i>GstVideo.video_info_from_caps</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstVideo.video_info_from_caps (caps):
+    #python wrapper for 'gst_video_info_from_caps'</code></pre>
+
+<p>Parse <em>caps</em> and update <em>info</em>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>caps</code></em></i>
+<span>(</span><a title="Gst.Caps" href="gstreamer/gstcaps.html#GstCaps">Gst.Caps</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gstcaps.html#GstCaps">Gst.Caps</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<p><b>Returns a tuple made of:</b></p>
+				
+<div class="symbol-detail">
+	<div>
+		<span>(</span><a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a>
+<span>)</span>
+–
+	</div>
+			<p>TRUE if <em>caps</em> could be parsed</p>
+
+	</div>
+
+				
+<div class="symbol-detail">
+	<div>
+				<i><em><code>info</code></em></i>
+		<span>(</span><a title="GstVideo.VideoInfo" href="video/video-info.html#GstVideoInfo">GstVideo.VideoInfo</a>
+<span>)</span>
+–
+	</div>
+			<p>TRUE if <em>caps</em> could be parsed</p>
+
+	</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_video_info_init">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_video_info_init">
+	<i>gst_video_info_init</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+gst_video_info_init (<a title="GstVideoInfo" href="video/video-info.html#GstVideoInfo">GstVideoInfo</a> * info)</pre>
+
+<p>Initialize <em>info</em> with default values.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>info</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="Parameter for returning results"><span class="acronym">out</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>a <a href="video/video-info.html#GstVideoInfo">GstVideoInfo</a></p>
+
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_video_info_init">
+	<i>GstVideo.prototype.video_info_init</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstVideo.prototype.video_info_init(): {
+    // javascript wrapper for 'gst_video_info_init'
+}</code></pre>
+
+<p>Initialize <em>info</em> with default values.</p>
+
+
+
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_video_info_init">
+	<i>GstVideo.video_info_init</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstVideo.video_info_init ():
+    #python wrapper for 'gst_video_info_init'</code></pre>
+
+<p>Initialize <em>info</em> with default values.</p>
+
+
+
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+
+        
+
+            <h2 class="symbol_section">Functions</h2>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.12;" id="gst_video_field_order_from_string">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="gst_video_field_order_from_string">
+	<i>gst_video_field_order_from_string</i>
+</h3>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GstVideoFieldOrder" href="video/video-info.html#GstVideoFieldOrder">GstVideoFieldOrder</a>
+gst_video_field_order_from_string (const <a title="gchar" href="https://docs.gtk.org/glib/types.html#gchar">gchar</a> * order)</pre>
+
+<p>Convert <em>order</em> to a <a href="video/video-info.html#GstVideoFieldOrder">GstVideoFieldOrder</a></p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>order</code></em></i>
+–
+</div>
+<p>a field order</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p>the <a href="video/video-info.html#GstVideoFieldOrder">GstVideoFieldOrder</a> of <em>order</em> or
+<a href="video/video-info.html#GST_VIDEO_FIELD_ORDER_UNKNOWN">GST_VIDEO_FIELD_ORDER_UNKNOWN</a> when <em>order</em> is not a valid
+string representation for a <a href="video/video-info.html#GstVideoFieldOrder">GstVideoFieldOrder</a>.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.12
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3 data-hotdoc-id="gst_video_field_order_from_string">
+	<i>GstVideo.prototype.video_field_order_from_string</i>
+</h3>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstVideo.prototype.video_field_order_from_string(order: <a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>): {
+    // javascript wrapper for 'gst_video_field_order_from_string'
+}</code></pre>
+
+<p>Convert <em>order</em> to a <a href="video/video-info.html#GstVideoFieldOrder">GstVideo.VideoFieldOrder</a></p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>order</code></em></i>
+<span>(</span><a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a><span>)</span>
+–
+</div>
+<p>a field order</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GstVideo.VideoFieldOrder" href="video/video-info.html#GstVideoFieldOrder">GstVideo.VideoFieldOrder</a><span>)</span>
+–
+			</div>
+							<p>the <a href="video/video-info.html#GstVideoFieldOrder">GstVideo.VideoFieldOrder</a> of <em>order</em> or
+<a href="video/video-info.html#GST_VIDEO_FIELD_ORDER_UNKNOWN">GstVideo.VideoFieldOrder.UNKNOWN</a> when <em>order</em> is not a valid
+string representation for a <a href="video/video-info.html#GstVideoFieldOrder">GstVideo.VideoFieldOrder</a>.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.12
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3 data-hotdoc-id="gst_video_field_order_from_string">
+	<i>GstVideo.video_field_order_from_string</i>
+</h3>
+
+
+<pre class="python-prototype language-python">
+<code>def GstVideo.video_field_order_from_string (order):
+    #python wrapper for 'gst_video_field_order_from_string'</code></pre>
+
+<p>Convert <em>order</em> to a <a href="video/video-info.html#GstVideoFieldOrder">GstVideo.VideoFieldOrder</a></p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>order</code></em></i>
+<span>(</span><a title="str" href="https://docs.python.org/3/library/functions.html#func-str">str</a><span>)</span>
+–
+</div>
+<p>a field order</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GstVideo.VideoFieldOrder" href="video/video-info.html#GstVideoFieldOrder">GstVideo.VideoFieldOrder</a><span>)</span>
+–
+			</div>
+							<p>the <a href="video/video-info.html#GstVideoFieldOrder">GstVideo.VideoFieldOrder</a> of <em>order</em> or
+<a href="video/video-info.html#GST_VIDEO_FIELD_ORDER_UNKNOWN">GstVideo.VideoFieldOrder.UNKNOWN</a> when <em>order</em> is not a valid
+string representation for a <a href="video/video-info.html#GstVideoFieldOrder">GstVideo.VideoFieldOrder</a>.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.12
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.12;" id="gst_video_field_order_to_string">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="gst_video_field_order_to_string">
+	<i>gst_video_field_order_to_string</i>
+</h3>
+
+
+
+
+<pre class="c-prototype language-c">
+const <a title="gchar" href="https://docs.gtk.org/glib/types.html#gchar">gchar</a> *
+gst_video_field_order_to_string (<a title="GstVideoFieldOrder" href="video/video-info.html#GstVideoFieldOrder">GstVideoFieldOrder</a> order)</pre>
+
+<p>Convert <em>order</em> to its string representation.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>order</code></em></i>
+–
+</div>
+<p>a <a href="video/video-info.html#GstVideoFieldOrder">GstVideoFieldOrder</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p><em>order</em> as a string.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.12
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3 data-hotdoc-id="gst_video_field_order_to_string">
+	<i>GstVideo.prototype.video_field_order_to_string</i>
+</h3>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstVideo.prototype.video_field_order_to_string(order: <a title="GstVideo.VideoFieldOrder" href="video/video-info.html#GstVideoFieldOrder">GstVideo.VideoFieldOrder</a>): {
+    // javascript wrapper for 'gst_video_field_order_to_string'
+}</code></pre>
+
+<p>Convert <em>order</em> to its string representation.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>order</code></em></i>
+<span>(</span><a title="GstVideo.VideoFieldOrder" href="video/video-info.html#GstVideoFieldOrder">GstVideo.VideoFieldOrder</a><span>)</span>
+–
+</div>
+<p>a <a href="video/video-info.html#GstVideoFieldOrder">GstVideo.VideoFieldOrder</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a><span>)</span>
+–
+			</div>
+							<p><em>order</em> as a string.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.12
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3 data-hotdoc-id="gst_video_field_order_to_string">
+	<i>GstVideo.video_field_order_to_string</i>
+</h3>
+
+
+<pre class="python-prototype language-python">
+<code>def GstVideo.video_field_order_to_string (order):
+    #python wrapper for 'gst_video_field_order_to_string'</code></pre>
+
+<p>Convert <em>order</em> to its string representation.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>order</code></em></i>
+<span>(</span><a title="GstVideo.VideoFieldOrder" href="video/video-info.html#GstVideoFieldOrder">GstVideo.VideoFieldOrder</a><span>)</span>
+–
+</div>
+<p>a <a href="video/video-info.html#GstVideoFieldOrder">GstVideo.VideoFieldOrder</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="str" href="https://docs.python.org/3/library/functions.html#func-str">str</a><span>)</span>
+–
+			</div>
+							<p><em>order</em> as a string.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.12
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.6;" id="gst_video_interlace_mode_from_string">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="gst_video_interlace_mode_from_string">
+	<i>gst_video_interlace_mode_from_string</i>
+</h3>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GstVideoInterlaceMode" href="video/video-info.html#GstVideoInterlaceMode">GstVideoInterlaceMode</a>
+gst_video_interlace_mode_from_string (const <a title="gchar" href="https://docs.gtk.org/glib/types.html#gchar">gchar</a> * mode)</pre>
+
+<p>Convert <em>mode</em> to a <a href="video/video-info.html#GstVideoInterlaceMode">GstVideoInterlaceMode</a></p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>mode</code></em></i>
+–
+</div>
+<p>a mode</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p>the <a href="video/video-info.html#GstVideoInterlaceMode">GstVideoInterlaceMode</a> of <em>mode</em> or
+<a href="video/video-info.html#GST_VIDEO_INTERLACE_MODE_PROGRESSIVE">GST_VIDEO_INTERLACE_MODE_PROGRESSIVE</a> when <em>mode</em> is not a valid
+string representation for a <a href="video/video-info.html#GstVideoInterlaceMode">GstVideoInterlaceMode</a>.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.6
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3 data-hotdoc-id="gst_video_interlace_mode_from_string">
+	<i>GstVideo.prototype.video_interlace_mode_from_string</i>
+</h3>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstVideo.prototype.video_interlace_mode_from_string(mode: <a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>): {
+    // javascript wrapper for 'gst_video_interlace_mode_from_string'
+}</code></pre>
+
+<p>Convert <em>mode</em> to a <a href="video/video-info.html#GstVideoInterlaceMode">GstVideo.VideoInterlaceMode</a></p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>mode</code></em></i>
+<span>(</span><a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a><span>)</span>
+–
+</div>
+<p>a mode</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GstVideo.VideoInterlaceMode" href="video/video-info.html#GstVideoInterlaceMode">GstVideo.VideoInterlaceMode</a><span>)</span>
+–
+			</div>
+							<p>the <a href="video/video-info.html#GstVideoInterlaceMode">GstVideo.VideoInterlaceMode</a> of <em>mode</em> or
+<a href="video/video-info.html#GST_VIDEO_INTERLACE_MODE_PROGRESSIVE">GstVideo.VideoInterlaceMode.PROGRESSIVE</a> when <em>mode</em> is not a valid
+string representation for a <a href="video/video-info.html#GstVideoInterlaceMode">GstVideo.VideoInterlaceMode</a>.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.6
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3 data-hotdoc-id="gst_video_interlace_mode_from_string">
+	<i>GstVideo.video_interlace_mode_from_string</i>
+</h3>
+
+
+<pre class="python-prototype language-python">
+<code>def GstVideo.video_interlace_mode_from_string (mode):
+    #python wrapper for 'gst_video_interlace_mode_from_string'</code></pre>
+
+<p>Convert <em>mode</em> to a <a href="video/video-info.html#GstVideoInterlaceMode">GstVideo.VideoInterlaceMode</a></p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>mode</code></em></i>
+<span>(</span><a title="str" href="https://docs.python.org/3/library/functions.html#func-str">str</a><span>)</span>
+–
+</div>
+<p>a mode</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GstVideo.VideoInterlaceMode" href="video/video-info.html#GstVideoInterlaceMode">GstVideo.VideoInterlaceMode</a><span>)</span>
+–
+			</div>
+							<p>the <a href="video/video-info.html#GstVideoInterlaceMode">GstVideo.VideoInterlaceMode</a> of <em>mode</em> or
+<a href="video/video-info.html#GST_VIDEO_INTERLACE_MODE_PROGRESSIVE">GstVideo.VideoInterlaceMode.PROGRESSIVE</a> when <em>mode</em> is not a valid
+string representation for a <a href="video/video-info.html#GstVideoInterlaceMode">GstVideo.VideoInterlaceMode</a>.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.6
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.6;" id="gst_video_interlace_mode_to_string">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="gst_video_interlace_mode_to_string">
+	<i>gst_video_interlace_mode_to_string</i>
+</h3>
+
+
+
+
+<pre class="c-prototype language-c">
+const <a title="gchar" href="https://docs.gtk.org/glib/types.html#gchar">gchar</a> *
+gst_video_interlace_mode_to_string (<a title="GstVideoInterlaceMode" href="video/video-info.html#GstVideoInterlaceMode">GstVideoInterlaceMode</a> mode)</pre>
+
+<p>Convert <em>mode</em> to its string representation.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>mode</code></em></i>
+–
+</div>
+<p>a <a href="video/video-info.html#GstVideoInterlaceMode">GstVideoInterlaceMode</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p><em>mode</em> as a string.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.6
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3 data-hotdoc-id="gst_video_interlace_mode_to_string">
+	<i>GstVideo.prototype.video_interlace_mode_to_string</i>
+</h3>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstVideo.prototype.video_interlace_mode_to_string(mode: <a title="GstVideo.VideoInterlaceMode" href="video/video-info.html#GstVideoInterlaceMode">GstVideo.VideoInterlaceMode</a>): {
+    // javascript wrapper for 'gst_video_interlace_mode_to_string'
+}</code></pre>
+
+<p>Convert <em>mode</em> to its string representation.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>mode</code></em></i>
+<span>(</span><a title="GstVideo.VideoInterlaceMode" href="video/video-info.html#GstVideoInterlaceMode">GstVideo.VideoInterlaceMode</a><span>)</span>
+–
+</div>
+<p>a <a href="video/video-info.html#GstVideoInterlaceMode">GstVideo.VideoInterlaceMode</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a><span>)</span>
+–
+			</div>
+							<p><em>mode</em> as a string.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.6
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3 data-hotdoc-id="gst_video_interlace_mode_to_string">
+	<i>GstVideo.video_interlace_mode_to_string</i>
+</h3>
+
+
+<pre class="python-prototype language-python">
+<code>def GstVideo.video_interlace_mode_to_string (mode):
+    #python wrapper for 'gst_video_interlace_mode_to_string'</code></pre>
+
+<p>Convert <em>mode</em> to its string representation.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>mode</code></em></i>
+<span>(</span><a title="GstVideo.VideoInterlaceMode" href="video/video-info.html#GstVideoInterlaceMode">GstVideo.VideoInterlaceMode</a><span>)</span>
+–
+</div>
+<p>a <a href="video/video-info.html#GstVideoInterlaceMode">GstVideo.VideoInterlaceMode</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="str" href="https://docs.python.org/3/library/functions.html#func-str">str</a><span>)</span>
+–
+			</div>
+							<p><em>mode</em> as a string.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.6
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+
+            <h2 class="symbol_section">Function Macros</h2>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GST_VIDEO_INFO_CHROMA_SITE">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_VIDEO_INFO_CHROMA_SITE">
+	<i>GST_VIDEO_INFO_CHROMA_SITE</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_VIDEO_INFO_CHROMA_SITE(i) ((i)-&gt;chroma_site)
+</pre>
+
+
+
+
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GST_VIDEO_INFO_COLORIMETRY">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_VIDEO_INFO_COLORIMETRY">
+	<i>GST_VIDEO_INFO_COLORIMETRY</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_VIDEO_INFO_COLORIMETRY(i) ((i)-&gt;colorimetry)
+</pre>
+
+
+
+
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GST_VIDEO_INFO_COMP_DATA">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_VIDEO_INFO_COMP_DATA">
+	<i>GST_VIDEO_INFO_COMP_DATA</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_VIDEO_INFO_COMP_DATA(i,d,c)  GST_VIDEO_FORMAT_INFO_DATA((i)-&gt;finfo,d,(c))
+</pre>
+
+
+
+
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GST_VIDEO_INFO_COMP_DEPTH">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_VIDEO_INFO_COMP_DEPTH">
+	<i>GST_VIDEO_INFO_COMP_DEPTH</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_VIDEO_INFO_COMP_DEPTH(i,c)   GST_VIDEO_FORMAT_INFO_DEPTH((i)-&gt;finfo,(c))
+</pre>
+
+
+
+
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GST_VIDEO_INFO_COMP_HEIGHT">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_VIDEO_INFO_COMP_HEIGHT">
+	<i>GST_VIDEO_INFO_COMP_HEIGHT</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_VIDEO_INFO_COMP_HEIGHT(i,c)  GST_VIDEO_FORMAT_INFO_SCALE_HEIGHT((i)-&gt;finfo,(c),GST_VIDEO_INFO_FIELD_HEIGHT(i))
+</pre>
+
+
+
+
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GST_VIDEO_INFO_COMP_OFFSET">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_VIDEO_INFO_COMP_OFFSET">
+	<i>GST_VIDEO_INFO_COMP_OFFSET</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_VIDEO_INFO_COMP_OFFSET(i,c)  GST_VIDEO_FORMAT_INFO_OFFSET((i)-&gt;finfo,(i)-&gt;offset,(c))
+</pre>
+
+
+
+
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GST_VIDEO_INFO_COMP_PLANE">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_VIDEO_INFO_COMP_PLANE">
+	<i>GST_VIDEO_INFO_COMP_PLANE</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_VIDEO_INFO_COMP_PLANE(i,c)   GST_VIDEO_FORMAT_INFO_PLANE((i)-&gt;finfo,(c))
+</pre>
+
+
+
+
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GST_VIDEO_INFO_COMP_POFFSET">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_VIDEO_INFO_COMP_POFFSET">
+	<i>GST_VIDEO_INFO_COMP_POFFSET</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_VIDEO_INFO_COMP_POFFSET(i,c) GST_VIDEO_FORMAT_INFO_POFFSET((i)-&gt;finfo,(c))
+</pre>
+
+
+
+
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GST_VIDEO_INFO_COMP_PSTRIDE">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_VIDEO_INFO_COMP_PSTRIDE">
+	<i>GST_VIDEO_INFO_COMP_PSTRIDE</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_VIDEO_INFO_COMP_PSTRIDE(i,c) GST_VIDEO_FORMAT_INFO_PSTRIDE((i)-&gt;finfo,(c))
+</pre>
+
+
+
+
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GST_VIDEO_INFO_COMP_STRIDE">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_VIDEO_INFO_COMP_STRIDE">
+	<i>GST_VIDEO_INFO_COMP_STRIDE</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_VIDEO_INFO_COMP_STRIDE(i,c)  GST_VIDEO_FORMAT_INFO_STRIDE((i)-&gt;finfo,(i)-&gt;stride,(c))
+</pre>
+
+
+
+
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GST_VIDEO_INFO_COMP_WIDTH">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_VIDEO_INFO_COMP_WIDTH">
+	<i>GST_VIDEO_INFO_COMP_WIDTH</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_VIDEO_INFO_COMP_WIDTH(i,c)   GST_VIDEO_FORMAT_INFO_SCALE_WIDTH((i)-&gt;finfo,(c),(i)-&gt;width)
+</pre>
+
+
+
+
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.16.;" id="GST_VIDEO_INFO_FIELD_HEIGHT">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_VIDEO_INFO_FIELD_HEIGHT">
+	<i>GST_VIDEO_INFO_FIELD_HEIGHT</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_VIDEO_INFO_FIELD_HEIGHT(i)   ((i)-&gt;interlace_mode == GST_VIDEO_INTERLACE_MODE_ALTERNATE? GST_ROUND_UP_2 ((i)-&gt;height) / 2 : (i)-&gt;height)
+</pre>
+
+<p>The height of a field. It's the height of the full frame unless split-field
+(alternate) interlacing is in use.</p>
+
+
+
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.16.
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GST_VIDEO_INFO_FIELD_ORDER">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_VIDEO_INFO_FIELD_ORDER">
+	<i>GST_VIDEO_INFO_FIELD_ORDER</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_VIDEO_INFO_FIELD_ORDER(i)    ((i)-&gt;ABI.abi.field_order)
+</pre>
+
+
+
+
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GST_VIDEO_INFO_FIELD_RATE_N">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_VIDEO_INFO_FIELD_RATE_N">
+	<i>GST_VIDEO_INFO_FIELD_RATE_N</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_VIDEO_INFO_FIELD_RATE_N(i)   ((GST_VIDEO_INFO_INTERLACE_MODE ((i)) == \
+                                           GST_VIDEO_INTERLACE_MODE_ALTERNATE) ? \
+                                           (i)-&gt;fps_n * 2 : (i)-&gt;fps_n)
+</pre>
+
+
+
+
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GST_VIDEO_INFO_FLAGS">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_VIDEO_INFO_FLAGS">
+	<i>GST_VIDEO_INFO_FLAGS</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_VIDEO_INFO_FLAGS(i)          ((i)-&gt;flags)
+</pre>
+
+
+
+
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GST_VIDEO_INFO_FLAG_IS_SET">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_VIDEO_INFO_FLAG_IS_SET">
+	<i>GST_VIDEO_INFO_FLAG_IS_SET</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_VIDEO_INFO_FLAG_IS_SET(i,flag) ((GST_VIDEO_INFO_FLAGS(i) &amp; (flag)) == (flag))
+</pre>
+
+
+
+
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GST_VIDEO_INFO_FLAG_SET">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_VIDEO_INFO_FLAG_SET">
+	<i>GST_VIDEO_INFO_FLAG_SET</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_VIDEO_INFO_FLAG_SET(i,flag)    (GST_VIDEO_INFO_FLAGS(i) |= (flag))
+</pre>
+
+
+
+
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GST_VIDEO_INFO_FLAG_UNSET">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_VIDEO_INFO_FLAG_UNSET">
+	<i>GST_VIDEO_INFO_FLAG_UNSET</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_VIDEO_INFO_FLAG_UNSET(i,flag)  (GST_VIDEO_INFO_FLAGS(i) &amp;= ~(flag))
+</pre>
+
+
+
+
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GST_VIDEO_INFO_FORMAT">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_VIDEO_INFO_FORMAT">
+	<i>GST_VIDEO_INFO_FORMAT</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_VIDEO_INFO_FORMAT(i)         (GST_VIDEO_FORMAT_INFO_FORMAT((i)-&gt;finfo))
+</pre>
+
+
+
+
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GST_VIDEO_INFO_FPS_D">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_VIDEO_INFO_FPS_D">
+	<i>GST_VIDEO_INFO_FPS_D</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_VIDEO_INFO_FPS_D(i)          ((i)-&gt;fps_d)
+</pre>
+
+
+
+
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GST_VIDEO_INFO_FPS_N">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_VIDEO_INFO_FPS_N">
+	<i>GST_VIDEO_INFO_FPS_N</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_VIDEO_INFO_FPS_N(i)          ((i)-&gt;fps_n)
+</pre>
+
+
+
+
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GST_VIDEO_INFO_HAS_ALPHA">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_VIDEO_INFO_HAS_ALPHA">
+	<i>GST_VIDEO_INFO_HAS_ALPHA</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_VIDEO_INFO_HAS_ALPHA(i)      (GST_VIDEO_FORMAT_INFO_HAS_ALPHA((i)-&gt;finfo))
+</pre>
+
+
+
+
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GST_VIDEO_INFO_HEIGHT">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_VIDEO_INFO_HEIGHT">
+	<i>GST_VIDEO_INFO_HEIGHT</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_VIDEO_INFO_HEIGHT(i)         ((i)-&gt;height)
+</pre>
+
+
+
+
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GST_VIDEO_INFO_INTERLACE_MODE">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_VIDEO_INFO_INTERLACE_MODE">
+	<i>GST_VIDEO_INFO_INTERLACE_MODE</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_VIDEO_INFO_INTERLACE_MODE(i) ((i)-&gt;interlace_mode)
+</pre>
+
+
+
+
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GST_VIDEO_INFO_IS_GRAY">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_VIDEO_INFO_IS_GRAY">
+	<i>GST_VIDEO_INFO_IS_GRAY</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_VIDEO_INFO_IS_GRAY(i)        (GST_VIDEO_FORMAT_INFO_IS_GRAY((i)-&gt;finfo))
+</pre>
+
+
+
+
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GST_VIDEO_INFO_IS_INTERLACED">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_VIDEO_INFO_IS_INTERLACED">
+	<i>GST_VIDEO_INFO_IS_INTERLACED</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_VIDEO_INFO_IS_INTERLACED(i)  ((i)-&gt;interlace_mode != GST_VIDEO_INTERLACE_MODE_PROGRESSIVE)
+</pre>
+
+
+
+
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GST_VIDEO_INFO_IS_RGB">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_VIDEO_INFO_IS_RGB">
+	<i>GST_VIDEO_INFO_IS_RGB</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_VIDEO_INFO_IS_RGB(i)         (GST_VIDEO_FORMAT_INFO_IS_RGB((i)-&gt;finfo))
+</pre>
+
+
+
+
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GST_VIDEO_INFO_IS_YUV">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_VIDEO_INFO_IS_YUV">
+	<i>GST_VIDEO_INFO_IS_YUV</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_VIDEO_INFO_IS_YUV(i)         (GST_VIDEO_FORMAT_INFO_IS_YUV((i)-&gt;finfo))
+</pre>
+
+
+
+
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GST_VIDEO_INFO_MULTIVIEW_FLAGS">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_VIDEO_INFO_MULTIVIEW_FLAGS">
+	<i>GST_VIDEO_INFO_MULTIVIEW_FLAGS</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_VIDEO_INFO_MULTIVIEW_FLAGS(i)          ((i)-&gt;ABI.abi.multiview_flags)
+</pre>
+
+
+
+
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GST_VIDEO_INFO_MULTIVIEW_MODE">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_VIDEO_INFO_MULTIVIEW_MODE">
+	<i>GST_VIDEO_INFO_MULTIVIEW_MODE</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_VIDEO_INFO_MULTIVIEW_MODE(i)          ((i)-&gt;ABI.abi.multiview_mode)
+</pre>
+
+
+
+
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GST_VIDEO_INFO_NAME">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_VIDEO_INFO_NAME">
+	<i>GST_VIDEO_INFO_NAME</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_VIDEO_INFO_NAME(i)           (GST_VIDEO_FORMAT_INFO_NAME((i)-&gt;finfo))
+</pre>
+
+
+
+
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GST_VIDEO_INFO_N_COMPONENTS">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_VIDEO_INFO_N_COMPONENTS">
+	<i>GST_VIDEO_INFO_N_COMPONENTS</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_VIDEO_INFO_N_COMPONENTS(i)   GST_VIDEO_FORMAT_INFO_N_COMPONENTS((i)-&gt;finfo)
+</pre>
+
+
+
+
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GST_VIDEO_INFO_N_PLANES">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_VIDEO_INFO_N_PLANES">
+	<i>GST_VIDEO_INFO_N_PLANES</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_VIDEO_INFO_N_PLANES(i)       (GST_VIDEO_FORMAT_INFO_N_PLANES((i)-&gt;finfo))
+</pre>
+
+
+
+
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GST_VIDEO_INFO_PAR_D">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_VIDEO_INFO_PAR_D">
+	<i>GST_VIDEO_INFO_PAR_D</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_VIDEO_INFO_PAR_D(i)          ((i)-&gt;par_d)
+</pre>
+
+
+
+
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GST_VIDEO_INFO_PAR_N">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_VIDEO_INFO_PAR_N">
+	<i>GST_VIDEO_INFO_PAR_N</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_VIDEO_INFO_PAR_N(i)          ((i)-&gt;par_n)
+</pre>
+
+
+
+
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.18;" id="GST_VIDEO_INFO_PLANE_HEIGHT">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_VIDEO_INFO_PLANE_HEIGHT">
+	<i>GST_VIDEO_INFO_PLANE_HEIGHT</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_VIDEO_INFO_PLANE_HEIGHT(i,p,sizes) ((i)-&gt;stride[p] == 0 ? 0 : sizes[p] / (i)-&gt;stride[p])
+</pre>
+
+<p>The padded height in pixels of a plane (padded size divided by the plane stride).
+In case of GST_VIDEO_INTERLACE_MODE_ALTERNATE info, this macro returns the
+plane heights used to hold a single field, not the full frame.</p>
+<p>The size passed as third argument is the size of the pixel data and should
+not contain any extra metadata padding.</p>
+<p>It is not valid to use this macro with a TILED format.</p>
+
+
+
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GST_VIDEO_INFO_PLANE_OFFSET">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_VIDEO_INFO_PLANE_OFFSET">
+	<i>GST_VIDEO_INFO_PLANE_OFFSET</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_VIDEO_INFO_PLANE_OFFSET(i,p) ((i)-&gt;offset[p])
+</pre>
+
+
+
+
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GST_VIDEO_INFO_PLANE_STRIDE">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_VIDEO_INFO_PLANE_STRIDE">
+	<i>GST_VIDEO_INFO_PLANE_STRIDE</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_VIDEO_INFO_PLANE_STRIDE(i,p) ((i)-&gt;stride[p])
+</pre>
+
+
+
+
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GST_VIDEO_INFO_SIZE">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_VIDEO_INFO_SIZE">
+	<i>GST_VIDEO_INFO_SIZE</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_VIDEO_INFO_SIZE(i)           ((i)-&gt;size)
+</pre>
+
+
+
+
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GST_VIDEO_INFO_VIEWS">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_VIDEO_INFO_VIEWS">
+	<i>GST_VIDEO_INFO_VIEWS</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_VIDEO_INFO_VIEWS(i)          ((i)-&gt;views)
+</pre>
+
+
+
+
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GST_VIDEO_INFO_WIDTH">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_VIDEO_INFO_WIDTH">
+	<i>GST_VIDEO_INFO_WIDTH</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_VIDEO_INFO_WIDTH(i)          ((i)-&gt;width)
+</pre>
+
+
+
+
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+
+            <h2 class="symbol_section">Enumerations</h2>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.12;" id="GstVideoFieldOrder">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GstVideoFieldOrder">
+	<i>GstVideoFieldOrder</i>
+</h3>
+
+
+<p>Field order of interlaced content. This is only valid for
+interlace-mode=interleaved and not interlace-mode=mixed. In the case of
+mixed or GST_VIDEO_FIELD_ORDER_UNKOWN, the field order is signalled via
+buffer flags.</p>
+
+
+
+
+	<div class="members-container">
+		<h5>Members</h5>
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VIDEO_FIELD_ORDER_UNKNOWN">
+	<div>
+		<i><em><code>GST_VIDEO_FIELD_ORDER_UNKNOWN</code></em></i>
+		(<span class="value">0</span>)
+		–
+	</div>
+			<p>unknown field order for interlaced content.
+The actual field order is signalled via buffer flags.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VIDEO_FIELD_ORDER_TOP_FIELD_FIRST">
+	<div>
+		<i><em><code>GST_VIDEO_FIELD_ORDER_TOP_FIELD_FIRST</code></em></i>
+		(<span class="value">1</span>)
+		–
+	</div>
+			<p>top field is first</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VIDEO_FIELD_ORDER_BOTTOM_FIELD_FIRST">
+	<div>
+		<i><em><code>GST_VIDEO_FIELD_ORDER_BOTTOM_FIELD_FIRST</code></em></i>
+		(<span class="value">2</span>)
+		–
+	</div>
+			<p>bottom field is first</p>
+
+	</div>
+
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.12
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3 data-hotdoc-id="GstVideoFieldOrder">
+	<i>GstVideo.VideoFieldOrder</i>
+</h3>
+
+
+<p>Field order of interlaced content. This is only valid for
+interlace-mode=interleaved and not interlace-mode=mixed. In the case of
+mixed or GST_VIDEO_FIELD_ORDER_UNKOWN, the field order is signalled via
+buffer flags.</p>
+
+
+
+
+	<div class="members-container">
+		<h5>Members</h5>
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VIDEO_FIELD_ORDER_UNKNOWN">
+	<div>
+		<i><em><code>GstVideo.VideoFieldOrder.UNKNOWN</code></em></i>
+		(<span class="value">0</span>)
+		–
+	</div>
+			<p>unknown field order for interlaced content.
+The actual field order is signalled via buffer flags.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VIDEO_FIELD_ORDER_TOP_FIELD_FIRST">
+	<div>
+		<i><em><code>GstVideo.VideoFieldOrder.TOP_FIELD_FIRST</code></em></i>
+		(<span class="value">1</span>)
+		–
+	</div>
+			<p>top field is first</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VIDEO_FIELD_ORDER_BOTTOM_FIELD_FIRST">
+	<div>
+		<i><em><code>GstVideo.VideoFieldOrder.BOTTOM_FIELD_FIRST</code></em></i>
+		(<span class="value">2</span>)
+		–
+	</div>
+			<p>bottom field is first</p>
+
+	</div>
+
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.12
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3 data-hotdoc-id="GstVideoFieldOrder">
+	<i>GstVideo.VideoFieldOrder</i>
+</h3>
+
+
+<p>Field order of interlaced content. This is only valid for
+interlace-mode=interleaved and not interlace-mode=mixed. In the case of
+mixed or GST_VIDEO_FIELD_ORDER_UNKOWN, the field order is signalled via
+buffer flags.</p>
+
+
+
+
+	<div class="members-container">
+		<h5>Members</h5>
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VIDEO_FIELD_ORDER_UNKNOWN">
+	<div>
+		<i><em><code>GstVideo.VideoFieldOrder.UNKNOWN</code></em></i>
+		(<span class="value">0</span>)
+		–
+	</div>
+			<p>unknown field order for interlaced content.
+The actual field order is signalled via buffer flags.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VIDEO_FIELD_ORDER_TOP_FIELD_FIRST">
+	<div>
+		<i><em><code>GstVideo.VideoFieldOrder.TOP_FIELD_FIRST</code></em></i>
+		(<span class="value">1</span>)
+		–
+	</div>
+			<p>top field is first</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VIDEO_FIELD_ORDER_BOTTOM_FIELD_FIRST">
+	<div>
+		<i><em><code>GstVideo.VideoFieldOrder.BOTTOM_FIELD_FIRST</code></em></i>
+		(<span class="value">2</span>)
+		–
+	</div>
+			<p>bottom field is first</p>
+
+	</div>
+
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.12
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstVideoFlags">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GstVideoFlags">
+	<i>GstVideoFlags</i>
+</h3>
+
+
+<p>Extra video flags</p>
+
+
+
+
+	<div class="members-container">
+		<h5>Members</h5>
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VIDEO_FLAG_NONE">
+	<div>
+		<i><em><code>GST_VIDEO_FLAG_NONE</code></em></i>
+		(<span class="value">0</span>)
+		–
+	</div>
+			<p>no flags</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VIDEO_FLAG_VARIABLE_FPS">
+	<div>
+		<i><em><code>GST_VIDEO_FLAG_VARIABLE_FPS</code></em></i>
+		(<span class="value">1</span>)
+		–
+	</div>
+			<p>a variable fps is selected, fps_n and fps_d
+denote the maximum fps of the video</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VIDEO_FLAG_PREMULTIPLIED_ALPHA">
+	<div>
+		<i><em><code>GST_VIDEO_FLAG_PREMULTIPLIED_ALPHA</code></em></i>
+		(<span class="value">2</span>)
+		–
+	</div>
+			<p>Each color has been scaled by the alpha
+value.</p>
+
+	</div>
+
+			</div>
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3 data-hotdoc-id="GstVideoFlags">
+	<i>GstVideo.VideoFlags</i>
+</h3>
+
+
+<p>Extra video flags</p>
+
+
+
+
+	<div class="members-container">
+		<h5>Members</h5>
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VIDEO_FLAG_NONE">
+	<div>
+		<i><em><code>GstVideo.VideoFlags.NONE</code></em></i>
+		(<span class="value">0</span>)
+		–
+	</div>
+			<p>no flags</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VIDEO_FLAG_VARIABLE_FPS">
+	<div>
+		<i><em><code>GstVideo.VideoFlags.VARIABLE_FPS</code></em></i>
+		(<span class="value">1</span>)
+		–
+	</div>
+			<p>a variable fps is selected, fps_n and fps_d
+denote the maximum fps of the video</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VIDEO_FLAG_PREMULTIPLIED_ALPHA">
+	<div>
+		<i><em><code>GstVideo.VideoFlags.PREMULTIPLIED_ALPHA</code></em></i>
+		(<span class="value">2</span>)
+		–
+	</div>
+			<p>Each color has been scaled by the alpha
+value.</p>
+
+	</div>
+
+			</div>
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3 data-hotdoc-id="GstVideoFlags">
+	<i>GstVideo.VideoFlags</i>
+</h3>
+
+
+<p>Extra video flags</p>
+
+
+
+
+	<div class="members-container">
+		<h5>Members</h5>
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VIDEO_FLAG_NONE">
+	<div>
+		<i><em><code>GstVideo.VideoFlags.NONE</code></em></i>
+		(<span class="value">0</span>)
+		–
+	</div>
+			<p>no flags</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VIDEO_FLAG_VARIABLE_FPS">
+	<div>
+		<i><em><code>GstVideo.VideoFlags.VARIABLE_FPS</code></em></i>
+		(<span class="value">1</span>)
+		–
+	</div>
+			<p>a variable fps is selected, fps_n and fps_d
+denote the maximum fps of the video</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VIDEO_FLAG_PREMULTIPLIED_ALPHA">
+	<div>
+		<i><em><code>GstVideo.VideoFlags.PREMULTIPLIED_ALPHA</code></em></i>
+		(<span class="value">2</span>)
+		–
+	</div>
+			<p>Each color has been scaled by the alpha
+value.</p>
+
+	</div>
+
+			</div>
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstVideoInterlaceMode">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GstVideoInterlaceMode">
+	<i>GstVideoInterlaceMode</i>
+</h3>
+
+
+<p>The possible values of the <a href="video/video-info.html#GstVideoInterlaceMode">GstVideoInterlaceMode</a> describing the interlace
+mode of the stream.</p>
+
+
+
+
+	<div class="members-container">
+		<h5>Members</h5>
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VIDEO_INTERLACE_MODE_PROGRESSIVE">
+	<div>
+		<i><em><code>GST_VIDEO_INTERLACE_MODE_PROGRESSIVE</code></em></i>
+		(<span class="value">0</span>)
+		–
+	</div>
+			<p>all frames are progressive</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VIDEO_INTERLACE_MODE_INTERLEAVED">
+	<div>
+		<i><em><code>GST_VIDEO_INTERLACE_MODE_INTERLEAVED</code></em></i>
+		(<span class="value">1</span>)
+		–
+	</div>
+			<p>2 fields are interleaved in one video
+frame. Extra buffer flags describe the field order.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VIDEO_INTERLACE_MODE_MIXED">
+	<div>
+		<i><em><code>GST_VIDEO_INTERLACE_MODE_MIXED</code></em></i>
+		(<span class="value">2</span>)
+		–
+	</div>
+			<p>frames contains both interlaced and
+progressive video, the buffer flags describe the frame and fields.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VIDEO_INTERLACE_MODE_FIELDS">
+	<div>
+		<i><em><code>GST_VIDEO_INTERLACE_MODE_FIELDS</code></em></i>
+		(<span class="value">3</span>)
+		–
+	</div>
+			<p>2 fields are stored in one buffer, use the
+frame ID to get access to the required field. For multiview (the
+'views' property &gt; 1) the fields of view N can be found at frame ID
+(N * 2) and (N * 2) + 1.
+Each field has only half the amount of lines as noted in the
+height property. This mode requires multiple GstVideoMeta metadata
+to describe the fields.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VIDEO_INTERLACE_MODE_ALTERNATE">
+	<div>
+		<i><em><code>GST_VIDEO_INTERLACE_MODE_ALTERNATE</code></em></i>
+		(<span class="value">4</span>)
+		–
+	</div>
+			<p>1 field is stored in one buffer,
+<em>GST_VIDEO_BUFFER_FLAG_TF</em> or <em>GST_VIDEO_BUFFER_FLAG_BF</em> indicates if
+the buffer is carrying the top or bottom field, respectively. The top and
+bottom buffers must alternate in the pipeline, with this mode
+(Since: 1.16).</p>
+
+	</div>
+
+			</div>
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3 data-hotdoc-id="GstVideoInterlaceMode">
+	<i>GstVideo.VideoInterlaceMode</i>
+</h3>
+
+
+<p>The possible values of the <a href="video/video-info.html#GstVideoInterlaceMode">GstVideo.VideoInterlaceMode</a> describing the interlace
+mode of the stream.</p>
+
+
+
+
+	<div class="members-container">
+		<h5>Members</h5>
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VIDEO_INTERLACE_MODE_PROGRESSIVE">
+	<div>
+		<i><em><code>GstVideo.VideoInterlaceMode.PROGRESSIVE</code></em></i>
+		(<span class="value">0</span>)
+		–
+	</div>
+			<p>all frames are progressive</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VIDEO_INTERLACE_MODE_INTERLEAVED">
+	<div>
+		<i><em><code>GstVideo.VideoInterlaceMode.INTERLEAVED</code></em></i>
+		(<span class="value">1</span>)
+		–
+	</div>
+			<p>2 fields are interleaved in one video
+frame. Extra buffer flags describe the field order.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VIDEO_INTERLACE_MODE_MIXED">
+	<div>
+		<i><em><code>GstVideo.VideoInterlaceMode.MIXED</code></em></i>
+		(<span class="value">2</span>)
+		–
+	</div>
+			<p>frames contains both interlaced and
+progressive video, the buffer flags describe the frame and fields.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VIDEO_INTERLACE_MODE_FIELDS">
+	<div>
+		<i><em><code>GstVideo.VideoInterlaceMode.FIELDS</code></em></i>
+		(<span class="value">3</span>)
+		–
+	</div>
+			<p>2 fields are stored in one buffer, use the
+frame ID to get access to the required field. For multiview (the
+'views' property &gt; 1) the fields of view N can be found at frame ID
+(N * 2) and (N * 2) + 1.
+Each field has only half the amount of lines as noted in the
+height property. This mode requires multiple GstVideoMeta metadata
+to describe the fields.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VIDEO_INTERLACE_MODE_ALTERNATE">
+	<div>
+		<i><em><code>GstVideo.VideoInterlaceMode.ALTERNATE</code></em></i>
+		(<span class="value">4</span>)
+		–
+	</div>
+			<p>1 field is stored in one buffer,
+<em>GST_VIDEO_BUFFER_FLAG_TF</em> or <em>GST_VIDEO_BUFFER_FLAG_BF</em> indicates if
+the buffer is carrying the top or bottom field, respectively. The top and
+bottom buffers must alternate in the pipeline, with this mode
+(Since: 1.16).</p>
+
+	</div>
+
+			</div>
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3 data-hotdoc-id="GstVideoInterlaceMode">
+	<i>GstVideo.VideoInterlaceMode</i>
+</h3>
+
+
+<p>The possible values of the <a href="video/video-info.html#GstVideoInterlaceMode">GstVideo.VideoInterlaceMode</a> describing the interlace
+mode of the stream.</p>
+
+
+
+
+	<div class="members-container">
+		<h5>Members</h5>
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VIDEO_INTERLACE_MODE_PROGRESSIVE">
+	<div>
+		<i><em><code>GstVideo.VideoInterlaceMode.PROGRESSIVE</code></em></i>
+		(<span class="value">0</span>)
+		–
+	</div>
+			<p>all frames are progressive</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VIDEO_INTERLACE_MODE_INTERLEAVED">
+	<div>
+		<i><em><code>GstVideo.VideoInterlaceMode.INTERLEAVED</code></em></i>
+		(<span class="value">1</span>)
+		–
+	</div>
+			<p>2 fields are interleaved in one video
+frame. Extra buffer flags describe the field order.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VIDEO_INTERLACE_MODE_MIXED">
+	<div>
+		<i><em><code>GstVideo.VideoInterlaceMode.MIXED</code></em></i>
+		(<span class="value">2</span>)
+		–
+	</div>
+			<p>frames contains both interlaced and
+progressive video, the buffer flags describe the frame and fields.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VIDEO_INTERLACE_MODE_FIELDS">
+	<div>
+		<i><em><code>GstVideo.VideoInterlaceMode.FIELDS</code></em></i>
+		(<span class="value">3</span>)
+		–
+	</div>
+			<p>2 fields are stored in one buffer, use the
+frame ID to get access to the required field. For multiview (the
+'views' property &gt; 1) the fields of view N can be found at frame ID
+(N * 2) and (N * 2) + 1.
+Each field has only half the amount of lines as noted in the
+height property. This mode requires multiple GstVideoMeta metadata
+to describe the fields.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VIDEO_INTERLACE_MODE_ALTERNATE">
+	<div>
+		<i><em><code>GstVideo.VideoInterlaceMode.ALTERNATE</code></em></i>
+		(<span class="value">4</span>)
+		–
+	</div>
+			<p>1 field is stored in one buffer,
+<em>GST_VIDEO_BUFFER_FLAG_TF</em> or <em>GST_VIDEO_BUFFER_FLAG_BF</em> indicates if
+the buffer is carrying the top or bottom field, respectively. The top and
+bottom buffers must alternate in the pipeline, with this mode
+(Since: 1.16).</p>
+
+	</div>
+
+			</div>
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstVideoMultiviewFlags">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GstVideoMultiviewFlags">
+	<i>GstVideoMultiviewFlags</i>
+</h3>
+
+
+<p>GstVideoMultiviewFlags are used to indicate extra properties of a
+stereo/multiview stream beyond the frame layout and buffer mapping
+that is conveyed in the <a href="video/video-info.html#GstVideoMultiviewMode">GstVideoMultiviewMode</a>.</p>
+
+
+
+
+	<div class="members-container">
+		<h5>Members</h5>
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VIDEO_MULTIVIEW_FLAGS_NONE">
+	<div>
+		<i><em><code>GST_VIDEO_MULTIVIEW_FLAGS_NONE</code></em></i>
+		(<span class="value">0</span>)
+		–
+	</div>
+			<p>No flags</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VIDEO_MULTIVIEW_FLAGS_RIGHT_VIEW_FIRST">
+	<div>
+		<i><em><code>GST_VIDEO_MULTIVIEW_FLAGS_RIGHT_VIEW_FIRST</code></em></i>
+		(<span class="value">1</span>)
+		–
+	</div>
+			<p>For stereo streams, the
+normal arrangement of left and right views is reversed.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VIDEO_MULTIVIEW_FLAGS_LEFT_FLIPPED">
+	<div>
+		<i><em><code>GST_VIDEO_MULTIVIEW_FLAGS_LEFT_FLIPPED</code></em></i>
+		(<span class="value">2</span>)
+		–
+	</div>
+			<p>The left view is vertically
+mirrored.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VIDEO_MULTIVIEW_FLAGS_LEFT_FLOPPED">
+	<div>
+		<i><em><code>GST_VIDEO_MULTIVIEW_FLAGS_LEFT_FLOPPED</code></em></i>
+		(<span class="value">4</span>)
+		–
+	</div>
+			<p>The left view is horizontally
+mirrored.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VIDEO_MULTIVIEW_FLAGS_RIGHT_FLIPPED">
+	<div>
+		<i><em><code>GST_VIDEO_MULTIVIEW_FLAGS_RIGHT_FLIPPED</code></em></i>
+		(<span class="value">8</span>)
+		–
+	</div>
+			<p>The right view is
+vertically mirrored.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VIDEO_MULTIVIEW_FLAGS_RIGHT_FLOPPED">
+	<div>
+		<i><em><code>GST_VIDEO_MULTIVIEW_FLAGS_RIGHT_FLOPPED</code></em></i>
+		(<span class="value">16</span>)
+		–
+	</div>
+			<p>The right view is
+horizontally mirrored.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VIDEO_MULTIVIEW_FLAGS_HALF_ASPECT">
+	<div>
+		<i><em><code>GST_VIDEO_MULTIVIEW_FLAGS_HALF_ASPECT</code></em></i>
+		(<span class="value">16384</span>)
+		–
+	</div>
+			<p>For frame-packed
+multiview modes, indicates that the individual
+views have been encoded with half the true width or height
+and should be scaled back up for display. This flag
+is used for overriding input layout interpretation
+by adjusting pixel-aspect-ratio.
+For side-by-side, column interleaved or checkerboard packings, the
+pixel width will be doubled. For row interleaved and top-bottom
+encodings, pixel height will be doubled.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VIDEO_MULTIVIEW_FLAGS_MIXED_MONO">
+	<div>
+		<i><em><code>GST_VIDEO_MULTIVIEW_FLAGS_MIXED_MONO</code></em></i>
+		(<span class="value">32768</span>)
+		–
+	</div>
+			<p>The video stream contains both
+mono and multiview portions, signalled on each buffer by the
+absence or presence of the <em>GST_VIDEO_BUFFER_FLAG_MULTIPLE_VIEW</em>
+buffer flag.</p>
+
+	</div>
+
+			</div>
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3 data-hotdoc-id="GstVideoMultiviewFlags">
+	<i>GstVideo.VideoMultiviewFlags</i>
+</h3>
+
+
+<p>GstVideoMultiviewFlags are used to indicate extra properties of a
+stereo/multiview stream beyond the frame layout and buffer mapping
+that is conveyed in the <a href="video/video-info.html#GstVideoMultiviewMode">GstVideo.VideoMultiviewMode</a>.</p>
+
+
+
+
+	<div class="members-container">
+		<h5>Members</h5>
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VIDEO_MULTIVIEW_FLAGS_NONE">
+	<div>
+		<i><em><code>GstVideo.VideoMultiviewFlags.NONE</code></em></i>
+		(<span class="value">0</span>)
+		–
+	</div>
+			<p>No flags</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VIDEO_MULTIVIEW_FLAGS_RIGHT_VIEW_FIRST">
+	<div>
+		<i><em><code>GstVideo.VideoMultiviewFlags.RIGHT_VIEW_FIRST</code></em></i>
+		(<span class="value">1</span>)
+		–
+	</div>
+			<p>For stereo streams, the
+normal arrangement of left and right views is reversed.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VIDEO_MULTIVIEW_FLAGS_LEFT_FLIPPED">
+	<div>
+		<i><em><code>GstVideo.VideoMultiviewFlags.LEFT_FLIPPED</code></em></i>
+		(<span class="value">2</span>)
+		–
+	</div>
+			<p>The left view is vertically
+mirrored.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VIDEO_MULTIVIEW_FLAGS_LEFT_FLOPPED">
+	<div>
+		<i><em><code>GstVideo.VideoMultiviewFlags.LEFT_FLOPPED</code></em></i>
+		(<span class="value">4</span>)
+		–
+	</div>
+			<p>The left view is horizontally
+mirrored.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VIDEO_MULTIVIEW_FLAGS_RIGHT_FLIPPED">
+	<div>
+		<i><em><code>GstVideo.VideoMultiviewFlags.RIGHT_FLIPPED</code></em></i>
+		(<span class="value">8</span>)
+		–
+	</div>
+			<p>The right view is
+vertically mirrored.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VIDEO_MULTIVIEW_FLAGS_RIGHT_FLOPPED">
+	<div>
+		<i><em><code>GstVideo.VideoMultiviewFlags.RIGHT_FLOPPED</code></em></i>
+		(<span class="value">16</span>)
+		–
+	</div>
+			<p>The right view is
+horizontally mirrored.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VIDEO_MULTIVIEW_FLAGS_HALF_ASPECT">
+	<div>
+		<i><em><code>GstVideo.VideoMultiviewFlags.HALF_ASPECT</code></em></i>
+		(<span class="value">16384</span>)
+		–
+	</div>
+			<p>For frame-packed
+multiview modes, indicates that the individual
+views have been encoded with half the true width or height
+and should be scaled back up for display. This flag
+is used for overriding input layout interpretation
+by adjusting pixel-aspect-ratio.
+For side-by-side, column interleaved or checkerboard packings, the
+pixel width will be doubled. For row interleaved and top-bottom
+encodings, pixel height will be doubled.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VIDEO_MULTIVIEW_FLAGS_MIXED_MONO">
+	<div>
+		<i><em><code>GstVideo.VideoMultiviewFlags.MIXED_MONO</code></em></i>
+		(<span class="value">32768</span>)
+		–
+	</div>
+			<p>The video stream contains both
+mono and multiview portions, signalled on each buffer by the
+absence or presence of the <em>GST_VIDEO_BUFFER_FLAG_MULTIPLE_VIEW</em>
+buffer flag.</p>
+
+	</div>
+
+			</div>
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3 data-hotdoc-id="GstVideoMultiviewFlags">
+	<i>GstVideo.VideoMultiviewFlags</i>
+</h3>
+
+
+<p>GstVideoMultiviewFlags are used to indicate extra properties of a
+stereo/multiview stream beyond the frame layout and buffer mapping
+that is conveyed in the <a href="video/video-info.html#GstVideoMultiviewMode">GstVideo.VideoMultiviewMode</a>.</p>
+
+
+
+
+	<div class="members-container">
+		<h5>Members</h5>
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VIDEO_MULTIVIEW_FLAGS_NONE">
+	<div>
+		<i><em><code>GstVideo.VideoMultiviewFlags.NONE</code></em></i>
+		(<span class="value">0</span>)
+		–
+	</div>
+			<p>No flags</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VIDEO_MULTIVIEW_FLAGS_RIGHT_VIEW_FIRST">
+	<div>
+		<i><em><code>GstVideo.VideoMultiviewFlags.RIGHT_VIEW_FIRST</code></em></i>
+		(<span class="value">1</span>)
+		–
+	</div>
+			<p>For stereo streams, the
+normal arrangement of left and right views is reversed.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VIDEO_MULTIVIEW_FLAGS_LEFT_FLIPPED">
+	<div>
+		<i><em><code>GstVideo.VideoMultiviewFlags.LEFT_FLIPPED</code></em></i>
+		(<span class="value">2</span>)
+		–
+	</div>
+			<p>The left view is vertically
+mirrored.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VIDEO_MULTIVIEW_FLAGS_LEFT_FLOPPED">
+	<div>
+		<i><em><code>GstVideo.VideoMultiviewFlags.LEFT_FLOPPED</code></em></i>
+		(<span class="value">4</span>)
+		–
+	</div>
+			<p>The left view is horizontally
+mirrored.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VIDEO_MULTIVIEW_FLAGS_RIGHT_FLIPPED">
+	<div>
+		<i><em><code>GstVideo.VideoMultiviewFlags.RIGHT_FLIPPED</code></em></i>
+		(<span class="value">8</span>)
+		–
+	</div>
+			<p>The right view is
+vertically mirrored.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VIDEO_MULTIVIEW_FLAGS_RIGHT_FLOPPED">
+	<div>
+		<i><em><code>GstVideo.VideoMultiviewFlags.RIGHT_FLOPPED</code></em></i>
+		(<span class="value">16</span>)
+		–
+	</div>
+			<p>The right view is
+horizontally mirrored.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VIDEO_MULTIVIEW_FLAGS_HALF_ASPECT">
+	<div>
+		<i><em><code>GstVideo.VideoMultiviewFlags.HALF_ASPECT</code></em></i>
+		(<span class="value">16384</span>)
+		–
+	</div>
+			<p>For frame-packed
+multiview modes, indicates that the individual
+views have been encoded with half the true width or height
+and should be scaled back up for display. This flag
+is used for overriding input layout interpretation
+by adjusting pixel-aspect-ratio.
+For side-by-side, column interleaved or checkerboard packings, the
+pixel width will be doubled. For row interleaved and top-bottom
+encodings, pixel height will be doubled.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VIDEO_MULTIVIEW_FLAGS_MIXED_MONO">
+	<div>
+		<i><em><code>GstVideo.VideoMultiviewFlags.MIXED_MONO</code></em></i>
+		(<span class="value">32768</span>)
+		–
+	</div>
+			<p>The video stream contains both
+mono and multiview portions, signalled on each buffer by the
+absence or presence of the <em>GST_VIDEO_BUFFER_FLAG_MULTIPLE_VIEW</em>
+buffer flag.</p>
+
+	</div>
+
+			</div>
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstVideoMultiviewFramePacking">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GstVideoMultiviewFramePacking">
+	<i>GstVideoMultiviewFramePacking</i>
+</h3>
+
+
+<p><a href="video/video-info.html#GstVideoMultiviewFramePacking">GstVideoMultiviewFramePacking</a> represents the subset of <a href="video/video-info.html#GstVideoMultiviewMode">GstVideoMultiviewMode</a>
+values that can be applied to any video frame without needing extra metadata.
+It can be used by elements that provide a property to override the
+multiview interpretation of a video stream when the video doesn't contain
+any markers.</p>
+<p>This enum is used (for example) on playbin, to re-interpret a played
+video stream as a stereoscopic video. The individual enum values are
+equivalent to and have the same value as the matching <a href="video/video-info.html#GstVideoMultiviewMode">GstVideoMultiviewMode</a>.</p>
+
+
+
+
+	<div class="members-container">
+		<h5>Members</h5>
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VIDEO_MULTIVIEW_FRAME_PACKING_NONE">
+	<div>
+		<i><em><code>GST_VIDEO_MULTIVIEW_FRAME_PACKING_NONE</code></em></i>
+		(<span class="value">-1</span>)
+		–
+	</div>
+			<p>A special value indicating
+no frame packing info.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VIDEO_MULTIVIEW_FRAME_PACKING_MONO">
+	<div>
+		<i><em><code>GST_VIDEO_MULTIVIEW_FRAME_PACKING_MONO</code></em></i>
+		(<span class="value">0</span>)
+		–
+	</div>
+			<p>All frames are monoscopic.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VIDEO_MULTIVIEW_FRAME_PACKING_LEFT">
+	<div>
+		<i><em><code>GST_VIDEO_MULTIVIEW_FRAME_PACKING_LEFT</code></em></i>
+		(<span class="value">1</span>)
+		–
+	</div>
+			<p>All frames represent a left-eye view.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VIDEO_MULTIVIEW_FRAME_PACKING_RIGHT">
+	<div>
+		<i><em><code>GST_VIDEO_MULTIVIEW_FRAME_PACKING_RIGHT</code></em></i>
+		(<span class="value">2</span>)
+		–
+	</div>
+			<p>All frames represent a right-eye view.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VIDEO_MULTIVIEW_FRAME_PACKING_SIDE_BY_SIDE">
+	<div>
+		<i><em><code>GST_VIDEO_MULTIVIEW_FRAME_PACKING_SIDE_BY_SIDE</code></em></i>
+		(<span class="value">3</span>)
+		–
+	</div>
+			<p>Left and right eye views are
+provided in the left and right half of the frame respectively.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VIDEO_MULTIVIEW_FRAME_PACKING_SIDE_BY_SIDE_QUINCUNX">
+	<div>
+		<i><em><code>GST_VIDEO_MULTIVIEW_FRAME_PACKING_SIDE_BY_SIDE_QUINCUNX</code></em></i>
+		(<span class="value">4</span>)
+		–
+	</div>
+			<p>Left and right eye
+views are provided in the left and right half of the frame, but
+have been sampled using quincunx method, with half-pixel offset
+between the 2 views.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VIDEO_MULTIVIEW_FRAME_PACKING_COLUMN_INTERLEAVED">
+	<div>
+		<i><em><code>GST_VIDEO_MULTIVIEW_FRAME_PACKING_COLUMN_INTERLEAVED</code></em></i>
+		(<span class="value">5</span>)
+		–
+	</div>
+			<p>Alternating vertical
+columns of pixels represent the left and right eye view respectively.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VIDEO_MULTIVIEW_FRAME_PACKING_ROW_INTERLEAVED">
+	<div>
+		<i><em><code>GST_VIDEO_MULTIVIEW_FRAME_PACKING_ROW_INTERLEAVED</code></em></i>
+		(<span class="value">6</span>)
+		–
+	</div>
+			<p>Alternating horizontal
+rows of pixels represent the left and right eye view respectively.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VIDEO_MULTIVIEW_FRAME_PACKING_TOP_BOTTOM">
+	<div>
+		<i><em><code>GST_VIDEO_MULTIVIEW_FRAME_PACKING_TOP_BOTTOM</code></em></i>
+		(<span class="value">7</span>)
+		–
+	</div>
+			<p>The top half of the frame
+contains the left eye, and the bottom half the right eye.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VIDEO_MULTIVIEW_FRAME_PACKING_CHECKERBOARD">
+	<div>
+		<i><em><code>GST_VIDEO_MULTIVIEW_FRAME_PACKING_CHECKERBOARD</code></em></i>
+		(<span class="value">8</span>)
+		–
+	</div>
+			<p>Pixels are arranged with
+alternating pixels representing left and right eye views in a
+checkerboard fashion.</p>
+
+	</div>
+
+			</div>
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3 data-hotdoc-id="GstVideoMultiviewFramePacking">
+	<i>GstVideo.VideoMultiviewFramePacking</i>
+</h3>
+
+
+<p><a href="video/video-info.html#GstVideoMultiviewFramePacking">GstVideo.VideoMultiviewFramePacking</a> represents the subset of <a href="video/video-info.html#GstVideoMultiviewMode">GstVideo.VideoMultiviewMode</a>
+values that can be applied to any video frame without needing extra metadata.
+It can be used by elements that provide a property to override the
+multiview interpretation of a video stream when the video doesn't contain
+any markers.</p>
+<p>This enum is used (for example) on playbin, to re-interpret a played
+video stream as a stereoscopic video. The individual enum values are
+equivalent to and have the same value as the matching <a href="video/video-info.html#GstVideoMultiviewMode">GstVideo.VideoMultiviewMode</a>.</p>
+
+
+
+
+	<div class="members-container">
+		<h5>Members</h5>
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VIDEO_MULTIVIEW_FRAME_PACKING_NONE">
+	<div>
+		<i><em><code>GstVideo.VideoMultiviewFramePacking.NONE</code></em></i>
+		(<span class="value">-1</span>)
+		–
+	</div>
+			<p>A special value indicating
+no frame packing info.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VIDEO_MULTIVIEW_FRAME_PACKING_MONO">
+	<div>
+		<i><em><code>GstVideo.VideoMultiviewFramePacking.MONO</code></em></i>
+		(<span class="value">0</span>)
+		–
+	</div>
+			<p>All frames are monoscopic.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VIDEO_MULTIVIEW_FRAME_PACKING_LEFT">
+	<div>
+		<i><em><code>GstVideo.VideoMultiviewFramePacking.LEFT</code></em></i>
+		(<span class="value">1</span>)
+		–
+	</div>
+			<p>All frames represent a left-eye view.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VIDEO_MULTIVIEW_FRAME_PACKING_RIGHT">
+	<div>
+		<i><em><code>GstVideo.VideoMultiviewFramePacking.RIGHT</code></em></i>
+		(<span class="value">2</span>)
+		–
+	</div>
+			<p>All frames represent a right-eye view.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VIDEO_MULTIVIEW_FRAME_PACKING_SIDE_BY_SIDE">
+	<div>
+		<i><em><code>GstVideo.VideoMultiviewFramePacking.SIDE_BY_SIDE</code></em></i>
+		(<span class="value">3</span>)
+		–
+	</div>
+			<p>Left and right eye views are
+provided in the left and right half of the frame respectively.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VIDEO_MULTIVIEW_FRAME_PACKING_SIDE_BY_SIDE_QUINCUNX">
+	<div>
+		<i><em><code>GstVideo.VideoMultiviewFramePacking.SIDE_BY_SIDE_QUINCUNX</code></em></i>
+		(<span class="value">4</span>)
+		–
+	</div>
+			<p>Left and right eye
+views are provided in the left and right half of the frame, but
+have been sampled using quincunx method, with half-pixel offset
+between the 2 views.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VIDEO_MULTIVIEW_FRAME_PACKING_COLUMN_INTERLEAVED">
+	<div>
+		<i><em><code>GstVideo.VideoMultiviewFramePacking.COLUMN_INTERLEAVED</code></em></i>
+		(<span class="value">5</span>)
+		–
+	</div>
+			<p>Alternating vertical
+columns of pixels represent the left and right eye view respectively.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VIDEO_MULTIVIEW_FRAME_PACKING_ROW_INTERLEAVED">
+	<div>
+		<i><em><code>GstVideo.VideoMultiviewFramePacking.ROW_INTERLEAVED</code></em></i>
+		(<span class="value">6</span>)
+		–
+	</div>
+			<p>Alternating horizontal
+rows of pixels represent the left and right eye view respectively.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VIDEO_MULTIVIEW_FRAME_PACKING_TOP_BOTTOM">
+	<div>
+		<i><em><code>GstVideo.VideoMultiviewFramePacking.TOP_BOTTOM</code></em></i>
+		(<span class="value">7</span>)
+		–
+	</div>
+			<p>The top half of the frame
+contains the left eye, and the bottom half the right eye.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VIDEO_MULTIVIEW_FRAME_PACKING_CHECKERBOARD">
+	<div>
+		<i><em><code>GstVideo.VideoMultiviewFramePacking.CHECKERBOARD</code></em></i>
+		(<span class="value">8</span>)
+		–
+	</div>
+			<p>Pixels are arranged with
+alternating pixels representing left and right eye views in a
+checkerboard fashion.</p>
+
+	</div>
+
+			</div>
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3 data-hotdoc-id="GstVideoMultiviewFramePacking">
+	<i>GstVideo.VideoMultiviewFramePacking</i>
+</h3>
+
+
+<p><a href="video/video-info.html#GstVideoMultiviewFramePacking">GstVideo.VideoMultiviewFramePacking</a> represents the subset of <a href="video/video-info.html#GstVideoMultiviewMode">GstVideo.VideoMultiviewMode</a>
+values that can be applied to any video frame without needing extra metadata.
+It can be used by elements that provide a property to override the
+multiview interpretation of a video stream when the video doesn't contain
+any markers.</p>
+<p>This enum is used (for example) on playbin, to re-interpret a played
+video stream as a stereoscopic video. The individual enum values are
+equivalent to and have the same value as the matching <a href="video/video-info.html#GstVideoMultiviewMode">GstVideo.VideoMultiviewMode</a>.</p>
+
+
+
+
+	<div class="members-container">
+		<h5>Members</h5>
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VIDEO_MULTIVIEW_FRAME_PACKING_NONE">
+	<div>
+		<i><em><code>GstVideo.VideoMultiviewFramePacking.NONE</code></em></i>
+		(<span class="value">-1</span>)
+		–
+	</div>
+			<p>A special value indicating
+no frame packing info.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VIDEO_MULTIVIEW_FRAME_PACKING_MONO">
+	<div>
+		<i><em><code>GstVideo.VideoMultiviewFramePacking.MONO</code></em></i>
+		(<span class="value">0</span>)
+		–
+	</div>
+			<p>All frames are monoscopic.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VIDEO_MULTIVIEW_FRAME_PACKING_LEFT">
+	<div>
+		<i><em><code>GstVideo.VideoMultiviewFramePacking.LEFT</code></em></i>
+		(<span class="value">1</span>)
+		–
+	</div>
+			<p>All frames represent a left-eye view.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VIDEO_MULTIVIEW_FRAME_PACKING_RIGHT">
+	<div>
+		<i><em><code>GstVideo.VideoMultiviewFramePacking.RIGHT</code></em></i>
+		(<span class="value">2</span>)
+		–
+	</div>
+			<p>All frames represent a right-eye view.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VIDEO_MULTIVIEW_FRAME_PACKING_SIDE_BY_SIDE">
+	<div>
+		<i><em><code>GstVideo.VideoMultiviewFramePacking.SIDE_BY_SIDE</code></em></i>
+		(<span class="value">3</span>)
+		–
+	</div>
+			<p>Left and right eye views are
+provided in the left and right half of the frame respectively.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VIDEO_MULTIVIEW_FRAME_PACKING_SIDE_BY_SIDE_QUINCUNX">
+	<div>
+		<i><em><code>GstVideo.VideoMultiviewFramePacking.SIDE_BY_SIDE_QUINCUNX</code></em></i>
+		(<span class="value">4</span>)
+		–
+	</div>
+			<p>Left and right eye
+views are provided in the left and right half of the frame, but
+have been sampled using quincunx method, with half-pixel offset
+between the 2 views.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VIDEO_MULTIVIEW_FRAME_PACKING_COLUMN_INTERLEAVED">
+	<div>
+		<i><em><code>GstVideo.VideoMultiviewFramePacking.COLUMN_INTERLEAVED</code></em></i>
+		(<span class="value">5</span>)
+		–
+	</div>
+			<p>Alternating vertical
+columns of pixels represent the left and right eye view respectively.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VIDEO_MULTIVIEW_FRAME_PACKING_ROW_INTERLEAVED">
+	<div>
+		<i><em><code>GstVideo.VideoMultiviewFramePacking.ROW_INTERLEAVED</code></em></i>
+		(<span class="value">6</span>)
+		–
+	</div>
+			<p>Alternating horizontal
+rows of pixels represent the left and right eye view respectively.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VIDEO_MULTIVIEW_FRAME_PACKING_TOP_BOTTOM">
+	<div>
+		<i><em><code>GstVideo.VideoMultiviewFramePacking.TOP_BOTTOM</code></em></i>
+		(<span class="value">7</span>)
+		–
+	</div>
+			<p>The top half of the frame
+contains the left eye, and the bottom half the right eye.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VIDEO_MULTIVIEW_FRAME_PACKING_CHECKERBOARD">
+	<div>
+		<i><em><code>GstVideo.VideoMultiviewFramePacking.CHECKERBOARD</code></em></i>
+		(<span class="value">8</span>)
+		–
+	</div>
+			<p>Pixels are arranged with
+alternating pixels representing left and right eye views in a
+checkerboard fashion.</p>
+
+	</div>
+
+			</div>
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstVideoMultiviewMode">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GstVideoMultiviewMode">
+	<i>GstVideoMultiviewMode</i>
+</h3>
+
+
+<p>All possible stereoscopic 3D and multiview representations.
+In conjunction with <a href="video/video-info.html#GstVideoMultiviewFlags">GstVideoMultiviewFlags</a>, describes how
+multiview content is being transported in the stream.</p>
+
+
+
+
+	<div class="members-container">
+		<h5>Members</h5>
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VIDEO_MULTIVIEW_MODE_NONE">
+	<div>
+		<i><em><code>GST_VIDEO_MULTIVIEW_MODE_NONE</code></em></i>
+		(<span class="value">-1</span>)
+		–
+	</div>
+			<p>A special value indicating
+no multiview information. Used in GstVideoInfo and other places to
+indicate that no specific multiview handling has been requested or
+provided. This value is never carried on caps.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VIDEO_MULTIVIEW_MODE_MONO">
+	<div>
+		<i><em><code>GST_VIDEO_MULTIVIEW_MODE_MONO</code></em></i>
+		(<span class="value">0</span>)
+		–
+	</div>
+			<p>All frames are monoscopic.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VIDEO_MULTIVIEW_MODE_LEFT">
+	<div>
+		<i><em><code>GST_VIDEO_MULTIVIEW_MODE_LEFT</code></em></i>
+		(<span class="value">1</span>)
+		–
+	</div>
+			<p>All frames represent a left-eye view.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VIDEO_MULTIVIEW_MODE_RIGHT">
+	<div>
+		<i><em><code>GST_VIDEO_MULTIVIEW_MODE_RIGHT</code></em></i>
+		(<span class="value">2</span>)
+		–
+	</div>
+			<p>All frames represent a right-eye view.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VIDEO_MULTIVIEW_MODE_SIDE_BY_SIDE">
+	<div>
+		<i><em><code>GST_VIDEO_MULTIVIEW_MODE_SIDE_BY_SIDE</code></em></i>
+		(<span class="value">3</span>)
+		–
+	</div>
+			<p>Left and right eye views are
+provided in the left and right half of the frame respectively.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VIDEO_MULTIVIEW_MODE_SIDE_BY_SIDE_QUINCUNX">
+	<div>
+		<i><em><code>GST_VIDEO_MULTIVIEW_MODE_SIDE_BY_SIDE_QUINCUNX</code></em></i>
+		(<span class="value">4</span>)
+		–
+	</div>
+			<p>Left and right eye
+views are provided in the left and right half of the frame, but
+have been sampled using quincunx method, with half-pixel offset
+between the 2 views.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VIDEO_MULTIVIEW_MODE_COLUMN_INTERLEAVED">
+	<div>
+		<i><em><code>GST_VIDEO_MULTIVIEW_MODE_COLUMN_INTERLEAVED</code></em></i>
+		(<span class="value">5</span>)
+		–
+	</div>
+			<p>Alternating vertical
+columns of pixels represent the left and right eye view respectively.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VIDEO_MULTIVIEW_MODE_ROW_INTERLEAVED">
+	<div>
+		<i><em><code>GST_VIDEO_MULTIVIEW_MODE_ROW_INTERLEAVED</code></em></i>
+		(<span class="value">6</span>)
+		–
+	</div>
+			<p>Alternating horizontal
+rows of pixels represent the left and right eye view respectively.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VIDEO_MULTIVIEW_MODE_TOP_BOTTOM">
+	<div>
+		<i><em><code>GST_VIDEO_MULTIVIEW_MODE_TOP_BOTTOM</code></em></i>
+		(<span class="value">7</span>)
+		–
+	</div>
+			<p>The top half of the frame
+contains the left eye, and the bottom half the right eye.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VIDEO_MULTIVIEW_MODE_CHECKERBOARD">
+	<div>
+		<i><em><code>GST_VIDEO_MULTIVIEW_MODE_CHECKERBOARD</code></em></i>
+		(<span class="value">8</span>)
+		–
+	</div>
+			<p>Pixels are arranged with
+alternating pixels representing left and right eye views in a
+checkerboard fashion.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VIDEO_MULTIVIEW_MODE_FRAME_BY_FRAME">
+	<div>
+		<i><em><code>GST_VIDEO_MULTIVIEW_MODE_FRAME_BY_FRAME</code></em></i>
+		(<span class="value">32</span>)
+		–
+	</div>
+			<p>Left and right eye views
+are provided in separate frames alternately.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VIDEO_MULTIVIEW_MODE_MULTIVIEW_FRAME_BY_FRAME">
+	<div>
+		<i><em><code>GST_VIDEO_MULTIVIEW_MODE_MULTIVIEW_FRAME_BY_FRAME</code></em></i>
+		(<span class="value">33</span>)
+		–
+	</div>
+			<p>Multiple
+independent views are provided in separate frames in sequence.
+This method only applies to raw video buffers at the moment.
+Specific view identification is via the <code>GstVideoMultiviewMeta</code>
+and <a href="video/gstvideometa.html#GstVideoMeta" data-gi-href-javascript="video/gstvideometa.html#GstVideoMeta" data-gi-title-javascript="GstVideo.VideoMeta" data-gi-href-python="video/gstvideometa.html#GstVideoMeta" data-gi-title-python="GstVideo.VideoMeta">GstVideoMeta</a>(s) on raw video buffers.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VIDEO_MULTIVIEW_MODE_SEPARATED">
+	<div>
+		<i><em><code>GST_VIDEO_MULTIVIEW_MODE_SEPARATED</code></em></i>
+		(<span class="value">34</span>)
+		–
+	</div>
+			<p>Multiple views are
+provided as separate <a href="gstreamer/gstmemory.html#GstMemory" data-gi-href-javascript="gstreamer/gstmemory.html#GstMemory" data-gi-title-javascript="Gst.Memory" data-gi-href-python="gstreamer/gstmemory.html#GstMemory" data-gi-title-python="Gst.Memory">GstMemory</a> framebuffers attached to each
+<a href="gstreamer/gstbuffer.html#GstBuffer" data-gi-href-javascript="gstreamer/gstbuffer.html#GstBuffer" data-gi-title-javascript="Gst.Buffer" data-gi-href-python="gstreamer/gstbuffer.html#GstBuffer" data-gi-title-python="Gst.Buffer">GstBuffer</a>, described by the <code>GstVideoMultiviewMeta</code>
+and <a href="video/gstvideometa.html#GstVideoMeta" data-gi-href-javascript="video/gstvideometa.html#GstVideoMeta" data-gi-title-javascript="GstVideo.VideoMeta" data-gi-href-python="video/gstvideometa.html#GstVideoMeta" data-gi-title-python="GstVideo.VideoMeta">GstVideoMeta</a>(s)</p>
+
+	</div>
+
+			</div>
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3 data-hotdoc-id="GstVideoMultiviewMode">
+	<i>GstVideo.VideoMultiviewMode</i>
+</h3>
+
+
+<p>All possible stereoscopic 3D and multiview representations.
+In conjunction with <a href="video/video-info.html#GstVideoMultiviewFlags">GstVideo.VideoMultiviewFlags</a>, describes how
+multiview content is being transported in the stream.</p>
+
+
+
+
+	<div class="members-container">
+		<h5>Members</h5>
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VIDEO_MULTIVIEW_MODE_NONE">
+	<div>
+		<i><em><code>GstVideo.VideoMultiviewMode.NONE</code></em></i>
+		(<span class="value">-1</span>)
+		–
+	</div>
+			<p>A special value indicating
+no multiview information. Used in GstVideoInfo and other places to
+indicate that no specific multiview handling has been requested or
+provided. This value is never carried on caps.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VIDEO_MULTIVIEW_MODE_MONO">
+	<div>
+		<i><em><code>GstVideo.VideoMultiviewMode.MONO</code></em></i>
+		(<span class="value">0</span>)
+		–
+	</div>
+			<p>All frames are monoscopic.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VIDEO_MULTIVIEW_MODE_LEFT">
+	<div>
+		<i><em><code>GstVideo.VideoMultiviewMode.LEFT</code></em></i>
+		(<span class="value">1</span>)
+		–
+	</div>
+			<p>All frames represent a left-eye view.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VIDEO_MULTIVIEW_MODE_RIGHT">
+	<div>
+		<i><em><code>GstVideo.VideoMultiviewMode.RIGHT</code></em></i>
+		(<span class="value">2</span>)
+		–
+	</div>
+			<p>All frames represent a right-eye view.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VIDEO_MULTIVIEW_MODE_SIDE_BY_SIDE">
+	<div>
+		<i><em><code>GstVideo.VideoMultiviewMode.SIDE_BY_SIDE</code></em></i>
+		(<span class="value">3</span>)
+		–
+	</div>
+			<p>Left and right eye views are
+provided in the left and right half of the frame respectively.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VIDEO_MULTIVIEW_MODE_SIDE_BY_SIDE_QUINCUNX">
+	<div>
+		<i><em><code>GstVideo.VideoMultiviewMode.SIDE_BY_SIDE_QUINCUNX</code></em></i>
+		(<span class="value">4</span>)
+		–
+	</div>
+			<p>Left and right eye
+views are provided in the left and right half of the frame, but
+have been sampled using quincunx method, with half-pixel offset
+between the 2 views.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VIDEO_MULTIVIEW_MODE_COLUMN_INTERLEAVED">
+	<div>
+		<i><em><code>GstVideo.VideoMultiviewMode.COLUMN_INTERLEAVED</code></em></i>
+		(<span class="value">5</span>)
+		–
+	</div>
+			<p>Alternating vertical
+columns of pixels represent the left and right eye view respectively.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VIDEO_MULTIVIEW_MODE_ROW_INTERLEAVED">
+	<div>
+		<i><em><code>GstVideo.VideoMultiviewMode.ROW_INTERLEAVED</code></em></i>
+		(<span class="value">6</span>)
+		–
+	</div>
+			<p>Alternating horizontal
+rows of pixels represent the left and right eye view respectively.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VIDEO_MULTIVIEW_MODE_TOP_BOTTOM">
+	<div>
+		<i><em><code>GstVideo.VideoMultiviewMode.TOP_BOTTOM</code></em></i>
+		(<span class="value">7</span>)
+		–
+	</div>
+			<p>The top half of the frame
+contains the left eye, and the bottom half the right eye.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VIDEO_MULTIVIEW_MODE_CHECKERBOARD">
+	<div>
+		<i><em><code>GstVideo.VideoMultiviewMode.CHECKERBOARD</code></em></i>
+		(<span class="value">8</span>)
+		–
+	</div>
+			<p>Pixels are arranged with
+alternating pixels representing left and right eye views in a
+checkerboard fashion.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VIDEO_MULTIVIEW_MODE_FRAME_BY_FRAME">
+	<div>
+		<i><em><code>GstVideo.VideoMultiviewMode.FRAME_BY_FRAME</code></em></i>
+		(<span class="value">32</span>)
+		–
+	</div>
+			<p>Left and right eye views
+are provided in separate frames alternately.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VIDEO_MULTIVIEW_MODE_MULTIVIEW_FRAME_BY_FRAME">
+	<div>
+		<i><em><code>GstVideo.VideoMultiviewMode.MULTIVIEW_FRAME_BY_FRAME</code></em></i>
+		(<span class="value">33</span>)
+		–
+	</div>
+			<p>Multiple
+independent views are provided in separate frames in sequence.
+This method only applies to raw video buffers at the moment.
+Specific view identification is via the <code>GstVideoMultiviewMeta</code>
+and <a href="video/gstvideometa.html#GstVideoMeta" data-gi-href-javascript="video/gstvideometa.html#GstVideoMeta" data-gi-title-javascript="GstVideo.VideoMeta" data-gi-href-python="video/gstvideometa.html#GstVideoMeta" data-gi-title-python="GstVideo.VideoMeta">GstVideo.VideoMeta</a>(s) on raw video buffers.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VIDEO_MULTIVIEW_MODE_SEPARATED">
+	<div>
+		<i><em><code>GstVideo.VideoMultiviewMode.SEPARATED</code></em></i>
+		(<span class="value">34</span>)
+		–
+	</div>
+			<p>Multiple views are
+provided as separate <a href="gstreamer/gstmemory.html#GstMemory" data-gi-href-javascript="gstreamer/gstmemory.html#GstMemory" data-gi-title-javascript="Gst.Memory" data-gi-href-python="gstreamer/gstmemory.html#GstMemory" data-gi-title-python="Gst.Memory">Gst.Memory</a> framebuffers attached to each
+<a href="gstreamer/gstbuffer.html#GstBuffer" data-gi-href-javascript="gstreamer/gstbuffer.html#GstBuffer" data-gi-title-javascript="Gst.Buffer" data-gi-href-python="gstreamer/gstbuffer.html#GstBuffer" data-gi-title-python="Gst.Buffer">Gst.Buffer</a>, described by the <code>GstVideoMultiviewMeta</code>
+and <a href="video/gstvideometa.html#GstVideoMeta" data-gi-href-javascript="video/gstvideometa.html#GstVideoMeta" data-gi-title-javascript="GstVideo.VideoMeta" data-gi-href-python="video/gstvideometa.html#GstVideoMeta" data-gi-title-python="GstVideo.VideoMeta">GstVideo.VideoMeta</a>(s)</p>
+
+	</div>
+
+			</div>
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3 data-hotdoc-id="GstVideoMultiviewMode">
+	<i>GstVideo.VideoMultiviewMode</i>
+</h3>
+
+
+<p>All possible stereoscopic 3D and multiview representations.
+In conjunction with <a href="video/video-info.html#GstVideoMultiviewFlags">GstVideo.VideoMultiviewFlags</a>, describes how
+multiview content is being transported in the stream.</p>
+
+
+
+
+	<div class="members-container">
+		<h5>Members</h5>
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VIDEO_MULTIVIEW_MODE_NONE">
+	<div>
+		<i><em><code>GstVideo.VideoMultiviewMode.NONE</code></em></i>
+		(<span class="value">-1</span>)
+		–
+	</div>
+			<p>A special value indicating
+no multiview information. Used in GstVideoInfo and other places to
+indicate that no specific multiview handling has been requested or
+provided. This value is never carried on caps.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VIDEO_MULTIVIEW_MODE_MONO">
+	<div>
+		<i><em><code>GstVideo.VideoMultiviewMode.MONO</code></em></i>
+		(<span class="value">0</span>)
+		–
+	</div>
+			<p>All frames are monoscopic.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VIDEO_MULTIVIEW_MODE_LEFT">
+	<div>
+		<i><em><code>GstVideo.VideoMultiviewMode.LEFT</code></em></i>
+		(<span class="value">1</span>)
+		–
+	</div>
+			<p>All frames represent a left-eye view.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VIDEO_MULTIVIEW_MODE_RIGHT">
+	<div>
+		<i><em><code>GstVideo.VideoMultiviewMode.RIGHT</code></em></i>
+		(<span class="value">2</span>)
+		–
+	</div>
+			<p>All frames represent a right-eye view.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VIDEO_MULTIVIEW_MODE_SIDE_BY_SIDE">
+	<div>
+		<i><em><code>GstVideo.VideoMultiviewMode.SIDE_BY_SIDE</code></em></i>
+		(<span class="value">3</span>)
+		–
+	</div>
+			<p>Left and right eye views are
+provided in the left and right half of the frame respectively.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VIDEO_MULTIVIEW_MODE_SIDE_BY_SIDE_QUINCUNX">
+	<div>
+		<i><em><code>GstVideo.VideoMultiviewMode.SIDE_BY_SIDE_QUINCUNX</code></em></i>
+		(<span class="value">4</span>)
+		–
+	</div>
+			<p>Left and right eye
+views are provided in the left and right half of the frame, but
+have been sampled using quincunx method, with half-pixel offset
+between the 2 views.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VIDEO_MULTIVIEW_MODE_COLUMN_INTERLEAVED">
+	<div>
+		<i><em><code>GstVideo.VideoMultiviewMode.COLUMN_INTERLEAVED</code></em></i>
+		(<span class="value">5</span>)
+		–
+	</div>
+			<p>Alternating vertical
+columns of pixels represent the left and right eye view respectively.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VIDEO_MULTIVIEW_MODE_ROW_INTERLEAVED">
+	<div>
+		<i><em><code>GstVideo.VideoMultiviewMode.ROW_INTERLEAVED</code></em></i>
+		(<span class="value">6</span>)
+		–
+	</div>
+			<p>Alternating horizontal
+rows of pixels represent the left and right eye view respectively.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VIDEO_MULTIVIEW_MODE_TOP_BOTTOM">
+	<div>
+		<i><em><code>GstVideo.VideoMultiviewMode.TOP_BOTTOM</code></em></i>
+		(<span class="value">7</span>)
+		–
+	</div>
+			<p>The top half of the frame
+contains the left eye, and the bottom half the right eye.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VIDEO_MULTIVIEW_MODE_CHECKERBOARD">
+	<div>
+		<i><em><code>GstVideo.VideoMultiviewMode.CHECKERBOARD</code></em></i>
+		(<span class="value">8</span>)
+		–
+	</div>
+			<p>Pixels are arranged with
+alternating pixels representing left and right eye views in a
+checkerboard fashion.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VIDEO_MULTIVIEW_MODE_FRAME_BY_FRAME">
+	<div>
+		<i><em><code>GstVideo.VideoMultiviewMode.FRAME_BY_FRAME</code></em></i>
+		(<span class="value">32</span>)
+		–
+	</div>
+			<p>Left and right eye views
+are provided in separate frames alternately.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VIDEO_MULTIVIEW_MODE_MULTIVIEW_FRAME_BY_FRAME">
+	<div>
+		<i><em><code>GstVideo.VideoMultiviewMode.MULTIVIEW_FRAME_BY_FRAME</code></em></i>
+		(<span class="value">33</span>)
+		–
+	</div>
+			<p>Multiple
+independent views are provided in separate frames in sequence.
+This method only applies to raw video buffers at the moment.
+Specific view identification is via the <code>GstVideoMultiviewMeta</code>
+and <a href="video/gstvideometa.html#GstVideoMeta" data-gi-href-javascript="video/gstvideometa.html#GstVideoMeta" data-gi-title-javascript="GstVideo.VideoMeta" data-gi-href-python="video/gstvideometa.html#GstVideoMeta" data-gi-title-python="GstVideo.VideoMeta">GstVideo.VideoMeta</a>(s) on raw video buffers.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_VIDEO_MULTIVIEW_MODE_SEPARATED">
+	<div>
+		<i><em><code>GstVideo.VideoMultiviewMode.SEPARATED</code></em></i>
+		(<span class="value">34</span>)
+		–
+	</div>
+			<p>Multiple views are
+provided as separate <a href="gstreamer/gstmemory.html#GstMemory" data-gi-href-javascript="gstreamer/gstmemory.html#GstMemory" data-gi-title-javascript="Gst.Memory" data-gi-href-python="gstreamer/gstmemory.html#GstMemory" data-gi-title-python="Gst.Memory">Gst.Memory</a> framebuffers attached to each
+<a href="gstreamer/gstbuffer.html#GstBuffer" data-gi-href-javascript="gstreamer/gstbuffer.html#GstBuffer" data-gi-title-javascript="Gst.Buffer" data-gi-href-python="gstreamer/gstbuffer.html#GstBuffer" data-gi-title-python="Gst.Buffer">Gst.Buffer</a>, described by the <code>GstVideoMultiviewMeta</code>
+and <a href="video/gstvideometa.html#GstVideoMeta" data-gi-href-javascript="video/gstvideometa.html#GstVideoMeta" data-gi-title-javascript="GstVideo.VideoMeta" data-gi-href-python="video/gstvideometa.html#GstVideoMeta" data-gi-title-python="GstVideo.VideoMeta">GstVideo.VideoMeta</a>(s)</p>
+
+	</div>
+
+			</div>
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+
+            <h2 class="symbol_section">Constants</h2>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.16.;" id="GST_CAPS_FEATURE_FORMAT_INTERLACED">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_CAPS_FEATURE_FORMAT_INTERLACED">
+	<i>GST_CAPS_FEATURE_FORMAT_INTERLACED</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_CAPS_FEATURE_FORMAT_INTERLACED "format:Interlaced"
+</pre>
+
+<p>Name of the caps feature indicating that the stream is interlaced.</p>
+<p>Currently it is only used for video with 'interlace-mode=alternate'
+to ensure backwards compatibility for this new mode.
+In this mode each buffer carries a single field of interlaced video.
+<em>GST_VIDEO_BUFFER_FLAG_TOP_FIELD</em> and <em>GST_VIDEO_BUFFER_FLAG_BOTTOM_FIELD</em>
+indicate whether the buffer carries a top or bottom field. The order of
+buffers/fields in the stream and the timestamps on the buffers indicate the
+temporal order of the fields.
+Top and bottom fields are expected to alternate in this mode.
+The frame rate in the caps still signals the frame rate, so the notional field
+rate will be twice the frame rate from the caps
+(see <em>GST_VIDEO_INFO_FIELD_RATE_N</em>).</p>
+
+
+
+	<p>
+	<b>Since</b>			: 1.16.
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3 data-hotdoc-id="GST_CAPS_FEATURE_FORMAT_INTERLACED">
+	<i>GstVideo.CAPS_FEATURE_FORMAT_INTERLACED</i>
+</h3>
+
+
+<p>Name of the caps feature indicating that the stream is interlaced.</p>
+<p>Currently it is only used for video with 'interlace-mode=alternate'
+to ensure backwards compatibility for this new mode.
+In this mode each buffer carries a single field of interlaced video.
+<em>GST_VIDEO_BUFFER_FLAG_TOP_FIELD</em> and <em>GST_VIDEO_BUFFER_FLAG_BOTTOM_FIELD</em>
+indicate whether the buffer carries a top or bottom field. The order of
+buffers/fields in the stream and the timestamps on the buffers indicate the
+temporal order of the fields.
+Top and bottom fields are expected to alternate in this mode.
+The frame rate in the caps still signals the frame rate, so the notional field
+rate will be twice the frame rate from the caps
+(see <em>GST_VIDEO_INFO_FIELD_RATE_N</em>).</p>
+
+
+
+	<p>
+	<b>Since</b>			: 1.16.
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3 data-hotdoc-id="GST_CAPS_FEATURE_FORMAT_INTERLACED">
+	<i>GstVideo.CAPS_FEATURE_FORMAT_INTERLACED</i>
+</h3>
+
+
+<p>Name of the caps feature indicating that the stream is interlaced.</p>
+<p>Currently it is only used for video with 'interlace-mode=alternate'
+to ensure backwards compatibility for this new mode.
+In this mode each buffer carries a single field of interlaced video.
+<em>GST_VIDEO_BUFFER_FLAG_TOP_FIELD</em> and <em>GST_VIDEO_BUFFER_FLAG_BOTTOM_FIELD</em>
+indicate whether the buffer carries a top or bottom field. The order of
+buffers/fields in the stream and the timestamps on the buffers indicate the
+temporal order of the fields.
+Top and bottom fields are expected to alternate in this mode.
+The frame rate in the caps still signals the frame rate, so the notional field
+rate will be twice the frame rate from the caps
+(see <em>GST_VIDEO_INFO_FIELD_RATE_N</em>).</p>
+
+
+
+	<p>
+	<b>Since</b>			: 1.16.
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GST_VIDEO_MULTIVIEW_MAX_FRAME_PACKING">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_VIDEO_MULTIVIEW_MAX_FRAME_PACKING">
+	<i>GST_VIDEO_MULTIVIEW_MAX_FRAME_PACKING</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_VIDEO_MULTIVIEW_MAX_FRAME_PACKING GST_VIDEO_MULTIVIEW_FRAME_PACKING_CHECKERBOARD
+</pre>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+
+
+
+
+
+		
+	</div>
+	<div id="search_results">
+		<p>The results of the search are</p>
+	</div>
+	<div id="footer">
+		    
+
+	</div>
+</div>
+
+<div id="toc-column">
+	
+		<div class="edit-button">
+		
+
+	</div>
+		<div id="toc-wrapper">
+		<nav id="toc"></nav>
+	</div>
+</div>
+</div>
+</main>
+
+
+<script src="assets/js/navbar_offset_scroller.js"></script>
+</body>
+</html>

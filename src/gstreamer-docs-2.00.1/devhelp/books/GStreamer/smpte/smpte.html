@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<base href="..">
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<title>smpte</title>
+
+<link rel="stylesheet" href="assets/css/dark-frontend.css" type="text/css" title="dark">
+<link rel="alternate stylesheet" href="assets/css/light-frontend.css" type="text/css" title="light">
+<link rel="stylesheet" href="assets/css/bootstrap-toc.min.css" type="text/css">
+<link rel="stylesheet" href="assets/css/jquery.mCustomScrollbar.min.css">
+<link rel="stylesheet" href="assets/js/search/enable_search.css" type="text/css">
+
+<link rel="stylesheet" href="assets/css/extra_frontend.css" type="text/css">
+<link rel="stylesheet" href="assets/css/devhelp.css" type="text/css">
+
+<link rel="stylesheet" href="assets/css/prism-tomorrow.css" type="text/css" title="dark">
+
+<link rel="alternate stylesheet" href="assets/css/prism.css" type="text/css" title="light">
+
+<script src="assets/js/mustache.min.js"></script>
+<script src="assets/js/jquery.js"></script>
+<script src="assets/js/bootstrap.js"></script>
+<script src="assets/js/scrollspy.js"></script>
+<script src="assets/js/typeahead.jquery.min.js"></script>
+<script src="assets/js/search.js"></script>
+<script src="assets/js/compare-versions.js"></script>
+<script src="assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="assets/js/bootstrap-toc.min.js"></script>
+<script src="assets/js/jquery.touchSwipe.min.js"></script>
+<script src="assets/js/anchor.min.js"></script>
+<script src="assets/js/tag_filtering.js"></script>
+<script src="assets/js/language_switching.js"></script>
+<script src="assets/js/styleswitcher.js"></script>
+
+<script src="assets/js/lines_around_headings.js"></script>
+
+<script src="assets/js/prism-core.js"></script>
+<script src="assets/js/prism-autoloader.js"></script>
+<script src="assets/js/prism_autoloader_path_override.js"></script>
+<script src="assets/js/trie.js"></script>
+
+<!-- generic -->
+<link rel="icon" type="image/png" href="assets/images/favicon-16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="assets/images/favicon-32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="assets/images/favicon-57.png" sizes="57x57">
+<link rel="icon" type="image/png" href="assets/images/favicon-64.png" sizes="64x64">
+<link rel="icon" type="image/png" href="assets/images/favicon-76.png" sizes="76x76">
+<link rel="icon" type="image/png" href="assets/images/favicon-96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="assets/images/favicon-128.png" sizes="128x128">
+<link rel="icon" type="image/png" href="assets/images/favicon-192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="assets/images/favicon-228.png" sizes="228x228">
+
+<!-- Android -->
+<link rel="shortcut icon" sizes="196x196" href="assets/images/favicon-196.png">
+
+<!-- iOS -->
+<link rel="apple-touch-icon" href="assets/images/favicon-120.png" sizes="120x120">
+<link rel="apple-touch-icon" href="assets/images/favicon-152.png" sizes="152x152">
+<link rel="apple-touch-icon" href="assets/images/favicon-180.png" sizes="180x180">
+
+</head>
+
+<body class="no-script
+">
+
+<script>
+$('body').removeClass('no-script');
+</script>
+
+<nav class="navbar navbar-fixed-top navbar-default" id="topnav">
+	<div class="container-fluid">
+		<div class="navbar-right">
+			<a id="toc-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-wrapper" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<span title="light mode switch" class="glyphicon glyphicon-sunglasses pull-right" id="lightmode-icon"></span>
+			<form class="navbar-form pull-right" id="navbar-search-form">
+                               <div class="form-group has-feedback">
+                                       <input type="text" class="form-control input-sm" name="search" id="sidenav-lookup-field" placeholder="search" disabled>
+				       <span class="glyphicon glyphicon-search form-control-feedback" id="search-mgn-glass"></span>
+                               </div>
+                        </form>
+		</div>
+		<div class="navbar-header">
+			<a id="sidenav-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<a id="home-link" href="index.html" class="hotdoc-navbar-brand">
+				<img src="assets/images/gstreamer-logo.svg" alt="Home">
+			</a>
+		</div>
+		<div class="navbar-collapse collapse" id="navbar-wrapper">
+			<ul class="nav navbar-nav" id="menu">
+				
+<li class="dropdown">
+    <a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        API References<span class="caret"></span>
+    </a>
+	<ul class="dropdown-menu" id="modules-menu">
+					<li>
+				<a href="gstreamer/gi-index.html">GStreamer core</a>
+			</li>
+					<li>
+				<a href="libs.html">GStreamer Libraries</a>
+			</li>
+					<li>
+				<a href="plugins_doc.html">GStreamer Plugins</a>
+			</li>
+		</ul>
+</li>
+
+<li>
+    <a href="application-development/index.html">Application manual</a>
+</li>
+
+
+<li>
+    <a href="tutorials/index.html">Tutorials</a>
+</li>
+
+			</ul>
+			<div class="hidden-xs hidden-sm navbar-text navbar-center">
+							</div>
+		</div>
+	</div>
+</nav>
+
+<main>
+<div data-extension="gst-extension" data-hotdoc-in-toplevel="False" data-hotdoc-project="smpte" data-hotdoc-ref="smpte.html" class="page_container" id="page-wrapper" data-hotdoc-meta-gi-languages="['c', 'javascript', 'python']">
+<script src="assets/js/utils.js"></script>
+
+<div class="panel panel-collapse oc-collapsed" id="sidenav" data-hotdoc-role="navigation">
+	<script src="assets/js/full-width.js"></script>
+  <div id="sitenav-wrapper">
+    <iframe src="hotdoc-sitemap.html" id="sitenav-frame"></iframe>
+  </div>
+</div>
+
+<div id="body">
+	<div id="main">
+				    <div id="page-description" data-hotdoc-role="main">
+        <h1 id="smpte-page">smpte</h1>
+<p>smpte can accept I420 video streams with the same width, height and
+framerate. The two incoming buffers are blended together using an effect
+specific alpha mask.</p>
+<p>The <a href="smpte/smpte.html#smpte:depth">depth</a> property defines the presision in bits of the mask. A
+higher presision will create a mask with smoother gradients in order to avoid
+banding.</p>
+<h2 id="sample-pipelines">Sample pipelines</h2>
+<pre><code class="language-["> gst-launch-1.0 -v videotestsrc pattern=1 ! smpte name=s border=20000 type=234 duration=2000000000 ! videoconvert ! ximagesink videotestsrc ! s.
+</code></pre>
+<p>A pipeline to demonstrate the smpte transition.
+It shows a pinwheel transition a from a snow videotestsrc to an smpte
+pattern videotestsrc. The transition will take 2 seconds to complete. The
+edges of the transition are smoothed with a 20000 big border.</p>
+
+    </div>
+        
+        
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="smpte">
+	
+        
+
+        <h2>Hierarchy</h2>
+            <div class="hierarchy_container">
+                <div class="hierarchy_details">
+<pre>
+<a title="GObject" href="https://docs.gtk.org/gobject/class.Object.html" data-gi-href-javascript="https://docs.gtk.org/gobject/class.Object.html" data-gi-title-javascript="GObject.Object" data-gi-href-python="https://docs.gtk.org/gobject/class.Object.html" data-gi-title-python="GObject.Object">GObject</a>
+    <span class="lineart">╰──</span><a title="GInitiallyUnowned" href="https://docs.gtk.org/gobject/class.InitiallyUnowned.html" data-gi-href-javascript="https://docs.gtk.org/gobject/class.InitiallyUnowned.html" data-gi-title-javascript="GObject.InitiallyUnowned" data-gi-href-python="https://docs.gtk.org/gobject/class.InitiallyUnowned.html" data-gi-title-python="GObject.InitiallyUnowned">GInitiallyUnowned</a>
+        <span class="lineart">╰──</span><a title="GstObject" href="gstreamer/gstobject.html#GstObject" data-gi-href-javascript="gstreamer/gstobject.html#GstObject" data-gi-title-javascript="Gst.Object" data-gi-href-python="gstreamer/gstobject.html#GstObject" data-gi-title-python="Gst.Object">GstObject</a>
+            <span class="lineart">╰──</span><a title="GstElement" href="gstreamer/gstelement.html#GstElement" data-gi-href-javascript="gstreamer/gstelement.html#GstElement" data-gi-title-javascript="Gst.Element" data-gi-href-python="gstreamer/gstelement.html#GstElement" data-gi-title-python="Gst.Element">GstElement</a>
+                <span class="lineart">╰──</span>smpte
+</pre>
+
+</div>
+
+            </div>
+        <h2 class="symbol_section">Factory details</h2>
+        <div class="symbol-detail">
+            <p><b>Authors:</b> – Wim Taymans <wim.taymans@chello.be></wim.taymans@chello.be></p>
+            <p><b>Classification:</b> – <code>Filter/Editor/Video</code></p>
+            <p><b>Rank</b> – none</p>
+            <p><b>Plugin</b> – smpte</p>
+            <p><b>Package</b> – GStreamer Good Plug-ins</p>
+        </div>
+
+</div>
+
+
+            <h2 class="symbol_section">Pad Templates</h2>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstSMPTE!sink1">
+	
+
+
+
+        <h3><span><code>sink1</code></span></h3>
+
+
+        <div>
+            
+            <pre class="language-yaml"><code class="language-yaml">video/x-raw:
+         format: I420
+          width: [ 1, 2147483647 ]
+         height: [ 1, 2147483647 ]
+      framerate: [ 0/1, 2147483647/1 ]
+</code></pre>
+            <div class="symbol-detail">
+                <p><b>Presence</b> – <i>always</i></p>
+                <p><b>Direction</b> – <i>sink</i></p>
+                    <p><b>Object type</b> – <a title="GstPad" href="gstreamer/gstpad.html#GstPad" data-gi-href-javascript="gstreamer/gstpad.html#GstPad" data-gi-title-javascript="Gst.Pad" data-gi-href-python="gstreamer/gstpad.html#GstPad" data-gi-title-python="Gst.Pad">GstPad</a></p>
+            </div>
+        </div>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstSMPTE!sink2">
+	
+
+
+
+        <h3><span><code>sink2</code></span></h3>
+
+
+        <div>
+            
+            <pre class="language-yaml"><code class="language-yaml">video/x-raw:
+         format: I420
+          width: [ 1, 2147483647 ]
+         height: [ 1, 2147483647 ]
+      framerate: [ 0/1, 2147483647/1 ]
+</code></pre>
+            <div class="symbol-detail">
+                <p><b>Presence</b> – <i>always</i></p>
+                <p><b>Direction</b> – <i>sink</i></p>
+                    <p><b>Object type</b> – <a title="GstPad" href="gstreamer/gstpad.html#GstPad" data-gi-href-javascript="gstreamer/gstpad.html#GstPad" data-gi-title-javascript="Gst.Pad" data-gi-href-python="gstreamer/gstpad.html#GstPad" data-gi-title-python="Gst.Pad">GstPad</a></p>
+            </div>
+        </div>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstSMPTE!src">
+	
+
+
+
+        <h3><span><code>src</code></span></h3>
+
+
+        <div>
+            
+            <pre class="language-yaml"><code class="language-yaml">video/x-raw:
+         format: I420
+          width: [ 1, 2147483647 ]
+         height: [ 1, 2147483647 ]
+      framerate: [ 0/1, 2147483647/1 ]
+</code></pre>
+            <div class="symbol-detail">
+                <p><b>Presence</b> – <i>always</i></p>
+                <p><b>Direction</b> – <i>src</i></p>
+                    <p><b>Object type</b> – <a title="GstPad" href="gstreamer/gstpad.html#GstPad" data-gi-href-javascript="gstreamer/gstpad.html#GstPad" data-gi-title-javascript="Gst.Pad" data-gi-href-python="gstreamer/gstpad.html#GstPad" data-gi-title-python="Gst.Pad">GstPad</a></p>
+            </div>
+        </div>
+
+
+
+<hr>
+
+</div>
+
+
+            <h2 class="symbol_section">Properties</h2>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="smpte:border">
+	
+
+
+
+<h3 data-hotdoc-id="smpte:border">
+	<i>border</i>
+</h3>
+
+
+<pre class="property_signature">
+“border” <span class="type"><a title="gint" href="https://docs.gtk.org/glib/types.html#gint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">gint</a></span>
+</pre>
+
+<p>The border width of the transition</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	0
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="smpte:depth">
+	
+
+
+
+<h3 data-hotdoc-id="smpte:depth">
+	<i>depth</i>
+</h3>
+
+
+<pre class="property_signature">
+“depth” <span class="type"><a title="gint" href="https://docs.gtk.org/glib/types.html#gint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">gint</a></span>
+</pre>
+
+<p>Depth of the mask in bits</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	16
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="smpte:duration">
+	
+
+
+
+<h3 data-hotdoc-id="smpte:duration">
+	<i>duration</i>
+</h3>
+
+
+<pre class="property_signature">
+“duration” <span class="type"><a title="guint64" href="https://docs.gtk.org/glib/types.html#guint64" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">guint64</a></span>
+</pre>
+
+<p>Duration of the transition effect in nanoseconds</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	1000000000
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="smpte:invert">
+	
+
+
+
+<h3 data-hotdoc-id="smpte:invert">
+	<i>invert</i>
+</h3>
+
+
+<pre class="property_signature">
+“invert” <span class="type"><a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#bool" data-gi-title-python="bool">gboolean</a></span>
+</pre>
+
+<p>Invert transition mask</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	false
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="smpte:type">
+	
+
+
+
+<h3 data-hotdoc-id="smpte:type">
+	<i>type</i>
+</h3>
+
+
+<pre class="property_signature">
+“type” <span class="type"><a title="Smptetransition-type" href="smpte/smpte.html#GstSMPTETransitionType">Smptetransition-type</a> <span class="pointer-token">*</span></span>
+</pre>
+
+<p>The type of transition to use</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	bar-wipe-lr (1)
+</p>
+
+
+
+<hr>
+
+</div>
+
+
+            <h2 class="symbol_section">Named constants</h2>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstSMPTETransitionType">
+	
+
+
+
+<h3 data-hotdoc-id="GstSMPTETransitionType">
+	<i>Smptetransition-type</i>
+</h3>
+
+
+
+
+
+	<div class="members-container">
+		<h4>Members</h4>
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstSMPTETransitionType::bar-wipe-lr">
+        <code>bar-wipe-lr</code> (<i>1</i>) – A bar moves from left to right
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstSMPTETransitionType::bar-wipe-tb">
+        <code>bar-wipe-tb</code> (<i>2</i>) – A bar moves from top to bottom
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstSMPTETransitionType::box-wipe-tl">
+        <code>box-wipe-tl</code> (<i>3</i>) – A box expands from the upper-left corner to the lower-right corner
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstSMPTETransitionType::box-wipe-tr">
+        <code>box-wipe-tr</code> (<i>4</i>) – A box expands from the upper-right corner to the lower-left corner
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstSMPTETransitionType::box-wipe-br">
+        <code>box-wipe-br</code> (<i>5</i>) – A box expands from the lower-right corner to the upper-left corner
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstSMPTETransitionType::box-wipe-bl">
+        <code>box-wipe-bl</code> (<i>6</i>) – A box expands from the lower-left corner to the upper-right corner
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstSMPTETransitionType::four-box-wipe-ci">
+        <code>four-box-wipe-ci</code> (<i>7</i>) – A box shape expands from each of the four corners toward the center
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstSMPTETransitionType::four-box-wipe-co">
+        <code>four-box-wipe-co</code> (<i>8</i>) – A box shape expands from the center of each quadrant toward the corners of each quadrant
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstSMPTETransitionType::barndoor-v">
+        <code>barndoor-v</code> (<i>21</i>) – A central, vertical line splits and expands toward the left and right edges
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstSMPTETransitionType::barndoor-h">
+        <code>barndoor-h</code> (<i>22</i>) – A central, horizontal line splits and expands toward the top and bottom edges
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstSMPTETransitionType::box-wipe-tc">
+        <code>box-wipe-tc</code> (<i>23</i>) – A box expands from the top edge's midpoint to the bottom corners
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstSMPTETransitionType::box-wipe-rc">
+        <code>box-wipe-rc</code> (<i>24</i>) – A box expands from the right edge's midpoint to the left corners
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstSMPTETransitionType::box-wipe-bc">
+        <code>box-wipe-bc</code> (<i>25</i>) – A box expands from the bottom edge's midpoint to the top corners
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstSMPTETransitionType::box-wipe-lc">
+        <code>box-wipe-lc</code> (<i>26</i>) – A box expands from the left edge's midpoint to the right corners
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstSMPTETransitionType::diagonal-tl">
+        <code>diagonal-tl</code> (<i>41</i>) – A diagonal line moves from the upper-left corner to the lower-right corner
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstSMPTETransitionType::diagonal-tr">
+        <code>diagonal-tr</code> (<i>42</i>) – A diagonal line moves from the upper right corner to the lower-left corner
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstSMPTETransitionType::bowtie-v">
+        <code>bowtie-v</code> (<i>43</i>) – Two wedge shapes slide in from the top and bottom edges toward the center
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstSMPTETransitionType::bowtie-h">
+        <code>bowtie-h</code> (<i>44</i>) – Two wedge shapes slide in from the left and right edges toward the center
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstSMPTETransitionType::barndoor-dbl">
+        <code>barndoor-dbl</code> (<i>45</i>) – A diagonal line from the lower-left to upper-right corners splits and expands toward the opposite corners
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstSMPTETransitionType::barndoor-dtl">
+        <code>barndoor-dtl</code> (<i>46</i>) – A diagonal line from upper-left to lower-right corners splits and expands toward the opposite corners
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstSMPTETransitionType::misc-diagonal-dbd">
+        <code>misc-diagonal-dbd</code> (<i>47</i>) – Four wedge shapes split from the center and retract toward the four edges
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstSMPTETransitionType::misc-diagonal-dd">
+        <code>misc-diagonal-dd</code> (<i>48</i>) – A diamond connecting the four edge midpoints simultaneously contracts toward the center and expands toward the edges
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstSMPTETransitionType::vee-d">
+        <code>vee-d</code> (<i>61</i>) – A wedge shape moves from top to bottom
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstSMPTETransitionType::vee-l">
+        <code>vee-l</code> (<i>62</i>) – A wedge shape moves from right to left
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstSMPTETransitionType::vee-u">
+        <code>vee-u</code> (<i>63</i>) – A wedge shape moves from bottom to top
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstSMPTETransitionType::vee-r">
+        <code>vee-r</code> (<i>64</i>) – A wedge shape moves from left to right
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstSMPTETransitionType::barnvee-d">
+        <code>barnvee-d</code> (<i>65</i>) – A 'V' shape extending from the bottom edge's midpoint to the opposite corners contracts toward the center and expands toward the edges
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstSMPTETransitionType::barnvee-l">
+        <code>barnvee-l</code> (<i>66</i>) – A 'V' shape extending from the left edge's midpoint to the opposite corners contracts toward the center and expands toward the edges
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstSMPTETransitionType::barnvee-u">
+        <code>barnvee-u</code> (<i>67</i>) – A 'V' shape extending from the top edge's midpoint to the opposite corners contracts toward the center and expands toward the edges
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstSMPTETransitionType::barnvee-r">
+        <code>barnvee-r</code> (<i>68</i>) – A 'V' shape extending from the right edge's midpoint to the opposite corners contracts toward the center and expands toward the edges
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstSMPTETransitionType::iris-rect">
+        <code>iris-rect</code> (<i>101</i>) – A rectangle expands from the center.
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstSMPTETransitionType::clock-cw12">
+        <code>clock-cw12</code> (<i>201</i>) – A radial hand sweeps clockwise from the twelve o'clock position
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstSMPTETransitionType::clock-cw3">
+        <code>clock-cw3</code> (<i>202</i>) – A radial hand sweeps clockwise from the three o'clock position
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstSMPTETransitionType::clock-cw6">
+        <code>clock-cw6</code> (<i>203</i>) – A radial hand sweeps clockwise from the six o'clock position
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstSMPTETransitionType::clock-cw9">
+        <code>clock-cw9</code> (<i>204</i>) – A radial hand sweeps clockwise from the nine o'clock position
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstSMPTETransitionType::pinwheel-tbv">
+        <code>pinwheel-tbv</code> (<i>205</i>) – Two radial hands sweep clockwise from the twelve and six o'clock positions
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstSMPTETransitionType::pinwheel-tbh">
+        <code>pinwheel-tbh</code> (<i>206</i>) – Two radial hands sweep clockwise from the nine and three o'clock positions
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstSMPTETransitionType::pinwheel-fb">
+        <code>pinwheel-fb</code> (<i>207</i>) – Four radial hands sweep clockwise
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstSMPTETransitionType::fan-ct">
+        <code>fan-ct</code> (<i>211</i>) – A fan unfolds from the top edge, the fan axis at the center
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstSMPTETransitionType::fan-cr">
+        <code>fan-cr</code> (<i>212</i>) – A fan unfolds from the right edge, the fan axis at the center
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstSMPTETransitionType::doublefan-fov">
+        <code>doublefan-fov</code> (<i>213</i>) – Two fans, their axes at the center, unfold from the top and bottom
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstSMPTETransitionType::doublefan-foh">
+        <code>doublefan-foh</code> (<i>214</i>) – Two fans, their axes at the center, unfold from the left and right
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstSMPTETransitionType::singlesweep-cwt">
+        <code>singlesweep-cwt</code> (<i>221</i>) – A radial hand sweeps clockwise from the top edge's midpoint
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstSMPTETransitionType::singlesweep-cwr">
+        <code>singlesweep-cwr</code> (<i>222</i>) – A radial hand sweeps clockwise from the right edge's midpoint
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstSMPTETransitionType::singlesweep-cwb">
+        <code>singlesweep-cwb</code> (<i>223</i>) – A radial hand sweeps clockwise from the bottom edge's midpoint
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstSMPTETransitionType::singlesweep-cwl">
+        <code>singlesweep-cwl</code> (<i>224</i>) – A radial hand sweeps clockwise from the left edge's midpoint
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstSMPTETransitionType::doublesweep-pv">
+        <code>doublesweep-pv</code> (<i>225</i>) – Two radial hands sweep clockwise and counter-clockwise from the top and bottom edges' midpoints
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstSMPTETransitionType::doublesweep-pd">
+        <code>doublesweep-pd</code> (<i>226</i>) – Two radial hands sweep clockwise and counter-clockwise from the left and right edges' midpoints
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstSMPTETransitionType::doublesweep-ov">
+        <code>doublesweep-ov</code> (<i>227</i>) – Two radial hands attached at the top and bottom edges' midpoints sweep from right to left
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstSMPTETransitionType::doublesweep-oh">
+        <code>doublesweep-oh</code> (<i>228</i>) – Two radial hands attached at the left and right edges' midpoints sweep from top to bottom
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstSMPTETransitionType::fan-t">
+        <code>fan-t</code> (<i>231</i>) – A fan unfolds from the bottom, the fan axis at the top edge's midpoint
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstSMPTETransitionType::fan-r">
+        <code>fan-r</code> (<i>232</i>) – A fan unfolds from the left, the fan axis at the right edge's midpoint
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstSMPTETransitionType::fan-b">
+        <code>fan-b</code> (<i>233</i>) – A fan unfolds from the top, the fan axis at the bottom edge's midpoint
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstSMPTETransitionType::fan-l">
+        <code>fan-l</code> (<i>234</i>) – A fan unfolds from the right, the fan axis at the left edge's midpoint
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstSMPTETransitionType::doublefan-fiv">
+        <code>doublefan-fiv</code> (<i>235</i>) – Two fans, their axes at the top and bottom, unfold from the center
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstSMPTETransitionType::doublefan-fih">
+        <code>doublefan-fih</code> (<i>236</i>) – Two fans, their axes at the left and right, unfold from the center
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstSMPTETransitionType::singlesweep-cwtl">
+        <code>singlesweep-cwtl</code> (<i>241</i>) – A radial hand sweeps clockwise from the upper-left corner
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstSMPTETransitionType::singlesweep-cwbl">
+        <code>singlesweep-cwbl</code> (<i>242</i>) – A radial hand sweeps counter-clockwise from the lower-left corner.
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstSMPTETransitionType::singlesweep-cwbr">
+        <code>singlesweep-cwbr</code> (<i>243</i>) – A radial hand sweeps clockwise from the lower-right corner
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstSMPTETransitionType::singlesweep-cwtr">
+        <code>singlesweep-cwtr</code> (<i>244</i>) – A radial hand sweeps counter-clockwise from the upper-right corner
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstSMPTETransitionType::doublesweep-pdtl">
+        <code>doublesweep-pdtl</code> (<i>245</i>) – Two radial hands attached at the upper-left and lower-right corners sweep down and up
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstSMPTETransitionType::doublesweep-pdbl">
+        <code>doublesweep-pdbl</code> (<i>246</i>) – Two radial hands attached at the lower-left and upper-right corners sweep down and up
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstSMPTETransitionType::saloondoor-t">
+        <code>saloondoor-t</code> (<i>251</i>) – Two radial hands attached at the upper-left and upper-right corners sweep down
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstSMPTETransitionType::saloondoor-l">
+        <code>saloondoor-l</code> (<i>252</i>) – Two radial hands attached at the upper-left and lower-left corners sweep to the right
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstSMPTETransitionType::saloondoor-b">
+        <code>saloondoor-b</code> (<i>253</i>) – Two radial hands attached at the lower-left and lower-right corners sweep up
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstSMPTETransitionType::saloondoor-r">
+        <code>saloondoor-r</code> (<i>254</i>) – Two radial hands attached at the upper-right and lower-right corners sweep to the left
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstSMPTETransitionType::windshield-r">
+        <code>windshield-r</code> (<i>261</i>) – Two radial hands attached at the midpoints of the top and bottom halves sweep from right to left
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstSMPTETransitionType::windshield-u">
+        <code>windshield-u</code> (<i>262</i>) – Two radial hands attached at the midpoints of the left and right halves sweep from top to bottom
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstSMPTETransitionType::windshield-v">
+        <code>windshield-v</code> (<i>263</i>) – Two sets of radial hands attached at the midpoints of the top and bottom halves sweep from top to bottom and bottom to top
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstSMPTETransitionType::windshield-h">
+        <code>windshield-h</code> (<i>264</i>) – Two sets of radial hands attached at the midpoints of the left and right halves sweep from left to right and right to left
+        </div>
+    
+			</div>
+
+
+
+
+<hr>
+
+</div>
+
+
+
+
+
+
+		
+	</div>
+	<div id="search_results">
+		<p>The results of the search are</p>
+	</div>
+	<div id="footer">
+		    
+
+	</div>
+</div>
+
+<div id="toc-column">
+	
+		<div class="edit-button">
+		
+
+	</div>
+		<div id="toc-wrapper">
+		<nav id="toc"></nav>
+	</div>
+</div>
+</div>
+</main>
+
+
+<script src="assets/js/navbar_offset_scroller.js"></script>
+</body>
+</html>

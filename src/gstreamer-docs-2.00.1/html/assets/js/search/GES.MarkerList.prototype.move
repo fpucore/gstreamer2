@@ -1,0 +1,1 @@
+urls_downloaded_cb({"token":"GES.MarkerList.prototype.move","urls":[{"url":"gst-editing-services/gesmarkerlist.html#ges_marker_list_move","node_type":"symbol","page":"GESMarkerList","sections":["Methods"],"context":{"gi-language":["javascript"]}}]});

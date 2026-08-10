@@ -1,0 +1,1729 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<base href="..">
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<title>d3d12videosink</title>
+
+<link rel="stylesheet" href="assets/css/dark-frontend.css" type="text/css" title="dark">
+<link rel="alternate stylesheet" href="assets/css/light-frontend.css" type="text/css" title="light">
+<link rel="stylesheet" href="assets/css/bootstrap-toc.min.css" type="text/css">
+<link rel="stylesheet" href="assets/css/jquery.mCustomScrollbar.min.css">
+<link rel="stylesheet" href="assets/js/search/enable_search.css" type="text/css">
+
+<link rel="stylesheet" href="assets/css/extra_frontend.css" type="text/css">
+<link rel="stylesheet" href="assets/css/devhelp.css" type="text/css">
+
+<link rel="stylesheet" href="assets/css/prism-tomorrow.css" type="text/css" title="dark">
+
+<link rel="alternate stylesheet" href="assets/css/prism.css" type="text/css" title="light">
+
+<script src="assets/js/mustache.min.js"></script>
+<script src="assets/js/jquery.js"></script>
+<script src="assets/js/bootstrap.js"></script>
+<script src="assets/js/scrollspy.js"></script>
+<script src="assets/js/typeahead.jquery.min.js"></script>
+<script src="assets/js/search.js"></script>
+<script src="assets/js/compare-versions.js"></script>
+<script src="assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="assets/js/bootstrap-toc.min.js"></script>
+<script src="assets/js/jquery.touchSwipe.min.js"></script>
+<script src="assets/js/anchor.min.js"></script>
+<script src="assets/js/tag_filtering.js"></script>
+<script src="assets/js/language_switching.js"></script>
+<script src="assets/js/styleswitcher.js"></script>
+
+<script src="assets/js/lines_around_headings.js"></script>
+
+<script src="assets/js/prism-core.js"></script>
+<script src="assets/js/prism-autoloader.js"></script>
+<script src="assets/js/prism_autoloader_path_override.js"></script>
+<script src="assets/js/trie.js"></script>
+
+<!-- generic -->
+<link rel="icon" type="image/png" href="assets/images/favicon-16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="assets/images/favicon-32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="assets/images/favicon-57.png" sizes="57x57">
+<link rel="icon" type="image/png" href="assets/images/favicon-64.png" sizes="64x64">
+<link rel="icon" type="image/png" href="assets/images/favicon-76.png" sizes="76x76">
+<link rel="icon" type="image/png" href="assets/images/favicon-96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="assets/images/favicon-128.png" sizes="128x128">
+<link rel="icon" type="image/png" href="assets/images/favicon-192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="assets/images/favicon-228.png" sizes="228x228">
+
+<!-- Android -->
+<link rel="shortcut icon" sizes="196x196" href="assets/images/favicon-196.png">
+
+<!-- iOS -->
+<link rel="apple-touch-icon" href="assets/images/favicon-120.png" sizes="120x120">
+<link rel="apple-touch-icon" href="assets/images/favicon-152.png" sizes="152x152">
+<link rel="apple-touch-icon" href="assets/images/favicon-180.png" sizes="180x180">
+
+</head>
+
+<body class="no-script
+">
+
+<script>
+$('body').removeClass('no-script');
+</script>
+
+<nav class="navbar navbar-fixed-top navbar-default" id="topnav">
+	<div class="container-fluid">
+		<div class="navbar-right">
+			<a id="toc-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-wrapper" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<span title="light mode switch" class="glyphicon glyphicon-sunglasses pull-right" id="lightmode-icon"></span>
+			<form class="navbar-form pull-right" id="navbar-search-form">
+                               <div class="form-group has-feedback">
+                                       <input type="text" class="form-control input-sm" name="search" id="sidenav-lookup-field" placeholder="search" disabled>
+				       <span class="glyphicon glyphicon-search form-control-feedback" id="search-mgn-glass"></span>
+                               </div>
+                        </form>
+		</div>
+		<div class="navbar-header">
+			<a id="sidenav-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<a id="home-link" href="index.html" class="hotdoc-navbar-brand">
+				<img src="assets/images/gstreamer-logo.svg" alt="Home">
+			</a>
+		</div>
+		<div class="navbar-collapse collapse" id="navbar-wrapper">
+			<ul class="nav navbar-nav" id="menu">
+				
+<li class="dropdown">
+    <a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        API References<span class="caret"></span>
+    </a>
+	<ul class="dropdown-menu" id="modules-menu">
+					<li>
+				<a href="gstreamer/gi-index.html">GStreamer core</a>
+			</li>
+					<li>
+				<a href="libs.html">GStreamer Libraries</a>
+			</li>
+					<li>
+				<a href="plugins_doc.html">GStreamer Plugins</a>
+			</li>
+		</ul>
+</li>
+
+<li>
+    <a href="application-development/index.html">Application manual</a>
+</li>
+
+
+<li>
+    <a href="tutorials/index.html">Tutorials</a>
+</li>
+
+			</ul>
+			<div class="hidden-xs hidden-sm navbar-text navbar-center">
+							</div>
+		</div>
+	</div>
+</nav>
+
+<main>
+<div data-extension="gst-extension" data-hotdoc-in-toplevel="False" data-hotdoc-project="d3d12" data-hotdoc-ref="d3d12videosink.html" class="page_container" id="page-wrapper" data-hotdoc-meta-gi-languages="['c', 'javascript', 'python']">
+<script src="assets/js/utils.js"></script>
+
+<div class="panel panel-collapse oc-collapsed" id="sidenav" data-hotdoc-role="navigation">
+	<script src="assets/js/full-width.js"></script>
+  <div id="sitenav-wrapper">
+    <iframe src="hotdoc-sitemap.html" id="sitenav-frame"></iframe>
+  </div>
+</div>
+
+<div id="body">
+	<div id="main">
+				    <div id="page-description" data-hotdoc-role="main">
+        <h1 id="d3d12videosink-page">d3d12videosink</h1>
+<p>A Direct3D12 Video Sink</p>
+
+    </div>
+        
+        
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="d3d12videosink">
+	
+        
+
+        <h2>Hierarchy</h2>
+            <div class="hierarchy_container">
+                <div class="hierarchy_details">
+<pre>
+<a title="GObject" href="https://docs.gtk.org/gobject/class.Object.html" data-gi-href-javascript="https://docs.gtk.org/gobject/class.Object.html" data-gi-title-javascript="GObject.Object" data-gi-href-python="https://docs.gtk.org/gobject/class.Object.html" data-gi-title-python="GObject.Object">GObject</a>
+    <span class="lineart">╰──</span><a title="GInitiallyUnowned" href="https://docs.gtk.org/gobject/class.InitiallyUnowned.html" data-gi-href-javascript="https://docs.gtk.org/gobject/class.InitiallyUnowned.html" data-gi-title-javascript="GObject.InitiallyUnowned" data-gi-href-python="https://docs.gtk.org/gobject/class.InitiallyUnowned.html" data-gi-title-python="GObject.InitiallyUnowned">GInitiallyUnowned</a>
+        <span class="lineart">╰──</span><a title="GstObject" href="gstreamer/gstobject.html#GstObject" data-gi-href-javascript="gstreamer/gstobject.html#GstObject" data-gi-title-javascript="Gst.Object" data-gi-href-python="gstreamer/gstobject.html#GstObject" data-gi-title-python="Gst.Object">GstObject</a>
+            <span class="lineart">╰──</span><a title="GstElement" href="gstreamer/gstelement.html#GstElement" data-gi-href-javascript="gstreamer/gstelement.html#GstElement" data-gi-title-javascript="Gst.Element" data-gi-href-python="gstreamer/gstelement.html#GstElement" data-gi-title-python="Gst.Element">GstElement</a>
+                <span class="lineart">╰──</span><a title="GstBaseSink" href="base/gstbasesink.html#GstBaseSink" data-gi-href-javascript="base/gstbasesink.html#GstBaseSink" data-gi-title-javascript="GstBase.BaseSink" data-gi-href-python="base/gstbasesink.html#GstBaseSink" data-gi-title-python="GstBase.BaseSink">GstBaseSink</a>
+                    <span class="lineart">╰──</span><a title="GstVideoSink" href="video/gstvideosink.html#GstVideoSink" data-gi-href-javascript="video/gstvideosink.html#GstVideoSink" data-gi-title-javascript="GstVideo.VideoSink" data-gi-href-python="video/gstvideosink.html#GstVideoSink" data-gi-title-python="GstVideo.VideoSink">GstVideoSink</a>
+                        <span class="lineart">╰──</span>d3d12videosink
+</pre>
+
+</div>
+
+            </div>
+            <h2>Implemented interfaces</h2>
+            <div>
+                <pre>
+<a title="GstVideoOverlay" href="video/gstvideooverlay.html#GstVideoOverlay" data-gi-href-javascript="video/gstvideooverlay.html#GstVideoOverlay" data-gi-title-javascript="GstVideo.VideoOverlay" data-gi-href-python="video/gstvideooverlay.html#GstVideoOverlay" data-gi-title-python="GstVideo.VideoOverlay">GstVideoOverlay</a>
+<a title="GstNavigation" href="video/gstnavigation.html#GstNavigation" data-gi-href-javascript="video/gstnavigation.html#GstNavigation" data-gi-title-javascript="GstVideo.Navigation" data-gi-href-python="video/gstnavigation.html#GstNavigation" data-gi-title-python="GstVideo.Navigation">GstNavigation</a>
+<a title="GstColorBalance" href="video/gstcolorbalance.html#GstColorBalance" data-gi-href-javascript="video/gstcolorbalance.html#GstColorBalance" data-gi-title-javascript="GstVideo.ColorBalance" data-gi-href-python="video/gstcolorbalance.html#GstColorBalance" data-gi-title-python="GstVideo.ColorBalance">GstColorBalance</a>
+</pre>
+            </div>
+        <h2 class="symbol_section">Factory details</h2>
+        <div class="symbol-detail">
+            <p><b>Authors:</b> – Seungha Yang <seungha@centricular.com></seungha@centricular.com></p>
+            <p><b>Classification:</b> – <code>Sink/Video</code></p>
+            <p><b>Rank</b> – primary + 1</p>
+            <p><b>Plugin</b> – d3d12</p>
+            <p><b>Package</b> – GStreamer Bad Plug-ins</p>
+        </div>
+
+</div>
+
+
+            <h2 class="symbol_section">Pad Templates</h2>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstD3D12VideoSink!sink">
+	
+
+
+
+        <h3><span><code>sink</code></span></h3>
+
+
+        <div>
+            
+            <pre class="language-yaml"><code class="language-yaml">video/x-raw(memory:D3D12Memory):
+         format: { RGBA64_LE, BGRA64_LE, Y416_LE, Y412_LE, RGB10A2_LE, Y410, BGR10A2_LE, Y216_LE, Y212_LE, Y210, VUYA, RGBA, BGRA, RBGA, P016_LE, P012_LE, P010_10LE, RGBx, BGRx, YUY2, NV12, ARGB64_LE, AYUV64, GBRA_12LE, GBRA_10LE, AYUV, ABGR, ARGB, GBRA, Y444_16LE, A444_16LE, A444_12LE, A444_10LE, A444, A422_16LE, A422_12LE, A422_10LE, A422, A420_16LE, A420_12LE, A420_10LE, A420, AV12, GBR_16LE, Y444_12LE, GBR_12LE, I422_12LE, I420_12LE, Y444_10LE, GBR_10LE, I422_10LE, I420_10LE, Y444, BGRP, GBR, RGBP, xBGR, xRGB, Y42B, NV24, NV16, NV61, NV21, I420, YV12, Y41B, YUV9, YVU9, GRAY16_LE, GRAY8, v216, v210, r210, v308, IYU2, RGB, BGR, UYVY, VYUY, YVYU, RGB16, BGR16, RGB15, BGR15 }
+          width: [ 1, 2147483647 ]
+         height: [ 1, 2147483647 ]
+      framerate: [ 0/1, 2147483647/1 ]
+
+video/x-raw(memory:D3D12Memory, meta:GstVideoOverlayComposition):
+         format: { RGBA64_LE, BGRA64_LE, Y416_LE, Y412_LE, RGB10A2_LE, Y410, BGR10A2_LE, Y216_LE, Y212_LE, Y210, VUYA, RGBA, BGRA, RBGA, P016_LE, P012_LE, P010_10LE, RGBx, BGRx, YUY2, NV12, ARGB64_LE, AYUV64, GBRA_12LE, GBRA_10LE, AYUV, ABGR, ARGB, GBRA, Y444_16LE, A444_16LE, A444_12LE, A444_10LE, A444, A422_16LE, A422_12LE, A422_10LE, A422, A420_16LE, A420_12LE, A420_10LE, A420, AV12, GBR_16LE, Y444_12LE, GBR_12LE, I422_12LE, I420_12LE, Y444_10LE, GBR_10LE, I422_10LE, I420_10LE, Y444, BGRP, GBR, RGBP, xBGR, xRGB, Y42B, NV24, NV16, NV61, NV21, I420, YV12, Y41B, YUV9, YVU9, GRAY16_LE, GRAY8, v216, v210, r210, v308, IYU2, RGB, BGR, UYVY, VYUY, YVYU, RGB16, BGR16, RGB15, BGR15 }
+          width: [ 1, 2147483647 ]
+         height: [ 1, 2147483647 ]
+      framerate: [ 0/1, 2147483647/1 ]
+video/x-raw:
+         format: { RGBA64_LE, BGRA64_LE, Y416_LE, Y412_LE, RGB10A2_LE, Y410, BGR10A2_LE, Y216_LE, Y212_LE, Y210, VUYA, RGBA, BGRA, RBGA, P016_LE, P012_LE, P010_10LE, RGBx, BGRx, YUY2, NV12, ARGB64_LE, AYUV64, GBRA_12LE, GBRA_10LE, AYUV, ABGR, ARGB, GBRA, Y444_16LE, A444_16LE, A444_12LE, A444_10LE, A444, A422_16LE, A422_12LE, A422_10LE, A422, A420_16LE, A420_12LE, A420_10LE, A420, AV12, GBR_16LE, Y444_12LE, GBR_12LE, I422_12LE, I420_12LE, Y444_10LE, GBR_10LE, I422_10LE, I420_10LE, Y444, BGRP, GBR, RGBP, xBGR, xRGB, Y42B, NV24, NV16, NV61, NV21, I420, YV12, Y41B, YUV9, YVU9, GRAY16_LE, GRAY8, v216, v210, r210, v308, IYU2, RGB, BGR, UYVY, VYUY, YVYU, RGB16, BGR16, RGB15, BGR15 }
+          width: [ 1, 2147483647 ]
+         height: [ 1, 2147483647 ]
+      framerate: [ 0/1, 2147483647/1 ]
+
+video/x-raw(memory:SystemMemory, meta:GstVideoOverlayComposition):
+         format: { RGBA64_LE, BGRA64_LE, Y416_LE, Y412_LE, RGB10A2_LE, Y410, BGR10A2_LE, Y216_LE, Y212_LE, Y210, VUYA, RGBA, BGRA, RBGA, P016_LE, P012_LE, P010_10LE, RGBx, BGRx, YUY2, NV12, ARGB64_LE, AYUV64, GBRA_12LE, GBRA_10LE, AYUV, ABGR, ARGB, GBRA, Y444_16LE, A444_16LE, A444_12LE, A444_10LE, A444, A422_16LE, A422_12LE, A422_10LE, A422, A420_16LE, A420_12LE, A420_10LE, A420, AV12, GBR_16LE, Y444_12LE, GBR_12LE, I422_12LE, I420_12LE, Y444_10LE, GBR_10LE, I422_10LE, I420_10LE, Y444, BGRP, GBR, RGBP, xBGR, xRGB, Y42B, NV24, NV16, NV61, NV21, I420, YV12, Y41B, YUV9, YVU9, GRAY16_LE, GRAY8, v216, v210, r210, v308, IYU2, RGB, BGR, UYVY, VYUY, YVYU, RGB16, BGR16, RGB15, BGR15 }
+          width: [ 1, 2147483647 ]
+         height: [ 1, 2147483647 ]
+      framerate: [ 0/1, 2147483647/1 ]
+</code></pre>
+            <div class="symbol-detail">
+                <p><b>Presence</b> – <i>always</i></p>
+                <p><b>Direction</b> – <i>sink</i></p>
+                    <p><b>Object type</b> – <a title="GstPad" href="gstreamer/gstpad.html#GstPad" data-gi-href-javascript="gstreamer/gstpad.html#GstPad" data-gi-title-javascript="Gst.Pad" data-gi-href-python="gstreamer/gstpad.html#GstPad" data-gi-title-python="Gst.Pad">GstPad</a></p>
+            </div>
+        </div>
+
+
+
+<hr>
+
+</div>
+
+
+            <h2 class="symbol_section">Signals</h2>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.26;" id="d3d12videosink::overlay">
+	
+
+
+
+<h3 data-hotdoc-id="d3d12videosink::overlay">
+	<i>overlay</i>
+</h3>
+
+
+
+
+<pre class="c-prototype language-c">
+overlay_callback (<a title="GstElement" href="gstreamer/gstelement.html#GstElement" data-gi-href-javascript="gstreamer/gstelement.html#GstElement" data-gi-title-javascript="Gst.Element" data-gi-href-python="gstreamer/gstelement.html#GstElement" data-gi-title-python="Gst.Element">GstElement</a> <span class="pointer-token">*</span> d3d12videosink,
+                  <a title="gpointer" href="https://docs.gtk.org/glib/types.html#gpointer" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" data-gi-title-javascript="Object" data-gi-href-python="https://docs.python.org/3/library/functions.html#object" data-gi-title-python="object">gpointer</a> command_queue,
+                  <a title="gpointer" href="https://docs.gtk.org/glib/types.html#gpointer" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" data-gi-title-javascript="Object" data-gi-href-python="https://docs.python.org/3/library/functions.html#object" data-gi-title-python="object">gpointer</a> resource12,
+                  <a title="gpointer" href="https://docs.gtk.org/glib/types.html#gpointer" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" data-gi-title-javascript="Object" data-gi-href-python="https://docs.python.org/3/library/functions.html#object" data-gi-title-python="object">gpointer</a> device11on12,
+                  <a title="gpointer" href="https://docs.gtk.org/glib/types.html#gpointer" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" data-gi-title-javascript="Object" data-gi-href-python="https://docs.python.org/3/library/functions.html#object" data-gi-title-python="object">gpointer</a> resource11,
+                  <a title="gpointer" href="https://docs.gtk.org/glib/types.html#gpointer" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" data-gi-title-javascript="Object" data-gi-href-python="https://docs.python.org/3/library/functions.html#object" data-gi-title-python="object">gpointer</a> context2d,
+                  <a title="gpointer" href="https://docs.gtk.org/glib/types.html#gpointer" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" data-gi-title-javascript="Object" data-gi-href-python="https://docs.python.org/3/library/functions.html#object" data-gi-title-python="object">gpointer</a> viewport,
+                  <a title="gpointer" href="https://docs.gtk.org/glib/types.html#gpointer" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" data-gi-title-javascript="Object" data-gi-href-python="https://docs.python.org/3/library/functions.html#object" data-gi-title-python="object">gpointer</a> udata)</pre>
+<pre class="python-prototype language-python">
+<code>def overlay_callback (d3d12videosink, command_queue, resource12, device11on12, resource11, context2d, viewport, udata):
+    #python callback for the 'overlay' signal</code></pre>
+<pre class="javascript-prototype language-javascript">
+<code>function overlay_callback(d3d12videosink: <a title="GstElement" href="gstreamer/gstelement.html#GstElement" data-gi-href-javascript="gstreamer/gstelement.html#GstElement" data-gi-title-javascript="Gst.Element" data-gi-href-python="gstreamer/gstelement.html#GstElement" data-gi-title-python="Gst.Element">GstElement</a> <span class="pointer-token">*</span> d3d12videosink, command_queue: <a title="gpointer" href="https://docs.gtk.org/glib/types.html#gpointer" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" data-gi-title-javascript="Object" data-gi-href-python="https://docs.python.org/3/library/functions.html#object" data-gi-title-python="object">gpointer</a> command_queue, resource12: <a title="gpointer" href="https://docs.gtk.org/glib/types.html#gpointer" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" data-gi-title-javascript="Object" data-gi-href-python="https://docs.python.org/3/library/functions.html#object" data-gi-title-python="object">gpointer</a> resource12, device11on12: <a title="gpointer" href="https://docs.gtk.org/glib/types.html#gpointer" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" data-gi-title-javascript="Object" data-gi-href-python="https://docs.python.org/3/library/functions.html#object" data-gi-title-python="object">gpointer</a> device11on12, resource11: <a title="gpointer" href="https://docs.gtk.org/glib/types.html#gpointer" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" data-gi-title-javascript="Object" data-gi-href-python="https://docs.python.org/3/library/functions.html#object" data-gi-title-python="object">gpointer</a> resource11, context2d: <a title="gpointer" href="https://docs.gtk.org/glib/types.html#gpointer" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" data-gi-title-javascript="Object" data-gi-href-python="https://docs.python.org/3/library/functions.html#object" data-gi-title-python="object">gpointer</a> context2d, viewport: <a title="gpointer" href="https://docs.gtk.org/glib/types.html#gpointer" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" data-gi-title-javascript="Object" data-gi-href-python="https://docs.python.org/3/library/functions.html#object" data-gi-title-python="object">gpointer</a> viewport, udata: <a title="gpointer" href="https://docs.gtk.org/glib/types.html#gpointer" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" data-gi-title-javascript="Object" data-gi-href-python="https://docs.python.org/3/library/functions.html#object" data-gi-title-python="object">gpointer</a> udata): {
+    // javascript callback for the 'overlay' signal
+}</code></pre>
+
+<p>Signal emitted with Direct3D12, Direct3D11 and Direct2D resources
+associated with swapchain backbuffer.</p>
+<p>This signal is emitted from the streaming thread if "overlay-mode" property
+includes GST_D3D12_WINDOW_OVERLAY_D3D12. The <em>resource12</em> is a render target
+backbuffer of the swapchain. The Resource state of <em>resource12</em> when this
+signal is emitted will be always D3D12_RESOURCE_STATE_RENDER_TARGET and
+signal handler should make sure the state is
+D3D12_RESOURCE_STATE_RENDER_TARGET when signal handler is returned,
+so that state change to final D3D12_RESOURCE_STATE_PRESENT can be
+processed by videosink.</p>
+<p>In addition to the d2d12 resources, if "overlay-mode" includes
+GST_D3D12_WINDOW_OVERLAY_D3D11 flag and d3d11on12 API is supported by
+system, <em>device11on12</em> and <em>resource11</em> will be valid handles.
+Singla handler should not assume the <em>device11on12</em> and <em>resource11</em>
+are always valid handle since d3d11on12 API may not be supported.
+The <em>resource11</em> is wrapped resource created via
+<a href="https://learn.microsoft.com/en-us/windows/win32/api/d3d11on12/nf-d3d11on12-id3d11on12device-createwrappedresource">ID3D11On12Device::CreateWrappedResource</a>.
+Thus, signal handler must follow required steps for d3d11on12 device, for example,
+<a href="https://learn.microsoft.com/en-us/windows/win32/api/d3d11on12/nf-d3d11on12-id3d11on12device-acquirewrappedresources">ID3D11On12Device::AcquireWrappedResources</a>
+must be called before recoding GPU commands.
+Once GPU commands are recoded via d3d11 or d2d APIs,
+the resource should be released via
+<a href="https://learn.microsoft.com/en-us/windows/win32/api/d3d11on12/nf-d3d11on12-id3d11on12device-releasewrappedresources">ID3D11On12Device::ReleaseWrappedResources</a>,
+and then <a href="https://learn.microsoft.com/en-us/windows/win32/api/d3d11/nf-d3d11-id3d11devicecontext-flush">ID3D11DeviceContext::Flush</a>
+must be called in the signal handler.</p>
+<p>If "overlay-mode" is GST_D3D12_WINDOW_OVERLAY_D2D and d2d device is
+available, <em>context2d</em> will be valid handle. When this signal is emitted,
+<em>context2d</em> has configured render target already. The D2D render target
+is also a resource derived from <em>resource11</em> and it's swapchain's backbuffer.
+The same step for d3d11 resource (i.e., acquire, release, and flush)
+is required for d2d as well.</p>
+<p>Since the resource is swapchain's backbuffer, signal handler must not hold
+any derived resources such as ID3D11RenderTargetView, so that videosink
+can clear swapchain resources and resize anytime it's needed.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>d3d12videosink</code></em></i>
+–
+</div>
+<p>the d3d12videosink element that emitted the signal</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>command_queue</code></em></i>
+–
+</div>
+<p>ID3D12CommandQueue</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>resource12</code></em></i>
+–
+</div>
+<p>ID3D12Resource</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>device11on12</code></em></i>
+–
+</div>
+<p>ID3D11On12Device</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>resource11</code></em></i>
+–
+</div>
+<p>ID3D11Texture2D</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>context2d</code></em></i>
+–
+</div>
+<p>ID2D1DeviceContext2</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>viewport</code></em></i>
+–
+</div>
+<p>D3D12_RECT, d3d12videosink's current viewport</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>udata</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+<p>
+	<b>Flags:</b>	
+	
+		
+				<a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS">Run Last</a>
+			
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.26
+		</p>
+
+<hr>
+
+</div>
+
+
+            <h2 class="symbol_section">Properties</h2>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="d3d12videosink:adapter">
+	
+
+
+
+<h3 data-hotdoc-id="d3d12videosink:adapter">
+	<i>adapter</i>
+</h3>
+
+
+<pre class="property_signature">
+“adapter” <span class="type"><a title="gint" href="https://docs.gtk.org/glib/types.html#gint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">gint</a></span>
+</pre>
+
+<p>Adapter index for creating device (-1 for default)</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	-1
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.26;" id="d3d12videosink:brightness">
+	
+
+
+
+<h3 data-hotdoc-id="d3d12videosink:brightness">
+	<i>brightness</i>
+</h3>
+
+
+<pre class="property_signature">
+“brightness” <span class="type"><a title="gdouble" href="https://docs.gtk.org/glib/types.html#gdouble" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#float" data-gi-title-python="float">gdouble</a></span>
+</pre>
+
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	0
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.26
+		</p>
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.26;" id="d3d12videosink:contrast">
+	
+
+
+
+<h3 data-hotdoc-id="d3d12videosink:contrast">
+	<i>contrast</i>
+</h3>
+
+
+<pre class="property_signature">
+“contrast” <span class="type"><a title="gdouble" href="https://docs.gtk.org/glib/types.html#gdouble" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#float" data-gi-title-python="float">gdouble</a></span>
+</pre>
+
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	1
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.26
+		</p>
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.26;" id="d3d12videosink:direct-swapchain">
+	
+
+
+
+<h3 data-hotdoc-id="d3d12videosink:direct-swapchain">
+	<i>direct-swapchain</i>
+</h3>
+
+
+<pre class="property_signature">
+“direct-swapchain” <span class="type"><a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#bool" data-gi-title-python="bool">gboolean</a></span>
+</pre>
+
+<p>Attach DXGI swapchain to external window handle directly, instead of
+creating child window. Note that once direct swapchain is configured,
+GDI will no longer work with the given window handle.</p>
+<p>If enabled, GstVideoOverlay::set_render_rectangle will be ignored,
+and application should handle window positioning.</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	false
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.26
+		</p>
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.26;" id="d3d12videosink:display-format">
+	
+
+
+
+<h3 data-hotdoc-id="d3d12videosink:display-format">
+	<i>display-format</i>
+</h3>
+
+
+<pre class="property_signature">
+“display-format” <span class="type"><a title="D3d12video-sink-display-format" href="d3d12/d3d12videosink.html#GstD3D12VideoSinkDisplayFormat">D3d12video-sink-display-format</a> <span class="pointer-token">*</span></span>
+</pre>
+
+<p>Swapchain display format</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	unknown (0)
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.26
+		</p>
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="d3d12videosink:enable-navigation-events">
+	
+
+
+
+<h3 data-hotdoc-id="d3d12videosink:enable-navigation-events">
+	<i>enable-navigation-events</i>
+</h3>
+
+
+<pre class="property_signature">
+“enable-navigation-events” <span class="type"><a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#bool" data-gi-title-python="bool">gboolean</a></span>
+</pre>
+
+<p>When enabled, navigation events are sent upstream</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	true
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.26;" id="d3d12videosink:error-on-closed">
+	
+
+
+
+<h3 data-hotdoc-id="d3d12videosink:error-on-closed">
+	<i>error-on-closed</i>
+</h3>
+
+
+<pre class="property_signature">
+“error-on-closed” <span class="type"><a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#bool" data-gi-title-python="bool">gboolean</a></span>
+</pre>
+
+<p>Posts error message if window got closed in playing or paused state</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	true
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.26
+		</p>
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.26;" id="d3d12videosink:external-window-only">
+	
+
+
+
+<h3 data-hotdoc-id="d3d12videosink:external-window-only">
+	<i>external-window-only</i>
+</h3>
+
+
+<pre class="property_signature">
+“external-window-only” <span class="type"><a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#bool" data-gi-title-python="bool">gboolean</a></span>
+</pre>
+
+<p>If enabled and window handle is not set by user, videosink will report
+error instead of creating videosink's own window.</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	false
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.26
+		</p>
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="d3d12videosink:force-aspect-ratio">
+	
+
+
+
+<h3 data-hotdoc-id="d3d12videosink:force-aspect-ratio">
+	<i>force-aspect-ratio</i>
+</h3>
+
+
+<pre class="property_signature">
+“force-aspect-ratio” <span class="type"><a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#bool" data-gi-title-python="bool">gboolean</a></span>
+</pre>
+
+<p>When enabled, scaling will respect original aspect ratio</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	true
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="d3d12videosink:fov">
+	
+
+
+
+<h3 data-hotdoc-id="d3d12videosink:fov">
+	<i>fov</i>
+</h3>
+
+
+<pre class="property_signature">
+“fov” <span class="type"><a title="gfloat" href="https://docs.gtk.org/glib/types.html#gfloat" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#float" data-gi-title-python="float">gfloat</a></span>
+</pre>
+
+<p>Field of view angle in degrees</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	90
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="d3d12videosink:fullscreen">
+	
+
+
+
+<h3 data-hotdoc-id="d3d12videosink:fullscreen">
+	<i>fullscreen</i>
+</h3>
+
+
+<pre class="property_signature">
+“fullscreen” <span class="type"><a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#bool" data-gi-title-python="bool">gboolean</a></span>
+</pre>
+
+<p>Fullscreen mode</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	false
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="d3d12videosink:fullscreen-on-alt-enter">
+	
+
+
+
+<h3 data-hotdoc-id="d3d12videosink:fullscreen-on-alt-enter">
+	<i>fullscreen-on-alt-enter</i>
+</h3>
+
+
+<pre class="property_signature">
+“fullscreen-on-alt-enter” <span class="type"><a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#bool" data-gi-title-python="bool">gboolean</a></span>
+</pre>
+
+<p>Enable fullscreen toggle on alt+enter key input</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	false
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="d3d12videosink:gamma-mode">
+	
+
+
+
+<h3 data-hotdoc-id="d3d12videosink:gamma-mode">
+	<i>gamma-mode</i>
+</h3>
+
+
+<pre class="property_signature">
+“gamma-mode” <span class="type"><a title="GstVideoGammaMode" href="video/videoconverter.html#GstVideoGammaMode" data-gi-href-javascript="video/videoconverter.html#GstVideoGammaMode" data-gi-title-javascript="GstVideo.VideoGammaMode" data-gi-href-python="video/videoconverter.html#GstVideoGammaMode" data-gi-title-python="GstVideo.VideoGammaMode">GstVideoGammaMode</a> <span class="pointer-token">*</span></span>
+</pre>
+
+<p>Gamma conversion mode</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	none (0)
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.26;" id="d3d12videosink:hue">
+	
+
+
+
+<h3 data-hotdoc-id="d3d12videosink:hue">
+	<i>hue</i>
+</h3>
+
+
+<pre class="property_signature">
+“hue” <span class="type"><a title="gdouble" href="https://docs.gtk.org/glib/types.html#gdouble" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#float" data-gi-title-python="float">gdouble</a></span>
+</pre>
+
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	0
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.26
+		</p>
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.26;" id="d3d12videosink:max-mip-levels">
+	
+
+
+
+<h3 data-hotdoc-id="d3d12videosink:max-mip-levels">
+	<i>max-mip-levels</i>
+</h3>
+
+
+<pre class="property_signature">
+“max-mip-levels” <span class="type"><a title="guint" href="https://docs.gtk.org/glib/types.html#guint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">guint</a></span>
+</pre>
+
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	1
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.26
+		</p>
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="d3d12videosink:msaa">
+	
+
+
+
+<h3 data-hotdoc-id="d3d12videosink:msaa">
+	<i>msaa</i>
+</h3>
+
+
+<pre class="property_signature">
+“msaa” <span class="type"><a title="GstD3D12MSAAMode" href="d3d12/d3d12videosink.html#GstD3D12MSAAMode">GstD3D12MSAAMode</a> <span class="pointer-token">*</span></span>
+</pre>
+
+<p>MSAA (Multi-Sampling Anti-Aliasing) level</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	disabled (0)
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="d3d12videosink:ortho">
+	
+
+
+
+<h3 data-hotdoc-id="d3d12videosink:ortho">
+	<i>ortho</i>
+</h3>
+
+
+<pre class="property_signature">
+“ortho” <span class="type"><a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#bool" data-gi-title-python="bool">gboolean</a></span>
+</pre>
+
+<p>Use orthographic projection</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	false
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.26;" id="d3d12videosink:overlay-mode">
+	
+
+
+
+<h3 data-hotdoc-id="d3d12videosink:overlay-mode">
+	<i>overlay-mode</i>
+</h3>
+
+
+<pre class="property_signature">
+“overlay-mode” <span class="type"><a title="D3d12window-overlay-mode" href="d3d12/d3d12videosink.html#GstD3D12WindowOverlayMode">D3d12window-overlay-mode</a> <span class="pointer-token">*</span></span>
+</pre>
+
+<p>Overly signal type</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	none
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.26
+		</p>
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="d3d12videosink:primaries-mode">
+	
+
+
+
+<h3 data-hotdoc-id="d3d12videosink:primaries-mode">
+	<i>primaries-mode</i>
+</h3>
+
+
+<pre class="property_signature">
+“primaries-mode” <span class="type"><a title="GstVideoPrimariesMode" href="video/videoconverter.html#GstVideoPrimariesMode" data-gi-href-javascript="video/videoconverter.html#GstVideoPrimariesMode" data-gi-title-javascript="GstVideo.VideoPrimariesMode" data-gi-href-python="video/videoconverter.html#GstVideoPrimariesMode" data-gi-title-python="GstVideo.VideoPrimariesMode">GstVideoPrimariesMode</a> <span class="pointer-token">*</span></span>
+</pre>
+
+<p>Primaries conversion mode</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	none (0)
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="d3d12videosink:redraw-on-update">
+	
+
+
+
+<h3 data-hotdoc-id="d3d12videosink:redraw-on-update">
+	<i>redraw-on-update</i>
+</h3>
+
+
+<pre class="property_signature">
+“redraw-on-update” <span class="type"><a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#bool" data-gi-title-python="bool">gboolean</a></span>
+</pre>
+
+<p>Immediately apply updated geometry related properties and redraw. If disabled, properties will be applied on the next frame or window resize</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	true
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="d3d12videosink:rotate-method">
+	
+
+
+
+<h3 data-hotdoc-id="d3d12videosink:rotate-method">
+	<i>rotate-method</i>
+</h3>
+
+
+<pre class="property_signature">
+“rotate-method” <span class="type"><a title="GstVideoOrientationMethod" href="video/gstvideo.html#GstVideoOrientationMethod" data-gi-href-javascript="video/gstvideo.html#GstVideoOrientationMethod" data-gi-title-javascript="GstVideo.VideoOrientationMethod" data-gi-href-python="video/gstvideo.html#GstVideoOrientationMethod" data-gi-title-python="GstVideo.VideoOrientationMethod">GstVideoOrientationMethod</a> <span class="pointer-token">*</span></span>
+</pre>
+
+<p>Rotate method to use</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	identity (0)
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="d3d12videosink:rotation-x">
+	
+
+
+
+<h3 data-hotdoc-id="d3d12videosink:rotation-x">
+	<i>rotation-x</i>
+</h3>
+
+
+<pre class="property_signature">
+“rotation-x” <span class="type"><a title="gfloat" href="https://docs.gtk.org/glib/types.html#gfloat" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#float" data-gi-title-python="float">gfloat</a></span>
+</pre>
+
+<p>x-axis rotation angle in degrees</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	0
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="d3d12videosink:rotation-y">
+	
+
+
+
+<h3 data-hotdoc-id="d3d12videosink:rotation-y">
+	<i>rotation-y</i>
+</h3>
+
+
+<pre class="property_signature">
+“rotation-y” <span class="type"><a title="gfloat" href="https://docs.gtk.org/glib/types.html#gfloat" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#float" data-gi-title-python="float">gfloat</a></span>
+</pre>
+
+<p>y-axis rotation angle in degrees</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	0
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="d3d12videosink:rotation-z">
+	
+
+
+
+<h3 data-hotdoc-id="d3d12videosink:rotation-z">
+	<i>rotation-z</i>
+</h3>
+
+
+<pre class="property_signature">
+“rotation-z” <span class="type"><a title="gfloat" href="https://docs.gtk.org/glib/types.html#gfloat" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#float" data-gi-title-python="float">gfloat</a></span>
+</pre>
+
+<p>z-axis rotation angle in degrees</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	0
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="d3d12videosink:sampling-method">
+	
+
+
+
+<h3 data-hotdoc-id="d3d12videosink:sampling-method">
+	<i>sampling-method</i>
+</h3>
+
+
+<pre class="property_signature">
+“sampling-method” <span class="type"><a title="GstD3D12SamplingMethod" href="d3d12/GstD3D12BaseConvert.html#GstD3D12SamplingMethod">GstD3D12SamplingMethod</a> <span class="pointer-token">*</span></span>
+</pre>
+
+<p>Sampler filter type to use</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	bilinear (1)
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.26;" id="d3d12videosink:saturation">
+	
+
+
+
+<h3 data-hotdoc-id="d3d12videosink:saturation">
+	<i>saturation</i>
+</h3>
+
+
+<pre class="property_signature">
+“saturation” <span class="type"><a title="gdouble" href="https://docs.gtk.org/glib/types.html#gdouble" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#float" data-gi-title-python="float">gdouble</a></span>
+</pre>
+
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	1
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.26
+		</p>
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="d3d12videosink:scale-x">
+	
+
+
+
+<h3 data-hotdoc-id="d3d12videosink:scale-x">
+	<i>scale-x</i>
+</h3>
+
+
+<pre class="property_signature">
+“scale-x” <span class="type"><a title="gfloat" href="https://docs.gtk.org/glib/types.html#gfloat" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#float" data-gi-title-python="float">gfloat</a></span>
+</pre>
+
+<p>Scale multiplier for x-axis</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	1
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="d3d12videosink:scale-y">
+	
+
+
+
+<h3 data-hotdoc-id="d3d12videosink:scale-y">
+	<i>scale-y</i>
+</h3>
+
+
+<pre class="property_signature">
+“scale-y” <span class="type"><a title="gfloat" href="https://docs.gtk.org/glib/types.html#gfloat" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#float" data-gi-title-python="float">gfloat</a></span>
+</pre>
+
+<p>Scale multiplier for y-axis</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	1
+</p>
+
+
+
+<hr>
+
+</div>
+
+
+            <h2 class="symbol_section">Named constants</h2>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstD3D12MSAAMode">
+	
+
+
+
+<h3 data-hotdoc-id="GstD3D12MSAAMode">
+	<i>GstD3D12MSAAMode</i>
+</h3>
+
+
+
+
+
+	<div class="members-container">
+		<h4>Members</h4>
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstD3D12MSAAMode::disabled">
+        <code>disabled</code> (<i>0</i>) – Disabled
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstD3D12MSAAMode::2x">
+        <code>2x</code> (<i>1</i>) – 2x MSAA
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstD3D12MSAAMode::4x">
+        <code>4x</code> (<i>2</i>) – 4x MSAA
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstD3D12MSAAMode::8x">
+        <code>8x</code> (<i>3</i>) – 8x MSAA
+        </div>
+    
+			</div>
+
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.26;" id="GstD3D12VideoSinkDisplayFormat">
+	
+
+
+
+<h3 data-hotdoc-id="GstD3D12VideoSinkDisplayFormat">
+	<i>D3d12video-sink-display-format</i>
+</h3>
+
+
+<p>Swapchain display format</p>
+
+
+
+
+	<div class="members-container">
+		<h4>Members</h4>
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstD3D12VideoSinkDisplayFormat::unknown">
+        <code>unknown</code> (<i>0</i>) – DXGI_FORMAT_UNKNOWN
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstD3D12VideoSinkDisplayFormat::r10g10b10a2-unorm">
+        <code>r10g10b10a2-unorm</code> (<i>24</i>) – DXGI_FORMAT_R10G10B10A2_UNORM
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstD3D12VideoSinkDisplayFormat::r8g8b8a8-unorm">
+        <code>r8g8b8a8-unorm</code> (<i>28</i>) – DXGI_FORMAT_R8G8B8A8_UNORM
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstD3D12VideoSinkDisplayFormat::b8g8r8a8-unorm">
+        <code>b8g8r8a8-unorm</code> (<i>87</i>) – DXGI_FORMAT_B8G8R8A8_UNORM
+        </div>
+    
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.26
+		</p>
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.26;" id="GstD3D12WindowOverlayMode">
+	
+
+
+
+<h3 data-hotdoc-id="GstD3D12WindowOverlayMode">
+	<i>D3d12window-overlay-mode</i>
+</h3>
+
+
+
+
+
+	<div class="members-container">
+		<h4>Members</h4>
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstD3D12WindowOverlayMode::none">
+        <code>none</code> (<i>0x00000000</i>) – None
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstD3D12WindowOverlayMode::d3d12">
+        <code>d3d12</code> (<i>0x00000001</i>) – Emits present signal with Direct3D12 resources
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstD3D12WindowOverlayMode::d3d11">
+        <code>d3d11</code> (<i>0x00000003</i>) – Emits present signal with Direct3D12/11 resources
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstD3D12WindowOverlayMode::d2d">
+        <code>d2d</code> (<i>0x00000007</i>) – Emit present signal with Direct3D12/11 and Direct2D resources
+        </div>
+    
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.26
+		</p>
+
+<hr>
+
+</div>
+
+
+
+
+
+
+		
+	</div>
+	<div id="search_results">
+		<p>The results of the search are</p>
+	</div>
+	<div id="footer">
+		    
+
+	</div>
+</div>
+
+<div id="toc-column">
+	
+		<div class="edit-button">
+		
+
+	</div>
+		<div id="toc-wrapper">
+		<nav id="toc"></nav>
+	</div>
+</div>
+</div>
+</main>
+
+
+<script src="assets/js/navbar_offset_scroller.js"></script>
+</body>
+</html>

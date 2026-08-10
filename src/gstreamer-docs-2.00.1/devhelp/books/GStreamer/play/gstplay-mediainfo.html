@@ -1,0 +1,7136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<base href="..">
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<title>GstPlayMediaInfo</title>
+
+<link rel="stylesheet" href="assets/css/dark-frontend.css" type="text/css" title="dark">
+<link rel="alternate stylesheet" href="assets/css/light-frontend.css" type="text/css" title="light">
+<link rel="stylesheet" href="assets/css/bootstrap-toc.min.css" type="text/css">
+<link rel="stylesheet" href="assets/css/jquery.mCustomScrollbar.min.css">
+<link rel="stylesheet" href="assets/js/search/enable_search.css" type="text/css">
+
+<link rel="stylesheet" href="assets/css/extra_frontend.css" type="text/css">
+<link rel="stylesheet" href="assets/css/devhelp.css" type="text/css">
+
+<link rel="stylesheet" href="assets/css/prism-tomorrow.css" type="text/css" title="dark">
+
+<link rel="alternate stylesheet" href="assets/css/prism.css" type="text/css" title="light">
+
+<script src="assets/js/mustache.min.js"></script>
+<script src="assets/js/jquery.js"></script>
+<script src="assets/js/bootstrap.js"></script>
+<script src="assets/js/scrollspy.js"></script>
+<script src="assets/js/typeahead.jquery.min.js"></script>
+<script src="assets/js/search.js"></script>
+<script src="assets/js/compare-versions.js"></script>
+<script src="assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="assets/js/bootstrap-toc.min.js"></script>
+<script src="assets/js/jquery.touchSwipe.min.js"></script>
+<script src="assets/js/anchor.min.js"></script>
+<script src="assets/js/tag_filtering.js"></script>
+<script src="assets/js/language_switching.js"></script>
+<script src="assets/js/styleswitcher.js"></script>
+
+<script src="assets/js/lines_around_headings.js"></script>
+
+<script src="assets/js/prism-core.js"></script>
+<script src="assets/js/prism-autoloader.js"></script>
+<script src="assets/js/prism_autoloader_path_override.js"></script>
+<script src="assets/js/trie.js"></script>
+
+<!-- generic -->
+<link rel="icon" type="image/png" href="assets/images/favicon-16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="assets/images/favicon-32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="assets/images/favicon-57.png" sizes="57x57">
+<link rel="icon" type="image/png" href="assets/images/favicon-64.png" sizes="64x64">
+<link rel="icon" type="image/png" href="assets/images/favicon-76.png" sizes="76x76">
+<link rel="icon" type="image/png" href="assets/images/favicon-96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="assets/images/favicon-128.png" sizes="128x128">
+<link rel="icon" type="image/png" href="assets/images/favicon-192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="assets/images/favicon-228.png" sizes="228x228">
+
+<!-- Android -->
+<link rel="shortcut icon" sizes="196x196" href="assets/images/favicon-196.png">
+
+<!-- iOS -->
+<link rel="apple-touch-icon" href="assets/images/favicon-120.png" sizes="120x120">
+<link rel="apple-touch-icon" href="assets/images/favicon-152.png" sizes="152x152">
+<link rel="apple-touch-icon" href="assets/images/favicon-180.png" sizes="180x180">
+
+</head>
+
+<body class="no-script
+">
+
+<script>
+$('body').removeClass('no-script');
+</script>
+
+<nav class="navbar navbar-fixed-top navbar-default" id="topnav">
+	<div class="container-fluid">
+		<div class="navbar-right">
+			<a id="toc-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-wrapper" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<span title="light mode switch" class="glyphicon glyphicon-sunglasses pull-right" id="lightmode-icon"></span>
+			<form class="navbar-form pull-right" id="navbar-search-form">
+                               <div class="form-group has-feedback">
+                                       <input type="text" class="form-control input-sm" name="search" id="sidenav-lookup-field" placeholder="search" disabled>
+				       <span class="glyphicon glyphicon-search form-control-feedback" id="search-mgn-glass"></span>
+                               </div>
+                        </form>
+		</div>
+		<div class="navbar-header">
+			<a id="sidenav-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<a id="home-link" href="index.html" class="hotdoc-navbar-brand">
+				<img src="assets/images/gstreamer-logo.svg" alt="Home">
+			</a>
+		</div>
+		<div class="navbar-collapse collapse" id="navbar-wrapper">
+			<ul class="nav navbar-nav" id="menu">
+				
+<li class="dropdown">
+    <a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        API References<span class="caret"></span>
+    </a>
+	<ul class="dropdown-menu" id="modules-menu">
+					<li>
+				<a href="gstreamer/gi-index.html">GStreamer core</a>
+			</li>
+					<li>
+				<a href="libs.html">GStreamer Libraries</a>
+			</li>
+					<li>
+				<a href="plugins_doc.html">GStreamer Plugins</a>
+			</li>
+		</ul>
+</li>
+
+<li>
+    <a href="application-development/index.html">Application manual</a>
+</li>
+
+
+<li>
+    <a href="tutorials/index.html">Tutorials</a>
+</li>
+
+			</ul>
+			<div class="hidden-xs hidden-sm navbar-text navbar-center">
+							</div>
+		</div>
+	</div>
+</nav>
+
+<main>
+<div data-extension="gi-extension" data-hotdoc-in-toplevel="False" data-hotdoc-project="play" data-hotdoc-ref="gstplay-mediainfo.html" class="page_container" id="page-wrapper" data-hotdoc-meta-gi-languages="['c', 'javascript', 'python']" data-hotdoc-meta-gi-language="c">
+<script src="assets/js/utils.js"></script>
+
+<div class="panel panel-collapse oc-collapsed" id="sidenav" data-hotdoc-role="navigation">
+	<script src="assets/js/full-width.js"></script>
+  <div id="sitenav-wrapper">
+    <iframe src="hotdoc-sitemap.html" id="sitenav-frame"></iframe>
+  </div>
+</div>
+
+<div id="body">
+	<div id="main">
+				    <div id="page-description" data-hotdoc-role="main">
+        <h1 id="gstplaymediainfo-page">GstPlayMediaInfo</h1>
+    </div>
+        
+        
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="GstPlayAudioInfo">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h2 data-hotdoc-id="GstPlayAudioInfo">
+	<i>GstPlayAudioInfo</i>
+</h2>
+
+
+<div class="hierarchy_container">
+	<div class="hierarchy_details">
+<pre>
+<a title="GObject" href="https://docs.gtk.org/gobject/class.Object.html">GObject</a>
+    <span class="lineart">╰──</span><a title="GstPlayStreamInfo" href="play/gstplay-mediainfo.html#GstPlayStreamInfo">GstPlayStreamInfo</a>
+        <span class="lineart">╰──</span>GstPlayAudioInfo
+</pre>
+
+</div>
+
+</div>
+
+<div class="class_details">
+	<p><a href="play/gstplay-mediainfo.html#GstPlayStreamInfo">GstPlayStreamInfo</a> specific to audio streams.</p>
+
+</div>
+
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+<h3>Class structure</h3>
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstPlayAudioInfoClass">
+	<i>GstPlayAudioInfoClass</i>
+</h4>
+
+
+
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3>
+	GstPlay.PlayAudioInfoClass
+</h3>
+
+
+
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3>
+	GstPlay.PlayAudioInfoClass
+</h3>
+
+
+
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h2 data-hotdoc-id="GstPlayAudioInfo">
+	<i>GstPlay.PlayAudioInfo</i>
+</h2>
+
+
+<div class="hierarchy_container">
+	<div class="hierarchy_details">
+<pre>
+<a title="GObject.Object" href="https://docs.gtk.org/gobject/class.Object.html">GObject.Object</a>
+    <span class="lineart">╰──</span><a title="GstPlay.PlayStreamInfo" href="play/gstplay-mediainfo.html#GstPlayStreamInfo">GstPlay.PlayStreamInfo</a>
+        <span class="lineart">╰──</span>GstPlay.PlayAudioInfo
+</pre>
+
+</div>
+
+</div>
+
+<div class="class_details">
+	<p><a href="play/gstplay-mediainfo.html#GstPlayStreamInfo">GstPlay.PlayStreamInfo</a> specific to audio streams.</p>
+
+</div>
+
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h2 data-hotdoc-id="GstPlayAudioInfo">
+	<i>GstPlay.PlayAudioInfo</i>
+</h2>
+
+
+<div class="hierarchy_container">
+	<div class="hierarchy_details">
+<pre>
+<a title="GObject.Object" href="https://docs.gtk.org/gobject/class.Object.html">GObject.Object</a>
+    <span class="lineart">╰──</span><a title="GstPlay.PlayStreamInfo" href="play/gstplay-mediainfo.html#GstPlayStreamInfo">GstPlay.PlayStreamInfo</a>
+        <span class="lineart">╰──</span>GstPlay.PlayAudioInfo
+</pre>
+
+</div>
+
+</div>
+
+<div class="class_details">
+	<p><a href="play/gstplay-mediainfo.html#GstPlayStreamInfo">GstPlay.PlayStreamInfo</a> specific to audio streams.</p>
+
+</div>
+
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+
+            <h3 class="symbol_section">Methods</h3>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="gst_play_audio_info_get_bitrate">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_play_audio_info_get_bitrate">
+	<i>gst_play_audio_info_get_bitrate</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gint" href="https://docs.gtk.org/glib/types.html#gint">gint</a>
+gst_play_audio_info_get_bitrate (const <a title="GstPlayAudioInfo" href="play/gstplay-mediainfo.html#GstPlayAudioInfo">GstPlayAudioInfo</a> * info)</pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>info</code></em></i>
+–
+</div>
+<p>a <a href="play/gstplay-mediainfo.html#GstPlayAudioInfo">GstPlayAudioInfo</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p>the audio bitrate in <a href="play/gstplay-mediainfo.html#GstPlayAudioInfo">GstPlayAudioInfo</a> or -1 if unknown.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_play_audio_info_get_bitrate">
+	<i>GstPlay.PlayAudioInfo.prototype.get_bitrate</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstPlay.PlayAudioInfo.prototype.get_bitrate(): {
+    // javascript wrapper for 'gst_play_audio_info_get_bitrate'
+}</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>info</code></em></i>
+<span>(</span><a title="GstPlay.PlayAudioInfo" href="play/gstplay-mediainfo.html#GstPlayAudioInfo">GstPlay.PlayAudioInfo</a><span>)</span>
+–
+</div>
+<p>a <a href="play/gstplay-mediainfo.html#GstPlayAudioInfo">GstPlay.PlayAudioInfo</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+			</div>
+							<p>the audio bitrate in <a href="play/gstplay-mediainfo.html#GstPlayAudioInfo">GstPlay.PlayAudioInfo</a> or -1 if unknown.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_play_audio_info_get_bitrate">
+	<i>GstPlay.PlayAudioInfo.get_bitrate</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstPlay.PlayAudioInfo.get_bitrate (self):
+    #python wrapper for 'gst_play_audio_info_get_bitrate'</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>info</code></em></i>
+<span>(</span><a title="GstPlay.PlayAudioInfo" href="play/gstplay-mediainfo.html#GstPlayAudioInfo">GstPlay.PlayAudioInfo</a><span>)</span>
+–
+</div>
+<p>a <a href="play/gstplay-mediainfo.html#GstPlayAudioInfo">GstPlay.PlayAudioInfo</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+			</div>
+							<p>the audio bitrate in <a href="play/gstplay-mediainfo.html#GstPlayAudioInfo">GstPlay.PlayAudioInfo</a> or -1 if unknown.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="gst_play_audio_info_get_channels">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_play_audio_info_get_channels">
+	<i>gst_play_audio_info_get_channels</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gint" href="https://docs.gtk.org/glib/types.html#gint">gint</a>
+gst_play_audio_info_get_channels (const <a title="GstPlayAudioInfo" href="play/gstplay-mediainfo.html#GstPlayAudioInfo">GstPlayAudioInfo</a> * info)</pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>info</code></em></i>
+–
+</div>
+<p>a <a href="play/gstplay-mediainfo.html#GstPlayAudioInfo">GstPlayAudioInfo</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p>the number of audio channels in <a href="play/gstplay-mediainfo.html#GstPlayAudioInfo">GstPlayAudioInfo</a> or 0 if unknown.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_play_audio_info_get_channels">
+	<i>GstPlay.PlayAudioInfo.prototype.get_channels</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstPlay.PlayAudioInfo.prototype.get_channels(): {
+    // javascript wrapper for 'gst_play_audio_info_get_channels'
+}</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>info</code></em></i>
+<span>(</span><a title="GstPlay.PlayAudioInfo" href="play/gstplay-mediainfo.html#GstPlayAudioInfo">GstPlay.PlayAudioInfo</a><span>)</span>
+–
+</div>
+<p>a <a href="play/gstplay-mediainfo.html#GstPlayAudioInfo">GstPlay.PlayAudioInfo</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+			</div>
+							<p>the number of audio channels in <a href="play/gstplay-mediainfo.html#GstPlayAudioInfo">GstPlay.PlayAudioInfo</a> or 0 if unknown.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_play_audio_info_get_channels">
+	<i>GstPlay.PlayAudioInfo.get_channels</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstPlay.PlayAudioInfo.get_channels (self):
+    #python wrapper for 'gst_play_audio_info_get_channels'</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>info</code></em></i>
+<span>(</span><a title="GstPlay.PlayAudioInfo" href="play/gstplay-mediainfo.html#GstPlayAudioInfo">GstPlay.PlayAudioInfo</a><span>)</span>
+–
+</div>
+<p>a <a href="play/gstplay-mediainfo.html#GstPlayAudioInfo">GstPlay.PlayAudioInfo</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+			</div>
+							<p>the number of audio channels in <a href="play/gstplay-mediainfo.html#GstPlayAudioInfo">GstPlay.PlayAudioInfo</a> or 0 if unknown.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="gst_play_audio_info_get_language">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_play_audio_info_get_language">
+	<i>gst_play_audio_info_get_language</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+const <a title="gchar" href="https://docs.gtk.org/glib/types.html#gchar">gchar</a> *
+gst_play_audio_info_get_language (const <a title="GstPlayAudioInfo" href="play/gstplay-mediainfo.html#GstPlayAudioInfo">GstPlayAudioInfo</a> * info)</pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>info</code></em></i>
+–
+</div>
+<p>a <a href="play/gstplay-mediainfo.html#GstPlayAudioInfo">GstPlayAudioInfo</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span>
+<span class="annotation">[<abbr title="NULL may be passed to the value"><span class="acronym">nullable</span></abbr>]</span><span>)</span>
+–
+			</div>
+							<p>the language of the stream, or <a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#NULL:CAPS">NULL</a> if unknown.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_play_audio_info_get_language">
+	<i>GstPlay.PlayAudioInfo.prototype.get_language</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstPlay.PlayAudioInfo.prototype.get_language(): {
+    // javascript wrapper for 'gst_play_audio_info_get_language'
+}</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>info</code></em></i>
+<span>(</span><a title="GstPlay.PlayAudioInfo" href="play/gstplay-mediainfo.html#GstPlayAudioInfo">GstPlay.PlayAudioInfo</a><span>)</span>
+–
+</div>
+<p>a <a href="play/gstplay-mediainfo.html#GstPlayAudioInfo">GstPlay.PlayAudioInfo</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a><span>)</span>
+–
+			</div>
+							<p>the language of the stream, or <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null">null</a> if unknown.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_play_audio_info_get_language">
+	<i>GstPlay.PlayAudioInfo.get_language</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstPlay.PlayAudioInfo.get_language (self):
+    #python wrapper for 'gst_play_audio_info_get_language'</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>info</code></em></i>
+<span>(</span><a title="GstPlay.PlayAudioInfo" href="play/gstplay-mediainfo.html#GstPlayAudioInfo">GstPlay.PlayAudioInfo</a><span>)</span>
+–
+</div>
+<p>a <a href="play/gstplay-mediainfo.html#GstPlayAudioInfo">GstPlay.PlayAudioInfo</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="str" href="https://docs.python.org/3/library/functions.html#func-str">str</a><span>)</span>
+–
+			</div>
+							<p>the language of the stream, or <a href="https://docs.python.org/3/library/constants.html#None">None</a> if unknown.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="gst_play_audio_info_get_max_bitrate">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_play_audio_info_get_max_bitrate">
+	<i>gst_play_audio_info_get_max_bitrate</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gint" href="https://docs.gtk.org/glib/types.html#gint">gint</a>
+gst_play_audio_info_get_max_bitrate (const <a title="GstPlayAudioInfo" href="play/gstplay-mediainfo.html#GstPlayAudioInfo">GstPlayAudioInfo</a> * info)</pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>info</code></em></i>
+–
+</div>
+<p>a <a href="play/gstplay-mediainfo.html#GstPlayAudioInfo">GstPlayAudioInfo</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p>the audio maximum bitrate in <a href="play/gstplay-mediainfo.html#GstPlayAudioInfo">GstPlayAudioInfo</a> or -1 if unknown.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_play_audio_info_get_max_bitrate">
+	<i>GstPlay.PlayAudioInfo.prototype.get_max_bitrate</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstPlay.PlayAudioInfo.prototype.get_max_bitrate(): {
+    // javascript wrapper for 'gst_play_audio_info_get_max_bitrate'
+}</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>info</code></em></i>
+<span>(</span><a title="GstPlay.PlayAudioInfo" href="play/gstplay-mediainfo.html#GstPlayAudioInfo">GstPlay.PlayAudioInfo</a><span>)</span>
+–
+</div>
+<p>a <a href="play/gstplay-mediainfo.html#GstPlayAudioInfo">GstPlay.PlayAudioInfo</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+			</div>
+							<p>the audio maximum bitrate in <a href="play/gstplay-mediainfo.html#GstPlayAudioInfo">GstPlay.PlayAudioInfo</a> or -1 if unknown.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_play_audio_info_get_max_bitrate">
+	<i>GstPlay.PlayAudioInfo.get_max_bitrate</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstPlay.PlayAudioInfo.get_max_bitrate (self):
+    #python wrapper for 'gst_play_audio_info_get_max_bitrate'</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>info</code></em></i>
+<span>(</span><a title="GstPlay.PlayAudioInfo" href="play/gstplay-mediainfo.html#GstPlayAudioInfo">GstPlay.PlayAudioInfo</a><span>)</span>
+–
+</div>
+<p>a <a href="play/gstplay-mediainfo.html#GstPlayAudioInfo">GstPlay.PlayAudioInfo</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+			</div>
+							<p>the audio maximum bitrate in <a href="play/gstplay-mediainfo.html#GstPlayAudioInfo">GstPlay.PlayAudioInfo</a> or -1 if unknown.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="gst_play_audio_info_get_sample_rate">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_play_audio_info_get_sample_rate">
+	<i>gst_play_audio_info_get_sample_rate</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gint" href="https://docs.gtk.org/glib/types.html#gint">gint</a>
+gst_play_audio_info_get_sample_rate (const <a title="GstPlayAudioInfo" href="play/gstplay-mediainfo.html#GstPlayAudioInfo">GstPlayAudioInfo</a> * info)</pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>info</code></em></i>
+–
+</div>
+<p>a <a href="play/gstplay-mediainfo.html#GstPlayAudioInfo">GstPlayAudioInfo</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p>the audio sample rate in <a href="play/gstplay-mediainfo.html#GstPlayAudioInfo">GstPlayAudioInfo</a> or 0 if unknown.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_play_audio_info_get_sample_rate">
+	<i>GstPlay.PlayAudioInfo.prototype.get_sample_rate</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstPlay.PlayAudioInfo.prototype.get_sample_rate(): {
+    // javascript wrapper for 'gst_play_audio_info_get_sample_rate'
+}</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>info</code></em></i>
+<span>(</span><a title="GstPlay.PlayAudioInfo" href="play/gstplay-mediainfo.html#GstPlayAudioInfo">GstPlay.PlayAudioInfo</a><span>)</span>
+–
+</div>
+<p>a <a href="play/gstplay-mediainfo.html#GstPlayAudioInfo">GstPlay.PlayAudioInfo</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+			</div>
+							<p>the audio sample rate in <a href="play/gstplay-mediainfo.html#GstPlayAudioInfo">GstPlay.PlayAudioInfo</a> or 0 if unknown.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_play_audio_info_get_sample_rate">
+	<i>GstPlay.PlayAudioInfo.get_sample_rate</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstPlay.PlayAudioInfo.get_sample_rate (self):
+    #python wrapper for 'gst_play_audio_info_get_sample_rate'</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>info</code></em></i>
+<span>(</span><a title="GstPlay.PlayAudioInfo" href="play/gstplay-mediainfo.html#GstPlayAudioInfo">GstPlay.PlayAudioInfo</a><span>)</span>
+–
+</div>
+<p>a <a href="play/gstplay-mediainfo.html#GstPlayAudioInfo">GstPlay.PlayAudioInfo</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+			</div>
+							<p>the audio sample rate in <a href="play/gstplay-mediainfo.html#GstPlayAudioInfo">GstPlay.PlayAudioInfo</a> or 0 if unknown.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+
+        
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="GstPlayMediaInfo">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h2 data-hotdoc-id="GstPlayMediaInfo">
+	<i>GstPlayMediaInfo</i>
+</h2>
+
+
+<div class="hierarchy_container">
+	<div class="hierarchy_details">
+<pre>
+<a title="GObject" href="https://docs.gtk.org/gobject/class.Object.html">GObject</a>
+    <span class="lineart">╰──</span>GstPlayMediaInfo
+</pre>
+
+</div>
+
+</div>
+
+<div class="class_details">
+	<p>Structure containing the media information of a URI.</p>
+
+</div>
+
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+<h3>Class structure</h3>
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstPlayMediaInfoClass">
+	<i>GstPlayMediaInfoClass</i>
+</h4>
+
+
+
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3>
+	GstPlay.PlayMediaInfoClass
+</h3>
+
+
+
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3>
+	GstPlay.PlayMediaInfoClass
+</h3>
+
+
+
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h2 data-hotdoc-id="GstPlayMediaInfo">
+	<i>GstPlay.PlayMediaInfo</i>
+</h2>
+
+
+<div class="hierarchy_container">
+	<div class="hierarchy_details">
+<pre>
+<a title="GObject.Object" href="https://docs.gtk.org/gobject/class.Object.html">GObject.Object</a>
+    <span class="lineart">╰──</span>GstPlay.PlayMediaInfo
+</pre>
+
+</div>
+
+</div>
+
+<div class="class_details">
+	<p>Structure containing the media information of a URI.</p>
+
+</div>
+
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h2 data-hotdoc-id="GstPlayMediaInfo">
+	<i>GstPlay.PlayMediaInfo</i>
+</h2>
+
+
+<div class="hierarchy_container">
+	<div class="hierarchy_details">
+<pre>
+<a title="GObject.Object" href="https://docs.gtk.org/gobject/class.Object.html">GObject.Object</a>
+    <span class="lineart">╰──</span>GstPlay.PlayMediaInfo
+</pre>
+
+</div>
+
+</div>
+
+<div class="class_details">
+	<p>Structure containing the media information of a URI.</p>
+
+</div>
+
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+
+            <h3 class="symbol_section">Methods</h3>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="gst_play_media_info_get_audio_streams">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_play_media_info_get_audio_streams">
+	<i>gst_play_media_info_get_audio_streams</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GList" href="https://docs.gtk.org/glib/struct.List.html">GList</a> *
+gst_play_media_info_get_audio_streams (const <a title="GstPlayMediaInfo" href="play/gstplay-mediainfo.html#GstPlayMediaInfo">GstPlayMediaInfo</a> * info)</pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>info</code></em></i>
+–
+</div>
+<p>a <a href="play/gstplay-mediainfo.html#GstPlayMediaInfo">GstPlayMediaInfo</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span>
+<span class="annotation">[<abbr title="Don't free data after the code is done"><span class="acronym">transfer: none</span></abbr>]</span><span class="annotation">[<abbr title="Generic and defining element of containers and arrays"><span class="acronym">element-type</span></abbr> GstPlayAudioInfo]</span><span>)</span>
+–
+			</div>
+							<p>A <a href="https://docs.gtk.org/glib/struct.List.html">GList</a> of
+matching <a href="play/gstplay-mediainfo.html#GstPlayAudioInfo">GstPlayAudioInfo</a>.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_play_media_info_get_audio_streams">
+	<i>GstPlay.PlayMediaInfo.prototype.get_audio_streams</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstPlay.PlayMediaInfo.prototype.get_audio_streams(): {
+    // javascript wrapper for 'gst_play_media_info_get_audio_streams'
+}</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>info</code></em></i>
+<span>(</span><a title="GstPlay.PlayMediaInfo" href="play/gstplay-mediainfo.html#GstPlayMediaInfo">GstPlay.PlayMediaInfo</a><span>)</span>
+–
+</div>
+<p>a <a href="play/gstplay-mediainfo.html#GstPlayMediaInfo">GstPlay.PlayMediaInfo</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span>[ <a title="GstPlay.PlayAudioInfo" href="play/gstplay-mediainfo.html#GstPlayAudioInfo">GstPlay.PlayAudioInfo</a> ]<span>)</span>
+–
+			</div>
+							<p>A <a href="https://docs.gtk.org/glib/struct.List.html">GLib.List</a> of
+matching <a href="play/gstplay-mediainfo.html#GstPlayAudioInfo">GstPlay.PlayAudioInfo</a>.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_play_media_info_get_audio_streams">
+	<i>GstPlay.PlayMediaInfo.get_audio_streams</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstPlay.PlayMediaInfo.get_audio_streams (self):
+    #python wrapper for 'gst_play_media_info_get_audio_streams'</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>info</code></em></i>
+<span>(</span><a title="GstPlay.PlayMediaInfo" href="play/gstplay-mediainfo.html#GstPlayMediaInfo">GstPlay.PlayMediaInfo</a><span>)</span>
+–
+</div>
+<p>a <a href="play/gstplay-mediainfo.html#GstPlayMediaInfo">GstPlay.PlayMediaInfo</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span>[ <a title="GstPlay.PlayAudioInfo" href="play/gstplay-mediainfo.html#GstPlayAudioInfo">GstPlay.PlayAudioInfo</a> ]<span>)</span>
+–
+			</div>
+							<p>A <a href="https://docs.gtk.org/glib/struct.List.html">GLib.List</a> of
+matching <a href="play/gstplay-mediainfo.html#GstPlayAudioInfo">GstPlay.PlayAudioInfo</a>.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="gst_play_media_info_get_container_format">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_play_media_info_get_container_format">
+	<i>gst_play_media_info_get_container_format</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+const <a title="gchar" href="https://docs.gtk.org/glib/types.html#gchar">gchar</a> *
+gst_play_media_info_get_container_format (const <a title="GstPlayMediaInfo" href="play/gstplay-mediainfo.html#GstPlayMediaInfo">GstPlayMediaInfo</a> * info)</pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>info</code></em></i>
+–
+</div>
+<p>a <a href="play/gstplay-mediainfo.html#GstPlayMediaInfo">GstPlayMediaInfo</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span>
+<span class="annotation">[<abbr title="NULL may be passed to the value"><span class="acronym">nullable</span></abbr>]</span><span>)</span>
+–
+			</div>
+							<p>the container format or <a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#NULL:CAPS">NULL</a> if unknown.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_play_media_info_get_container_format">
+	<i>GstPlay.PlayMediaInfo.prototype.get_container_format</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstPlay.PlayMediaInfo.prototype.get_container_format(): {
+    // javascript wrapper for 'gst_play_media_info_get_container_format'
+}</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>info</code></em></i>
+<span>(</span><a title="GstPlay.PlayMediaInfo" href="play/gstplay-mediainfo.html#GstPlayMediaInfo">GstPlay.PlayMediaInfo</a><span>)</span>
+–
+</div>
+<p>a <a href="play/gstplay-mediainfo.html#GstPlayMediaInfo">GstPlay.PlayMediaInfo</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a><span>)</span>
+–
+			</div>
+							<p>the container format or <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null">null</a> if unknown.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_play_media_info_get_container_format">
+	<i>GstPlay.PlayMediaInfo.get_container_format</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstPlay.PlayMediaInfo.get_container_format (self):
+    #python wrapper for 'gst_play_media_info_get_container_format'</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>info</code></em></i>
+<span>(</span><a title="GstPlay.PlayMediaInfo" href="play/gstplay-mediainfo.html#GstPlayMediaInfo">GstPlay.PlayMediaInfo</a><span>)</span>
+–
+</div>
+<p>a <a href="play/gstplay-mediainfo.html#GstPlayMediaInfo">GstPlay.PlayMediaInfo</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="str" href="https://docs.python.org/3/library/functions.html#func-str">str</a><span>)</span>
+–
+			</div>
+							<p>the container format or <a href="https://docs.python.org/3/library/constants.html#None">None</a> if unknown.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="gst_play_media_info_get_duration">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_play_media_info_get_duration">
+	<i>gst_play_media_info_get_duration</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GstClockTime" href="gstreamer/gstclock.html#GstClockTime">GstClockTime</a>
+gst_play_media_info_get_duration (const <a title="GstPlayMediaInfo" href="play/gstplay-mediainfo.html#GstPlayMediaInfo">GstPlayMediaInfo</a> * info)</pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>info</code></em></i>
+–
+</div>
+<p>a <a href="play/gstplay-mediainfo.html#GstPlayMediaInfo">GstPlayMediaInfo</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p>duration of the media.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_play_media_info_get_duration">
+	<i>GstPlay.PlayMediaInfo.prototype.get_duration</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstPlay.PlayMediaInfo.prototype.get_duration(): {
+    // javascript wrapper for 'gst_play_media_info_get_duration'
+}</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>info</code></em></i>
+<span>(</span><a title="GstPlay.PlayMediaInfo" href="play/gstplay-mediainfo.html#GstPlayMediaInfo">GstPlay.PlayMediaInfo</a><span>)</span>
+–
+</div>
+<p>a <a href="play/gstplay-mediainfo.html#GstPlayMediaInfo">GstPlay.PlayMediaInfo</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+			</div>
+							<p>duration of the media.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_play_media_info_get_duration">
+	<i>GstPlay.PlayMediaInfo.get_duration</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstPlay.PlayMediaInfo.get_duration (self):
+    #python wrapper for 'gst_play_media_info_get_duration'</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>info</code></em></i>
+<span>(</span><a title="GstPlay.PlayMediaInfo" href="play/gstplay-mediainfo.html#GstPlayMediaInfo">GstPlay.PlayMediaInfo</a><span>)</span>
+–
+</div>
+<p>a <a href="play/gstplay-mediainfo.html#GstPlayMediaInfo">GstPlay.PlayMediaInfo</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+			</div>
+							<p>duration of the media.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="gst_play_media_info_get_image_sample">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_play_media_info_get_image_sample">
+	<i>gst_play_media_info_get_image_sample</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GstSample" href="gstreamer/gstsample.html#GstSample">GstSample</a> *
+gst_play_media_info_get_image_sample (const <a title="GstPlayMediaInfo" href="play/gstplay-mediainfo.html#GstPlayMediaInfo">GstPlayMediaInfo</a> * info)</pre>
+
+<p>Function to get the image (or preview-image) stored in taglist.
+Application can use <code>gst_sample_*_()</code> API's to get caps, buffer etc.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>info</code></em></i>
+–
+</div>
+<p>a <a href="play/gstplay-mediainfo.html#GstPlayMediaInfo">GstPlayMediaInfo</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span>
+<span class="annotation">[<abbr title="NULL may be passed to the value"><span class="acronym">nullable</span></abbr>]</span><span class="annotation">[<abbr title="Don't free data after the code is done"><span class="acronym">transfer: none</span></abbr>]</span><span>)</span>
+–
+			</div>
+							<p>GstSample or <a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#NULL:CAPS">NULL</a>.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_play_media_info_get_image_sample">
+	<i>GstPlay.PlayMediaInfo.prototype.get_image_sample</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstPlay.PlayMediaInfo.prototype.get_image_sample(): {
+    // javascript wrapper for 'gst_play_media_info_get_image_sample'
+}</code></pre>
+
+<p>Function to get the image (or preview-image) stored in taglist.
+Application can use <code>gst_sample_*_()</code> API's to get caps, buffer etc.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>info</code></em></i>
+<span>(</span><a title="GstPlay.PlayMediaInfo" href="play/gstplay-mediainfo.html#GstPlayMediaInfo">GstPlay.PlayMediaInfo</a><span>)</span>
+–
+</div>
+<p>a <a href="play/gstplay-mediainfo.html#GstPlayMediaInfo">GstPlay.PlayMediaInfo</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Gst.Sample" href="gstreamer/gstsample.html#GstSample">Gst.Sample</a><span>)</span>
+–
+			</div>
+							<p>GstSample or <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null">null</a>.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_play_media_info_get_image_sample">
+	<i>GstPlay.PlayMediaInfo.get_image_sample</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstPlay.PlayMediaInfo.get_image_sample (self):
+    #python wrapper for 'gst_play_media_info_get_image_sample'</code></pre>
+
+<p>Function to get the image (or preview-image) stored in taglist.
+Application can use <code>gst_sample_*_()</code> API's to get caps, buffer etc.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>info</code></em></i>
+<span>(</span><a title="GstPlay.PlayMediaInfo" href="play/gstplay-mediainfo.html#GstPlayMediaInfo">GstPlay.PlayMediaInfo</a><span>)</span>
+–
+</div>
+<p>a <a href="play/gstplay-mediainfo.html#GstPlayMediaInfo">GstPlay.PlayMediaInfo</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Gst.Sample" href="gstreamer/gstsample.html#GstSample">Gst.Sample</a><span>)</span>
+–
+			</div>
+							<p>GstSample or <a href="https://docs.python.org/3/library/constants.html#None">None</a>.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="gst_play_media_info_get_number_of_audio_streams">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_play_media_info_get_number_of_audio_streams">
+	<i>gst_play_media_info_get_number_of_audio_streams</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="guint" href="https://docs.gtk.org/glib/types.html#guint">guint</a>
+gst_play_media_info_get_number_of_audio_streams (const <a title="GstPlayMediaInfo" href="play/gstplay-mediainfo.html#GstPlayMediaInfo">GstPlayMediaInfo</a> * info)</pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>info</code></em></i>
+–
+</div>
+<p>a <a href="play/gstplay-mediainfo.html#GstPlayMediaInfo">GstPlayMediaInfo</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p>number of audio streams.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_play_media_info_get_number_of_audio_streams">
+	<i>GstPlay.PlayMediaInfo.prototype.get_number_of_audio_streams</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstPlay.PlayMediaInfo.prototype.get_number_of_audio_streams(): {
+    // javascript wrapper for 'gst_play_media_info_get_number_of_audio_streams'
+}</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>info</code></em></i>
+<span>(</span><a title="GstPlay.PlayMediaInfo" href="play/gstplay-mediainfo.html#GstPlayMediaInfo">GstPlay.PlayMediaInfo</a><span>)</span>
+–
+</div>
+<p>a <a href="play/gstplay-mediainfo.html#GstPlayMediaInfo">GstPlay.PlayMediaInfo</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+			</div>
+							<p>number of audio streams.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_play_media_info_get_number_of_audio_streams">
+	<i>GstPlay.PlayMediaInfo.get_number_of_audio_streams</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstPlay.PlayMediaInfo.get_number_of_audio_streams (self):
+    #python wrapper for 'gst_play_media_info_get_number_of_audio_streams'</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>info</code></em></i>
+<span>(</span><a title="GstPlay.PlayMediaInfo" href="play/gstplay-mediainfo.html#GstPlayMediaInfo">GstPlay.PlayMediaInfo</a><span>)</span>
+–
+</div>
+<p>a <a href="play/gstplay-mediainfo.html#GstPlayMediaInfo">GstPlay.PlayMediaInfo</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+			</div>
+							<p>number of audio streams.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="gst_play_media_info_get_number_of_streams">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_play_media_info_get_number_of_streams">
+	<i>gst_play_media_info_get_number_of_streams</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="guint" href="https://docs.gtk.org/glib/types.html#guint">guint</a>
+gst_play_media_info_get_number_of_streams (const <a title="GstPlayMediaInfo" href="play/gstplay-mediainfo.html#GstPlayMediaInfo">GstPlayMediaInfo</a> * info)</pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>info</code></em></i>
+–
+</div>
+<p>a <a href="play/gstplay-mediainfo.html#GstPlayMediaInfo">GstPlayMediaInfo</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p>number of total streams.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_play_media_info_get_number_of_streams">
+	<i>GstPlay.PlayMediaInfo.prototype.get_number_of_streams</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstPlay.PlayMediaInfo.prototype.get_number_of_streams(): {
+    // javascript wrapper for 'gst_play_media_info_get_number_of_streams'
+}</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>info</code></em></i>
+<span>(</span><a title="GstPlay.PlayMediaInfo" href="play/gstplay-mediainfo.html#GstPlayMediaInfo">GstPlay.PlayMediaInfo</a><span>)</span>
+–
+</div>
+<p>a <a href="play/gstplay-mediainfo.html#GstPlayMediaInfo">GstPlay.PlayMediaInfo</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+			</div>
+							<p>number of total streams.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_play_media_info_get_number_of_streams">
+	<i>GstPlay.PlayMediaInfo.get_number_of_streams</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstPlay.PlayMediaInfo.get_number_of_streams (self):
+    #python wrapper for 'gst_play_media_info_get_number_of_streams'</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>info</code></em></i>
+<span>(</span><a title="GstPlay.PlayMediaInfo" href="play/gstplay-mediainfo.html#GstPlayMediaInfo">GstPlay.PlayMediaInfo</a><span>)</span>
+–
+</div>
+<p>a <a href="play/gstplay-mediainfo.html#GstPlayMediaInfo">GstPlay.PlayMediaInfo</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+			</div>
+							<p>number of total streams.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="gst_play_media_info_get_number_of_subtitle_streams">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_play_media_info_get_number_of_subtitle_streams">
+	<i>gst_play_media_info_get_number_of_subtitle_streams</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="guint" href="https://docs.gtk.org/glib/types.html#guint">guint</a>
+gst_play_media_info_get_number_of_subtitle_streams (const <a title="GstPlayMediaInfo" href="play/gstplay-mediainfo.html#GstPlayMediaInfo">GstPlayMediaInfo</a> * info)</pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>info</code></em></i>
+–
+</div>
+<p>a <a href="play/gstplay-mediainfo.html#GstPlayMediaInfo">GstPlayMediaInfo</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p>number of subtitle streams.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_play_media_info_get_number_of_subtitle_streams">
+	<i>GstPlay.PlayMediaInfo.prototype.get_number_of_subtitle_streams</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstPlay.PlayMediaInfo.prototype.get_number_of_subtitle_streams(): {
+    // javascript wrapper for 'gst_play_media_info_get_number_of_subtitle_streams'
+}</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>info</code></em></i>
+<span>(</span><a title="GstPlay.PlayMediaInfo" href="play/gstplay-mediainfo.html#GstPlayMediaInfo">GstPlay.PlayMediaInfo</a><span>)</span>
+–
+</div>
+<p>a <a href="play/gstplay-mediainfo.html#GstPlayMediaInfo">GstPlay.PlayMediaInfo</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+			</div>
+							<p>number of subtitle streams.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_play_media_info_get_number_of_subtitle_streams">
+	<i>GstPlay.PlayMediaInfo.get_number_of_subtitle_streams</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstPlay.PlayMediaInfo.get_number_of_subtitle_streams (self):
+    #python wrapper for 'gst_play_media_info_get_number_of_subtitle_streams'</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>info</code></em></i>
+<span>(</span><a title="GstPlay.PlayMediaInfo" href="play/gstplay-mediainfo.html#GstPlayMediaInfo">GstPlay.PlayMediaInfo</a><span>)</span>
+–
+</div>
+<p>a <a href="play/gstplay-mediainfo.html#GstPlayMediaInfo">GstPlay.PlayMediaInfo</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+			</div>
+							<p>number of subtitle streams.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="gst_play_media_info_get_number_of_video_streams">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_play_media_info_get_number_of_video_streams">
+	<i>gst_play_media_info_get_number_of_video_streams</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="guint" href="https://docs.gtk.org/glib/types.html#guint">guint</a>
+gst_play_media_info_get_number_of_video_streams (const <a title="GstPlayMediaInfo" href="play/gstplay-mediainfo.html#GstPlayMediaInfo">GstPlayMediaInfo</a> * info)</pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>info</code></em></i>
+–
+</div>
+<p>a <a href="play/gstplay-mediainfo.html#GstPlayMediaInfo">GstPlayMediaInfo</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p>number of video streams.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_play_media_info_get_number_of_video_streams">
+	<i>GstPlay.PlayMediaInfo.prototype.get_number_of_video_streams</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstPlay.PlayMediaInfo.prototype.get_number_of_video_streams(): {
+    // javascript wrapper for 'gst_play_media_info_get_number_of_video_streams'
+}</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>info</code></em></i>
+<span>(</span><a title="GstPlay.PlayMediaInfo" href="play/gstplay-mediainfo.html#GstPlayMediaInfo">GstPlay.PlayMediaInfo</a><span>)</span>
+–
+</div>
+<p>a <a href="play/gstplay-mediainfo.html#GstPlayMediaInfo">GstPlay.PlayMediaInfo</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+			</div>
+							<p>number of video streams.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_play_media_info_get_number_of_video_streams">
+	<i>GstPlay.PlayMediaInfo.get_number_of_video_streams</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstPlay.PlayMediaInfo.get_number_of_video_streams (self):
+    #python wrapper for 'gst_play_media_info_get_number_of_video_streams'</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>info</code></em></i>
+<span>(</span><a title="GstPlay.PlayMediaInfo" href="play/gstplay-mediainfo.html#GstPlayMediaInfo">GstPlay.PlayMediaInfo</a><span>)</span>
+–
+</div>
+<p>a <a href="play/gstplay-mediainfo.html#GstPlayMediaInfo">GstPlay.PlayMediaInfo</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+			</div>
+							<p>number of video streams.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="gst_play_media_info_get_stream_list">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_play_media_info_get_stream_list">
+	<i>gst_play_media_info_get_stream_list</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GList" href="https://docs.gtk.org/glib/struct.List.html">GList</a> *
+gst_play_media_info_get_stream_list (const <a title="GstPlayMediaInfo" href="play/gstplay-mediainfo.html#GstPlayMediaInfo">GstPlayMediaInfo</a> * info)</pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>info</code></em></i>
+–
+</div>
+<p>a <a href="play/gstplay-mediainfo.html#GstPlayMediaInfo">GstPlayMediaInfo</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span>
+<span class="annotation">[<abbr title="Don't free data after the code is done"><span class="acronym">transfer: none</span></abbr>]</span><span class="annotation">[<abbr title="Generic and defining element of containers and arrays"><span class="acronym">element-type</span></abbr> GstPlayStreamInfo]</span><span>)</span>
+–
+			</div>
+							<p>A <a href="https://docs.gtk.org/glib/struct.List.html">GList</a> of
+matching <a href="play/gstplay-mediainfo.html#GstPlayStreamInfo">GstPlayStreamInfo</a>.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_play_media_info_get_stream_list">
+	<i>GstPlay.PlayMediaInfo.prototype.get_stream_list</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstPlay.PlayMediaInfo.prototype.get_stream_list(): {
+    // javascript wrapper for 'gst_play_media_info_get_stream_list'
+}</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>info</code></em></i>
+<span>(</span><a title="GstPlay.PlayMediaInfo" href="play/gstplay-mediainfo.html#GstPlayMediaInfo">GstPlay.PlayMediaInfo</a><span>)</span>
+–
+</div>
+<p>a <a href="play/gstplay-mediainfo.html#GstPlayMediaInfo">GstPlay.PlayMediaInfo</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span>[ <a title="GstPlay.PlayStreamInfo" href="play/gstplay-mediainfo.html#GstPlayStreamInfo">GstPlay.PlayStreamInfo</a> ]<span>)</span>
+–
+			</div>
+							<p>A <a href="https://docs.gtk.org/glib/struct.List.html">GLib.List</a> of
+matching <a href="play/gstplay-mediainfo.html#GstPlayStreamInfo">GstPlay.PlayStreamInfo</a>.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_play_media_info_get_stream_list">
+	<i>GstPlay.PlayMediaInfo.get_stream_list</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstPlay.PlayMediaInfo.get_stream_list (self):
+    #python wrapper for 'gst_play_media_info_get_stream_list'</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>info</code></em></i>
+<span>(</span><a title="GstPlay.PlayMediaInfo" href="play/gstplay-mediainfo.html#GstPlayMediaInfo">GstPlay.PlayMediaInfo</a><span>)</span>
+–
+</div>
+<p>a <a href="play/gstplay-mediainfo.html#GstPlayMediaInfo">GstPlay.PlayMediaInfo</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span>[ <a title="GstPlay.PlayStreamInfo" href="play/gstplay-mediainfo.html#GstPlayStreamInfo">GstPlay.PlayStreamInfo</a> ]<span>)</span>
+–
+			</div>
+							<p>A <a href="https://docs.gtk.org/glib/struct.List.html">GLib.List</a> of
+matching <a href="play/gstplay-mediainfo.html#GstPlayStreamInfo">GstPlay.PlayStreamInfo</a>.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="gst_play_media_info_get_subtitle_streams">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_play_media_info_get_subtitle_streams">
+	<i>gst_play_media_info_get_subtitle_streams</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GList" href="https://docs.gtk.org/glib/struct.List.html">GList</a> *
+gst_play_media_info_get_subtitle_streams (const <a title="GstPlayMediaInfo" href="play/gstplay-mediainfo.html#GstPlayMediaInfo">GstPlayMediaInfo</a> * info)</pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>info</code></em></i>
+–
+</div>
+<p>a <a href="play/gstplay-mediainfo.html#GstPlayMediaInfo">GstPlayMediaInfo</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span>
+<span class="annotation">[<abbr title="Don't free data after the code is done"><span class="acronym">transfer: none</span></abbr>]</span><span class="annotation">[<abbr title="Generic and defining element of containers and arrays"><span class="acronym">element-type</span></abbr> GstPlaySubtitleInfo]</span><span>)</span>
+–
+			</div>
+							<p>A <a href="https://docs.gtk.org/glib/struct.List.html">GList</a> of
+matching <a href="play/gstplay-mediainfo.html#GstPlaySubtitleInfo">GstPlaySubtitleInfo</a>.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_play_media_info_get_subtitle_streams">
+	<i>GstPlay.PlayMediaInfo.prototype.get_subtitle_streams</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstPlay.PlayMediaInfo.prototype.get_subtitle_streams(): {
+    // javascript wrapper for 'gst_play_media_info_get_subtitle_streams'
+}</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>info</code></em></i>
+<span>(</span><a title="GstPlay.PlayMediaInfo" href="play/gstplay-mediainfo.html#GstPlayMediaInfo">GstPlay.PlayMediaInfo</a><span>)</span>
+–
+</div>
+<p>a <a href="play/gstplay-mediainfo.html#GstPlayMediaInfo">GstPlay.PlayMediaInfo</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span>[ <a title="GstPlay.PlaySubtitleInfo" href="play/gstplay-mediainfo.html#GstPlaySubtitleInfo">GstPlay.PlaySubtitleInfo</a> ]<span>)</span>
+–
+			</div>
+							<p>A <a href="https://docs.gtk.org/glib/struct.List.html">GLib.List</a> of
+matching <a href="play/gstplay-mediainfo.html#GstPlaySubtitleInfo">GstPlay.PlaySubtitleInfo</a>.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_play_media_info_get_subtitle_streams">
+	<i>GstPlay.PlayMediaInfo.get_subtitle_streams</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstPlay.PlayMediaInfo.get_subtitle_streams (self):
+    #python wrapper for 'gst_play_media_info_get_subtitle_streams'</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>info</code></em></i>
+<span>(</span><a title="GstPlay.PlayMediaInfo" href="play/gstplay-mediainfo.html#GstPlayMediaInfo">GstPlay.PlayMediaInfo</a><span>)</span>
+–
+</div>
+<p>a <a href="play/gstplay-mediainfo.html#GstPlayMediaInfo">GstPlay.PlayMediaInfo</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span>[ <a title="GstPlay.PlaySubtitleInfo" href="play/gstplay-mediainfo.html#GstPlaySubtitleInfo">GstPlay.PlaySubtitleInfo</a> ]<span>)</span>
+–
+			</div>
+							<p>A <a href="https://docs.gtk.org/glib/struct.List.html">GLib.List</a> of
+matching <a href="play/gstplay-mediainfo.html#GstPlaySubtitleInfo">GstPlay.PlaySubtitleInfo</a>.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="gst_play_media_info_get_tags">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_play_media_info_get_tags">
+	<i>gst_play_media_info_get_tags</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GstTagList" href="gstreamer/gsttaglist.html#GstTagList">GstTagList</a> *
+gst_play_media_info_get_tags (const <a title="GstPlayMediaInfo" href="play/gstplay-mediainfo.html#GstPlayMediaInfo">GstPlayMediaInfo</a> * info)</pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>info</code></em></i>
+–
+</div>
+<p>a <a href="play/gstplay-mediainfo.html#GstPlayMediaInfo">GstPlayMediaInfo</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span>
+<span class="annotation">[<abbr title="Don't free data after the code is done"><span class="acronym">transfer: none</span></abbr>]</span><span class="annotation">[<abbr title="NULL may be passed to the value"><span class="acronym">nullable</span></abbr>]</span><span>)</span>
+–
+			</div>
+							<p>the tags contained in media info.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_play_media_info_get_tags">
+	<i>GstPlay.PlayMediaInfo.prototype.get_tags</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstPlay.PlayMediaInfo.prototype.get_tags(): {
+    // javascript wrapper for 'gst_play_media_info_get_tags'
+}</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>info</code></em></i>
+<span>(</span><a title="GstPlay.PlayMediaInfo" href="play/gstplay-mediainfo.html#GstPlayMediaInfo">GstPlay.PlayMediaInfo</a><span>)</span>
+–
+</div>
+<p>a <a href="play/gstplay-mediainfo.html#GstPlayMediaInfo">GstPlay.PlayMediaInfo</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Gst.TagList" href="gstreamer/gsttaglist.html#GstTagList">Gst.TagList</a><span>)</span>
+–
+			</div>
+							<p>the tags contained in media info.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_play_media_info_get_tags">
+	<i>GstPlay.PlayMediaInfo.get_tags</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstPlay.PlayMediaInfo.get_tags (self):
+    #python wrapper for 'gst_play_media_info_get_tags'</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>info</code></em></i>
+<span>(</span><a title="GstPlay.PlayMediaInfo" href="play/gstplay-mediainfo.html#GstPlayMediaInfo">GstPlay.PlayMediaInfo</a><span>)</span>
+–
+</div>
+<p>a <a href="play/gstplay-mediainfo.html#GstPlayMediaInfo">GstPlay.PlayMediaInfo</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Gst.TagList" href="gstreamer/gsttaglist.html#GstTagList">Gst.TagList</a><span>)</span>
+–
+			</div>
+							<p>the tags contained in media info.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="gst_play_media_info_get_title">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_play_media_info_get_title">
+	<i>gst_play_media_info_get_title</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+const <a title="gchar" href="https://docs.gtk.org/glib/types.html#gchar">gchar</a> *
+gst_play_media_info_get_title (const <a title="GstPlayMediaInfo" href="play/gstplay-mediainfo.html#GstPlayMediaInfo">GstPlayMediaInfo</a> * info)</pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>info</code></em></i>
+–
+</div>
+<p>a <a href="play/gstplay-mediainfo.html#GstPlayMediaInfo">GstPlayMediaInfo</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span>
+<span class="annotation">[<abbr title="NULL may be passed to the value"><span class="acronym">nullable</span></abbr>]</span><span>)</span>
+–
+			</div>
+							<p>the media title or <a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#NULL:CAPS">NULL</a> if unknown.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_play_media_info_get_title">
+	<i>GstPlay.PlayMediaInfo.prototype.get_title</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstPlay.PlayMediaInfo.prototype.get_title(): {
+    // javascript wrapper for 'gst_play_media_info_get_title'
+}</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>info</code></em></i>
+<span>(</span><a title="GstPlay.PlayMediaInfo" href="play/gstplay-mediainfo.html#GstPlayMediaInfo">GstPlay.PlayMediaInfo</a><span>)</span>
+–
+</div>
+<p>a <a href="play/gstplay-mediainfo.html#GstPlayMediaInfo">GstPlay.PlayMediaInfo</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a><span>)</span>
+–
+			</div>
+							<p>the media title or <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null">null</a> if unknown.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_play_media_info_get_title">
+	<i>GstPlay.PlayMediaInfo.get_title</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstPlay.PlayMediaInfo.get_title (self):
+    #python wrapper for 'gst_play_media_info_get_title'</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>info</code></em></i>
+<span>(</span><a title="GstPlay.PlayMediaInfo" href="play/gstplay-mediainfo.html#GstPlayMediaInfo">GstPlay.PlayMediaInfo</a><span>)</span>
+–
+</div>
+<p>a <a href="play/gstplay-mediainfo.html#GstPlayMediaInfo">GstPlay.PlayMediaInfo</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="str" href="https://docs.python.org/3/library/functions.html#func-str">str</a><span>)</span>
+–
+			</div>
+							<p>the media title or <a href="https://docs.python.org/3/library/constants.html#None">None</a> if unknown.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="gst_play_media_info_get_uri">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_play_media_info_get_uri">
+	<i>gst_play_media_info_get_uri</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+const <a title="gchar" href="https://docs.gtk.org/glib/types.html#gchar">gchar</a> *
+gst_play_media_info_get_uri (const <a title="GstPlayMediaInfo" href="play/gstplay-mediainfo.html#GstPlayMediaInfo">GstPlayMediaInfo</a> * info)</pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>info</code></em></i>
+–
+</div>
+<p>a <a href="play/gstplay-mediainfo.html#GstPlayMediaInfo">GstPlayMediaInfo</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p>the URI associated with <a href="play/gstplay-mediainfo.html#GstPlayMediaInfo">GstPlayMediaInfo</a>.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_play_media_info_get_uri">
+	<i>GstPlay.PlayMediaInfo.prototype.get_uri</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstPlay.PlayMediaInfo.prototype.get_uri(): {
+    // javascript wrapper for 'gst_play_media_info_get_uri'
+}</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>info</code></em></i>
+<span>(</span><a title="GstPlay.PlayMediaInfo" href="play/gstplay-mediainfo.html#GstPlayMediaInfo">GstPlay.PlayMediaInfo</a><span>)</span>
+–
+</div>
+<p>a <a href="play/gstplay-mediainfo.html#GstPlayMediaInfo">GstPlay.PlayMediaInfo</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a><span>)</span>
+–
+			</div>
+							<p>the URI associated with <a href="play/gstplay-mediainfo.html#GstPlayMediaInfo">GstPlay.PlayMediaInfo</a>.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_play_media_info_get_uri">
+	<i>GstPlay.PlayMediaInfo.get_uri</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstPlay.PlayMediaInfo.get_uri (self):
+    #python wrapper for 'gst_play_media_info_get_uri'</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>info</code></em></i>
+<span>(</span><a title="GstPlay.PlayMediaInfo" href="play/gstplay-mediainfo.html#GstPlayMediaInfo">GstPlay.PlayMediaInfo</a><span>)</span>
+–
+</div>
+<p>a <a href="play/gstplay-mediainfo.html#GstPlayMediaInfo">GstPlay.PlayMediaInfo</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="str" href="https://docs.python.org/3/library/functions.html#func-str">str</a><span>)</span>
+–
+			</div>
+							<p>the URI associated with <a href="play/gstplay-mediainfo.html#GstPlayMediaInfo">GstPlay.PlayMediaInfo</a>.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="gst_play_media_info_get_video_streams">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_play_media_info_get_video_streams">
+	<i>gst_play_media_info_get_video_streams</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GList" href="https://docs.gtk.org/glib/struct.List.html">GList</a> *
+gst_play_media_info_get_video_streams (const <a title="GstPlayMediaInfo" href="play/gstplay-mediainfo.html#GstPlayMediaInfo">GstPlayMediaInfo</a> * info)</pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>info</code></em></i>
+–
+</div>
+<p>a <a href="play/gstplay-mediainfo.html#GstPlayMediaInfo">GstPlayMediaInfo</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span>
+<span class="annotation">[<abbr title="Don't free data after the code is done"><span class="acronym">transfer: none</span></abbr>]</span><span class="annotation">[<abbr title="Generic and defining element of containers and arrays"><span class="acronym">element-type</span></abbr> GstPlayVideoInfo]</span><span>)</span>
+–
+			</div>
+							<p>A <a href="https://docs.gtk.org/glib/struct.List.html">GList</a> of
+matching <a href="play/gstplay-mediainfo.html#GstPlayVideoInfo">GstPlayVideoInfo</a>.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_play_media_info_get_video_streams">
+	<i>GstPlay.PlayMediaInfo.prototype.get_video_streams</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstPlay.PlayMediaInfo.prototype.get_video_streams(): {
+    // javascript wrapper for 'gst_play_media_info_get_video_streams'
+}</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>info</code></em></i>
+<span>(</span><a title="GstPlay.PlayMediaInfo" href="play/gstplay-mediainfo.html#GstPlayMediaInfo">GstPlay.PlayMediaInfo</a><span>)</span>
+–
+</div>
+<p>a <a href="play/gstplay-mediainfo.html#GstPlayMediaInfo">GstPlay.PlayMediaInfo</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span>[ <a title="GstPlay.PlayVideoInfo" href="play/gstplay-mediainfo.html#GstPlayVideoInfo">GstPlay.PlayVideoInfo</a> ]<span>)</span>
+–
+			</div>
+							<p>A <a href="https://docs.gtk.org/glib/struct.List.html">GLib.List</a> of
+matching <a href="play/gstplay-mediainfo.html#GstPlayVideoInfo">GstPlay.PlayVideoInfo</a>.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_play_media_info_get_video_streams">
+	<i>GstPlay.PlayMediaInfo.get_video_streams</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstPlay.PlayMediaInfo.get_video_streams (self):
+    #python wrapper for 'gst_play_media_info_get_video_streams'</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>info</code></em></i>
+<span>(</span><a title="GstPlay.PlayMediaInfo" href="play/gstplay-mediainfo.html#GstPlayMediaInfo">GstPlay.PlayMediaInfo</a><span>)</span>
+–
+</div>
+<p>a <a href="play/gstplay-mediainfo.html#GstPlayMediaInfo">GstPlay.PlayMediaInfo</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span>[ <a title="GstPlay.PlayVideoInfo" href="play/gstplay-mediainfo.html#GstPlayVideoInfo">GstPlay.PlayVideoInfo</a> ]<span>)</span>
+–
+			</div>
+							<p>A <a href="https://docs.gtk.org/glib/struct.List.html">GLib.List</a> of
+matching <a href="play/gstplay-mediainfo.html#GstPlayVideoInfo">GstPlay.PlayVideoInfo</a>.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="gst_play_media_info_is_live">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_play_media_info_is_live">
+	<i>gst_play_media_info_is_live</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a>
+gst_play_media_info_is_live (const <a title="GstPlayMediaInfo" href="play/gstplay-mediainfo.html#GstPlayMediaInfo">GstPlayMediaInfo</a> * info)</pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>info</code></em></i>
+–
+</div>
+<p>a <a href="play/gstplay-mediainfo.html#GstPlayMediaInfo">GstPlayMediaInfo</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p><a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#TRUE:CAPS">TRUE</a> if the media is live.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_play_media_info_is_live">
+	<i>GstPlay.PlayMediaInfo.prototype.is_live</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstPlay.PlayMediaInfo.prototype.is_live(): {
+    // javascript wrapper for 'gst_play_media_info_is_live'
+}</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>info</code></em></i>
+<span>(</span><a title="GstPlay.PlayMediaInfo" href="play/gstplay-mediainfo.html#GstPlayMediaInfo">GstPlay.PlayMediaInfo</a><span>)</span>
+–
+</div>
+<p>a <a href="play/gstplay-mediainfo.html#GstPlayMediaInfo">GstPlay.PlayMediaInfo</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+			</div>
+							<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">true</a> if the media is live.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_play_media_info_is_live">
+	<i>GstPlay.PlayMediaInfo.is_live</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstPlay.PlayMediaInfo.is_live (self):
+    #python wrapper for 'gst_play_media_info_is_live'</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>info</code></em></i>
+<span>(</span><a title="GstPlay.PlayMediaInfo" href="play/gstplay-mediainfo.html#GstPlayMediaInfo">GstPlay.PlayMediaInfo</a><span>)</span>
+–
+</div>
+<p>a <a href="play/gstplay-mediainfo.html#GstPlayMediaInfo">GstPlay.PlayMediaInfo</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a><span>)</span>
+–
+			</div>
+							<p><a href="https://docs.python.org/3/library/constants.html#True">True</a> if the media is live.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="gst_play_media_info_is_seekable">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_play_media_info_is_seekable">
+	<i>gst_play_media_info_is_seekable</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a>
+gst_play_media_info_is_seekable (const <a title="GstPlayMediaInfo" href="play/gstplay-mediainfo.html#GstPlayMediaInfo">GstPlayMediaInfo</a> * info)</pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>info</code></em></i>
+–
+</div>
+<p>a <a href="play/gstplay-mediainfo.html#GstPlayMediaInfo">GstPlayMediaInfo</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p><a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#TRUE:CAPS">TRUE</a> if the media is seekable.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_play_media_info_is_seekable">
+	<i>GstPlay.PlayMediaInfo.prototype.is_seekable</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstPlay.PlayMediaInfo.prototype.is_seekable(): {
+    // javascript wrapper for 'gst_play_media_info_is_seekable'
+}</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>info</code></em></i>
+<span>(</span><a title="GstPlay.PlayMediaInfo" href="play/gstplay-mediainfo.html#GstPlayMediaInfo">GstPlay.PlayMediaInfo</a><span>)</span>
+–
+</div>
+<p>a <a href="play/gstplay-mediainfo.html#GstPlayMediaInfo">GstPlay.PlayMediaInfo</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+			</div>
+							<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">true</a> if the media is seekable.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_play_media_info_is_seekable">
+	<i>GstPlay.PlayMediaInfo.is_seekable</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstPlay.PlayMediaInfo.is_seekable (self):
+    #python wrapper for 'gst_play_media_info_is_seekable'</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>info</code></em></i>
+<span>(</span><a title="GstPlay.PlayMediaInfo" href="play/gstplay-mediainfo.html#GstPlayMediaInfo">GstPlay.PlayMediaInfo</a><span>)</span>
+–
+</div>
+<p>a <a href="play/gstplay-mediainfo.html#GstPlayMediaInfo">GstPlay.PlayMediaInfo</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a><span>)</span>
+–
+			</div>
+							<p><a href="https://docs.python.org/3/library/constants.html#True">True</a> if the media is seekable.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+
+        
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="GstPlayStreamInfo">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h2 data-hotdoc-id="GstPlayStreamInfo">
+	<i>GstPlayStreamInfo</i>
+</h2>
+
+
+<div class="hierarchy_container">
+	<div class="hierarchy_details">
+<pre>
+<a title="GObject" href="https://docs.gtk.org/gobject/class.Object.html">GObject</a>
+    <span class="lineart">╰──</span>GstPlayStreamInfo
+        <span class="lineart">╰──</span><a title="GstPlayAudioInfo" href="play/gstplay-mediainfo.html#GstPlayAudioInfo">GstPlayAudioInfo</a>
+        <span class="lineart">╰──</span><a title="GstPlaySubtitleInfo" href="play/gstplay-mediainfo.html#GstPlaySubtitleInfo">GstPlaySubtitleInfo</a>
+        <span class="lineart">╰──</span><a title="GstPlayVideoInfo" href="play/gstplay-mediainfo.html#GstPlayVideoInfo">GstPlayVideoInfo</a>
+</pre>
+
+</div>
+
+</div>
+
+<div class="class_details">
+	<p>Base structure for information concerning a media stream. Depending on
+the stream type, one can find more media-specific information in
+<a href="play/gstplay-mediainfo.html#GstPlayVideoInfo">GstPlayVideoInfo</a>, <a href="play/gstplay-mediainfo.html#GstPlayAudioInfo">GstPlayAudioInfo</a>, <a href="play/gstplay-mediainfo.html#GstPlaySubtitleInfo">GstPlaySubtitleInfo</a>.</p>
+
+</div>
+
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+<h3>Class structure</h3>
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstPlayStreamInfoClass">
+	<i>GstPlayStreamInfoClass</i>
+</h4>
+
+
+
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3>
+	GstPlay.PlayStreamInfoClass
+</h3>
+
+
+
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3>
+	GstPlay.PlayStreamInfoClass
+</h3>
+
+
+
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h2 data-hotdoc-id="GstPlayStreamInfo">
+	<i>GstPlay.PlayStreamInfo</i>
+</h2>
+
+
+<div class="hierarchy_container">
+	<div class="hierarchy_details">
+<pre>
+<a title="GObject.Object" href="https://docs.gtk.org/gobject/class.Object.html">GObject.Object</a>
+    <span class="lineart">╰──</span>GstPlay.PlayStreamInfo
+        <span class="lineart">╰──</span><a title="GstPlay.PlayAudioInfo" href="play/gstplay-mediainfo.html#GstPlayAudioInfo">GstPlay.PlayAudioInfo</a>
+        <span class="lineart">╰──</span><a title="GstPlay.PlaySubtitleInfo" href="play/gstplay-mediainfo.html#GstPlaySubtitleInfo">GstPlay.PlaySubtitleInfo</a>
+        <span class="lineart">╰──</span><a title="GstPlay.PlayVideoInfo" href="play/gstplay-mediainfo.html#GstPlayVideoInfo">GstPlay.PlayVideoInfo</a>
+</pre>
+
+</div>
+
+</div>
+
+<div class="class_details">
+	<p>Base structure for information concerning a media stream. Depending on
+the stream type, one can find more media-specific information in
+<a href="play/gstplay-mediainfo.html#GstPlayVideoInfo">GstPlay.PlayVideoInfo</a>, <a href="play/gstplay-mediainfo.html#GstPlayAudioInfo">GstPlay.PlayAudioInfo</a>, <a href="play/gstplay-mediainfo.html#GstPlaySubtitleInfo">GstPlay.PlaySubtitleInfo</a>.</p>
+
+</div>
+
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h2 data-hotdoc-id="GstPlayStreamInfo">
+	<i>GstPlay.PlayStreamInfo</i>
+</h2>
+
+
+<div class="hierarchy_container">
+	<div class="hierarchy_details">
+<pre>
+<a title="GObject.Object" href="https://docs.gtk.org/gobject/class.Object.html">GObject.Object</a>
+    <span class="lineart">╰──</span>GstPlay.PlayStreamInfo
+        <span class="lineart">╰──</span><a title="GstPlay.PlayAudioInfo" href="play/gstplay-mediainfo.html#GstPlayAudioInfo">GstPlay.PlayAudioInfo</a>
+        <span class="lineart">╰──</span><a title="GstPlay.PlaySubtitleInfo" href="play/gstplay-mediainfo.html#GstPlaySubtitleInfo">GstPlay.PlaySubtitleInfo</a>
+        <span class="lineart">╰──</span><a title="GstPlay.PlayVideoInfo" href="play/gstplay-mediainfo.html#GstPlayVideoInfo">GstPlay.PlayVideoInfo</a>
+</pre>
+
+</div>
+
+</div>
+
+<div class="class_details">
+	<p>Base structure for information concerning a media stream. Depending on
+the stream type, one can find more media-specific information in
+<a href="play/gstplay-mediainfo.html#GstPlayVideoInfo">GstPlay.PlayVideoInfo</a>, <a href="play/gstplay-mediainfo.html#GstPlayAudioInfo">GstPlay.PlayAudioInfo</a>, <a href="play/gstplay-mediainfo.html#GstPlaySubtitleInfo">GstPlay.PlaySubtitleInfo</a>.</p>
+
+</div>
+
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+
+            <h3 class="symbol_section">Methods</h3>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="gst_play_stream_info_get_caps">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_play_stream_info_get_caps">
+	<i>gst_play_stream_info_get_caps</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GstCaps" href="gstreamer/gstcaps.html#GstCaps">GstCaps</a> *
+gst_play_stream_info_get_caps (const <a title="GstPlayStreamInfo" href="play/gstplay-mediainfo.html#GstPlayStreamInfo">GstPlayStreamInfo</a> * info)</pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>info</code></em></i>
+–
+</div>
+<p>a <a href="play/gstplay-mediainfo.html#GstPlayStreamInfo">GstPlayStreamInfo</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span>
+<span class="annotation">[<abbr title="NULL may be passed to the value"><span class="acronym">nullable</span></abbr>]</span><span class="annotation">[<abbr title="Don't free data after the code is done"><span class="acronym">transfer: none</span></abbr>]</span><span>)</span>
+–
+			</div>
+							<p>the <a href="gstreamer/gstcaps.html#GstCaps">GstCaps</a> of the stream or <a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#NULL:CAPS">NULL</a> if
+unknown.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_play_stream_info_get_caps">
+	<i>GstPlay.PlayStreamInfo.prototype.get_caps</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstPlay.PlayStreamInfo.prototype.get_caps(): {
+    // javascript wrapper for 'gst_play_stream_info_get_caps'
+}</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>info</code></em></i>
+<span>(</span><a title="GstPlay.PlayStreamInfo" href="play/gstplay-mediainfo.html#GstPlayStreamInfo">GstPlay.PlayStreamInfo</a><span>)</span>
+–
+</div>
+<p>a <a href="play/gstplay-mediainfo.html#GstPlayStreamInfo">GstPlay.PlayStreamInfo</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Gst.Caps" href="gstreamer/gstcaps.html#GstCaps">Gst.Caps</a><span>)</span>
+–
+			</div>
+							<p>the <a href="gstreamer/gstcaps.html#GstCaps">Gst.Caps</a> of the stream or <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null">null</a> if
+unknown.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_play_stream_info_get_caps">
+	<i>GstPlay.PlayStreamInfo.get_caps</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstPlay.PlayStreamInfo.get_caps (self):
+    #python wrapper for 'gst_play_stream_info_get_caps'</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>info</code></em></i>
+<span>(</span><a title="GstPlay.PlayStreamInfo" href="play/gstplay-mediainfo.html#GstPlayStreamInfo">GstPlay.PlayStreamInfo</a><span>)</span>
+–
+</div>
+<p>a <a href="play/gstplay-mediainfo.html#GstPlayStreamInfo">GstPlay.PlayStreamInfo</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Gst.Caps" href="gstreamer/gstcaps.html#GstCaps">Gst.Caps</a><span>)</span>
+–
+			</div>
+							<p>the <a href="gstreamer/gstcaps.html#GstCaps">Gst.Caps</a> of the stream or <a href="https://docs.python.org/3/library/constants.html#None">None</a> if
+unknown.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="gst_play_stream_info_get_codec">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_play_stream_info_get_codec">
+	<i>gst_play_stream_info_get_codec</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+const <a title="gchar" href="https://docs.gtk.org/glib/types.html#gchar">gchar</a> *
+gst_play_stream_info_get_codec (const <a title="GstPlayStreamInfo" href="play/gstplay-mediainfo.html#GstPlayStreamInfo">GstPlayStreamInfo</a> * info)</pre>
+
+<p>A string describing codec used in <a href="play/gstplay-mediainfo.html#GstPlayStreamInfo">GstPlayStreamInfo</a>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>info</code></em></i>
+–
+</div>
+<p>a <a href="play/gstplay-mediainfo.html#GstPlayStreamInfo">GstPlayStreamInfo</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span>
+<span class="annotation">[<abbr title="NULL may be passed to the value"><span class="acronym">nullable</span></abbr>]</span><span>)</span>
+–
+			</div>
+							<p>codec string or <a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#NULL:CAPS">NULL</a> on unknown.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_play_stream_info_get_codec">
+	<i>GstPlay.PlayStreamInfo.prototype.get_codec</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstPlay.PlayStreamInfo.prototype.get_codec(): {
+    // javascript wrapper for 'gst_play_stream_info_get_codec'
+}</code></pre>
+
+<p>A string describing codec used in <a href="play/gstplay-mediainfo.html#GstPlayStreamInfo">GstPlay.PlayStreamInfo</a>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>info</code></em></i>
+<span>(</span><a title="GstPlay.PlayStreamInfo" href="play/gstplay-mediainfo.html#GstPlayStreamInfo">GstPlay.PlayStreamInfo</a><span>)</span>
+–
+</div>
+<p>a <a href="play/gstplay-mediainfo.html#GstPlayStreamInfo">GstPlay.PlayStreamInfo</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a><span>)</span>
+–
+			</div>
+							<p>codec string or <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null">null</a> on unknown.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_play_stream_info_get_codec">
+	<i>GstPlay.PlayStreamInfo.get_codec</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstPlay.PlayStreamInfo.get_codec (self):
+    #python wrapper for 'gst_play_stream_info_get_codec'</code></pre>
+
+<p>A string describing codec used in <a href="play/gstplay-mediainfo.html#GstPlayStreamInfo">GstPlay.PlayStreamInfo</a>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>info</code></em></i>
+<span>(</span><a title="GstPlay.PlayStreamInfo" href="play/gstplay-mediainfo.html#GstPlayStreamInfo">GstPlay.PlayStreamInfo</a><span>)</span>
+–
+</div>
+<p>a <a href="play/gstplay-mediainfo.html#GstPlayStreamInfo">GstPlay.PlayStreamInfo</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="str" href="https://docs.python.org/3/library/functions.html#func-str">str</a><span>)</span>
+–
+			</div>
+							<p>codec string or <a href="https://docs.python.org/3/library/constants.html#None">None</a> on unknown.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="deprecated:1.26;since:1.20;" id="gst_play_stream_info_get_index">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_play_stream_info_get_index">
+	<i>gst_play_stream_info_get_index</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gint" href="https://docs.gtk.org/glib/types.html#gint">gint</a>
+gst_play_stream_info_get_index (const <a title="GstPlayStreamInfo" href="play/gstplay-mediainfo.html#GstPlayStreamInfo">GstPlayStreamInfo</a> * info)</pre>
+
+<p>Function to get stream index from <a href="play/gstplay-mediainfo.html#GstPlayStreamInfo">GstPlayStreamInfo</a> instance or -1 if
+unknown.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>info</code></em></i>
+–
+</div>
+<p>a <a href="play/gstplay-mediainfo.html#GstPlayStreamInfo">GstPlayStreamInfo</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p>the stream index of this stream.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>deprecated</b>			: 1.26: Use gst_play_stream_info_get_stream_id().
+		</p>
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_play_stream_info_get_index">
+	<i>GstPlay.PlayStreamInfo.prototype.get_index</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstPlay.PlayStreamInfo.prototype.get_index(): {
+    // javascript wrapper for 'gst_play_stream_info_get_index'
+}</code></pre>
+
+<p>Function to get stream index from <a href="play/gstplay-mediainfo.html#GstPlayStreamInfo">GstPlay.PlayStreamInfo</a> instance or -1 if
+unknown.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>info</code></em></i>
+<span>(</span><a title="GstPlay.PlayStreamInfo" href="play/gstplay-mediainfo.html#GstPlayStreamInfo">GstPlay.PlayStreamInfo</a><span>)</span>
+–
+</div>
+<p>a <a href="play/gstplay-mediainfo.html#GstPlayStreamInfo">GstPlay.PlayStreamInfo</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+			</div>
+							<p>the stream index of this stream.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>deprecated</b>			: 1.26: Use gst_play_stream_info_get_stream_id().
+		</p>
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_play_stream_info_get_index">
+	<i>GstPlay.PlayStreamInfo.get_index</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstPlay.PlayStreamInfo.get_index (self):
+    #python wrapper for 'gst_play_stream_info_get_index'</code></pre>
+
+<p>Function to get stream index from <a href="play/gstplay-mediainfo.html#GstPlayStreamInfo">GstPlay.PlayStreamInfo</a> instance or -1 if
+unknown.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>info</code></em></i>
+<span>(</span><a title="GstPlay.PlayStreamInfo" href="play/gstplay-mediainfo.html#GstPlayStreamInfo">GstPlay.PlayStreamInfo</a><span>)</span>
+–
+</div>
+<p>a <a href="play/gstplay-mediainfo.html#GstPlayStreamInfo">GstPlay.PlayStreamInfo</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+			</div>
+							<p>the stream index of this stream.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>deprecated</b>			: 1.26: Use gst_play_stream_info_get_stream_id().
+		</p>
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.26;" id="gst_play_stream_info_get_stream_id">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_play_stream_info_get_stream_id">
+	<i>gst_play_stream_info_get_stream_id</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+const <a title="gchar" href="https://docs.gtk.org/glib/types.html#gchar">gchar</a> *
+gst_play_stream_info_get_stream_id (const <a title="GstPlayStreamInfo" href="play/gstplay-mediainfo.html#GstPlayStreamInfo">GstPlayStreamInfo</a> * info)</pre>
+
+<p>A string stream id identifying this <a href="play/gstplay-mediainfo.html#GstPlayStreamInfo">GstPlayStreamInfo</a>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>info</code></em></i>
+–
+</div>
+<p>a <a href="play/gstplay-mediainfo.html#GstPlayStreamInfo">GstPlayStreamInfo</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p>stream id string.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.26
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_play_stream_info_get_stream_id">
+	<i>GstPlay.PlayStreamInfo.prototype.get_stream_id</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstPlay.PlayStreamInfo.prototype.get_stream_id(): {
+    // javascript wrapper for 'gst_play_stream_info_get_stream_id'
+}</code></pre>
+
+<p>A string stream id identifying this <a href="play/gstplay-mediainfo.html#GstPlayStreamInfo">GstPlay.PlayStreamInfo</a>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>info</code></em></i>
+<span>(</span><a title="GstPlay.PlayStreamInfo" href="play/gstplay-mediainfo.html#GstPlayStreamInfo">GstPlay.PlayStreamInfo</a><span>)</span>
+–
+</div>
+<p>a <a href="play/gstplay-mediainfo.html#GstPlayStreamInfo">GstPlay.PlayStreamInfo</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a><span>)</span>
+–
+			</div>
+							<p>stream id string.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.26
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_play_stream_info_get_stream_id">
+	<i>GstPlay.PlayStreamInfo.get_stream_id</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstPlay.PlayStreamInfo.get_stream_id (self):
+    #python wrapper for 'gst_play_stream_info_get_stream_id'</code></pre>
+
+<p>A string stream id identifying this <a href="play/gstplay-mediainfo.html#GstPlayStreamInfo">GstPlay.PlayStreamInfo</a>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>info</code></em></i>
+<span>(</span><a title="GstPlay.PlayStreamInfo" href="play/gstplay-mediainfo.html#GstPlayStreamInfo">GstPlay.PlayStreamInfo</a><span>)</span>
+–
+</div>
+<p>a <a href="play/gstplay-mediainfo.html#GstPlayStreamInfo">GstPlay.PlayStreamInfo</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="str" href="https://docs.python.org/3/library/functions.html#func-str">str</a><span>)</span>
+–
+			</div>
+							<p>stream id string.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.26
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="gst_play_stream_info_get_stream_type">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_play_stream_info_get_stream_type">
+	<i>gst_play_stream_info_get_stream_type</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+const <a title="gchar" href="https://docs.gtk.org/glib/types.html#gchar">gchar</a> *
+gst_play_stream_info_get_stream_type (const <a title="GstPlayStreamInfo" href="play/gstplay-mediainfo.html#GstPlayStreamInfo">GstPlayStreamInfo</a> * info)</pre>
+
+<p>Function to return human readable name for the stream type
+of the given <em>info</em> (ex: "audio", "video", "subtitle")</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>info</code></em></i>
+–
+</div>
+<p>a <a href="play/gstplay-mediainfo.html#GstPlayStreamInfo">GstPlayStreamInfo</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p>a human readable name</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_play_stream_info_get_stream_type">
+	<i>GstPlay.PlayStreamInfo.prototype.get_stream_type</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstPlay.PlayStreamInfo.prototype.get_stream_type(): {
+    // javascript wrapper for 'gst_play_stream_info_get_stream_type'
+}</code></pre>
+
+<p>Function to return human readable name for the stream type
+of the given <em>info</em> (ex: "audio", "video", "subtitle")</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>info</code></em></i>
+<span>(</span><a title="GstPlay.PlayStreamInfo" href="play/gstplay-mediainfo.html#GstPlayStreamInfo">GstPlay.PlayStreamInfo</a><span>)</span>
+–
+</div>
+<p>a <a href="play/gstplay-mediainfo.html#GstPlayStreamInfo">GstPlay.PlayStreamInfo</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a><span>)</span>
+–
+			</div>
+							<p>a human readable name</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_play_stream_info_get_stream_type">
+	<i>GstPlay.PlayStreamInfo.get_stream_type</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstPlay.PlayStreamInfo.get_stream_type (self):
+    #python wrapper for 'gst_play_stream_info_get_stream_type'</code></pre>
+
+<p>Function to return human readable name for the stream type
+of the given <em>info</em> (ex: "audio", "video", "subtitle")</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>info</code></em></i>
+<span>(</span><a title="GstPlay.PlayStreamInfo" href="play/gstplay-mediainfo.html#GstPlayStreamInfo">GstPlay.PlayStreamInfo</a><span>)</span>
+–
+</div>
+<p>a <a href="play/gstplay-mediainfo.html#GstPlayStreamInfo">GstPlay.PlayStreamInfo</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="str" href="https://docs.python.org/3/library/functions.html#func-str">str</a><span>)</span>
+–
+			</div>
+							<p>a human readable name</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="gst_play_stream_info_get_tags">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_play_stream_info_get_tags">
+	<i>gst_play_stream_info_get_tags</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GstTagList" href="gstreamer/gsttaglist.html#GstTagList">GstTagList</a> *
+gst_play_stream_info_get_tags (const <a title="GstPlayStreamInfo" href="play/gstplay-mediainfo.html#GstPlayStreamInfo">GstPlayStreamInfo</a> * info)</pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>info</code></em></i>
+–
+</div>
+<p>a <a href="play/gstplay-mediainfo.html#GstPlayStreamInfo">GstPlayStreamInfo</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span>
+<span class="annotation">[<abbr title="Don't free data after the code is done"><span class="acronym">transfer: none</span></abbr>]</span><span class="annotation">[<abbr title="NULL may be passed to the value"><span class="acronym">nullable</span></abbr>]</span><span>)</span>
+–
+			</div>
+							<p>the tags contained in this stream.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_play_stream_info_get_tags">
+	<i>GstPlay.PlayStreamInfo.prototype.get_tags</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstPlay.PlayStreamInfo.prototype.get_tags(): {
+    // javascript wrapper for 'gst_play_stream_info_get_tags'
+}</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>info</code></em></i>
+<span>(</span><a title="GstPlay.PlayStreamInfo" href="play/gstplay-mediainfo.html#GstPlayStreamInfo">GstPlay.PlayStreamInfo</a><span>)</span>
+–
+</div>
+<p>a <a href="play/gstplay-mediainfo.html#GstPlayStreamInfo">GstPlay.PlayStreamInfo</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Gst.TagList" href="gstreamer/gsttaglist.html#GstTagList">Gst.TagList</a><span>)</span>
+–
+			</div>
+							<p>the tags contained in this stream.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_play_stream_info_get_tags">
+	<i>GstPlay.PlayStreamInfo.get_tags</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstPlay.PlayStreamInfo.get_tags (self):
+    #python wrapper for 'gst_play_stream_info_get_tags'</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>info</code></em></i>
+<span>(</span><a title="GstPlay.PlayStreamInfo" href="play/gstplay-mediainfo.html#GstPlayStreamInfo">GstPlay.PlayStreamInfo</a><span>)</span>
+–
+</div>
+<p>a <a href="play/gstplay-mediainfo.html#GstPlayStreamInfo">GstPlay.PlayStreamInfo</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Gst.TagList" href="gstreamer/gsttaglist.html#GstTagList">Gst.TagList</a><span>)</span>
+–
+			</div>
+							<p>the tags contained in this stream.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+
+        
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="GstPlaySubtitleInfo">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h2 data-hotdoc-id="GstPlaySubtitleInfo">
+	<i>GstPlaySubtitleInfo</i>
+</h2>
+
+
+<div class="hierarchy_container">
+	<div class="hierarchy_details">
+<pre>
+<a title="GObject" href="https://docs.gtk.org/gobject/class.Object.html">GObject</a>
+    <span class="lineart">╰──</span><a title="GstPlayStreamInfo" href="play/gstplay-mediainfo.html#GstPlayStreamInfo">GstPlayStreamInfo</a>
+        <span class="lineart">╰──</span>GstPlaySubtitleInfo
+</pre>
+
+</div>
+
+</div>
+
+<div class="class_details">
+	<p><a href="play/gstplay-mediainfo.html#GstPlayStreamInfo">GstPlayStreamInfo</a> specific to subtitle streams.</p>
+
+</div>
+
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+<h3>Class structure</h3>
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstPlaySubtitleInfoClass">
+	<i>GstPlaySubtitleInfoClass</i>
+</h4>
+
+
+
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3>
+	GstPlay.PlaySubtitleInfoClass
+</h3>
+
+
+
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3>
+	GstPlay.PlaySubtitleInfoClass
+</h3>
+
+
+
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h2 data-hotdoc-id="GstPlaySubtitleInfo">
+	<i>GstPlay.PlaySubtitleInfo</i>
+</h2>
+
+
+<div class="hierarchy_container">
+	<div class="hierarchy_details">
+<pre>
+<a title="GObject.Object" href="https://docs.gtk.org/gobject/class.Object.html">GObject.Object</a>
+    <span class="lineart">╰──</span><a title="GstPlay.PlayStreamInfo" href="play/gstplay-mediainfo.html#GstPlayStreamInfo">GstPlay.PlayStreamInfo</a>
+        <span class="lineart">╰──</span>GstPlay.PlaySubtitleInfo
+</pre>
+
+</div>
+
+</div>
+
+<div class="class_details">
+	<p><a href="play/gstplay-mediainfo.html#GstPlayStreamInfo">GstPlay.PlayStreamInfo</a> specific to subtitle streams.</p>
+
+</div>
+
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h2 data-hotdoc-id="GstPlaySubtitleInfo">
+	<i>GstPlay.PlaySubtitleInfo</i>
+</h2>
+
+
+<div class="hierarchy_container">
+	<div class="hierarchy_details">
+<pre>
+<a title="GObject.Object" href="https://docs.gtk.org/gobject/class.Object.html">GObject.Object</a>
+    <span class="lineart">╰──</span><a title="GstPlay.PlayStreamInfo" href="play/gstplay-mediainfo.html#GstPlayStreamInfo">GstPlay.PlayStreamInfo</a>
+        <span class="lineart">╰──</span>GstPlay.PlaySubtitleInfo
+</pre>
+
+</div>
+
+</div>
+
+<div class="class_details">
+	<p><a href="play/gstplay-mediainfo.html#GstPlayStreamInfo">GstPlay.PlayStreamInfo</a> specific to subtitle streams.</p>
+
+</div>
+
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+
+            <h3 class="symbol_section">Methods</h3>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="gst_play_subtitle_info_get_language">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_play_subtitle_info_get_language">
+	<i>gst_play_subtitle_info_get_language</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+const <a title="gchar" href="https://docs.gtk.org/glib/types.html#gchar">gchar</a> *
+gst_play_subtitle_info_get_language (const <a title="GstPlaySubtitleInfo" href="play/gstplay-mediainfo.html#GstPlaySubtitleInfo">GstPlaySubtitleInfo</a> * info)</pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>info</code></em></i>
+–
+</div>
+<p>a <a href="play/gstplay-mediainfo.html#GstPlaySubtitleInfo">GstPlaySubtitleInfo</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span>
+<span class="annotation">[<abbr title="NULL may be passed to the value"><span class="acronym">nullable</span></abbr>]</span><span>)</span>
+–
+			</div>
+							<p>the language of the stream, or <a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#NULL:CAPS">NULL</a> if unknown.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_play_subtitle_info_get_language">
+	<i>GstPlay.PlaySubtitleInfo.prototype.get_language</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstPlay.PlaySubtitleInfo.prototype.get_language(): {
+    // javascript wrapper for 'gst_play_subtitle_info_get_language'
+}</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>info</code></em></i>
+<span>(</span><a title="GstPlay.PlaySubtitleInfo" href="play/gstplay-mediainfo.html#GstPlaySubtitleInfo">GstPlay.PlaySubtitleInfo</a><span>)</span>
+–
+</div>
+<p>a <a href="play/gstplay-mediainfo.html#GstPlaySubtitleInfo">GstPlay.PlaySubtitleInfo</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a><span>)</span>
+–
+			</div>
+							<p>the language of the stream, or <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null">null</a> if unknown.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_play_subtitle_info_get_language">
+	<i>GstPlay.PlaySubtitleInfo.get_language</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstPlay.PlaySubtitleInfo.get_language (self):
+    #python wrapper for 'gst_play_subtitle_info_get_language'</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>info</code></em></i>
+<span>(</span><a title="GstPlay.PlaySubtitleInfo" href="play/gstplay-mediainfo.html#GstPlaySubtitleInfo">GstPlay.PlaySubtitleInfo</a><span>)</span>
+–
+</div>
+<p>a <a href="play/gstplay-mediainfo.html#GstPlaySubtitleInfo">GstPlay.PlaySubtitleInfo</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="str" href="https://docs.python.org/3/library/functions.html#func-str">str</a><span>)</span>
+–
+			</div>
+							<p>the language of the stream, or <a href="https://docs.python.org/3/library/constants.html#None">None</a> if unknown.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+
+        
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="GstPlayVideoInfo">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h2 data-hotdoc-id="GstPlayVideoInfo">
+	<i>GstPlayVideoInfo</i>
+</h2>
+
+
+<div class="hierarchy_container">
+	<div class="hierarchy_details">
+<pre>
+<a title="GObject" href="https://docs.gtk.org/gobject/class.Object.html">GObject</a>
+    <span class="lineart">╰──</span><a title="GstPlayStreamInfo" href="play/gstplay-mediainfo.html#GstPlayStreamInfo">GstPlayStreamInfo</a>
+        <span class="lineart">╰──</span>GstPlayVideoInfo
+</pre>
+
+</div>
+
+</div>
+
+<div class="class_details">
+	<p><a href="play/gstplay-mediainfo.html#GstPlayStreamInfo">GstPlayStreamInfo</a> specific to video streams.</p>
+
+</div>
+
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+<h3>Class structure</h3>
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstPlayVideoInfoClass">
+	<i>GstPlayVideoInfoClass</i>
+</h4>
+
+
+
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3>
+	GstPlay.PlayVideoInfoClass
+</h3>
+
+
+
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3>
+	GstPlay.PlayVideoInfoClass
+</h3>
+
+
+
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h2 data-hotdoc-id="GstPlayVideoInfo">
+	<i>GstPlay.PlayVideoInfo</i>
+</h2>
+
+
+<div class="hierarchy_container">
+	<div class="hierarchy_details">
+<pre>
+<a title="GObject.Object" href="https://docs.gtk.org/gobject/class.Object.html">GObject.Object</a>
+    <span class="lineart">╰──</span><a title="GstPlay.PlayStreamInfo" href="play/gstplay-mediainfo.html#GstPlayStreamInfo">GstPlay.PlayStreamInfo</a>
+        <span class="lineart">╰──</span>GstPlay.PlayVideoInfo
+</pre>
+
+</div>
+
+</div>
+
+<div class="class_details">
+	<p><a href="play/gstplay-mediainfo.html#GstPlayStreamInfo">GstPlay.PlayStreamInfo</a> specific to video streams.</p>
+
+</div>
+
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h2 data-hotdoc-id="GstPlayVideoInfo">
+	<i>GstPlay.PlayVideoInfo</i>
+</h2>
+
+
+<div class="hierarchy_container">
+	<div class="hierarchy_details">
+<pre>
+<a title="GObject.Object" href="https://docs.gtk.org/gobject/class.Object.html">GObject.Object</a>
+    <span class="lineart">╰──</span><a title="GstPlay.PlayStreamInfo" href="play/gstplay-mediainfo.html#GstPlayStreamInfo">GstPlay.PlayStreamInfo</a>
+        <span class="lineart">╰──</span>GstPlay.PlayVideoInfo
+</pre>
+
+</div>
+
+</div>
+
+<div class="class_details">
+	<p><a href="play/gstplay-mediainfo.html#GstPlayStreamInfo">GstPlay.PlayStreamInfo</a> specific to video streams.</p>
+
+</div>
+
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+
+            <h3 class="symbol_section">Methods</h3>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="gst_play_video_info_get_bitrate">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_play_video_info_get_bitrate">
+	<i>gst_play_video_info_get_bitrate</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gint" href="https://docs.gtk.org/glib/types.html#gint">gint</a>
+gst_play_video_info_get_bitrate (const <a title="GstPlayVideoInfo" href="play/gstplay-mediainfo.html#GstPlayVideoInfo">GstPlayVideoInfo</a> * info)</pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>info</code></em></i>
+–
+</div>
+<p>a <a href="play/gstplay-mediainfo.html#GstPlayVideoInfo">GstPlayVideoInfo</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p>the current bitrate of video in <a href="play/gstplay-mediainfo.html#GstPlayVideoInfo">GstPlayVideoInfo</a> or -1 if unknown.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_play_video_info_get_bitrate">
+	<i>GstPlay.PlayVideoInfo.prototype.get_bitrate</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstPlay.PlayVideoInfo.prototype.get_bitrate(): {
+    // javascript wrapper for 'gst_play_video_info_get_bitrate'
+}</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>info</code></em></i>
+<span>(</span><a title="GstPlay.PlayVideoInfo" href="play/gstplay-mediainfo.html#GstPlayVideoInfo">GstPlay.PlayVideoInfo</a><span>)</span>
+–
+</div>
+<p>a <a href="play/gstplay-mediainfo.html#GstPlayVideoInfo">GstPlay.PlayVideoInfo</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+			</div>
+							<p>the current bitrate of video in <a href="play/gstplay-mediainfo.html#GstPlayVideoInfo">GstPlay.PlayVideoInfo</a> or -1 if unknown.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_play_video_info_get_bitrate">
+	<i>GstPlay.PlayVideoInfo.get_bitrate</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstPlay.PlayVideoInfo.get_bitrate (self):
+    #python wrapper for 'gst_play_video_info_get_bitrate'</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>info</code></em></i>
+<span>(</span><a title="GstPlay.PlayVideoInfo" href="play/gstplay-mediainfo.html#GstPlayVideoInfo">GstPlay.PlayVideoInfo</a><span>)</span>
+–
+</div>
+<p>a <a href="play/gstplay-mediainfo.html#GstPlayVideoInfo">GstPlay.PlayVideoInfo</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+			</div>
+							<p>the current bitrate of video in <a href="play/gstplay-mediainfo.html#GstPlayVideoInfo">GstPlay.PlayVideoInfo</a> or -1 if unknown.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="gst_play_video_info_get_framerate">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_play_video_info_get_framerate">
+	<i>gst_play_video_info_get_framerate</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+gst_play_video_info_get_framerate (const <a title="GstPlayVideoInfo" href="play/gstplay-mediainfo.html#GstPlayVideoInfo">GstPlayVideoInfo</a> * info,
+                                   <a title="gint" href="https://docs.gtk.org/glib/types.html#gint">gint</a> * fps_n,
+                                   <a title="gint" href="https://docs.gtk.org/glib/types.html#gint">gint</a> * fps_d)</pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>info</code></em></i>
+–
+</div>
+<p>a <a href="play/gstplay-mediainfo.html#GstPlayVideoInfo">GstPlayVideoInfo</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>fps_n</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="Parameter for returning results"><span class="acronym">out</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>Numerator of frame rate</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>fps_d</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="Parameter for returning results"><span class="acronym">out</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>Denominator of frame rate</p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_play_video_info_get_framerate">
+	<i>GstPlay.PlayVideoInfo.prototype.get_framerate</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstPlay.PlayVideoInfo.prototype.get_framerate(): {
+    // javascript wrapper for 'gst_play_video_info_get_framerate'
+}</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>info</code></em></i>
+<span>(</span><a title="GstPlay.PlayVideoInfo" href="play/gstplay-mediainfo.html#GstPlayVideoInfo">GstPlay.PlayVideoInfo</a><span>)</span>
+–
+</div>
+<p>a <a href="play/gstplay-mediainfo.html#GstPlayVideoInfo">GstPlay.PlayVideoInfo</a></p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_play_video_info_get_framerate">
+	<i>GstPlay.PlayVideoInfo.get_framerate</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstPlay.PlayVideoInfo.get_framerate (self):
+    #python wrapper for 'gst_play_video_info_get_framerate'</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>info</code></em></i>
+<span>(</span><a title="GstPlay.PlayVideoInfo" href="play/gstplay-mediainfo.html#GstPlayVideoInfo">GstPlay.PlayVideoInfo</a><span>)</span>
+–
+</div>
+<p>a <a href="play/gstplay-mediainfo.html#GstPlayVideoInfo">GstPlay.PlayVideoInfo</a></p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="gst_play_video_info_get_height">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_play_video_info_get_height">
+	<i>gst_play_video_info_get_height</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gint" href="https://docs.gtk.org/glib/types.html#gint">gint</a>
+gst_play_video_info_get_height (const <a title="GstPlayVideoInfo" href="play/gstplay-mediainfo.html#GstPlayVideoInfo">GstPlayVideoInfo</a> * info)</pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>info</code></em></i>
+–
+</div>
+<p>a <a href="play/gstplay-mediainfo.html#GstPlayVideoInfo">GstPlayVideoInfo</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p>the height of video in <a href="play/gstplay-mediainfo.html#GstPlayVideoInfo">GstPlayVideoInfo</a> or -1 if unknown.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_play_video_info_get_height">
+	<i>GstPlay.PlayVideoInfo.prototype.get_height</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstPlay.PlayVideoInfo.prototype.get_height(): {
+    // javascript wrapper for 'gst_play_video_info_get_height'
+}</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>info</code></em></i>
+<span>(</span><a title="GstPlay.PlayVideoInfo" href="play/gstplay-mediainfo.html#GstPlayVideoInfo">GstPlay.PlayVideoInfo</a><span>)</span>
+–
+</div>
+<p>a <a href="play/gstplay-mediainfo.html#GstPlayVideoInfo">GstPlay.PlayVideoInfo</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+			</div>
+							<p>the height of video in <a href="play/gstplay-mediainfo.html#GstPlayVideoInfo">GstPlay.PlayVideoInfo</a> or -1 if unknown.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_play_video_info_get_height">
+	<i>GstPlay.PlayVideoInfo.get_height</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstPlay.PlayVideoInfo.get_height (self):
+    #python wrapper for 'gst_play_video_info_get_height'</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>info</code></em></i>
+<span>(</span><a title="GstPlay.PlayVideoInfo" href="play/gstplay-mediainfo.html#GstPlayVideoInfo">GstPlay.PlayVideoInfo</a><span>)</span>
+–
+</div>
+<p>a <a href="play/gstplay-mediainfo.html#GstPlayVideoInfo">GstPlay.PlayVideoInfo</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+			</div>
+							<p>the height of video in <a href="play/gstplay-mediainfo.html#GstPlayVideoInfo">GstPlay.PlayVideoInfo</a> or -1 if unknown.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="gst_play_video_info_get_max_bitrate">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_play_video_info_get_max_bitrate">
+	<i>gst_play_video_info_get_max_bitrate</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gint" href="https://docs.gtk.org/glib/types.html#gint">gint</a>
+gst_play_video_info_get_max_bitrate (const <a title="GstPlayVideoInfo" href="play/gstplay-mediainfo.html#GstPlayVideoInfo">GstPlayVideoInfo</a> * info)</pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>info</code></em></i>
+–
+</div>
+<p>a <a href="play/gstplay-mediainfo.html#GstPlayVideoInfo">GstPlayVideoInfo</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p>the maximum bitrate of video in <a href="play/gstplay-mediainfo.html#GstPlayVideoInfo">GstPlayVideoInfo</a> or -1 if unknown.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_play_video_info_get_max_bitrate">
+	<i>GstPlay.PlayVideoInfo.prototype.get_max_bitrate</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstPlay.PlayVideoInfo.prototype.get_max_bitrate(): {
+    // javascript wrapper for 'gst_play_video_info_get_max_bitrate'
+}</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>info</code></em></i>
+<span>(</span><a title="GstPlay.PlayVideoInfo" href="play/gstplay-mediainfo.html#GstPlayVideoInfo">GstPlay.PlayVideoInfo</a><span>)</span>
+–
+</div>
+<p>a <a href="play/gstplay-mediainfo.html#GstPlayVideoInfo">GstPlay.PlayVideoInfo</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+			</div>
+							<p>the maximum bitrate of video in <a href="play/gstplay-mediainfo.html#GstPlayVideoInfo">GstPlay.PlayVideoInfo</a> or -1 if unknown.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_play_video_info_get_max_bitrate">
+	<i>GstPlay.PlayVideoInfo.get_max_bitrate</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstPlay.PlayVideoInfo.get_max_bitrate (self):
+    #python wrapper for 'gst_play_video_info_get_max_bitrate'</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>info</code></em></i>
+<span>(</span><a title="GstPlay.PlayVideoInfo" href="play/gstplay-mediainfo.html#GstPlayVideoInfo">GstPlay.PlayVideoInfo</a><span>)</span>
+–
+</div>
+<p>a <a href="play/gstplay-mediainfo.html#GstPlayVideoInfo">GstPlay.PlayVideoInfo</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+			</div>
+							<p>the maximum bitrate of video in <a href="play/gstplay-mediainfo.html#GstPlayVideoInfo">GstPlay.PlayVideoInfo</a> or -1 if unknown.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="gst_play_video_info_get_pixel_aspect_ratio">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_play_video_info_get_pixel_aspect_ratio">
+	<i>gst_play_video_info_get_pixel_aspect_ratio</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+gst_play_video_info_get_pixel_aspect_ratio (const <a title="GstPlayVideoInfo" href="play/gstplay-mediainfo.html#GstPlayVideoInfo">GstPlayVideoInfo</a> * info,
+                                            <a title="guint" href="https://docs.gtk.org/glib/types.html#guint">guint</a> * par_n,
+                                            <a title="guint" href="https://docs.gtk.org/glib/types.html#guint">guint</a> * par_d)</pre>
+
+<p>Returns the pixel aspect ratio in <em>par_n</em> and <em>par_d</em></p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>info</code></em></i>
+–
+</div>
+<p>a <a href="play/gstplay-mediainfo.html#GstPlayVideoInfo">GstPlayVideoInfo</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>par_n</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="Parameter for returning results"><span class="acronym">out</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>numerator</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>par_d</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="Parameter for returning results"><span class="acronym">out</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>denominator</p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_play_video_info_get_pixel_aspect_ratio">
+	<i>GstPlay.PlayVideoInfo.prototype.get_pixel_aspect_ratio</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstPlay.PlayVideoInfo.prototype.get_pixel_aspect_ratio(): {
+    // javascript wrapper for 'gst_play_video_info_get_pixel_aspect_ratio'
+}</code></pre>
+
+<p>Returns the pixel aspect ratio in <em>par_n</em> and <em>par_d</em></p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>info</code></em></i>
+<span>(</span><a title="GstPlay.PlayVideoInfo" href="play/gstplay-mediainfo.html#GstPlayVideoInfo">GstPlay.PlayVideoInfo</a><span>)</span>
+–
+</div>
+<p>a <a href="play/gstplay-mediainfo.html#GstPlayVideoInfo">GstPlay.PlayVideoInfo</a></p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_play_video_info_get_pixel_aspect_ratio">
+	<i>GstPlay.PlayVideoInfo.get_pixel_aspect_ratio</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstPlay.PlayVideoInfo.get_pixel_aspect_ratio (self):
+    #python wrapper for 'gst_play_video_info_get_pixel_aspect_ratio'</code></pre>
+
+<p>Returns the pixel aspect ratio in <em>par_n</em> and <em>par_d</em></p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>info</code></em></i>
+<span>(</span><a title="GstPlay.PlayVideoInfo" href="play/gstplay-mediainfo.html#GstPlayVideoInfo">GstPlay.PlayVideoInfo</a><span>)</span>
+–
+</div>
+<p>a <a href="play/gstplay-mediainfo.html#GstPlayVideoInfo">GstPlay.PlayVideoInfo</a></p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="gst_play_video_info_get_width">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_play_video_info_get_width">
+	<i>gst_play_video_info_get_width</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gint" href="https://docs.gtk.org/glib/types.html#gint">gint</a>
+gst_play_video_info_get_width (const <a title="GstPlayVideoInfo" href="play/gstplay-mediainfo.html#GstPlayVideoInfo">GstPlayVideoInfo</a> * info)</pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>info</code></em></i>
+–
+</div>
+<p>a <a href="play/gstplay-mediainfo.html#GstPlayVideoInfo">GstPlayVideoInfo</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p>the width of video in <a href="play/gstplay-mediainfo.html#GstPlayVideoInfo">GstPlayVideoInfo</a> or -1 if unknown.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_play_video_info_get_width">
+	<i>GstPlay.PlayVideoInfo.prototype.get_width</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstPlay.PlayVideoInfo.prototype.get_width(): {
+    // javascript wrapper for 'gst_play_video_info_get_width'
+}</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>info</code></em></i>
+<span>(</span><a title="GstPlay.PlayVideoInfo" href="play/gstplay-mediainfo.html#GstPlayVideoInfo">GstPlay.PlayVideoInfo</a><span>)</span>
+–
+</div>
+<p>a <a href="play/gstplay-mediainfo.html#GstPlayVideoInfo">GstPlay.PlayVideoInfo</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+			</div>
+							<p>the width of video in <a href="play/gstplay-mediainfo.html#GstPlayVideoInfo">GstPlay.PlayVideoInfo</a> or -1 if unknown.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_play_video_info_get_width">
+	<i>GstPlay.PlayVideoInfo.get_width</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstPlay.PlayVideoInfo.get_width (self):
+    #python wrapper for 'gst_play_video_info_get_width'</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>info</code></em></i>
+<span>(</span><a title="GstPlay.PlayVideoInfo" href="play/gstplay-mediainfo.html#GstPlayVideoInfo">GstPlay.PlayVideoInfo</a><span>)</span>
+–
+</div>
+<p>a <a href="play/gstplay-mediainfo.html#GstPlayVideoInfo">GstPlay.PlayVideoInfo</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+			</div>
+							<p>the width of video in <a href="play/gstplay-mediainfo.html#GstPlayVideoInfo">GstPlay.PlayVideoInfo</a> or -1 if unknown.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+
+        
+
+            <h2 class="symbol_section">Constants</h2>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="GST_TYPE_PLAY_AUDIO_INFO">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_TYPE_PLAY_AUDIO_INFO">
+	<i>GST_TYPE_PLAY_AUDIO_INFO</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_TYPE_PLAY_AUDIO_INFO \
+  (gst_play_audio_info_get_type ())
+</pre>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="GST_TYPE_PLAY_MEDIA_INFO">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_TYPE_PLAY_MEDIA_INFO">
+	<i>GST_TYPE_PLAY_MEDIA_INFO</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_TYPE_PLAY_MEDIA_INFO \
+  (gst_play_media_info_get_type())
+</pre>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="GST_TYPE_PLAY_STREAM_INFO">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_TYPE_PLAY_STREAM_INFO">
+	<i>GST_TYPE_PLAY_STREAM_INFO</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_TYPE_PLAY_STREAM_INFO \
+  (gst_play_stream_info_get_type ())
+</pre>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="GST_TYPE_PLAY_SUBTITLE_INFO">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_TYPE_PLAY_SUBTITLE_INFO">
+	<i>GST_TYPE_PLAY_SUBTITLE_INFO</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_TYPE_PLAY_SUBTITLE_INFO \
+  (gst_play_subtitle_info_get_type ())
+</pre>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="GST_TYPE_PLAY_VIDEO_INFO">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_TYPE_PLAY_VIDEO_INFO">
+	<i>GST_TYPE_PLAY_VIDEO_INFO</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_TYPE_PLAY_VIDEO_INFO \
+  (gst_play_video_info_get_type ())
+</pre>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+
+
+
+
+
+		
+	</div>
+	<div id="search_results">
+		<p>The results of the search are</p>
+	</div>
+	<div id="footer">
+		    
+
+	</div>
+</div>
+
+<div id="toc-column">
+	
+		<div class="edit-button">
+		
+
+	</div>
+		<div id="toc-wrapper">
+		<nav id="toc"></nav>
+	</div>
+</div>
+</div>
+</main>
+
+
+<script src="assets/js/navbar_offset_scroller.js"></script>
+</body>
+</html>

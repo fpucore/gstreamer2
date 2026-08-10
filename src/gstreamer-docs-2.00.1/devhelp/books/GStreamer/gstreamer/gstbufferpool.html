@@ -1,0 +1,7139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<base href="..">
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<title>GstBufferPool</title>
+
+<link rel="stylesheet" href="assets/css/dark-frontend.css" type="text/css" title="dark">
+<link rel="alternate stylesheet" href="assets/css/light-frontend.css" type="text/css" title="light">
+<link rel="stylesheet" href="assets/css/bootstrap-toc.min.css" type="text/css">
+<link rel="stylesheet" href="assets/css/jquery.mCustomScrollbar.min.css">
+<link rel="stylesheet" href="assets/js/search/enable_search.css" type="text/css">
+
+<link rel="stylesheet" href="assets/css/extra_frontend.css" type="text/css">
+<link rel="stylesheet" href="assets/css/devhelp.css" type="text/css">
+
+<link rel="stylesheet" href="assets/css/prism-tomorrow.css" type="text/css" title="dark">
+
+<link rel="alternate stylesheet" href="assets/css/prism.css" type="text/css" title="light">
+
+<script src="assets/js/mustache.min.js"></script>
+<script src="assets/js/jquery.js"></script>
+<script src="assets/js/bootstrap.js"></script>
+<script src="assets/js/scrollspy.js"></script>
+<script src="assets/js/typeahead.jquery.min.js"></script>
+<script src="assets/js/search.js"></script>
+<script src="assets/js/compare-versions.js"></script>
+<script src="assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="assets/js/bootstrap-toc.min.js"></script>
+<script src="assets/js/jquery.touchSwipe.min.js"></script>
+<script src="assets/js/anchor.min.js"></script>
+<script src="assets/js/tag_filtering.js"></script>
+<script src="assets/js/language_switching.js"></script>
+<script src="assets/js/styleswitcher.js"></script>
+
+<script src="assets/js/lines_around_headings.js"></script>
+
+<script src="assets/js/prism-core.js"></script>
+<script src="assets/js/prism-autoloader.js"></script>
+<script src="assets/js/prism_autoloader_path_override.js"></script>
+<script src="assets/js/trie.js"></script>
+
+<!-- generic -->
+<link rel="icon" type="image/png" href="assets/images/favicon-16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="assets/images/favicon-32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="assets/images/favicon-57.png" sizes="57x57">
+<link rel="icon" type="image/png" href="assets/images/favicon-64.png" sizes="64x64">
+<link rel="icon" type="image/png" href="assets/images/favicon-76.png" sizes="76x76">
+<link rel="icon" type="image/png" href="assets/images/favicon-96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="assets/images/favicon-128.png" sizes="128x128">
+<link rel="icon" type="image/png" href="assets/images/favicon-192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="assets/images/favicon-228.png" sizes="228x228">
+
+<!-- Android -->
+<link rel="shortcut icon" sizes="196x196" href="assets/images/favicon-196.png">
+
+<!-- iOS -->
+<link rel="apple-touch-icon" href="assets/images/favicon-120.png" sizes="120x120">
+<link rel="apple-touch-icon" href="assets/images/favicon-152.png" sizes="152x152">
+<link rel="apple-touch-icon" href="assets/images/favicon-180.png" sizes="180x180">
+
+</head>
+
+<body class="no-script
+">
+
+<script>
+$('body').removeClass('no-script');
+</script>
+
+<nav class="navbar navbar-fixed-top navbar-default" id="topnav">
+	<div class="container-fluid">
+		<div class="navbar-right">
+			<a id="toc-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-wrapper" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<span title="light mode switch" class="glyphicon glyphicon-sunglasses pull-right" id="lightmode-icon"></span>
+			<form class="navbar-form pull-right" id="navbar-search-form">
+                               <div class="form-group has-feedback">
+                                       <input type="text" class="form-control input-sm" name="search" id="sidenav-lookup-field" placeholder="search" disabled>
+				       <span class="glyphicon glyphicon-search form-control-feedback" id="search-mgn-glass"></span>
+                               </div>
+                        </form>
+		</div>
+		<div class="navbar-header">
+			<a id="sidenav-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<a id="home-link" href="index.html" class="hotdoc-navbar-brand">
+				<img src="assets/images/gstreamer-logo.svg" alt="Home">
+			</a>
+		</div>
+		<div class="navbar-collapse collapse" id="navbar-wrapper">
+			<ul class="nav navbar-nav" id="menu">
+				
+<li class="dropdown">
+    <a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        API References<span class="caret"></span>
+    </a>
+	<ul class="dropdown-menu" id="modules-menu">
+					<li>
+				<a href="gstreamer/gi-index.html">GStreamer core</a>
+			</li>
+					<li>
+				<a href="libs.html">GStreamer Libraries</a>
+			</li>
+					<li>
+				<a href="plugins_doc.html">GStreamer Plugins</a>
+			</li>
+		</ul>
+</li>
+
+<li>
+    <a href="application-development/index.html">Application manual</a>
+</li>
+
+
+<li>
+    <a href="tutorials/index.html">Tutorials</a>
+</li>
+
+			</ul>
+			<div class="hidden-xs hidden-sm navbar-text navbar-center">
+							</div>
+		</div>
+	</div>
+</nav>
+
+<main>
+<div data-extension="gi-extension" data-hotdoc-in-toplevel="False" data-hotdoc-project="gstreamer" data-hotdoc-ref="gstbufferpool.html" class="page_container" id="page-wrapper" data-hotdoc-meta-gi-languages="['c', 'javascript', 'python']" data-hotdoc-meta-gi-language="c">
+<script src="assets/js/utils.js"></script>
+
+<div class="panel panel-collapse oc-collapsed" id="sidenav" data-hotdoc-role="navigation">
+	<script src="assets/js/full-width.js"></script>
+  <div id="sitenav-wrapper">
+    <iframe src="hotdoc-sitemap.html" id="sitenav-frame"></iframe>
+  </div>
+</div>
+
+<div id="body">
+	<div id="main">
+				    <div id="page-description" data-hotdoc-role="main">
+        <h1 id="gstbufferpool-page">GstBufferPool</h1>
+<p>A <a href="gstreamer/gstbufferpool.html#GstBufferPool" data-gi-href-javascript="gstreamer/gstbufferpool.html#GstBufferPool" data-gi-title-javascript="Gst.BufferPool" data-gi-href-python="gstreamer/gstbufferpool.html#GstBufferPool" data-gi-title-python="Gst.BufferPool">GstBufferPool</a> is an object that can be used to pre-allocate and recycle
+buffers of the same size and with the same properties.</p>
+<p>A <a href="gstreamer/gstbufferpool.html#GstBufferPool" data-gi-href-javascript="gstreamer/gstbufferpool.html#GstBufferPool" data-gi-title-javascript="Gst.BufferPool" data-gi-href-python="gstreamer/gstbufferpool.html#GstBufferPool" data-gi-title-python="Gst.BufferPool">GstBufferPool</a> is created with <a href="gstreamer/gstbufferpool.html#gst_buffer_pool_new" data-gi-href-javascript="gstreamer/gstbufferpool.html#gst_buffer_pool_new" data-gi-title-javascript="Gst.BufferPool.prototype.new" data-gi-href-python="gstreamer/gstbufferpool.html#gst_buffer_pool_new" data-gi-title-python="Gst.BufferPool.new">gst_buffer_pool_new</a>.</p>
+<p>Once a pool is created, it needs to be configured. A call to
+<a href="gstreamer/gstbufferpool.html#gst_buffer_pool_get_config" data-gi-href-javascript="gstreamer/gstbufferpool.html#gst_buffer_pool_get_config" data-gi-title-javascript="Gst.BufferPool.prototype.get_config" data-gi-href-python="gstreamer/gstbufferpool.html#gst_buffer_pool_get_config" data-gi-title-python="Gst.BufferPool.get_config">gst_buffer_pool_get_config</a> returns the current configuration structure from
+the pool. With <a href="gstreamer/gstbufferpool.html#gst_buffer_pool_config_set_params" data-gi-href-javascript="gstreamer/gstbufferpool.html#gst_buffer_pool_config_set_params" data-gi-title-javascript="Gst.BufferPool.prototype.config_set_params" data-gi-href-python="gstreamer/gstbufferpool.html#gst_buffer_pool_config_set_params" data-gi-title-python="Gst.BufferPool.config_set_params">gst_buffer_pool_config_set_params</a> and
+<a href="gstreamer/gstbufferpool.html#gst_buffer_pool_config_set_allocator" data-gi-href-javascript="gstreamer/gstbufferpool.html#gst_buffer_pool_config_set_allocator" data-gi-title-javascript="Gst.BufferPool.prototype.config_set_allocator" data-gi-href-python="gstreamer/gstbufferpool.html#gst_buffer_pool_config_set_allocator" data-gi-title-python="Gst.BufferPool.config_set_allocator">gst_buffer_pool_config_set_allocator</a> the bufferpool parameters and
+allocator can be configured. Other properties can be configured in the pool
+depending on the pool implementation.</p>
+<p>A bufferpool can have extra options that can be enabled with
+<a href="gstreamer/gstbufferpool.html#gst_buffer_pool_config_add_option" data-gi-href-javascript="gstreamer/gstbufferpool.html#gst_buffer_pool_config_add_option" data-gi-title-javascript="Gst.BufferPool.prototype.config_add_option" data-gi-href-python="gstreamer/gstbufferpool.html#gst_buffer_pool_config_add_option" data-gi-title-python="Gst.BufferPool.config_add_option">gst_buffer_pool_config_add_option</a>. The available options can be retrieved
+with <a href="gstreamer/gstbufferpool.html#gst_buffer_pool_get_options" data-gi-href-javascript="gstreamer/gstbufferpool.html#gst_buffer_pool_get_options" data-gi-title-javascript="Gst.BufferPool.prototype.get_options" data-gi-href-python="gstreamer/gstbufferpool.html#gst_buffer_pool_get_options" data-gi-title-python="Gst.BufferPool.get_options">gst_buffer_pool_get_options</a>. Some options allow for additional
+configuration properties to be set.</p>
+<p>After the configuration structure has been configured,
+<a href="gstreamer/gstbufferpool.html#gst_buffer_pool_set_config" data-gi-href-javascript="gstreamer/gstbufferpool.html#gst_buffer_pool_set_config" data-gi-title-javascript="Gst.BufferPool.prototype.set_config" data-gi-href-python="gstreamer/gstbufferpool.html#gst_buffer_pool_set_config" data-gi-title-python="Gst.BufferPool.set_config">gst_buffer_pool_set_config</a> updates the configuration in the pool. This can
+fail when the configuration structure is not accepted.</p>
+<p>After the pool has been configured, it can be activated with
+<a href="gstreamer/gstbufferpool.html#gst_buffer_pool_set_active" data-gi-href-javascript="gstreamer/gstbufferpool.html#gst_buffer_pool_set_active" data-gi-title-javascript="Gst.BufferPool.prototype.set_active" data-gi-href-python="gstreamer/gstbufferpool.html#gst_buffer_pool_set_active" data-gi-title-python="Gst.BufferPool.set_active">gst_buffer_pool_set_active</a>. This will preallocate the configured resources
+in the pool.</p>
+<p>When the pool is active, <a href="gstreamer/gstbufferpool.html#gst_buffer_pool_acquire_buffer" data-gi-href-javascript="gstreamer/gstbufferpool.html#gst_buffer_pool_acquire_buffer" data-gi-title-javascript="Gst.BufferPool.prototype.acquire_buffer" data-gi-href-python="gstreamer/gstbufferpool.html#gst_buffer_pool_acquire_buffer" data-gi-title-python="Gst.BufferPool.acquire_buffer">gst_buffer_pool_acquire_buffer</a> can be used to
+retrieve a buffer from the pool.</p>
+<p>Buffers allocated from a bufferpool will automatically be returned to the
+pool with <a href="gstreamer/gstbufferpool.html#gst_buffer_pool_release_buffer" data-gi-href-javascript="gstreamer/gstbufferpool.html#gst_buffer_pool_release_buffer" data-gi-title-javascript="Gst.BufferPool.prototype.release_buffer" data-gi-href-python="gstreamer/gstbufferpool.html#gst_buffer_pool_release_buffer" data-gi-title-python="Gst.BufferPool.release_buffer">gst_buffer_pool_release_buffer</a> when their refcount drops to 0.</p>
+<p>The bufferpool can be deactivated again with <a href="gstreamer/gstbufferpool.html#gst_buffer_pool_set_active" data-gi-href-javascript="gstreamer/gstbufferpool.html#gst_buffer_pool_set_active" data-gi-title-javascript="Gst.BufferPool.prototype.set_active" data-gi-href-python="gstreamer/gstbufferpool.html#gst_buffer_pool_set_active" data-gi-title-python="Gst.BufferPool.set_active">gst_buffer_pool_set_active</a>.
+All further <a href="gstreamer/gstbufferpool.html#gst_buffer_pool_acquire_buffer" data-gi-href-javascript="gstreamer/gstbufferpool.html#gst_buffer_pool_acquire_buffer" data-gi-title-javascript="Gst.BufferPool.prototype.acquire_buffer" data-gi-href-python="gstreamer/gstbufferpool.html#gst_buffer_pool_acquire_buffer" data-gi-title-python="Gst.BufferPool.acquire_buffer">gst_buffer_pool_acquire_buffer</a> calls will return an error. When
+all buffers are returned to the pool they will be freed.</p>
+
+    </div>
+        
+        
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstBufferPool">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h2 data-hotdoc-id="GstBufferPool">
+	<i>GstBufferPool</i>
+</h2>
+
+
+<div class="hierarchy_container">
+	<div class="hierarchy_details">
+<pre>
+<a title="GObject" href="https://docs.gtk.org/gobject/class.Object.html">GObject</a>
+    <span class="lineart">╰──</span><a title="GInitiallyUnowned" href="https://docs.gtk.org/gobject/class.InitiallyUnowned.html">GInitiallyUnowned</a>
+        <span class="lineart">╰──</span><a title="GstObject" href="gstreamer/gstobject.html#GstObject">GstObject</a>
+            <span class="lineart">╰──</span>GstBufferPool
+</pre>
+
+</div>
+
+</div>
+
+<div class="class_details">
+	<p>The structure of a <a href="gstreamer/gstbufferpool.html#GstBufferPool">GstBufferPool</a>. Use the associated macros to access the public
+variables.</p>
+
+</div>
+
+
+
+	<div class="members-container">
+		<h3>Members</h3>
+					
+<div class="symbol-detail" data-hotdoc-id="GstBufferPool.object">
+	<div>
+		<i><em><code>object</code></em></i>
+		(<a title="GstObject" href="gstreamer/gstobject.html#GstObject">GstObject</a>)
+		–
+	</div>
+			<p>the parent structure</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstBufferPool.flushing">
+	<div>
+		<i><em><code>flushing</code></em></i>
+		(<a title="gint" href="https://docs.gtk.org/glib/types.html#gint">gint</a>)
+		–
+	</div>
+			<p>whether the pool is currently gathering back outstanding buffers</p>
+
+	</div>
+
+			</div>
+
+
+
+
+<hr>
+<h3>Class structure</h3>
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstBufferPoolClass">
+	<i>GstBufferPoolClass</i>
+</h4>
+
+
+<p>The <a href="gstreamer/gstbufferpool.html#GstBufferPool">GstBufferPool</a> class.</p>
+
+
+
+
+	<div class="members-container">
+		<h5>Fields</h5>
+					
+<div class="symbol-detail" data-hotdoc-id="GstBufferPoolClass.object_class">
+	<div>
+		<i><em><code>object_class</code></em></i>
+		(<a title="GstObjectClass" href="GstObjectClass">GstObjectClass</a>)
+		–
+	</div>
+			<p>Object parent class</p>
+
+	</div>
+
+			</div>
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3>
+	Gst.BufferPoolClass
+</h3>
+
+
+<p>The <a href="gstreamer/gstbufferpool.html#GstBufferPool">Gst.BufferPool</a> class.</p>
+
+
+
+
+	<div class="members-container">
+		<h5>Attributes</h5>
+					
+<div class="symbol-detail" data-hotdoc-id="GstBufferPoolClass.object_class">
+	<div>
+		<i><em><code>object_class</code></em></i>
+		(<a title="Gst.ObjectClass" href="GstObjectClass">Gst.ObjectClass</a>)
+		–
+	</div>
+			<p>Object parent class</p>
+
+	</div>
+
+			</div>
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3>
+	Gst.BufferPoolClass
+</h3>
+
+
+<p>The <a href="gstreamer/gstbufferpool.html#GstBufferPool">Gst.BufferPool</a> class.</p>
+
+
+
+
+	<div class="members-container">
+		<h5>Attributes</h5>
+					
+<div class="symbol-detail" data-hotdoc-id="GstBufferPoolClass.object_class">
+	<div>
+		<i><em><code>object_class</code></em></i>
+		(<a title="Gst.ObjectClass" href="GstObjectClass">Gst.ObjectClass</a>)
+		–
+	</div>
+			<p>Object parent class</p>
+
+	</div>
+
+			</div>
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h2 data-hotdoc-id="GstBufferPool">
+	<i>Gst.BufferPool</i>
+</h2>
+
+
+<div class="hierarchy_container">
+	<div class="hierarchy_details">
+<pre>
+<a title="GObject.Object" href="https://docs.gtk.org/gobject/class.Object.html">GObject.Object</a>
+    <span class="lineart">╰──</span><a title="GObject.InitiallyUnowned" href="https://docs.gtk.org/gobject/class.InitiallyUnowned.html">GObject.InitiallyUnowned</a>
+        <span class="lineart">╰──</span><a title="Gst.Object" href="gstreamer/gstobject.html#GstObject">Gst.Object</a>
+            <span class="lineart">╰──</span>Gst.BufferPool
+</pre>
+
+</div>
+
+</div>
+
+<div class="class_details">
+	<p>The structure of a <a href="gstreamer/gstbufferpool.html#GstBufferPool">Gst.BufferPool</a>. Use the associated macros to access the public
+variables.</p>
+
+</div>
+
+
+
+	<div class="members-container">
+		<h3>Members</h3>
+					
+<div class="symbol-detail" data-hotdoc-id="GstBufferPool.object">
+	<div>
+		<i><em><code>object</code></em></i>
+		(<a title="Gst.Object" href="gstreamer/gstobject.html#GstObject">Gst.Object</a>)
+		–
+	</div>
+			<p>the parent structure</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstBufferPool.flushing">
+	<div>
+		<i><em><code>flushing</code></em></i>
+		(<a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>)
+		–
+	</div>
+			<p>whether the pool is currently gathering back outstanding buffers</p>
+
+	</div>
+
+			</div>
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h2 data-hotdoc-id="GstBufferPool">
+	<i>Gst.BufferPool</i>
+</h2>
+
+
+<div class="hierarchy_container">
+	<div class="hierarchy_details">
+<pre>
+<a title="GObject.Object" href="https://docs.gtk.org/gobject/class.Object.html">GObject.Object</a>
+    <span class="lineart">╰──</span><a title="GObject.InitiallyUnowned" href="https://docs.gtk.org/gobject/class.InitiallyUnowned.html">GObject.InitiallyUnowned</a>
+        <span class="lineart">╰──</span><a title="Gst.Object" href="gstreamer/gstobject.html#GstObject">Gst.Object</a>
+            <span class="lineart">╰──</span>Gst.BufferPool
+</pre>
+
+</div>
+
+</div>
+
+<div class="class_details">
+	<p>The structure of a <a href="gstreamer/gstbufferpool.html#GstBufferPool">Gst.BufferPool</a>. Use the associated macros to access the public
+variables.</p>
+
+</div>
+
+
+
+	<div class="members-container">
+		<h3>Members</h3>
+					
+<div class="symbol-detail" data-hotdoc-id="GstBufferPool.object">
+	<div>
+		<i><em><code>object</code></em></i>
+		(<a title="Gst.Object" href="gstreamer/gstobject.html#GstObject">Gst.Object</a>)
+		–
+	</div>
+			<p>the parent structure</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstBufferPool.flushing">
+	<div>
+		<i><em><code>flushing</code></em></i>
+		(<a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a>)
+		–
+	</div>
+			<p>whether the pool is currently gathering back outstanding buffers</p>
+
+	</div>
+
+			</div>
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+
+            <h3 class="symbol_section">Constructors</h3>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_buffer_pool_new">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_buffer_pool_new">
+	<i>gst_buffer_pool_new</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GstBufferPool" href="gstreamer/gstbufferpool.html#GstBufferPool">GstBufferPool</a> *
+gst_buffer_pool_new ()</pre>
+
+<p>Creates a new <a href="gstreamer/gstbufferpool.html#GstBufferPool">GstBufferPool</a> instance.</p>
+
+
+
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span>
+<span class="annotation">[<abbr title="Free data after the code is done"><span class="acronym">transfer: full</span></abbr>]</span><span>)</span>
+–
+			</div>
+							<p>a new <a href="gstreamer/gstbufferpool.html#GstBufferPool">GstBufferPool</a> instance</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_buffer_pool_new">
+	<i>Gst.BufferPool.prototype.new</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function Gst.BufferPool.prototype.new(): {
+    // javascript wrapper for 'gst_buffer_pool_new'
+}</code></pre>
+
+<p>Creates a new <a href="gstreamer/gstbufferpool.html#GstBufferPool">Gst.BufferPool</a> instance.</p>
+
+
+
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Gst.BufferPool" href="gstreamer/gstbufferpool.html#GstBufferPool">Gst.BufferPool</a><span>)</span>
+–
+			</div>
+							<p>a new <a href="gstreamer/gstbufferpool.html#GstBufferPool">Gst.BufferPool</a> instance</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_buffer_pool_new">
+	<i>Gst.BufferPool.new</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def Gst.BufferPool.new ():
+    #python wrapper for 'gst_buffer_pool_new'</code></pre>
+
+<p>Creates a new <a href="gstreamer/gstbufferpool.html#GstBufferPool">Gst.BufferPool</a> instance.</p>
+
+
+
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Gst.BufferPool" href="gstreamer/gstbufferpool.html#GstBufferPool">Gst.BufferPool</a><span>)</span>
+–
+			</div>
+							<p>a new <a href="gstreamer/gstbufferpool.html#GstBufferPool">Gst.BufferPool</a> instance</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+
+            <h3 class="symbol_section">Methods</h3>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_buffer_pool_acquire_buffer">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_buffer_pool_acquire_buffer">
+	<i>gst_buffer_pool_acquire_buffer</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GstFlowReturn" href="gstreamer/gstpad.html#GstFlowReturn">GstFlowReturn</a>
+gst_buffer_pool_acquire_buffer (<a title="GstBufferPool" href="gstreamer/gstbufferpool.html#GstBufferPool">GstBufferPool</a> * pool,
+                                <a title="GstBuffer" href="gstreamer/gstbuffer.html#GstBuffer">GstBuffer</a> ** buffer,
+                                <a title="GstBufferPoolAcquireParams" href="gstreamer/gstbufferpool.html#GstBufferPoolAcquireParams">GstBufferPoolAcquireParams</a> * params)</pre>
+
+<p>Acquires a buffer from <em>pool</em>. <em>buffer</em> should point to a memory location that
+can hold a pointer to the new buffer. When the pool is empty, this function
+will by default block until a buffer is released into the pool again or when
+the pool is set to flushing or deactivated.</p>
+<p><em>params</em> can contain optional parameters to influence the allocation.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>pool</code></em></i>
+–
+</div>
+<p>a <a href="gstreamer/gstbufferpool.html#GstBufferPool">GstBufferPool</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>buffer</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="Parameter for returning results"><span class="acronym">out</span></abbr>]</span><span class="annotation">[<abbr title="Free data after the code is done"><span class="acronym">transfer: full</span></abbr>]</span><span class="annotation">[<abbr title="NULL may be passed to the value"><span class="acronym">nullable</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>a location for a <a href="gstreamer/gstbuffer.html#GstBuffer">GstBuffer</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>params</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="Don't free data after the code is done"><span class="acronym">transfer: none</span></abbr>]</span><span class="annotation">[<abbr title="NULL may be passed to the value"><span class="acronym">nullable</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>parameters.</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p>a <a href="gstreamer/gstpad.html#GstFlowReturn">GstFlowReturn</a> such as <a href="gstreamer/gstpad.html#GST_FLOW_FLUSHING">GST_FLOW_FLUSHING</a> when the pool is
+inactive.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_buffer_pool_acquire_buffer">
+	<i>Gst.BufferPool.prototype.acquire_buffer</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function Gst.BufferPool.prototype.acquire_buffer(params: <a title="Gst.BufferPoolAcquireParams" href="gstreamer/gstbufferpool.html#GstBufferPoolAcquireParams">Gst.BufferPoolAcquireParams</a>): {
+    // javascript wrapper for 'gst_buffer_pool_acquire_buffer'
+}</code></pre>
+
+<p>Acquires a buffer from <em>pool</em>. <em>buffer</em> should point to a memory location that
+can hold a pointer to the new buffer. When the pool is empty, this function
+will by default block until a buffer is released into the pool again or when
+the pool is set to flushing or deactivated.</p>
+<p><em>params</em> can contain optional parameters to influence the allocation.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>pool</code></em></i>
+<span>(</span><a title="Gst.BufferPool" href="gstreamer/gstbufferpool.html#GstBufferPool">Gst.BufferPool</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gstbufferpool.html#GstBufferPool">Gst.BufferPool</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>params</code></em></i>
+<span>(</span><a title="Gst.BufferPoolAcquireParams" href="gstreamer/gstbufferpool.html#GstBufferPoolAcquireParams">Gst.BufferPoolAcquireParams</a><span>)</span>
+–
+</div>
+<p>parameters.</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<p><b>Returns a tuple made of:</b></p>
+				
+<div class="symbol-detail">
+	<div>
+		<span>(</span><a title="Gst.FlowReturn" href="gstreamer/gstpad.html#GstFlowReturn">Gst.FlowReturn</a>
+<span>)</span>
+–
+	</div>
+			<p>a <a href="gstreamer/gstpad.html#GstFlowReturn">Gst.FlowReturn</a> such as <a href="gstreamer/gstpad.html#GST_FLOW_FLUSHING">Gst.FlowReturn.FLUSHING</a> when the pool is
+inactive.</p>
+
+	</div>
+
+				
+<div class="symbol-detail">
+	<div>
+				<i><em><code>buffer</code></em></i>
+		<span>(</span><a title="Gst.Buffer" href="gstreamer/gstbuffer.html#GstBuffer">Gst.Buffer</a>
+<span>)</span>
+–
+	</div>
+			<p>a <a href="gstreamer/gstpad.html#GstFlowReturn">Gst.FlowReturn</a> such as <a href="gstreamer/gstpad.html#GST_FLOW_FLUSHING">Gst.FlowReturn.FLUSHING</a> when the pool is
+inactive.</p>
+
+	</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_buffer_pool_acquire_buffer">
+	<i>Gst.BufferPool.acquire_buffer</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def Gst.BufferPool.acquire_buffer (self, params):
+    #python wrapper for 'gst_buffer_pool_acquire_buffer'</code></pre>
+
+<p>Acquires a buffer from <em>pool</em>. <em>buffer</em> should point to a memory location that
+can hold a pointer to the new buffer. When the pool is empty, this function
+will by default block until a buffer is released into the pool again or when
+the pool is set to flushing or deactivated.</p>
+<p><em>params</em> can contain optional parameters to influence the allocation.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>pool</code></em></i>
+<span>(</span><a title="Gst.BufferPool" href="gstreamer/gstbufferpool.html#GstBufferPool">Gst.BufferPool</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gstbufferpool.html#GstBufferPool">Gst.BufferPool</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>params</code></em></i>
+<span>(</span><a title="Gst.BufferPoolAcquireParams" href="gstreamer/gstbufferpool.html#GstBufferPoolAcquireParams">Gst.BufferPoolAcquireParams</a><span>)</span>
+–
+</div>
+<p>parameters.</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<p><b>Returns a tuple made of:</b></p>
+				
+<div class="symbol-detail">
+	<div>
+		<span>(</span><a title="Gst.FlowReturn" href="gstreamer/gstpad.html#GstFlowReturn">Gst.FlowReturn</a>
+<span>)</span>
+–
+	</div>
+			<p>a <a href="gstreamer/gstpad.html#GstFlowReturn">Gst.FlowReturn</a> such as <a href="gstreamer/gstpad.html#GST_FLOW_FLUSHING">Gst.FlowReturn.FLUSHING</a> when the pool is
+inactive.</p>
+
+	</div>
+
+				
+<div class="symbol-detail">
+	<div>
+				<i><em><code>buffer</code></em></i>
+		<span>(</span><a title="Gst.Buffer" href="gstreamer/gstbuffer.html#GstBuffer">Gst.Buffer</a>
+<span>)</span>
+–
+	</div>
+			<p>a <a href="gstreamer/gstpad.html#GstFlowReturn">Gst.FlowReturn</a> such as <a href="gstreamer/gstpad.html#GST_FLOW_FLUSHING">Gst.FlowReturn.FLUSHING</a> when the pool is
+inactive.</p>
+
+	</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_buffer_pool_get_config">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_buffer_pool_get_config">
+	<i>gst_buffer_pool_get_config</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GstStructure" href="gstreamer/gststructure.html#GstStructure">GstStructure</a> *
+gst_buffer_pool_get_config (<a title="GstBufferPool" href="gstreamer/gstbufferpool.html#GstBufferPool">GstBufferPool</a> * pool)</pre>
+
+<p>Gets a copy of the current configuration of the pool. This configuration
+can be modified and used for the <a href="gstreamer/gstbufferpool.html#gst_buffer_pool_set_config">gst_buffer_pool_set_config</a> call.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>pool</code></em></i>
+–
+</div>
+<p>a <a href="gstreamer/gstbufferpool.html#GstBufferPool">GstBufferPool</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span>
+<span class="annotation">[<abbr title="Free data after the code is done"><span class="acronym">transfer: full</span></abbr>]</span><span>)</span>
+–
+			</div>
+							<p>a copy of the current configuration of <em>pool</em>.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_buffer_pool_get_config">
+	<i>Gst.BufferPool.prototype.get_config</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function Gst.BufferPool.prototype.get_config(): {
+    // javascript wrapper for 'gst_buffer_pool_get_config'
+}</code></pre>
+
+<p>Gets a copy of the current configuration of the pool. This configuration
+can be modified and used for the <a href="gstreamer/gstbufferpool.html#gst_buffer_pool_set_config">Gst.BufferPool.prototype.set_config</a> call.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>pool</code></em></i>
+<span>(</span><a title="Gst.BufferPool" href="gstreamer/gstbufferpool.html#GstBufferPool">Gst.BufferPool</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gstbufferpool.html#GstBufferPool">Gst.BufferPool</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Gst.Structure" href="gstreamer/gststructure.html#GstStructure">Gst.Structure</a><span>)</span>
+–
+			</div>
+							<p>a copy of the current configuration of <em>pool</em>.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_buffer_pool_get_config">
+	<i>Gst.BufferPool.get_config</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def Gst.BufferPool.get_config (self):
+    #python wrapper for 'gst_buffer_pool_get_config'</code></pre>
+
+<p>Gets a copy of the current configuration of the pool. This configuration
+can be modified and used for the <a href="gstreamer/gstbufferpool.html#gst_buffer_pool_set_config">Gst.BufferPool.set_config</a> call.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>pool</code></em></i>
+<span>(</span><a title="Gst.BufferPool" href="gstreamer/gstbufferpool.html#GstBufferPool">Gst.BufferPool</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gstbufferpool.html#GstBufferPool">Gst.BufferPool</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Gst.Structure" href="gstreamer/gststructure.html#GstStructure">Gst.Structure</a><span>)</span>
+–
+			</div>
+							<p>a copy of the current configuration of <em>pool</em>.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_buffer_pool_get_options">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_buffer_pool_get_options">
+	<i>gst_buffer_pool_get_options</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+const <a title="gchar" href="https://docs.gtk.org/glib/types.html#gchar">gchar</a> **
+gst_buffer_pool_get_options (<a title="GstBufferPool" href="gstreamer/gstbufferpool.html#GstBufferPool">GstBufferPool</a> * pool)</pre>
+
+<p>Gets a <a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#NULL:CAPS">NULL</a> terminated array of string with supported bufferpool options for
+<em>pool</em>. An option would typically be enabled with
+<a href="gstreamer/gstbufferpool.html#gst_buffer_pool_config_add_option">gst_buffer_pool_config_add_option</a>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>pool</code></em></i>
+–
+</div>
+<p>a <a href="gstreamer/gstbufferpool.html#GstBufferPool">GstBufferPool</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span>
+<span class="annotation">[<abbr title="Parameter points to an array of items"><span class="acronym">array</span></abbr> zero-terminated=1]</span><span class="annotation">[<abbr title="Don't free data after the code is done"><span class="acronym">transfer: none</span></abbr>]</span><span>)</span>
+–
+			</div>
+							<p>a <a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#NULL:CAPS">NULL</a> terminated array
+of strings.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_buffer_pool_get_options">
+	<i>Gst.BufferPool.prototype.get_options</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function Gst.BufferPool.prototype.get_options(): {
+    // javascript wrapper for 'gst_buffer_pool_get_options'
+}</code></pre>
+
+<p>Gets a <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null">null</a> terminated array of string with supported bufferpool options for
+<em>pool</em>. An option would typically be enabled with
+<a href="gstreamer/gstbufferpool.html#gst_buffer_pool_config_add_option">Gst.BufferPool.prototype.config_add_option</a>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>pool</code></em></i>
+<span>(</span><a title="Gst.BufferPool" href="gstreamer/gstbufferpool.html#GstBufferPool">Gst.BufferPool</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gstbufferpool.html#GstBufferPool">Gst.BufferPool</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span>[ <a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a> ]<span>)</span>
+–
+			</div>
+							<p>a <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null">null</a> terminated array
+of strings.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_buffer_pool_get_options">
+	<i>Gst.BufferPool.get_options</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def Gst.BufferPool.get_options (self):
+    #python wrapper for 'gst_buffer_pool_get_options'</code></pre>
+
+<p>Gets a <a href="https://docs.python.org/3/library/constants.html#None">None</a> terminated array of string with supported bufferpool options for
+<em>pool</em>. An option would typically be enabled with
+<a href="gstreamer/gstbufferpool.html#gst_buffer_pool_config_add_option">Gst.BufferPool.config_add_option</a>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>pool</code></em></i>
+<span>(</span><a title="Gst.BufferPool" href="gstreamer/gstbufferpool.html#GstBufferPool">Gst.BufferPool</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gstbufferpool.html#GstBufferPool">Gst.BufferPool</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span>[ <a title="str" href="https://docs.python.org/3/library/functions.html#func-str">str</a> ]<span>)</span>
+–
+			</div>
+							<p>a <a href="https://docs.python.org/3/library/constants.html#None">None</a> terminated array
+of strings.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_buffer_pool_has_option">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_buffer_pool_has_option">
+	<i>gst_buffer_pool_has_option</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a>
+gst_buffer_pool_has_option (<a title="GstBufferPool" href="gstreamer/gstbufferpool.html#GstBufferPool">GstBufferPool</a> * pool,
+                            const <a title="gchar" href="https://docs.gtk.org/glib/types.html#gchar">gchar</a> * option)</pre>
+
+<p>Checks if the bufferpool supports <em>option</em>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>pool</code></em></i>
+–
+</div>
+<p>a <a href="gstreamer/gstbufferpool.html#GstBufferPool">GstBufferPool</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>option</code></em></i>
+–
+</div>
+<p>an option</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p><a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#TRUE:CAPS">TRUE</a> if the buffer pool contains <em>option</em>.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_buffer_pool_has_option">
+	<i>Gst.BufferPool.prototype.has_option</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function Gst.BufferPool.prototype.has_option(option: <a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>): {
+    // javascript wrapper for 'gst_buffer_pool_has_option'
+}</code></pre>
+
+<p>Checks if the bufferpool supports <em>option</em>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>pool</code></em></i>
+<span>(</span><a title="Gst.BufferPool" href="gstreamer/gstbufferpool.html#GstBufferPool">Gst.BufferPool</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gstbufferpool.html#GstBufferPool">Gst.BufferPool</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>option</code></em></i>
+<span>(</span><a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a><span>)</span>
+–
+</div>
+<p>an option</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+			</div>
+							<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">true</a> if the buffer pool contains <em>option</em>.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_buffer_pool_has_option">
+	<i>Gst.BufferPool.has_option</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def Gst.BufferPool.has_option (self, option):
+    #python wrapper for 'gst_buffer_pool_has_option'</code></pre>
+
+<p>Checks if the bufferpool supports <em>option</em>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>pool</code></em></i>
+<span>(</span><a title="Gst.BufferPool" href="gstreamer/gstbufferpool.html#GstBufferPool">Gst.BufferPool</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gstbufferpool.html#GstBufferPool">Gst.BufferPool</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>option</code></em></i>
+<span>(</span><a title="str" href="https://docs.python.org/3/library/functions.html#func-str">str</a><span>)</span>
+–
+</div>
+<p>an option</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a><span>)</span>
+–
+			</div>
+							<p><a href="https://docs.python.org/3/library/constants.html#True">True</a> if the buffer pool contains <em>option</em>.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_buffer_pool_is_active">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_buffer_pool_is_active">
+	<i>gst_buffer_pool_is_active</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a>
+gst_buffer_pool_is_active (<a title="GstBufferPool" href="gstreamer/gstbufferpool.html#GstBufferPool">GstBufferPool</a> * pool)</pre>
+
+<p>Checks if <em>pool</em> is active. A pool can be activated with the
+<a href="gstreamer/gstbufferpool.html#gst_buffer_pool_set_active">gst_buffer_pool_set_active</a> call.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>pool</code></em></i>
+–
+</div>
+<p>a <a href="gstreamer/gstbufferpool.html#GstBufferPool">GstBufferPool</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p><a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#TRUE:CAPS">TRUE</a> when the pool is active.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_buffer_pool_is_active">
+	<i>Gst.BufferPool.prototype.is_active</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function Gst.BufferPool.prototype.is_active(): {
+    // javascript wrapper for 'gst_buffer_pool_is_active'
+}</code></pre>
+
+<p>Checks if <em>pool</em> is active. A pool can be activated with the
+<a href="gstreamer/gstbufferpool.html#gst_buffer_pool_set_active">Gst.BufferPool.prototype.set_active</a> call.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>pool</code></em></i>
+<span>(</span><a title="Gst.BufferPool" href="gstreamer/gstbufferpool.html#GstBufferPool">Gst.BufferPool</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gstbufferpool.html#GstBufferPool">Gst.BufferPool</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+			</div>
+							<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">true</a> when the pool is active.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_buffer_pool_is_active">
+	<i>Gst.BufferPool.is_active</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def Gst.BufferPool.is_active (self):
+    #python wrapper for 'gst_buffer_pool_is_active'</code></pre>
+
+<p>Checks if <em>pool</em> is active. A pool can be activated with the
+<a href="gstreamer/gstbufferpool.html#gst_buffer_pool_set_active">Gst.BufferPool.set_active</a> call.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>pool</code></em></i>
+<span>(</span><a title="Gst.BufferPool" href="gstreamer/gstbufferpool.html#GstBufferPool">Gst.BufferPool</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gstbufferpool.html#GstBufferPool">Gst.BufferPool</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a><span>)</span>
+–
+			</div>
+							<p><a href="https://docs.python.org/3/library/constants.html#True">True</a> when the pool is active.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_buffer_pool_release_buffer">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_buffer_pool_release_buffer">
+	<i>gst_buffer_pool_release_buffer</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+gst_buffer_pool_release_buffer (<a title="GstBufferPool" href="gstreamer/gstbufferpool.html#GstBufferPool">GstBufferPool</a> * pool,
+                                <a title="GstBuffer" href="gstreamer/gstbuffer.html#GstBuffer">GstBuffer</a> * buffer)</pre>
+
+<p>Releases <em>buffer</em> to <em>pool</em>. <em>buffer</em> should have previously been allocated from
+<em>pool</em> with <a href="gstreamer/gstbufferpool.html#gst_buffer_pool_acquire_buffer">gst_buffer_pool_acquire_buffer</a>.</p>
+<p>This function is usually called automatically when the last ref on <em>buffer</em>
+disappears.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>pool</code></em></i>
+–
+</div>
+<p>a <a href="gstreamer/gstbufferpool.html#GstBufferPool">GstBufferPool</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>buffer</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="Free data after the code is done"><span class="acronym">transfer: full</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gstbuffer.html#GstBuffer">GstBuffer</a></p>
+
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_buffer_pool_release_buffer">
+	<i>Gst.BufferPool.prototype.release_buffer</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function Gst.BufferPool.prototype.release_buffer(buffer: <a title="Gst.Buffer" href="gstreamer/gstbuffer.html#GstBuffer">Gst.Buffer</a>): {
+    // javascript wrapper for 'gst_buffer_pool_release_buffer'
+}</code></pre>
+
+<p>Releases <em>buffer</em> to <em>pool</em>. <em>buffer</em> should have previously been allocated from
+<em>pool</em> with <a href="gstreamer/gstbufferpool.html#gst_buffer_pool_acquire_buffer">Gst.BufferPool.prototype.acquire_buffer</a>.</p>
+<p>This function is usually called automatically when the last ref on <em>buffer</em>
+disappears.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>pool</code></em></i>
+<span>(</span><a title="Gst.BufferPool" href="gstreamer/gstbufferpool.html#GstBufferPool">Gst.BufferPool</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gstbufferpool.html#GstBufferPool">Gst.BufferPool</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>buffer</code></em></i>
+<span>(</span><a title="Gst.Buffer" href="gstreamer/gstbuffer.html#GstBuffer">Gst.Buffer</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gstbuffer.html#GstBuffer">Gst.Buffer</a></p>
+
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_buffer_pool_release_buffer">
+	<i>Gst.BufferPool.release_buffer</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def Gst.BufferPool.release_buffer (self, buffer):
+    #python wrapper for 'gst_buffer_pool_release_buffer'</code></pre>
+
+<p>Releases <em>buffer</em> to <em>pool</em>. <em>buffer</em> should have previously been allocated from
+<em>pool</em> with <a href="gstreamer/gstbufferpool.html#gst_buffer_pool_acquire_buffer">Gst.BufferPool.acquire_buffer</a>.</p>
+<p>This function is usually called automatically when the last ref on <em>buffer</em>
+disappears.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>pool</code></em></i>
+<span>(</span><a title="Gst.BufferPool" href="gstreamer/gstbufferpool.html#GstBufferPool">Gst.BufferPool</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gstbufferpool.html#GstBufferPool">Gst.BufferPool</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>buffer</code></em></i>
+<span>(</span><a title="Gst.Buffer" href="gstreamer/gstbuffer.html#GstBuffer">Gst.Buffer</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gstbuffer.html#GstBuffer">Gst.Buffer</a></p>
+
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_buffer_pool_set_active">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_buffer_pool_set_active">
+	<i>gst_buffer_pool_set_active</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a>
+gst_buffer_pool_set_active (<a title="GstBufferPool" href="gstreamer/gstbufferpool.html#GstBufferPool">GstBufferPool</a> * pool,
+                            <a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a> active)</pre>
+
+<p>Controls the active state of <em>pool</em>. When the pool is inactive, new calls to
+<a href="gstreamer/gstbufferpool.html#gst_buffer_pool_acquire_buffer">gst_buffer_pool_acquire_buffer</a> will return with <a href="gstreamer/gstpad.html#GST_FLOW_FLUSHING">GST_FLOW_FLUSHING</a>.</p>
+<p>Activating the bufferpool will preallocate all resources in the pool based on
+the configuration of the pool.</p>
+<p>Deactivating will free the resources again when there are no outstanding
+buffers. When there are outstanding buffers, they will be freed as soon as
+they are all returned to the pool.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>pool</code></em></i>
+–
+</div>
+<p>a <a href="gstreamer/gstbufferpool.html#GstBufferPool">GstBufferPool</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>active</code></em></i>
+–
+</div>
+<p>the new active state</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p><a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#FALSE:CAPS">FALSE</a> when the pool was not configured or when preallocation of the
+buffers failed.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_buffer_pool_set_active">
+	<i>Gst.BufferPool.prototype.set_active</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function Gst.BufferPool.prototype.set_active(active: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>): {
+    // javascript wrapper for 'gst_buffer_pool_set_active'
+}</code></pre>
+
+<p>Controls the active state of <em>pool</em>. When the pool is inactive, new calls to
+<a href="gstreamer/gstbufferpool.html#gst_buffer_pool_acquire_buffer">Gst.BufferPool.prototype.acquire_buffer</a> will return with <a href="gstreamer/gstpad.html#GST_FLOW_FLUSHING">Gst.FlowReturn.FLUSHING</a>.</p>
+<p>Activating the bufferpool will preallocate all resources in the pool based on
+the configuration of the pool.</p>
+<p>Deactivating will free the resources again when there are no outstanding
+buffers. When there are outstanding buffers, they will be freed as soon as
+they are all returned to the pool.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>pool</code></em></i>
+<span>(</span><a title="Gst.BufferPool" href="gstreamer/gstbufferpool.html#GstBufferPool">Gst.BufferPool</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gstbufferpool.html#GstBufferPool">Gst.BufferPool</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>active</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>the new active state</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+			</div>
+							<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">false</a> when the pool was not configured or when preallocation of the
+buffers failed.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_buffer_pool_set_active">
+	<i>Gst.BufferPool.set_active</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def Gst.BufferPool.set_active (self, active):
+    #python wrapper for 'gst_buffer_pool_set_active'</code></pre>
+
+<p>Controls the active state of <em>pool</em>. When the pool is inactive, new calls to
+<a href="gstreamer/gstbufferpool.html#gst_buffer_pool_acquire_buffer">Gst.BufferPool.acquire_buffer</a> will return with <a href="gstreamer/gstpad.html#GST_FLOW_FLUSHING">Gst.FlowReturn.FLUSHING</a>.</p>
+<p>Activating the bufferpool will preallocate all resources in the pool based on
+the configuration of the pool.</p>
+<p>Deactivating will free the resources again when there are no outstanding
+buffers. When there are outstanding buffers, they will be freed as soon as
+they are all returned to the pool.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>pool</code></em></i>
+<span>(</span><a title="Gst.BufferPool" href="gstreamer/gstbufferpool.html#GstBufferPool">Gst.BufferPool</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gstbufferpool.html#GstBufferPool">Gst.BufferPool</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>active</code></em></i>
+<span>(</span><a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a><span>)</span>
+–
+</div>
+<p>the new active state</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a><span>)</span>
+–
+			</div>
+							<p><a href="https://docs.python.org/3/library/constants.html#False">False</a> when the pool was not configured or when preallocation of the
+buffers failed.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_buffer_pool_set_config">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_buffer_pool_set_config">
+	<i>gst_buffer_pool_set_config</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a>
+gst_buffer_pool_set_config (<a title="GstBufferPool" href="gstreamer/gstbufferpool.html#GstBufferPool">GstBufferPool</a> * pool,
+                            <a title="GstStructure" href="gstreamer/gststructure.html#GstStructure">GstStructure</a> * config)</pre>
+
+<p>Sets the configuration of the pool. If the pool is already configured, and
+the configuration hasn't changed, this function will return <a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#TRUE:CAPS">TRUE</a>. If the
+pool is active, this method will return <a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#FALSE:CAPS">FALSE</a> and active configuration
+will remain. Buffers allocated from this pool must be returned or else this
+function will do nothing and return <a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#FALSE:CAPS">FALSE</a>.</p>
+<p><em>config</em> is a <a href="gstreamer/gststructure.html#GstStructure">GstStructure</a> that contains the configuration parameters for
+the pool. A default and mandatory set of parameters can be configured with
+<a href="gstreamer/gstbufferpool.html#gst_buffer_pool_config_set_params">gst_buffer_pool_config_set_params</a>, <a href="gstreamer/gstbufferpool.html#gst_buffer_pool_config_set_allocator">gst_buffer_pool_config_set_allocator</a>
+and <a href="gstreamer/gstbufferpool.html#gst_buffer_pool_config_add_option">gst_buffer_pool_config_add_option</a>.</p>
+<p>If the parameters in <em>config</em> can not be set exactly, this function returns
+<a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#FALSE:CAPS">FALSE</a> and will try to update as much state as possible. The new state can
+then be retrieved and refined with <a href="gstreamer/gstbufferpool.html#gst_buffer_pool_get_config">gst_buffer_pool_get_config</a>.</p>
+<p>This function takes ownership of <em>config</em>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>pool</code></em></i>
+–
+</div>
+<p>a <a href="gstreamer/gstbufferpool.html#GstBufferPool">GstBufferPool</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>config</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="Free data after the code is done"><span class="acronym">transfer: full</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gststructure.html#GstStructure">GstStructure</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p><a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#TRUE:CAPS">TRUE</a> when the configuration could be set.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_buffer_pool_set_config">
+	<i>Gst.BufferPool.prototype.set_config</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function Gst.BufferPool.prototype.set_config(config: <a title="Gst.Structure" href="gstreamer/gststructure.html#GstStructure">Gst.Structure</a>): {
+    // javascript wrapper for 'gst_buffer_pool_set_config'
+}</code></pre>
+
+<p>Sets the configuration of the pool. If the pool is already configured, and
+the configuration hasn't changed, this function will return <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">true</a>. If the
+pool is active, this method will return <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">false</a> and active configuration
+will remain. Buffers allocated from this pool must be returned or else this
+function will do nothing and return <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">false</a>.</p>
+<p><em>config</em> is a <a href="gstreamer/gststructure.html#GstStructure">Gst.Structure</a> that contains the configuration parameters for
+the pool. A default and mandatory set of parameters can be configured with
+<a href="gstreamer/gstbufferpool.html#gst_buffer_pool_config_set_params">Gst.BufferPool.prototype.config_set_params</a>, <a href="gstreamer/gstbufferpool.html#gst_buffer_pool_config_set_allocator">Gst.BufferPool.prototype.config_set_allocator</a>
+and <a href="gstreamer/gstbufferpool.html#gst_buffer_pool_config_add_option">Gst.BufferPool.prototype.config_add_option</a>.</p>
+<p>If the parameters in <em>config</em> can not be set exactly, this function returns
+<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">false</a> and will try to update as much state as possible. The new state can
+then be retrieved and refined with <a href="gstreamer/gstbufferpool.html#gst_buffer_pool_get_config">Gst.BufferPool.prototype.get_config</a>.</p>
+<p>This function takes ownership of <em>config</em>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>pool</code></em></i>
+<span>(</span><a title="Gst.BufferPool" href="gstreamer/gstbufferpool.html#GstBufferPool">Gst.BufferPool</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gstbufferpool.html#GstBufferPool">Gst.BufferPool</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>config</code></em></i>
+<span>(</span><a title="Gst.Structure" href="gstreamer/gststructure.html#GstStructure">Gst.Structure</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gststructure.html#GstStructure">Gst.Structure</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+			</div>
+							<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">true</a> when the configuration could be set.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_buffer_pool_set_config">
+	<i>Gst.BufferPool.set_config</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def Gst.BufferPool.set_config (self, config):
+    #python wrapper for 'gst_buffer_pool_set_config'</code></pre>
+
+<p>Sets the configuration of the pool. If the pool is already configured, and
+the configuration hasn't changed, this function will return <a href="https://docs.python.org/3/library/constants.html#True">True</a>. If the
+pool is active, this method will return <a href="https://docs.python.org/3/library/constants.html#False">False</a> and active configuration
+will remain. Buffers allocated from this pool must be returned or else this
+function will do nothing and return <a href="https://docs.python.org/3/library/constants.html#False">False</a>.</p>
+<p><em>config</em> is a <a href="gstreamer/gststructure.html#GstStructure">Gst.Structure</a> that contains the configuration parameters for
+the pool. A default and mandatory set of parameters can be configured with
+<a href="gstreamer/gstbufferpool.html#gst_buffer_pool_config_set_params">Gst.BufferPool.config_set_params</a>, <a href="gstreamer/gstbufferpool.html#gst_buffer_pool_config_set_allocator">Gst.BufferPool.config_set_allocator</a>
+and <a href="gstreamer/gstbufferpool.html#gst_buffer_pool_config_add_option">Gst.BufferPool.config_add_option</a>.</p>
+<p>If the parameters in <em>config</em> can not be set exactly, this function returns
+<a href="https://docs.python.org/3/library/constants.html#False">False</a> and will try to update as much state as possible. The new state can
+then be retrieved and refined with <a href="gstreamer/gstbufferpool.html#gst_buffer_pool_get_config">Gst.BufferPool.get_config</a>.</p>
+<p>This function takes ownership of <em>config</em>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>pool</code></em></i>
+<span>(</span><a title="Gst.BufferPool" href="gstreamer/gstbufferpool.html#GstBufferPool">Gst.BufferPool</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gstbufferpool.html#GstBufferPool">Gst.BufferPool</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>config</code></em></i>
+<span>(</span><a title="Gst.Structure" href="gstreamer/gststructure.html#GstStructure">Gst.Structure</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gststructure.html#GstStructure">Gst.Structure</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a><span>)</span>
+–
+			</div>
+							<p><a href="https://docs.python.org/3/library/constants.html#True">True</a> when the configuration could be set.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.4;" id="gst_buffer_pool_set_flushing">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_buffer_pool_set_flushing">
+	<i>gst_buffer_pool_set_flushing</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+gst_buffer_pool_set_flushing (<a title="GstBufferPool" href="gstreamer/gstbufferpool.html#GstBufferPool">GstBufferPool</a> * pool,
+                              <a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a> flushing)</pre>
+
+<p>Enables or disables the flushing state of a <em>pool</em> without freeing or
+allocating buffers.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>pool</code></em></i>
+–
+</div>
+<p>a <a href="gstreamer/gstbufferpool.html#GstBufferPool">GstBufferPool</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>flushing</code></em></i>
+–
+</div>
+<p>whether to start or stop flushing</p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.4
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_buffer_pool_set_flushing">
+	<i>Gst.BufferPool.prototype.set_flushing</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function Gst.BufferPool.prototype.set_flushing(flushing: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>): {
+    // javascript wrapper for 'gst_buffer_pool_set_flushing'
+}</code></pre>
+
+<p>Enables or disables the flushing state of a <em>pool</em> without freeing or
+allocating buffers.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>pool</code></em></i>
+<span>(</span><a title="Gst.BufferPool" href="gstreamer/gstbufferpool.html#GstBufferPool">Gst.BufferPool</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gstbufferpool.html#GstBufferPool">Gst.BufferPool</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>flushing</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>whether to start or stop flushing</p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.4
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_buffer_pool_set_flushing">
+	<i>Gst.BufferPool.set_flushing</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def Gst.BufferPool.set_flushing (self, flushing):
+    #python wrapper for 'gst_buffer_pool_set_flushing'</code></pre>
+
+<p>Enables or disables the flushing state of a <em>pool</em> without freeing or
+allocating buffers.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>pool</code></em></i>
+<span>(</span><a title="Gst.BufferPool" href="gstreamer/gstbufferpool.html#GstBufferPool">Gst.BufferPool</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gstbufferpool.html#GstBufferPool">Gst.BufferPool</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>flushing</code></em></i>
+<span>(</span><a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a><span>)</span>
+–
+</div>
+<p>whether to start or stop flushing</p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.4
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+
+            <h3 class="symbol_section">Functions</h3>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_buffer_pool_config_add_option">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_buffer_pool_config_add_option">
+	<i>gst_buffer_pool_config_add_option</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+gst_buffer_pool_config_add_option (<a title="GstStructure" href="gstreamer/gststructure.html#GstStructure">GstStructure</a> * config,
+                                   const <a title="gchar" href="https://docs.gtk.org/glib/types.html#gchar">gchar</a> * option)</pre>
+
+<p>Enables the option in <em>config</em>. This will instruct the <em>bufferpool</em> to enable
+the specified option on the buffers that it allocates.</p>
+<p>The options supported by <em>pool</em> can be retrieved with <a href="gstreamer/gstbufferpool.html#gst_buffer_pool_get_options">gst_buffer_pool_get_options</a>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>config</code></em></i>
+–
+</div>
+<p>a <a href="gstreamer/gstbufferpool.html#GstBufferPool">GstBufferPool</a> configuration</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>option</code></em></i>
+–
+</div>
+<p>an option to add</p>
+
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_buffer_pool_config_add_option">
+	<i>Gst.BufferPool.prototype.config_add_option</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function Gst.BufferPool.prototype.config_add_option(config: <a title="Gst.Structure" href="gstreamer/gststructure.html#GstStructure">Gst.Structure</a>, option: <a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>): {
+    // javascript wrapper for 'gst_buffer_pool_config_add_option'
+}</code></pre>
+
+<p>Enables the option in <em>config</em>. This will instruct the <em>bufferpool</em> to enable
+the specified option on the buffers that it allocates.</p>
+<p>The options supported by <em>pool</em> can be retrieved with <a href="gstreamer/gstbufferpool.html#gst_buffer_pool_get_options">Gst.BufferPool.prototype.get_options</a>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>config</code></em></i>
+<span>(</span><a title="Gst.Structure" href="gstreamer/gststructure.html#GstStructure">Gst.Structure</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gstbufferpool.html#GstBufferPool">Gst.BufferPool</a> configuration</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>option</code></em></i>
+<span>(</span><a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a><span>)</span>
+–
+</div>
+<p>an option to add</p>
+
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_buffer_pool_config_add_option">
+	<i>Gst.BufferPool.config_add_option</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def Gst.BufferPool.config_add_option (config, option):
+    #python wrapper for 'gst_buffer_pool_config_add_option'</code></pre>
+
+<p>Enables the option in <em>config</em>. This will instruct the <em>bufferpool</em> to enable
+the specified option on the buffers that it allocates.</p>
+<p>The options supported by <em>pool</em> can be retrieved with <a href="gstreamer/gstbufferpool.html#gst_buffer_pool_get_options">Gst.BufferPool.get_options</a>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>config</code></em></i>
+<span>(</span><a title="Gst.Structure" href="gstreamer/gststructure.html#GstStructure">Gst.Structure</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gstbufferpool.html#GstBufferPool">Gst.BufferPool</a> configuration</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>option</code></em></i>
+<span>(</span><a title="str" href="https://docs.python.org/3/library/functions.html#func-str">str</a><span>)</span>
+–
+</div>
+<p>an option to add</p>
+
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_buffer_pool_config_get_allocator">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_buffer_pool_config_get_allocator">
+	<i>gst_buffer_pool_config_get_allocator</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a>
+gst_buffer_pool_config_get_allocator (<a title="GstStructure" href="gstreamer/gststructure.html#GstStructure">GstStructure</a> * config,
+                                      <a title="GstAllocator" href="gstreamer/gstallocator.html#GstAllocator">GstAllocator</a> ** allocator,
+                                      <a title="GstAllocationParams" href="gstreamer/gstallocator.html#GstAllocationParams">GstAllocationParams</a> * params)</pre>
+
+<p>Gets the <em>allocator</em> and <em>params</em> from <em>config</em>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>config</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="Don't free data after the code is done"><span class="acronym">transfer: none</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gstbufferpool.html#GstBufferPool">GstBufferPool</a> configuration</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>allocator</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="Parameter for returning results"><span class="acronym">out</span></abbr>]</span><span class="annotation">[<abbr title="NULL may be passed instead of a pointer to a location"><span class="acronym">optional</span></abbr>]</span><span class="annotation">[<abbr title="NULL may be passed to the value"><span class="acronym">nullable</span></abbr>]</span><span class="annotation">[<abbr title="Don't free data after the code is done"><span class="acronym">transfer: none</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gstallocator.html#GstAllocator">GstAllocator</a>, or <a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#NULL:CAPS">NULL</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>params</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="Parameter for returning results"><span class="acronym">out</span></abbr>]</span><span class="annotation">[<abbr title="NULL may be passed instead of a pointer to a location"><span class="acronym">optional</span></abbr>]</span><span>)</span>
+–
+</div>
+<p><a href="gstreamer/gstallocator.html#GstAllocationParams">GstAllocationParams</a>, or <a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#NULL:CAPS">NULL</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p><a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#TRUE:CAPS">TRUE</a>, if the values are set.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_buffer_pool_config_get_allocator">
+	<i>Gst.BufferPool.prototype.config_get_allocator</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function Gst.BufferPool.prototype.config_get_allocator(config: <a title="Gst.Structure" href="gstreamer/gststructure.html#GstStructure">Gst.Structure</a>): {
+    // javascript wrapper for 'gst_buffer_pool_config_get_allocator'
+}</code></pre>
+
+<p>Gets the <em>allocator</em> and <em>params</em> from <em>config</em>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>config</code></em></i>
+<span>(</span><a title="Gst.Structure" href="gstreamer/gststructure.html#GstStructure">Gst.Structure</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gstbufferpool.html#GstBufferPool">Gst.BufferPool</a> configuration</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<p><b>Returns a tuple made of:</b></p>
+				
+<div class="symbol-detail">
+	<div>
+		<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>
+<span>)</span>
+–
+	</div>
+			<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">true</a>, if the values are set.</p>
+
+	</div>
+
+				
+<div class="symbol-detail">
+	<div>
+				<i><em><code>allocator</code></em></i>
+		<span>(</span><a title="Gst.Allocator" href="gstreamer/gstallocator.html#GstAllocator">Gst.Allocator</a>
+<span>)</span>
+–
+	</div>
+			<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">true</a>, if the values are set.</p>
+
+	</div>
+
+				
+<div class="symbol-detail">
+	<div>
+				<i><em><code>params</code></em></i>
+		<span>(</span><a title="Gst.AllocationParams" href="gstreamer/gstallocator.html#GstAllocationParams">Gst.AllocationParams</a>
+<span>)</span>
+–
+	</div>
+			<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">true</a>, if the values are set.</p>
+
+	</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_buffer_pool_config_get_allocator">
+	<i>Gst.BufferPool.config_get_allocator</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def Gst.BufferPool.config_get_allocator (config):
+    #python wrapper for 'gst_buffer_pool_config_get_allocator'</code></pre>
+
+<p>Gets the <em>allocator</em> and <em>params</em> from <em>config</em>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>config</code></em></i>
+<span>(</span><a title="Gst.Structure" href="gstreamer/gststructure.html#GstStructure">Gst.Structure</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gstbufferpool.html#GstBufferPool">Gst.BufferPool</a> configuration</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<p><b>Returns a tuple made of:</b></p>
+				
+<div class="symbol-detail">
+	<div>
+		<span>(</span><a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a>
+<span>)</span>
+–
+	</div>
+			<p><a href="https://docs.python.org/3/library/constants.html#True">True</a>, if the values are set.</p>
+
+	</div>
+
+				
+<div class="symbol-detail">
+	<div>
+				<i><em><code>allocator</code></em></i>
+		<span>(</span><a title="Gst.Allocator" href="gstreamer/gstallocator.html#GstAllocator">Gst.Allocator</a>
+<span>)</span>
+–
+	</div>
+			<p><a href="https://docs.python.org/3/library/constants.html#True">True</a>, if the values are set.</p>
+
+	</div>
+
+				
+<div class="symbol-detail">
+	<div>
+				<i><em><code>params</code></em></i>
+		<span>(</span><a title="Gst.AllocationParams" href="gstreamer/gstallocator.html#GstAllocationParams">Gst.AllocationParams</a>
+<span>)</span>
+–
+	</div>
+			<p><a href="https://docs.python.org/3/library/constants.html#True">True</a>, if the values are set.</p>
+
+	</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_buffer_pool_config_get_option">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_buffer_pool_config_get_option">
+	<i>gst_buffer_pool_config_get_option</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+const <a title="gchar" href="https://docs.gtk.org/glib/types.html#gchar">gchar</a> *
+gst_buffer_pool_config_get_option (<a title="GstStructure" href="gstreamer/gststructure.html#GstStructure">GstStructure</a> * config,
+                                   <a title="guint" href="https://docs.gtk.org/glib/types.html#guint">guint</a> index)</pre>
+
+<p>Parses an available <em>config</em> and gets the option at <em>index</em> of the options API
+array.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>config</code></em></i>
+–
+</div>
+<p>a <a href="gstreamer/gstbufferpool.html#GstBufferPool">GstBufferPool</a> configuration</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>index</code></em></i>
+–
+</div>
+<p>position in the option array to read</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span>
+<span class="annotation">[<abbr title="NULL may be passed to the value"><span class="acronym">nullable</span></abbr>]</span><span>)</span>
+–
+			</div>
+							<p>the option at <em>index</em>.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_buffer_pool_config_get_option">
+	<i>Gst.BufferPool.prototype.config_get_option</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function Gst.BufferPool.prototype.config_get_option(config: <a title="Gst.Structure" href="gstreamer/gststructure.html#GstStructure">Gst.Structure</a>, index: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>): {
+    // javascript wrapper for 'gst_buffer_pool_config_get_option'
+}</code></pre>
+
+<p>Parses an available <em>config</em> and gets the option at <em>index</em> of the options API
+array.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>config</code></em></i>
+<span>(</span><a title="Gst.Structure" href="gstreamer/gststructure.html#GstStructure">Gst.Structure</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gstbufferpool.html#GstBufferPool">Gst.BufferPool</a> configuration</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>index</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>position in the option array to read</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a><span>)</span>
+–
+			</div>
+							<p>the option at <em>index</em>.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_buffer_pool_config_get_option">
+	<i>Gst.BufferPool.config_get_option</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def Gst.BufferPool.config_get_option (config, index):
+    #python wrapper for 'gst_buffer_pool_config_get_option'</code></pre>
+
+<p>Parses an available <em>config</em> and gets the option at <em>index</em> of the options API
+array.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>config</code></em></i>
+<span>(</span><a title="Gst.Structure" href="gstreamer/gststructure.html#GstStructure">Gst.Structure</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gstbufferpool.html#GstBufferPool">Gst.BufferPool</a> configuration</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>index</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<p>position in the option array to read</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="str" href="https://docs.python.org/3/library/functions.html#func-str">str</a><span>)</span>
+–
+			</div>
+							<p>the option at <em>index</em>.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_buffer_pool_config_get_params">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_buffer_pool_config_get_params">
+	<i>gst_buffer_pool_config_get_params</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a>
+gst_buffer_pool_config_get_params (<a title="GstStructure" href="gstreamer/gststructure.html#GstStructure">GstStructure</a> * config,
+                                   <a title="GstCaps" href="gstreamer/gstcaps.html#GstCaps">GstCaps</a> ** caps,
+                                   <a title="guint" href="https://docs.gtk.org/glib/types.html#guint">guint</a> * size,
+                                   <a title="guint" href="https://docs.gtk.org/glib/types.html#guint">guint</a> * min_buffers,
+                                   <a title="guint" href="https://docs.gtk.org/glib/types.html#guint">guint</a> * max_buffers)</pre>
+
+<p>Gets the configuration values from <em>config</em>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>config</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="Don't free data after the code is done"><span class="acronym">transfer: none</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gstbufferpool.html#GstBufferPool">GstBufferPool</a> configuration</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>caps</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="Parameter for returning results"><span class="acronym">out</span></abbr>]</span><span class="annotation">[<abbr title="Don't free data after the code is done"><span class="acronym">transfer: none</span></abbr>]</span><span class="annotation">[<abbr title="NULL may be passed instead of a pointer to a location"><span class="acronym">optional</span></abbr>]</span><span class="annotation">[<abbr title="NULL may be passed to the value"><span class="acronym">nullable</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>the caps of buffers</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>size</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="Parameter for returning results"><span class="acronym">out</span></abbr>]</span><span class="annotation">[<abbr title="NULL may be passed instead of a pointer to a location"><span class="acronym">optional</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>the size of each buffer, not including prefix and padding</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>min_buffers</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="Parameter for returning results"><span class="acronym">out</span></abbr>]</span><span class="annotation">[<abbr title="NULL may be passed instead of a pointer to a location"><span class="acronym">optional</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>the minimum amount of buffers to allocate.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>max_buffers</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="Parameter for returning results"><span class="acronym">out</span></abbr>]</span><span class="annotation">[<abbr title="NULL may be passed instead of a pointer to a location"><span class="acronym">optional</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>the maximum amount of buffers to allocate or 0 for unlimited.</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p><a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#TRUE:CAPS">TRUE</a> if all parameters could be fetched.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_buffer_pool_config_get_params">
+	<i>Gst.BufferPool.prototype.config_get_params</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function Gst.BufferPool.prototype.config_get_params(config: <a title="Gst.Structure" href="gstreamer/gststructure.html#GstStructure">Gst.Structure</a>): {
+    // javascript wrapper for 'gst_buffer_pool_config_get_params'
+}</code></pre>
+
+<p>Gets the configuration values from <em>config</em>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>config</code></em></i>
+<span>(</span><a title="Gst.Structure" href="gstreamer/gststructure.html#GstStructure">Gst.Structure</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gstbufferpool.html#GstBufferPool">Gst.BufferPool</a> configuration</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<p><b>Returns a tuple made of:</b></p>
+				
+<div class="symbol-detail">
+	<div>
+		<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>
+<span>)</span>
+–
+	</div>
+			<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">true</a> if all parameters could be fetched.</p>
+
+	</div>
+
+				
+<div class="symbol-detail">
+	<div>
+				<i><em><code>caps</code></em></i>
+		<span>(</span><a title="Gst.Caps" href="gstreamer/gstcaps.html#GstCaps">Gst.Caps</a>
+<span>)</span>
+–
+	</div>
+			<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">true</a> if all parameters could be fetched.</p>
+
+	</div>
+
+				
+<div class="symbol-detail">
+	<div>
+				<i><em><code>size</code></em></i>
+		<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>
+<span>)</span>
+–
+	</div>
+			<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">true</a> if all parameters could be fetched.</p>
+
+	</div>
+
+				
+<div class="symbol-detail">
+	<div>
+				<i><em><code>min_buffers</code></em></i>
+		<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>
+<span>)</span>
+–
+	</div>
+			<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">true</a> if all parameters could be fetched.</p>
+
+	</div>
+
+				
+<div class="symbol-detail">
+	<div>
+				<i><em><code>max_buffers</code></em></i>
+		<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>
+<span>)</span>
+–
+	</div>
+			<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">true</a> if all parameters could be fetched.</p>
+
+	</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_buffer_pool_config_get_params">
+	<i>Gst.BufferPool.config_get_params</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def Gst.BufferPool.config_get_params (config):
+    #python wrapper for 'gst_buffer_pool_config_get_params'</code></pre>
+
+<p>Gets the configuration values from <em>config</em>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>config</code></em></i>
+<span>(</span><a title="Gst.Structure" href="gstreamer/gststructure.html#GstStructure">Gst.Structure</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gstbufferpool.html#GstBufferPool">Gst.BufferPool</a> configuration</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<p><b>Returns a tuple made of:</b></p>
+				
+<div class="symbol-detail">
+	<div>
+		<span>(</span><a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a>
+<span>)</span>
+–
+	</div>
+			<p><a href="https://docs.python.org/3/library/constants.html#True">True</a> if all parameters could be fetched.</p>
+
+	</div>
+
+				
+<div class="symbol-detail">
+	<div>
+				<i><em><code>caps</code></em></i>
+		<span>(</span><a title="Gst.Caps" href="gstreamer/gstcaps.html#GstCaps">Gst.Caps</a>
+<span>)</span>
+–
+	</div>
+			<p><a href="https://docs.python.org/3/library/constants.html#True">True</a> if all parameters could be fetched.</p>
+
+	</div>
+
+				
+<div class="symbol-detail">
+	<div>
+				<i><em><code>size</code></em></i>
+		<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a>
+<span>)</span>
+–
+	</div>
+			<p><a href="https://docs.python.org/3/library/constants.html#True">True</a> if all parameters could be fetched.</p>
+
+	</div>
+
+				
+<div class="symbol-detail">
+	<div>
+				<i><em><code>min_buffers</code></em></i>
+		<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a>
+<span>)</span>
+–
+	</div>
+			<p><a href="https://docs.python.org/3/library/constants.html#True">True</a> if all parameters could be fetched.</p>
+
+	</div>
+
+				
+<div class="symbol-detail">
+	<div>
+				<i><em><code>max_buffers</code></em></i>
+		<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a>
+<span>)</span>
+–
+	</div>
+			<p><a href="https://docs.python.org/3/library/constants.html#True">True</a> if all parameters could be fetched.</p>
+
+	</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_buffer_pool_config_has_option">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_buffer_pool_config_has_option">
+	<i>gst_buffer_pool_config_has_option</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a>
+gst_buffer_pool_config_has_option (<a title="GstStructure" href="gstreamer/gststructure.html#GstStructure">GstStructure</a> * config,
+                                   const <a title="gchar" href="https://docs.gtk.org/glib/types.html#gchar">gchar</a> * option)</pre>
+
+<p>Checks if <em>config</em> contains <em>option</em>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>config</code></em></i>
+–
+</div>
+<p>a <a href="gstreamer/gstbufferpool.html#GstBufferPool">GstBufferPool</a> configuration</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>option</code></em></i>
+–
+</div>
+<p>an option</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p><a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#TRUE:CAPS">TRUE</a> if the options array contains <em>option</em>.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_buffer_pool_config_has_option">
+	<i>Gst.BufferPool.prototype.config_has_option</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function Gst.BufferPool.prototype.config_has_option(config: <a title="Gst.Structure" href="gstreamer/gststructure.html#GstStructure">Gst.Structure</a>, option: <a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>): {
+    // javascript wrapper for 'gst_buffer_pool_config_has_option'
+}</code></pre>
+
+<p>Checks if <em>config</em> contains <em>option</em>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>config</code></em></i>
+<span>(</span><a title="Gst.Structure" href="gstreamer/gststructure.html#GstStructure">Gst.Structure</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gstbufferpool.html#GstBufferPool">Gst.BufferPool</a> configuration</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>option</code></em></i>
+<span>(</span><a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a><span>)</span>
+–
+</div>
+<p>an option</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+			</div>
+							<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">true</a> if the options array contains <em>option</em>.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_buffer_pool_config_has_option">
+	<i>Gst.BufferPool.config_has_option</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def Gst.BufferPool.config_has_option (config, option):
+    #python wrapper for 'gst_buffer_pool_config_has_option'</code></pre>
+
+<p>Checks if <em>config</em> contains <em>option</em>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>config</code></em></i>
+<span>(</span><a title="Gst.Structure" href="gstreamer/gststructure.html#GstStructure">Gst.Structure</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gstbufferpool.html#GstBufferPool">Gst.BufferPool</a> configuration</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>option</code></em></i>
+<span>(</span><a title="str" href="https://docs.python.org/3/library/functions.html#func-str">str</a><span>)</span>
+–
+</div>
+<p>an option</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a><span>)</span>
+–
+			</div>
+							<p><a href="https://docs.python.org/3/library/constants.html#True">True</a> if the options array contains <em>option</em>.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_buffer_pool_config_n_options">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_buffer_pool_config_n_options">
+	<i>gst_buffer_pool_config_n_options</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="guint" href="https://docs.gtk.org/glib/types.html#guint">guint</a>
+gst_buffer_pool_config_n_options (<a title="GstStructure" href="gstreamer/gststructure.html#GstStructure">GstStructure</a> * config)</pre>
+
+<p>Retrieves the number of values currently stored in the options array of the
+<em>config</em> structure.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>config</code></em></i>
+–
+</div>
+<p>a <a href="gstreamer/gstbufferpool.html#GstBufferPool">GstBufferPool</a> configuration</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p>the options array size as a <a href="https://docs.gtk.org/glib/types.html#guint">guint</a>.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_buffer_pool_config_n_options">
+	<i>Gst.BufferPool.prototype.config_n_options</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function Gst.BufferPool.prototype.config_n_options(config: <a title="Gst.Structure" href="gstreamer/gststructure.html#GstStructure">Gst.Structure</a>): {
+    // javascript wrapper for 'gst_buffer_pool_config_n_options'
+}</code></pre>
+
+<p>Retrieves the number of values currently stored in the options array of the
+<em>config</em> structure.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>config</code></em></i>
+<span>(</span><a title="Gst.Structure" href="gstreamer/gststructure.html#GstStructure">Gst.Structure</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gstbufferpool.html#GstBufferPool">Gst.BufferPool</a> configuration</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+			</div>
+							<p>the options array size as a <a href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_buffer_pool_config_n_options">
+	<i>Gst.BufferPool.config_n_options</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def Gst.BufferPool.config_n_options (config):
+    #python wrapper for 'gst_buffer_pool_config_n_options'</code></pre>
+
+<p>Retrieves the number of values currently stored in the options array of the
+<em>config</em> structure.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>config</code></em></i>
+<span>(</span><a title="Gst.Structure" href="gstreamer/gststructure.html#GstStructure">Gst.Structure</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gstbufferpool.html#GstBufferPool">Gst.BufferPool</a> configuration</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+			</div>
+							<p>the options array size as a <a href="https://docs.python.org/3/library/functions.html#int">int</a>.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_buffer_pool_config_set_allocator">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_buffer_pool_config_set_allocator">
+	<i>gst_buffer_pool_config_set_allocator</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+gst_buffer_pool_config_set_allocator (<a title="GstStructure" href="gstreamer/gststructure.html#GstStructure">GstStructure</a> * config,
+                                      <a title="GstAllocator" href="gstreamer/gstallocator.html#GstAllocator">GstAllocator</a> * allocator,
+                                      const <a title="GstAllocationParams" href="gstreamer/gstallocator.html#GstAllocationParams">GstAllocationParams</a> * params)</pre>
+
+<p>Sets the <em>allocator</em> and <em>params</em> on <em>config</em>.</p>
+<p>One of <em>allocator</em> and <em>params</em> can be <a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#NULL:CAPS">NULL</a>, but not both. When <em>allocator</em>
+is <a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#NULL:CAPS">NULL</a>, the default allocator of the pool will use the values in <em>param</em>
+to perform its allocation. When <em>param</em> is <a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#NULL:CAPS">NULL</a>, the pool will use the
+provided <em>allocator</em> with its default <a href="gstreamer/gstallocator.html#GstAllocationParams">GstAllocationParams</a>.</p>
+<p>A call to <a href="gstreamer/gstbufferpool.html#gst_buffer_pool_set_config">gst_buffer_pool_set_config</a> can update the allocator and params
+with the values that it is able to do. Some pools are, for example, not able
+to operate with different allocators or cannot allocate with the values
+specified in <em>params</em>. Use <a href="gstreamer/gstbufferpool.html#gst_buffer_pool_get_config">gst_buffer_pool_get_config</a> to get the currently
+used values.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>config</code></em></i>
+–
+</div>
+<p>a <a href="gstreamer/gstbufferpool.html#GstBufferPool">GstBufferPool</a> configuration</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>allocator</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="NULL may be passed to the value"><span class="acronym">nullable</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gstallocator.html#GstAllocator">GstAllocator</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>params</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="NULL may be passed to the value"><span class="acronym">nullable</span></abbr>]</span><span>)</span>
+–
+</div>
+<p><a href="gstreamer/gstallocator.html#GstAllocationParams">GstAllocationParams</a></p>
+
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_buffer_pool_config_set_allocator">
+	<i>Gst.BufferPool.prototype.config_set_allocator</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function Gst.BufferPool.prototype.config_set_allocator(config: <a title="Gst.Structure" href="gstreamer/gststructure.html#GstStructure">Gst.Structure</a>, allocator: <a title="Gst.Allocator" href="gstreamer/gstallocator.html#GstAllocator">Gst.Allocator</a>, params: <a title="Gst.AllocationParams" href="gstreamer/gstallocator.html#GstAllocationParams">Gst.AllocationParams</a>): {
+    // javascript wrapper for 'gst_buffer_pool_config_set_allocator'
+}</code></pre>
+
+<p>Sets the <em>allocator</em> and <em>params</em> on <em>config</em>.</p>
+<p>One of <em>allocator</em> and <em>params</em> can be <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null">null</a>, but not both. When <em>allocator</em>
+is <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null">null</a>, the default allocator of the pool will use the values in <em>param</em>
+to perform its allocation. When <em>param</em> is <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null">null</a>, the pool will use the
+provided <em>allocator</em> with its default <a href="gstreamer/gstallocator.html#GstAllocationParams">Gst.AllocationParams</a>.</p>
+<p>A call to <a href="gstreamer/gstbufferpool.html#gst_buffer_pool_set_config">Gst.BufferPool.prototype.set_config</a> can update the allocator and params
+with the values that it is able to do. Some pools are, for example, not able
+to operate with different allocators or cannot allocate with the values
+specified in <em>params</em>. Use <a href="gstreamer/gstbufferpool.html#gst_buffer_pool_get_config">Gst.BufferPool.prototype.get_config</a> to get the currently
+used values.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>config</code></em></i>
+<span>(</span><a title="Gst.Structure" href="gstreamer/gststructure.html#GstStructure">Gst.Structure</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gstbufferpool.html#GstBufferPool">Gst.BufferPool</a> configuration</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>allocator</code></em></i>
+<span>(</span><a title="Gst.Allocator" href="gstreamer/gstallocator.html#GstAllocator">Gst.Allocator</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gstallocator.html#GstAllocator">Gst.Allocator</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>params</code></em></i>
+<span>(</span><a title="Gst.AllocationParams" href="gstreamer/gstallocator.html#GstAllocationParams">Gst.AllocationParams</a><span>)</span>
+–
+</div>
+<p><a href="gstreamer/gstallocator.html#GstAllocationParams">Gst.AllocationParams</a></p>
+
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_buffer_pool_config_set_allocator">
+	<i>Gst.BufferPool.config_set_allocator</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def Gst.BufferPool.config_set_allocator (config, allocator, params):
+    #python wrapper for 'gst_buffer_pool_config_set_allocator'</code></pre>
+
+<p>Sets the <em>allocator</em> and <em>params</em> on <em>config</em>.</p>
+<p>One of <em>allocator</em> and <em>params</em> can be <a href="https://docs.python.org/3/library/constants.html#None">None</a>, but not both. When <em>allocator</em>
+is <a href="https://docs.python.org/3/library/constants.html#None">None</a>, the default allocator of the pool will use the values in <em>param</em>
+to perform its allocation. When <em>param</em> is <a href="https://docs.python.org/3/library/constants.html#None">None</a>, the pool will use the
+provided <em>allocator</em> with its default <a href="gstreamer/gstallocator.html#GstAllocationParams">Gst.AllocationParams</a>.</p>
+<p>A call to <a href="gstreamer/gstbufferpool.html#gst_buffer_pool_set_config">Gst.BufferPool.set_config</a> can update the allocator and params
+with the values that it is able to do. Some pools are, for example, not able
+to operate with different allocators or cannot allocate with the values
+specified in <em>params</em>. Use <a href="gstreamer/gstbufferpool.html#gst_buffer_pool_get_config">Gst.BufferPool.get_config</a> to get the currently
+used values.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>config</code></em></i>
+<span>(</span><a title="Gst.Structure" href="gstreamer/gststructure.html#GstStructure">Gst.Structure</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gstbufferpool.html#GstBufferPool">Gst.BufferPool</a> configuration</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>allocator</code></em></i>
+<span>(</span><a title="Gst.Allocator" href="gstreamer/gstallocator.html#GstAllocator">Gst.Allocator</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gstallocator.html#GstAllocator">Gst.Allocator</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>params</code></em></i>
+<span>(</span><a title="Gst.AllocationParams" href="gstreamer/gstallocator.html#GstAllocationParams">Gst.AllocationParams</a><span>)</span>
+–
+</div>
+<p><a href="gstreamer/gstallocator.html#GstAllocationParams">Gst.AllocationParams</a></p>
+
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_buffer_pool_config_set_params">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_buffer_pool_config_set_params">
+	<i>gst_buffer_pool_config_set_params</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+gst_buffer_pool_config_set_params (<a title="GstStructure" href="gstreamer/gststructure.html#GstStructure">GstStructure</a> * config,
+                                   <a title="GstCaps" href="gstreamer/gstcaps.html#GstCaps">GstCaps</a> * caps,
+                                   <a title="guint" href="https://docs.gtk.org/glib/types.html#guint">guint</a> size,
+                                   <a title="guint" href="https://docs.gtk.org/glib/types.html#guint">guint</a> min_buffers,
+                                   <a title="guint" href="https://docs.gtk.org/glib/types.html#guint">guint</a> max_buffers)</pre>
+
+<p>Configures <em>config</em> with the given parameters.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>config</code></em></i>
+–
+</div>
+<p>a <a href="gstreamer/gstbufferpool.html#GstBufferPool">GstBufferPool</a> configuration</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>caps</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="NULL may be passed to the value"><span class="acronym">nullable</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>caps for the buffers</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>size</code></em></i>
+–
+</div>
+<p>the size of each buffer, not including prefix and padding</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>min_buffers</code></em></i>
+–
+</div>
+<p>the minimum amount of buffers to allocate.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>max_buffers</code></em></i>
+–
+</div>
+<p>the maximum amount of buffers to allocate or 0 for unlimited.</p>
+
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_buffer_pool_config_set_params">
+	<i>Gst.BufferPool.prototype.config_set_params</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function Gst.BufferPool.prototype.config_set_params(config: <a title="Gst.Structure" href="gstreamer/gststructure.html#GstStructure">Gst.Structure</a>, caps: <a title="Gst.Caps" href="gstreamer/gstcaps.html#GstCaps">Gst.Caps</a>, size: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>, min_buffers: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>, max_buffers: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>): {
+    // javascript wrapper for 'gst_buffer_pool_config_set_params'
+}</code></pre>
+
+<p>Configures <em>config</em> with the given parameters.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>config</code></em></i>
+<span>(</span><a title="Gst.Structure" href="gstreamer/gststructure.html#GstStructure">Gst.Structure</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gstbufferpool.html#GstBufferPool">Gst.BufferPool</a> configuration</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>caps</code></em></i>
+<span>(</span><a title="Gst.Caps" href="gstreamer/gstcaps.html#GstCaps">Gst.Caps</a><span>)</span>
+–
+</div>
+<p>caps for the buffers</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>size</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>the size of each buffer, not including prefix and padding</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>min_buffers</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>the minimum amount of buffers to allocate.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>max_buffers</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>the maximum amount of buffers to allocate or 0 for unlimited.</p>
+
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_buffer_pool_config_set_params">
+	<i>Gst.BufferPool.config_set_params</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def Gst.BufferPool.config_set_params (config, caps, size, min_buffers, max_buffers):
+    #python wrapper for 'gst_buffer_pool_config_set_params'</code></pre>
+
+<p>Configures <em>config</em> with the given parameters.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>config</code></em></i>
+<span>(</span><a title="Gst.Structure" href="gstreamer/gststructure.html#GstStructure">Gst.Structure</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gstbufferpool.html#GstBufferPool">Gst.BufferPool</a> configuration</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>caps</code></em></i>
+<span>(</span><a title="Gst.Caps" href="gstreamer/gstcaps.html#GstCaps">Gst.Caps</a><span>)</span>
+–
+</div>
+<p>caps for the buffers</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>size</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<p>the size of each buffer, not including prefix and padding</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>min_buffers</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<p>the minimum amount of buffers to allocate.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>max_buffers</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<p>the maximum amount of buffers to allocate or 0 for unlimited.</p>
+
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.4;" id="gst_buffer_pool_config_validate_params">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_buffer_pool_config_validate_params">
+	<i>gst_buffer_pool_config_validate_params</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a>
+gst_buffer_pool_config_validate_params (<a title="GstStructure" href="gstreamer/gststructure.html#GstStructure">GstStructure</a> * config,
+                                        <a title="GstCaps" href="gstreamer/gstcaps.html#GstCaps">GstCaps</a> * caps,
+                                        <a title="guint" href="https://docs.gtk.org/glib/types.html#guint">guint</a> size,
+                                        <a title="guint" href="https://docs.gtk.org/glib/types.html#guint">guint</a> min_buffers,
+                                        <a title="guint" href="https://docs.gtk.org/glib/types.html#guint">guint</a> max_buffers)</pre>
+
+<p>Validates that changes made to <em>config</em> are still valid in the context of the
+expected parameters. This function is a helper that can be used to validate
+changes made by a pool to a config when <a href="gstreamer/gstbufferpool.html#gst_buffer_pool_set_config">gst_buffer_pool_set_config</a>
+returns <a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#FALSE:CAPS">FALSE</a>. This expects that <em>caps</em> haven't changed and that
+<em>min_buffers</em> aren't lower then what we initially expected.
+This does not check if options or allocator parameters are still valid,
+won't check if size have changed, since changing the size is valid to adapt
+padding.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>config</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="Don't free data after the code is done"><span class="acronym">transfer: none</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gstbufferpool.html#GstBufferPool">GstBufferPool</a> configuration</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>caps</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="NULL may be passed to the value"><span class="acronym">nullable</span></abbr>]</span><span class="annotation">[<abbr title="Don't free data after the code is done"><span class="acronym">transfer: none</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>the excepted caps of buffers</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>size</code></em></i>
+–
+</div>
+<p>the expected size of each buffer, not including prefix and padding</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>min_buffers</code></em></i>
+–
+</div>
+<p>the expected minimum amount of buffers to allocate.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>max_buffers</code></em></i>
+–
+</div>
+<p>the expect maximum amount of buffers to allocate or 0 for unlimited.</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p><a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#TRUE:CAPS">TRUE</a>, if the parameters are valid in this context.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.4
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_buffer_pool_config_validate_params">
+	<i>Gst.BufferPool.prototype.config_validate_params</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function Gst.BufferPool.prototype.config_validate_params(config: <a title="Gst.Structure" href="gstreamer/gststructure.html#GstStructure">Gst.Structure</a>, caps: <a title="Gst.Caps" href="gstreamer/gstcaps.html#GstCaps">Gst.Caps</a>, size: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>, min_buffers: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>, max_buffers: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>): {
+    // javascript wrapper for 'gst_buffer_pool_config_validate_params'
+}</code></pre>
+
+<p>Validates that changes made to <em>config</em> are still valid in the context of the
+expected parameters. This function is a helper that can be used to validate
+changes made by a pool to a config when <a href="gstreamer/gstbufferpool.html#gst_buffer_pool_set_config">Gst.BufferPool.prototype.set_config</a>
+returns <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">false</a>. This expects that <em>caps</em> haven't changed and that
+<em>min_buffers</em> aren't lower then what we initially expected.
+This does not check if options or allocator parameters are still valid,
+won't check if size have changed, since changing the size is valid to adapt
+padding.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>config</code></em></i>
+<span>(</span><a title="Gst.Structure" href="gstreamer/gststructure.html#GstStructure">Gst.Structure</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gstbufferpool.html#GstBufferPool">Gst.BufferPool</a> configuration</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>caps</code></em></i>
+<span>(</span><a title="Gst.Caps" href="gstreamer/gstcaps.html#GstCaps">Gst.Caps</a><span>)</span>
+–
+</div>
+<p>the excepted caps of buffers</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>size</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>the expected size of each buffer, not including prefix and padding</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>min_buffers</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>the expected minimum amount of buffers to allocate.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>max_buffers</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>the expect maximum amount of buffers to allocate or 0 for unlimited.</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+			</div>
+							<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">true</a>, if the parameters are valid in this context.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.4
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_buffer_pool_config_validate_params">
+	<i>Gst.BufferPool.config_validate_params</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def Gst.BufferPool.config_validate_params (config, caps, size, min_buffers, max_buffers):
+    #python wrapper for 'gst_buffer_pool_config_validate_params'</code></pre>
+
+<p>Validates that changes made to <em>config</em> are still valid in the context of the
+expected parameters. This function is a helper that can be used to validate
+changes made by a pool to a config when <a href="gstreamer/gstbufferpool.html#gst_buffer_pool_set_config">Gst.BufferPool.set_config</a>
+returns <a href="https://docs.python.org/3/library/constants.html#False">False</a>. This expects that <em>caps</em> haven't changed and that
+<em>min_buffers</em> aren't lower then what we initially expected.
+This does not check if options or allocator parameters are still valid,
+won't check if size have changed, since changing the size is valid to adapt
+padding.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>config</code></em></i>
+<span>(</span><a title="Gst.Structure" href="gstreamer/gststructure.html#GstStructure">Gst.Structure</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gstbufferpool.html#GstBufferPool">Gst.BufferPool</a> configuration</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>caps</code></em></i>
+<span>(</span><a title="Gst.Caps" href="gstreamer/gstcaps.html#GstCaps">Gst.Caps</a><span>)</span>
+–
+</div>
+<p>the excepted caps of buffers</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>size</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<p>the expected size of each buffer, not including prefix and padding</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>min_buffers</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<p>the expected minimum amount of buffers to allocate.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>max_buffers</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<p>the expect maximum amount of buffers to allocate or 0 for unlimited.</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a><span>)</span>
+–
+			</div>
+							<p><a href="https://docs.python.org/3/library/constants.html#True">True</a>, if the parameters are valid in this context.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.4
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+
+            <h3 class="symbol_section">Virtual Methods</h3>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstBufferPoolClass::acquire_buffer">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstBufferPoolClass::acquire_buffer">
+	<i>acquire_buffer</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GstFlowReturn" href="gstreamer/gstpad.html#GstFlowReturn">GstFlowReturn</a>
+acquire_buffer (<a title="GstBufferPool" href="gstreamer/gstbufferpool.html#GstBufferPool">GstBufferPool</a> * pool,
+                <a title="GstBuffer" href="gstreamer/gstbuffer.html#GstBuffer">GstBuffer</a> ** buffer,
+                <a title="GstBufferPoolAcquireParams" href="gstreamer/gstbufferpool.html#GstBufferPoolAcquireParams">GstBufferPoolAcquireParams</a> * params)</pre>
+
+<p>Get a new buffer from the pool. The default implementation
+will take a buffer from the queue and optionally wait for a buffer to
+be released when there are no buffers available.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>pool</code></em></i>
+–
+</div>
+<p>the <a href="gstreamer/gstbufferpool.html#GstBufferPool">GstBufferPool</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>buffer</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="Parameter for returning results"><span class="acronym">out</span></abbr>]</span><span class="annotation">[<abbr title="Free data after the code is done"><span class="acronym">transfer: full</span></abbr>]</span><span class="annotation">[<abbr title="NULL may be passed to the value"><span class="acronym">nullable</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>a location for a <a href="gstreamer/gstbuffer.html#GstBuffer">GstBuffer</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>params</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="Don't free data after the code is done"><span class="acronym">transfer: none</span></abbr>]</span><span class="annotation">[<abbr title="NULL may be passed to the value"><span class="acronym">nullable</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>parameters.</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p>a <a href="gstreamer/gstpad.html#GstFlowReturn">GstFlowReturn</a> such as <a href="gstreamer/gstpad.html#GST_FLOW_FLUSHING">GST_FLOW_FLUSHING</a> when the pool is
+inactive.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GstBufferPoolClass::acquire_buffer">
+	<i>vfunc_acquire_buffer</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function vfunc_acquire_buffer(pool: <a title="Gst.BufferPool" href="gstreamer/gstbufferpool.html#GstBufferPool">Gst.BufferPool</a>, params: <a title="Gst.BufferPoolAcquireParams" href="gstreamer/gstbufferpool.html#GstBufferPoolAcquireParams">Gst.BufferPoolAcquireParams</a>): {
+    // javascript implementation of the 'acquire_buffer' virtual method
+}</code></pre>
+
+<p>Get a new buffer from the pool. The default implementation
+will take a buffer from the queue and optionally wait for a buffer to
+be released when there are no buffers available.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>pool</code></em></i>
+<span>(</span><a title="Gst.BufferPool" href="gstreamer/gstbufferpool.html#GstBufferPool">Gst.BufferPool</a><span>)</span>
+–
+</div>
+<p>the <a href="gstreamer/gstbufferpool.html#GstBufferPool">Gst.BufferPool</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>params</code></em></i>
+<span>(</span><a title="Gst.BufferPoolAcquireParams" href="gstreamer/gstbufferpool.html#GstBufferPoolAcquireParams">Gst.BufferPoolAcquireParams</a><span>)</span>
+–
+</div>
+<p>parameters.</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<p><b>Returns a tuple made of:</b></p>
+				
+<div class="symbol-detail">
+	<div>
+		<span>(</span><a title="Gst.FlowReturn" href="gstreamer/gstpad.html#GstFlowReturn">Gst.FlowReturn</a>
+<span>)</span>
+–
+	</div>
+			<p>a <a href="gstreamer/gstpad.html#GstFlowReturn">Gst.FlowReturn</a> such as <a href="gstreamer/gstpad.html#GST_FLOW_FLUSHING">Gst.FlowReturn.FLUSHING</a> when the pool is
+inactive.</p>
+
+	</div>
+
+				
+<div class="symbol-detail">
+	<div>
+				<i><em><code>buffer</code></em></i>
+		<span>(</span><a title="Gst.Buffer" href="gstreamer/gstbuffer.html#GstBuffer">Gst.Buffer</a>
+<span>)</span>
+–
+	</div>
+			<p>a <a href="gstreamer/gstpad.html#GstFlowReturn">Gst.FlowReturn</a> such as <a href="gstreamer/gstpad.html#GST_FLOW_FLUSHING">Gst.FlowReturn.FLUSHING</a> when the pool is
+inactive.</p>
+
+	</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GstBufferPoolClass::acquire_buffer">
+	<i>do_acquire_buffer</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def do_acquire_buffer (pool, params):
+    #python implementation of the 'acquire_buffer' virtual method</code></pre>
+
+<p>Get a new buffer from the pool. The default implementation
+will take a buffer from the queue and optionally wait for a buffer to
+be released when there are no buffers available.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>pool</code></em></i>
+<span>(</span><a title="Gst.BufferPool" href="gstreamer/gstbufferpool.html#GstBufferPool">Gst.BufferPool</a><span>)</span>
+–
+</div>
+<p>the <a href="gstreamer/gstbufferpool.html#GstBufferPool">Gst.BufferPool</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>params</code></em></i>
+<span>(</span><a title="Gst.BufferPoolAcquireParams" href="gstreamer/gstbufferpool.html#GstBufferPoolAcquireParams">Gst.BufferPoolAcquireParams</a><span>)</span>
+–
+</div>
+<p>parameters.</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<p><b>Returns a tuple made of:</b></p>
+				
+<div class="symbol-detail">
+	<div>
+		<span>(</span><a title="Gst.FlowReturn" href="gstreamer/gstpad.html#GstFlowReturn">Gst.FlowReturn</a>
+<span>)</span>
+–
+	</div>
+			<p>a <a href="gstreamer/gstpad.html#GstFlowReturn">Gst.FlowReturn</a> such as <a href="gstreamer/gstpad.html#GST_FLOW_FLUSHING">Gst.FlowReturn.FLUSHING</a> when the pool is
+inactive.</p>
+
+	</div>
+
+				
+<div class="symbol-detail">
+	<div>
+				<i><em><code>buffer</code></em></i>
+		<span>(</span><a title="Gst.Buffer" href="gstreamer/gstbuffer.html#GstBuffer">Gst.Buffer</a>
+<span>)</span>
+–
+	</div>
+			<p>a <a href="gstreamer/gstpad.html#GstFlowReturn">Gst.FlowReturn</a> such as <a href="gstreamer/gstpad.html#GST_FLOW_FLUSHING">Gst.FlowReturn.FLUSHING</a> when the pool is
+inactive.</p>
+
+	</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstBufferPoolClass::alloc_buffer">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstBufferPoolClass::alloc_buffer">
+	<i>alloc_buffer</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GstFlowReturn" href="gstreamer/gstpad.html#GstFlowReturn">GstFlowReturn</a>
+alloc_buffer (<a title="GstBufferPool" href="gstreamer/gstbufferpool.html#GstBufferPool">GstBufferPool</a> * pool,
+              <a title="GstBuffer" href="gstreamer/gstbuffer.html#GstBuffer">GstBuffer</a> ** buffer,
+              <a title="GstBufferPoolAcquireParams" href="gstreamer/gstbufferpool.html#GstBufferPoolAcquireParams">GstBufferPoolAcquireParams</a> * params)</pre>
+
+<p>Allocate a buffer. the default implementation allocates
+buffers from the configured memory allocator and with the configured
+parameters. All metadata that is present on the allocated buffer will
+be marked as <a href="gstreamer/gstmeta.html#GST_META_FLAG_POOLED">GST_META_FLAG_POOLED</a> and <a href="gstreamer/gstmeta.html#GST_META_FLAG_LOCKED">GST_META_FLAG_LOCKED</a> and will
+not be removed from the buffer in <a href="gstreamer/gstbufferpool.html#GstBufferPoolClass::reset_buffer">reset_buffer</a>.
+The buffer should have the <a href="gstreamer/gstbuffer.html#GST_BUFFER_FLAG_TAG_MEMORY">GST_BUFFER_FLAG_TAG_MEMORY</a> cleared.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>pool</code></em></i>
+–
+</div>
+<p>the <a href="gstreamer/gstbufferpool.html#GstBufferPool">GstBufferPool</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>buffer</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="Parameter for returning results"><span class="acronym">out</span></abbr>]</span><span class="annotation">[<abbr title="Free data after the code is done"><span class="acronym">transfer: full</span></abbr>]</span><span class="annotation">[<abbr title="NULL may be passed to the value"><span class="acronym">nullable</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>a location for a <a href="gstreamer/gstbuffer.html#GstBuffer">GstBuffer</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>params</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="Don't free data after the code is done"><span class="acronym">transfer: none</span></abbr>]</span><span class="annotation">[<abbr title="NULL may be passed to the value"><span class="acronym">nullable</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>parameters.</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p>a <a href="gstreamer/gstpad.html#GstFlowReturn">GstFlowReturn</a> to indicate whether the allocation was
+successful.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GstBufferPoolClass::alloc_buffer">
+	<i>vfunc_alloc_buffer</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function vfunc_alloc_buffer(pool: <a title="Gst.BufferPool" href="gstreamer/gstbufferpool.html#GstBufferPool">Gst.BufferPool</a>, params: <a title="Gst.BufferPoolAcquireParams" href="gstreamer/gstbufferpool.html#GstBufferPoolAcquireParams">Gst.BufferPoolAcquireParams</a>): {
+    // javascript implementation of the 'alloc_buffer' virtual method
+}</code></pre>
+
+<p>Allocate a buffer. the default implementation allocates
+buffers from the configured memory allocator and with the configured
+parameters. All metadata that is present on the allocated buffer will
+be marked as <a href="gstreamer/gstmeta.html#GST_META_FLAG_POOLED">Gst.MetaFlags.POOLED</a> and <a href="gstreamer/gstmeta.html#GST_META_FLAG_LOCKED">Gst.MetaFlags.LOCKED</a> and will
+not be removed from the buffer in <a href="gstreamer/gstbufferpool.html#GstBufferPoolClass::reset_buffer">vfunc_reset_buffer</a>.
+The buffer should have the <a href="gstreamer/gstbuffer.html#GST_BUFFER_FLAG_TAG_MEMORY">Gst.BufferFlags.TAG_MEMORY</a> cleared.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>pool</code></em></i>
+<span>(</span><a title="Gst.BufferPool" href="gstreamer/gstbufferpool.html#GstBufferPool">Gst.BufferPool</a><span>)</span>
+–
+</div>
+<p>the <a href="gstreamer/gstbufferpool.html#GstBufferPool">Gst.BufferPool</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>params</code></em></i>
+<span>(</span><a title="Gst.BufferPoolAcquireParams" href="gstreamer/gstbufferpool.html#GstBufferPoolAcquireParams">Gst.BufferPoolAcquireParams</a><span>)</span>
+–
+</div>
+<p>parameters.</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<p><b>Returns a tuple made of:</b></p>
+				
+<div class="symbol-detail">
+	<div>
+		<span>(</span><a title="Gst.FlowReturn" href="gstreamer/gstpad.html#GstFlowReturn">Gst.FlowReturn</a>
+<span>)</span>
+–
+	</div>
+			<p>a <a href="gstreamer/gstpad.html#GstFlowReturn">Gst.FlowReturn</a> to indicate whether the allocation was
+successful.</p>
+
+	</div>
+
+				
+<div class="symbol-detail">
+	<div>
+				<i><em><code>buffer</code></em></i>
+		<span>(</span><a title="Gst.Buffer" href="gstreamer/gstbuffer.html#GstBuffer">Gst.Buffer</a>
+<span>)</span>
+–
+	</div>
+			<p>a <a href="gstreamer/gstpad.html#GstFlowReturn">Gst.FlowReturn</a> to indicate whether the allocation was
+successful.</p>
+
+	</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GstBufferPoolClass::alloc_buffer">
+	<i>do_alloc_buffer</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def do_alloc_buffer (pool, params):
+    #python implementation of the 'alloc_buffer' virtual method</code></pre>
+
+<p>Allocate a buffer. the default implementation allocates
+buffers from the configured memory allocator and with the configured
+parameters. All metadata that is present on the allocated buffer will
+be marked as <a href="gstreamer/gstmeta.html#GST_META_FLAG_POOLED">Gst.MetaFlags.POOLED</a> and <a href="gstreamer/gstmeta.html#GST_META_FLAG_LOCKED">Gst.MetaFlags.LOCKED</a> and will
+not be removed from the buffer in <a href="gstreamer/gstbufferpool.html#GstBufferPoolClass::reset_buffer">do_reset_buffer</a>.
+The buffer should have the <a href="gstreamer/gstbuffer.html#GST_BUFFER_FLAG_TAG_MEMORY">Gst.BufferFlags.TAG_MEMORY</a> cleared.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>pool</code></em></i>
+<span>(</span><a title="Gst.BufferPool" href="gstreamer/gstbufferpool.html#GstBufferPool">Gst.BufferPool</a><span>)</span>
+–
+</div>
+<p>the <a href="gstreamer/gstbufferpool.html#GstBufferPool">Gst.BufferPool</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>params</code></em></i>
+<span>(</span><a title="Gst.BufferPoolAcquireParams" href="gstreamer/gstbufferpool.html#GstBufferPoolAcquireParams">Gst.BufferPoolAcquireParams</a><span>)</span>
+–
+</div>
+<p>parameters.</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<p><b>Returns a tuple made of:</b></p>
+				
+<div class="symbol-detail">
+	<div>
+		<span>(</span><a title="Gst.FlowReturn" href="gstreamer/gstpad.html#GstFlowReturn">Gst.FlowReturn</a>
+<span>)</span>
+–
+	</div>
+			<p>a <a href="gstreamer/gstpad.html#GstFlowReturn">Gst.FlowReturn</a> to indicate whether the allocation was
+successful.</p>
+
+	</div>
+
+				
+<div class="symbol-detail">
+	<div>
+				<i><em><code>buffer</code></em></i>
+		<span>(</span><a title="Gst.Buffer" href="gstreamer/gstbuffer.html#GstBuffer">Gst.Buffer</a>
+<span>)</span>
+–
+	</div>
+			<p>a <a href="gstreamer/gstpad.html#GstFlowReturn">Gst.FlowReturn</a> to indicate whether the allocation was
+successful.</p>
+
+	</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.4;" id="GstBufferPoolClass::flush_start">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstBufferPoolClass::flush_start">
+	<i>flush_start</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+flush_start (<a title="GstBufferPool" href="gstreamer/gstbufferpool.html#GstBufferPool">GstBufferPool</a> * pool)</pre>
+
+<p>Enter the flushing state.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>pool</code></em></i>
+–
+</div>
+<p>the <a href="gstreamer/gstbufferpool.html#GstBufferPool">GstBufferPool</a></p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.4
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GstBufferPoolClass::flush_start">
+	<i>vfunc_flush_start</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function vfunc_flush_start(pool: <a title="Gst.BufferPool" href="gstreamer/gstbufferpool.html#GstBufferPool">Gst.BufferPool</a>): {
+    // javascript implementation of the 'flush_start' virtual method
+}</code></pre>
+
+<p>Enter the flushing state.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>pool</code></em></i>
+<span>(</span><a title="Gst.BufferPool" href="gstreamer/gstbufferpool.html#GstBufferPool">Gst.BufferPool</a><span>)</span>
+–
+</div>
+<p>the <a href="gstreamer/gstbufferpool.html#GstBufferPool">Gst.BufferPool</a></p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.4
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GstBufferPoolClass::flush_start">
+	<i>do_flush_start</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def do_flush_start (pool):
+    #python implementation of the 'flush_start' virtual method</code></pre>
+
+<p>Enter the flushing state.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>pool</code></em></i>
+<span>(</span><a title="Gst.BufferPool" href="gstreamer/gstbufferpool.html#GstBufferPool">Gst.BufferPool</a><span>)</span>
+–
+</div>
+<p>the <a href="gstreamer/gstbufferpool.html#GstBufferPool">Gst.BufferPool</a></p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.4
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.4;" id="GstBufferPoolClass::flush_stop">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstBufferPoolClass::flush_stop">
+	<i>flush_stop</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+flush_stop (<a title="GstBufferPool" href="gstreamer/gstbufferpool.html#GstBufferPool">GstBufferPool</a> * pool)</pre>
+
+<p>Leave the flushing state.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>pool</code></em></i>
+–
+</div>
+<p>the <a href="gstreamer/gstbufferpool.html#GstBufferPool">GstBufferPool</a></p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.4
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GstBufferPoolClass::flush_stop">
+	<i>vfunc_flush_stop</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function vfunc_flush_stop(pool: <a title="Gst.BufferPool" href="gstreamer/gstbufferpool.html#GstBufferPool">Gst.BufferPool</a>): {
+    // javascript implementation of the 'flush_stop' virtual method
+}</code></pre>
+
+<p>Leave the flushing state.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>pool</code></em></i>
+<span>(</span><a title="Gst.BufferPool" href="gstreamer/gstbufferpool.html#GstBufferPool">Gst.BufferPool</a><span>)</span>
+–
+</div>
+<p>the <a href="gstreamer/gstbufferpool.html#GstBufferPool">Gst.BufferPool</a></p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.4
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GstBufferPoolClass::flush_stop">
+	<i>do_flush_stop</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def do_flush_stop (pool):
+    #python implementation of the 'flush_stop' virtual method</code></pre>
+
+<p>Leave the flushing state.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>pool</code></em></i>
+<span>(</span><a title="Gst.BufferPool" href="gstreamer/gstbufferpool.html#GstBufferPool">Gst.BufferPool</a><span>)</span>
+–
+</div>
+<p>the <a href="gstreamer/gstbufferpool.html#GstBufferPool">Gst.BufferPool</a></p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.4
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstBufferPoolClass::free_buffer">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstBufferPoolClass::free_buffer">
+	<i>free_buffer</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+free_buffer (<a title="GstBufferPool" href="gstreamer/gstbufferpool.html#GstBufferPool">GstBufferPool</a> * pool,
+             <a title="GstBuffer" href="gstreamer/gstbuffer.html#GstBuffer">GstBuffer</a> * buffer)</pre>
+
+<p>Free a buffer. The default implementation unrefs the buffer.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>pool</code></em></i>
+–
+</div>
+<p>the <a href="gstreamer/gstbufferpool.html#GstBufferPool">GstBufferPool</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>buffer</code></em></i>
+–
+</div>
+<p>the <a href="gstreamer/gstbuffer.html#GstBuffer">GstBuffer</a> to free</p>
+
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GstBufferPoolClass::free_buffer">
+	<i>vfunc_free_buffer</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function vfunc_free_buffer(pool: <a title="Gst.BufferPool" href="gstreamer/gstbufferpool.html#GstBufferPool">Gst.BufferPool</a>, buffer: <a title="Gst.Buffer" href="gstreamer/gstbuffer.html#GstBuffer">Gst.Buffer</a>): {
+    // javascript implementation of the 'free_buffer' virtual method
+}</code></pre>
+
+<p>Free a buffer. The default implementation unrefs the buffer.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>pool</code></em></i>
+<span>(</span><a title="Gst.BufferPool" href="gstreamer/gstbufferpool.html#GstBufferPool">Gst.BufferPool</a><span>)</span>
+–
+</div>
+<p>the <a href="gstreamer/gstbufferpool.html#GstBufferPool">Gst.BufferPool</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>buffer</code></em></i>
+<span>(</span><a title="Gst.Buffer" href="gstreamer/gstbuffer.html#GstBuffer">Gst.Buffer</a><span>)</span>
+–
+</div>
+<p>the <a href="gstreamer/gstbuffer.html#GstBuffer">Gst.Buffer</a> to free</p>
+
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GstBufferPoolClass::free_buffer">
+	<i>do_free_buffer</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def do_free_buffer (pool, buffer):
+    #python implementation of the 'free_buffer' virtual method</code></pre>
+
+<p>Free a buffer. The default implementation unrefs the buffer.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>pool</code></em></i>
+<span>(</span><a title="Gst.BufferPool" href="gstreamer/gstbufferpool.html#GstBufferPool">Gst.BufferPool</a><span>)</span>
+–
+</div>
+<p>the <a href="gstreamer/gstbufferpool.html#GstBufferPool">Gst.BufferPool</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>buffer</code></em></i>
+<span>(</span><a title="Gst.Buffer" href="gstreamer/gstbuffer.html#GstBuffer">Gst.Buffer</a><span>)</span>
+–
+</div>
+<p>the <a href="gstreamer/gstbuffer.html#GstBuffer">Gst.Buffer</a> to free</p>
+
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstBufferPoolClass::get_options">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstBufferPoolClass::get_options">
+	<i>get_options</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+const <a title="gchar" href="https://docs.gtk.org/glib/types.html#gchar">gchar</a> **
+get_options (<a title="GstBufferPool" href="gstreamer/gstbufferpool.html#GstBufferPool">GstBufferPool</a> * pool)</pre>
+
+<p>Get a list of options supported by this pool</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>pool</code></em></i>
+–
+</div>
+<p>the <a href="gstreamer/gstbufferpool.html#GstBufferPool">GstBufferPool</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span>
+<span class="annotation">[<abbr title="Parameter points to an array of items"><span class="acronym">array</span></abbr> zero-terminated=1]</span><span class="annotation">[<abbr title="Don't free data after the code is done"><span class="acronym">transfer: none</span></abbr>]</span><span>)</span>
+–
+			</div>
+							<p>a <a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#NULL:CAPS">NULL</a> terminated array
+of strings.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GstBufferPoolClass::get_options">
+	<i>vfunc_get_options</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function vfunc_get_options(pool: <a title="Gst.BufferPool" href="gstreamer/gstbufferpool.html#GstBufferPool">Gst.BufferPool</a>): {
+    // javascript implementation of the 'get_options' virtual method
+}</code></pre>
+
+<p>Get a list of options supported by this pool</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>pool</code></em></i>
+<span>(</span><a title="Gst.BufferPool" href="gstreamer/gstbufferpool.html#GstBufferPool">Gst.BufferPool</a><span>)</span>
+–
+</div>
+<p>the <a href="gstreamer/gstbufferpool.html#GstBufferPool">Gst.BufferPool</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span>[ <a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a> ]<span>)</span>
+–
+			</div>
+							<p>a <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null">null</a> terminated array
+of strings.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GstBufferPoolClass::get_options">
+	<i>do_get_options</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def do_get_options (pool):
+    #python implementation of the 'get_options' virtual method</code></pre>
+
+<p>Get a list of options supported by this pool</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>pool</code></em></i>
+<span>(</span><a title="Gst.BufferPool" href="gstreamer/gstbufferpool.html#GstBufferPool">Gst.BufferPool</a><span>)</span>
+–
+</div>
+<p>the <a href="gstreamer/gstbufferpool.html#GstBufferPool">Gst.BufferPool</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span>[ <a title="str" href="https://docs.python.org/3/library/functions.html#func-str">str</a> ]<span>)</span>
+–
+			</div>
+							<p>a <a href="https://docs.python.org/3/library/constants.html#None">None</a> terminated array
+of strings.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstBufferPoolClass::release_buffer">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstBufferPoolClass::release_buffer">
+	<i>release_buffer</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+release_buffer (<a title="GstBufferPool" href="gstreamer/gstbufferpool.html#GstBufferPool">GstBufferPool</a> * pool,
+                <a title="GstBuffer" href="gstreamer/gstbuffer.html#GstBuffer">GstBuffer</a> * buffer)</pre>
+
+<p>Release a buffer back in the pool. The default implementation
+will put the buffer back in the queue and notify any
+blocking <a href="gstreamer/gstbufferpool.html#GstBufferPoolClass::acquire_buffer">acquire_buffer</a> calls when the
+<a href="gstreamer/gstbuffer.html#GST_BUFFER_FLAG_TAG_MEMORY">GST_BUFFER_FLAG_TAG_MEMORY</a> is not set on the buffer.
+If <a href="gstreamer/gstbuffer.html#GST_BUFFER_FLAG_TAG_MEMORY">GST_BUFFER_FLAG_TAG_MEMORY</a> is set, the buffer will be freed with
+<a href="gstreamer/gstbufferpool.html#GstBufferPoolClass::free_buffer">free_buffer</a>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>pool</code></em></i>
+–
+</div>
+<p>the <a href="gstreamer/gstbufferpool.html#GstBufferPool">GstBufferPool</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>buffer</code></em></i>
+–
+</div>
+<p>the <a href="gstreamer/gstbuffer.html#GstBuffer">GstBuffer</a> to release</p>
+
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GstBufferPoolClass::release_buffer">
+	<i>vfunc_release_buffer</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function vfunc_release_buffer(pool: <a title="Gst.BufferPool" href="gstreamer/gstbufferpool.html#GstBufferPool">Gst.BufferPool</a>, buffer: <a title="Gst.Buffer" href="gstreamer/gstbuffer.html#GstBuffer">Gst.Buffer</a>): {
+    // javascript implementation of the 'release_buffer' virtual method
+}</code></pre>
+
+<p>Release a buffer back in the pool. The default implementation
+will put the buffer back in the queue and notify any
+blocking <a href="gstreamer/gstbufferpool.html#GstBufferPoolClass::acquire_buffer">vfunc_acquire_buffer</a> calls when the
+<a href="gstreamer/gstbuffer.html#GST_BUFFER_FLAG_TAG_MEMORY">Gst.BufferFlags.TAG_MEMORY</a> is not set on the buffer.
+If <a href="gstreamer/gstbuffer.html#GST_BUFFER_FLAG_TAG_MEMORY">Gst.BufferFlags.TAG_MEMORY</a> is set, the buffer will be freed with
+<a href="gstreamer/gstbufferpool.html#GstBufferPoolClass::free_buffer">vfunc_free_buffer</a>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>pool</code></em></i>
+<span>(</span><a title="Gst.BufferPool" href="gstreamer/gstbufferpool.html#GstBufferPool">Gst.BufferPool</a><span>)</span>
+–
+</div>
+<p>the <a href="gstreamer/gstbufferpool.html#GstBufferPool">Gst.BufferPool</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>buffer</code></em></i>
+<span>(</span><a title="Gst.Buffer" href="gstreamer/gstbuffer.html#GstBuffer">Gst.Buffer</a><span>)</span>
+–
+</div>
+<p>the <a href="gstreamer/gstbuffer.html#GstBuffer">Gst.Buffer</a> to release</p>
+
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GstBufferPoolClass::release_buffer">
+	<i>do_release_buffer</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def do_release_buffer (pool, buffer):
+    #python implementation of the 'release_buffer' virtual method</code></pre>
+
+<p>Release a buffer back in the pool. The default implementation
+will put the buffer back in the queue and notify any
+blocking <a href="gstreamer/gstbufferpool.html#GstBufferPoolClass::acquire_buffer">do_acquire_buffer</a> calls when the
+<a href="gstreamer/gstbuffer.html#GST_BUFFER_FLAG_TAG_MEMORY">Gst.BufferFlags.TAG_MEMORY</a> is not set on the buffer.
+If <a href="gstreamer/gstbuffer.html#GST_BUFFER_FLAG_TAG_MEMORY">Gst.BufferFlags.TAG_MEMORY</a> is set, the buffer will be freed with
+<a href="gstreamer/gstbufferpool.html#GstBufferPoolClass::free_buffer">do_free_buffer</a>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>pool</code></em></i>
+<span>(</span><a title="Gst.BufferPool" href="gstreamer/gstbufferpool.html#GstBufferPool">Gst.BufferPool</a><span>)</span>
+–
+</div>
+<p>the <a href="gstreamer/gstbufferpool.html#GstBufferPool">Gst.BufferPool</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>buffer</code></em></i>
+<span>(</span><a title="Gst.Buffer" href="gstreamer/gstbuffer.html#GstBuffer">Gst.Buffer</a><span>)</span>
+–
+</div>
+<p>the <a href="gstreamer/gstbuffer.html#GstBuffer">Gst.Buffer</a> to release</p>
+
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstBufferPoolClass::reset_buffer">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstBufferPoolClass::reset_buffer">
+	<i>reset_buffer</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+reset_buffer (<a title="GstBufferPool" href="gstreamer/gstbufferpool.html#GstBufferPool">GstBufferPool</a> * pool,
+              <a title="GstBuffer" href="gstreamer/gstbuffer.html#GstBuffer">GstBuffer</a> * buffer)</pre>
+
+<p>Reset the buffer to its state when it was freshly allocated.
+The default implementation will clear the flags, timestamps and
+will remove the metadata without the <a href="gstreamer/gstmeta.html#GST_META_FLAG_POOLED">GST_META_FLAG_POOLED</a> flag (even
+the metadata with <a href="gstreamer/gstmeta.html#GST_META_FLAG_LOCKED">GST_META_FLAG_LOCKED</a>). If the
+<a href="gstreamer/gstbuffer.html#GST_BUFFER_FLAG_TAG_MEMORY">GST_BUFFER_FLAG_TAG_MEMORY</a> was set, this function can also try to
+restore the memory and clear the <a href="gstreamer/gstbuffer.html#GST_BUFFER_FLAG_TAG_MEMORY">GST_BUFFER_FLAG_TAG_MEMORY</a> again.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>pool</code></em></i>
+–
+</div>
+<p>the <a href="gstreamer/gstbufferpool.html#GstBufferPool">GstBufferPool</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>buffer</code></em></i>
+–
+</div>
+<p>the <a href="gstreamer/gstbuffer.html#GstBuffer">GstBuffer</a> to reset</p>
+
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GstBufferPoolClass::reset_buffer">
+	<i>vfunc_reset_buffer</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function vfunc_reset_buffer(pool: <a title="Gst.BufferPool" href="gstreamer/gstbufferpool.html#GstBufferPool">Gst.BufferPool</a>, buffer: <a title="Gst.Buffer" href="gstreamer/gstbuffer.html#GstBuffer">Gst.Buffer</a>): {
+    // javascript implementation of the 'reset_buffer' virtual method
+}</code></pre>
+
+<p>Reset the buffer to its state when it was freshly allocated.
+The default implementation will clear the flags, timestamps and
+will remove the metadata without the <a href="gstreamer/gstmeta.html#GST_META_FLAG_POOLED">Gst.MetaFlags.POOLED</a> flag (even
+the metadata with <a href="gstreamer/gstmeta.html#GST_META_FLAG_LOCKED">Gst.MetaFlags.LOCKED</a>). If the
+<a href="gstreamer/gstbuffer.html#GST_BUFFER_FLAG_TAG_MEMORY">Gst.BufferFlags.TAG_MEMORY</a> was set, this function can also try to
+restore the memory and clear the <a href="gstreamer/gstbuffer.html#GST_BUFFER_FLAG_TAG_MEMORY">Gst.BufferFlags.TAG_MEMORY</a> again.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>pool</code></em></i>
+<span>(</span><a title="Gst.BufferPool" href="gstreamer/gstbufferpool.html#GstBufferPool">Gst.BufferPool</a><span>)</span>
+–
+</div>
+<p>the <a href="gstreamer/gstbufferpool.html#GstBufferPool">Gst.BufferPool</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>buffer</code></em></i>
+<span>(</span><a title="Gst.Buffer" href="gstreamer/gstbuffer.html#GstBuffer">Gst.Buffer</a><span>)</span>
+–
+</div>
+<p>the <a href="gstreamer/gstbuffer.html#GstBuffer">Gst.Buffer</a> to reset</p>
+
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GstBufferPoolClass::reset_buffer">
+	<i>do_reset_buffer</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def do_reset_buffer (pool, buffer):
+    #python implementation of the 'reset_buffer' virtual method</code></pre>
+
+<p>Reset the buffer to its state when it was freshly allocated.
+The default implementation will clear the flags, timestamps and
+will remove the metadata without the <a href="gstreamer/gstmeta.html#GST_META_FLAG_POOLED">Gst.MetaFlags.POOLED</a> flag (even
+the metadata with <a href="gstreamer/gstmeta.html#GST_META_FLAG_LOCKED">Gst.MetaFlags.LOCKED</a>). If the
+<a href="gstreamer/gstbuffer.html#GST_BUFFER_FLAG_TAG_MEMORY">Gst.BufferFlags.TAG_MEMORY</a> was set, this function can also try to
+restore the memory and clear the <a href="gstreamer/gstbuffer.html#GST_BUFFER_FLAG_TAG_MEMORY">Gst.BufferFlags.TAG_MEMORY</a> again.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>pool</code></em></i>
+<span>(</span><a title="Gst.BufferPool" href="gstreamer/gstbufferpool.html#GstBufferPool">Gst.BufferPool</a><span>)</span>
+–
+</div>
+<p>the <a href="gstreamer/gstbufferpool.html#GstBufferPool">Gst.BufferPool</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>buffer</code></em></i>
+<span>(</span><a title="Gst.Buffer" href="gstreamer/gstbuffer.html#GstBuffer">Gst.Buffer</a><span>)</span>
+–
+</div>
+<p>the <a href="gstreamer/gstbuffer.html#GstBuffer">Gst.Buffer</a> to reset</p>
+
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstBufferPoolClass::set_config">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstBufferPoolClass::set_config">
+	<i>set_config</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a>
+set_config (<a title="GstBufferPool" href="gstreamer/gstbufferpool.html#GstBufferPool">GstBufferPool</a> * pool,
+            <a title="GstStructure" href="gstreamer/gststructure.html#GstStructure">GstStructure</a> * config)</pre>
+
+<p>Apply the bufferpool configuration. The default configuration will parse
+the default config parameters.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>pool</code></em></i>
+–
+</div>
+<p>the <a href="gstreamer/gstbufferpool.html#GstBufferPool">GstBufferPool</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>config</code></em></i>
+–
+</div>
+<p>the required configuration</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p>whether the configuration could be set.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GstBufferPoolClass::set_config">
+	<i>vfunc_set_config</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function vfunc_set_config(pool: <a title="Gst.BufferPool" href="gstreamer/gstbufferpool.html#GstBufferPool">Gst.BufferPool</a>, config: <a title="Gst.Structure" href="gstreamer/gststructure.html#GstStructure">Gst.Structure</a>): {
+    // javascript implementation of the 'set_config' virtual method
+}</code></pre>
+
+<p>Apply the bufferpool configuration. The default configuration will parse
+the default config parameters.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>pool</code></em></i>
+<span>(</span><a title="Gst.BufferPool" href="gstreamer/gstbufferpool.html#GstBufferPool">Gst.BufferPool</a><span>)</span>
+–
+</div>
+<p>the <a href="gstreamer/gstbufferpool.html#GstBufferPool">Gst.BufferPool</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>config</code></em></i>
+<span>(</span><a title="Gst.Structure" href="gstreamer/gststructure.html#GstStructure">Gst.Structure</a><span>)</span>
+–
+</div>
+<p>the required configuration</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+			</div>
+							<p>whether the configuration could be set.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GstBufferPoolClass::set_config">
+	<i>do_set_config</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def do_set_config (pool, config):
+    #python implementation of the 'set_config' virtual method</code></pre>
+
+<p>Apply the bufferpool configuration. The default configuration will parse
+the default config parameters.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>pool</code></em></i>
+<span>(</span><a title="Gst.BufferPool" href="gstreamer/gstbufferpool.html#GstBufferPool">Gst.BufferPool</a><span>)</span>
+–
+</div>
+<p>the <a href="gstreamer/gstbufferpool.html#GstBufferPool">Gst.BufferPool</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>config</code></em></i>
+<span>(</span><a title="Gst.Structure" href="gstreamer/gststructure.html#GstStructure">Gst.Structure</a><span>)</span>
+–
+</div>
+<p>the required configuration</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a><span>)</span>
+–
+			</div>
+							<p>whether the configuration could be set.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstBufferPoolClass::start">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstBufferPoolClass::start">
+	<i>start</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a>
+start (<a title="GstBufferPool" href="gstreamer/gstbufferpool.html#GstBufferPool">GstBufferPool</a> * pool)</pre>
+
+<p>Start the bufferpool. The default implementation will preallocate
+min-buffers buffers and put them in the queue.</p>
+<p>Subclasses do not need to chain up to the parent's default implementation
+if they don't want min-buffers based preallocation.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>pool</code></em></i>
+–
+</div>
+<p>the <a href="gstreamer/gstbufferpool.html#GstBufferPool">GstBufferPool</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p>whether the pool could be started.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GstBufferPoolClass::start">
+	<i>vfunc_start</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function vfunc_start(pool: <a title="Gst.BufferPool" href="gstreamer/gstbufferpool.html#GstBufferPool">Gst.BufferPool</a>): {
+    // javascript implementation of the 'start' virtual method
+}</code></pre>
+
+<p>Start the bufferpool. The default implementation will preallocate
+min-buffers buffers and put them in the queue.</p>
+<p>Subclasses do not need to chain up to the parent's default implementation
+if they don't want min-buffers based preallocation.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>pool</code></em></i>
+<span>(</span><a title="Gst.BufferPool" href="gstreamer/gstbufferpool.html#GstBufferPool">Gst.BufferPool</a><span>)</span>
+–
+</div>
+<p>the <a href="gstreamer/gstbufferpool.html#GstBufferPool">Gst.BufferPool</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+			</div>
+							<p>whether the pool could be started.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GstBufferPoolClass::start">
+	<i>do_start</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def do_start (pool):
+    #python implementation of the 'start' virtual method</code></pre>
+
+<p>Start the bufferpool. The default implementation will preallocate
+min-buffers buffers and put them in the queue.</p>
+<p>Subclasses do not need to chain up to the parent's default implementation
+if they don't want min-buffers based preallocation.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>pool</code></em></i>
+<span>(</span><a title="Gst.BufferPool" href="gstreamer/gstbufferpool.html#GstBufferPool">Gst.BufferPool</a><span>)</span>
+–
+</div>
+<p>the <a href="gstreamer/gstbufferpool.html#GstBufferPool">Gst.BufferPool</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a><span>)</span>
+–
+			</div>
+							<p>whether the pool could be started.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstBufferPoolClass::stop">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstBufferPoolClass::stop">
+	<i>stop</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a>
+stop (<a title="GstBufferPool" href="gstreamer/gstbufferpool.html#GstBufferPool">GstBufferPool</a> * pool)</pre>
+
+<p>Stop the bufferpool. the default implementation will free the
+preallocated buffers. This function is called when all the buffers are
+returned to the pool.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>pool</code></em></i>
+–
+</div>
+<p>the <a href="gstreamer/gstbufferpool.html#GstBufferPool">GstBufferPool</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p>whether the pool could be stopped.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GstBufferPoolClass::stop">
+	<i>vfunc_stop</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function vfunc_stop(pool: <a title="Gst.BufferPool" href="gstreamer/gstbufferpool.html#GstBufferPool">Gst.BufferPool</a>): {
+    // javascript implementation of the 'stop' virtual method
+}</code></pre>
+
+<p>Stop the bufferpool. the default implementation will free the
+preallocated buffers. This function is called when all the buffers are
+returned to the pool.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>pool</code></em></i>
+<span>(</span><a title="Gst.BufferPool" href="gstreamer/gstbufferpool.html#GstBufferPool">Gst.BufferPool</a><span>)</span>
+–
+</div>
+<p>the <a href="gstreamer/gstbufferpool.html#GstBufferPool">Gst.BufferPool</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+			</div>
+							<p>whether the pool could be stopped.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GstBufferPoolClass::stop">
+	<i>do_stop</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def do_stop (pool):
+    #python implementation of the 'stop' virtual method</code></pre>
+
+<p>Stop the bufferpool. the default implementation will free the
+preallocated buffers. This function is called when all the buffers are
+returned to the pool.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>pool</code></em></i>
+<span>(</span><a title="Gst.BufferPool" href="gstreamer/gstbufferpool.html#GstBufferPool">Gst.BufferPool</a><span>)</span>
+–
+</div>
+<p>the <a href="gstreamer/gstbufferpool.html#GstBufferPool">Gst.BufferPool</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a><span>)</span>
+–
+			</div>
+							<p>whether the pool could be stopped.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+
+        
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstBufferPoolAcquireParams">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h2 data-hotdoc-id="GstBufferPoolAcquireParams">
+	<i>GstBufferPoolAcquireParams</i>
+</h2>
+
+
+
+<div class="class_details">
+	<p>Parameters passed to the <a href="gstreamer/gstbufferpool.html#gst_buffer_pool_acquire_buffer">gst_buffer_pool_acquire_buffer</a> function to control the
+allocation of the buffer.</p>
+<p>The default implementation ignores the <em>start</em> and <em>stop</em> members but other
+implementations can use this extra information to decide what buffer to
+return.</p>
+
+</div>
+
+
+
+	<div class="members-container">
+		<h3>Members</h3>
+					
+<div class="symbol-detail" data-hotdoc-id="GstBufferPoolAcquireParams.format">
+	<div>
+		<i><em><code>format</code></em></i>
+		(<a title="GstFormat" href="gstreamer/gstformat.html#GstFormat">GstFormat</a>)
+		–
+	</div>
+			<p>the format of <em>start</em> and <em>stop</em></p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstBufferPoolAcquireParams.start">
+	<div>
+		<i><em><code>start</code></em></i>
+		(<a title="gint64" href="https://docs.gtk.org/glib/types.html#gint64">gint64</a>)
+		–
+	</div>
+			<p>the start position</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstBufferPoolAcquireParams.stop">
+	<div>
+		<i><em><code>stop</code></em></i>
+		(<a title="gint64" href="https://docs.gtk.org/glib/types.html#gint64">gint64</a>)
+		–
+	</div>
+			<p>the stop position</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstBufferPoolAcquireParams.flags">
+	<div>
+		<i><em><code>flags</code></em></i>
+		(<a title="GstBufferPoolAcquireFlags" href="gstreamer/gstbufferpool.html#GstBufferPoolAcquireFlags">GstBufferPoolAcquireFlags</a>)
+		–
+	</div>
+			<p>additional flags</p>
+
+	</div>
+
+			</div>
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h2 data-hotdoc-id="GstBufferPoolAcquireParams">
+	<i>Gst.BufferPoolAcquireParams</i>
+</h2>
+
+
+
+<div class="class_details">
+	<p>Parameters passed to the <a href="gstreamer/gstbufferpool.html#gst_buffer_pool_acquire_buffer">Gst.BufferPool.prototype.acquire_buffer</a> function to control the
+allocation of the buffer.</p>
+<p>The default implementation ignores the <em>start</em> and <em>stop</em> members but other
+implementations can use this extra information to decide what buffer to
+return.</p>
+
+</div>
+
+
+
+	<div class="members-container">
+		<h3>Members</h3>
+					
+<div class="symbol-detail" data-hotdoc-id="GstBufferPoolAcquireParams.format">
+	<div>
+		<i><em><code>format</code></em></i>
+		(<a title="Gst.Format" href="gstreamer/gstformat.html#GstFormat">Gst.Format</a>)
+		–
+	</div>
+			<p>the format of <em>start</em> and <em>stop</em></p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstBufferPoolAcquireParams.start">
+	<div>
+		<i><em><code>start</code></em></i>
+		(<a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>)
+		–
+	</div>
+			<p>the start position</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstBufferPoolAcquireParams.stop">
+	<div>
+		<i><em><code>stop</code></em></i>
+		(<a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>)
+		–
+	</div>
+			<p>the stop position</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstBufferPoolAcquireParams.flags">
+	<div>
+		<i><em><code>flags</code></em></i>
+		(<a title="Gst.BufferPoolAcquireFlags" href="gstreamer/gstbufferpool.html#GstBufferPoolAcquireFlags">Gst.BufferPoolAcquireFlags</a>)
+		–
+	</div>
+			<p>additional flags</p>
+
+	</div>
+
+			</div>
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h2 data-hotdoc-id="GstBufferPoolAcquireParams">
+	<i>Gst.BufferPoolAcquireParams</i>
+</h2>
+
+
+
+<div class="class_details">
+	<p>Parameters passed to the <a href="gstreamer/gstbufferpool.html#gst_buffer_pool_acquire_buffer">Gst.BufferPool.acquire_buffer</a> function to control the
+allocation of the buffer.</p>
+<p>The default implementation ignores the <em>start</em> and <em>stop</em> members but other
+implementations can use this extra information to decide what buffer to
+return.</p>
+
+</div>
+
+
+
+	<div class="members-container">
+		<h3>Members</h3>
+					
+<div class="symbol-detail" data-hotdoc-id="GstBufferPoolAcquireParams.format">
+	<div>
+		<i><em><code>format</code></em></i>
+		(<a title="Gst.Format" href="gstreamer/gstformat.html#GstFormat">Gst.Format</a>)
+		–
+	</div>
+			<p>the format of <em>start</em> and <em>stop</em></p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstBufferPoolAcquireParams.start">
+	<div>
+		<i><em><code>start</code></em></i>
+		(<a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a>)
+		–
+	</div>
+			<p>the start position</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstBufferPoolAcquireParams.stop">
+	<div>
+		<i><em><code>stop</code></em></i>
+		(<a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a>)
+		–
+	</div>
+			<p>the stop position</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstBufferPoolAcquireParams.flags">
+	<div>
+		<i><em><code>flags</code></em></i>
+		(<a title="Gst.BufferPoolAcquireFlags" href="gstreamer/gstbufferpool.html#GstBufferPoolAcquireFlags">Gst.BufferPoolAcquireFlags</a>)
+		–
+	</div>
+			<p>additional flags</p>
+
+	</div>
+
+			</div>
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+
+        
+
+            <h2 class="symbol_section">Function Macros</h2>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GST_BUFFER_POOL_CAST">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_BUFFER_POOL_CAST">
+	<i>GST_BUFFER_POOL_CAST</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_BUFFER_POOL_CAST(obj)            ((GstBufferPool *)(obj))
+</pre>
+
+
+
+
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GST_BUFFER_POOL_IS_FLUSHING">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_BUFFER_POOL_IS_FLUSHING">
+	<i>GST_BUFFER_POOL_IS_FLUSHING</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_BUFFER_POOL_IS_FLUSHING(pool)  (g_atomic_int_get (&amp;pool-&gt;flushing))
+</pre>
+
+<p>Check if the bufferpool is flushing. Subclasses might want to check the
+state of the pool in the acquire function.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>pool</code></em></i>
+–
+</div>
+<p>a GstBufferPool</p>
+
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+
+            <h2 class="symbol_section">Enumerations</h2>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstBufferPoolAcquireFlags">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GstBufferPoolAcquireFlags">
+	<i>GstBufferPoolAcquireFlags</i>
+</h3>
+
+
+<p>Additional flags to control the allocation of a buffer</p>
+
+
+
+
+	<div class="members-container">
+		<h5>Members</h5>
+					
+<div class="symbol-detail" data-hotdoc-id="GST_BUFFER_POOL_ACQUIRE_FLAG_NONE">
+	<div>
+		<i><em><code>GST_BUFFER_POOL_ACQUIRE_FLAG_NONE</code></em></i>
+		(<span class="value">0</span>)
+		–
+	</div>
+			<p>no flags</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_BUFFER_POOL_ACQUIRE_FLAG_KEY_UNIT">
+	<div>
+		<i><em><code>GST_BUFFER_POOL_ACQUIRE_FLAG_KEY_UNIT</code></em></i>
+		(<span class="value">1</span>)
+		–
+	</div>
+			<p>buffer is keyframe</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_BUFFER_POOL_ACQUIRE_FLAG_DONTWAIT">
+	<div>
+		<i><em><code>GST_BUFFER_POOL_ACQUIRE_FLAG_DONTWAIT</code></em></i>
+		(<span class="value">2</span>)
+		–
+	</div>
+			<p>when the bufferpool is empty, acquire_buffer
+will by default block until a buffer is released into the pool again. Setting
+this flag makes acquire_buffer return <a href="gstreamer/gstpad.html#GST_FLOW_EOS" data-gi-href-javascript="gstreamer/gstpad.html#GST_FLOW_EOS" data-gi-title-javascript="Gst.FlowReturn.EOS" data-gi-href-python="gstreamer/gstpad.html#GST_FLOW_EOS" data-gi-title-python="Gst.FlowReturn.EOS">GST_FLOW_EOS</a> instead of blocking.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_BUFFER_POOL_ACQUIRE_FLAG_DISCONT">
+	<div>
+		<i><em><code>GST_BUFFER_POOL_ACQUIRE_FLAG_DISCONT</code></em></i>
+		(<span class="value">4</span>)
+		–
+	</div>
+			<p>buffer is discont</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_BUFFER_POOL_ACQUIRE_FLAG_LAST">
+	<div>
+		<i><em><code>GST_BUFFER_POOL_ACQUIRE_FLAG_LAST</code></em></i>
+		(<span class="value">65536</span>)
+		–
+	</div>
+			<p>last flag, subclasses can use private flags
+starting from this value.</p>
+
+	</div>
+
+			</div>
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3 data-hotdoc-id="GstBufferPoolAcquireFlags">
+	<i>Gst.BufferPoolAcquireFlags</i>
+</h3>
+
+
+<p>Additional flags to control the allocation of a buffer</p>
+
+
+
+
+	<div class="members-container">
+		<h5>Members</h5>
+					
+<div class="symbol-detail" data-hotdoc-id="GST_BUFFER_POOL_ACQUIRE_FLAG_NONE">
+	<div>
+		<i><em><code>Gst.BufferPoolAcquireFlags.NONE</code></em></i>
+		(<span class="value">0</span>)
+		–
+	</div>
+			<p>no flags</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_BUFFER_POOL_ACQUIRE_FLAG_KEY_UNIT">
+	<div>
+		<i><em><code>Gst.BufferPoolAcquireFlags.KEY_UNIT</code></em></i>
+		(<span class="value">1</span>)
+		–
+	</div>
+			<p>buffer is keyframe</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_BUFFER_POOL_ACQUIRE_FLAG_DONTWAIT">
+	<div>
+		<i><em><code>Gst.BufferPoolAcquireFlags.DONTWAIT</code></em></i>
+		(<span class="value">2</span>)
+		–
+	</div>
+			<p>when the bufferpool is empty, acquire_buffer
+will by default block until a buffer is released into the pool again. Setting
+this flag makes acquire_buffer return <a href="gstreamer/gstpad.html#GST_FLOW_EOS" data-gi-href-javascript="gstreamer/gstpad.html#GST_FLOW_EOS" data-gi-title-javascript="Gst.FlowReturn.EOS" data-gi-href-python="gstreamer/gstpad.html#GST_FLOW_EOS" data-gi-title-python="Gst.FlowReturn.EOS">Gst.FlowReturn.EOS</a> instead of blocking.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_BUFFER_POOL_ACQUIRE_FLAG_DISCONT">
+	<div>
+		<i><em><code>Gst.BufferPoolAcquireFlags.DISCONT</code></em></i>
+		(<span class="value">4</span>)
+		–
+	</div>
+			<p>buffer is discont</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_BUFFER_POOL_ACQUIRE_FLAG_LAST">
+	<div>
+		<i><em><code>Gst.BufferPoolAcquireFlags.LAST</code></em></i>
+		(<span class="value">65536</span>)
+		–
+	</div>
+			<p>last flag, subclasses can use private flags
+starting from this value.</p>
+
+	</div>
+
+			</div>
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3 data-hotdoc-id="GstBufferPoolAcquireFlags">
+	<i>Gst.BufferPoolAcquireFlags</i>
+</h3>
+
+
+<p>Additional flags to control the allocation of a buffer</p>
+
+
+
+
+	<div class="members-container">
+		<h5>Members</h5>
+					
+<div class="symbol-detail" data-hotdoc-id="GST_BUFFER_POOL_ACQUIRE_FLAG_NONE">
+	<div>
+		<i><em><code>Gst.BufferPoolAcquireFlags.NONE</code></em></i>
+		(<span class="value">0</span>)
+		–
+	</div>
+			<p>no flags</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_BUFFER_POOL_ACQUIRE_FLAG_KEY_UNIT">
+	<div>
+		<i><em><code>Gst.BufferPoolAcquireFlags.KEY_UNIT</code></em></i>
+		(<span class="value">1</span>)
+		–
+	</div>
+			<p>buffer is keyframe</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_BUFFER_POOL_ACQUIRE_FLAG_DONTWAIT">
+	<div>
+		<i><em><code>Gst.BufferPoolAcquireFlags.DONTWAIT</code></em></i>
+		(<span class="value">2</span>)
+		–
+	</div>
+			<p>when the bufferpool is empty, acquire_buffer
+will by default block until a buffer is released into the pool again. Setting
+this flag makes acquire_buffer return <a href="gstreamer/gstpad.html#GST_FLOW_EOS" data-gi-href-javascript="gstreamer/gstpad.html#GST_FLOW_EOS" data-gi-title-javascript="Gst.FlowReturn.EOS" data-gi-href-python="gstreamer/gstpad.html#GST_FLOW_EOS" data-gi-title-python="Gst.FlowReturn.EOS">Gst.FlowReturn.EOS</a> instead of blocking.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_BUFFER_POOL_ACQUIRE_FLAG_DISCONT">
+	<div>
+		<i><em><code>Gst.BufferPoolAcquireFlags.DISCONT</code></em></i>
+		(<span class="value">4</span>)
+		–
+	</div>
+			<p>buffer is discont</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_BUFFER_POOL_ACQUIRE_FLAG_LAST">
+	<div>
+		<i><em><code>Gst.BufferPoolAcquireFlags.LAST</code></em></i>
+		(<span class="value">65536</span>)
+		–
+	</div>
+			<p>last flag, subclasses can use private flags
+starting from this value.</p>
+
+	</div>
+
+			</div>
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+
+
+
+
+
+		
+	</div>
+	<div id="search_results">
+		<p>The results of the search are</p>
+	</div>
+	<div id="footer">
+		    
+
+	</div>
+</div>
+
+<div id="toc-column">
+	
+		<div class="edit-button">
+		
+
+	</div>
+		<div id="toc-wrapper">
+		<nav id="toc"></nav>
+	</div>
+</div>
+</div>
+</main>
+
+
+<script src="assets/js/navbar_offset_scroller.js"></script>
+</body>
+</html>

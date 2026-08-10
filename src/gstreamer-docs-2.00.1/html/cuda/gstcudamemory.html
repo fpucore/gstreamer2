@@ -1,0 +1,6771 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<base href="..">
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<title>gstcudamemory</title>
+
+<link rel="stylesheet" href="assets/css/dark-frontend.css" type="text/css" title="dark">
+<link rel="alternate stylesheet" href="assets/css/light-frontend.css" type="text/css" title="light">
+<link rel="stylesheet" href="assets/css/bootstrap-toc.min.css" type="text/css">
+<link rel="stylesheet" href="assets/css/jquery.mCustomScrollbar.min.css">
+<link rel="stylesheet" href="assets/js/search/enable_search.css" type="text/css">
+
+<link rel="stylesheet" href="assets/css/extra_frontend.css" type="text/css">
+<link rel="stylesheet" href="assets/css/devhelp.css" type="text/css">
+
+<link rel="stylesheet" href="assets/css/prism-tomorrow.css" type="text/css" title="dark">
+
+<link rel="alternate stylesheet" href="assets/css/prism.css" type="text/css" title="light">
+
+<script src="assets/js/mustache.min.js"></script>
+<script src="assets/js/jquery.js"></script>
+<script src="assets/js/bootstrap.js"></script>
+<script src="assets/js/scrollspy.js"></script>
+<script src="assets/js/typeahead.jquery.min.js"></script>
+<script src="assets/js/search.js"></script>
+<script src="assets/js/compare-versions.js"></script>
+<script src="assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="assets/js/bootstrap-toc.min.js"></script>
+<script src="assets/js/jquery.touchSwipe.min.js"></script>
+<script src="assets/js/anchor.min.js"></script>
+<script src="assets/js/tag_filtering.js"></script>
+<script src="assets/js/language_switching.js"></script>
+<script src="assets/js/styleswitcher.js"></script>
+
+<script src="assets/js/lines_around_headings.js"></script>
+
+<script src="assets/js/prism-core.js"></script>
+<script src="assets/js/prism-autoloader.js"></script>
+<script src="assets/js/prism_autoloader_path_override.js"></script>
+<script src="assets/js/trie.js"></script>
+
+<!-- generic -->
+<link rel="icon" type="image/png" href="assets/images/favicon-16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="assets/images/favicon-32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="assets/images/favicon-57.png" sizes="57x57">
+<link rel="icon" type="image/png" href="assets/images/favicon-64.png" sizes="64x64">
+<link rel="icon" type="image/png" href="assets/images/favicon-76.png" sizes="76x76">
+<link rel="icon" type="image/png" href="assets/images/favicon-96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="assets/images/favicon-128.png" sizes="128x128">
+<link rel="icon" type="image/png" href="assets/images/favicon-192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="assets/images/favicon-228.png" sizes="228x228">
+
+<!-- Android -->
+<link rel="shortcut icon" sizes="196x196" href="assets/images/favicon-196.png">
+
+<!-- iOS -->
+<link rel="apple-touch-icon" href="assets/images/favicon-120.png" sizes="120x120">
+<link rel="apple-touch-icon" href="assets/images/favicon-152.png" sizes="152x152">
+<link rel="apple-touch-icon" href="assets/images/favicon-180.png" sizes="180x180">
+
+</head>
+
+<body class="no-script
+">
+
+<script>
+$('body').removeClass('no-script');
+</script>
+
+<nav class="navbar navbar-fixed-top navbar-default" id="topnav">
+	<div class="container-fluid">
+		<div class="navbar-right">
+			<a id="toc-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-wrapper" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<span title="light mode switch" class="glyphicon glyphicon-sunglasses pull-right" id="lightmode-icon"></span>
+			<form class="navbar-form pull-right" id="navbar-search-form">
+                               <div class="form-group has-feedback">
+                                       <input type="text" class="form-control input-sm" name="search" id="sidenav-lookup-field" placeholder="search" disabled>
+				       <span class="glyphicon glyphicon-search form-control-feedback" id="search-mgn-glass"></span>
+                               </div>
+                        </form>
+		</div>
+		<div class="navbar-header">
+			<a id="sidenav-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<a id="home-link" href="index.html" class="hotdoc-navbar-brand">
+				<img src="assets/images/gstreamer-logo.svg" alt="Home">
+			</a>
+		</div>
+		<div class="navbar-collapse collapse" id="navbar-wrapper">
+			<ul class="nav navbar-nav" id="menu">
+				
+<li class="dropdown">
+    <a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        API References<span class="caret"></span>
+    </a>
+	<ul class="dropdown-menu" id="modules-menu">
+					<li>
+				<a href="gstreamer/gi-index.html">GStreamer core</a>
+			</li>
+					<li>
+				<a href="libs.html">GStreamer Libraries</a>
+			</li>
+					<li>
+				<a href="plugins_doc.html">GStreamer Plugins</a>
+			</li>
+		</ul>
+</li>
+
+<li>
+    <a href="application-development/index.html">Application manual</a>
+</li>
+
+
+<li>
+    <a href="tutorials/index.html">Tutorials</a>
+</li>
+
+			</ul>
+			<div class="hidden-xs hidden-sm navbar-text navbar-center">
+							</div>
+		</div>
+	</div>
+</nav>
+
+<main>
+<div data-extension="gi-extension" data-hotdoc-in-toplevel="False" data-hotdoc-project="cuda" data-hotdoc-ref="gstcudamemory.html" class="page_container" id="page-wrapper" data-hotdoc-meta-gi-languages="['c', 'javascript', 'python']" data-hotdoc-meta-gi-language="c">
+<script src="assets/js/utils.js"></script>
+
+<div class="panel panel-collapse oc-collapsed" id="sidenav" data-hotdoc-role="navigation">
+	<script src="assets/js/full-width.js"></script>
+  <div id="sitenav-wrapper">
+    <iframe src="hotdoc-sitemap.html" id="sitenav-frame"></iframe>
+  </div>
+</div>
+
+<div id="body">
+	<div id="main">
+				    <div id="page-description" data-hotdoc-role="main">
+    </div>
+        
+        
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.22;" id="GstCudaAllocator">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h2 data-hotdoc-id="GstCudaAllocator">
+	<i>GstCudaAllocator</i>
+</h2>
+
+
+<div class="hierarchy_container">
+	<div class="hierarchy_details">
+<pre>
+<a title="GObject" href="https://docs.gtk.org/gobject/class.Object.html">GObject</a>
+    <span class="lineart">╰──</span><a title="GInitiallyUnowned" href="https://docs.gtk.org/gobject/class.InitiallyUnowned.html">GInitiallyUnowned</a>
+        <span class="lineart">╰──</span><a title="GstObject" href="gstreamer/gstobject.html#GstObject">GstObject</a>
+            <span class="lineart">╰──</span><a title="GstAllocator" href="gstreamer/gstallocator.html#GstAllocator">GstAllocator</a>
+                <span class="lineart">╰──</span>GstCudaAllocator
+                    <span class="lineart">╰──</span><a title="GstCudaPoolAllocator" href="cuda/gstcudamemory.html#GstCudaPoolAllocator">GstCudaPoolAllocator</a>
+</pre>
+
+</div>
+
+</div>
+
+<div class="class_details">
+	<p>A <a href="gstreamer/gstallocator.html#GstAllocator">GstAllocator</a> subclass for cuda memory</p>
+
+</div>
+
+
+
+	<div class="members-container">
+		<h3>Members</h3>
+					
+<div class="symbol-detail" data-hotdoc-id="GstCudaAllocator.parent">
+	<div>
+		<i><em><code>parent</code></em></i>
+		(<a title="GstAllocator" href="gstreamer/gstallocator.html#GstAllocator">GstAllocator</a>)
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.22
+		</p>
+
+<hr>
+<h3>Class structure</h3>
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstCudaAllocatorClass">
+	<i>GstCudaAllocatorClass</i>
+</h4>
+
+
+
+
+
+	<div class="members-container">
+		<h5>Fields</h5>
+					
+<div class="symbol-detail" data-hotdoc-id="GstCudaAllocatorClass.parent_class">
+	<div>
+		<i><em><code>parent_class</code></em></i>
+		(<a title="GstAllocatorClass" href="GstAllocatorClass">GstAllocatorClass</a>)
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+			</div>
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3>
+	GstCuda.CudaAllocatorClass
+</h3>
+
+
+
+
+
+	<div class="members-container">
+		<h5>Attributes</h5>
+					
+<div class="symbol-detail" data-hotdoc-id="GstCudaAllocatorClass.parent_class">
+	<div>
+		<i><em><code>parent_class</code></em></i>
+		(<a title="Gst.AllocatorClass" href="GstAllocatorClass">Gst.AllocatorClass</a>)
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+			</div>
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3>
+	GstCuda.CudaAllocatorClass
+</h3>
+
+
+
+
+
+	<div class="members-container">
+		<h5>Attributes</h5>
+					
+<div class="symbol-detail" data-hotdoc-id="GstCudaAllocatorClass.parent_class">
+	<div>
+		<i><em><code>parent_class</code></em></i>
+		(<a title="Gst.AllocatorClass" href="GstAllocatorClass">Gst.AllocatorClass</a>)
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+			</div>
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h2 data-hotdoc-id="GstCudaAllocator">
+	<i>GstCuda.CudaAllocator</i>
+</h2>
+
+
+<div class="hierarchy_container">
+	<div class="hierarchy_details">
+<pre>
+<a title="GObject.Object" href="https://docs.gtk.org/gobject/class.Object.html">GObject.Object</a>
+    <span class="lineart">╰──</span><a title="GObject.InitiallyUnowned" href="https://docs.gtk.org/gobject/class.InitiallyUnowned.html">GObject.InitiallyUnowned</a>
+        <span class="lineart">╰──</span><a title="Gst.Object" href="gstreamer/gstobject.html#GstObject">Gst.Object</a>
+            <span class="lineart">╰──</span><a title="Gst.Allocator" href="gstreamer/gstallocator.html#GstAllocator">Gst.Allocator</a>
+                <span class="lineart">╰──</span>GstCuda.CudaAllocator
+                    <span class="lineart">╰──</span><a title="GstCuda.CudaPoolAllocator" href="cuda/gstcudamemory.html#GstCudaPoolAllocator">GstCuda.CudaPoolAllocator</a>
+</pre>
+
+</div>
+
+</div>
+
+<div class="class_details">
+	<p>A <a href="gstreamer/gstallocator.html#GstAllocator">Gst.Allocator</a> subclass for cuda memory</p>
+
+</div>
+
+
+
+	<div class="members-container">
+		<h3>Members</h3>
+					
+<div class="symbol-detail" data-hotdoc-id="GstCudaAllocator.parent">
+	<div>
+		<i><em><code>parent</code></em></i>
+		(<a title="Gst.Allocator" href="gstreamer/gstallocator.html#GstAllocator">Gst.Allocator</a>)
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.22
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h2 data-hotdoc-id="GstCudaAllocator">
+	<i>GstCuda.CudaAllocator</i>
+</h2>
+
+
+<div class="hierarchy_container">
+	<div class="hierarchy_details">
+<pre>
+<a title="GObject.Object" href="https://docs.gtk.org/gobject/class.Object.html">GObject.Object</a>
+    <span class="lineart">╰──</span><a title="GObject.InitiallyUnowned" href="https://docs.gtk.org/gobject/class.InitiallyUnowned.html">GObject.InitiallyUnowned</a>
+        <span class="lineart">╰──</span><a title="Gst.Object" href="gstreamer/gstobject.html#GstObject">Gst.Object</a>
+            <span class="lineart">╰──</span><a title="Gst.Allocator" href="gstreamer/gstallocator.html#GstAllocator">Gst.Allocator</a>
+                <span class="lineart">╰──</span>GstCuda.CudaAllocator
+                    <span class="lineart">╰──</span><a title="GstCuda.CudaPoolAllocator" href="cuda/gstcudamemory.html#GstCudaPoolAllocator">GstCuda.CudaPoolAllocator</a>
+</pre>
+
+</div>
+
+</div>
+
+<div class="class_details">
+	<p>A <a href="gstreamer/gstallocator.html#GstAllocator">Gst.Allocator</a> subclass for cuda memory</p>
+
+</div>
+
+
+
+	<div class="members-container">
+		<h3>Members</h3>
+					
+<div class="symbol-detail" data-hotdoc-id="GstCudaAllocator.parent">
+	<div>
+		<i><em><code>parent</code></em></i>
+		(<a title="Gst.Allocator" href="gstreamer/gstallocator.html#GstAllocator">Gst.Allocator</a>)
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.22
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+
+            <h3 class="symbol_section">Methods</h3>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.22;" id="gst_cuda_allocator_alloc">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_cuda_allocator_alloc">
+	<i>gst_cuda_allocator_alloc</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GstMemory" href="gstreamer/gstmemory.html#GstMemory">GstMemory</a> *
+gst_cuda_allocator_alloc (<a title="GstCudaAllocator" href="cuda/gstcudamemory.html#GstCudaAllocator">GstCudaAllocator</a> * allocator,
+                          <a title="GstCudaContext" href="cuda/gstcudacontext.html#GstCudaContext">GstCudaContext</a> * context,
+                          <a title="GstCudaStream" href="cuda/gstcudastream.html#GstCudaStream">GstCudaStream</a> * stream,
+                          const <a title="GstVideoInfo" href="video/video-info.html#GstVideoInfo">GstVideoInfo</a> * info)</pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>allocator</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="Don't free data after the code is done"><span class="acronym">transfer: none</span></abbr>]</span><span class="annotation">[<abbr title="NULL is OK, both for passing and returning"><span class="acronym">allow-none</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>a <a href="cuda/gstcudamemory.html#GstCudaAllocator">GstCudaAllocator</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>context</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="Don't free data after the code is done"><span class="acronym">transfer: none</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>a <a href="cuda/gstcudacontext.html#GstCudaContext">GstCudaContext</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>stream</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="Don't free data after the code is done"><span class="acronym">transfer: none</span></abbr>]</span><span class="annotation">[<abbr title="NULL is OK, both for passing and returning"><span class="acronym">allow-none</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>a <a href="cuda/gstcudastream.html#GstCudaStream">GstCudaStream</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>info</code></em></i>
+–
+</div>
+<p>a <a href="video/video-info.html#GstVideoInfo">GstVideoInfo</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span>
+<span class="annotation">[<abbr title="Free data after the code is done"><span class="acronym">transfer: full</span></abbr>]</span><span class="annotation">[<abbr title="NULL may be passed to the value"><span class="acronym">nullable</span></abbr>]</span><span>)</span>
+–
+			</div>
+							<p>a newly allocated <a href="cuda/gstcudamemory.html#GstCudaMemory">GstCudaMemory</a></p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.22
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_cuda_allocator_alloc">
+	<i>GstCuda.CudaAllocator.prototype.alloc</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstCuda.CudaAllocator.prototype.alloc(context: <a title="GstCuda.CudaContext" href="cuda/gstcudacontext.html#GstCudaContext">GstCuda.CudaContext</a>, stream: <a title="GstCuda.CudaStream" href="cuda/gstcudastream.html#GstCudaStream">GstCuda.CudaStream</a>, info: <a title="GstVideo.VideoInfo" href="video/video-info.html#GstVideoInfo">GstVideo.VideoInfo</a>): {
+    // javascript wrapper for 'gst_cuda_allocator_alloc'
+}</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>allocator</code></em></i>
+<span>(</span><a title="GstCuda.CudaAllocator" href="cuda/gstcudamemory.html#GstCudaAllocator">GstCuda.CudaAllocator</a><span>)</span>
+–
+</div>
+<p>a <a href="cuda/gstcudamemory.html#GstCudaAllocator">GstCuda.CudaAllocator</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>context</code></em></i>
+<span>(</span><a title="GstCuda.CudaContext" href="cuda/gstcudacontext.html#GstCudaContext">GstCuda.CudaContext</a><span>)</span>
+–
+</div>
+<p>a <a href="cuda/gstcudacontext.html#GstCudaContext">GstCuda.CudaContext</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>stream</code></em></i>
+<span>(</span><a title="GstCuda.CudaStream" href="cuda/gstcudastream.html#GstCudaStream">GstCuda.CudaStream</a><span>)</span>
+–
+</div>
+<p>a <a href="cuda/gstcudastream.html#GstCudaStream">GstCuda.CudaStream</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>info</code></em></i>
+<span>(</span><a title="GstVideo.VideoInfo" href="video/video-info.html#GstVideoInfo">GstVideo.VideoInfo</a><span>)</span>
+–
+</div>
+<p>a <a href="video/video-info.html#GstVideoInfo">GstVideo.VideoInfo</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Gst.Memory" href="gstreamer/gstmemory.html#GstMemory">Gst.Memory</a><span>)</span>
+–
+			</div>
+							<p>a newly allocated <a href="cuda/gstcudamemory.html#GstCudaMemory">GstCuda.CudaMemory</a></p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.22
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_cuda_allocator_alloc">
+	<i>GstCuda.CudaAllocator.alloc</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstCuda.CudaAllocator.alloc (self, context, stream, info):
+    #python wrapper for 'gst_cuda_allocator_alloc'</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>allocator</code></em></i>
+<span>(</span><a title="GstCuda.CudaAllocator" href="cuda/gstcudamemory.html#GstCudaAllocator">GstCuda.CudaAllocator</a><span>)</span>
+–
+</div>
+<p>a <a href="cuda/gstcudamemory.html#GstCudaAllocator">GstCuda.CudaAllocator</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>context</code></em></i>
+<span>(</span><a title="GstCuda.CudaContext" href="cuda/gstcudacontext.html#GstCudaContext">GstCuda.CudaContext</a><span>)</span>
+–
+</div>
+<p>a <a href="cuda/gstcudacontext.html#GstCudaContext">GstCuda.CudaContext</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>stream</code></em></i>
+<span>(</span><a title="GstCuda.CudaStream" href="cuda/gstcudastream.html#GstCudaStream">GstCuda.CudaStream</a><span>)</span>
+–
+</div>
+<p>a <a href="cuda/gstcudastream.html#GstCudaStream">GstCuda.CudaStream</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>info</code></em></i>
+<span>(</span><a title="GstVideo.VideoInfo" href="video/video-info.html#GstVideoInfo">GstVideo.VideoInfo</a><span>)</span>
+–
+</div>
+<p>a <a href="video/video-info.html#GstVideoInfo">GstVideo.VideoInfo</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Gst.Memory" href="gstreamer/gstmemory.html#GstMemory">Gst.Memory</a><span>)</span>
+–
+			</div>
+							<p>a newly allocated <a href="cuda/gstcudamemory.html#GstCudaMemory">GstCuda.CudaMemory</a></p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.22
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.28;" id="gst_cuda_allocator_alloc_stream_ordered">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_cuda_allocator_alloc_stream_ordered">
+	<i>gst_cuda_allocator_alloc_stream_ordered</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GstMemory" href="gstreamer/gstmemory.html#GstMemory">GstMemory</a> *
+gst_cuda_allocator_alloc_stream_ordered (<a title="GstCudaAllocator" href="cuda/gstcudamemory.html#GstCudaAllocator">GstCudaAllocator</a> * allocator,
+                                         <a title="GstCudaContext" href="cuda/gstcudacontext.html#GstCudaContext">GstCudaContext</a> * context,
+                                         <a title="GstCudaStream" href="cuda/gstcudastream.html#GstCudaStream">GstCudaStream</a> * stream,
+                                         const <a title="GstVideoInfo" href="video/video-info.html#GstVideoInfo">GstVideoInfo</a> * info)</pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>allocator</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="Don't free data after the code is done"><span class="acronym">transfer: none</span></abbr>]</span><span class="annotation">[<abbr title="NULL is OK, both for passing and returning"><span class="acronym">allow-none</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>a <a href="cuda/gstcudamemory.html#GstCudaAllocator">GstCudaAllocator</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>context</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="Don't free data after the code is done"><span class="acronym">transfer: none</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>a <a href="cuda/gstcudacontext.html#GstCudaContext">GstCudaContext</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>stream</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="Don't free data after the code is done"><span class="acronym">transfer: none</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>a <a href="cuda/gstcudastream.html#GstCudaStream">GstCudaStream</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>info</code></em></i>
+–
+</div>
+<p>a <a href="video/video-info.html#GstVideoInfo">GstVideoInfo</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span>
+<span class="annotation">[<abbr title="Free data after the code is done"><span class="acronym">transfer: full</span></abbr>]</span><span class="annotation">[<abbr title="NULL may be passed to the value"><span class="acronym">nullable</span></abbr>]</span><span>)</span>
+–
+			</div>
+							<p>a newly allocated <a href="cuda/gstcudamemory.html#GstCudaMemory">GstCudaMemory</a></p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.28
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_cuda_allocator_alloc_stream_ordered">
+	<i>GstCuda.CudaAllocator.prototype.alloc_stream_ordered</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstCuda.CudaAllocator.prototype.alloc_stream_ordered(context: <a title="GstCuda.CudaContext" href="cuda/gstcudacontext.html#GstCudaContext">GstCuda.CudaContext</a>, stream: <a title="GstCuda.CudaStream" href="cuda/gstcudastream.html#GstCudaStream">GstCuda.CudaStream</a>, info: <a title="GstVideo.VideoInfo" href="video/video-info.html#GstVideoInfo">GstVideo.VideoInfo</a>): {
+    // javascript wrapper for 'gst_cuda_allocator_alloc_stream_ordered'
+}</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>allocator</code></em></i>
+<span>(</span><a title="GstCuda.CudaAllocator" href="cuda/gstcudamemory.html#GstCudaAllocator">GstCuda.CudaAllocator</a><span>)</span>
+–
+</div>
+<p>a <a href="cuda/gstcudamemory.html#GstCudaAllocator">GstCuda.CudaAllocator</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>context</code></em></i>
+<span>(</span><a title="GstCuda.CudaContext" href="cuda/gstcudacontext.html#GstCudaContext">GstCuda.CudaContext</a><span>)</span>
+–
+</div>
+<p>a <a href="cuda/gstcudacontext.html#GstCudaContext">GstCuda.CudaContext</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>stream</code></em></i>
+<span>(</span><a title="GstCuda.CudaStream" href="cuda/gstcudastream.html#GstCudaStream">GstCuda.CudaStream</a><span>)</span>
+–
+</div>
+<p>a <a href="cuda/gstcudastream.html#GstCudaStream">GstCuda.CudaStream</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>info</code></em></i>
+<span>(</span><a title="GstVideo.VideoInfo" href="video/video-info.html#GstVideoInfo">GstVideo.VideoInfo</a><span>)</span>
+–
+</div>
+<p>a <a href="video/video-info.html#GstVideoInfo">GstVideo.VideoInfo</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Gst.Memory" href="gstreamer/gstmemory.html#GstMemory">Gst.Memory</a><span>)</span>
+–
+			</div>
+							<p>a newly allocated <a href="cuda/gstcudamemory.html#GstCudaMemory">GstCuda.CudaMemory</a></p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.28
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_cuda_allocator_alloc_stream_ordered">
+	<i>GstCuda.CudaAllocator.alloc_stream_ordered</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstCuda.CudaAllocator.alloc_stream_ordered (self, context, stream, info):
+    #python wrapper for 'gst_cuda_allocator_alloc_stream_ordered'</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>allocator</code></em></i>
+<span>(</span><a title="GstCuda.CudaAllocator" href="cuda/gstcudamemory.html#GstCudaAllocator">GstCuda.CudaAllocator</a><span>)</span>
+–
+</div>
+<p>a <a href="cuda/gstcudamemory.html#GstCudaAllocator">GstCuda.CudaAllocator</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>context</code></em></i>
+<span>(</span><a title="GstCuda.CudaContext" href="cuda/gstcudacontext.html#GstCudaContext">GstCuda.CudaContext</a><span>)</span>
+–
+</div>
+<p>a <a href="cuda/gstcudacontext.html#GstCudaContext">GstCuda.CudaContext</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>stream</code></em></i>
+<span>(</span><a title="GstCuda.CudaStream" href="cuda/gstcudastream.html#GstCudaStream">GstCuda.CudaStream</a><span>)</span>
+–
+</div>
+<p>a <a href="cuda/gstcudastream.html#GstCudaStream">GstCuda.CudaStream</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>info</code></em></i>
+<span>(</span><a title="GstVideo.VideoInfo" href="video/video-info.html#GstVideoInfo">GstVideo.VideoInfo</a><span>)</span>
+–
+</div>
+<p>a <a href="video/video-info.html#GstVideoInfo">GstVideo.VideoInfo</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Gst.Memory" href="gstreamer/gstmemory.html#GstMemory">Gst.Memory</a><span>)</span>
+–
+			</div>
+							<p>a newly allocated <a href="cuda/gstcudamemory.html#GstCudaMemory">GstCuda.CudaMemory</a></p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.28
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.24;" id="gst_cuda_allocator_alloc_wrapped">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_cuda_allocator_alloc_wrapped">
+	<i>gst_cuda_allocator_alloc_wrapped</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GstMemory" href="gstreamer/gstmemory.html#GstMemory">GstMemory</a> *
+gst_cuda_allocator_alloc_wrapped (<a title="GstCudaAllocator" href="cuda/gstcudamemory.html#GstCudaAllocator">GstCudaAllocator</a> * allocator,
+                                  <a title="GstCudaContext" href="cuda/gstcudacontext.html#GstCudaContext">GstCudaContext</a> * context,
+                                  <a title="GstCudaStream" href="cuda/gstcudastream.html#GstCudaStream">GstCudaStream</a> * stream,
+                                  const <a title="GstVideoInfo" href="video/video-info.html#GstVideoInfo">GstVideoInfo</a> * info,
+                                  CUdeviceptr dev_ptr,
+                                  <a title="gpointer" href="https://docs.gtk.org/glib/types.html#gpointer">gpointer</a> user_data,
+                                  <a title="GDestroyNotify" href="https://docs.gtk.org/glib/callback.DestroyNotify.html">GDestroyNotify</a> notify)</pre>
+
+<p>Allocates a new memory that wraps the given CUDA device memory.</p>
+<p><em>info</em> must represent actual memory layout, in other words, offset, stride
+and size fields of <em>info</em> should be matched with memory layout of <em>dev_ptr</em></p>
+<p>By default, wrapped <em>dev_ptr</em> will be freed at the time when <a href="gstreamer/gstmemory.html#GstMemory">GstMemory</a>
+is freed if <em>notify</em> is <a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#NULL:CAPS">NULL</a>. Otherwise, if caller sets <em>notify</em>,
+freeing <em>dev_ptr</em> is callers responsibility and default <a href="cuda/gstcudamemory.html#GstCudaAllocator">GstCudaAllocator</a>
+will not free it.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>allocator</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="Don't free data after the code is done"><span class="acronym">transfer: none</span></abbr>]</span><span class="annotation">[<abbr title="NULL is OK, both for passing and returning"><span class="acronym">allow-none</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>a <a href="cuda/gstcudamemory.html#GstCudaAllocator">GstCudaAllocator</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>context</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="Don't free data after the code is done"><span class="acronym">transfer: none</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>a <a href="cuda/gstcudacontext.html#GstCudaContext">GstCudaContext</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>stream</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="Don't free data after the code is done"><span class="acronym">transfer: none</span></abbr>]</span><span class="annotation">[<abbr title="NULL is OK, both for passing and returning"><span class="acronym">allow-none</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>a <a href="cuda/gstcudastream.html#GstCudaStream">GstCudaStream</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>info</code></em></i>
+–
+</div>
+<p>a <a href="video/video-info.html#GstVideoInfo">GstVideoInfo</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>dev_ptr</code></em></i>
+–
+</div>
+<p>a CUdeviceptr CUDA device memory</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>user_data</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="NULL is OK, both for passing and returning"><span class="acronym">allow-none</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>user data</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>notify</code></em></i>
+–
+</div>
+<p>(allow-none) (scope async) (closure user_data):
+Called with <em>user_data</em> when the memory is freed</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span>
+<span class="annotation">[<abbr title="Free data after the code is done"><span class="acronym">transfer: full</span></abbr>]</span><span>)</span>
+–
+			</div>
+							<p>a new <a href="gstreamer/gstmemory.html#GstMemory">GstMemory</a></p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_cuda_allocator_alloc_wrapped">
+	<i>GstCuda.CudaAllocator.prototype.alloc_wrapped</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstCuda.CudaAllocator.prototype.alloc_wrapped(context: <a title="GstCuda.CudaContext" href="cuda/gstcudacontext.html#GstCudaContext">GstCuda.CudaContext</a>, stream: <a title="GstCuda.CudaStream" href="cuda/gstcudastream.html#GstCudaStream">GstCuda.CudaStream</a>, info: <a title="GstVideo.VideoInfo" href="video/video-info.html#GstVideoInfo">GstVideo.VideoInfo</a>, dev_ptr: CudaGst.deviceptr, user_data: <a title="Object" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>, notify: <a title="GLib.DestroyNotify" href="https://docs.gtk.org/glib/callback.DestroyNotify.html">GLib.DestroyNotify</a>): {
+    // javascript wrapper for 'gst_cuda_allocator_alloc_wrapped'
+}</code></pre>
+
+<p>Allocates a new memory that wraps the given CUDA device memory.</p>
+<p><em>info</em> must represent actual memory layout, in other words, offset, stride
+and size fields of <em>info</em> should be matched with memory layout of <em>dev_ptr</em></p>
+<p>By default, wrapped <em>dev_ptr</em> will be freed at the time when <a href="gstreamer/gstmemory.html#GstMemory">Gst.Memory</a>
+is freed if <em>notify</em> is <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null">null</a>. Otherwise, if caller sets <em>notify</em>,
+freeing <em>dev_ptr</em> is callers responsibility and default <a href="cuda/gstcudamemory.html#GstCudaAllocator">GstCuda.CudaAllocator</a>
+will not free it.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>allocator</code></em></i>
+<span>(</span><a title="GstCuda.CudaAllocator" href="cuda/gstcudamemory.html#GstCudaAllocator">GstCuda.CudaAllocator</a><span>)</span>
+–
+</div>
+<p>a <a href="cuda/gstcudamemory.html#GstCudaAllocator">GstCuda.CudaAllocator</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>context</code></em></i>
+<span>(</span><a title="GstCuda.CudaContext" href="cuda/gstcudacontext.html#GstCudaContext">GstCuda.CudaContext</a><span>)</span>
+–
+</div>
+<p>a <a href="cuda/gstcudacontext.html#GstCudaContext">GstCuda.CudaContext</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>stream</code></em></i>
+<span>(</span><a title="GstCuda.CudaStream" href="cuda/gstcudastream.html#GstCudaStream">GstCuda.CudaStream</a><span>)</span>
+–
+</div>
+<p>a <a href="cuda/gstcudastream.html#GstCudaStream">GstCuda.CudaStream</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>info</code></em></i>
+<span>(</span><a title="GstVideo.VideoInfo" href="video/video-info.html#GstVideoInfo">GstVideo.VideoInfo</a><span>)</span>
+–
+</div>
+<p>a <a href="video/video-info.html#GstVideoInfo">GstVideo.VideoInfo</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>dev_ptr</code></em></i>
+<span>(</span>CudaGst.deviceptr<span>)</span>
+–
+</div>
+<p>a CUdeviceptr CUDA device memory</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>user_data</code></em></i>
+<span>(</span><a title="Object" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a><span>)</span>
+–
+</div>
+<p>user data</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>notify</code></em></i>
+<span>(</span><a title="GLib.DestroyNotify" href="https://docs.gtk.org/glib/callback.DestroyNotify.html">GLib.DestroyNotify</a><span>)</span>
+–
+</div>
+<p>(allow-none) (scope async) (closure user_data):
+Called with <em>user_data</em> when the memory is freed</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Gst.Memory" href="gstreamer/gstmemory.html#GstMemory">Gst.Memory</a><span>)</span>
+–
+			</div>
+							<p>a new <a href="gstreamer/gstmemory.html#GstMemory">Gst.Memory</a></p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_cuda_allocator_alloc_wrapped">
+	<i>GstCuda.CudaAllocator.alloc_wrapped</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstCuda.CudaAllocator.alloc_wrapped (self, context, stream, info, dev_ptr, *user_data, notify):
+    #python wrapper for 'gst_cuda_allocator_alloc_wrapped'</code></pre>
+
+<p>Allocates a new memory that wraps the given CUDA device memory.</p>
+<p><em>info</em> must represent actual memory layout, in other words, offset, stride
+and size fields of <em>info</em> should be matched with memory layout of <em>dev_ptr</em></p>
+<p>By default, wrapped <em>dev_ptr</em> will be freed at the time when <a href="gstreamer/gstmemory.html#GstMemory">Gst.Memory</a>
+is freed if <em>notify</em> is <a href="https://docs.python.org/3/library/constants.html#None">None</a>. Otherwise, if caller sets <em>notify</em>,
+freeing <em>dev_ptr</em> is callers responsibility and default <a href="cuda/gstcudamemory.html#GstCudaAllocator">GstCuda.CudaAllocator</a>
+will not free it.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>allocator</code></em></i>
+<span>(</span><a title="GstCuda.CudaAllocator" href="cuda/gstcudamemory.html#GstCudaAllocator">GstCuda.CudaAllocator</a><span>)</span>
+–
+</div>
+<p>a <a href="cuda/gstcudamemory.html#GstCudaAllocator">GstCuda.CudaAllocator</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>context</code></em></i>
+<span>(</span><a title="GstCuda.CudaContext" href="cuda/gstcudacontext.html#GstCudaContext">GstCuda.CudaContext</a><span>)</span>
+–
+</div>
+<p>a <a href="cuda/gstcudacontext.html#GstCudaContext">GstCuda.CudaContext</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>stream</code></em></i>
+<span>(</span><a title="GstCuda.CudaStream" href="cuda/gstcudastream.html#GstCudaStream">GstCuda.CudaStream</a><span>)</span>
+–
+</div>
+<p>a <a href="cuda/gstcudastream.html#GstCudaStream">GstCuda.CudaStream</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>info</code></em></i>
+<span>(</span><a title="GstVideo.VideoInfo" href="video/video-info.html#GstVideoInfo">GstVideo.VideoInfo</a><span>)</span>
+–
+</div>
+<p>a <a href="video/video-info.html#GstVideoInfo">GstVideo.VideoInfo</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>dev_ptr</code></em></i>
+<span>(</span>CudaGst.deviceptr<span>)</span>
+–
+</div>
+<p>a CUdeviceptr CUDA device memory</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>user_data</code></em></i>
+<span>(</span><a title="variadic" href="https://docs.python.org/dev/tutorial/controlflow.html#arbitrary-argument-lists">variadic</a><span>)</span>
+–
+</div>
+<p>user data</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>notify</code></em></i>
+<span>(</span><a title="GLib.DestroyNotify" href="https://docs.gtk.org/glib/callback.DestroyNotify.html">GLib.DestroyNotify</a><span>)</span>
+–
+</div>
+<p>(allow-none) (scope async) (closure user_data):
+Called with <em>user_data</em> when the memory is freed</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Gst.Memory" href="gstreamer/gstmemory.html#GstMemory">Gst.Memory</a><span>)</span>
+–
+			</div>
+							<p>a new <a href="gstreamer/gstmemory.html#GstMemory">Gst.Memory</a></p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.24;" id="gst_cuda_allocator_set_active">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_cuda_allocator_set_active">
+	<i>gst_cuda_allocator_set_active</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a>
+gst_cuda_allocator_set_active (<a title="GstCudaAllocator" href="cuda/gstcudamemory.html#GstCudaAllocator">GstCudaAllocator</a> * allocator,
+                               <a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a> active)</pre>
+
+<p>Controls the active state of <em>allocator</em>. Default <a href="cuda/gstcudamemory.html#GstCudaAllocator">GstCudaAllocator</a> is
+stateless and therefore active state is ignored, but subclass implementation
+(e.g., <a href="cuda/gstcudamemory.html#GstCudaPoolAllocator">GstCudaPoolAllocator</a>) will require explicit active state control
+for its internal resource management.</p>
+<p>This method is conceptually identical to gst_buffer_pool_set_active method.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>allocator</code></em></i>
+–
+</div>
+<p>a <a href="cuda/gstcudamemory.html#GstCudaAllocator">GstCudaAllocator</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>active</code></em></i>
+–
+</div>
+<p>the new active state</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p><a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#TRUE:CAPS">TRUE</a> if active state of <em>allocator</em> was successfully updated.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_cuda_allocator_set_active">
+	<i>GstCuda.CudaAllocator.prototype.set_active</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstCuda.CudaAllocator.prototype.set_active(active: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>): {
+    // javascript wrapper for 'gst_cuda_allocator_set_active'
+}</code></pre>
+
+<p>Controls the active state of <em>allocator</em>. Default <a href="cuda/gstcudamemory.html#GstCudaAllocator">GstCuda.CudaAllocator</a> is
+stateless and therefore active state is ignored, but subclass implementation
+(e.g., <a href="cuda/gstcudamemory.html#GstCudaPoolAllocator">GstCuda.CudaPoolAllocator</a>) will require explicit active state control
+for its internal resource management.</p>
+<p>This method is conceptually identical to gst_buffer_pool_set_active method.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>allocator</code></em></i>
+<span>(</span><a title="GstCuda.CudaAllocator" href="cuda/gstcudamemory.html#GstCudaAllocator">GstCuda.CudaAllocator</a><span>)</span>
+–
+</div>
+<p>a <a href="cuda/gstcudamemory.html#GstCudaAllocator">GstCuda.CudaAllocator</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>active</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>the new active state</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+			</div>
+							<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">true</a> if active state of <em>allocator</em> was successfully updated.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_cuda_allocator_set_active">
+	<i>GstCuda.CudaAllocator.set_active</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstCuda.CudaAllocator.set_active (self, active):
+    #python wrapper for 'gst_cuda_allocator_set_active'</code></pre>
+
+<p>Controls the active state of <em>allocator</em>. Default <a href="cuda/gstcudamemory.html#GstCudaAllocator">GstCuda.CudaAllocator</a> is
+stateless and therefore active state is ignored, but subclass implementation
+(e.g., <a href="cuda/gstcudamemory.html#GstCudaPoolAllocator">GstCuda.CudaPoolAllocator</a>) will require explicit active state control
+for its internal resource management.</p>
+<p>This method is conceptually identical to gst_buffer_pool_set_active method.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>allocator</code></em></i>
+<span>(</span><a title="GstCuda.CudaAllocator" href="cuda/gstcudamemory.html#GstCudaAllocator">GstCuda.CudaAllocator</a><span>)</span>
+–
+</div>
+<p>a <a href="cuda/gstcudamemory.html#GstCudaAllocator">GstCuda.CudaAllocator</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>active</code></em></i>
+<span>(</span><a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a><span>)</span>
+–
+</div>
+<p>the new active state</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a><span>)</span>
+–
+			</div>
+							<p><a href="https://docs.python.org/3/library/constants.html#True">True</a> if active state of <em>allocator</em> was successfully updated.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.24;" id="gst_cuda_allocator_virtual_alloc">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_cuda_allocator_virtual_alloc">
+	<i>gst_cuda_allocator_virtual_alloc</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GstMemory" href="gstreamer/gstmemory.html#GstMemory">GstMemory</a> *
+gst_cuda_allocator_virtual_alloc (<a title="GstCudaAllocator" href="cuda/gstcudamemory.html#GstCudaAllocator">GstCudaAllocator</a> * allocator,
+                                  <a title="GstCudaContext" href="cuda/gstcudacontext.html#GstCudaContext">GstCudaContext</a> * context,
+                                  <a title="GstCudaStream" href="cuda/gstcudastream.html#GstCudaStream">GstCudaStream</a> * stream,
+                                  const <a title="GstVideoInfo" href="video/video-info.html#GstVideoInfo">GstVideoInfo</a> * info,
+                                  const CUmemAllocationProp* prop,
+                                  CUmemAllocationGranularity_flags granularity_flags)</pre>
+
+<p>Allocates new <a href="gstreamer/gstmemory.html#GstMemory">GstMemory</a> object with CUDA virtual memory.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>allocator</code></em></i>
+–
+</div>
+<p>a <a href="cuda/gstcudamemory.html#GstCudaAllocator">GstCudaAllocator</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>context</code></em></i>
+–
+</div>
+<p>a <a href="cuda/gstcudacontext.html#GstCudaContext">GstCudaContext</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>stream</code></em></i>
+–
+</div>
+<p>a <a href="cuda/gstcudastream.html#GstCudaStream">GstCudaStream</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>info</code></em></i>
+–
+</div>
+<p>a <a href="video/video-info.html#GstVideoInfo">GstVideoInfo</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>prop</code></em></i>
+–
+</div>
+<p>allocation property</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>granularity_flags</code></em></i>
+–
+</div>
+<p>allocation flags</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span>
+<span class="annotation">[<abbr title="Free data after the code is done"><span class="acronym">transfer: full</span></abbr>]</span><span class="annotation">[<abbr title="NULL may be passed to the value"><span class="acronym">nullable</span></abbr>]</span><span>)</span>
+–
+			</div>
+							<p>a newly allocated memory object or
+<a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#NULL:CAPS">NULL</a> if allocation is not supported</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_cuda_allocator_virtual_alloc">
+	<i>GstCuda.CudaAllocator.prototype.virtual_alloc</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstCuda.CudaAllocator.prototype.virtual_alloc(context: <a title="GstCuda.CudaContext" href="cuda/gstcudacontext.html#GstCudaContext">GstCuda.CudaContext</a>, stream: <a title="GstCuda.CudaStream" href="cuda/gstcudastream.html#GstCudaStream">GstCuda.CudaStream</a>, info: <a title="GstVideo.VideoInfo" href="video/video-info.html#GstVideoInfo">GstVideo.VideoInfo</a>, prop: CudaGst.memAllocationProp, granularity_flags: CudaGst.memAllocationGranularity_flags): {
+    // javascript wrapper for 'gst_cuda_allocator_virtual_alloc'
+}</code></pre>
+
+<p>Allocates new <a href="gstreamer/gstmemory.html#GstMemory">Gst.Memory</a> object with CUDA virtual memory.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>allocator</code></em></i>
+<span>(</span><a title="GstCuda.CudaAllocator" href="cuda/gstcudamemory.html#GstCudaAllocator">GstCuda.CudaAllocator</a><span>)</span>
+–
+</div>
+<p>a <a href="cuda/gstcudamemory.html#GstCudaAllocator">GstCuda.CudaAllocator</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>context</code></em></i>
+<span>(</span><a title="GstCuda.CudaContext" href="cuda/gstcudacontext.html#GstCudaContext">GstCuda.CudaContext</a><span>)</span>
+–
+</div>
+<p>a <a href="cuda/gstcudacontext.html#GstCudaContext">GstCuda.CudaContext</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>stream</code></em></i>
+<span>(</span><a title="GstCuda.CudaStream" href="cuda/gstcudastream.html#GstCudaStream">GstCuda.CudaStream</a><span>)</span>
+–
+</div>
+<p>a <a href="cuda/gstcudastream.html#GstCudaStream">GstCuda.CudaStream</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>info</code></em></i>
+<span>(</span><a title="GstVideo.VideoInfo" href="video/video-info.html#GstVideoInfo">GstVideo.VideoInfo</a><span>)</span>
+–
+</div>
+<p>a <a href="video/video-info.html#GstVideoInfo">GstVideo.VideoInfo</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>prop</code></em></i>
+<span>(</span>CudaGst.memAllocationProp<span>)</span>
+–
+</div>
+<p>allocation property</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>granularity_flags</code></em></i>
+<span>(</span>CudaGst.memAllocationGranularity_flags<span>)</span>
+–
+</div>
+<p>allocation flags</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Gst.Memory" href="gstreamer/gstmemory.html#GstMemory">Gst.Memory</a><span>)</span>
+–
+			</div>
+							<p>a newly allocated memory object or
+<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null">null</a> if allocation is not supported</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_cuda_allocator_virtual_alloc">
+	<i>GstCuda.CudaAllocator.virtual_alloc</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstCuda.CudaAllocator.virtual_alloc (self, context, stream, info, prop, granularity_flags):
+    #python wrapper for 'gst_cuda_allocator_virtual_alloc'</code></pre>
+
+<p>Allocates new <a href="gstreamer/gstmemory.html#GstMemory">Gst.Memory</a> object with CUDA virtual memory.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>allocator</code></em></i>
+<span>(</span><a title="GstCuda.CudaAllocator" href="cuda/gstcudamemory.html#GstCudaAllocator">GstCuda.CudaAllocator</a><span>)</span>
+–
+</div>
+<p>a <a href="cuda/gstcudamemory.html#GstCudaAllocator">GstCuda.CudaAllocator</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>context</code></em></i>
+<span>(</span><a title="GstCuda.CudaContext" href="cuda/gstcudacontext.html#GstCudaContext">GstCuda.CudaContext</a><span>)</span>
+–
+</div>
+<p>a <a href="cuda/gstcudacontext.html#GstCudaContext">GstCuda.CudaContext</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>stream</code></em></i>
+<span>(</span><a title="GstCuda.CudaStream" href="cuda/gstcudastream.html#GstCudaStream">GstCuda.CudaStream</a><span>)</span>
+–
+</div>
+<p>a <a href="cuda/gstcudastream.html#GstCudaStream">GstCuda.CudaStream</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>info</code></em></i>
+<span>(</span><a title="GstVideo.VideoInfo" href="video/video-info.html#GstVideoInfo">GstVideo.VideoInfo</a><span>)</span>
+–
+</div>
+<p>a <a href="video/video-info.html#GstVideoInfo">GstVideo.VideoInfo</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>prop</code></em></i>
+<span>(</span>CudaGst.memAllocationProp<span>)</span>
+–
+</div>
+<p>allocation property</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>granularity_flags</code></em></i>
+<span>(</span>CudaGst.memAllocationGranularity_flags<span>)</span>
+–
+</div>
+<p>allocation flags</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Gst.Memory" href="gstreamer/gstmemory.html#GstMemory">Gst.Memory</a><span>)</span>
+–
+			</div>
+							<p>a newly allocated memory object or
+<a href="https://docs.python.org/3/library/constants.html#None">None</a> if allocation is not supported</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+
+            <h3 class="symbol_section">Virtual Methods</h3>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.24;" id="GstCudaAllocatorClass::set_active">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstCudaAllocatorClass::set_active">
+	<i>set_active</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a>
+set_active (<a title="GstCudaAllocator" href="cuda/gstcudamemory.html#GstCudaAllocator">GstCudaAllocator</a> * allocator,
+            <a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a> active)</pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>allocator</code></em></i>
+–
+</div>
+<p>a <a href="cuda/gstcudamemory.html#GstCudaAllocator">GstCudaAllocator</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>active</code></em></i>
+–
+</div>
+<p>the new active state</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GstCudaAllocatorClass::set_active">
+	<i>vfunc_set_active</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function vfunc_set_active(allocator: <a title="GstCuda.CudaAllocator" href="cuda/gstcudamemory.html#GstCudaAllocator">GstCuda.CudaAllocator</a>, active: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>): {
+    // javascript implementation of the 'set_active' virtual method
+}</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>allocator</code></em></i>
+<span>(</span><a title="GstCuda.CudaAllocator" href="cuda/gstcudamemory.html#GstCudaAllocator">GstCuda.CudaAllocator</a><span>)</span>
+–
+</div>
+<p>a <a href="cuda/gstcudamemory.html#GstCudaAllocator">GstCuda.CudaAllocator</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>active</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>the new active state</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GstCudaAllocatorClass::set_active">
+	<i>do_set_active</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def do_set_active (allocator, active):
+    #python implementation of the 'set_active' virtual method</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>allocator</code></em></i>
+<span>(</span><a title="GstCuda.CudaAllocator" href="cuda/gstcudamemory.html#GstCudaAllocator">GstCuda.CudaAllocator</a><span>)</span>
+–
+</div>
+<p>a <a href="cuda/gstcudamemory.html#GstCudaAllocator">GstCuda.CudaAllocator</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>active</code></em></i>
+<span>(</span><a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a><span>)</span>
+–
+</div>
+<p>the new active state</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a><span>)</span>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+
+        
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.22;" id="GstCudaMemory">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h2 data-hotdoc-id="GstCudaMemory">
+	<i>GstCudaMemory</i>
+</h2>
+
+
+
+
+
+
+	<div class="members-container">
+		<h3>Members</h3>
+					
+<div class="symbol-detail" data-hotdoc-id="GstCudaMemory.mem">
+	<div>
+		<i><em><code>mem</code></em></i>
+		(<a title="GstMemory" href="gstreamer/gstmemory.html#GstMemory">GstMemory</a>)
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstCudaMemory.context">
+	<div>
+		<i><em><code>context</code></em></i>
+		(<a title="GstCudaContext" href="cuda/gstcudacontext.html#GstCudaContext">GstCudaContext</a> *)
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstCudaMemory.info">
+	<div>
+		<i><em><code>info</code></em></i>
+		(<a title="GstVideoInfo" href="video/video-info.html#GstVideoInfo">GstVideoInfo</a>)
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.22
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h2 data-hotdoc-id="GstCudaMemory">
+	<i>GstCuda.CudaMemory</i>
+</h2>
+
+
+
+
+
+
+	<div class="members-container">
+		<h3>Members</h3>
+					
+<div class="symbol-detail" data-hotdoc-id="GstCudaMemory.mem">
+	<div>
+		<i><em><code>mem</code></em></i>
+		(<a title="Gst.Memory" href="gstreamer/gstmemory.html#GstMemory">Gst.Memory</a>)
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstCudaMemory.context">
+	<div>
+		<i><em><code>context</code></em></i>
+		(<a title="GstCuda.CudaContext" href="cuda/gstcudacontext.html#GstCudaContext">GstCuda.CudaContext</a>)
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstCudaMemory.info">
+	<div>
+		<i><em><code>info</code></em></i>
+		(<a title="GstVideo.VideoInfo" href="video/video-info.html#GstVideoInfo">GstVideo.VideoInfo</a>)
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.22
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h2 data-hotdoc-id="GstCudaMemory">
+	<i>GstCuda.CudaMemory</i>
+</h2>
+
+
+
+
+
+
+	<div class="members-container">
+		<h3>Members</h3>
+					
+<div class="symbol-detail" data-hotdoc-id="GstCudaMemory.mem">
+	<div>
+		<i><em><code>mem</code></em></i>
+		(<a title="Gst.Memory" href="gstreamer/gstmemory.html#GstMemory">Gst.Memory</a>)
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstCudaMemory.context">
+	<div>
+		<i><em><code>context</code></em></i>
+		(<a title="GstCuda.CudaContext" href="cuda/gstcudacontext.html#GstCudaContext">GstCuda.CudaContext</a>)
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstCudaMemory.info">
+	<div>
+		<i><em><code>info</code></em></i>
+		(<a title="GstVideo.VideoInfo" href="video/video-info.html#GstVideoInfo">GstVideo.VideoInfo</a>)
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.22
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+
+            <h3 class="symbol_section">Methods</h3>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.24;" id="gst_cuda_memory_export">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_cuda_memory_export">
+	<i>gst_cuda_memory_export</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a>
+gst_cuda_memory_export (<a title="GstCudaMemory" href="cuda/gstcudamemory.html#GstCudaMemory">GstCudaMemory</a> * mem,
+                        <a title="gpointer" href="https://docs.gtk.org/glib/types.html#gpointer">gpointer</a> os_handle)</pre>
+
+<p>Exports virtual memory handle to OS specific handle.</p>
+<p>On Windows, <em>os_handle</em> should be pointer to HANDLE (i.e., void **), and
+pointer to file descriptor (i.e., int *) on Linux.</p>
+<p>The returned <em>os_handle</em> is owned by <em>mem</em> and therefore caller shouldn't
+close the handle.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>mem</code></em></i>
+–
+</div>
+<p>a <a href="cuda/gstcudamemory.html#GstCudaMemory">GstCudaMemory</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>os_handle</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="Parameter for returning results"><span class="acronym">out</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>a pointer to OS handle</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p><a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#TRUE:CAPS">TRUE</a> if successful</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_cuda_memory_export">
+	<i>GstCuda.CudaMemory.prototype.export</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstCuda.CudaMemory.prototype.export(): {
+    // javascript wrapper for 'gst_cuda_memory_export'
+}</code></pre>
+
+<p>Exports virtual memory handle to OS specific handle.</p>
+<p>On Windows, <em>os_handle</em> should be pointer to HANDLE (i.e., void **), and
+pointer to file descriptor (i.e., int *) on Linux.</p>
+<p>The returned <em>os_handle</em> is owned by <em>mem</em> and therefore caller shouldn't
+close the handle.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>mem</code></em></i>
+<span>(</span><a title="GstCuda.CudaMemory" href="cuda/gstcudamemory.html#GstCudaMemory">GstCuda.CudaMemory</a><span>)</span>
+–
+</div>
+<p>a <a href="cuda/gstcudamemory.html#GstCudaMemory">GstCuda.CudaMemory</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<p><b>Returns a tuple made of:</b></p>
+				
+<div class="symbol-detail">
+	<div>
+		<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>
+<span>)</span>
+–
+	</div>
+			<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">true</a> if successful</p>
+
+	</div>
+
+				
+<div class="symbol-detail">
+	<div>
+				<i><em><code>os_handle</code></em></i>
+		<span>(</span><a title="Object" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>
+<span>)</span>
+–
+	</div>
+			<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">true</a> if successful</p>
+
+	</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_cuda_memory_export">
+	<i>GstCuda.CudaMemory.export</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstCuda.CudaMemory.export (self):
+    #python wrapper for 'gst_cuda_memory_export'</code></pre>
+
+<p>Exports virtual memory handle to OS specific handle.</p>
+<p>On Windows, <em>os_handle</em> should be pointer to HANDLE (i.e., void **), and
+pointer to file descriptor (i.e., int *) on Linux.</p>
+<p>The returned <em>os_handle</em> is owned by <em>mem</em> and therefore caller shouldn't
+close the handle.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>mem</code></em></i>
+<span>(</span><a title="GstCuda.CudaMemory" href="cuda/gstcudamemory.html#GstCudaMemory">GstCuda.CudaMemory</a><span>)</span>
+–
+</div>
+<p>a <a href="cuda/gstcudamemory.html#GstCudaMemory">GstCuda.CudaMemory</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<p><b>Returns a tuple made of:</b></p>
+				
+<div class="symbol-detail">
+	<div>
+		<span>(</span><a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a>
+<span>)</span>
+–
+	</div>
+			<p><a href="https://docs.python.org/3/library/constants.html#True">True</a> if successful</p>
+
+	</div>
+
+				
+<div class="symbol-detail">
+	<div>
+				<i><em><code>os_handle</code></em></i>
+		<span>(</span><a title="object" href="https://docs.python.org/3/library/functions.html#object">object</a>
+<span>)</span>
+–
+	</div>
+			<p><a href="https://docs.python.org/3/library/constants.html#True">True</a> if successful</p>
+
+	</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.24;" id="gst_cuda_memory_get_alloc_method">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_cuda_memory_get_alloc_method">
+	<i>gst_cuda_memory_get_alloc_method</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GstCudaMemoryAllocMethod" href="cuda/gstcudamemory.html#GstCudaMemoryAllocMethod">GstCudaMemoryAllocMethod</a>
+gst_cuda_memory_get_alloc_method (<a title="GstCudaMemory" href="cuda/gstcudamemory.html#GstCudaMemory">GstCudaMemory</a> * mem)</pre>
+
+<p>Query allocation method</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>mem</code></em></i>
+–
+</div>
+<p>a <a href="cuda/gstcudamemory.html#GstCudaMemory">GstCudaMemory</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_cuda_memory_get_alloc_method">
+	<i>GstCuda.CudaMemory.prototype.get_alloc_method</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstCuda.CudaMemory.prototype.get_alloc_method(): {
+    // javascript wrapper for 'gst_cuda_memory_get_alloc_method'
+}</code></pre>
+
+<p>Query allocation method</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>mem</code></em></i>
+<span>(</span><a title="GstCuda.CudaMemory" href="cuda/gstcudamemory.html#GstCudaMemory">GstCuda.CudaMemory</a><span>)</span>
+–
+</div>
+<p>a <a href="cuda/gstcudamemory.html#GstCudaMemory">GstCuda.CudaMemory</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GstCuda.CudaMemoryAllocMethod" href="cuda/gstcudamemory.html#GstCudaMemoryAllocMethod">GstCuda.CudaMemoryAllocMethod</a><span>)</span>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_cuda_memory_get_alloc_method">
+	<i>GstCuda.CudaMemory.get_alloc_method</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstCuda.CudaMemory.get_alloc_method (self):
+    #python wrapper for 'gst_cuda_memory_get_alloc_method'</code></pre>
+
+<p>Query allocation method</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>mem</code></em></i>
+<span>(</span><a title="GstCuda.CudaMemory" href="cuda/gstcudamemory.html#GstCudaMemory">GstCuda.CudaMemory</a><span>)</span>
+–
+</div>
+<p>a <a href="cuda/gstcudamemory.html#GstCudaMemory">GstCuda.CudaMemory</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GstCuda.CudaMemoryAllocMethod" href="cuda/gstcudamemory.html#GstCudaMemoryAllocMethod">GstCuda.CudaMemoryAllocMethod</a><span>)</span>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.24;" id="gst_cuda_memory_get_stream">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_cuda_memory_get_stream">
+	<i>gst_cuda_memory_get_stream</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GstCudaStream" href="cuda/gstcudastream.html#GstCudaStream">GstCudaStream</a> *
+gst_cuda_memory_get_stream (<a title="GstCudaMemory" href="cuda/gstcudamemory.html#GstCudaMemory">GstCudaMemory</a> * mem)</pre>
+
+<p>Gets CUDA stream object associated with <em>mem</em></p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>mem</code></em></i>
+–
+</div>
+<p>A <a href="cuda/gstcudamemory.html#GstCudaMemory">GstCudaMemory</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span>
+<span class="annotation">[<abbr title="Don't free data after the code is done"><span class="acronym">transfer: none</span></abbr>]</span><span class="annotation">[<abbr title="NULL may be passed to the value"><span class="acronym">nullable</span></abbr>]</span><span>)</span>
+–
+			</div>
+							<p>a <a href="cuda/gstcudastream.html#GstCudaStream">GstCudaStream</a> or <a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#NULL:CAPS">NULL</a> if default
+CUDA stream is in use</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_cuda_memory_get_stream">
+	<i>GstCuda.CudaMemory.prototype.get_stream</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstCuda.CudaMemory.prototype.get_stream(): {
+    // javascript wrapper for 'gst_cuda_memory_get_stream'
+}</code></pre>
+
+<p>Gets CUDA stream object associated with <em>mem</em></p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>mem</code></em></i>
+<span>(</span><a title="GstCuda.CudaMemory" href="cuda/gstcudamemory.html#GstCudaMemory">GstCuda.CudaMemory</a><span>)</span>
+–
+</div>
+<p>A <a href="cuda/gstcudamemory.html#GstCudaMemory">GstCuda.CudaMemory</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GstCuda.CudaStream" href="cuda/gstcudastream.html#GstCudaStream">GstCuda.CudaStream</a><span>)</span>
+–
+			</div>
+							<p>a <a href="cuda/gstcudastream.html#GstCudaStream">GstCuda.CudaStream</a> or <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null">null</a> if default
+CUDA stream is in use</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_cuda_memory_get_stream">
+	<i>GstCuda.CudaMemory.get_stream</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstCuda.CudaMemory.get_stream (self):
+    #python wrapper for 'gst_cuda_memory_get_stream'</code></pre>
+
+<p>Gets CUDA stream object associated with <em>mem</em></p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>mem</code></em></i>
+<span>(</span><a title="GstCuda.CudaMemory" href="cuda/gstcudamemory.html#GstCudaMemory">GstCuda.CudaMemory</a><span>)</span>
+–
+</div>
+<p>A <a href="cuda/gstcudamemory.html#GstCudaMemory">GstCuda.CudaMemory</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GstCuda.CudaStream" href="cuda/gstcudastream.html#GstCudaStream">GstCuda.CudaStream</a><span>)</span>
+–
+			</div>
+							<p>a <a href="cuda/gstcudastream.html#GstCudaStream">GstCuda.CudaStream</a> or <a href="https://docs.python.org/3/library/constants.html#None">None</a> if default
+CUDA stream is in use</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.24;" id="gst_cuda_memory_get_texture">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_cuda_memory_get_texture">
+	<i>gst_cuda_memory_get_texture</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a>
+gst_cuda_memory_get_texture (<a title="GstCudaMemory" href="cuda/gstcudamemory.html#GstCudaMemory">GstCudaMemory</a> * mem,
+                             <a title="guint" href="https://docs.gtk.org/glib/types.html#guint">guint</a> plane,
+                             CUfilter_mode filter_mode,
+                             CUtexObject* texture)</pre>
+
+<p>Creates CUtexObject with given parameters</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>mem</code></em></i>
+–
+</div>
+<p>A <a href="cuda/gstcudamemory.html#GstCudaMemory">GstCudaMemory</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>plane</code></em></i>
+–
+</div>
+<p>the plane index</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>filter_mode</code></em></i>
+–
+</div>
+<p>filter mode</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>texture</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="Parameter for returning results"><span class="acronym">out</span></abbr>]</span><span class="annotation">[<abbr title="Don't free data after the code is done"><span class="acronym">transfer: none</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>a pointer to CUtexObject object</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p><a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#TRUE:CAPS">TRUE</a> if successful</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_cuda_memory_get_texture">
+	<i>GstCuda.CudaMemory.prototype.get_texture</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstCuda.CudaMemory.prototype.get_texture(plane: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>, filter_mode: CudaGst.filter_mode): {
+    // javascript wrapper for 'gst_cuda_memory_get_texture'
+}</code></pre>
+
+<p>Creates CUtexObject with given parameters</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>mem</code></em></i>
+<span>(</span><a title="GstCuda.CudaMemory" href="cuda/gstcudamemory.html#GstCudaMemory">GstCuda.CudaMemory</a><span>)</span>
+–
+</div>
+<p>A <a href="cuda/gstcudamemory.html#GstCudaMemory">GstCuda.CudaMemory</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>plane</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>the plane index</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>filter_mode</code></em></i>
+<span>(</span>CudaGst.filter_mode<span>)</span>
+–
+</div>
+<p>filter mode</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<p><b>Returns a tuple made of:</b></p>
+				
+<div class="symbol-detail">
+	<div>
+		<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>
+<span>)</span>
+–
+	</div>
+			<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">true</a> if successful</p>
+
+	</div>
+
+				
+<div class="symbol-detail">
+	<div>
+				<i><em><code>texture</code></em></i>
+		<span>(</span>CudaGst.texObject
+<span>)</span>
+–
+	</div>
+			<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">true</a> if successful</p>
+
+	</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_cuda_memory_get_texture">
+	<i>GstCuda.CudaMemory.get_texture</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstCuda.CudaMemory.get_texture (self, plane, filter_mode):
+    #python wrapper for 'gst_cuda_memory_get_texture'</code></pre>
+
+<p>Creates CUtexObject with given parameters</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>mem</code></em></i>
+<span>(</span><a title="GstCuda.CudaMemory" href="cuda/gstcudamemory.html#GstCudaMemory">GstCuda.CudaMemory</a><span>)</span>
+–
+</div>
+<p>A <a href="cuda/gstcudamemory.html#GstCudaMemory">GstCuda.CudaMemory</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>plane</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<p>the plane index</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>filter_mode</code></em></i>
+<span>(</span>CudaGst.filter_mode<span>)</span>
+–
+</div>
+<p>filter mode</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<p><b>Returns a tuple made of:</b></p>
+				
+<div class="symbol-detail">
+	<div>
+		<span>(</span><a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a>
+<span>)</span>
+–
+	</div>
+			<p><a href="https://docs.python.org/3/library/constants.html#True">True</a> if successful</p>
+
+	</div>
+
+				
+<div class="symbol-detail">
+	<div>
+				<i><em><code>texture</code></em></i>
+		<span>(</span>CudaGst.texObject
+<span>)</span>
+–
+	</div>
+			<p><a href="https://docs.python.org/3/library/constants.html#True">True</a> if successful</p>
+
+	</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.24;" id="gst_cuda_memory_get_token_data">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_cuda_memory_get_token_data">
+	<i>gst_cuda_memory_get_token_data</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gpointer" href="https://docs.gtk.org/glib/types.html#gpointer">gpointer</a>
+gst_cuda_memory_get_token_data (<a title="GstCudaMemory" href="cuda/gstcudamemory.html#GstCudaMemory">GstCudaMemory</a> * mem,
+                                <a title="gint64" href="https://docs.gtk.org/glib/types.html#gint64">gint64</a> token)</pre>
+
+<p>Gets back user data pointer stored via <a href="cuda/gstcudamemory.html#gst_cuda_memory_set_token_data">gst_cuda_memory_set_token_data</a></p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>mem</code></em></i>
+–
+</div>
+<p>a <a href="cuda/gstcudamemory.html#GstCudaMemory">GstCudaMemory</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>token</code></em></i>
+–
+</div>
+<p>an user token</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span>
+<span class="annotation">[<abbr title="Don't free data after the code is done"><span class="acronym">transfer: none</span></abbr>]</span><span class="annotation">[<abbr title="NULL may be passed to the value"><span class="acronym">nullable</span></abbr>]</span><span>)</span>
+–
+			</div>
+							<p>user data pointer or <a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#NULL:CAPS">NULL</a></p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_cuda_memory_get_token_data">
+	<i>GstCuda.CudaMemory.prototype.get_token_data</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstCuda.CudaMemory.prototype.get_token_data(token: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>): {
+    // javascript wrapper for 'gst_cuda_memory_get_token_data'
+}</code></pre>
+
+<p>Gets back user data pointer stored via <a href="cuda/gstcudamemory.html#gst_cuda_memory_set_token_data">GstCuda.CudaMemory.prototype.set_token_data</a></p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>mem</code></em></i>
+<span>(</span><a title="GstCuda.CudaMemory" href="cuda/gstcudamemory.html#GstCudaMemory">GstCuda.CudaMemory</a><span>)</span>
+–
+</div>
+<p>a <a href="cuda/gstcudamemory.html#GstCudaMemory">GstCuda.CudaMemory</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>token</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>an user token</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Object" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a><span>)</span>
+–
+			</div>
+							<p>user data pointer or <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null">null</a></p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_cuda_memory_get_token_data">
+	<i>GstCuda.CudaMemory.get_token_data</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstCuda.CudaMemory.get_token_data (self, token):
+    #python wrapper for 'gst_cuda_memory_get_token_data'</code></pre>
+
+<p>Gets back user data pointer stored via <a href="cuda/gstcudamemory.html#gst_cuda_memory_set_token_data">GstCuda.CudaMemory.set_token_data</a></p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>mem</code></em></i>
+<span>(</span><a title="GstCuda.CudaMemory" href="cuda/gstcudamemory.html#GstCudaMemory">GstCuda.CudaMemory</a><span>)</span>
+–
+</div>
+<p>a <a href="cuda/gstcudamemory.html#GstCudaMemory">GstCuda.CudaMemory</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>token</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<p>an user token</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="object" href="https://docs.python.org/3/library/functions.html#object">object</a><span>)</span>
+–
+			</div>
+							<p>user data pointer or <a href="https://docs.python.org/3/library/constants.html#None">None</a></p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.24;" id="gst_cuda_memory_get_user_data">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_cuda_memory_get_user_data">
+	<i>gst_cuda_memory_get_user_data</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gpointer" href="https://docs.gtk.org/glib/types.html#gpointer">gpointer</a>
+gst_cuda_memory_get_user_data (<a title="GstCudaMemory" href="cuda/gstcudamemory.html#GstCudaMemory">GstCudaMemory</a> * mem)</pre>
+
+<p>Gets user data pointer stored via <a href="cuda/gstcudamemory.html#gst_cuda_allocator_alloc_wrapped">gst_cuda_allocator_alloc_wrapped</a></p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>mem</code></em></i>
+–
+</div>
+<p>A <a href="cuda/gstcudamemory.html#GstCudaMemory">GstCudaMemory</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span>
+<span class="annotation">[<abbr title="Don't free data after the code is done"><span class="acronym">transfer: none</span></abbr>]</span><span class="annotation">[<abbr title="NULL may be passed to the value"><span class="acronym">nullable</span></abbr>]</span><span>)</span>
+–
+			</div>
+							<p>the user data pointer</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_cuda_memory_get_user_data">
+	<i>GstCuda.CudaMemory.prototype.get_user_data</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstCuda.CudaMemory.prototype.get_user_data(): {
+    // javascript wrapper for 'gst_cuda_memory_get_user_data'
+}</code></pre>
+
+<p>Gets user data pointer stored via <a href="cuda/gstcudamemory.html#gst_cuda_allocator_alloc_wrapped">GstCuda.CudaAllocator.prototype.alloc_wrapped</a></p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>mem</code></em></i>
+<span>(</span><a title="GstCuda.CudaMemory" href="cuda/gstcudamemory.html#GstCudaMemory">GstCuda.CudaMemory</a><span>)</span>
+–
+</div>
+<p>A <a href="cuda/gstcudamemory.html#GstCudaMemory">GstCuda.CudaMemory</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Object" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a><span>)</span>
+–
+			</div>
+							<p>the user data pointer</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_cuda_memory_get_user_data">
+	<i>GstCuda.CudaMemory.get_user_data</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstCuda.CudaMemory.get_user_data (self):
+    #python wrapper for 'gst_cuda_memory_get_user_data'</code></pre>
+
+<p>Gets user data pointer stored via <a href="cuda/gstcudamemory.html#gst_cuda_allocator_alloc_wrapped">GstCuda.CudaAllocator.alloc_wrapped</a></p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>mem</code></em></i>
+<span>(</span><a title="GstCuda.CudaMemory" href="cuda/gstcudamemory.html#GstCudaMemory">GstCuda.CudaMemory</a><span>)</span>
+–
+</div>
+<p>A <a href="cuda/gstcudamemory.html#GstCudaMemory">GstCuda.CudaMemory</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="object" href="https://docs.python.org/3/library/functions.html#object">object</a><span>)</span>
+–
+			</div>
+							<p>the user data pointer</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.24;" id="gst_cuda_memory_set_token_data">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_cuda_memory_set_token_data">
+	<i>gst_cuda_memory_set_token_data</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+gst_cuda_memory_set_token_data (<a title="GstCudaMemory" href="cuda/gstcudamemory.html#GstCudaMemory">GstCudaMemory</a> * mem,
+                                <a title="gint64" href="https://docs.gtk.org/glib/types.html#gint64">gint64</a> token,
+                                <a title="gpointer" href="https://docs.gtk.org/glib/types.html#gpointer">gpointer</a> data,
+                                <a title="GDestroyNotify" href="https://docs.gtk.org/glib/callback.DestroyNotify.html">GDestroyNotify</a> notify)</pre>
+
+<p>Sets an opaque user data on a <a href="cuda/gstcudamemory.html#GstCudaMemory">GstCudaMemory</a></p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>mem</code></em></i>
+–
+</div>
+<p>a <a href="cuda/gstcudamemory.html#GstCudaMemory">GstCudaMemory</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>token</code></em></i>
+–
+</div>
+<p>an user token</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>data</code></em></i>
+–
+</div>
+<p>an user data</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>notify</code></em></i>
+–
+</div>
+<p>function to invoke with <em>data</em> as argument, when <em>data</em> needs to be
+freed</p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_cuda_memory_set_token_data">
+	<i>GstCuda.CudaMemory.prototype.set_token_data</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstCuda.CudaMemory.prototype.set_token_data(token: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>, data: <a title="Object" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>, notify: <a title="GLib.DestroyNotify" href="https://docs.gtk.org/glib/callback.DestroyNotify.html">GLib.DestroyNotify</a>): {
+    // javascript wrapper for 'gst_cuda_memory_set_token_data'
+}</code></pre>
+
+<p>Sets an opaque user data on a <a href="cuda/gstcudamemory.html#GstCudaMemory">GstCuda.CudaMemory</a></p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>mem</code></em></i>
+<span>(</span><a title="GstCuda.CudaMemory" href="cuda/gstcudamemory.html#GstCudaMemory">GstCuda.CudaMemory</a><span>)</span>
+–
+</div>
+<p>a <a href="cuda/gstcudamemory.html#GstCudaMemory">GstCuda.CudaMemory</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>token</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>an user token</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>data</code></em></i>
+<span>(</span><a title="Object" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a><span>)</span>
+–
+</div>
+<p>an user data</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>notify</code></em></i>
+<span>(</span><a title="GLib.DestroyNotify" href="https://docs.gtk.org/glib/callback.DestroyNotify.html">GLib.DestroyNotify</a><span>)</span>
+–
+</div>
+<p>function to invoke with <em>data</em> as argument, when <em>data</em> needs to be
+freed</p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_cuda_memory_set_token_data">
+	<i>GstCuda.CudaMemory.set_token_data</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstCuda.CudaMemory.set_token_data (self, token, data, notify):
+    #python wrapper for 'gst_cuda_memory_set_token_data'</code></pre>
+
+<p>Sets an opaque user data on a <a href="cuda/gstcudamemory.html#GstCudaMemory">GstCuda.CudaMemory</a></p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>mem</code></em></i>
+<span>(</span><a title="GstCuda.CudaMemory" href="cuda/gstcudamemory.html#GstCudaMemory">GstCuda.CudaMemory</a><span>)</span>
+–
+</div>
+<p>a <a href="cuda/gstcudamemory.html#GstCudaMemory">GstCuda.CudaMemory</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>token</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<p>an user token</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>data</code></em></i>
+<span>(</span><a title="object" href="https://docs.python.org/3/library/functions.html#object">object</a><span>)</span>
+–
+</div>
+<p>an user data</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>notify</code></em></i>
+<span>(</span><a title="GLib.DestroyNotify" href="https://docs.gtk.org/glib/callback.DestroyNotify.html">GLib.DestroyNotify</a><span>)</span>
+–
+</div>
+<p>function to invoke with <em>data</em> as argument, when <em>data</em> needs to be
+freed</p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.24;" id="gst_cuda_memory_sync">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_cuda_memory_sync">
+	<i>gst_cuda_memory_sync</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+gst_cuda_memory_sync (<a title="GstCudaMemory" href="cuda/gstcudamemory.html#GstCudaMemory">GstCudaMemory</a> * mem)</pre>
+
+<p>Performs synchronization if needed</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>mem</code></em></i>
+–
+</div>
+<p>A <a href="cuda/gstcudamemory.html#GstCudaMemory">GstCudaMemory</a></p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_cuda_memory_sync">
+	<i>GstCuda.CudaMemory.prototype.sync</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstCuda.CudaMemory.prototype.sync(): {
+    // javascript wrapper for 'gst_cuda_memory_sync'
+}</code></pre>
+
+<p>Performs synchronization if needed</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>mem</code></em></i>
+<span>(</span><a title="GstCuda.CudaMemory" href="cuda/gstcudamemory.html#GstCudaMemory">GstCuda.CudaMemory</a><span>)</span>
+–
+</div>
+<p>A <a href="cuda/gstcudamemory.html#GstCudaMemory">GstCuda.CudaMemory</a></p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_cuda_memory_sync">
+	<i>GstCuda.CudaMemory.sync</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstCuda.CudaMemory.sync (self):
+    #python wrapper for 'gst_cuda_memory_sync'</code></pre>
+
+<p>Performs synchronization if needed</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>mem</code></em></i>
+<span>(</span><a title="GstCuda.CudaMemory" href="cuda/gstcudamemory.html#GstCudaMemory">GstCuda.CudaMemory</a><span>)</span>
+–
+</div>
+<p>A <a href="cuda/gstcudamemory.html#GstCudaMemory">GstCuda.CudaMemory</a></p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+
+            <h3 class="symbol_section">Functions</h3>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.22;" id="gst_cuda_memory_init_once">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_cuda_memory_init_once">
+	<i>gst_cuda_memory_init_once</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+gst_cuda_memory_init_once ()</pre>
+
+<p>Ensures that the <a href="cuda/gstcudamemory.html#GstCudaAllocator">GstCudaAllocator</a> is initialized and ready to be used.</p>
+
+
+
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.22
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_cuda_memory_init_once">
+	<i>GstCuda.CudaMemory.prototype.init_once</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstCuda.CudaMemory.prototype.init_once(): {
+    // javascript wrapper for 'gst_cuda_memory_init_once'
+}</code></pre>
+
+<p>Ensures that the <a href="cuda/gstcudamemory.html#GstCudaAllocator">GstCuda.CudaAllocator</a> is initialized and ready to be used.</p>
+
+
+
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.22
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_cuda_memory_init_once">
+	<i>GstCuda.CudaMemory.init_once</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstCuda.CudaMemory.init_once ():
+    #python wrapper for 'gst_cuda_memory_init_once'</code></pre>
+
+<p>Ensures that the <a href="cuda/gstcudamemory.html#GstCudaAllocator">GstCuda.CudaAllocator</a> is initialized and ready to be used.</p>
+
+
+
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.22
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+
+        
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.24;" id="GstCudaPoolAllocator">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h2 data-hotdoc-id="GstCudaPoolAllocator">
+	<i>GstCudaPoolAllocator</i>
+</h2>
+
+
+<div class="hierarchy_container">
+	<div class="hierarchy_details">
+<pre>
+<a title="GObject" href="https://docs.gtk.org/gobject/class.Object.html">GObject</a>
+    <span class="lineart">╰──</span><a title="GInitiallyUnowned" href="https://docs.gtk.org/gobject/class.InitiallyUnowned.html">GInitiallyUnowned</a>
+        <span class="lineart">╰──</span><a title="GstObject" href="gstreamer/gstobject.html#GstObject">GstObject</a>
+            <span class="lineart">╰──</span><a title="GstAllocator" href="gstreamer/gstallocator.html#GstAllocator">GstAllocator</a>
+                <span class="lineart">╰──</span><a title="GstCudaAllocator" href="cuda/gstcudamemory.html#GstCudaAllocator">GstCudaAllocator</a>
+                    <span class="lineart">╰──</span>GstCudaPoolAllocator
+</pre>
+
+</div>
+
+</div>
+
+<div class="class_details">
+	<p>A <a href="cuda/gstcudamemory.html#GstCudaAllocator">GstCudaAllocator</a> subclass for cuda memory pool</p>
+
+</div>
+
+
+
+	<div class="members-container">
+		<h3>Members</h3>
+					
+<div class="symbol-detail" data-hotdoc-id="GstCudaPoolAllocator.parent">
+	<div>
+		<i><em><code>parent</code></em></i>
+		(<a title="GstCudaAllocator" href="cuda/gstcudamemory.html#GstCudaAllocator">GstCudaAllocator</a>)
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstCudaPoolAllocator.context">
+	<div>
+		<i><em><code>context</code></em></i>
+		(<a title="GstCudaContext" href="cuda/gstcudacontext.html#GstCudaContext">GstCudaContext</a> *)
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstCudaPoolAllocator.stream">
+	<div>
+		<i><em><code>stream</code></em></i>
+		(<a title="GstCudaStream" href="cuda/gstcudastream.html#GstCudaStream">GstCudaStream</a> *)
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstCudaPoolAllocator.info">
+	<div>
+		<i><em><code>info</code></em></i>
+		(<a title="GstVideoInfo" href="video/video-info.html#GstVideoInfo">GstVideoInfo</a>)
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+<h3>Class structure</h3>
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstCudaPoolAllocatorClass">
+	<i>GstCudaPoolAllocatorClass</i>
+</h4>
+
+
+
+
+
+	<div class="members-container">
+		<h5>Fields</h5>
+					
+<div class="symbol-detail" data-hotdoc-id="GstCudaPoolAllocatorClass.parent_class">
+	<div>
+		<i><em><code>parent_class</code></em></i>
+		(<a title="GstCudaAllocatorClass" href="GstCudaAllocatorClass">GstCudaAllocatorClass</a>)
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+			</div>
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3>
+	GstCuda.CudaPoolAllocatorClass
+</h3>
+
+
+
+
+
+	<div class="members-container">
+		<h5>Attributes</h5>
+					
+<div class="symbol-detail" data-hotdoc-id="GstCudaPoolAllocatorClass.parent_class">
+	<div>
+		<i><em><code>parent_class</code></em></i>
+		(<a title="GstCuda.CudaAllocatorClass" href="GstCudaAllocatorClass">GstCuda.CudaAllocatorClass</a>)
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+			</div>
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3>
+	GstCuda.CudaPoolAllocatorClass
+</h3>
+
+
+
+
+
+	<div class="members-container">
+		<h5>Attributes</h5>
+					
+<div class="symbol-detail" data-hotdoc-id="GstCudaPoolAllocatorClass.parent_class">
+	<div>
+		<i><em><code>parent_class</code></em></i>
+		(<a title="GstCuda.CudaAllocatorClass" href="GstCudaAllocatorClass">GstCuda.CudaAllocatorClass</a>)
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+			</div>
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h2 data-hotdoc-id="GstCudaPoolAllocator">
+	<i>GstCuda.CudaPoolAllocator</i>
+</h2>
+
+
+<div class="hierarchy_container">
+	<div class="hierarchy_details">
+<pre>
+<a title="GObject.Object" href="https://docs.gtk.org/gobject/class.Object.html">GObject.Object</a>
+    <span class="lineart">╰──</span><a title="GObject.InitiallyUnowned" href="https://docs.gtk.org/gobject/class.InitiallyUnowned.html">GObject.InitiallyUnowned</a>
+        <span class="lineart">╰──</span><a title="Gst.Object" href="gstreamer/gstobject.html#GstObject">Gst.Object</a>
+            <span class="lineart">╰──</span><a title="Gst.Allocator" href="gstreamer/gstallocator.html#GstAllocator">Gst.Allocator</a>
+                <span class="lineart">╰──</span><a title="GstCuda.CudaAllocator" href="cuda/gstcudamemory.html#GstCudaAllocator">GstCuda.CudaAllocator</a>
+                    <span class="lineart">╰──</span>GstCuda.CudaPoolAllocator
+</pre>
+
+</div>
+
+</div>
+
+<div class="class_details">
+	<p>A <a href="cuda/gstcudamemory.html#GstCudaAllocator">GstCuda.CudaAllocator</a> subclass for cuda memory pool</p>
+
+</div>
+
+
+
+	<div class="members-container">
+		<h3>Members</h3>
+					
+<div class="symbol-detail" data-hotdoc-id="GstCudaPoolAllocator.parent">
+	<div>
+		<i><em><code>parent</code></em></i>
+		(<a title="GstCuda.CudaAllocator" href="cuda/gstcudamemory.html#GstCudaAllocator">GstCuda.CudaAllocator</a>)
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstCudaPoolAllocator.context">
+	<div>
+		<i><em><code>context</code></em></i>
+		(<a title="GstCuda.CudaContext" href="cuda/gstcudacontext.html#GstCudaContext">GstCuda.CudaContext</a>)
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstCudaPoolAllocator.stream">
+	<div>
+		<i><em><code>stream</code></em></i>
+		(<a title="GstCuda.CudaStream" href="cuda/gstcudastream.html#GstCudaStream">GstCuda.CudaStream</a>)
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstCudaPoolAllocator.info">
+	<div>
+		<i><em><code>info</code></em></i>
+		(<a title="GstVideo.VideoInfo" href="video/video-info.html#GstVideoInfo">GstVideo.VideoInfo</a>)
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h2 data-hotdoc-id="GstCudaPoolAllocator">
+	<i>GstCuda.CudaPoolAllocator</i>
+</h2>
+
+
+<div class="hierarchy_container">
+	<div class="hierarchy_details">
+<pre>
+<a title="GObject.Object" href="https://docs.gtk.org/gobject/class.Object.html">GObject.Object</a>
+    <span class="lineart">╰──</span><a title="GObject.InitiallyUnowned" href="https://docs.gtk.org/gobject/class.InitiallyUnowned.html">GObject.InitiallyUnowned</a>
+        <span class="lineart">╰──</span><a title="Gst.Object" href="gstreamer/gstobject.html#GstObject">Gst.Object</a>
+            <span class="lineart">╰──</span><a title="Gst.Allocator" href="gstreamer/gstallocator.html#GstAllocator">Gst.Allocator</a>
+                <span class="lineart">╰──</span><a title="GstCuda.CudaAllocator" href="cuda/gstcudamemory.html#GstCudaAllocator">GstCuda.CudaAllocator</a>
+                    <span class="lineart">╰──</span>GstCuda.CudaPoolAllocator
+</pre>
+
+</div>
+
+</div>
+
+<div class="class_details">
+	<p>A <a href="cuda/gstcudamemory.html#GstCudaAllocator">GstCuda.CudaAllocator</a> subclass for cuda memory pool</p>
+
+</div>
+
+
+
+	<div class="members-container">
+		<h3>Members</h3>
+					
+<div class="symbol-detail" data-hotdoc-id="GstCudaPoolAllocator.parent">
+	<div>
+		<i><em><code>parent</code></em></i>
+		(<a title="GstCuda.CudaAllocator" href="cuda/gstcudamemory.html#GstCudaAllocator">GstCuda.CudaAllocator</a>)
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstCudaPoolAllocator.context">
+	<div>
+		<i><em><code>context</code></em></i>
+		(<a title="GstCuda.CudaContext" href="cuda/gstcudacontext.html#GstCudaContext">GstCuda.CudaContext</a>)
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstCudaPoolAllocator.stream">
+	<div>
+		<i><em><code>stream</code></em></i>
+		(<a title="GstCuda.CudaStream" href="cuda/gstcudastream.html#GstCudaStream">GstCuda.CudaStream</a>)
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstCudaPoolAllocator.info">
+	<div>
+		<i><em><code>info</code></em></i>
+		(<a title="GstVideo.VideoInfo" href="video/video-info.html#GstVideoInfo">GstVideo.VideoInfo</a>)
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+
+            <h3 class="symbol_section">Constructors</h3>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.24;" id="gst_cuda_pool_allocator_new">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_cuda_pool_allocator_new">
+	<i>gst_cuda_pool_allocator_new</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GstCudaPoolAllocator" href="cuda/gstcudamemory.html#GstCudaPoolAllocator">GstCudaPoolAllocator</a> *
+gst_cuda_pool_allocator_new (<a title="GstCudaContext" href="cuda/gstcudacontext.html#GstCudaContext">GstCudaContext</a> * context,
+                             <a title="GstCudaStream" href="cuda/gstcudastream.html#GstCudaStream">GstCudaStream</a> * stream,
+                             const <a title="GstVideoInfo" href="video/video-info.html#GstVideoInfo">GstVideoInfo</a> * info)</pre>
+
+<p>Creates a new <a href="cuda/gstcudamemory.html#GstCudaPoolAllocator">GstCudaPoolAllocator</a> instance.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>context</code></em></i>
+–
+</div>
+<p>a <a href="cuda/gstcudacontext.html#GstCudaContext">GstCudaContext</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>stream</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="NULL is OK, both for passing and returning"><span class="acronym">allow-none</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>a <a href="cuda/gstcudastream.html#GstCudaStream">GstCudaStream</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>info</code></em></i>
+–
+</div>
+<p>a <a href="video/video-info.html#GstVideoInfo">GstVideoInfo</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span>
+<span class="annotation">[<abbr title="Free data after the code is done"><span class="acronym">transfer: full</span></abbr>]</span><span>)</span>
+–
+			</div>
+							<p>a new <a href="cuda/gstcudamemory.html#GstCudaPoolAllocator">GstCudaPoolAllocator</a> instance</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_cuda_pool_allocator_new">
+	<i>GstCuda.CudaPoolAllocator.prototype.new</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstCuda.CudaPoolAllocator.prototype.new(context: <a title="GstCuda.CudaContext" href="cuda/gstcudacontext.html#GstCudaContext">GstCuda.CudaContext</a>, stream: <a title="GstCuda.CudaStream" href="cuda/gstcudastream.html#GstCudaStream">GstCuda.CudaStream</a>, info: <a title="GstVideo.VideoInfo" href="video/video-info.html#GstVideoInfo">GstVideo.VideoInfo</a>): {
+    // javascript wrapper for 'gst_cuda_pool_allocator_new'
+}</code></pre>
+
+<p>Creates a new <a href="cuda/gstcudamemory.html#GstCudaPoolAllocator">GstCuda.CudaPoolAllocator</a> instance.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>context</code></em></i>
+<span>(</span><a title="GstCuda.CudaContext" href="cuda/gstcudacontext.html#GstCudaContext">GstCuda.CudaContext</a><span>)</span>
+–
+</div>
+<p>a <a href="cuda/gstcudacontext.html#GstCudaContext">GstCuda.CudaContext</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>stream</code></em></i>
+<span>(</span><a title="GstCuda.CudaStream" href="cuda/gstcudastream.html#GstCudaStream">GstCuda.CudaStream</a><span>)</span>
+–
+</div>
+<p>a <a href="cuda/gstcudastream.html#GstCudaStream">GstCuda.CudaStream</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>info</code></em></i>
+<span>(</span><a title="GstVideo.VideoInfo" href="video/video-info.html#GstVideoInfo">GstVideo.VideoInfo</a><span>)</span>
+–
+</div>
+<p>a <a href="video/video-info.html#GstVideoInfo">GstVideo.VideoInfo</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GstCuda.CudaPoolAllocator" href="cuda/gstcudamemory.html#GstCudaPoolAllocator">GstCuda.CudaPoolAllocator</a><span>)</span>
+–
+			</div>
+							<p>a new <a href="cuda/gstcudamemory.html#GstCudaPoolAllocator">GstCuda.CudaPoolAllocator</a> instance</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_cuda_pool_allocator_new">
+	<i>GstCuda.CudaPoolAllocator.new</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstCuda.CudaPoolAllocator.new (context, stream, info):
+    #python wrapper for 'gst_cuda_pool_allocator_new'</code></pre>
+
+<p>Creates a new <a href="cuda/gstcudamemory.html#GstCudaPoolAllocator">GstCuda.CudaPoolAllocator</a> instance.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>context</code></em></i>
+<span>(</span><a title="GstCuda.CudaContext" href="cuda/gstcudacontext.html#GstCudaContext">GstCuda.CudaContext</a><span>)</span>
+–
+</div>
+<p>a <a href="cuda/gstcudacontext.html#GstCudaContext">GstCuda.CudaContext</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>stream</code></em></i>
+<span>(</span><a title="GstCuda.CudaStream" href="cuda/gstcudastream.html#GstCudaStream">GstCuda.CudaStream</a><span>)</span>
+–
+</div>
+<p>a <a href="cuda/gstcudastream.html#GstCudaStream">GstCuda.CudaStream</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>info</code></em></i>
+<span>(</span><a title="GstVideo.VideoInfo" href="video/video-info.html#GstVideoInfo">GstVideo.VideoInfo</a><span>)</span>
+–
+</div>
+<p>a <a href="video/video-info.html#GstVideoInfo">GstVideo.VideoInfo</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GstCuda.CudaPoolAllocator" href="cuda/gstcudamemory.html#GstCudaPoolAllocator">GstCuda.CudaPoolAllocator</a><span>)</span>
+–
+			</div>
+							<p>a new <a href="cuda/gstcudamemory.html#GstCudaPoolAllocator">GstCuda.CudaPoolAllocator</a> instance</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.24;" id="gst_cuda_pool_allocator_new_for_virtual_memory">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_cuda_pool_allocator_new_for_virtual_memory">
+	<i>gst_cuda_pool_allocator_new_for_virtual_memory</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GstCudaPoolAllocator" href="cuda/gstcudamemory.html#GstCudaPoolAllocator">GstCudaPoolAllocator</a> *
+gst_cuda_pool_allocator_new_for_virtual_memory (<a title="GstCudaContext" href="cuda/gstcudacontext.html#GstCudaContext">GstCudaContext</a> * context,
+                                                <a title="GstCudaStream" href="cuda/gstcudastream.html#GstCudaStream">GstCudaStream</a> * stream,
+                                                const <a title="GstVideoInfo" href="video/video-info.html#GstVideoInfo">GstVideoInfo</a> * info,
+                                                const CUmemAllocationProp* prop,
+                                                CUmemAllocationGranularity_flags granularity_flags)</pre>
+
+<p>Creates a new <a href="cuda/gstcudamemory.html#GstCudaPoolAllocator">GstCudaPoolAllocator</a> instance for virtual memory allocation.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>context</code></em></i>
+–
+</div>
+<p>a <a href="cuda/gstcudacontext.html#GstCudaContext">GstCudaContext</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>stream</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="NULL is OK, both for passing and returning"><span class="acronym">allow-none</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>a <a href="cuda/gstcudastream.html#GstCudaStream">GstCudaStream</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>info</code></em></i>
+–
+</div>
+<p>a <a href="video/video-info.html#GstVideoInfo">GstVideoInfo</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>prop</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>granularity_flags</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span>
+<span class="annotation">[<abbr title="Free data after the code is done"><span class="acronym">transfer: full</span></abbr>]</span><span>)</span>
+–
+			</div>
+							<p>a new <a href="cuda/gstcudamemory.html#GstCudaPoolAllocator">GstCudaPoolAllocator</a> instance</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_cuda_pool_allocator_new_for_virtual_memory">
+	<i>GstCuda.CudaPoolAllocator.prototype.new_for_virtual_memory</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstCuda.CudaPoolAllocator.prototype.new_for_virtual_memory(context: <a title="GstCuda.CudaContext" href="cuda/gstcudacontext.html#GstCudaContext">GstCuda.CudaContext</a>, stream: <a title="GstCuda.CudaStream" href="cuda/gstcudastream.html#GstCudaStream">GstCuda.CudaStream</a>, info: <a title="GstVideo.VideoInfo" href="video/video-info.html#GstVideoInfo">GstVideo.VideoInfo</a>, prop: CudaGst.memAllocationProp, granularity_flags: CudaGst.memAllocationGranularity_flags): {
+    // javascript wrapper for 'gst_cuda_pool_allocator_new_for_virtual_memory'
+}</code></pre>
+
+<p>Creates a new <a href="cuda/gstcudamemory.html#GstCudaPoolAllocator">GstCuda.CudaPoolAllocator</a> instance for virtual memory allocation.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>context</code></em></i>
+<span>(</span><a title="GstCuda.CudaContext" href="cuda/gstcudacontext.html#GstCudaContext">GstCuda.CudaContext</a><span>)</span>
+–
+</div>
+<p>a <a href="cuda/gstcudacontext.html#GstCudaContext">GstCuda.CudaContext</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>stream</code></em></i>
+<span>(</span><a title="GstCuda.CudaStream" href="cuda/gstcudastream.html#GstCudaStream">GstCuda.CudaStream</a><span>)</span>
+–
+</div>
+<p>a <a href="cuda/gstcudastream.html#GstCudaStream">GstCuda.CudaStream</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>info</code></em></i>
+<span>(</span><a title="GstVideo.VideoInfo" href="video/video-info.html#GstVideoInfo">GstVideo.VideoInfo</a><span>)</span>
+–
+</div>
+<p>a <a href="video/video-info.html#GstVideoInfo">GstVideo.VideoInfo</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>prop</code></em></i>
+<span>(</span>CudaGst.memAllocationProp<span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>granularity_flags</code></em></i>
+<span>(</span>CudaGst.memAllocationGranularity_flags<span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GstCuda.CudaPoolAllocator" href="cuda/gstcudamemory.html#GstCudaPoolAllocator">GstCuda.CudaPoolAllocator</a><span>)</span>
+–
+			</div>
+							<p>a new <a href="cuda/gstcudamemory.html#GstCudaPoolAllocator">GstCuda.CudaPoolAllocator</a> instance</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_cuda_pool_allocator_new_for_virtual_memory">
+	<i>GstCuda.CudaPoolAllocator.new_for_virtual_memory</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstCuda.CudaPoolAllocator.new_for_virtual_memory (context, stream, info, prop, granularity_flags):
+    #python wrapper for 'gst_cuda_pool_allocator_new_for_virtual_memory'</code></pre>
+
+<p>Creates a new <a href="cuda/gstcudamemory.html#GstCudaPoolAllocator">GstCuda.CudaPoolAllocator</a> instance for virtual memory allocation.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>context</code></em></i>
+<span>(</span><a title="GstCuda.CudaContext" href="cuda/gstcudacontext.html#GstCudaContext">GstCuda.CudaContext</a><span>)</span>
+–
+</div>
+<p>a <a href="cuda/gstcudacontext.html#GstCudaContext">GstCuda.CudaContext</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>stream</code></em></i>
+<span>(</span><a title="GstCuda.CudaStream" href="cuda/gstcudastream.html#GstCudaStream">GstCuda.CudaStream</a><span>)</span>
+–
+</div>
+<p>a <a href="cuda/gstcudastream.html#GstCudaStream">GstCuda.CudaStream</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>info</code></em></i>
+<span>(</span><a title="GstVideo.VideoInfo" href="video/video-info.html#GstVideoInfo">GstVideo.VideoInfo</a><span>)</span>
+–
+</div>
+<p>a <a href="video/video-info.html#GstVideoInfo">GstVideo.VideoInfo</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>prop</code></em></i>
+<span>(</span>CudaGst.memAllocationProp<span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>granularity_flags</code></em></i>
+<span>(</span>CudaGst.memAllocationGranularity_flags<span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GstCuda.CudaPoolAllocator" href="cuda/gstcudamemory.html#GstCudaPoolAllocator">GstCuda.CudaPoolAllocator</a><span>)</span>
+–
+			</div>
+							<p>a new <a href="cuda/gstcudamemory.html#GstCudaPoolAllocator">GstCuda.CudaPoolAllocator</a> instance</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.26;" id="gst_cuda_pool_allocator_new_full">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_cuda_pool_allocator_new_full">
+	<i>gst_cuda_pool_allocator_new_full</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GstCudaPoolAllocator" href="cuda/gstcudamemory.html#GstCudaPoolAllocator">GstCudaPoolAllocator</a> *
+gst_cuda_pool_allocator_new_full (<a title="GstCudaContext" href="cuda/gstcudacontext.html#GstCudaContext">GstCudaContext</a> * context,
+                                  <a title="GstCudaStream" href="cuda/gstcudastream.html#GstCudaStream">GstCudaStream</a> * stream,
+                                  const <a title="GstVideoInfo" href="video/video-info.html#GstVideoInfo">GstVideoInfo</a> * info,
+                                  <a title="GstStructure" href="gstreamer/gststructure.html#GstStructure">GstStructure</a> * config)</pre>
+
+<p>Creates a new <a href="cuda/gstcudamemory.html#GstCudaPoolAllocator">GstCudaPoolAllocator</a> instance with given <em>config</em></p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>context</code></em></i>
+–
+</div>
+<p>a <a href="cuda/gstcudacontext.html#GstCudaContext">GstCudaContext</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>stream</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="NULL is OK, both for passing and returning"><span class="acronym">allow-none</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>a <a href="cuda/gstcudastream.html#GstCudaStream">GstCudaStream</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>info</code></em></i>
+–
+</div>
+<p>a <a href="video/video-info.html#GstVideoInfo">GstVideoInfo</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>config</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="Free data after the code is done"><span class="acronym">transfer: full</span></abbr>]</span><span class="annotation">[<abbr title="NULL is OK, both for passing and returning"><span class="acronym">allow-none</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gststructure.html#GstStructure">GstStructure</a> with configuration options</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span>
+<span class="annotation">[<abbr title="Free data after the code is done"><span class="acronym">transfer: full</span></abbr>]</span><span>)</span>
+–
+			</div>
+							<p>a new <a href="cuda/gstcudamemory.html#GstCudaPoolAllocator">GstCudaPoolAllocator</a> instance</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.26
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_cuda_pool_allocator_new_full">
+	<i>GstCuda.CudaPoolAllocator.prototype.new_full</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstCuda.CudaPoolAllocator.prototype.new_full(context: <a title="GstCuda.CudaContext" href="cuda/gstcudacontext.html#GstCudaContext">GstCuda.CudaContext</a>, stream: <a title="GstCuda.CudaStream" href="cuda/gstcudastream.html#GstCudaStream">GstCuda.CudaStream</a>, info: <a title="GstVideo.VideoInfo" href="video/video-info.html#GstVideoInfo">GstVideo.VideoInfo</a>, config: <a title="Gst.Structure" href="gstreamer/gststructure.html#GstStructure">Gst.Structure</a>): {
+    // javascript wrapper for 'gst_cuda_pool_allocator_new_full'
+}</code></pre>
+
+<p>Creates a new <a href="cuda/gstcudamemory.html#GstCudaPoolAllocator">GstCuda.CudaPoolAllocator</a> instance with given <em>config</em></p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>context</code></em></i>
+<span>(</span><a title="GstCuda.CudaContext" href="cuda/gstcudacontext.html#GstCudaContext">GstCuda.CudaContext</a><span>)</span>
+–
+</div>
+<p>a <a href="cuda/gstcudacontext.html#GstCudaContext">GstCuda.CudaContext</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>stream</code></em></i>
+<span>(</span><a title="GstCuda.CudaStream" href="cuda/gstcudastream.html#GstCudaStream">GstCuda.CudaStream</a><span>)</span>
+–
+</div>
+<p>a <a href="cuda/gstcudastream.html#GstCudaStream">GstCuda.CudaStream</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>info</code></em></i>
+<span>(</span><a title="GstVideo.VideoInfo" href="video/video-info.html#GstVideoInfo">GstVideo.VideoInfo</a><span>)</span>
+–
+</div>
+<p>a <a href="video/video-info.html#GstVideoInfo">GstVideo.VideoInfo</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>config</code></em></i>
+<span>(</span><a title="Gst.Structure" href="gstreamer/gststructure.html#GstStructure">Gst.Structure</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gststructure.html#GstStructure">Gst.Structure</a> with configuration options</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GstCuda.CudaPoolAllocator" href="cuda/gstcudamemory.html#GstCudaPoolAllocator">GstCuda.CudaPoolAllocator</a><span>)</span>
+–
+			</div>
+							<p>a new <a href="cuda/gstcudamemory.html#GstCudaPoolAllocator">GstCuda.CudaPoolAllocator</a> instance</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.26
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_cuda_pool_allocator_new_full">
+	<i>GstCuda.CudaPoolAllocator.new_full</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstCuda.CudaPoolAllocator.new_full (context, stream, info, config):
+    #python wrapper for 'gst_cuda_pool_allocator_new_full'</code></pre>
+
+<p>Creates a new <a href="cuda/gstcudamemory.html#GstCudaPoolAllocator">GstCuda.CudaPoolAllocator</a> instance with given <em>config</em></p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>context</code></em></i>
+<span>(</span><a title="GstCuda.CudaContext" href="cuda/gstcudacontext.html#GstCudaContext">GstCuda.CudaContext</a><span>)</span>
+–
+</div>
+<p>a <a href="cuda/gstcudacontext.html#GstCudaContext">GstCuda.CudaContext</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>stream</code></em></i>
+<span>(</span><a title="GstCuda.CudaStream" href="cuda/gstcudastream.html#GstCudaStream">GstCuda.CudaStream</a><span>)</span>
+–
+</div>
+<p>a <a href="cuda/gstcudastream.html#GstCudaStream">GstCuda.CudaStream</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>info</code></em></i>
+<span>(</span><a title="GstVideo.VideoInfo" href="video/video-info.html#GstVideoInfo">GstVideo.VideoInfo</a><span>)</span>
+–
+</div>
+<p>a <a href="video/video-info.html#GstVideoInfo">GstVideo.VideoInfo</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>config</code></em></i>
+<span>(</span><a title="Gst.Structure" href="gstreamer/gststructure.html#GstStructure">Gst.Structure</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gststructure.html#GstStructure">Gst.Structure</a> with configuration options</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GstCuda.CudaPoolAllocator" href="cuda/gstcudamemory.html#GstCudaPoolAllocator">GstCuda.CudaPoolAllocator</a><span>)</span>
+–
+			</div>
+							<p>a new <a href="cuda/gstcudamemory.html#GstCudaPoolAllocator">GstCuda.CudaPoolAllocator</a> instance</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.26
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+
+            <h3 class="symbol_section">Methods</h3>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.24;" id="gst_cuda_pool_allocator_acquire_memory">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_cuda_pool_allocator_acquire_memory">
+	<i>gst_cuda_pool_allocator_acquire_memory</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GstFlowReturn" href="gstreamer/gstpad.html#GstFlowReturn">GstFlowReturn</a>
+gst_cuda_pool_allocator_acquire_memory (<a title="GstCudaPoolAllocator" href="cuda/gstcudamemory.html#GstCudaPoolAllocator">GstCudaPoolAllocator</a> * allocator,
+                                        <a title="GstMemory" href="gstreamer/gstmemory.html#GstMemory">GstMemory</a> ** memory)</pre>
+
+<p>Acquires a <a href="gstreamer/gstmemory.html#GstMemory">GstMemory</a> from <em>allocator</em>. <em>memory</em> should point to a memory
+location that can hold a pointer to the new <a href="gstreamer/gstmemory.html#GstMemory">GstMemory</a>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>allocator</code></em></i>
+–
+</div>
+<p>a <a href="cuda/gstcudamemory.html#GstCudaPoolAllocator">GstCudaPoolAllocator</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>memory</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="Parameter for returning results"><span class="acronym">out</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gstmemory.html#GstMemory">GstMemory</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p>a <a href="gstreamer/gstpad.html#GstFlowReturn">GstFlowReturn</a> such as <a href="gstreamer/gstpad.html#GST_FLOW_FLUSHING">GST_FLOW_FLUSHING</a> when the allocator is
+inactive.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_cuda_pool_allocator_acquire_memory">
+	<i>GstCuda.CudaPoolAllocator.prototype.acquire_memory</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstCuda.CudaPoolAllocator.prototype.acquire_memory(): {
+    // javascript wrapper for 'gst_cuda_pool_allocator_acquire_memory'
+}</code></pre>
+
+<p>Acquires a <a href="gstreamer/gstmemory.html#GstMemory">Gst.Memory</a> from <em>allocator</em>. <em>memory</em> should point to a memory
+location that can hold a pointer to the new <a href="gstreamer/gstmemory.html#GstMemory">Gst.Memory</a>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>allocator</code></em></i>
+<span>(</span><a title="GstCuda.CudaPoolAllocator" href="cuda/gstcudamemory.html#GstCudaPoolAllocator">GstCuda.CudaPoolAllocator</a><span>)</span>
+–
+</div>
+<p>a <a href="cuda/gstcudamemory.html#GstCudaPoolAllocator">GstCuda.CudaPoolAllocator</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<p><b>Returns a tuple made of:</b></p>
+				
+<div class="symbol-detail">
+	<div>
+		<span>(</span><a title="Gst.FlowReturn" href="gstreamer/gstpad.html#GstFlowReturn">Gst.FlowReturn</a>
+<span>)</span>
+–
+	</div>
+			<p>a <a href="gstreamer/gstpad.html#GstFlowReturn">Gst.FlowReturn</a> such as <a href="gstreamer/gstpad.html#GST_FLOW_FLUSHING">Gst.FlowReturn.FLUSHING</a> when the allocator is
+inactive.</p>
+
+	</div>
+
+				
+<div class="symbol-detail">
+	<div>
+				<i><em><code>memory</code></em></i>
+		<span>(</span><a title="Gst.Memory" href="gstreamer/gstmemory.html#GstMemory">Gst.Memory</a>
+<span>)</span>
+–
+	</div>
+			<p>a <a href="gstreamer/gstpad.html#GstFlowReturn">Gst.FlowReturn</a> such as <a href="gstreamer/gstpad.html#GST_FLOW_FLUSHING">Gst.FlowReturn.FLUSHING</a> when the allocator is
+inactive.</p>
+
+	</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_cuda_pool_allocator_acquire_memory">
+	<i>GstCuda.CudaPoolAllocator.acquire_memory</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstCuda.CudaPoolAllocator.acquire_memory (self):
+    #python wrapper for 'gst_cuda_pool_allocator_acquire_memory'</code></pre>
+
+<p>Acquires a <a href="gstreamer/gstmemory.html#GstMemory">Gst.Memory</a> from <em>allocator</em>. <em>memory</em> should point to a memory
+location that can hold a pointer to the new <a href="gstreamer/gstmemory.html#GstMemory">Gst.Memory</a>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>allocator</code></em></i>
+<span>(</span><a title="GstCuda.CudaPoolAllocator" href="cuda/gstcudamemory.html#GstCudaPoolAllocator">GstCuda.CudaPoolAllocator</a><span>)</span>
+–
+</div>
+<p>a <a href="cuda/gstcudamemory.html#GstCudaPoolAllocator">GstCuda.CudaPoolAllocator</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<p><b>Returns a tuple made of:</b></p>
+				
+<div class="symbol-detail">
+	<div>
+		<span>(</span><a title="Gst.FlowReturn" href="gstreamer/gstpad.html#GstFlowReturn">Gst.FlowReturn</a>
+<span>)</span>
+–
+	</div>
+			<p>a <a href="gstreamer/gstpad.html#GstFlowReturn">Gst.FlowReturn</a> such as <a href="gstreamer/gstpad.html#GST_FLOW_FLUSHING">Gst.FlowReturn.FLUSHING</a> when the allocator is
+inactive.</p>
+
+	</div>
+
+				
+<div class="symbol-detail">
+	<div>
+				<i><em><code>memory</code></em></i>
+		<span>(</span><a title="Gst.Memory" href="gstreamer/gstmemory.html#GstMemory">Gst.Memory</a>
+<span>)</span>
+–
+	</div>
+			<p>a <a href="gstreamer/gstpad.html#GstFlowReturn">Gst.FlowReturn</a> such as <a href="gstreamer/gstpad.html#GST_FLOW_FLUSHING">Gst.FlowReturn.FLUSHING</a> when the allocator is
+inactive.</p>
+
+	</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+
+        
+
+            <h2 class="symbol_section">Functions</h2>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.26;" id="gst_cuda_register_allocator_need_pool_callback">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="gst_cuda_register_allocator_need_pool_callback">
+	<i>gst_cuda_register_allocator_need_pool_callback</i>
+</h3>
+
+
+
+
+<pre class="c-prototype language-c">
+gst_cuda_register_allocator_need_pool_callback (<a title="GstCudaMemoryAllocatorNeedPoolCallback" href="cuda/gstcudamemory.html#GstCudaMemoryAllocatorNeedPoolCallback">GstCudaMemoryAllocatorNeedPoolCallback</a> callback,
+                                                <a title="gpointer" href="https://docs.gtk.org/glib/types.html#gpointer">gpointer</a> user_data,
+                                                <a title="GDestroyNotify" href="https://docs.gtk.org/glib/callback.DestroyNotify.html">GDestroyNotify</a> notify)</pre>
+
+<p>Sets global need-pool callback function</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>callback</code></em></i>
+–
+</div>
+<p>the callbacks</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>user_data</code></em></i>
+–
+</div>
+<p>an user_data argument for the callback</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>notify</code></em></i>
+–
+</div>
+<p>a destory notify function</p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.26
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.22;" id="gst_is_cuda_memory">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="gst_is_cuda_memory">
+	<i>gst_is_cuda_memory</i>
+</h3>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a>
+gst_is_cuda_memory (<a title="GstMemory" href="gstreamer/gstmemory.html#GstMemory">GstMemory</a> * mem)</pre>
+
+<p>Check if <em>mem</em> is a cuda memory</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>mem</code></em></i>
+–
+</div>
+<p>A <a href="gstreamer/gstmemory.html#GstMemory">GstMemory</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.22
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3 data-hotdoc-id="gst_is_cuda_memory">
+	<i>GstCuda.prototype.is_cuda_memory</i>
+</h3>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstCuda.prototype.is_cuda_memory(mem: <a title="Gst.Memory" href="gstreamer/gstmemory.html#GstMemory">Gst.Memory</a>): {
+    // javascript wrapper for 'gst_is_cuda_memory'
+}</code></pre>
+
+<p>Check if <em>mem</em> is a cuda memory</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>mem</code></em></i>
+<span>(</span><a title="Gst.Memory" href="gstreamer/gstmemory.html#GstMemory">Gst.Memory</a><span>)</span>
+–
+</div>
+<p>A <a href="gstreamer/gstmemory.html#GstMemory">Gst.Memory</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.22
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3 data-hotdoc-id="gst_is_cuda_memory">
+	<i>GstCuda.is_cuda_memory</i>
+</h3>
+
+
+<pre class="python-prototype language-python">
+<code>def GstCuda.is_cuda_memory (mem):
+    #python wrapper for 'gst_is_cuda_memory'</code></pre>
+
+<p>Check if <em>mem</em> is a cuda memory</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>mem</code></em></i>
+<span>(</span><a title="Gst.Memory" href="gstreamer/gstmemory.html#GstMemory">Gst.Memory</a><span>)</span>
+–
+</div>
+<p>A <a href="gstreamer/gstmemory.html#GstMemory">Gst.Memory</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a><span>)</span>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.22
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+
+            <h2 class="symbol_section">Function Macros</h2>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.22;" id="GST_CUDA_ALLOCATOR_CAST">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_CUDA_ALLOCATOR_CAST">
+	<i>GST_CUDA_ALLOCATOR_CAST</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_CUDA_ALLOCATOR_CAST(obj)        ((GstCudaAllocator *)(obj))
+</pre>
+
+
+
+
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.22
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.22;" id="GST_CUDA_MEMORY_CAST">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_CUDA_MEMORY_CAST">
+	<i>GST_CUDA_MEMORY_CAST</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_CUDA_MEMORY_CAST(mem)           ((GstCudaMemory *) (mem))
+</pre>
+
+
+
+
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.22
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+
+            <h2 class="symbol_section">Enumerations</h2>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.24;" id="GstCudaMemoryAllocMethod">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GstCudaMemoryAllocMethod">
+	<i>GstCudaMemoryAllocMethod</i>
+</h3>
+
+
+<p>CUDA memory allocation method</p>
+
+
+
+
+	<div class="members-container">
+		<h5>Members</h5>
+					
+<div class="symbol-detail" data-hotdoc-id="GST_CUDA_MEMORY_ALLOC_UNKNOWN">
+	<div>
+		<i><em><code>GST_CUDA_MEMORY_ALLOC_UNKNOWN</code></em></i>
+		(<span class="value">0</span>)
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_CUDA_MEMORY_ALLOC_MALLOC">
+	<div>
+		<i><em><code>GST_CUDA_MEMORY_ALLOC_MALLOC</code></em></i>
+		(<span class="value">1</span>)
+		–
+	</div>
+			<p>Memory allocated via cuMemAlloc or cuMemAllocPitch</p>
+
+		(Since: 1.24)
+</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_CUDA_MEMORY_ALLOC_MMAP">
+	<div>
+		<i><em><code>GST_CUDA_MEMORY_ALLOC_MMAP</code></em></i>
+		(<span class="value">2</span>)
+		–
+	</div>
+			<p>Memory allocated via cuMemCreate and cuMemMap</p>
+
+		(Since: 1.24)
+</div>
+
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3 data-hotdoc-id="GstCudaMemoryAllocMethod">
+	<i>GstCuda.CudaMemoryAllocMethod</i>
+</h3>
+
+
+<p>CUDA memory allocation method</p>
+
+
+
+
+	<div class="members-container">
+		<h5>Members</h5>
+					
+<div class="symbol-detail" data-hotdoc-id="GST_CUDA_MEMORY_ALLOC_UNKNOWN">
+	<div>
+		<i><em><code>GstCuda.CudaMemoryAllocMethod.UNKNOWN</code></em></i>
+		(<span class="value">0</span>)
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_CUDA_MEMORY_ALLOC_MALLOC">
+	<div>
+		<i><em><code>GstCuda.CudaMemoryAllocMethod.MALLOC</code></em></i>
+		(<span class="value">1</span>)
+		–
+	</div>
+			<p>Memory allocated via cuMemAlloc or cuMemAllocPitch</p>
+
+		(Since: 1.24)
+</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_CUDA_MEMORY_ALLOC_MMAP">
+	<div>
+		<i><em><code>GstCuda.CudaMemoryAllocMethod.MMAP</code></em></i>
+		(<span class="value">2</span>)
+		–
+	</div>
+			<p>Memory allocated via cuMemCreate and cuMemMap</p>
+
+		(Since: 1.24)
+</div>
+
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3 data-hotdoc-id="GstCudaMemoryAllocMethod">
+	<i>GstCuda.CudaMemoryAllocMethod</i>
+</h3>
+
+
+<p>CUDA memory allocation method</p>
+
+
+
+
+	<div class="members-container">
+		<h5>Members</h5>
+					
+<div class="symbol-detail" data-hotdoc-id="GST_CUDA_MEMORY_ALLOC_UNKNOWN">
+	<div>
+		<i><em><code>GstCuda.CudaMemoryAllocMethod.UNKNOWN</code></em></i>
+		(<span class="value">0</span>)
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_CUDA_MEMORY_ALLOC_MALLOC">
+	<div>
+		<i><em><code>GstCuda.CudaMemoryAllocMethod.MALLOC</code></em></i>
+		(<span class="value">1</span>)
+		–
+	</div>
+			<p>Memory allocated via cuMemAlloc or cuMemAllocPitch</p>
+
+		(Since: 1.24)
+</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_CUDA_MEMORY_ALLOC_MMAP">
+	<div>
+		<i><em><code>GstCuda.CudaMemoryAllocMethod.MMAP</code></em></i>
+		(<span class="value">2</span>)
+		–
+	</div>
+			<p>Memory allocated via cuMemCreate and cuMemMap</p>
+
+		(Since: 1.24)
+</div>
+
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstCudaMemoryTransfer">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GstCudaMemoryTransfer">
+	<i>GstCudaMemoryTransfer</i>
+</h3>
+
+
+<p>CUDA memory transfer flags</p>
+
+
+
+
+	<div class="members-container">
+		<h5>Members</h5>
+					
+<div class="symbol-detail" data-hotdoc-id="GST_CUDA_MEMORY_TRANSFER_NEED_DOWNLOAD">
+	<div>
+		<i><em><code>GST_CUDA_MEMORY_TRANSFER_NEED_DOWNLOAD</code></em></i>
+		(<span class="value">1048576</span>)
+		–
+	</div>
+			<p>the device memory needs downloading to the staging memory</p>
+
+		(Since: 1.22)
+</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_CUDA_MEMORY_TRANSFER_NEED_UPLOAD">
+	<div>
+		<i><em><code>GST_CUDA_MEMORY_TRANSFER_NEED_UPLOAD</code></em></i>
+		(<span class="value">2097152</span>)
+		–
+	</div>
+			<p>the staging memory needs uploading to the device memory</p>
+
+		(Since: 1.22)
+</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_CUDA_MEMORY_TRANSFER_NEED_SYNC">
+	<div>
+		<i><em><code>GST_CUDA_MEMORY_TRANSFER_NEED_SYNC</code></em></i>
+		(<span class="value">4194304</span>)
+		–
+	</div>
+			<p>the device memory needs synchronization</p>
+
+		(Since: 1.24)
+</div>
+
+			</div>
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3 data-hotdoc-id="GstCudaMemoryTransfer">
+	<i>GstCuda.CudaMemoryTransfer</i>
+</h3>
+
+
+<p>CUDA memory transfer flags</p>
+
+
+
+
+	<div class="members-container">
+		<h5>Members</h5>
+					
+<div class="symbol-detail" data-hotdoc-id="GST_CUDA_MEMORY_TRANSFER_NEED_DOWNLOAD">
+	<div>
+		<i><em><code>GstCuda.CudaMemoryTransfer.DOWNLOAD</code></em></i>
+		(<span class="value">1048576</span>)
+		–
+	</div>
+			<p>the device memory needs downloading to the staging memory</p>
+
+		(Since: 1.22)
+</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_CUDA_MEMORY_TRANSFER_NEED_UPLOAD">
+	<div>
+		<i><em><code>GstCuda.CudaMemoryTransfer.UPLOAD</code></em></i>
+		(<span class="value">2097152</span>)
+		–
+	</div>
+			<p>the staging memory needs uploading to the device memory</p>
+
+		(Since: 1.22)
+</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_CUDA_MEMORY_TRANSFER_NEED_SYNC">
+	<div>
+		<i><em><code>GstCuda.CudaMemoryTransfer.SYNC</code></em></i>
+		(<span class="value">4194304</span>)
+		–
+	</div>
+			<p>the device memory needs synchronization</p>
+
+		(Since: 1.24)
+</div>
+
+			</div>
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3 data-hotdoc-id="GstCudaMemoryTransfer">
+	<i>GstCuda.CudaMemoryTransfer</i>
+</h3>
+
+
+<p>CUDA memory transfer flags</p>
+
+
+
+
+	<div class="members-container">
+		<h5>Members</h5>
+					
+<div class="symbol-detail" data-hotdoc-id="GST_CUDA_MEMORY_TRANSFER_NEED_DOWNLOAD">
+	<div>
+		<i><em><code>GstCuda.CudaMemoryTransfer.DOWNLOAD</code></em></i>
+		(<span class="value">1048576</span>)
+		–
+	</div>
+			<p>the device memory needs downloading to the staging memory</p>
+
+		(Since: 1.22)
+</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_CUDA_MEMORY_TRANSFER_NEED_UPLOAD">
+	<div>
+		<i><em><code>GstCuda.CudaMemoryTransfer.UPLOAD</code></em></i>
+		(<span class="value">2097152</span>)
+		–
+	</div>
+			<p>the staging memory needs uploading to the device memory</p>
+
+		(Since: 1.22)
+</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_CUDA_MEMORY_TRANSFER_NEED_SYNC">
+	<div>
+		<i><em><code>GstCuda.CudaMemoryTransfer.SYNC</code></em></i>
+		(<span class="value">4194304</span>)
+		–
+	</div>
+			<p>the device memory needs synchronization</p>
+
+		(Since: 1.24)
+</div>
+
+			</div>
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+
+            <h2 class="symbol_section">Constants</h2>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.22;" id="GST_CAPS_FEATURE_MEMORY_CUDA_MEMORY">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_CAPS_FEATURE_MEMORY_CUDA_MEMORY">
+	<i>GST_CAPS_FEATURE_MEMORY_CUDA_MEMORY</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_CAPS_FEATURE_MEMORY_CUDA_MEMORY "memory:CUDAMemory"
+</pre>
+
+<p>Name of the caps feature for indicating the use of <a href="cuda/gstcudamemory.html#GstCudaMemory">GstCudaMemory</a></p>
+
+
+
+	<p>
+	<b>Since</b>			: 1.22
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3 data-hotdoc-id="GST_CAPS_FEATURE_MEMORY_CUDA_MEMORY">
+	<i>GstCuda.CAPS_FEATURE_MEMORY_CUDA_MEMORY</i>
+</h3>
+
+
+<p>Name of the caps feature for indicating the use of <a href="cuda/gstcudamemory.html#GstCudaMemory">GstCuda.CudaMemory</a></p>
+
+
+
+	<p>
+	<b>Since</b>			: 1.22
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3 data-hotdoc-id="GST_CAPS_FEATURE_MEMORY_CUDA_MEMORY">
+	<i>GstCuda.CAPS_FEATURE_MEMORY_CUDA_MEMORY</i>
+</h3>
+
+
+<p>Name of the caps feature for indicating the use of <a href="cuda/gstcudamemory.html#GstCudaMemory">GstCuda.CudaMemory</a></p>
+
+
+
+	<p>
+	<b>Since</b>			: 1.22
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.26;" id="GST_CUDA_ALLOCATOR_OPT_STREAM_ORDERED">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_CUDA_ALLOCATOR_OPT_STREAM_ORDERED">
+	<i>GST_CUDA_ALLOCATOR_OPT_STREAM_ORDERED</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_CUDA_ALLOCATOR_OPT_STREAM_ORDERED "GstCudaAllocator.stream-ordered"
+</pre>
+
+<p><a href="https://web.mit.edu/barnowl/share/gtk-doc/html/gobject/gobject-Type-Information.html#G-TYPE-BOOLEAN:CAPS">G_TYPE_BOOLEAN</a> Allows stream ordered allocation. Default is <a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#FALSE:CAPS">FALSE</a></p>
+
+
+
+	<p>
+	<b>Since</b>			: 1.26
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3 data-hotdoc-id="GST_CUDA_ALLOCATOR_OPT_STREAM_ORDERED">
+	<i>GstCuda.CUDA_ALLOCATOR_OPT_STREAM_ORDERED</i>
+</h3>
+
+
+<p><a href="https://web.mit.edu/barnowl/share/gtk-doc/html/gobject/gobject-Type-Information.html#G-TYPE-BOOLEAN:CAPS">G_TYPE_BOOLEAN (not introspectable)</a> Allows stream ordered allocation. Default is <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">false</a></p>
+
+
+
+	<p>
+	<b>Since</b>			: 1.26
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3 data-hotdoc-id="GST_CUDA_ALLOCATOR_OPT_STREAM_ORDERED">
+	<i>GstCuda.CUDA_ALLOCATOR_OPT_STREAM_ORDERED</i>
+</h3>
+
+
+<p><a href="https://web.mit.edu/barnowl/share/gtk-doc/html/gobject/gobject-Type-Information.html#G-TYPE-BOOLEAN:CAPS">G_TYPE_BOOLEAN (not introspectable)</a> Allows stream ordered allocation. Default is <a href="https://docs.python.org/3/library/constants.html#False">False</a></p>
+
+
+
+	<p>
+	<b>Since</b>			: 1.26
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.22;" id="GST_CUDA_MEMORY_TYPE_NAME">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_CUDA_MEMORY_TYPE_NAME">
+	<i>GST_CUDA_MEMORY_TYPE_NAME</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_CUDA_MEMORY_TYPE_NAME "gst.cuda.memory"
+</pre>
+
+<p>Name of cuda memory type</p>
+
+
+
+	<p>
+	<b>Since</b>			: 1.22
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3 data-hotdoc-id="GST_CUDA_MEMORY_TYPE_NAME">
+	<i>GstCuda.CUDA_MEMORY_TYPE_NAME</i>
+</h3>
+
+
+<p>Name of cuda memory type</p>
+
+
+
+	<p>
+	<b>Since</b>			: 1.22
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3 data-hotdoc-id="GST_CUDA_MEMORY_TYPE_NAME">
+	<i>GstCuda.CUDA_MEMORY_TYPE_NAME</i>
+</h3>
+
+
+<p>Name of cuda memory type</p>
+
+
+
+	<p>
+	<b>Since</b>			: 1.22
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.22;" id="GST_MAP_CUDA">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_MAP_CUDA">
+	<i>GST_MAP_CUDA</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_MAP_CUDA (GST_MAP_FLAG_LAST &lt;&lt; 1)
+</pre>
+
+<p>Flag indicating that we should map the CUDA device memory
+instead of to system memory.</p>
+<p>Combining <a href="cuda/gstcudamemory.html#GST_MAP_CUDA">GST_MAP_CUDA</a> with <a href="gstreamer/gstmemory.html#GST_MAP_WRITE">GST_MAP_WRITE</a> has the same semantics as though
+you are writing to CUDA device/host memory.
+Conversely, combining <a href="cuda/gstcudamemory.html#GST_MAP_CUDA">GST_MAP_CUDA</a> with
+<a href="gstreamer/gstmemory.html#GST_MAP_READ">GST_MAP_READ</a> has the same semantics as though you are reading from
+CUDA device/host memory</p>
+
+
+
+	<p>
+	<b>Since</b>			: 1.22
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3 data-hotdoc-id="GST_MAP_CUDA">
+	<i>GstCuda.MAP_CUDA</i>
+</h3>
+
+
+<p>Flag indicating that we should map the CUDA device memory
+instead of to system memory.</p>
+<p>Combining <a href="cuda/gstcudamemory.html#GST_MAP_CUDA">GstCuda.MAP_CUDA</a> with <a href="gstreamer/gstmemory.html#GST_MAP_WRITE">Gst.MapFlags.WRITE</a> has the same semantics as though
+you are writing to CUDA device/host memory.
+Conversely, combining <a href="cuda/gstcudamemory.html#GST_MAP_CUDA">GstCuda.MAP_CUDA</a> with
+<a href="gstreamer/gstmemory.html#GST_MAP_READ">Gst.MapFlags.READ</a> has the same semantics as though you are reading from
+CUDA device/host memory</p>
+
+
+
+	<p>
+	<b>Since</b>			: 1.22
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3 data-hotdoc-id="GST_MAP_CUDA">
+	<i>GstCuda.MAP_CUDA</i>
+</h3>
+
+
+<p>Flag indicating that we should map the CUDA device memory
+instead of to system memory.</p>
+<p>Combining <a href="cuda/gstcudamemory.html#GST_MAP_CUDA">GstCuda.MAP_CUDA</a> with <a href="gstreamer/gstmemory.html#GST_MAP_WRITE">Gst.MapFlags.WRITE</a> has the same semantics as though
+you are writing to CUDA device/host memory.
+Conversely, combining <a href="cuda/gstcudamemory.html#GST_MAP_CUDA">GstCuda.MAP_CUDA</a> with
+<a href="gstreamer/gstmemory.html#GST_MAP_READ">Gst.MapFlags.READ</a> has the same semantics as though you are reading from
+CUDA device/host memory</p>
+
+
+
+	<p>
+	<b>Since</b>			: 1.22
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.28;" id="GST_MAP_READ_CUDA">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_MAP_READ_CUDA">
+	<i>GST_MAP_READ_CUDA</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_MAP_READ_CUDA ((GstMapFlags) (GST_MAP_READ | GST_MAP_CUDA))
+</pre>
+
+<p>GstMapFlags value alias for GST_MAP_READ | GST_MAP_CUDA</p>
+
+
+
+	<p>
+	<b>Since</b>			: 1.28
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3 data-hotdoc-id="GST_MAP_READ_CUDA">
+	<i>GstCuda.MAP_READ_CUDA</i>
+</h3>
+
+
+<p>GstMapFlags value alias for GST_MAP_READ | GST_MAP_CUDA</p>
+
+
+
+	<p>
+	<b>Since</b>			: 1.28
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3 data-hotdoc-id="GST_MAP_READ_CUDA">
+	<i>GstCuda.MAP_READ_CUDA</i>
+</h3>
+
+
+<p>GstMapFlags value alias for GST_MAP_READ | GST_MAP_CUDA</p>
+
+
+
+	<p>
+	<b>Since</b>			: 1.28
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.28;" id="GST_MAP_WRITE_CUDA">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_MAP_WRITE_CUDA">
+	<i>GST_MAP_WRITE_CUDA</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_MAP_WRITE_CUDA ((GstMapFlags) (GST_MAP_WRITE | GST_MAP_CUDA))
+</pre>
+
+<p>GstMapFlags value alias for GST_MAP_WRITE | GST_MAP_CUDA</p>
+
+
+
+	<p>
+	<b>Since</b>			: 1.28
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3 data-hotdoc-id="GST_MAP_WRITE_CUDA">
+	<i>GstCuda.MAP_WRITE_CUDA</i>
+</h3>
+
+
+<p>GstMapFlags value alias for GST_MAP_WRITE | GST_MAP_CUDA</p>
+
+
+
+	<p>
+	<b>Since</b>			: 1.28
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3 data-hotdoc-id="GST_MAP_WRITE_CUDA">
+	<i>GstCuda.MAP_WRITE_CUDA</i>
+</h3>
+
+
+<p>GstMapFlags value alias for GST_MAP_WRITE | GST_MAP_CUDA</p>
+
+
+
+	<p>
+	<b>Since</b>			: 1.28
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+
+            <h2 class="symbol_section">Callbacks</h2>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.26;" id="GstCudaMemoryAllocatorNeedPoolCallback">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GstCudaMemoryAllocatorNeedPoolCallback">
+	<i>GstCudaMemoryAllocatorNeedPoolCallback</i>
+</h3>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GstCudaMemoryPool" href="cuda/gstcudamemorypool.html#GstCudaMemoryPool">GstCudaMemoryPool</a> *
+(*GstCudaMemoryAllocatorNeedPoolCallback) (<a title="GstCudaAllocator" href="cuda/gstcudamemory.html#GstCudaAllocator">GstCudaAllocator</a> * allocator,
+                                           <a title="GstCudaContext" href="cuda/gstcudacontext.html#GstCudaContext">GstCudaContext</a> * context,
+                                           <a title="gpointer" href="https://docs.gtk.org/glib/types.html#gpointer">gpointer</a> user_data)</pre>
+
+<p>Called to request cuda memory pool object. If callee returns a memory pool,
+<em>allocator</em> will allocate memory via cuMemAllocFromPoolAsync.
+Otherwise device default memory pool will be used with cuMemAllocAsync method</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>allocator</code></em></i>
+–
+</div>
+<p>a <a href="cuda/gstcudamemory.html#GstCudaAllocator">GstCudaAllocator</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>context</code></em></i>
+–
+</div>
+<p>a <a href="cuda/gstcudacontext.html#GstCudaContext">GstCudaContext</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>user_data</code></em></i>
+–
+</div>
+<p>the user data</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span>
+<span class="annotation">[<abbr title="Free data after the code is done"><span class="acronym">transfer: full</span></abbr>]</span><span class="annotation">[<abbr title="NULL may be passed to the value"><span class="acronym">nullable</span></abbr>]</span><span>)</span>
+–
+			</div>
+							<p>Configured <a href="cuda/gstcudamemorypool.html#GstCudaMemoryPool">GstCudaMemoryPool</a> object</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.26
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+
+
+
+
+
+		
+	</div>
+	<div id="search_results">
+		<p>The results of the search are</p>
+	</div>
+	<div id="footer">
+		    
+
+	</div>
+</div>
+
+<div id="toc-column">
+	
+		<div class="edit-button">
+		
+
+	</div>
+		<div id="toc-wrapper">
+		<nav id="toc"></nav>
+	</div>
+</div>
+</div>
+</main>
+
+
+<script src="assets/js/navbar_offset_scroller.js"></script>
+</body>
+</html>

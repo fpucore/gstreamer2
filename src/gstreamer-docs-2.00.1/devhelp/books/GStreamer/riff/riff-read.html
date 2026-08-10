@@ -1,0 +1,964 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<base href="..">
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<title>riff read</title>
+
+<link rel="stylesheet" href="assets/css/dark-frontend.css" type="text/css" title="dark">
+<link rel="alternate stylesheet" href="assets/css/light-frontend.css" type="text/css" title="light">
+<link rel="stylesheet" href="assets/css/bootstrap-toc.min.css" type="text/css">
+<link rel="stylesheet" href="assets/css/jquery.mCustomScrollbar.min.css">
+<link rel="stylesheet" href="assets/js/search/enable_search.css" type="text/css">
+
+<link rel="stylesheet" href="assets/css/extra_frontend.css" type="text/css">
+<link rel="stylesheet" href="assets/css/devhelp.css" type="text/css">
+
+<link rel="stylesheet" href="assets/css/prism-tomorrow.css" type="text/css" title="dark">
+
+<link rel="alternate stylesheet" href="assets/css/prism.css" type="text/css" title="light">
+
+<script src="assets/js/mustache.min.js"></script>
+<script src="assets/js/jquery.js"></script>
+<script src="assets/js/bootstrap.js"></script>
+<script src="assets/js/scrollspy.js"></script>
+<script src="assets/js/typeahead.jquery.min.js"></script>
+<script src="assets/js/search.js"></script>
+<script src="assets/js/compare-versions.js"></script>
+<script src="assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="assets/js/bootstrap-toc.min.js"></script>
+<script src="assets/js/jquery.touchSwipe.min.js"></script>
+<script src="assets/js/anchor.min.js"></script>
+<script src="assets/js/tag_filtering.js"></script>
+<script src="assets/js/language_switching.js"></script>
+<script src="assets/js/styleswitcher.js"></script>
+
+<script src="assets/js/lines_around_headings.js"></script>
+
+<script src="assets/js/prism-core.js"></script>
+<script src="assets/js/prism-autoloader.js"></script>
+<script src="assets/js/prism_autoloader_path_override.js"></script>
+<script src="assets/js/trie.js"></script>
+
+<!-- generic -->
+<link rel="icon" type="image/png" href="assets/images/favicon-16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="assets/images/favicon-32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="assets/images/favicon-57.png" sizes="57x57">
+<link rel="icon" type="image/png" href="assets/images/favicon-64.png" sizes="64x64">
+<link rel="icon" type="image/png" href="assets/images/favicon-76.png" sizes="76x76">
+<link rel="icon" type="image/png" href="assets/images/favicon-96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="assets/images/favicon-128.png" sizes="128x128">
+<link rel="icon" type="image/png" href="assets/images/favicon-192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="assets/images/favicon-228.png" sizes="228x228">
+
+<!-- Android -->
+<link rel="shortcut icon" sizes="196x196" href="assets/images/favicon-196.png">
+
+<!-- iOS -->
+<link rel="apple-touch-icon" href="assets/images/favicon-120.png" sizes="120x120">
+<link rel="apple-touch-icon" href="assets/images/favicon-152.png" sizes="152x152">
+<link rel="apple-touch-icon" href="assets/images/favicon-180.png" sizes="180x180">
+
+</head>
+
+<body class="no-script
+">
+
+<script>
+$('body').removeClass('no-script');
+</script>
+
+<nav class="navbar navbar-fixed-top navbar-default" id="topnav">
+	<div class="container-fluid">
+		<div class="navbar-right">
+			<a id="toc-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-wrapper" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<span title="light mode switch" class="glyphicon glyphicon-sunglasses pull-right" id="lightmode-icon"></span>
+			<form class="navbar-form pull-right" id="navbar-search-form">
+                               <div class="form-group has-feedback">
+                                       <input type="text" class="form-control input-sm" name="search" id="sidenav-lookup-field" placeholder="search" disabled>
+				       <span class="glyphicon glyphicon-search form-control-feedback" id="search-mgn-glass"></span>
+                               </div>
+                        </form>
+		</div>
+		<div class="navbar-header">
+			<a id="sidenav-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<a id="home-link" href="index.html" class="hotdoc-navbar-brand">
+				<img src="assets/images/gstreamer-logo.svg" alt="Home">
+			</a>
+		</div>
+		<div class="navbar-collapse collapse" id="navbar-wrapper">
+			<ul class="nav navbar-nav" id="menu">
+				
+<li class="dropdown">
+    <a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        API References<span class="caret"></span>
+    </a>
+	<ul class="dropdown-menu" id="modules-menu">
+					<li>
+				<a href="gstreamer/gi-index.html">GStreamer core</a>
+			</li>
+					<li>
+				<a href="libs.html">GStreamer Libraries</a>
+			</li>
+					<li>
+				<a href="plugins_doc.html">GStreamer Plugins</a>
+			</li>
+		</ul>
+</li>
+
+<li>
+    <a href="application-development/index.html">Application manual</a>
+</li>
+
+
+<li>
+    <a href="tutorials/index.html">Tutorials</a>
+</li>
+
+			</ul>
+			<div class="hidden-xs hidden-sm navbar-text navbar-center">
+							</div>
+		</div>
+	</div>
+</nav>
+
+<main>
+<div data-extension="c-extension" data-hotdoc-in-toplevel="False" data-hotdoc-project="riff" data-hotdoc-ref="riff-read.html" class="page_container" id="page-wrapper" data-hotdoc-meta-gi-languages="['c', 'javascript', 'python']">
+<script src="assets/js/utils.js"></script>
+
+<div class="panel panel-collapse oc-collapsed" id="sidenav" data-hotdoc-role="navigation">
+	<script src="assets/js/full-width.js"></script>
+  <div id="sitenav-wrapper">
+    <iframe src="hotdoc-sitemap.html" id="sitenav-frame"></iframe>
+  </div>
+</div>
+
+<div id="body">
+	<div id="main">
+				    <div id="page-description" data-hotdoc-role="main">
+    </div>
+        
+
+            <h2 class="symbol_section">Functions</h2>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_riff_init">
+	
+
+
+
+<h3 data-hotdoc-id="gst_riff_init">
+	<i>gst_riff_init</i>
+</h3>
+
+
+
+
+<pre class="c-prototype language-c">
+void 
+gst_riff_init ()</pre>
+
+<p>Initialize riff library.</p>
+
+
+
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span>void <span>)</span>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_riff_parse_chunk">
+	
+
+
+
+<h3 data-hotdoc-id="gst_riff_parse_chunk">
+	<i>gst_riff_parse_chunk</i>
+</h3>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#bool" data-gi-title-python="bool">gboolean</a>
+gst_riff_parse_chunk (<a title="GstElement" href="gstreamer/gstelement.html#GstElement" data-gi-href-javascript="gstreamer/gstelement.html#GstElement" data-gi-title-javascript="Gst.Element" data-gi-href-python="gstreamer/gstelement.html#GstElement" data-gi-title-python="Gst.Element">GstElement</a> * element,
+                      <a title="GstBuffer" href="gstreamer/gstbuffer.html#GstBuffer" data-gi-href-javascript="gstreamer/gstbuffer.html#GstBuffer" data-gi-title-javascript="Gst.Buffer" data-gi-href-python="gstreamer/gstbuffer.html#GstBuffer" data-gi-title-python="Gst.Buffer">GstBuffer</a> * buf,
+                      <a title="guint" href="https://docs.gtk.org/glib/types.html#guint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">guint</a> * offset,
+                      <a title="guint32" href="https://docs.gtk.org/glib/types.html#guint32" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">guint32</a> * fourcc,
+                      <a title="GstBuffer" href="gstreamer/gstbuffer.html#GstBuffer" data-gi-href-javascript="gstreamer/gstbuffer.html#GstBuffer" data-gi-title-javascript="Gst.Buffer" data-gi-href-python="gstreamer/gstbuffer.html#GstBuffer" data-gi-title-python="Gst.Buffer">GstBuffer</a> ** chunk_data)</pre>
+
+<p>Reads a single chunk.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>element</code></em></i>
+–
+</div>
+<p>caller element (used for debugging).</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>buf</code></em></i>
+–
+</div>
+<p>input buffer.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>offset</code></em></i>
+–
+</div>
+<p>offset in the buffer in the caller. Is incremented
+by the read size by this function.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>fourcc</code></em></i>
+–
+</div>
+<p>fourcc (returned by this function0 of the chunk.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>chunk_data</code></em></i>
+–
+</div>
+<p>buffer (returned by the function) containing the
+chunk data, which may be NULL if chunksize == 0</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#bool" data-gi-title-python="bool">gboolean</a><span>)</span>
+–
+			</div>
+							<p>FALSE on error, TRUE otherwise</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_riff_parse_file_header">
+	
+
+
+
+<h3 data-hotdoc-id="gst_riff_parse_file_header">
+	<i>gst_riff_parse_file_header</i>
+</h3>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#bool" data-gi-title-python="bool">gboolean</a>
+gst_riff_parse_file_header (<a title="GstElement" href="gstreamer/gstelement.html#GstElement" data-gi-href-javascript="gstreamer/gstelement.html#GstElement" data-gi-title-javascript="Gst.Element" data-gi-href-python="gstreamer/gstelement.html#GstElement" data-gi-title-python="Gst.Element">GstElement</a> * element,
+                            <a title="GstBuffer" href="gstreamer/gstbuffer.html#GstBuffer" data-gi-href-javascript="gstreamer/gstbuffer.html#GstBuffer" data-gi-title-javascript="Gst.Buffer" data-gi-href-python="gstreamer/gstbuffer.html#GstBuffer" data-gi-title-python="Gst.Buffer">GstBuffer</a> * buf,
+                            <a title="guint32" href="https://docs.gtk.org/glib/types.html#guint32" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">guint32</a> * doctype)</pre>
+
+<p>Reads the first few bytes from the provided buffer, checks
+if this stream is a RIFF stream, and determines document type.
+This function takes ownership of <em>buf</em> so it should not be used anymore
+after calling this function.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>element</code></em></i>
+–
+</div>
+<p>caller element (used for debugging/error).</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>buf</code></em></i>
+–
+</div>
+<p>input buffer from which the file header will be parsed,
+should be at least 12 bytes long.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>doctype</code></em></i>
+–
+</div>
+<p>a fourcc (returned by this function) to indicate the
+type of document (according to the header).</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#bool" data-gi-title-python="bool">gboolean</a><span>)</span>
+–
+			</div>
+							<p>FALSE if this is not a RIFF stream (in which case the
+caller should error out; we already throw an error), or TRUE
+if it is.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_riff_parse_info">
+	
+
+
+
+<h3 data-hotdoc-id="gst_riff_parse_info">
+	<i>gst_riff_parse_info</i>
+</h3>
+
+
+
+
+<pre class="c-prototype language-c">
+void 
+gst_riff_parse_info (<a title="GstElement" href="gstreamer/gstelement.html#GstElement" data-gi-href-javascript="gstreamer/gstelement.html#GstElement" data-gi-title-javascript="Gst.Element" data-gi-href-python="gstreamer/gstelement.html#GstElement" data-gi-title-python="Gst.Element">GstElement</a> * element,
+                     <a title="GstBuffer" href="gstreamer/gstbuffer.html#GstBuffer" data-gi-href-javascript="gstreamer/gstbuffer.html#GstBuffer" data-gi-title-javascript="Gst.Buffer" data-gi-href-python="gstreamer/gstbuffer.html#GstBuffer" data-gi-title-python="Gst.Buffer">GstBuffer</a> * buf,
+                     <a title="GstTagList" href="gstreamer/gsttaglist.html#GstTagList" data-gi-href-javascript="gstreamer/gsttaglist.html#GstTagList" data-gi-title-javascript="Gst.TagList" data-gi-href-python="gstreamer/gsttaglist.html#GstTagList" data-gi-title-python="Gst.TagList">GstTagList</a> ** taglist)</pre>
+
+<p>Parses stream metadata from input data.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>element</code></em></i>
+–
+</div>
+<p>caller element (used for debugging/error).</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>buf</code></em></i>
+–
+</div>
+<p>input data to be used for parsing, stripped from header.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>taglist</code></em></i>
+–
+</div>
+<p>a pointer to a taglist (returned by this function)
+containing information about this stream. May be
+NULL if no supported tags were found.</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span>void <span>)</span>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_riff_parse_strf_auds">
+	
+
+
+
+<h3 data-hotdoc-id="gst_riff_parse_strf_auds">
+	<i>gst_riff_parse_strf_auds</i>
+</h3>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#bool" data-gi-title-python="bool">gboolean</a>
+gst_riff_parse_strf_auds (<a title="GstElement" href="gstreamer/gstelement.html#GstElement" data-gi-href-javascript="gstreamer/gstelement.html#GstElement" data-gi-title-javascript="Gst.Element" data-gi-href-python="gstreamer/gstelement.html#GstElement" data-gi-title-python="Gst.Element">GstElement</a> * element,
+                          <a title="GstBuffer" href="gstreamer/gstbuffer.html#GstBuffer" data-gi-href-javascript="gstreamer/gstbuffer.html#GstBuffer" data-gi-title-javascript="Gst.Buffer" data-gi-href-python="gstreamer/gstbuffer.html#GstBuffer" data-gi-title-python="Gst.Buffer">GstBuffer</a> * buf,
+                          <a title="gst_riff_strf_auds" href="riff/riff-ids.html#gst_riff_strf_auds">gst_riff_strf_auds</a> ** strf,
+                          <a title="GstBuffer" href="gstreamer/gstbuffer.html#GstBuffer" data-gi-href-javascript="gstreamer/gstbuffer.html#GstBuffer" data-gi-title-javascript="Gst.Buffer" data-gi-href-python="gstreamer/gstbuffer.html#GstBuffer" data-gi-title-python="Gst.Buffer">GstBuffer</a> ** data)</pre>
+
+<p>Parses an audio stream's strf structure plus optionally some
+extradata from input data. This function takes ownership of <em>buf</em>.
+use.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>element</code></em></i>
+–
+</div>
+<p>caller element (used for debugging/error).</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>buf</code></em></i>
+–
+</div>
+<p>input data to be used for parsing, stripped from header.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>strf</code></em></i>
+–
+</div>
+<p>a pointer (returned by this function) to a filled-in
+strf/auds structure. Caller should free it.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>data</code></em></i>
+–
+</div>
+<p>a pointer (returned by this function) to a buffer
+containing extradata for this particular stream (e.g.
+codec initialization data).</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#bool" data-gi-title-python="bool">gboolean</a><span>)</span>
+–
+			</div>
+							<p>TRUE if parsing succeeded, otherwise FALSE. The stream
+should be skipped on error, but it is not fatal.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_riff_parse_strf_iavs">
+	
+
+
+
+<h3 data-hotdoc-id="gst_riff_parse_strf_iavs">
+	<i>gst_riff_parse_strf_iavs</i>
+</h3>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#bool" data-gi-title-python="bool">gboolean</a>
+gst_riff_parse_strf_iavs (<a title="GstElement" href="gstreamer/gstelement.html#GstElement" data-gi-href-javascript="gstreamer/gstelement.html#GstElement" data-gi-title-javascript="Gst.Element" data-gi-href-python="gstreamer/gstelement.html#GstElement" data-gi-title-python="Gst.Element">GstElement</a> * element,
+                          <a title="GstBuffer" href="gstreamer/gstbuffer.html#GstBuffer" data-gi-href-javascript="gstreamer/gstbuffer.html#GstBuffer" data-gi-title-javascript="Gst.Buffer" data-gi-href-python="gstreamer/gstbuffer.html#GstBuffer" data-gi-title-python="Gst.Buffer">GstBuffer</a> * buf,
+                          <a title="gst_riff_strf_iavs" href="riff/riff-ids.html#gst_riff_strf_iavs">gst_riff_strf_iavs</a> ** strf,
+                          <a title="GstBuffer" href="gstreamer/gstbuffer.html#GstBuffer" data-gi-href-javascript="gstreamer/gstbuffer.html#GstBuffer" data-gi-title-javascript="Gst.Buffer" data-gi-href-python="gstreamer/gstbuffer.html#GstBuffer" data-gi-title-python="Gst.Buffer">GstBuffer</a> ** data)</pre>
+
+<p>Parses a interleaved (also known as "complex")  stream´s strf
+structure plus optionally some extradata from input data. This
+function takes ownership of <em>buf</em>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>element</code></em></i>
+–
+</div>
+<p>caller element (used for debugging/error).</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>buf</code></em></i>
+–
+</div>
+<p>input data to be used for parsing, stripped from header.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>strf</code></em></i>
+–
+</div>
+<p>a pointer (returned by this function) to a filled-in
+strf/iavs structure. Caller should free it.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>data</code></em></i>
+–
+</div>
+<p>a pointer (returned by this function) to a buffer
+containing extradata for this particular stream (e.g.
+codec initialization data).</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#bool" data-gi-title-python="bool">gboolean</a><span>)</span>
+–
+			</div>
+							<p>TRUE if parsing succeeded, otherwise FALSE.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_riff_parse_strf_vids">
+	
+
+
+
+<h3 data-hotdoc-id="gst_riff_parse_strf_vids">
+	<i>gst_riff_parse_strf_vids</i>
+</h3>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#bool" data-gi-title-python="bool">gboolean</a>
+gst_riff_parse_strf_vids (<a title="GstElement" href="gstreamer/gstelement.html#GstElement" data-gi-href-javascript="gstreamer/gstelement.html#GstElement" data-gi-title-javascript="Gst.Element" data-gi-href-python="gstreamer/gstelement.html#GstElement" data-gi-title-python="Gst.Element">GstElement</a> * element,
+                          <a title="GstBuffer" href="gstreamer/gstbuffer.html#GstBuffer" data-gi-href-javascript="gstreamer/gstbuffer.html#GstBuffer" data-gi-title-javascript="Gst.Buffer" data-gi-href-python="gstreamer/gstbuffer.html#GstBuffer" data-gi-title-python="Gst.Buffer">GstBuffer</a> * buf,
+                          <a title="gst_riff_strf_vids" href="riff/riff-ids.html#gst_riff_strf_vids">gst_riff_strf_vids</a> ** strf,
+                          <a title="GstBuffer" href="gstreamer/gstbuffer.html#GstBuffer" data-gi-href-javascript="gstreamer/gstbuffer.html#GstBuffer" data-gi-title-javascript="Gst.Buffer" data-gi-href-python="gstreamer/gstbuffer.html#GstBuffer" data-gi-title-python="Gst.Buffer">GstBuffer</a> ** data)</pre>
+
+<p>Parses a video stream's strf structure plus optionally some
+extradata from input data. This function takes ownership of <em>buf</em>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>element</code></em></i>
+–
+</div>
+<p>caller element (used for debugging/error).</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>buf</code></em></i>
+–
+</div>
+<p>input data to be used for parsing, stripped from header.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>strf</code></em></i>
+–
+</div>
+<p>a pointer (returned by this function) to a filled-in
+strf/vids structure. Caller should free it.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>data</code></em></i>
+–
+</div>
+<p>a pointer (returned by this function) to a buffer
+containing extradata for this particular stream (e.g.
+palette, codec initialization data).</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#bool" data-gi-title-python="bool">gboolean</a><span>)</span>
+–
+			</div>
+							<p>TRUE if parsing succeeded, otherwise FALSE. The stream
+should be skipped on error, but it is not fatal.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_riff_parse_strh">
+	
+
+
+
+<h3 data-hotdoc-id="gst_riff_parse_strh">
+	<i>gst_riff_parse_strh</i>
+</h3>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#bool" data-gi-title-python="bool">gboolean</a>
+gst_riff_parse_strh (<a title="GstElement" href="gstreamer/gstelement.html#GstElement" data-gi-href-javascript="gstreamer/gstelement.html#GstElement" data-gi-title-javascript="Gst.Element" data-gi-href-python="gstreamer/gstelement.html#GstElement" data-gi-title-python="Gst.Element">GstElement</a> * element,
+                     <a title="GstBuffer" href="gstreamer/gstbuffer.html#GstBuffer" data-gi-href-javascript="gstreamer/gstbuffer.html#GstBuffer" data-gi-title-javascript="Gst.Buffer" data-gi-href-python="gstreamer/gstbuffer.html#GstBuffer" data-gi-title-python="Gst.Buffer">GstBuffer</a> * buf,
+                     <a title="gst_riff_strh" href="riff/riff-ids.html#gst_riff_strh">gst_riff_strh</a> ** strh)</pre>
+
+<p>Parses a strh structure from input data. Takes ownership of <em>buf</em>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>element</code></em></i>
+–
+</div>
+<p>caller element (used for debugging/error).</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>buf</code></em></i>
+–
+</div>
+<p>input data to be used for parsing, stripped from header.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>strh</code></em></i>
+–
+</div>
+<p>a pointer (returned by this function) to a filled-in
+strh structure. Caller should free it.</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#bool" data-gi-title-python="bool">gboolean</a><span>)</span>
+–
+			</div>
+							<p>TRUE if parsing succeeded, otherwise FALSE. The stream
+should be skipped on error, but it is not fatal.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_riff_read_chunk">
+	
+
+
+
+<h3 data-hotdoc-id="gst_riff_read_chunk">
+	<i>gst_riff_read_chunk</i>
+</h3>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GstFlowReturn" href="gstreamer/gstpad.html#GstFlowReturn" data-gi-href-javascript="gstreamer/gstpad.html#GstFlowReturn" data-gi-title-javascript="Gst.FlowReturn" data-gi-href-python="gstreamer/gstpad.html#GstFlowReturn" data-gi-title-python="Gst.FlowReturn">GstFlowReturn</a>
+gst_riff_read_chunk (<a title="GstElement" href="gstreamer/gstelement.html#GstElement" data-gi-href-javascript="gstreamer/gstelement.html#GstElement" data-gi-title-javascript="Gst.Element" data-gi-href-python="gstreamer/gstelement.html#GstElement" data-gi-title-python="Gst.Element">GstElement</a> * element,
+                     <a title="GstPad" href="gstreamer/gstpad.html#GstPad" data-gi-href-javascript="gstreamer/gstpad.html#GstPad" data-gi-title-javascript="Gst.Pad" data-gi-href-python="gstreamer/gstpad.html#GstPad" data-gi-title-python="Gst.Pad">GstPad</a> * pad,
+                     <a title="guint64" href="https://docs.gtk.org/glib/types.html#guint64" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">guint64</a> * offset,
+                     <a title="guint32" href="https://docs.gtk.org/glib/types.html#guint32" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">guint32</a> * tag,
+                     <a title="GstBuffer" href="gstreamer/gstbuffer.html#GstBuffer" data-gi-href-javascript="gstreamer/gstbuffer.html#GstBuffer" data-gi-title-javascript="Gst.Buffer" data-gi-href-python="gstreamer/gstbuffer.html#GstBuffer" data-gi-title-python="Gst.Buffer">GstBuffer</a> ** chunk_data)</pre>
+
+<p>Reads a single chunk of data. 'JUNK' chunks are skipped
+automatically.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>element</code></em></i>
+–
+</div>
+<p>caller element (used for debugging).</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>pad</code></em></i>
+–
+</div>
+<p>pad to pull data from.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>offset</code></em></i>
+–
+</div>
+<p>offset to pull from, incremented by this function.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>tag</code></em></i>
+–
+</div>
+<p>fourcc of the chunk (returned by this function).</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>chunk_data</code></em></i>
+–
+</div>
+<p>buffer (returned by this function).</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GstFlowReturn" href="gstreamer/gstpad.html#GstFlowReturn" data-gi-href-javascript="gstreamer/gstpad.html#GstFlowReturn" data-gi-title-javascript="Gst.FlowReturn" data-gi-href-python="gstreamer/gstpad.html#GstFlowReturn" data-gi-title-python="Gst.FlowReturn">GstFlowReturn</a><span>)</span>
+–
+			</div>
+							<p>flow status.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+
+
+
+
+		
+	</div>
+	<div id="search_results">
+		<p>The results of the search are</p>
+	</div>
+	<div id="footer">
+		    
+
+	</div>
+</div>
+
+<div id="toc-column">
+	
+		<div class="edit-button">
+		
+
+	</div>
+		<div id="toc-wrapper">
+		<nav id="toc"></nav>
+	</div>
+</div>
+</div>
+</main>
+
+
+<script src="assets/js/navbar_offset_scroller.js"></script>
+</body>
+</html>

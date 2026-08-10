@@ -1,0 +1,2339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<base href="..">
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<title>GstVPXEnc</title>
+
+<link rel="stylesheet" href="assets/css/dark-frontend.css" type="text/css" title="dark">
+<link rel="alternate stylesheet" href="assets/css/light-frontend.css" type="text/css" title="light">
+<link rel="stylesheet" href="assets/css/bootstrap-toc.min.css" type="text/css">
+<link rel="stylesheet" href="assets/css/jquery.mCustomScrollbar.min.css">
+<link rel="stylesheet" href="assets/js/search/enable_search.css" type="text/css">
+
+<link rel="stylesheet" href="assets/css/extra_frontend.css" type="text/css">
+<link rel="stylesheet" href="assets/css/devhelp.css" type="text/css">
+
+<link rel="stylesheet" href="assets/css/prism-tomorrow.css" type="text/css" title="dark">
+
+<link rel="alternate stylesheet" href="assets/css/prism.css" type="text/css" title="light">
+
+<script src="assets/js/mustache.min.js"></script>
+<script src="assets/js/jquery.js"></script>
+<script src="assets/js/bootstrap.js"></script>
+<script src="assets/js/scrollspy.js"></script>
+<script src="assets/js/typeahead.jquery.min.js"></script>
+<script src="assets/js/search.js"></script>
+<script src="assets/js/compare-versions.js"></script>
+<script src="assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="assets/js/bootstrap-toc.min.js"></script>
+<script src="assets/js/jquery.touchSwipe.min.js"></script>
+<script src="assets/js/anchor.min.js"></script>
+<script src="assets/js/tag_filtering.js"></script>
+<script src="assets/js/language_switching.js"></script>
+<script src="assets/js/styleswitcher.js"></script>
+
+<script src="assets/js/lines_around_headings.js"></script>
+
+<script src="assets/js/prism-core.js"></script>
+<script src="assets/js/prism-autoloader.js"></script>
+<script src="assets/js/prism_autoloader_path_override.js"></script>
+<script src="assets/js/trie.js"></script>
+
+<!-- generic -->
+<link rel="icon" type="image/png" href="assets/images/favicon-16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="assets/images/favicon-32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="assets/images/favicon-57.png" sizes="57x57">
+<link rel="icon" type="image/png" href="assets/images/favicon-64.png" sizes="64x64">
+<link rel="icon" type="image/png" href="assets/images/favicon-76.png" sizes="76x76">
+<link rel="icon" type="image/png" href="assets/images/favicon-96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="assets/images/favicon-128.png" sizes="128x128">
+<link rel="icon" type="image/png" href="assets/images/favicon-192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="assets/images/favicon-228.png" sizes="228x228">
+
+<!-- Android -->
+<link rel="shortcut icon" sizes="196x196" href="assets/images/favicon-196.png">
+
+<!-- iOS -->
+<link rel="apple-touch-icon" href="assets/images/favicon-120.png" sizes="120x120">
+<link rel="apple-touch-icon" href="assets/images/favicon-152.png" sizes="152x152">
+<link rel="apple-touch-icon" href="assets/images/favicon-180.png" sizes="180x180">
+
+</head>
+
+<body class="no-script
+">
+
+<script>
+$('body').removeClass('no-script');
+</script>
+
+<nav class="navbar navbar-fixed-top navbar-default" id="topnav">
+	<div class="container-fluid">
+		<div class="navbar-right">
+			<a id="toc-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-wrapper" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<span title="light mode switch" class="glyphicon glyphicon-sunglasses pull-right" id="lightmode-icon"></span>
+			<form class="navbar-form pull-right" id="navbar-search-form">
+                               <div class="form-group has-feedback">
+                                       <input type="text" class="form-control input-sm" name="search" id="sidenav-lookup-field" placeholder="search" disabled>
+				       <span class="glyphicon glyphicon-search form-control-feedback" id="search-mgn-glass"></span>
+                               </div>
+                        </form>
+		</div>
+		<div class="navbar-header">
+			<a id="sidenav-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<a id="home-link" href="index.html" class="hotdoc-navbar-brand">
+				<img src="assets/images/gstreamer-logo.svg" alt="Home">
+			</a>
+		</div>
+		<div class="navbar-collapse collapse" id="navbar-wrapper">
+			<ul class="nav navbar-nav" id="menu">
+				
+<li class="dropdown">
+    <a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        API References<span class="caret"></span>
+    </a>
+	<ul class="dropdown-menu" id="modules-menu">
+					<li>
+				<a href="gstreamer/gi-index.html">GStreamer core</a>
+			</li>
+					<li>
+				<a href="libs.html">GStreamer Libraries</a>
+			</li>
+					<li>
+				<a href="plugins_doc.html">GStreamer Plugins</a>
+			</li>
+		</ul>
+</li>
+
+<li>
+    <a href="application-development/index.html">Application manual</a>
+</li>
+
+
+<li>
+    <a href="tutorials/index.html">Tutorials</a>
+</li>
+
+			</ul>
+			<div class="hidden-xs hidden-sm navbar-text navbar-center">
+							</div>
+		</div>
+	</div>
+</nav>
+
+<main>
+<div data-extension="gst-extension" data-hotdoc-in-toplevel="False" data-hotdoc-project="vpx" data-hotdoc-ref="GstVPXEnc.html" class="page_container" id="page-wrapper" data-hotdoc-meta-gi-languages="['c', 'javascript', 'python']">
+<script src="assets/js/utils.js"></script>
+
+<div class="panel panel-collapse oc-collapsed" id="sidenav" data-hotdoc-role="navigation">
+	<script src="assets/js/full-width.js"></script>
+  <div id="sitenav-wrapper">
+    <iframe src="hotdoc-sitemap.html" id="sitenav-frame"></iframe>
+  </div>
+</div>
+
+<div id="body">
+	<div id="main">
+				    <div id="page-description" data-hotdoc-role="main">
+    </div>
+        
+        
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstVPXEnc">
+	
+
+
+
+<h2 data-hotdoc-id="GstVPXEnc">
+	<i>GstVPXEnc</i>
+</h2>
+
+
+<div class="hierarchy_container">
+	<div class="hierarchy_details">
+<pre>
+<a title="GObject" href="https://docs.gtk.org/gobject/class.Object.html" data-gi-href-javascript="https://docs.gtk.org/gobject/class.Object.html" data-gi-title-javascript="GObject.Object" data-gi-href-python="https://docs.gtk.org/gobject/class.Object.html" data-gi-title-python="GObject.Object">GObject</a>
+    <span class="lineart">╰──</span><a title="GInitiallyUnowned" href="https://docs.gtk.org/gobject/class.InitiallyUnowned.html" data-gi-href-javascript="https://docs.gtk.org/gobject/class.InitiallyUnowned.html" data-gi-title-javascript="GObject.InitiallyUnowned" data-gi-href-python="https://docs.gtk.org/gobject/class.InitiallyUnowned.html" data-gi-title-python="GObject.InitiallyUnowned">GInitiallyUnowned</a>
+        <span class="lineart">╰──</span><a title="GstObject" href="gstreamer/gstobject.html#GstObject" data-gi-href-javascript="gstreamer/gstobject.html#GstObject" data-gi-title-javascript="Gst.Object" data-gi-href-python="gstreamer/gstobject.html#GstObject" data-gi-title-python="Gst.Object">GstObject</a>
+            <span class="lineart">╰──</span><a title="GstElement" href="gstreamer/gstelement.html#GstElement" data-gi-href-javascript="gstreamer/gstelement.html#GstElement" data-gi-title-javascript="Gst.Element" data-gi-href-python="gstreamer/gstelement.html#GstElement" data-gi-title-python="Gst.Element">GstElement</a>
+                <span class="lineart">╰──</span><a title="GstVideoEncoder" href="video/gstvideoencoder.html#GstVideoEncoder" data-gi-href-javascript="video/gstvideoencoder.html#GstVideoEncoder" data-gi-title-javascript="GstVideo.VideoEncoder" data-gi-href-python="video/gstvideoencoder.html#GstVideoEncoder" data-gi-title-python="GstVideo.VideoEncoder">GstVideoEncoder</a>
+                    <span class="lineart">╰──</span>GstVPXEnc
+</pre>
+
+</div>
+
+</div>
+
+
+
+
+
+
+
+<hr>
+
+</div>
+
+
+            <h3 class="symbol_section">Properties</h3>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstVPXEnc:arnr-maxframes">
+	
+
+
+
+<h4 data-hotdoc-id="GstVPXEnc:arnr-maxframes">
+	<i>arnr-maxframes</i>
+</h4>
+
+
+<pre class="property_signature">
+“arnr-maxframes” <span class="type"><a title="gint" href="https://docs.gtk.org/glib/types.html#gint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">gint</a></span>
+</pre>
+
+<p>AltRef maximum number of frames</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	0
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstVPXEnc:arnr-strength">
+	
+
+
+
+<h4 data-hotdoc-id="GstVPXEnc:arnr-strength">
+	<i>arnr-strength</i>
+</h4>
+
+
+<pre class="property_signature">
+“arnr-strength” <span class="type"><a title="gint" href="https://docs.gtk.org/glib/types.html#gint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">gint</a></span>
+</pre>
+
+<p>AltRef strength</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	3
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstVPXEnc:arnr-type">
+	
+
+
+
+<h4 data-hotdoc-id="GstVPXEnc:arnr-type">
+	<i>arnr-type</i>
+</h4>
+
+
+<pre class="property_signature">
+“arnr-type” <span class="type"><a title="gint" href="https://docs.gtk.org/glib/types.html#gint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">gint</a></span>
+</pre>
+
+<p>AltRef type</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	3
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstVPXEnc:auto-alt-ref">
+	
+
+
+
+<h4 data-hotdoc-id="GstVPXEnc:auto-alt-ref">
+	<i>auto-alt-ref</i>
+</h4>
+
+
+<pre class="property_signature">
+“auto-alt-ref” <span class="type"><a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#bool" data-gi-title-python="bool">gboolean</a></span>
+</pre>
+
+<p>Automatically generate AltRef frames</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	false
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstVPXEnc:bits-per-pixel">
+	
+
+
+
+<h4 data-hotdoc-id="GstVPXEnc:bits-per-pixel">
+	<i>bits-per-pixel</i>
+</h4>
+
+
+<pre class="property_signature">
+“bits-per-pixel” <span class="type"><a title="gfloat" href="https://docs.gtk.org/glib/types.html#gfloat" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#float" data-gi-title-python="float">gfloat</a></span>
+</pre>
+
+<p>Factor to convert number of pixels to bitrate value (only has an effect if target-bitrate=0)</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	0.0434
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstVPXEnc:buffer-initial-size">
+	
+
+
+
+<h4 data-hotdoc-id="GstVPXEnc:buffer-initial-size">
+	<i>buffer-initial-size</i>
+</h4>
+
+
+<pre class="property_signature">
+“buffer-initial-size” <span class="type"><a title="gint" href="https://docs.gtk.org/glib/types.html#gint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">gint</a></span>
+</pre>
+
+<p>Initial client buffer size (ms)</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	4000
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstVPXEnc:buffer-optimal-size">
+	
+
+
+
+<h4 data-hotdoc-id="GstVPXEnc:buffer-optimal-size">
+	<i>buffer-optimal-size</i>
+</h4>
+
+
+<pre class="property_signature">
+“buffer-optimal-size” <span class="type"><a title="gint" href="https://docs.gtk.org/glib/types.html#gint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">gint</a></span>
+</pre>
+
+<p>Optimal client buffer size (ms)</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	5000
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstVPXEnc:buffer-size">
+	
+
+
+
+<h4 data-hotdoc-id="GstVPXEnc:buffer-size">
+	<i>buffer-size</i>
+</h4>
+
+
+<pre class="property_signature">
+“buffer-size” <span class="type"><a title="gint" href="https://docs.gtk.org/glib/types.html#gint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">gint</a></span>
+</pre>
+
+<p>Client buffer size (ms)</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	6000
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstVPXEnc:cpu-used">
+	
+
+
+
+<h4 data-hotdoc-id="GstVPXEnc:cpu-used">
+	<i>cpu-used</i>
+</h4>
+
+
+<pre class="property_signature">
+“cpu-used” <span class="type"><a title="gint" href="https://docs.gtk.org/glib/types.html#gint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">gint</a></span>
+</pre>
+
+<p>CPU used</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	0
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstVPXEnc:cq-level">
+	
+
+
+
+<h4 data-hotdoc-id="GstVPXEnc:cq-level">
+	<i>cq-level</i>
+</h4>
+
+
+<pre class="property_signature">
+“cq-level” <span class="type"><a title="gint" href="https://docs.gtk.org/glib/types.html#gint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">gint</a></span>
+</pre>
+
+<p>Constrained quality level</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	10
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstVPXEnc:deadline">
+	
+
+
+
+<h4 data-hotdoc-id="GstVPXEnc:deadline">
+	<i>deadline</i>
+</h4>
+
+
+<pre class="property_signature">
+“deadline” <span class="type"><a title="gint64" href="https://docs.gtk.org/glib/types.html#gint64" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">gint64</a></span>
+</pre>
+
+<p>Deadline per frame (usec, 0=best, 1=realtime)</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	1000000
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstVPXEnc:dropframe-threshold">
+	
+
+
+
+<h4 data-hotdoc-id="GstVPXEnc:dropframe-threshold">
+	<i>dropframe-threshold</i>
+</h4>
+
+
+<pre class="property_signature">
+“dropframe-threshold” <span class="type"><a title="gint" href="https://docs.gtk.org/glib/types.html#gint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">gint</a></span>
+</pre>
+
+<p>Temporal resampling threshold (buf %%)</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	0
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstVPXEnc:end-usage">
+	
+
+
+
+<h4 data-hotdoc-id="GstVPXEnc:end-usage">
+	<i>end-usage</i>
+</h4>
+
+
+<pre class="property_signature">
+“end-usage” <span class="type"><a title="Vpxenc-end-usage" href="vpx/GstVPXEnc.html#GstVPXEncEndUsage">Vpxenc-end-usage</a> <span class="pointer-token">*</span></span>
+</pre>
+
+<p>Rate control mode</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	vbr (0)
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstVPXEnc:error-resilient">
+	
+
+
+
+<h4 data-hotdoc-id="GstVPXEnc:error-resilient">
+	<i>error-resilient</i>
+</h4>
+
+
+<pre class="property_signature">
+“error-resilient” <span class="type"><a title="Vpxenc-er-flags" href="vpx/GstVPXEnc.html#GstVPXEncErFlags">Vpxenc-er-flags</a> <span class="pointer-token">*</span></span>
+</pre>
+
+<p>Error resilience flags</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	(none)
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstVPXEnc:horizontal-scaling-mode">
+	
+
+
+
+<h4 data-hotdoc-id="GstVPXEnc:horizontal-scaling-mode">
+	<i>horizontal-scaling-mode</i>
+</h4>
+
+
+<pre class="property_signature">
+“horizontal-scaling-mode” <span class="type"><a title="GstVPXEncScalingMode" href="vpx/GstVPXEnc.html#GstVPXEncScalingMode">GstVPXEncScalingMode</a> <span class="pointer-token">*</span></span>
+</pre>
+
+<p>Horizontal scaling mode</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	normal (0)
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstVPXEnc:keyframe-max-dist">
+	
+
+
+
+<h4 data-hotdoc-id="GstVPXEnc:keyframe-max-dist">
+	<i>keyframe-max-dist</i>
+</h4>
+
+
+<pre class="property_signature">
+“keyframe-max-dist” <span class="type"><a title="gint" href="https://docs.gtk.org/glib/types.html#gint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">gint</a></span>
+</pre>
+
+<p>Maximum distance between keyframes (number of frames)</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	128
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstVPXEnc:keyframe-mode">
+	
+
+
+
+<h4 data-hotdoc-id="GstVPXEnc:keyframe-mode">
+	<i>keyframe-mode</i>
+</h4>
+
+
+<pre class="property_signature">
+“keyframe-mode” <span class="type"><a title="Vpxenc-kf-mode" href="vpx/GstVPXEnc.html#GstVPXEncKfMode">Vpxenc-kf-mode</a> <span class="pointer-token">*</span></span>
+</pre>
+
+<p>Keyframe placement</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	auto (1)
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstVPXEnc:lag-in-frames">
+	
+
+
+
+<h4 data-hotdoc-id="GstVPXEnc:lag-in-frames">
+	<i>lag-in-frames</i>
+</h4>
+
+
+<pre class="property_signature">
+“lag-in-frames” <span class="type"><a title="gint" href="https://docs.gtk.org/glib/types.html#gint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">gint</a></span>
+</pre>
+
+<p>Maximum number of frames to lag</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	0
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstVPXEnc:max-intra-bitrate">
+	
+
+
+
+<h4 data-hotdoc-id="GstVPXEnc:max-intra-bitrate">
+	<i>max-intra-bitrate</i>
+</h4>
+
+
+<pre class="property_signature">
+“max-intra-bitrate” <span class="type"><a title="gint" href="https://docs.gtk.org/glib/types.html#gint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">gint</a></span>
+</pre>
+
+<p>Maximum Intra frame bitrate</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	0
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstVPXEnc:max-quantizer">
+	
+
+
+
+<h4 data-hotdoc-id="GstVPXEnc:max-quantizer">
+	<i>max-quantizer</i>
+</h4>
+
+
+<pre class="property_signature">
+“max-quantizer” <span class="type"><a title="gint" href="https://docs.gtk.org/glib/types.html#gint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">gint</a></span>
+</pre>
+
+<p>Maximum Quantizer (worst)</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	63
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstVPXEnc:min-quantizer">
+	
+
+
+
+<h4 data-hotdoc-id="GstVPXEnc:min-quantizer">
+	<i>min-quantizer</i>
+</h4>
+
+
+<pre class="property_signature">
+“min-quantizer” <span class="type"><a title="gint" href="https://docs.gtk.org/glib/types.html#gint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">gint</a></span>
+</pre>
+
+<p>Minimum Quantizer (best)</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	4
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstVPXEnc:multipass-cache-file">
+	
+
+
+
+<h4 data-hotdoc-id="GstVPXEnc:multipass-cache-file">
+	<i>multipass-cache-file</i>
+</h4>
+
+
+<pre class="property_signature">
+“multipass-cache-file” <span class="type"><a title="gchararray" href="https://web.mit.edu/barnowl/share/gtk-doc/html/gobject/gobject-Standard-Parameter-and-Value-Types.html#gchararray" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" data-gi-title-javascript="String" data-gi-href-python="https://docs.python.org/3/library/functions.html#func-str" data-gi-title-python="str">gchararray</a></span>
+</pre>
+
+<p>Multipass cache file. If stream caps reinited, multiple files will be created: file, file.1, file.2, ... and so on.</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	multipass.cache
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstVPXEnc:multipass-mode">
+	
+
+
+
+<h4 data-hotdoc-id="GstVPXEnc:multipass-mode">
+	<i>multipass-mode</i>
+</h4>
+
+
+<pre class="property_signature">
+“multipass-mode” <span class="type"><a title="Vpxenc-multipass-mode" href="vpx/GstVPXEnc.html#GstVPXEncMultipassMode">Vpxenc-multipass-mode</a> <span class="pointer-token">*</span></span>
+</pre>
+
+<p>Multipass encode mode</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	one-pass (0)
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstVPXEnc:noise-sensitivity">
+	
+
+
+
+<h4 data-hotdoc-id="GstVPXEnc:noise-sensitivity">
+	<i>noise-sensitivity</i>
+</h4>
+
+
+<pre class="property_signature">
+“noise-sensitivity” <span class="type"><a title="gint" href="https://docs.gtk.org/glib/types.html#gint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">gint</a></span>
+</pre>
+
+<p>Noise sensisivity (frames to blur)</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	0
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstVPXEnc:overshoot">
+	
+
+
+
+<h4 data-hotdoc-id="GstVPXEnc:overshoot">
+	<i>overshoot</i>
+</h4>
+
+
+<pre class="property_signature">
+“overshoot” <span class="type"><a title="gint" href="https://docs.gtk.org/glib/types.html#gint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">gint</a></span>
+</pre>
+
+<p>Datarate overshoot (max) target (%%)</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	100
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstVPXEnc:resize-allowed">
+	
+
+
+
+<h4 data-hotdoc-id="GstVPXEnc:resize-allowed">
+	<i>resize-allowed</i>
+</h4>
+
+
+<pre class="property_signature">
+“resize-allowed” <span class="type"><a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#bool" data-gi-title-python="bool">gboolean</a></span>
+</pre>
+
+<p>Allow spatial resampling</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	false
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstVPXEnc:resize-down-threshold">
+	
+
+
+
+<h4 data-hotdoc-id="GstVPXEnc:resize-down-threshold">
+	<i>resize-down-threshold</i>
+</h4>
+
+
+<pre class="property_signature">
+“resize-down-threshold” <span class="type"><a title="gint" href="https://docs.gtk.org/glib/types.html#gint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">gint</a></span>
+</pre>
+
+<p>Downscale threshold (buf %%)</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	60
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstVPXEnc:resize-up-threshold">
+	
+
+
+
+<h4 data-hotdoc-id="GstVPXEnc:resize-up-threshold">
+	<i>resize-up-threshold</i>
+</h4>
+
+
+<pre class="property_signature">
+“resize-up-threshold” <span class="type"><a title="gint" href="https://docs.gtk.org/glib/types.html#gint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">gint</a></span>
+</pre>
+
+<p>Upscale threshold (buf %%)</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	30
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstVPXEnc:sharpness">
+	
+
+
+
+<h4 data-hotdoc-id="GstVPXEnc:sharpness">
+	<i>sharpness</i>
+</h4>
+
+
+<pre class="property_signature">
+“sharpness” <span class="type"><a title="gint" href="https://docs.gtk.org/glib/types.html#gint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">gint</a></span>
+</pre>
+
+<p>Filter sharpness</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	0
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstVPXEnc:static-threshold">
+	
+
+
+
+<h4 data-hotdoc-id="GstVPXEnc:static-threshold">
+	<i>static-threshold</i>
+</h4>
+
+
+<pre class="property_signature">
+“static-threshold” <span class="type"><a title="gint" href="https://docs.gtk.org/glib/types.html#gint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">gint</a></span>
+</pre>
+
+<p>Motion detection threshold. Recommendation is to set 100 for screen/window sharing</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	1
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstVPXEnc:target-bitrate">
+	
+
+
+
+<h4 data-hotdoc-id="GstVPXEnc:target-bitrate">
+	<i>target-bitrate</i>
+</h4>
+
+
+<pre class="property_signature">
+“target-bitrate” <span class="type"><a title="gint" href="https://docs.gtk.org/glib/types.html#gint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">gint</a></span>
+</pre>
+
+<p>Target bitrate (in bits/sec) (0: auto - bitrate depends on resolution, see "bits-per-pixel" property for more info)</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	0
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="GstVPXEnc:temporal-scalability-layer-flags">
+	
+
+
+
+<h4 data-hotdoc-id="GstVPXEnc:temporal-scalability-layer-flags">
+	<i>temporal-scalability-layer-flags</i>
+</h4>
+
+
+<pre class="property_signature">
+“temporal-scalability-layer-flags” <span class="type"><a title="GstValueArray" href="gstreamer/gstvalue.html#GstValueArray" data-gi-href-javascript="gstreamer/gstvalue.html#GstValueArray" data-gi-title-javascript="Gst.ValueArray" data-gi-href-python="gstreamer/gstvalue.html#GstValueArray" data-gi-title-python="Gst.ValueArray">GstValueArray</a> <span class="pointer-token">*</span></span>
+</pre>
+
+<p>Sequence defining coding layer flags</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstVPXEnc:temporal-scalability-layer-id">
+	
+
+
+
+<h4 data-hotdoc-id="GstVPXEnc:temporal-scalability-layer-id">
+	<i>temporal-scalability-layer-id</i>
+</h4>
+
+
+<pre class="property_signature">
+“temporal-scalability-layer-id” <span class="type"><a title="GValueArray" href="https://docs.gtk.org/gobject/struct.ValueArray.html" data-gi-href-javascript="https://docs.gtk.org/gobject/struct.ValueArray.html" data-gi-title-javascript="GObject.ValueArray" data-gi-href-python="https://docs.gtk.org/gobject/struct.ValueArray.html" data-gi-title-python="GObject.ValueArray">GValueArray</a> <span class="pointer-token">*</span></span>
+</pre>
+
+<p>Sequence defining coding layer membership</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="GstVPXEnc:temporal-scalability-layer-sync-flags">
+	
+
+
+
+<h4 data-hotdoc-id="GstVPXEnc:temporal-scalability-layer-sync-flags">
+	<i>temporal-scalability-layer-sync-flags</i>
+</h4>
+
+
+<pre class="property_signature">
+“temporal-scalability-layer-sync-flags” <span class="type"><a title="GstValueArray" href="gstreamer/gstvalue.html#GstValueArray" data-gi-href-javascript="gstreamer/gstvalue.html#GstValueArray" data-gi-title-javascript="Gst.ValueArray" data-gi-href-python="gstreamer/gstvalue.html#GstValueArray" data-gi-title-python="Gst.ValueArray">GstValueArray</a> <span class="pointer-token">*</span></span>
+</pre>
+
+<p>Sequence defining coding layer sync flags</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstVPXEnc:temporal-scalability-number-layers">
+	
+
+
+
+<h4 data-hotdoc-id="GstVPXEnc:temporal-scalability-number-layers">
+	<i>temporal-scalability-number-layers</i>
+</h4>
+
+
+<pre class="property_signature">
+“temporal-scalability-number-layers” <span class="type"><a title="gint" href="https://docs.gtk.org/glib/types.html#gint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">gint</a></span>
+</pre>
+
+<p>Number of coding layers to use</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	1
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstVPXEnc:temporal-scalability-periodicity">
+	
+
+
+
+<h4 data-hotdoc-id="GstVPXEnc:temporal-scalability-periodicity">
+	<i>temporal-scalability-periodicity</i>
+</h4>
+
+
+<pre class="property_signature">
+“temporal-scalability-periodicity” <span class="type"><a title="gint" href="https://docs.gtk.org/glib/types.html#gint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">gint</a></span>
+</pre>
+
+<p>Length of sequence that defines layer membership periodicity</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	0
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstVPXEnc:temporal-scalability-rate-decimator">
+	
+
+
+
+<h4 data-hotdoc-id="GstVPXEnc:temporal-scalability-rate-decimator">
+	<i>temporal-scalability-rate-decimator</i>
+</h4>
+
+
+<pre class="property_signature">
+“temporal-scalability-rate-decimator” <span class="type"><a title="GValueArray" href="https://docs.gtk.org/gobject/struct.ValueArray.html" data-gi-href-javascript="https://docs.gtk.org/gobject/struct.ValueArray.html" data-gi-title-javascript="GObject.ValueArray" data-gi-href-python="https://docs.gtk.org/gobject/struct.ValueArray.html" data-gi-title-python="GObject.ValueArray">GValueArray</a> <span class="pointer-token">*</span></span>
+</pre>
+
+<p>Rate decimation factors for each layer</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstVPXEnc:temporal-scalability-target-bitrate">
+	
+
+
+
+<h4 data-hotdoc-id="GstVPXEnc:temporal-scalability-target-bitrate">
+	<i>temporal-scalability-target-bitrate</i>
+</h4>
+
+
+<pre class="property_signature">
+“temporal-scalability-target-bitrate” <span class="type"><a title="GValueArray" href="https://docs.gtk.org/gobject/struct.ValueArray.html" data-gi-href-javascript="https://docs.gtk.org/gobject/struct.ValueArray.html" data-gi-title-javascript="GObject.ValueArray" data-gi-href-python="https://docs.gtk.org/gobject/struct.ValueArray.html" data-gi-title-python="GObject.ValueArray">GValueArray</a> <span class="pointer-token">*</span></span>
+</pre>
+
+<p>Target bitrates (bits/sec) for coding layers (one per layer)</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstVPXEnc:threads">
+	
+
+
+
+<h4 data-hotdoc-id="GstVPXEnc:threads">
+	<i>threads</i>
+</h4>
+
+
+<pre class="property_signature">
+“threads” <span class="type"><a title="gint" href="https://docs.gtk.org/glib/types.html#gint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">gint</a></span>
+</pre>
+
+<p>Number of threads to use</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	0
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstVPXEnc:timebase">
+	
+
+
+
+<h4 data-hotdoc-id="GstVPXEnc:timebase">
+	<i>timebase</i>
+</h4>
+
+
+<pre class="property_signature">
+“timebase” <span class="type"><a title="GstFraction" href="gstreamer/gstvalue.html#GstFraction" data-gi-href-javascript="gstreamer/gstvalue.html#GstFraction" data-gi-title-javascript="Gst.Fraction" data-gi-href-python="gstreamer/gstvalue.html#GstFraction" data-gi-title-python="Gst.Fraction">GstFraction</a> <span class="pointer-token">*</span></span>
+</pre>
+
+<p>Fraction of one second that is the shortest interframe time - normally left as zero which will default to the framerate</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	0/1
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstVPXEnc:token-partitions">
+	
+
+
+
+<h4 data-hotdoc-id="GstVPXEnc:token-partitions">
+	<i>token-partitions</i>
+</h4>
+
+
+<pre class="property_signature">
+“token-partitions” <span class="type"><a title="Vpxenc-token-partitions" href="vpx/GstVPXEnc.html#GstVPXEncTokenPartitions">Vpxenc-token-partitions</a> <span class="pointer-token">*</span></span>
+</pre>
+
+<p>Number of token partitions</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	1 (0)
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstVPXEnc:tuning">
+	
+
+
+
+<h4 data-hotdoc-id="GstVPXEnc:tuning">
+	<i>tuning</i>
+</h4>
+
+
+<pre class="property_signature">
+“tuning” <span class="type"><a title="Vpxenc-tuning" href="vpx/GstVPXEnc.html#GstVPXEncTuning">Vpxenc-tuning</a> <span class="pointer-token">*</span></span>
+</pre>
+
+<p>Tuning</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	psnr (0)
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstVPXEnc:twopass-vbr-bias">
+	
+
+
+
+<h4 data-hotdoc-id="GstVPXEnc:twopass-vbr-bias">
+	<i>twopass-vbr-bias</i>
+</h4>
+
+
+<pre class="property_signature">
+“twopass-vbr-bias” <span class="type"><a title="gint" href="https://docs.gtk.org/glib/types.html#gint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">gint</a></span>
+</pre>
+
+<p>CBR/VBR bias (0=CBR, 100=VBR)</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	50
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstVPXEnc:twopass-vbr-maxsection">
+	
+
+
+
+<h4 data-hotdoc-id="GstVPXEnc:twopass-vbr-maxsection">
+	<i>twopass-vbr-maxsection</i>
+</h4>
+
+
+<pre class="property_signature">
+“twopass-vbr-maxsection” <span class="type"><a title="gint" href="https://docs.gtk.org/glib/types.html#gint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">gint</a></span>
+</pre>
+
+<p>GOP maximum bitrate (%% target)</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	0
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstVPXEnc:twopass-vbr-minsection">
+	
+
+
+
+<h4 data-hotdoc-id="GstVPXEnc:twopass-vbr-minsection">
+	<i>twopass-vbr-minsection</i>
+</h4>
+
+
+<pre class="property_signature">
+“twopass-vbr-minsection” <span class="type"><a title="gint" href="https://docs.gtk.org/glib/types.html#gint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">gint</a></span>
+</pre>
+
+<p>GOP minimum bitrate (%% target)</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	0
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstVPXEnc:undershoot">
+	
+
+
+
+<h4 data-hotdoc-id="GstVPXEnc:undershoot">
+	<i>undershoot</i>
+</h4>
+
+
+<pre class="property_signature">
+“undershoot” <span class="type"><a title="gint" href="https://docs.gtk.org/glib/types.html#gint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">gint</a></span>
+</pre>
+
+<p>Datarate undershoot (min) target (%%)</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	100
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstVPXEnc:vertical-scaling-mode">
+	
+
+
+
+<h4 data-hotdoc-id="GstVPXEnc:vertical-scaling-mode">
+	<i>vertical-scaling-mode</i>
+</h4>
+
+
+<pre class="property_signature">
+“vertical-scaling-mode” <span class="type"><a title="GstVPXEncScalingMode" href="vpx/GstVPXEnc.html#GstVPXEncScalingMode">GstVPXEncScalingMode</a> <span class="pointer-token">*</span></span>
+</pre>
+
+<p>Vertical scaling mode</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	normal (0)
+</p>
+
+
+
+<hr>
+
+</div>
+
+
+            <h3 class="symbol_section">Named constants</h3>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstVPXEncEndUsage">
+	
+
+
+
+<h4 data-hotdoc-id="GstVPXEncEndUsage">
+	<i>Vpxenc-end-usage</i>
+</h4>
+
+
+
+
+
+	<div class="members-container">
+		<h5>Members</h5>
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstVPXEncEndUsage::vbr">
+        <code>vbr</code> (<i>0</i>) – Variable Bit Rate (VBR) mode
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstVPXEncEndUsage::cbr">
+        <code>cbr</code> (<i>1</i>) – Constant Bit Rate (CBR) mode
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstVPXEncEndUsage::cq">
+        <code>cq</code> (<i>2</i>) – Constant Quality Mode (CQ) mode
+        </div>
+    
+			</div>
+
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstVPXEncErFlags">
+	
+
+
+
+<h4 data-hotdoc-id="GstVPXEncErFlags">
+	<i>Vpxenc-er-flags</i>
+</h4>
+
+
+
+
+
+	<div class="members-container">
+		<h5>Members</h5>
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstVPXEncErFlags::default">
+        <code>default</code> (<i>0x00000001</i>) – Default error resilience
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstVPXEncErFlags::partitions">
+        <code>partitions</code> (<i>0x00000002</i>) – Allow partitions to be decoded independently
+        </div>
+    
+			</div>
+
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstVPXEncKfMode">
+	
+
+
+
+<h4 data-hotdoc-id="GstVPXEncKfMode">
+	<i>Vpxenc-kf-mode</i>
+</h4>
+
+
+
+
+
+	<div class="members-container">
+		<h5>Members</h5>
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstVPXEncKfMode::auto">
+        <code>auto</code> (<i>1</i>) – Determine optimal placement automatically
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstVPXEncKfMode::disabled">
+        <code>disabled</code> (<i>0</i>) – Don't automatically place keyframes
+        </div>
+    
+			</div>
+
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstVPXEncMultipassMode">
+	
+
+
+
+<h4 data-hotdoc-id="GstVPXEncMultipassMode">
+	<i>Vpxenc-multipass-mode</i>
+</h4>
+
+
+
+
+
+	<div class="members-container">
+		<h5>Members</h5>
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstVPXEncMultipassMode::one-pass">
+        <code>one-pass</code> (<i>0</i>) – One pass encoding (default)
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstVPXEncMultipassMode::first-pass">
+        <code>first-pass</code> (<i>1</i>) – First pass of multipass encoding
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstVPXEncMultipassMode::last-pass">
+        <code>last-pass</code> (<i>2</i>) – Last pass of multipass encoding
+        </div>
+    
+			</div>
+
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstVPXEncScalingMode">
+	
+
+
+
+<h4 data-hotdoc-id="GstVPXEncScalingMode">
+	<i>GstVPXEncScalingMode</i>
+</h4>
+
+
+
+
+
+	<div class="members-container">
+		<h5>Members</h5>
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstVPXEncScalingMode::normal">
+        <code>normal</code> (<i>0</i>) – Normal
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstVPXEncScalingMode::4:5">
+        <code>4:5</code> (<i>1</i>) – 4:5
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstVPXEncScalingMode::3:5">
+        <code>3:5</code> (<i>2</i>) – 3:5
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstVPXEncScalingMode::1:2">
+        <code>1:2</code> (<i>3</i>) – 1:2
+        </div>
+    
+			</div>
+
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstVPXEncTokenPartitions">
+	
+
+
+
+<h4 data-hotdoc-id="GstVPXEncTokenPartitions">
+	<i>Vpxenc-token-partitions</i>
+</h4>
+
+
+
+
+
+	<div class="members-container">
+		<h5>Members</h5>
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstVPXEncTokenPartitions::1">
+        <code>1</code> (<i>0</i>) – One token partition
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstVPXEncTokenPartitions::2">
+        <code>2</code> (<i>1</i>) – Two token partitions
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstVPXEncTokenPartitions::4">
+        <code>4</code> (<i>2</i>) – Four token partitions
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstVPXEncTokenPartitions::8">
+        <code>8</code> (<i>3</i>) – Eight token partitions
+        </div>
+    
+			</div>
+
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstVPXEncTuning">
+	
+
+
+
+<h4 data-hotdoc-id="GstVPXEncTuning">
+	<i>Vpxenc-tuning</i>
+</h4>
+
+
+
+
+
+	<div class="members-container">
+		<h5>Members</h5>
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstVPXEncTuning::psnr">
+        <code>psnr</code> (<i>0</i>) – Tune for PSNR
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstVPXEncTuning::ssim">
+        <code>ssim</code> (<i>1</i>) – Tune for SSIM
+        </div>
+    
+			</div>
+
+
+
+
+<hr>
+
+</div>
+
+
+
+
+
+
+		
+	</div>
+	<div id="search_results">
+		<p>The results of the search are</p>
+	</div>
+	<div id="footer">
+		    
+
+	</div>
+</div>
+
+<div id="toc-column">
+	
+		<div class="edit-button">
+		
+
+	</div>
+		<div id="toc-wrapper">
+		<nav id="toc"></nav>
+	</div>
+</div>
+</div>
+</main>
+
+
+<script src="assets/js/navbar_offset_scroller.js"></script>
+</body>
+</html>

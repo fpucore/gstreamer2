@@ -1,0 +1,1 @@
+urls_downloaded_cb({"token":"gstmyfilter.c","urls":[{"url":"plugin-development/basics/boiler.html#using-the-project-stamp","node_type":"p","page":"Constructing the Boilerplate","sections":["Constructing the Boilerplate","Using the Project Stamp"],"context":{"gi-language":["default"]}}]});

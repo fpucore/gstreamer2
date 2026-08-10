@@ -1,0 +1,4240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<base href="..">
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<title>GstWebRTCDataChannel</title>
+
+<link rel="stylesheet" href="assets/css/dark-frontend.css" type="text/css" title="dark">
+<link rel="alternate stylesheet" href="assets/css/light-frontend.css" type="text/css" title="light">
+<link rel="stylesheet" href="assets/css/bootstrap-toc.min.css" type="text/css">
+<link rel="stylesheet" href="assets/css/jquery.mCustomScrollbar.min.css">
+<link rel="stylesheet" href="assets/js/search/enable_search.css" type="text/css">
+
+<link rel="stylesheet" href="assets/css/extra_frontend.css" type="text/css">
+<link rel="stylesheet" href="assets/css/devhelp.css" type="text/css">
+
+<link rel="stylesheet" href="assets/css/prism-tomorrow.css" type="text/css" title="dark">
+
+<link rel="alternate stylesheet" href="assets/css/prism.css" type="text/css" title="light">
+
+<script src="assets/js/mustache.min.js"></script>
+<script src="assets/js/jquery.js"></script>
+<script src="assets/js/bootstrap.js"></script>
+<script src="assets/js/scrollspy.js"></script>
+<script src="assets/js/typeahead.jquery.min.js"></script>
+<script src="assets/js/search.js"></script>
+<script src="assets/js/compare-versions.js"></script>
+<script src="assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="assets/js/bootstrap-toc.min.js"></script>
+<script src="assets/js/jquery.touchSwipe.min.js"></script>
+<script src="assets/js/anchor.min.js"></script>
+<script src="assets/js/tag_filtering.js"></script>
+<script src="assets/js/language_switching.js"></script>
+<script src="assets/js/styleswitcher.js"></script>
+
+<script src="assets/js/lines_around_headings.js"></script>
+
+<script src="assets/js/prism-core.js"></script>
+<script src="assets/js/prism-autoloader.js"></script>
+<script src="assets/js/prism_autoloader_path_override.js"></script>
+<script src="assets/js/trie.js"></script>
+
+<!-- generic -->
+<link rel="icon" type="image/png" href="assets/images/favicon-16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="assets/images/favicon-32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="assets/images/favicon-57.png" sizes="57x57">
+<link rel="icon" type="image/png" href="assets/images/favicon-64.png" sizes="64x64">
+<link rel="icon" type="image/png" href="assets/images/favicon-76.png" sizes="76x76">
+<link rel="icon" type="image/png" href="assets/images/favicon-96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="assets/images/favicon-128.png" sizes="128x128">
+<link rel="icon" type="image/png" href="assets/images/favicon-192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="assets/images/favicon-228.png" sizes="228x228">
+
+<!-- Android -->
+<link rel="shortcut icon" sizes="196x196" href="assets/images/favicon-196.png">
+
+<!-- iOS -->
+<link rel="apple-touch-icon" href="assets/images/favicon-120.png" sizes="120x120">
+<link rel="apple-touch-icon" href="assets/images/favicon-152.png" sizes="152x152">
+<link rel="apple-touch-icon" href="assets/images/favicon-180.png" sizes="180x180">
+
+</head>
+
+<body class="no-script
+">
+
+<script>
+$('body').removeClass('no-script');
+</script>
+
+<nav class="navbar navbar-fixed-top navbar-default" id="topnav">
+	<div class="container-fluid">
+		<div class="navbar-right">
+			<a id="toc-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-wrapper" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<span title="light mode switch" class="glyphicon glyphicon-sunglasses pull-right" id="lightmode-icon"></span>
+			<form class="navbar-form pull-right" id="navbar-search-form">
+                               <div class="form-group has-feedback">
+                                       <input type="text" class="form-control input-sm" name="search" id="sidenav-lookup-field" placeholder="search" disabled>
+				       <span class="glyphicon glyphicon-search form-control-feedback" id="search-mgn-glass"></span>
+                               </div>
+                        </form>
+		</div>
+		<div class="navbar-header">
+			<a id="sidenav-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<a id="home-link" href="index.html" class="hotdoc-navbar-brand">
+				<img src="assets/images/gstreamer-logo.svg" alt="Home">
+			</a>
+		</div>
+		<div class="navbar-collapse collapse" id="navbar-wrapper">
+			<ul class="nav navbar-nav" id="menu">
+				
+<li class="dropdown">
+    <a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        API References<span class="caret"></span>
+    </a>
+	<ul class="dropdown-menu" id="modules-menu">
+					<li>
+				<a href="gstreamer/gi-index.html">GStreamer core</a>
+			</li>
+					<li>
+				<a href="libs.html">GStreamer Libraries</a>
+			</li>
+					<li>
+				<a href="plugins_doc.html">GStreamer Plugins</a>
+			</li>
+		</ul>
+</li>
+
+<li>
+    <a href="application-development/index.html">Application manual</a>
+</li>
+
+
+<li>
+    <a href="tutorials/index.html">Tutorials</a>
+</li>
+
+			</ul>
+			<div class="hidden-xs hidden-sm navbar-text navbar-center">
+							</div>
+		</div>
+	</div>
+</nav>
+
+<main>
+<div data-extension="gi-extension" data-hotdoc-in-toplevel="False" data-hotdoc-project="webrtclib" data-hotdoc-ref="gstwebrtc-datachannel.html" class="page_container" id="page-wrapper" data-hotdoc-meta-gi-languages="['c', 'javascript', 'python']" data-hotdoc-meta-gi-language="c">
+<script src="assets/js/utils.js"></script>
+
+<div class="panel panel-collapse oc-collapsed" id="sidenav" data-hotdoc-role="navigation">
+	<script src="assets/js/full-width.js"></script>
+  <div id="sitenav-wrapper">
+    <iframe src="hotdoc-sitemap.html" id="sitenav-frame"></iframe>
+  </div>
+</div>
+
+<div id="body">
+	<div id="main">
+				    <div id="page-description" data-hotdoc-role="main">
+        <h1 id="gstwebrtcdatachannel-page">GstWebRTCDataChannel</h1>
+<p><a href="https://www.w3.org/TR/webrtc/#rtcdatachannel">https://www.w3.org/TR/webrtc/#rtcdatachannel</a></p>
+
+    </div>
+        
+        
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.18;" id="GstWebRTCDataChannel">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h2 data-hotdoc-id="GstWebRTCDataChannel">
+	<i>GstWebRTCDataChannel</i>
+</h2>
+
+
+<div class="hierarchy_container">
+	<div class="hierarchy_details">
+<pre>
+<a title="GObject" href="https://docs.gtk.org/gobject/class.Object.html">GObject</a>
+    <span class="lineart">╰──</span>GstWebRTCDataChannel
+</pre>
+
+</div>
+
+</div>
+
+
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+<h3>Class structure</h3>
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstWebRTCDataChannelClass">
+	<i>GstWebRTCDataChannelClass</i>
+</h4>
+
+
+
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3>
+	GstWebRTC.WebRTCDataChannelClass
+</h3>
+
+
+
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3>
+	GstWebRTC.WebRTCDataChannelClass
+</h3>
+
+
+
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h2 data-hotdoc-id="GstWebRTCDataChannel">
+	<i>GstWebRTC.WebRTCDataChannel</i>
+</h2>
+
+
+<div class="hierarchy_container">
+	<div class="hierarchy_details">
+<pre>
+<a title="GObject.Object" href="https://docs.gtk.org/gobject/class.Object.html">GObject.Object</a>
+    <span class="lineart">╰──</span>GstWebRTC.WebRTCDataChannel
+</pre>
+
+</div>
+
+</div>
+
+
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h2 data-hotdoc-id="GstWebRTCDataChannel">
+	<i>GstWebRTC.WebRTCDataChannel</i>
+</h2>
+
+
+<div class="hierarchy_container">
+	<div class="hierarchy_details">
+<pre>
+<a title="GObject.Object" href="https://docs.gtk.org/gobject/class.Object.html">GObject.Object</a>
+    <span class="lineart">╰──</span>GstWebRTC.WebRTCDataChannel
+</pre>
+
+</div>
+
+</div>
+
+
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+
+            <h3 class="symbol_section">Methods</h3>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_webrtc_data_channel_close">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_webrtc_data_channel_close">
+	<i>gst_webrtc_data_channel_close</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+gst_webrtc_data_channel_close (<a title="GstWebRTCDataChannel" href="webrtclib/gstwebrtc-datachannel.html#GstWebRTCDataChannel">GstWebRTCDataChannel</a> * channel)</pre>
+
+<p>Close the <em>channel</em>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>channel</code></em></i>
+–
+</div>
+<p>a <a href="webrtclib/gstwebrtc-datachannel.html#GstWebRTCDataChannel">GstWebRTCDataChannel</a></p>
+
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_webrtc_data_channel_close">
+	<i>GstWebRTC.WebRTCDataChannel.prototype.close</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstWebRTC.WebRTCDataChannel.prototype.close(): {
+    // javascript wrapper for 'gst_webrtc_data_channel_close'
+}</code></pre>
+
+<p>Close the <em>channel</em>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>channel</code></em></i>
+<span>(</span><a title="GstWebRTC.WebRTCDataChannel" href="webrtclib/gstwebrtc-datachannel.html#GstWebRTCDataChannel">GstWebRTC.WebRTCDataChannel</a><span>)</span>
+–
+</div>
+<p>a <a href="webrtclib/gstwebrtc-datachannel.html#GstWebRTCDataChannel">GstWebRTC.WebRTCDataChannel</a></p>
+
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_webrtc_data_channel_close">
+	<i>GstWebRTC.WebRTCDataChannel.close</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstWebRTC.WebRTCDataChannel.close (self):
+    #python wrapper for 'gst_webrtc_data_channel_close'</code></pre>
+
+<p>Close the <em>channel</em>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>channel</code></em></i>
+<span>(</span><a title="GstWebRTC.WebRTCDataChannel" href="webrtclib/gstwebrtc-datachannel.html#GstWebRTCDataChannel">GstWebRTC.WebRTCDataChannel</a><span>)</span>
+–
+</div>
+<p>a <a href="webrtclib/gstwebrtc-datachannel.html#GstWebRTCDataChannel">GstWebRTC.WebRTCDataChannel</a></p>
+
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="deprecated:1.22;" id="gst_webrtc_data_channel_send_data">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_webrtc_data_channel_send_data">
+	<i>gst_webrtc_data_channel_send_data</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+gst_webrtc_data_channel_send_data (<a title="GstWebRTCDataChannel" href="webrtclib/gstwebrtc-datachannel.html#GstWebRTCDataChannel">GstWebRTCDataChannel</a> * channel,
+                                   <a title="GBytes" href="https://docs.gtk.org/glib/struct.Bytes.html">GBytes</a> * data)</pre>
+
+<p>Send <em>data</em> as a data message over <em>channel</em>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>channel</code></em></i>
+–
+</div>
+<p>a <a href="webrtclib/gstwebrtc-datachannel.html#GstWebRTCDataChannel">GstWebRTCDataChannel</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>data</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="NULL may be passed to the value"><span class="acronym">nullable</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>a <a href="https://docs.gtk.org/glib/struct.Bytes.html">GBytes</a> or <a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#NULL:CAPS">NULL</a></p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>deprecated</b>			: 1.22: Use gst_webrtc_data_channel_send_data_full() instead
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_webrtc_data_channel_send_data">
+	<i>GstWebRTC.WebRTCDataChannel.prototype.send_data</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstWebRTC.WebRTCDataChannel.prototype.send_data(data: <a title="GBytes (not introspectable)" href="https://docs.gtk.org/glib/struct.Bytes.html">GBytes (not introspectable)</a>): {
+    // javascript wrapper for 'gst_webrtc_data_channel_send_data'
+}</code></pre>
+
+<p>Send <em>data</em> as a data message over <em>channel</em>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>channel</code></em></i>
+<span>(</span><a title="GstWebRTC.WebRTCDataChannel" href="webrtclib/gstwebrtc-datachannel.html#GstWebRTCDataChannel">GstWebRTC.WebRTCDataChannel</a><span>)</span>
+–
+</div>
+<p>a <a href="webrtclib/gstwebrtc-datachannel.html#GstWebRTCDataChannel">GstWebRTC.WebRTCDataChannel</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>data</code></em></i>
+<span>(</span><a title="GBytes (not introspectable)" href="https://docs.gtk.org/glib/struct.Bytes.html">GBytes (not introspectable)</a><span>)</span>
+–
+</div>
+<p>a <a href="https://docs.gtk.org/glib/struct.Bytes.html">GBytes (not introspectable)</a> or <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null">null</a></p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>deprecated</b>			: 1.22: Use gst_webrtc_data_channel_send_data_full() instead
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_webrtc_data_channel_send_data">
+	<i>GstWebRTC.WebRTCDataChannel.send_data</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstWebRTC.WebRTCDataChannel.send_data (self, data):
+    #python wrapper for 'gst_webrtc_data_channel_send_data'</code></pre>
+
+<p>Send <em>data</em> as a data message over <em>channel</em>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>channel</code></em></i>
+<span>(</span><a title="GstWebRTC.WebRTCDataChannel" href="webrtclib/gstwebrtc-datachannel.html#GstWebRTCDataChannel">GstWebRTC.WebRTCDataChannel</a><span>)</span>
+–
+</div>
+<p>a <a href="webrtclib/gstwebrtc-datachannel.html#GstWebRTCDataChannel">GstWebRTC.WebRTCDataChannel</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>data</code></em></i>
+<span>(</span><a title="GBytes (not introspectable)" href="https://docs.gtk.org/glib/struct.Bytes.html">GBytes (not introspectable)</a><span>)</span>
+–
+</div>
+<p>a <a href="https://docs.gtk.org/glib/struct.Bytes.html">GBytes (not introspectable)</a> or <a href="https://docs.python.org/3/library/constants.html#None">None</a></p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>deprecated</b>			: 1.22: Use gst_webrtc_data_channel_send_data_full() instead
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.22;" id="gst_webrtc_data_channel_send_data_full">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_webrtc_data_channel_send_data_full">
+	<i>gst_webrtc_data_channel_send_data_full</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a>
+gst_webrtc_data_channel_send_data_full (<a title="GstWebRTCDataChannel" href="webrtclib/gstwebrtc-datachannel.html#GstWebRTCDataChannel">GstWebRTCDataChannel</a> * channel,
+                                        <a title="GBytes" href="https://docs.gtk.org/glib/struct.Bytes.html">GBytes</a> * data,
+                                        <a title="GError" href="https://docs.gtk.org/glib/struct.Error.html">GError</a> ** error)</pre>
+
+<p>Send <em>data</em> as a data message over <em>channel</em>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>channel</code></em></i>
+–
+</div>
+<p>a <a href="webrtclib/gstwebrtc-datachannel.html#GstWebRTCDataChannel">GstWebRTCDataChannel</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>data</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="NULL may be passed to the value"><span class="acronym">nullable</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>a <a href="https://docs.gtk.org/glib/struct.Bytes.html">GBytes</a> or <a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#NULL:CAPS">NULL</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>error</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="NULL may be passed to the value"><span class="acronym">nullable</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>location to a <a href="https://docs.gtk.org/glib/struct.Error.html">GError</a> or <a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#NULL:CAPS">NULL</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p>TRUE if <em>channel</em> is open and data could be queued</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.22
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_webrtc_data_channel_send_data_full">
+	<i>GstWebRTC.WebRTCDataChannel.prototype.send_data_full</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstWebRTC.WebRTCDataChannel.prototype.send_data_full(data: <a title="GBytes (not introspectable)" href="https://docs.gtk.org/glib/struct.Bytes.html">GBytes (not introspectable)</a>): {
+    // javascript wrapper for 'gst_webrtc_data_channel_send_data_full'
+}</code></pre>
+
+<p>Send <em>data</em> as a data message over <em>channel</em>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>channel</code></em></i>
+<span>(</span><a title="GstWebRTC.WebRTCDataChannel" href="webrtclib/gstwebrtc-datachannel.html#GstWebRTCDataChannel">GstWebRTC.WebRTCDataChannel</a><span>)</span>
+–
+</div>
+<p>a <a href="webrtclib/gstwebrtc-datachannel.html#GstWebRTCDataChannel">GstWebRTC.WebRTCDataChannel</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>data</code></em></i>
+<span>(</span><a title="GBytes (not introspectable)" href="https://docs.gtk.org/glib/struct.Bytes.html">GBytes (not introspectable)</a><span>)</span>
+–
+</div>
+<p>a <a href="https://docs.gtk.org/glib/struct.Bytes.html">GBytes (not introspectable)</a> or <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null">null</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+			</div>
+							<p>TRUE if <em>channel</em> is open and data could be queued</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.22
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_webrtc_data_channel_send_data_full">
+	<i>GstWebRTC.WebRTCDataChannel.send_data_full</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>@raises(<a href="https://developer.gnome.org/glib/stable/glib-Error-Reporting.html">GLib.GError</a>)
+def GstWebRTC.WebRTCDataChannel.send_data_full (self, data):
+    #python wrapper for 'gst_webrtc_data_channel_send_data_full'</code></pre>
+
+<p>Send <em>data</em> as a data message over <em>channel</em>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>channel</code></em></i>
+<span>(</span><a title="GstWebRTC.WebRTCDataChannel" href="webrtclib/gstwebrtc-datachannel.html#GstWebRTCDataChannel">GstWebRTC.WebRTCDataChannel</a><span>)</span>
+–
+</div>
+<p>a <a href="webrtclib/gstwebrtc-datachannel.html#GstWebRTCDataChannel">GstWebRTC.WebRTCDataChannel</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>data</code></em></i>
+<span>(</span><a title="GBytes (not introspectable)" href="https://docs.gtk.org/glib/struct.Bytes.html">GBytes (not introspectable)</a><span>)</span>
+–
+</div>
+<p>a <a href="https://docs.gtk.org/glib/struct.Bytes.html">GBytes (not introspectable)</a> or <a href="https://docs.python.org/3/library/constants.html#None">None</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a><span>)</span>
+–
+			</div>
+							<p>TRUE if <em>channel</em> is open and data could be queued</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.22
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="deprecated:1.22;" id="gst_webrtc_data_channel_send_string">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_webrtc_data_channel_send_string">
+	<i>gst_webrtc_data_channel_send_string</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+gst_webrtc_data_channel_send_string (<a title="GstWebRTCDataChannel" href="webrtclib/gstwebrtc-datachannel.html#GstWebRTCDataChannel">GstWebRTCDataChannel</a> * channel,
+                                     const <a title="gchar" href="https://docs.gtk.org/glib/types.html#gchar">gchar</a> * str)</pre>
+
+<p>Send <em>str</em> as a string message over <em>channel</em>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>channel</code></em></i>
+–
+</div>
+<p>a <a href="webrtclib/gstwebrtc-datachannel.html#GstWebRTCDataChannel">GstWebRTCDataChannel</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>str</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="NULL may be passed to the value"><span class="acronym">nullable</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>a string or <a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#NULL:CAPS">NULL</a></p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>deprecated</b>			: 1.22: Use gst_webrtc_data_channel_send_string_full() instead
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_webrtc_data_channel_send_string">
+	<i>GstWebRTC.WebRTCDataChannel.prototype.send_string</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstWebRTC.WebRTCDataChannel.prototype.send_string(str: <a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>): {
+    // javascript wrapper for 'gst_webrtc_data_channel_send_string'
+}</code></pre>
+
+<p>Send <em>str</em> as a string message over <em>channel</em>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>channel</code></em></i>
+<span>(</span><a title="GstWebRTC.WebRTCDataChannel" href="webrtclib/gstwebrtc-datachannel.html#GstWebRTCDataChannel">GstWebRTC.WebRTCDataChannel</a><span>)</span>
+–
+</div>
+<p>a <a href="webrtclib/gstwebrtc-datachannel.html#GstWebRTCDataChannel">GstWebRTC.WebRTCDataChannel</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>str</code></em></i>
+<span>(</span><a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a><span>)</span>
+–
+</div>
+<p>a string or <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null">null</a></p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>deprecated</b>			: 1.22: Use gst_webrtc_data_channel_send_string_full() instead
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_webrtc_data_channel_send_string">
+	<i>GstWebRTC.WebRTCDataChannel.send_string</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstWebRTC.WebRTCDataChannel.send_string (self, str):
+    #python wrapper for 'gst_webrtc_data_channel_send_string'</code></pre>
+
+<p>Send <em>str</em> as a string message over <em>channel</em>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>channel</code></em></i>
+<span>(</span><a title="GstWebRTC.WebRTCDataChannel" href="webrtclib/gstwebrtc-datachannel.html#GstWebRTCDataChannel">GstWebRTC.WebRTCDataChannel</a><span>)</span>
+–
+</div>
+<p>a <a href="webrtclib/gstwebrtc-datachannel.html#GstWebRTCDataChannel">GstWebRTC.WebRTCDataChannel</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>str</code></em></i>
+<span>(</span><a title="str" href="https://docs.python.org/3/library/functions.html#func-str">str</a><span>)</span>
+–
+</div>
+<p>a string or <a href="https://docs.python.org/3/library/constants.html#None">None</a></p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>deprecated</b>			: 1.22: Use gst_webrtc_data_channel_send_string_full() instead
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.22;" id="gst_webrtc_data_channel_send_string_full">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_webrtc_data_channel_send_string_full">
+	<i>gst_webrtc_data_channel_send_string_full</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a>
+gst_webrtc_data_channel_send_string_full (<a title="GstWebRTCDataChannel" href="webrtclib/gstwebrtc-datachannel.html#GstWebRTCDataChannel">GstWebRTCDataChannel</a> * channel,
+                                          const <a title="gchar" href="https://docs.gtk.org/glib/types.html#gchar">gchar</a> * str,
+                                          <a title="GError" href="https://docs.gtk.org/glib/struct.Error.html">GError</a> ** error)</pre>
+
+<p>Send <em>str</em> as a string message over <em>channel</em>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>channel</code></em></i>
+–
+</div>
+<p>a <a href="webrtclib/gstwebrtc-datachannel.html#GstWebRTCDataChannel">GstWebRTCDataChannel</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>str</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="NULL may be passed to the value"><span class="acronym">nullable</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>a string or <a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#NULL:CAPS">NULL</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>error</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p>TRUE if <em>channel</em> is open and data could be queued</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.22
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_webrtc_data_channel_send_string_full">
+	<i>GstWebRTC.WebRTCDataChannel.prototype.send_string_full</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstWebRTC.WebRTCDataChannel.prototype.send_string_full(str: <a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>): {
+    // javascript wrapper for 'gst_webrtc_data_channel_send_string_full'
+}</code></pre>
+
+<p>Send <em>str</em> as a string message over <em>channel</em>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>channel</code></em></i>
+<span>(</span><a title="GstWebRTC.WebRTCDataChannel" href="webrtclib/gstwebrtc-datachannel.html#GstWebRTCDataChannel">GstWebRTC.WebRTCDataChannel</a><span>)</span>
+–
+</div>
+<p>a <a href="webrtclib/gstwebrtc-datachannel.html#GstWebRTCDataChannel">GstWebRTC.WebRTCDataChannel</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>str</code></em></i>
+<span>(</span><a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a><span>)</span>
+–
+</div>
+<p>a string or <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null">null</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+			</div>
+							<p>TRUE if <em>channel</em> is open and data could be queued</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.22
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_webrtc_data_channel_send_string_full">
+	<i>GstWebRTC.WebRTCDataChannel.send_string_full</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>@raises(<a href="https://developer.gnome.org/glib/stable/glib-Error-Reporting.html">GLib.GError</a>)
+def GstWebRTC.WebRTCDataChannel.send_string_full (self, str):
+    #python wrapper for 'gst_webrtc_data_channel_send_string_full'</code></pre>
+
+<p>Send <em>str</em> as a string message over <em>channel</em>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>channel</code></em></i>
+<span>(</span><a title="GstWebRTC.WebRTCDataChannel" href="webrtclib/gstwebrtc-datachannel.html#GstWebRTCDataChannel">GstWebRTC.WebRTCDataChannel</a><span>)</span>
+–
+</div>
+<p>a <a href="webrtclib/gstwebrtc-datachannel.html#GstWebRTCDataChannel">GstWebRTC.WebRTCDataChannel</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>str</code></em></i>
+<span>(</span><a title="str" href="https://docs.python.org/3/library/functions.html#func-str">str</a><span>)</span>
+–
+</div>
+<p>a string or <a href="https://docs.python.org/3/library/constants.html#None">None</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a><span>)</span>
+–
+			</div>
+							<p>TRUE if <em>channel</em> is open and data could be queued</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.22
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+
+            <h3 class="symbol_section">Signals</h3>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstWebRTCDataChannel::on-buffered-amount-low">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstWebRTCDataChannel::on-buffered-amount-low">
+	<i>on-buffered-amount-low</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+on_buffered_amount_low_callback (<a title="GstWebRTCDataChannel" href="webrtclib/gstwebrtc-datachannel.html#GstWebRTCDataChannel">GstWebRTCDataChannel</a> * self,
+                                 <a title="gpointer" href="https://docs.gtk.org/glib/types.html#gpointer">gpointer</a> user_data)</pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>user_data</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+<p>
+	<b>Flags:</b>	
+	
+		
+				<a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS">Run Last</a>
+			
+</p>
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GstWebRTCDataChannel::on-buffered-amount-low">
+	<i>on-buffered-amount-low</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function on_buffered_amount_low_callback(self: <a title="GstWebRTC.WebRTCDataChannel" href="webrtclib/gstwebrtc-datachannel.html#GstWebRTCDataChannel">GstWebRTC.WebRTCDataChannel</a>, user_data: <a title="Object" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>): {
+    // javascript callback for the 'on-buffered-amount-low' signal
+}</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+<span>(</span><a title="GstWebRTC.WebRTCDataChannel" href="webrtclib/gstwebrtc-datachannel.html#GstWebRTCDataChannel">GstWebRTC.WebRTCDataChannel</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>user_data</code></em></i>
+<span>(</span><a title="Object" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+<p>
+	<b>Flags:</b>	
+	
+		
+				<a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS">Run Last</a>
+			
+</p>
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GstWebRTCDataChannel::on-buffered-amount-low">
+	<i>on-buffered-amount-low</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def on_buffered_amount_low_callback (self, *user_data):
+    #python callback for the 'on-buffered-amount-low' signal</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+<span>(</span><a title="GstWebRTC.WebRTCDataChannel" href="webrtclib/gstwebrtc-datachannel.html#GstWebRTCDataChannel">GstWebRTC.WebRTCDataChannel</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>user_data</code></em></i>
+<span>(</span><a title="variadic" href="https://docs.python.org/dev/tutorial/controlflow.html#arbitrary-argument-lists">variadic</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+<p>
+	<b>Flags:</b>	
+	
+		
+				<a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS">Run Last</a>
+			
+</p>
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstWebRTCDataChannel::on-close">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstWebRTCDataChannel::on-close">
+	<i>on-close</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+on_close_callback (<a title="GstWebRTCDataChannel" href="webrtclib/gstwebrtc-datachannel.html#GstWebRTCDataChannel">GstWebRTCDataChannel</a> * self,
+                   <a title="gpointer" href="https://docs.gtk.org/glib/types.html#gpointer">gpointer</a> user_data)</pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>user_data</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+<p>
+	<b>Flags:</b>	
+	
+		
+				<a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS">Run Last</a>
+			
+</p>
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GstWebRTCDataChannel::on-close">
+	<i>on-close</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function on_close_callback(self: <a title="GstWebRTC.WebRTCDataChannel" href="webrtclib/gstwebrtc-datachannel.html#GstWebRTCDataChannel">GstWebRTC.WebRTCDataChannel</a>, user_data: <a title="Object" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>): {
+    // javascript callback for the 'on-close' signal
+}</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+<span>(</span><a title="GstWebRTC.WebRTCDataChannel" href="webrtclib/gstwebrtc-datachannel.html#GstWebRTCDataChannel">GstWebRTC.WebRTCDataChannel</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>user_data</code></em></i>
+<span>(</span><a title="Object" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+<p>
+	<b>Flags:</b>	
+	
+		
+				<a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS">Run Last</a>
+			
+</p>
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GstWebRTCDataChannel::on-close">
+	<i>on-close</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def on_close_callback (self, *user_data):
+    #python callback for the 'on-close' signal</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+<span>(</span><a title="GstWebRTC.WebRTCDataChannel" href="webrtclib/gstwebrtc-datachannel.html#GstWebRTCDataChannel">GstWebRTC.WebRTCDataChannel</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>user_data</code></em></i>
+<span>(</span><a title="variadic" href="https://docs.python.org/dev/tutorial/controlflow.html#arbitrary-argument-lists">variadic</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+<p>
+	<b>Flags:</b>	
+	
+		
+				<a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS">Run Last</a>
+			
+</p>
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstWebRTCDataChannel::on-error">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstWebRTCDataChannel::on-error">
+	<i>on-error</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+on_error_callback (<a title="GstWebRTCDataChannel" href="webrtclib/gstwebrtc-datachannel.html#GstWebRTCDataChannel">GstWebRTCDataChannel</a> * self,
+                   <a title="GError" href="https://docs.gtk.org/glib/struct.Error.html">GError</a> * error,
+                   <a title="gpointer" href="https://docs.gtk.org/glib/types.html#gpointer">gpointer</a> user_data)</pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>error</code></em></i>
+–
+</div>
+<p>the <a href="https://docs.gtk.org/glib/struct.Error.html">GError</a> thrown</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>user_data</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+<p>
+	<b>Flags:</b>	
+	
+		
+				<a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS">Run Last</a>
+			
+</p>
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GstWebRTCDataChannel::on-error">
+	<i>on-error</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function on_error_callback(self: <a title="GstWebRTC.WebRTCDataChannel" href="webrtclib/gstwebrtc-datachannel.html#GstWebRTCDataChannel">GstWebRTC.WebRTCDataChannel</a>, error: <a title="GError (not introspectable)" href="https://docs.gtk.org/glib/struct.Error.html">GError (not introspectable)</a>, user_data: <a title="Object" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>): {
+    // javascript callback for the 'on-error' signal
+}</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+<span>(</span><a title="GstWebRTC.WebRTCDataChannel" href="webrtclib/gstwebrtc-datachannel.html#GstWebRTCDataChannel">GstWebRTC.WebRTCDataChannel</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>error</code></em></i>
+<span>(</span><a title="GError (not introspectable)" href="https://docs.gtk.org/glib/struct.Error.html">GError (not introspectable)</a><span>)</span>
+–
+</div>
+<p>the <a href="https://docs.gtk.org/glib/struct.Error.html">GError (not introspectable)</a> thrown</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>user_data</code></em></i>
+<span>(</span><a title="Object" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+<p>
+	<b>Flags:</b>	
+	
+		
+				<a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS">Run Last</a>
+			
+</p>
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GstWebRTCDataChannel::on-error">
+	<i>on-error</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def on_error_callback (self, error, *user_data):
+    #python callback for the 'on-error' signal</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+<span>(</span><a title="GstWebRTC.WebRTCDataChannel" href="webrtclib/gstwebrtc-datachannel.html#GstWebRTCDataChannel">GstWebRTC.WebRTCDataChannel</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>error</code></em></i>
+<span>(</span><a title="GError (not introspectable)" href="https://docs.gtk.org/glib/struct.Error.html">GError (not introspectable)</a><span>)</span>
+–
+</div>
+<p>the <a href="https://docs.gtk.org/glib/struct.Error.html">GError (not introspectable)</a> thrown</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>user_data</code></em></i>
+<span>(</span><a title="variadic" href="https://docs.python.org/dev/tutorial/controlflow.html#arbitrary-argument-lists">variadic</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+<p>
+	<b>Flags:</b>	
+	
+		
+				<a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS">Run Last</a>
+			
+</p>
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstWebRTCDataChannel::on-message-data">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstWebRTCDataChannel::on-message-data">
+	<i>on-message-data</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+on_message_data_callback (<a title="GstWebRTCDataChannel" href="webrtclib/gstwebrtc-datachannel.html#GstWebRTCDataChannel">GstWebRTCDataChannel</a> * self,
+                          <a title="GBytes" href="https://docs.gtk.org/glib/struct.Bytes.html">GBytes</a> * data,
+                          <a title="gpointer" href="https://docs.gtk.org/glib/types.html#gpointer">gpointer</a> user_data)</pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>data</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="NULL may be passed to the value"><span class="acronym">nullable</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>a <a href="https://docs.gtk.org/glib/struct.Bytes.html">GBytes</a> of the data received</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>user_data</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+<p>
+	<b>Flags:</b>	
+	
+		
+				<a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS">Run Last</a>
+			
+</p>
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GstWebRTCDataChannel::on-message-data">
+	<i>on-message-data</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function on_message_data_callback(self: <a title="GstWebRTC.WebRTCDataChannel" href="webrtclib/gstwebrtc-datachannel.html#GstWebRTCDataChannel">GstWebRTC.WebRTCDataChannel</a>, data: <a title="GBytes (not introspectable)" href="https://docs.gtk.org/glib/struct.Bytes.html">GBytes (not introspectable)</a>, user_data: <a title="Object" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>): {
+    // javascript callback for the 'on-message-data' signal
+}</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+<span>(</span><a title="GstWebRTC.WebRTCDataChannel" href="webrtclib/gstwebrtc-datachannel.html#GstWebRTCDataChannel">GstWebRTC.WebRTCDataChannel</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>data</code></em></i>
+<span>(</span><a title="GBytes (not introspectable)" href="https://docs.gtk.org/glib/struct.Bytes.html">GBytes (not introspectable)</a><span>)</span>
+–
+</div>
+<p>a <a href="https://docs.gtk.org/glib/struct.Bytes.html">GBytes (not introspectable)</a> of the data received</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>user_data</code></em></i>
+<span>(</span><a title="Object" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+<p>
+	<b>Flags:</b>	
+	
+		
+				<a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS">Run Last</a>
+			
+</p>
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GstWebRTCDataChannel::on-message-data">
+	<i>on-message-data</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def on_message_data_callback (self, data, *user_data):
+    #python callback for the 'on-message-data' signal</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+<span>(</span><a title="GstWebRTC.WebRTCDataChannel" href="webrtclib/gstwebrtc-datachannel.html#GstWebRTCDataChannel">GstWebRTC.WebRTCDataChannel</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>data</code></em></i>
+<span>(</span><a title="GBytes (not introspectable)" href="https://docs.gtk.org/glib/struct.Bytes.html">GBytes (not introspectable)</a><span>)</span>
+–
+</div>
+<p>a <a href="https://docs.gtk.org/glib/struct.Bytes.html">GBytes (not introspectable)</a> of the data received</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>user_data</code></em></i>
+<span>(</span><a title="variadic" href="https://docs.python.org/dev/tutorial/controlflow.html#arbitrary-argument-lists">variadic</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+<p>
+	<b>Flags:</b>	
+	
+		
+				<a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS">Run Last</a>
+			
+</p>
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstWebRTCDataChannel::on-message-string">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstWebRTCDataChannel::on-message-string">
+	<i>on-message-string</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+on_message_string_callback (<a title="GstWebRTCDataChannel" href="webrtclib/gstwebrtc-datachannel.html#GstWebRTCDataChannel">GstWebRTCDataChannel</a> * self,
+                            <a title="gchar" href="https://docs.gtk.org/glib/types.html#gchar">gchar</a> * data,
+                            <a title="gpointer" href="https://docs.gtk.org/glib/types.html#gpointer">gpointer</a> user_data)</pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>data</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="NULL may be passed to the value"><span class="acronym">nullable</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>the data received as a string</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>user_data</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+<p>
+	<b>Flags:</b>	
+	
+		
+				<a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS">Run Last</a>
+			
+</p>
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GstWebRTCDataChannel::on-message-string">
+	<i>on-message-string</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function on_message_string_callback(self: <a title="GstWebRTC.WebRTCDataChannel" href="webrtclib/gstwebrtc-datachannel.html#GstWebRTCDataChannel">GstWebRTC.WebRTCDataChannel</a>, data: <a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>, user_data: <a title="Object" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>): {
+    // javascript callback for the 'on-message-string' signal
+}</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+<span>(</span><a title="GstWebRTC.WebRTCDataChannel" href="webrtclib/gstwebrtc-datachannel.html#GstWebRTCDataChannel">GstWebRTC.WebRTCDataChannel</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>data</code></em></i>
+<span>(</span><a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a><span>)</span>
+–
+</div>
+<p>the data received as a string</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>user_data</code></em></i>
+<span>(</span><a title="Object" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+<p>
+	<b>Flags:</b>	
+	
+		
+				<a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS">Run Last</a>
+			
+</p>
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GstWebRTCDataChannel::on-message-string">
+	<i>on-message-string</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def on_message_string_callback (self, data, *user_data):
+    #python callback for the 'on-message-string' signal</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+<span>(</span><a title="GstWebRTC.WebRTCDataChannel" href="webrtclib/gstwebrtc-datachannel.html#GstWebRTCDataChannel">GstWebRTC.WebRTCDataChannel</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>data</code></em></i>
+<span>(</span><a title="str" href="https://docs.python.org/3/library/functions.html#func-str">str</a><span>)</span>
+–
+</div>
+<p>the data received as a string</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>user_data</code></em></i>
+<span>(</span><a title="variadic" href="https://docs.python.org/dev/tutorial/controlflow.html#arbitrary-argument-lists">variadic</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+<p>
+	<b>Flags:</b>	
+	
+		
+				<a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS">Run Last</a>
+			
+</p>
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstWebRTCDataChannel::on-open">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstWebRTCDataChannel::on-open">
+	<i>on-open</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+on_open_callback (<a title="GstWebRTCDataChannel" href="webrtclib/gstwebrtc-datachannel.html#GstWebRTCDataChannel">GstWebRTCDataChannel</a> * self,
+                  <a title="gpointer" href="https://docs.gtk.org/glib/types.html#gpointer">gpointer</a> user_data)</pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>user_data</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+<p>
+	<b>Flags:</b>	
+	
+		
+				<a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS">Run Last</a>
+			
+</p>
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GstWebRTCDataChannel::on-open">
+	<i>on-open</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function on_open_callback(self: <a title="GstWebRTC.WebRTCDataChannel" href="webrtclib/gstwebrtc-datachannel.html#GstWebRTCDataChannel">GstWebRTC.WebRTCDataChannel</a>, user_data: <a title="Object" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>): {
+    // javascript callback for the 'on-open' signal
+}</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+<span>(</span><a title="GstWebRTC.WebRTCDataChannel" href="webrtclib/gstwebrtc-datachannel.html#GstWebRTCDataChannel">GstWebRTC.WebRTCDataChannel</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>user_data</code></em></i>
+<span>(</span><a title="Object" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+<p>
+	<b>Flags:</b>	
+	
+		
+				<a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS">Run Last</a>
+			
+</p>
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GstWebRTCDataChannel::on-open">
+	<i>on-open</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def on_open_callback (self, *user_data):
+    #python callback for the 'on-open' signal</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+<span>(</span><a title="GstWebRTC.WebRTCDataChannel" href="webrtclib/gstwebrtc-datachannel.html#GstWebRTCDataChannel">GstWebRTC.WebRTCDataChannel</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>user_data</code></em></i>
+<span>(</span><a title="variadic" href="https://docs.python.org/dev/tutorial/controlflow.html#arbitrary-argument-lists">variadic</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+<p>
+	<b>Flags:</b>	
+	
+		
+				<a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS">Run Last</a>
+			
+</p>
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+
+            <h3 class="symbol_section">Action Signals</h3>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstWebRTCDataChannel::close">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstWebRTCDataChannel::close">
+	<i>close</i>
+</h4>
+
+
+
+<pre class="c-prototype language-c">
+g_signal_emit_by_name (self, "close", user_data);</pre>
+
+<p>Close the data channel</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+<span>(</span><a title="GstWebRTCDataChannel" href="webrtclib/gstwebrtc-datachannel.html#GstWebRTCDataChannel">GstWebRTCDataChannel</a> *<span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>user_data</code></em></i>
+<span>(</span><a title="gpointer" href="https://docs.gtk.org/glib/types.html#gpointer">gpointer</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+<p>
+	<b>Flags:</b>	
+	
+		
+				<a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS">Run Last</a>
+			
+				/		
+				<a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-ACTION:CAPS">Action</a>
+			
+</p>
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GstWebRTCDataChannel::close">
+	<i>close</i>
+</h4>
+
+
+
+<pre class="javascript-prototype language-javascript">
+let ret = self.emit ("close", user_data);</pre>
+
+<p>Close the data channel</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+<span>(</span><a title="GstWebRTC.WebRTCDataChannel" href="webrtclib/gstwebrtc-datachannel.html#GstWebRTCDataChannel">GstWebRTC.WebRTCDataChannel</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>user_data</code></em></i>
+<span>(</span><a title="Object" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+<p>
+	<b>Flags:</b>	
+	
+		
+				<a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS">Run Last</a>
+			
+				/		
+				<a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-ACTION:CAPS">Action</a>
+			
+</p>
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GstWebRTCDataChannel::close">
+	<i>close</i>
+</h4>
+
+
+
+<pre class="python-prototype language-python">
+ret = self.emit ("close", user_data)</pre>
+
+<p>Close the data channel</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+<span>(</span><a title="GstWebRTC.WebRTCDataChannel" href="webrtclib/gstwebrtc-datachannel.html#GstWebRTCDataChannel">GstWebRTC.WebRTCDataChannel</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>user_data</code></em></i>
+<span>(</span><a title="variadic" href="https://docs.python.org/dev/tutorial/controlflow.html#arbitrary-argument-lists">variadic</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+<p>
+	<b>Flags:</b>	
+	
+		
+				<a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS">Run Last</a>
+			
+				/		
+				<a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-ACTION:CAPS">Action</a>
+			
+</p>
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="deprecated:1.22;" id="GstWebRTCDataChannel::send-data">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstWebRTCDataChannel::send-data">
+	<i>send-data</i>
+</h4>
+
+
+
+<pre class="c-prototype language-c">
+g_signal_emit_by_name (self, "send-data", data, user_data);</pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+<span>(</span><a title="GstWebRTCDataChannel" href="webrtclib/gstwebrtc-datachannel.html#GstWebRTCDataChannel">GstWebRTCDataChannel</a> *<span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>data</code></em></i>
+<span>(</span><a title="GBytes" href="https://docs.gtk.org/glib/struct.Bytes.html">GBytes</a> *, 
+<span class="annotation">[<abbr title="NULL may be passed to the value"><span class="acronym">nullable</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>a <a href="https://docs.gtk.org/glib/struct.Bytes.html">GBytes</a> with the data</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>user_data</code></em></i>
+<span>(</span><a title="gpointer" href="https://docs.gtk.org/glib/types.html#gpointer">gpointer</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+<p>
+	<b>Flags:</b>	
+	
+		
+				<a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS">Run Last</a>
+			
+				/		
+				<a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-ACTION:CAPS">Action</a>
+			
+</p>
+
+
+	<p>
+	<b>deprecated</b>			: 1.22: Use gst_webrtc_data_channel_send_data_full() instead
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GstWebRTCDataChannel::send-data">
+	<i>send-data</i>
+</h4>
+
+
+
+<pre class="javascript-prototype language-javascript">
+let ret = self.emit ("send-data", data, user_data);</pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+<span>(</span><a title="GstWebRTC.WebRTCDataChannel" href="webrtclib/gstwebrtc-datachannel.html#GstWebRTCDataChannel">GstWebRTC.WebRTCDataChannel</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>data</code></em></i>
+<span>(</span><a title="GBytes (not introspectable)" href="https://docs.gtk.org/glib/struct.Bytes.html">GBytes (not introspectable)</a><span>)</span>
+–
+</div>
+<p>a <a href="https://docs.gtk.org/glib/struct.Bytes.html">GBytes (not introspectable)</a> with the data</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>user_data</code></em></i>
+<span>(</span><a title="Object" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+<p>
+	<b>Flags:</b>	
+	
+		
+				<a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS">Run Last</a>
+			
+				/		
+				<a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-ACTION:CAPS">Action</a>
+			
+</p>
+
+
+	<p>
+	<b>deprecated</b>			: 1.22: Use gst_webrtc_data_channel_send_data_full() instead
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GstWebRTCDataChannel::send-data">
+	<i>send-data</i>
+</h4>
+
+
+
+<pre class="python-prototype language-python">
+ret = self.emit ("send-data", data, user_data)</pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+<span>(</span><a title="GstWebRTC.WebRTCDataChannel" href="webrtclib/gstwebrtc-datachannel.html#GstWebRTCDataChannel">GstWebRTC.WebRTCDataChannel</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>data</code></em></i>
+<span>(</span><a title="GBytes (not introspectable)" href="https://docs.gtk.org/glib/struct.Bytes.html">GBytes (not introspectable)</a><span>)</span>
+–
+</div>
+<p>a <a href="https://docs.gtk.org/glib/struct.Bytes.html">GBytes (not introspectable)</a> with the data</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>user_data</code></em></i>
+<span>(</span><a title="variadic" href="https://docs.python.org/dev/tutorial/controlflow.html#arbitrary-argument-lists">variadic</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+<p>
+	<b>Flags:</b>	
+	
+		
+				<a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS">Run Last</a>
+			
+				/		
+				<a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-ACTION:CAPS">Action</a>
+			
+</p>
+
+
+	<p>
+	<b>deprecated</b>			: 1.22: Use gst_webrtc_data_channel_send_data_full() instead
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="deprecated:1.22;" id="GstWebRTCDataChannel::send-string">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstWebRTCDataChannel::send-string">
+	<i>send-string</i>
+</h4>
+
+
+
+<pre class="c-prototype language-c">
+g_signal_emit_by_name (self, "send-string", data, user_data);</pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+<span>(</span><a title="GstWebRTCDataChannel" href="webrtclib/gstwebrtc-datachannel.html#GstWebRTCDataChannel">GstWebRTCDataChannel</a> *<span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>data</code></em></i>
+<span>(</span><a title="gchar" href="https://docs.gtk.org/glib/types.html#gchar">gchar</a> *, 
+<span class="annotation">[<abbr title="NULL may be passed to the value"><span class="acronym">nullable</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>the data to send as a string</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>user_data</code></em></i>
+<span>(</span><a title="gpointer" href="https://docs.gtk.org/glib/types.html#gpointer">gpointer</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+<p>
+	<b>Flags:</b>	
+	
+		
+				<a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS">Run Last</a>
+			
+				/		
+				<a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-ACTION:CAPS">Action</a>
+			
+</p>
+
+
+	<p>
+	<b>deprecated</b>			: 1.22: Use gst_webrtc_data_channel_send_string_full() instead
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GstWebRTCDataChannel::send-string">
+	<i>send-string</i>
+</h4>
+
+
+
+<pre class="javascript-prototype language-javascript">
+let ret = self.emit ("send-string", data, user_data);</pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+<span>(</span><a title="GstWebRTC.WebRTCDataChannel" href="webrtclib/gstwebrtc-datachannel.html#GstWebRTCDataChannel">GstWebRTC.WebRTCDataChannel</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>data</code></em></i>
+<span>(</span><a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a><span>)</span>
+–
+</div>
+<p>the data to send as a string</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>user_data</code></em></i>
+<span>(</span><a title="Object" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+<p>
+	<b>Flags:</b>	
+	
+		
+				<a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS">Run Last</a>
+			
+				/		
+				<a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-ACTION:CAPS">Action</a>
+			
+</p>
+
+
+	<p>
+	<b>deprecated</b>			: 1.22: Use gst_webrtc_data_channel_send_string_full() instead
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GstWebRTCDataChannel::send-string">
+	<i>send-string</i>
+</h4>
+
+
+
+<pre class="python-prototype language-python">
+ret = self.emit ("send-string", data, user_data)</pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+<span>(</span><a title="GstWebRTC.WebRTCDataChannel" href="webrtclib/gstwebrtc-datachannel.html#GstWebRTCDataChannel">GstWebRTC.WebRTCDataChannel</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>data</code></em></i>
+<span>(</span><a title="str" href="https://docs.python.org/3/library/functions.html#func-str">str</a><span>)</span>
+–
+</div>
+<p>the data to send as a string</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>user_data</code></em></i>
+<span>(</span><a title="variadic" href="https://docs.python.org/dev/tutorial/controlflow.html#arbitrary-argument-lists">variadic</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+<p>
+	<b>Flags:</b>	
+	
+		
+				<a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS">Run Last</a>
+			
+				/		
+				<a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-ACTION:CAPS">Action</a>
+			
+</p>
+
+
+	<p>
+	<b>deprecated</b>			: 1.22: Use gst_webrtc_data_channel_send_string_full() instead
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+
+            <h3 class="symbol_section">Properties</h3>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstWebRTCDataChannel:buffered-amount">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstWebRTCDataChannel:buffered-amount">
+	<i>buffered-amount</i>
+</h4>
+
+
+<pre class="property_signature">
+“buffered-amount” <span class="type"><a title="guint64" href="https://docs.gtk.org/glib/types.html#guint64">guint64</a></span>
+</pre>
+
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+</p>
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GstWebRTCDataChannel:buffered-amount">
+	<i>buffered-amount</i>
+</h4>
+
+
+<pre class="property_signature">
+“buffered-amount” <span class="type"><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a></span>
+</pre>
+
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+</p>
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GstWebRTCDataChannel:buffered-amount">
+	<i>buffered_amount</i>
+</h4>
+
+
+<pre class="property_signature">
+“self.props.buffered_amount” <span class="type"><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a></span>
+</pre>
+
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+</p>
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstWebRTCDataChannel:buffered-amount-low-threshold">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstWebRTCDataChannel:buffered-amount-low-threshold">
+	<i>buffered-amount-low-threshold</i>
+</h4>
+
+
+<pre class="property_signature">
+“buffered-amount-low-threshold” <span class="type"><a title="guint64" href="https://docs.gtk.org/glib/types.html#guint64">guint64</a></span>
+</pre>
+
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GstWebRTCDataChannel:buffered-amount-low-threshold">
+	<i>buffered-amount-low-threshold</i>
+</h4>
+
+
+<pre class="property_signature">
+“buffered-amount-low-threshold” <span class="type"><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a></span>
+</pre>
+
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GstWebRTCDataChannel:buffered-amount-low-threshold">
+	<i>buffered_amount_low_threshold</i>
+</h4>
+
+
+<pre class="property_signature">
+“self.props.buffered_amount_low_threshold” <span class="type"><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a></span>
+</pre>
+
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstWebRTCDataChannel:id">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstWebRTCDataChannel:id">
+	<i>id</i>
+</h4>
+
+
+<pre class="property_signature">
+“id” <span class="type"><a title="gint" href="https://docs.gtk.org/glib/types.html#gint">gint</a></span>
+</pre>
+
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+				/		
+				Construct Only
+			
+</p>
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GstWebRTCDataChannel:id">
+	<i>id</i>
+</h4>
+
+
+<pre class="property_signature">
+“id” <span class="type"><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a></span>
+</pre>
+
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+				/		
+				Construct Only
+			
+</p>
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GstWebRTCDataChannel:id">
+	<i>id</i>
+</h4>
+
+
+<pre class="property_signature">
+“self.props.id” <span class="type"><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a></span>
+</pre>
+
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+				/		
+				Construct Only
+			
+</p>
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstWebRTCDataChannel:label">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstWebRTCDataChannel:label">
+	<i>label</i>
+</h4>
+
+
+<pre class="property_signature">
+“label” <span class="type"><a title="gchar" href="https://docs.gtk.org/glib/types.html#gchar">gchar</a> *</span>
+</pre>
+
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+				/		
+				Construct Only
+			
+</p>
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GstWebRTCDataChannel:label">
+	<i>label</i>
+</h4>
+
+
+<pre class="property_signature">
+“label” <span class="type"><a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></span>
+</pre>
+
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+				/		
+				Construct Only
+			
+</p>
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GstWebRTCDataChannel:label">
+	<i>label</i>
+</h4>
+
+
+<pre class="property_signature">
+“self.props.label” <span class="type"><a title="str" href="https://docs.python.org/3/library/functions.html#func-str">str</a></span>
+</pre>
+
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+				/		
+				Construct Only
+			
+</p>
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstWebRTCDataChannel:max-packet-lifetime">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstWebRTCDataChannel:max-packet-lifetime">
+	<i>max-packet-lifetime</i>
+</h4>
+
+
+<pre class="property_signature">
+“max-packet-lifetime” <span class="type"><a title="gint" href="https://docs.gtk.org/glib/types.html#gint">gint</a></span>
+</pre>
+
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+				/		
+				Construct Only
+			
+</p>
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GstWebRTCDataChannel:max-packet-lifetime">
+	<i>max-packet-lifetime</i>
+</h4>
+
+
+<pre class="property_signature">
+“max-packet-lifetime” <span class="type"><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a></span>
+</pre>
+
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+				/		
+				Construct Only
+			
+</p>
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GstWebRTCDataChannel:max-packet-lifetime">
+	<i>max_packet_lifetime</i>
+</h4>
+
+
+<pre class="property_signature">
+“self.props.max_packet_lifetime” <span class="type"><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a></span>
+</pre>
+
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+				/		
+				Construct Only
+			
+</p>
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstWebRTCDataChannel:max-retransmits">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstWebRTCDataChannel:max-retransmits">
+	<i>max-retransmits</i>
+</h4>
+
+
+<pre class="property_signature">
+“max-retransmits” <span class="type"><a title="gint" href="https://docs.gtk.org/glib/types.html#gint">gint</a></span>
+</pre>
+
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+				/		
+				Construct Only
+			
+</p>
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GstWebRTCDataChannel:max-retransmits">
+	<i>max-retransmits</i>
+</h4>
+
+
+<pre class="property_signature">
+“max-retransmits” <span class="type"><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a></span>
+</pre>
+
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+				/		
+				Construct Only
+			
+</p>
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GstWebRTCDataChannel:max-retransmits">
+	<i>max_retransmits</i>
+</h4>
+
+
+<pre class="property_signature">
+“self.props.max_retransmits” <span class="type"><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a></span>
+</pre>
+
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+				/		
+				Construct Only
+			
+</p>
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstWebRTCDataChannel:negotiated">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstWebRTCDataChannel:negotiated">
+	<i>negotiated</i>
+</h4>
+
+
+<pre class="property_signature">
+“negotiated” <span class="type"><a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a></span>
+</pre>
+
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+				/		
+				Construct Only
+			
+</p>
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GstWebRTCDataChannel:negotiated">
+	<i>negotiated</i>
+</h4>
+
+
+<pre class="property_signature">
+“negotiated” <span class="type"><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a></span>
+</pre>
+
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+				/		
+				Construct Only
+			
+</p>
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GstWebRTCDataChannel:negotiated">
+	<i>negotiated</i>
+</h4>
+
+
+<pre class="property_signature">
+“self.props.negotiated” <span class="type"><a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a></span>
+</pre>
+
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+				/		
+				Construct Only
+			
+</p>
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstWebRTCDataChannel:ordered">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstWebRTCDataChannel:ordered">
+	<i>ordered</i>
+</h4>
+
+
+<pre class="property_signature">
+“ordered” <span class="type"><a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a></span>
+</pre>
+
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+				/		
+				Construct Only
+			
+</p>
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GstWebRTCDataChannel:ordered">
+	<i>ordered</i>
+</h4>
+
+
+<pre class="property_signature">
+“ordered” <span class="type"><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a></span>
+</pre>
+
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+				/		
+				Construct Only
+			
+</p>
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GstWebRTCDataChannel:ordered">
+	<i>ordered</i>
+</h4>
+
+
+<pre class="property_signature">
+“self.props.ordered” <span class="type"><a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a></span>
+</pre>
+
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+				/		
+				Construct Only
+			
+</p>
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstWebRTCDataChannel:priority">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstWebRTCDataChannel:priority">
+	<i>priority</i>
+</h4>
+
+
+<pre class="property_signature">
+“priority” <span class="type"><a title="GstWebRTCPriorityType" href="webrtclib/webrtc_fwd.html#GstWebRTCPriorityType">GstWebRTCPriorityType</a> *</span>
+</pre>
+
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+				/		
+				Construct Only
+			
+</p>
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GstWebRTCDataChannel:priority">
+	<i>priority</i>
+</h4>
+
+
+<pre class="property_signature">
+“priority” <span class="type"><a title="GstWebRTC.WebRTCPriorityType" href="webrtclib/webrtc_fwd.html#GstWebRTCPriorityType">GstWebRTC.WebRTCPriorityType</a></span>
+</pre>
+
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+				/		
+				Construct Only
+			
+</p>
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GstWebRTCDataChannel:priority">
+	<i>priority</i>
+</h4>
+
+
+<pre class="property_signature">
+“self.props.priority” <span class="type"><a title="GstWebRTC.WebRTCPriorityType" href="webrtclib/webrtc_fwd.html#GstWebRTCPriorityType">GstWebRTC.WebRTCPriorityType</a></span>
+</pre>
+
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+				/		
+				Construct Only
+			
+</p>
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstWebRTCDataChannel:protocol">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstWebRTCDataChannel:protocol">
+	<i>protocol</i>
+</h4>
+
+
+<pre class="property_signature">
+“protocol” <span class="type"><a title="gchar" href="https://docs.gtk.org/glib/types.html#gchar">gchar</a> *</span>
+</pre>
+
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+				/		
+				Construct Only
+			
+</p>
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GstWebRTCDataChannel:protocol">
+	<i>protocol</i>
+</h4>
+
+
+<pre class="property_signature">
+“protocol” <span class="type"><a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></span>
+</pre>
+
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+				/		
+				Construct Only
+			
+</p>
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GstWebRTCDataChannel:protocol">
+	<i>protocol</i>
+</h4>
+
+
+<pre class="property_signature">
+“self.props.protocol” <span class="type"><a title="str" href="https://docs.python.org/3/library/functions.html#func-str">str</a></span>
+</pre>
+
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+				/		
+				Construct Only
+			
+</p>
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstWebRTCDataChannel:ready-state">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstWebRTCDataChannel:ready-state">
+	<i>ready-state</i>
+</h4>
+
+
+<pre class="property_signature">
+“ready-state” <span class="type"><a title="GstWebRTCDataChannelState" href="webrtclib/webrtc_fwd.html#GstWebRTCDataChannelState">GstWebRTCDataChannelState</a> *</span>
+</pre>
+
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+</p>
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GstWebRTCDataChannel:ready-state">
+	<i>ready-state</i>
+</h4>
+
+
+<pre class="property_signature">
+“ready-state” <span class="type"><a title="GstWebRTC.WebRTCDataChannelState" href="webrtclib/webrtc_fwd.html#GstWebRTCDataChannelState">GstWebRTC.WebRTCDataChannelState</a></span>
+</pre>
+
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+</p>
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GstWebRTCDataChannel:ready-state">
+	<i>ready_state</i>
+</h4>
+
+
+<pre class="property_signature">
+“self.props.ready_state” <span class="type"><a title="GstWebRTC.WebRTCDataChannelState" href="webrtclib/webrtc_fwd.html#GstWebRTCDataChannelState">GstWebRTC.WebRTCDataChannelState</a></span>
+</pre>
+
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+</p>
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+
+
+
+
+
+		
+	</div>
+	<div id="search_results">
+		<p>The results of the search are</p>
+	</div>
+	<div id="footer">
+		    
+
+	</div>
+</div>
+
+<div id="toc-column">
+	
+		<div class="edit-button">
+		
+
+	</div>
+		<div id="toc-wrapper">
+		<nav id="toc"></nav>
+	</div>
+</div>
+</div>
+</main>
+
+
+<script src="assets/js/navbar_offset_scroller.js"></script>
+</body>
+</html>

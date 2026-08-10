@@ -1,0 +1,1392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<base href="..">
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<title>souphttpsrc</title>
+
+<link rel="stylesheet" href="assets/css/dark-frontend.css" type="text/css" title="dark">
+<link rel="alternate stylesheet" href="assets/css/light-frontend.css" type="text/css" title="light">
+<link rel="stylesheet" href="assets/css/bootstrap-toc.min.css" type="text/css">
+<link rel="stylesheet" href="assets/css/jquery.mCustomScrollbar.min.css">
+<link rel="stylesheet" href="assets/js/search/enable_search.css" type="text/css">
+
+<link rel="stylesheet" href="assets/css/extra_frontend.css" type="text/css">
+<link rel="stylesheet" href="assets/css/devhelp.css" type="text/css">
+
+<link rel="stylesheet" href="assets/css/prism-tomorrow.css" type="text/css" title="dark">
+
+<link rel="alternate stylesheet" href="assets/css/prism.css" type="text/css" title="light">
+
+<script src="assets/js/mustache.min.js"></script>
+<script src="assets/js/jquery.js"></script>
+<script src="assets/js/bootstrap.js"></script>
+<script src="assets/js/scrollspy.js"></script>
+<script src="assets/js/typeahead.jquery.min.js"></script>
+<script src="assets/js/search.js"></script>
+<script src="assets/js/compare-versions.js"></script>
+<script src="assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="assets/js/bootstrap-toc.min.js"></script>
+<script src="assets/js/jquery.touchSwipe.min.js"></script>
+<script src="assets/js/anchor.min.js"></script>
+<script src="assets/js/tag_filtering.js"></script>
+<script src="assets/js/language_switching.js"></script>
+<script src="assets/js/styleswitcher.js"></script>
+
+<script src="assets/js/lines_around_headings.js"></script>
+
+<script src="assets/js/prism-core.js"></script>
+<script src="assets/js/prism-autoloader.js"></script>
+<script src="assets/js/prism_autoloader_path_override.js"></script>
+<script src="assets/js/trie.js"></script>
+
+<!-- generic -->
+<link rel="icon" type="image/png" href="assets/images/favicon-16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="assets/images/favicon-32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="assets/images/favicon-57.png" sizes="57x57">
+<link rel="icon" type="image/png" href="assets/images/favicon-64.png" sizes="64x64">
+<link rel="icon" type="image/png" href="assets/images/favicon-76.png" sizes="76x76">
+<link rel="icon" type="image/png" href="assets/images/favicon-96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="assets/images/favicon-128.png" sizes="128x128">
+<link rel="icon" type="image/png" href="assets/images/favicon-192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="assets/images/favicon-228.png" sizes="228x228">
+
+<!-- Android -->
+<link rel="shortcut icon" sizes="196x196" href="assets/images/favicon-196.png">
+
+<!-- iOS -->
+<link rel="apple-touch-icon" href="assets/images/favicon-120.png" sizes="120x120">
+<link rel="apple-touch-icon" href="assets/images/favicon-152.png" sizes="152x152">
+<link rel="apple-touch-icon" href="assets/images/favicon-180.png" sizes="180x180">
+
+</head>
+
+<body class="no-script
+">
+
+<script>
+$('body').removeClass('no-script');
+</script>
+
+<nav class="navbar navbar-fixed-top navbar-default" id="topnav">
+	<div class="container-fluid">
+		<div class="navbar-right">
+			<a id="toc-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-wrapper" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<span title="light mode switch" class="glyphicon glyphicon-sunglasses pull-right" id="lightmode-icon"></span>
+			<form class="navbar-form pull-right" id="navbar-search-form">
+                               <div class="form-group has-feedback">
+                                       <input type="text" class="form-control input-sm" name="search" id="sidenav-lookup-field" placeholder="search" disabled>
+				       <span class="glyphicon glyphicon-search form-control-feedback" id="search-mgn-glass"></span>
+                               </div>
+                        </form>
+		</div>
+		<div class="navbar-header">
+			<a id="sidenav-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<a id="home-link" href="index.html" class="hotdoc-navbar-brand">
+				<img src="assets/images/gstreamer-logo.svg" alt="Home">
+			</a>
+		</div>
+		<div class="navbar-collapse collapse" id="navbar-wrapper">
+			<ul class="nav navbar-nav" id="menu">
+				
+<li class="dropdown">
+    <a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        API References<span class="caret"></span>
+    </a>
+	<ul class="dropdown-menu" id="modules-menu">
+					<li>
+				<a href="gstreamer/gi-index.html">GStreamer core</a>
+			</li>
+					<li>
+				<a href="libs.html">GStreamer Libraries</a>
+			</li>
+					<li>
+				<a href="plugins_doc.html">GStreamer Plugins</a>
+			</li>
+		</ul>
+</li>
+
+<li>
+    <a href="application-development/index.html">Application manual</a>
+</li>
+
+
+<li>
+    <a href="tutorials/index.html">Tutorials</a>
+</li>
+
+			</ul>
+			<div class="hidden-xs hidden-sm navbar-text navbar-center">
+							</div>
+		</div>
+	</div>
+</nav>
+
+<main>
+<div data-extension="gst-extension" data-hotdoc-in-toplevel="False" data-hotdoc-project="soup" data-hotdoc-ref="souphttpsrc.html" class="page_container" id="page-wrapper" data-hotdoc-meta-gi-languages="['c', 'javascript', 'python']">
+<script src="assets/js/utils.js"></script>
+
+<div class="panel panel-collapse oc-collapsed" id="sidenav" data-hotdoc-role="navigation">
+	<script src="assets/js/full-width.js"></script>
+  <div id="sitenav-wrapper">
+    <iframe src="hotdoc-sitemap.html" id="sitenav-frame"></iframe>
+  </div>
+</div>
+
+<div id="body">
+	<div id="main">
+				    <div id="page-description" data-hotdoc-role="main">
+        <h1 id="souphttpsrc-page">souphttpsrc</h1>
+<p>This plugin reads data from a remote location specified by a URI.
+Supported protocols are 'http', 'https'.</p>
+<p>An HTTP proxy must be specified by its URL.
+If the "http_proxy" environment variable is set, its value is used.
+If built with libsoup's GNOME integration features, the GNOME proxy
+configuration will be used, or failing that, proxy autodetection.
+The <a href="soup/souphttpsrc.html#souphttpsrc:proxy">proxy</a> property can be used to override the default.</p>
+<p>In case the <a href="soup/souphttpsrc.html#souphttpsrc:iradio-mode">iradio-mode</a> property is set and the location is
+an HTTP resource, souphttpsrc will send special Icecast HTTP headers to the
+server to request additional Icecast meta-information.
+If the server is not an Icecast server, it will behave as if the
+<a href="soup/souphttpsrc.html#souphttpsrc:iradio-mode">iradio-mode</a> property were not set. If it is, souphttpsrc will
+output data with a media type of application/x-icy, in which case you will
+need to use the <a href="icydemux/index.html#icydemux">icydemux</a> element as follow-up element to extract the Icecast
+metadata and to determine the underlying media type.</p>
+<h2 id="example-launch-line">Example launch line</h2>
+<pre><code class="language-["> gst-launch-1.0 -v souphttpsrc location=https://some.server.org/index.html
+     ! filesink location=/home/joe/server.html
+</code></pre>
+<p>The above pipeline reads a web page from a server using the HTTPS protocol
+and writes it to a local file.</p>
+<pre><code class="language-["> gst-launch-1.0 -v souphttpsrc user-agent="FooPlayer 0.99 beta"
+     automatic-redirect=false proxy=http://proxy.intranet.local:8080
+     location=http://music.foobar.com/demo.mp3 ! mpgaudioparse
+     ! mpg123audiodec ! audioconvert ! audioresample ! autoaudiosink
+</code></pre>
+<p>The above pipeline will read and decode and play an mp3 file from a
+web server using the HTTP protocol. If the server sends redirects,
+the request fails instead of following the redirect. The specified
+HTTP proxy server is used. The User-Agent HTTP request header
+is set to a custom string instead of "GStreamer souphttpsrc."</p>
+<pre><code class="language-["> gst-launch-1.0 -v souphttpsrc location=http://10.11.12.13/mjpeg
+     do-timestamp=true ! multipartdemux
+     ! image/jpeg,width=640,height=480 ! matroskamux
+     ! filesink location=mjpeg.mkv
+</code></pre>
+<p>The above pipeline reads a motion JPEG stream from an IP camera
+using the HTTP protocol, encoded as mime/multipart image/jpeg
+parts, and writes a Matroska motion JPEG file. The width and
+height properties are set in the caps to provide the Matroska
+multiplexer with the information to set this in the header.
+Timestamps are set on the buffers as they arrive from the camera.
+These are used by the mime/multipart demultiplexer to emit timestamps
+on the JPEG-encoded video frame buffers. This allows the Matroska
+multiplexer to timestamp the frames in the resulting file.</p>
+
+    </div>
+        
+        
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="souphttpsrc">
+	
+        
+
+        <h2>Hierarchy</h2>
+            <div class="hierarchy_container">
+                <div class="hierarchy_details">
+<pre>
+<a title="GObject" href="https://docs.gtk.org/gobject/class.Object.html" data-gi-href-javascript="https://docs.gtk.org/gobject/class.Object.html" data-gi-title-javascript="GObject.Object" data-gi-href-python="https://docs.gtk.org/gobject/class.Object.html" data-gi-title-python="GObject.Object">GObject</a>
+    <span class="lineart">╰──</span><a title="GInitiallyUnowned" href="https://docs.gtk.org/gobject/class.InitiallyUnowned.html" data-gi-href-javascript="https://docs.gtk.org/gobject/class.InitiallyUnowned.html" data-gi-title-javascript="GObject.InitiallyUnowned" data-gi-href-python="https://docs.gtk.org/gobject/class.InitiallyUnowned.html" data-gi-title-python="GObject.InitiallyUnowned">GInitiallyUnowned</a>
+        <span class="lineart">╰──</span><a title="GstObject" href="gstreamer/gstobject.html#GstObject" data-gi-href-javascript="gstreamer/gstobject.html#GstObject" data-gi-title-javascript="Gst.Object" data-gi-href-python="gstreamer/gstobject.html#GstObject" data-gi-title-python="Gst.Object">GstObject</a>
+            <span class="lineart">╰──</span><a title="GstElement" href="gstreamer/gstelement.html#GstElement" data-gi-href-javascript="gstreamer/gstelement.html#GstElement" data-gi-title-javascript="Gst.Element" data-gi-href-python="gstreamer/gstelement.html#GstElement" data-gi-title-python="Gst.Element">GstElement</a>
+                <span class="lineart">╰──</span><a title="GstBaseSrc" href="base/gstbasesrc.html#GstBaseSrc" data-gi-href-javascript="base/gstbasesrc.html#GstBaseSrc" data-gi-title-javascript="GstBase.BaseSrc" data-gi-href-python="base/gstbasesrc.html#GstBaseSrc" data-gi-title-python="GstBase.BaseSrc">GstBaseSrc</a>
+                    <span class="lineart">╰──</span><a title="GstPushSrc" href="base/gstpushsrc.html#GstPushSrc" data-gi-href-javascript="base/gstpushsrc.html#GstPushSrc" data-gi-title-javascript="GstBase.PushSrc" data-gi-href-python="base/gstpushsrc.html#GstPushSrc" data-gi-title-python="GstBase.PushSrc">GstPushSrc</a>
+                        <span class="lineart">╰──</span>souphttpsrc
+</pre>
+
+</div>
+
+            </div>
+            <h2>Implemented interfaces</h2>
+            <div>
+                <pre>
+<a title="GstURIHandler" href="gstreamer/gsturihandler.html#GstURIHandler" data-gi-href-javascript="gstreamer/gsturihandler.html#GstURIHandler" data-gi-title-javascript="Gst.URIHandler" data-gi-href-python="gstreamer/gsturihandler.html#GstURIHandler" data-gi-title-python="Gst.URIHandler">GstURIHandler</a>
+</pre>
+            </div>
+        <h2 class="symbol_section">Factory details</h2>
+        <div class="symbol-detail">
+            <p><b>Authors:</b> – Wouter Cloetens <wouter@mind.be></wouter@mind.be></p>
+            <p><b>Classification:</b> – <code>Source/Network</code></p>
+            <p><b>Rank</b> – primary</p>
+            <p><b>Plugin</b> – soup</p>
+            <p><b>Package</b> – GStreamer Good Plug-ins</p>
+        </div>
+
+</div>
+
+
+            <h2 class="symbol_section">Pad Templates</h2>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstSoupHTTPSrc!src">
+	
+
+
+
+        <h3><span><code>src</code></span></h3>
+
+
+        <div>
+            
+            <pre class="language-yaml"><code class="language-yaml">ANY</code></pre>
+            <div class="symbol-detail">
+                <p><b>Presence</b> – <i>always</i></p>
+                <p><b>Direction</b> – <i>src</i></p>
+                    <p><b>Object type</b> – <a title="GstPad" href="gstreamer/gstpad.html#GstPad" data-gi-href-javascript="gstreamer/gstpad.html#GstPad" data-gi-title-javascript="Gst.Pad" data-gi-href-python="gstreamer/gstpad.html#GstPad" data-gi-title-python="Gst.Pad">GstPad</a></p>
+            </div>
+        </div>
+
+
+
+<hr>
+
+</div>
+
+
+            <h2 class="symbol_section">Signals</h2>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.24;" id="souphttpsrc::accept-certificate">
+	
+
+
+
+<h3 data-hotdoc-id="souphttpsrc::accept-certificate">
+	<i>accept-certificate</i>
+</h3>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#bool" data-gi-title-python="bool">gboolean</a>
+accept_certificate_callback (<a title="GstElement" href="gstreamer/gstelement.html#GstElement" data-gi-href-javascript="gstreamer/gstelement.html#GstElement" data-gi-title-javascript="Gst.Element" data-gi-href-python="gstreamer/gstelement.html#GstElement" data-gi-title-python="Gst.Element">GstElement</a> <span class="pointer-token">*</span> souphttpsrc,
+                             <a title="GTlsCertificate" href="https://docs.gtk.org/gio/class.TlsCertificate.html" data-gi-href-javascript="https://docs.gtk.org/gio/class.TlsCertificate.html" data-gi-title-javascript="Gio.TlsCertificate" data-gi-href-python="https://docs.gtk.org/gio/class.TlsCertificate.html" data-gi-title-python="Gio.TlsCertificate">GTlsCertificate</a> <span class="pointer-token">*</span> peer_cert,
+                             <a title="GTlsCertificateFlags" href="https://docs.gtk.org/gio/flags.TlsCertificateFlags.html" data-gi-href-javascript="https://docs.gtk.org/gio/flags.TlsCertificateFlags.html" data-gi-title-javascript="Gio.TlsCertificateFlags" data-gi-href-python="https://docs.gtk.org/gio/flags.TlsCertificateFlags.html" data-gi-title-python="Gio.TlsCertificateFlags">GTlsCertificateFlags</a> <span class="pointer-token">*</span> errors,
+                             <a title="gpointer" href="https://docs.gtk.org/glib/types.html#gpointer" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" data-gi-title-javascript="Object" data-gi-href-python="https://docs.python.org/3/library/functions.html#object" data-gi-title-python="object">gpointer</a> udata)</pre>
+<pre class="python-prototype language-python">
+<code>def accept_certificate_callback (souphttpsrc, peer_cert, errors, udata):
+    #python callback for the 'accept-certificate' signal</code></pre>
+<pre class="javascript-prototype language-javascript">
+<code>function accept_certificate_callback(souphttpsrc: <a title="GstElement" href="gstreamer/gstelement.html#GstElement" data-gi-href-javascript="gstreamer/gstelement.html#GstElement" data-gi-title-javascript="Gst.Element" data-gi-href-python="gstreamer/gstelement.html#GstElement" data-gi-title-python="Gst.Element">GstElement</a> <span class="pointer-token">*</span> souphttpsrc, peer_cert: <a title="GTlsCertificate" href="https://docs.gtk.org/gio/class.TlsCertificate.html" data-gi-href-javascript="https://docs.gtk.org/gio/class.TlsCertificate.html" data-gi-title-javascript="Gio.TlsCertificate" data-gi-href-python="https://docs.gtk.org/gio/class.TlsCertificate.html" data-gi-title-python="Gio.TlsCertificate">GTlsCertificate</a> <span class="pointer-token">*</span> peer_cert, errors: <a title="GTlsCertificateFlags" href="https://docs.gtk.org/gio/flags.TlsCertificateFlags.html" data-gi-href-javascript="https://docs.gtk.org/gio/flags.TlsCertificateFlags.html" data-gi-title-javascript="Gio.TlsCertificateFlags" data-gi-href-python="https://docs.gtk.org/gio/flags.TlsCertificateFlags.html" data-gi-title-python="Gio.TlsCertificateFlags">GTlsCertificateFlags</a> <span class="pointer-token">*</span> errors, udata: <a title="gpointer" href="https://docs.gtk.org/glib/types.html#gpointer" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" data-gi-title-javascript="Object" data-gi-href-python="https://docs.python.org/3/library/functions.html#object" data-gi-title-python="object">gpointer</a> udata): {
+    // javascript callback for the 'accept-certificate' signal
+}</code></pre>
+
+<p>This will directly map to <a href="https://libsoup.gnome.org/libsoup-3.0/class.Message.html" data-gi-href-javascript="https://libsoup.gnome.org/libsoup-3.0/class.Message.html" data-gi-title-javascript="SoupMessage (not introspectable)" data-gi-href-python="https://libsoup.gnome.org/libsoup-3.0/class.Message.html" data-gi-title-python="SoupMessage (not introspectable)">SoupMessage</a> 's "accept-certificate" after
+an unacceptable TLS certificate has been received, and only for libsoup 3.x
+or above. If "ssl-strict" was set to <a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#FALSE:CAPS" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean" data-gi-title-javascript="false" data-gi-href-python="https://docs.python.org/3/library/constants.html#False" data-gi-title-python="False">FALSE</a>, this signal will not be
+emitted.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>souphttpsrc</code></em></i>
+–
+</div>
+<p>a <a href="soup/souphttpsrc.html#souphttpsrc">souphttpsrc</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>peer_cert</code></em></i>
+–
+</div>
+<p>the peer's <a href="https://docs.gtk.org/gio/class.TlsCertificate.html" data-gi-href-javascript="https://docs.gtk.org/gio/class.TlsCertificate.html" data-gi-title-javascript="Gio.TlsCertificate" data-gi-href-python="https://docs.gtk.org/gio/class.TlsCertificate.html" data-gi-title-python="Gio.TlsCertificate">GTlsCertificate</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>errors</code></em></i>
+–
+</div>
+<p>the problems with <em>peer_cert</em></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>udata</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#bool" data-gi-title-python="bool">gboolean</a><span>)</span>
+–
+			</div>
+							<p><a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#TRUE:CAPS" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean" data-gi-title-javascript="true" data-gi-href-python="https://docs.python.org/3/library/constants.html#True" data-gi-title-python="True">TRUE</a> to accept the TLS certificate and stop other handlers from
+being invoked, or <a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#FALSE:CAPS" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean" data-gi-title-javascript="false" data-gi-href-python="https://docs.python.org/3/library/constants.html#False" data-gi-title-python="False">FALSE</a> to propagate the event further.</p>
+
+					</div>
+	</div>
+
+
+<p>
+	<b>Flags:</b>	
+	
+		
+				<a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS">Run Last</a>
+			
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+
+
+            <h2 class="symbol_section">Properties</h2>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="souphttpsrc:automatic-redirect">
+	
+
+
+
+<h3 data-hotdoc-id="souphttpsrc:automatic-redirect">
+	<i>automatic-redirect</i>
+</h3>
+
+
+<pre class="property_signature">
+“automatic-redirect” <span class="type"><a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#bool" data-gi-title-python="bool">gboolean</a></span>
+</pre>
+
+<p>Automatically follow HTTP redirects (HTTP Status Code 3xx)</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	true
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="souphttpsrc:compress">
+	
+
+
+
+<h3 data-hotdoc-id="souphttpsrc:compress">
+	<i>compress</i>
+</h3>
+
+
+<pre class="property_signature">
+“compress” <span class="type"><a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#bool" data-gi-title-python="bool">gboolean</a></span>
+</pre>
+
+<p>Allow compressed content encodings</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	false
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="souphttpsrc:cookies">
+	
+
+
+
+<h3 data-hotdoc-id="souphttpsrc:cookies">
+	<i>cookies</i>
+</h3>
+
+
+<pre class="property_signature">
+“cookies” <span class="type"><a title="GStrv" href="https://docs.gtk.org/glib/alias.Strv.html" data-gi-href-javascript="https://docs.gtk.org/glib/alias.Strv.html" data-gi-title-javascript="GStrv (not introspectable)" data-gi-href-python="https://docs.gtk.org/glib/alias.Strv.html" data-gi-title-python="GStrv (not introspectable)">GStrv</a> <span class="pointer-token">*</span></span>
+</pre>
+
+<p>HTTP request cookies</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="souphttpsrc:extra-headers">
+	
+
+
+
+<h3 data-hotdoc-id="souphttpsrc:extra-headers">
+	<i>extra-headers</i>
+</h3>
+
+
+<pre class="property_signature">
+“extra-headers” <span class="type"><a title="GstStructure" href="gstreamer/gststructure.html#GstStructure" data-gi-href-javascript="gstreamer/gststructure.html#GstStructure" data-gi-title-javascript="Gst.Structure" data-gi-href-python="gstreamer/gststructure.html#GstStructure" data-gi-title-python="Gst.Structure">GstStructure</a> <span class="pointer-token">*</span></span>
+</pre>
+
+<p>Extra headers to append to the HTTP request</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="souphttpsrc:http-log-level">
+	
+
+
+
+<h3 data-hotdoc-id="souphttpsrc:http-log-level">
+	<i>http-log-level</i>
+</h3>
+
+
+<pre class="property_signature">
+“http-log-level” <span class="type"><a title="SoupLoggerLogLevel" href="https://libsoup.gnome.org/libsoup-3.0/enum.LoggerLogLevel.html" data-gi-href-javascript="https://libsoup.gnome.org/libsoup-3.0/enum.LoggerLogLevel.html" data-gi-title-javascript="SoupLoggerLogLevel (not introspectable)" data-gi-href-python="https://libsoup.gnome.org/libsoup-3.0/enum.LoggerLogLevel.html" data-gi-title-python="SoupLoggerLogLevel (not introspectable)">SoupLoggerLogLevel</a> <span class="pointer-token">*</span></span>
+</pre>
+
+<p>Set log level for soup's HTTP session log</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	headers (2)
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="souphttpsrc:iradio-mode">
+	
+
+
+
+<h3 data-hotdoc-id="souphttpsrc:iradio-mode">
+	<i>iradio-mode</i>
+</h3>
+
+
+<pre class="property_signature">
+“iradio-mode” <span class="type"><a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#bool" data-gi-title-python="bool">gboolean</a></span>
+</pre>
+
+<p>Enable internet radio mode (ask server to send shoutcast/icecast metadata interleaved with the actual stream data)</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	true
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="souphttpsrc:is-live">
+	
+
+
+
+<h3 data-hotdoc-id="souphttpsrc:is-live">
+	<i>is-live</i>
+</h3>
+
+
+<pre class="property_signature">
+“is-live” <span class="type"><a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#bool" data-gi-title-python="bool">gboolean</a></span>
+</pre>
+
+<p>Act like a live source</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	false
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="souphttpsrc:keep-alive">
+	
+
+
+
+<h3 data-hotdoc-id="souphttpsrc:keep-alive">
+	<i>keep-alive</i>
+</h3>
+
+
+<pre class="property_signature">
+“keep-alive” <span class="type"><a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#bool" data-gi-title-python="bool">gboolean</a></span>
+</pre>
+
+<p>Use HTTP persistent connections</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	true
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="souphttpsrc:location">
+	
+
+
+
+<h3 data-hotdoc-id="souphttpsrc:location">
+	<i>location</i>
+</h3>
+
+
+<pre class="property_signature">
+“location” <span class="type"><a title="gchararray" href="https://web.mit.edu/barnowl/share/gtk-doc/html/gobject/gobject-Standard-Parameter-and-Value-Types.html#gchararray" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" data-gi-title-javascript="String" data-gi-href-python="https://docs.python.org/3/library/functions.html#func-str" data-gi-title-python="str">gchararray</a></span>
+</pre>
+
+<p>Location to read from</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	NULL
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="souphttpsrc:method">
+	
+
+
+
+<h3 data-hotdoc-id="souphttpsrc:method">
+	<i>method</i>
+</h3>
+
+
+<pre class="property_signature">
+“method” <span class="type"><a title="gchararray" href="https://web.mit.edu/barnowl/share/gtk-doc/html/gobject/gobject-Standard-Parameter-and-Value-Types.html#gchararray" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" data-gi-title-javascript="String" data-gi-href-python="https://docs.python.org/3/library/functions.html#func-str" data-gi-title-python="str">gchararray</a></span>
+</pre>
+
+<p>The HTTP method to use (GET, HEAD, OPTIONS, etc)</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	NULL
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="souphttpsrc:proxy">
+	
+
+
+
+<h3 data-hotdoc-id="souphttpsrc:proxy">
+	<i>proxy</i>
+</h3>
+
+
+<pre class="property_signature">
+“proxy” <span class="type"><a title="gchararray" href="https://web.mit.edu/barnowl/share/gtk-doc/html/gobject/gobject-Standard-Parameter-and-Value-Types.html#gchararray" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" data-gi-title-javascript="String" data-gi-href-python="https://docs.python.org/3/library/functions.html#func-str" data-gi-title-python="str">gchararray</a></span>
+</pre>
+
+<p>HTTP proxy server URI</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="souphttpsrc:proxy-id">
+	
+
+
+
+<h3 data-hotdoc-id="souphttpsrc:proxy-id">
+	<i>proxy-id</i>
+</h3>
+
+
+<pre class="property_signature">
+“proxy-id” <span class="type"><a title="gchararray" href="https://web.mit.edu/barnowl/share/gtk-doc/html/gobject/gobject-Standard-Parameter-and-Value-Types.html#gchararray" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" data-gi-title-javascript="String" data-gi-href-python="https://docs.python.org/3/library/functions.html#func-str" data-gi-title-python="str">gchararray</a></span>
+</pre>
+
+<p>HTTP proxy URI user id for authentication</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	NULL
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="souphttpsrc:proxy-pw">
+	
+
+
+
+<h3 data-hotdoc-id="souphttpsrc:proxy-pw">
+	<i>proxy-pw</i>
+</h3>
+
+
+<pre class="property_signature">
+“proxy-pw” <span class="type"><a title="gchararray" href="https://web.mit.edu/barnowl/share/gtk-doc/html/gobject/gobject-Standard-Parameter-and-Value-Types.html#gchararray" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" data-gi-title-javascript="String" data-gi-href-python="https://docs.python.org/3/library/functions.html#func-str" data-gi-title-python="str">gchararray</a></span>
+</pre>
+
+<p>HTTP proxy URI user password for authentication</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	NULL
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="souphttpsrc:retries">
+	
+
+
+
+<h3 data-hotdoc-id="souphttpsrc:retries">
+	<i>retries</i>
+</h3>
+
+
+<pre class="property_signature">
+“retries” <span class="type"><a title="gint" href="https://docs.gtk.org/glib/types.html#gint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">gint</a></span>
+</pre>
+
+<p>Maximum number of retries until giving up (-1=infinite)</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	3
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.26;" id="souphttpsrc:retry-backoff-factor">
+	
+
+
+
+<h3 data-hotdoc-id="souphttpsrc:retry-backoff-factor">
+	<i>retry-backoff-factor</i>
+</h3>
+
+
+<pre class="property_signature">
+“retry-backoff-factor” <span class="type"><a title="gdouble" href="https://docs.gtk.org/glib/types.html#gdouble" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#float" data-gi-title-python="float">gdouble</a></span>
+</pre>
+
+<p>A backoff factor to apply between attempts after the second try
+(most errors are resolved immediately by a second try without a delay).
+souphttpsrc will sleep for:</p>
+<pre><code>{backoff factor} * (2 ** ({number of previous retries}))
+``
+
+seconds
+</code></pre>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	0
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.26
+		</p>
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.26;" id="souphttpsrc:retry-backoff-max">
+	
+
+
+
+<h3 data-hotdoc-id="souphttpsrc:retry-backoff-max">
+	<i>retry-backoff-max</i>
+</h3>
+
+
+<pre class="property_signature">
+“retry-backoff-max” <span class="type"><a title="gdouble" href="https://docs.gtk.org/glib/types.html#gdouble" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#float" data-gi-title-python="float">gdouble</a></span>
+</pre>
+
+<p>Maximum retry backoff delay in seconds</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	60
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.26
+		</p>
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="souphttpsrc:ssl-ca-file">
+	
+
+
+
+<h3 data-hotdoc-id="souphttpsrc:ssl-ca-file">
+	<i>ssl-ca-file</i>
+</h3>
+
+
+<pre class="property_signature">
+“ssl-ca-file” <span class="type"><a title="gchararray" href="https://web.mit.edu/barnowl/share/gtk-doc/html/gobject/gobject-Standard-Parameter-and-Value-Types.html#gchararray" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" data-gi-title-javascript="String" data-gi-href-python="https://docs.python.org/3/library/functions.html#func-str" data-gi-title-python="str">gchararray</a></span>
+</pre>
+
+<p>Location of a SSL anchor CA file to use</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	NULL
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="souphttpsrc:ssl-strict">
+	
+
+
+
+<h3 data-hotdoc-id="souphttpsrc:ssl-strict">
+	<i>ssl-strict</i>
+</h3>
+
+
+<pre class="property_signature">
+“ssl-strict” <span class="type"><a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#bool" data-gi-title-python="bool">gboolean</a></span>
+</pre>
+
+<p>Strict SSL certificate checking</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	true
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="souphttpsrc:ssl-use-system-ca-file">
+	
+
+
+
+<h3 data-hotdoc-id="souphttpsrc:ssl-use-system-ca-file">
+	<i>ssl-use-system-ca-file</i>
+</h3>
+
+
+<pre class="property_signature">
+“ssl-use-system-ca-file” <span class="type"><a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#bool" data-gi-title-python="bool">gboolean</a></span>
+</pre>
+
+<p>Use system CA file</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	true
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="souphttpsrc:timeout">
+	
+
+
+
+<h3 data-hotdoc-id="souphttpsrc:timeout">
+	<i>timeout</i>
+</h3>
+
+
+<pre class="property_signature">
+“timeout” <span class="type"><a title="guint" href="https://docs.gtk.org/glib/types.html#guint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">guint</a></span>
+</pre>
+
+<p>Value in seconds to timeout a blocking I/O (0 = No timeout).</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	15
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="souphttpsrc:tls-database">
+	
+
+
+
+<h3 data-hotdoc-id="souphttpsrc:tls-database">
+	<i>tls-database</i>
+</h3>
+
+
+<pre class="property_signature">
+“tls-database” <span class="type"><a title="GTlsDatabase" href="https://docs.gtk.org/gio/class.TlsDatabase.html" data-gi-href-javascript="https://docs.gtk.org/gio/class.TlsDatabase.html" data-gi-title-javascript="Gio.TlsDatabase" data-gi-href-python="https://docs.gtk.org/gio/class.TlsDatabase.html" data-gi-title-python="Gio.TlsDatabase">GTlsDatabase</a> <span class="pointer-token">*</span></span>
+</pre>
+
+<p>TLS database with anchor certificate authorities used to validate the server certificate</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="souphttpsrc:tls-interaction">
+	
+
+
+
+<h3 data-hotdoc-id="souphttpsrc:tls-interaction">
+	<i>tls-interaction</i>
+</h3>
+
+
+<pre class="property_signature">
+“tls-interaction” <span class="type"><a title="GTlsInteraction" href="https://docs.gtk.org/gio/class.TlsInteraction.html" data-gi-href-javascript="https://docs.gtk.org/gio/class.TlsInteraction.html" data-gi-title-javascript="Gio.TlsInteraction" data-gi-href-python="https://docs.gtk.org/gio/class.TlsInteraction.html" data-gi-title-python="Gio.TlsInteraction">GTlsInteraction</a> <span class="pointer-token">*</span></span>
+</pre>
+
+<p>A GTlsInteraction object to be used when the connection or certificate database need to interact with the user.</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="souphttpsrc:user-agent">
+	
+
+
+
+<h3 data-hotdoc-id="souphttpsrc:user-agent">
+	<i>user-agent</i>
+</h3>
+
+
+<pre class="property_signature">
+“user-agent” <span class="type"><a title="gchararray" href="https://web.mit.edu/barnowl/share/gtk-doc/html/gobject/gobject-Standard-Parameter-and-Value-Types.html#gchararray" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" data-gi-title-javascript="String" data-gi-href-python="https://docs.python.org/3/library/functions.html#func-str" data-gi-title-python="str">gchararray</a></span>
+</pre>
+
+<p>Value of the User-Agent HTTP request header field</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	GStreamer souphttpsrc {VERSION} 
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="souphttpsrc:user-id">
+	
+
+
+
+<h3 data-hotdoc-id="souphttpsrc:user-id">
+	<i>user-id</i>
+</h3>
+
+
+<pre class="property_signature">
+“user-id” <span class="type"><a title="gchararray" href="https://web.mit.edu/barnowl/share/gtk-doc/html/gobject/gobject-Standard-Parameter-and-Value-Types.html#gchararray" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" data-gi-title-javascript="String" data-gi-href-python="https://docs.python.org/3/library/functions.html#func-str" data-gi-title-python="str">gchararray</a></span>
+</pre>
+
+<p>HTTP location URI user id for authentication</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	NULL
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="souphttpsrc:user-pw">
+	
+
+
+
+<h3 data-hotdoc-id="souphttpsrc:user-pw">
+	<i>user-pw</i>
+</h3>
+
+
+<pre class="property_signature">
+“user-pw” <span class="type"><a title="gchararray" href="https://web.mit.edu/barnowl/share/gtk-doc/html/gobject/gobject-Standard-Parameter-and-Value-Types.html#gchararray" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" data-gi-title-javascript="String" data-gi-href-python="https://docs.python.org/3/library/functions.html#func-str" data-gi-title-python="str">gchararray</a></span>
+</pre>
+
+<p>HTTP location URI user password for authentication</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	NULL
+</p>
+
+
+
+<hr>
+
+</div>
+
+
+
+
+
+
+		
+	</div>
+	<div id="search_results">
+		<p>The results of the search are</p>
+	</div>
+	<div id="footer">
+		    
+
+	</div>
+</div>
+
+<div id="toc-column">
+	
+		<div class="edit-button">
+		
+
+	</div>
+		<div id="toc-wrapper">
+		<nav id="toc"></nav>
+	</div>
+</div>
+</div>
+</main>
+
+
+<script src="assets/js/navbar_offset_scroller.js"></script>
+</body>
+</html>

@@ -1,0 +1,1 @@
+urls_downloaded_cb({"token":"d.ts","urls":[{"url":"hls/hlssink.html#hlssink:location","node_type":"p","page":"hlssink","sections":["Properties"],"context":{"gi-language":["default"]}},{"url":"hls/hlssink2.html#hlssink2:location","node_type":"p","page":"hlssink2","sections":["Properties"],"context":{"gi-language":["default"]}}]});

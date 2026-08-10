@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<base href="..">
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<title>gst-launch-1.0</title>
+
+<link rel="stylesheet" href="assets/css/dark-frontend.css" type="text/css" title="dark">
+<link rel="alternate stylesheet" href="assets/css/light-frontend.css" type="text/css" title="light">
+<link rel="stylesheet" href="assets/css/bootstrap-toc.min.css" type="text/css">
+<link rel="stylesheet" href="assets/css/jquery.mCustomScrollbar.min.css">
+<link rel="stylesheet" href="assets/js/search/enable_search.css" type="text/css">
+
+<link rel="stylesheet" href="assets/css/extra_frontend.css" type="text/css">
+<link rel="stylesheet" href="assets/css/devhelp.css" type="text/css">
+
+<link rel="stylesheet" href="assets/css/prism-tomorrow.css" type="text/css" title="dark">
+
+<link rel="alternate stylesheet" href="assets/css/prism.css" type="text/css" title="light">
+
+<script src="assets/js/mustache.min.js"></script>
+<script src="assets/js/jquery.js"></script>
+<script src="assets/js/bootstrap.js"></script>
+<script src="assets/js/scrollspy.js"></script>
+<script src="assets/js/typeahead.jquery.min.js"></script>
+<script src="assets/js/search.js"></script>
+<script src="assets/js/compare-versions.js"></script>
+<script src="assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="assets/js/bootstrap-toc.min.js"></script>
+<script src="assets/js/jquery.touchSwipe.min.js"></script>
+<script src="assets/js/anchor.min.js"></script>
+<script src="assets/js/tag_filtering.js"></script>
+<script src="assets/js/language_switching.js"></script>
+<script src="assets/js/styleswitcher.js"></script>
+
+<script src="assets/js/lines_around_headings.js"></script>
+
+<script src="assets/js/prism-core.js"></script>
+<script src="assets/js/prism-autoloader.js"></script>
+<script src="assets/js/prism_autoloader_path_override.js"></script>
+<script src="assets/js/trie.js"></script>
+
+<!-- generic -->
+<link rel="icon" type="image/png" href="assets/images/favicon-16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="assets/images/favicon-32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="assets/images/favicon-57.png" sizes="57x57">
+<link rel="icon" type="image/png" href="assets/images/favicon-64.png" sizes="64x64">
+<link rel="icon" type="image/png" href="assets/images/favicon-76.png" sizes="76x76">
+<link rel="icon" type="image/png" href="assets/images/favicon-96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="assets/images/favicon-128.png" sizes="128x128">
+<link rel="icon" type="image/png" href="assets/images/favicon-192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="assets/images/favicon-228.png" sizes="228x228">
+
+<!-- Android -->
+<link rel="shortcut icon" sizes="196x196" href="assets/images/favicon-196.png">
+
+<!-- iOS -->
+<link rel="apple-touch-icon" href="assets/images/favicon-120.png" sizes="120x120">
+<link rel="apple-touch-icon" href="assets/images/favicon-152.png" sizes="152x152">
+<link rel="apple-touch-icon" href="assets/images/favicon-180.png" sizes="180x180">
+
+</head>
+
+<body class="no-script
+">
+
+<script>
+$('body').removeClass('no-script');
+</script>
+
+<nav class="navbar navbar-fixed-top navbar-default" id="topnav">
+	<div class="container-fluid">
+		<div class="navbar-right">
+			<a id="toc-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-wrapper" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<span title="light mode switch" class="glyphicon glyphicon-sunglasses pull-right" id="lightmode-icon"></span>
+			<form class="navbar-form pull-right" id="navbar-search-form">
+                               <div class="form-group has-feedback">
+                                       <input type="text" class="form-control input-sm" name="search" id="sidenav-lookup-field" placeholder="search" disabled>
+				       <span class="glyphicon glyphicon-search form-control-feedback" id="search-mgn-glass"></span>
+                               </div>
+                        </form>
+		</div>
+		<div class="navbar-header">
+			<a id="sidenav-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<a id="home-link" href="index.html" class="hotdoc-navbar-brand">
+				<img src="assets/images/gstreamer-logo.svg" alt="Home">
+			</a>
+		</div>
+		<div class="navbar-collapse collapse" id="navbar-wrapper">
+			<ul class="nav navbar-nav" id="menu">
+				
+<li class="dropdown">
+    <a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        API References<span class="caret"></span>
+    </a>
+	<ul class="dropdown-menu" id="modules-menu">
+					<li>
+				<a href="gstreamer/gi-index.html">GStreamer core</a>
+			</li>
+					<li>
+				<a href="libs.html">GStreamer Libraries</a>
+			</li>
+					<li>
+				<a href="plugins_doc.html">GStreamer Plugins</a>
+			</li>
+		</ul>
+</li>
+
+<li>
+    <a href="application-development/index.html">Application manual</a>
+</li>
+
+
+<li>
+    <a href="tutorials/index.html">Tutorials</a>
+</li>
+
+			</ul>
+			<div class="hidden-xs hidden-sm navbar-text navbar-center">
+							</div>
+		</div>
+	</div>
+</nav>
+
+<main>
+<div data-extension="gi-extension" data-hotdoc-in-toplevel="True" data-hotdoc-project="GStreamer" data-hotdoc-ref="tools/gst-launch.html" class="page_container" id="page-wrapper" data-hotdoc-meta-gi-languages="['c', 'javascript', 'python']" data-hotdoc-meta-gi-language="c">
+<script src="assets/js/utils.js"></script>
+
+<div class="panel panel-collapse oc-collapsed" id="sidenav" data-hotdoc-role="navigation">
+	<script src="assets/js/full-width.js"></script>
+  <div id="sitenav-wrapper">
+    <iframe src="hotdoc-sitemap.html" id="sitenav-frame"></iframe>
+  </div>
+</div>
+
+<div id="body">
+	<div id="main">
+				    <div id="page-description" data-hotdoc-role="main">
+        <h1 id="gstlaunch10">gst-launch-1.0</h1>
+<blockquote>
+<p><img src="tools/images/icons/emoticons/information.svg" alt="information" id="information"> This content comes mostly from the Linux man page for
+the <code>gst-launch-1.0</code> tool. As such, it is very Linux-centric
+regarding path specification and plugin names. Please be patient while
+it is rewritten to be more generic.</p>
+</blockquote>
+<h2 id="name">Name</h2>
+<p><code>gst-launch-1.0</code> - build and run a GStreamer pipeline</p>
+<h2 id="synopsis">Synopsis</h2>
+<pre><code>gst-launch-1.0 [OPTIONS] PIPELINE-DESCRIPTION
+</code></pre>
+<h2 id="description">Description</h2>
+<p><code>gst-launch-1.0</code> is a tool that builds and runs basic <em>GStreamer</em> pipelines.</p>
+<p>In its simplest form, a PIPELINE-DESCRIPTION is a list of elements separated
+by exclamation marks (!). Properties may be appended to elements in the
+form <code>property=value</code>. A "preset" can also be set using
+the <code>@preset=&lt;preset name&gt;</code> syntax.</p>
+<p>For a more complete description of possible PIPELINE-DESCRIPTIONS see the
+section <a href="tools/gst-launch.html#pipeline-description">Pipeline Description</a> below or consult the
+GStreamer documentation.</p>
+<p>Please note that <code>gst-launch-1.0</code> is primarily a debugging tool. You should
+not build applications on top of it. For applications, write a little python
+script or Rust application (or use whatever other programming language you
+prefer) and use the <code>gst_parse_launch()</code> function of the GStreamer API as an
+easy way to construct pipelines from pipeline descriptions.</p>
+<h2 id="options">Options</h2>
+<p><em>gst-launch-1.0</em> accepts the following options:</p>
+<p><strong>--help</strong></p>
+<p>Print help synopsis and available FLAGS</p>
+<p><strong>-v, --verbose</strong></p>
+<p>Output status information and property notifications</p>
+<p><strong>-q, --quiet</strong></p>
+<p>Do not print any progress information</p>
+<p><strong>-m, --messages</strong></p>
+<p>Output messages posted on the pipeline's bus</p>
+<p><strong>-t, --tags</strong></p>
+<p>Output tags (also known as metadata)</p>
+<p><strong>-e, --eos-on-shutdown</strong></p>
+<p>Force an EOS event on sources before shutting the pipeline down. This is
+useful to make sure muxers create readable files when a muxing pipeline is
+shut down forcefully via Control-C (especially in case of <code>mp4mux</code> and <code>qtmux</code>
+where the created file will be unreadable if the file has not been finalised
+properly).</p>
+<p><strong>-f, --no_fault</strong></p>
+<p>Do not install a segfault handler</p>
+<p><strong>--no-position</strong></p>
+<p>Do not print the current position of pipeline.</p>
+<p>If this option is unspecified, the position will be printed when stdout is a TTY.
+To enable printing position when stdout is not a TTY,
+use the "--force-position" option.</p>
+<p><strong>--force-position</strong></p>
+<p>Allow printing the current position of pipeline even if stdout is not a TTY.
+This option has no effect if the "--no-position" option is specified.</p>
+<h2 id="gstreamer-options">GStreamer Options</h2>
+<p><code>gst-launch-1.0</code> also accepts the following options that are common to
+all GStreamer applications:</p>
+<p><strong>--gst-version</strong></p>
+<p>Prints the version string of the <code>GStreamer</code> core library.</p>
+<p><strong>--gst-fatal-warnings</strong></p>
+<p>Causes <code>GStreamer</code> to abort if a warning message occurs. This is equivalent
+to setting the environment variable <code>G_DEBUG=fatal_warnings</code> (see the
+section <code>environment variables</code> below for further information).</p>
+<p><strong>--gst-debug=STRING</strong></p>
+<p>A comma separated list of <code>category_name:level</code> pairs to specify debugging levels
+for each category. Level is in the range 0-9 where 0 will show no messages, and
+9 will show all messages. The wildcard <code>*</code> can be used to match category names.</p>
+<p>Note that the order of categories and levels is important, wildcards at the
+end may override levels set earlier. The log levels are:</p>
+<ol>
+<li>ERROR</li>
+<li>WARNING</li>
+<li>FIXME</li>
+<li>INFO</li>
+<li>DEBUG</li>
+<li>LOG (this is the highest 'normal' debug level)</li>
+<li>TRACE</li>
+<li>MEMDUMP</li>
+</ol>
+<p>Since GStreamer 1.2 one can also use the debug level names, e.g.
+<code>--gst-debug=*sink:LOG</code>. A full description of the various debug levels
+can be found in the GStreamer core library API documentation, in the
+"Running GStreamer Applications" section.</p>
+<p>Use <code>--gst-debug-help</code> to show category names</p>
+<p>Example: <code>GST_CAT:LOG,GST_ELEMENT_*:INFO,oggdemux:LOG</code></p>
+<p><strong>--gst-debug-level=LEVEL</strong></p>
+<p>Sets the threshold for printing debugging messages.  A higher level
+will print more messages.  The useful range is 0-9, with the default
+being 0. Level 6 (LOG level) will show all information that is usually
+required for debugging purposes. Higher levels are only useful in very
+specific cases. See above for the full list of levels.</p>
+<p><strong>--gst-debug-no-color</strong></p>
+<p><code>GStreamer</code> normally prints debugging messages so that the
+messages are color-coded when printed to a terminal that handles
+ANSI escape sequences.  Using this option causes GStreamer
+to print messages without color. Setting the <code>GST_DEBUG_NO_COLOR=1</code>
+environment variable will achieve the same thing.</p>
+<p><strong>--gst-debug-color-mode</strong></p>
+<p>GStreamer normally prints debugging messages so that the
+messages are color-coded when printed to a terminal that handles
+ANSI escape sequences (on *nix), or uses W32 console API to color the
+messages printed into a console (on W32). Using this option causes
+GStreamer to print messages without color ('off' or 'disable'),
+print messages with default colors ('on' or 'auto'), or print messages
+using ANSI escape sequences for coloring ('unix'). Setting the
+<code>GST_DEBUG_COLOR_MODE</code> environment variable will achieve the same thing.</p>
+<p><strong>--gst-debug-disable</strong></p>
+<p>Disables debugging.</p>
+<p><strong>--gst-debug-help</strong></p>
+<p>Prints a list of available debug categories and their default debugging level.</p>
+<p><strong>--gst-plugin-path=PATH</strong></p>
+<p>Add directories separated with <code>:</code> (<code>;</code> on Windows) to the plugin search path.</p>
+<p><strong>--gst-plugin-load=PLUGINS</strong></p>
+<p>Preload plugins specified in a comma-separated list. Another way to specify
+plugins to preload is to use the environment variable <code>GST_PLUGIN_PATH</code>.</p>
+<h2 id="pipeline-description">Pipeline Description</h2>
+<p>A pipeline consists of <em>elements</em> and <em>links</em>. <em>Elements</em> can be put
+into <em>bins</em> of different sorts. <em>Elements</em>, <em>links</em>, and <em>bins</em> can be
+specified in a pipeline description in any order.</p>
+<h3 id="elements">Elements</h3>
+<pre><code>ELEMENTTYPE [PROPERTY1 ...]
+</code></pre>
+<p>Creates an element of type <code>ELEMENTTYPE</code> and sets its <code>PROPERTIES</code>.</p>
+<h3 id="element-properties">Element Properties</h3>
+<pre><code>PROPERTY=VALUE ...
+</code></pre>
+<p>Sets the property to the specified value. You can use <code>gst-inspect-1.0</code> to find
+out about properties and allowed values of different elements. Enumeration
+properties can be set by name, nick or value.</p>
+<h3 id="element-presets">Element Presets</h3>
+<pre><code>@preset=&lt;preset name&gt; ...
+</code></pre>
+<p>Sets the preset (basically a pre-made collection of property settings for a
+specific element) on the element. you can use <code>gst-inspect-1.0</code> to
+find out what presets are available for a specific element.</p>
+<h3 id="bins">Bins</h3>
+<pre><code>[BINTYPE.] ([PROPERTY1 ...] PIPELINE-DESCRIPTION)
+</code></pre>
+<p>Specifies that a bin of type <code>BINTYPE</code> is created and the given properties
+are set. Every element between the braces is put into the bin. Please
+note the dot that has to be used after the <code>BINTYPE</code>. You will almost
+never need this functionality, it is only really useful for applications
+using the <code>gst_parse_launch()</code> API with <code>bin</code> as bintype. That way it is
+possible to build partial pipelines instead of a full-fledged top-level
+pipeline.</p>
+<h3 id="links">Links</h3>
+<pre><code>[[SRCELEMENT].[PAD1,...]] ! [[SINKELEMENT].[PAD1,...]]
+[[SRCELEMENT].[PAD1,...]] ! CAPS ! [[SINKELEMENT].[PAD1,...]]
+[[SRCELEMENT].[PAD1,...]] : [[SINKELEMENT].[PAD1,...]]
+[[SRCELEMENT].[PAD1,...]] : CAPS : [[SINKELEMENT].[PAD1,...]]
+</code></pre>
+<p>Links the element with name SRCELEMENT to the element with name SINKELEMENT,
+using the caps specified in CAPS as a filter.</p>
+<p>Names can be set on elements using the <code>name</code> property. If the name is omitted,
+the element that was specified directly in front of or after the link is
+used. This works across bins. If a padname is given, the link is done using that
+pad. If no pad names are given all possibilities are tried and a compatible pad
+is used. If multiple padnames are given, both sides must have the same number of
+pads specified and multiple links are done in the given order.</p>
+<p>The simplest link is a simple exclamation mark. This links the element to the
+left of it with the element at its right.</p>
+<p>Linking using the <code>:</code> operator attempts to link all possible pads between
+the elements</p>
+<p>The following links the element with name SRCELEMENT to the element with name
+SINKELEMENT, using the caps specified in CAPS as a filter:</p>
+<pre><code>[[SRCELEMENT].[PAD1,...]] ! CAPS ! [[SINKELEMENT].[PAD1,...]]
+</code></pre>
+<h3 id="caps">Caps</h3>
+<pre><code>MIMETYPE [, PROPERTY[, PROPERTY ...]]] [; CAPS[; CAPS ...]]
+</code></pre>
+<p>Creates a capability with the given mimetype and optionally with given
+properties. The mimetype can be escaped using <code>"</code> or <code>'</code>. If you want to
+chain caps, you can add more caps in the same format afterwards.</p>
+<h3 id="caps-properties">Caps Properties</h3>
+<pre><code>NAME=[(TYPE)] VALUE in lists and ranges: [(TYPE)] VALUE
+</code></pre>
+<p>Sets the requested property in capabilities. The name is an alphanumeric
+value and the type can have the following case-insensitive values:</p>
+<ul>
+<li>
+<code>i</code> or <code>int</code> for integer values or ranges;</li>
+<li>
+<code>f</code> or <code>float</code> for float values or ranges;</li>
+<li>
+<code>b</code>, <code>bool</code>, or <code>boolean</code> for boolean values;</li>
+<li>
+<code>s</code>, <code>str</code>, or <code>string</code> for strings;</li>
+<li>
+<code>fraction</code> for fractions (framerate, pixel-aspect-ratio);</li>
+<li>
+<code>l</code> or <code>list</code> for lists.</li>
+</ul>
+<p>If no type was given, the following order is tried: integer, float, boolean,
+string. Integer values must be parsable by <code>strtol()</code>, floats by <code>strtod()</code>.
+Boolean values are (case insensitive) <code>yes</code>, <code>no</code>, <code>true</code> or <code>false</code>
+and may like strings be escaped with <code>"</code> or <code>'</code>.</p>
+<p>Ranges are in this format: <code>[VALUE, VALUE]</code>, e.g. <code>width=[16,1920]</code></p>
+<p>Lists use this format: <code>{VALUE [, VALUE ...]}</code>, e.g. <code>width={1920,1280,640}</code></p>
+<h2 id="pipeline-examples">Pipeline Examples</h2>
+<p>The examples below assume that you have the correct plug-ins available.
+In general, "pulsesink" can be substituted with another audio output
+plug-in such as "alsasink", "osxaudiosink", or "wasapisink"</p>
+<p>Likewise, <code>xvimagesink</code> can be substituted with <code>d3dvideosink</code>,
+<code>ximagesink</code>, <code>sdlvideosink</code>, <code>osxvideosink</code>, or <code>aasink</code>.</p>
+<p>Keep in mind though that different sinks might accept different formats and
+even the same sink might accept different formats on different machines, so
+you might need to add converter elements like <code>audioconvert</code> and <code>audioresample</code>
+for audio or <code>videoconvertscale</code> in front of the sink to make things work.</p>
+<h3 id="audio-playback">Audio playback</h3>
+<p><strong>Note:</strong> For audio/video playback it's best to use the <code>playbin3</code> or
+<code>uridecodebin3</code> elements, these are just example pipelines.</p>
+<p>Play the mp3 music file "music.mp3" using a libmpg123-based plug-in and
+output it to an audio device via PulseAudio (or PipeWire).</p>
+<pre><code>gst-launch-1.0 filesrc location=music.mp3 ! mpegaudioparse ! mpg123audiodec ! audioconvert ! audioresample ! pulsesink
+</code></pre>
+<p>Play an Ogg Vorbis format file:</p>
+<pre><code>gst-launch-1.0 filesrc location=music.ogg ! oggdemux ! vorbisdec ! audioconvert ! audioresample ! pulsesink
+</code></pre>
+<p>Play an mp3 file or an http stream using GIO:</p>
+<pre><code>gst-launch-1.0 giosrc location=music.mp3 ! mpegaudioparse ! mpg123audiodec ! audioconvert ! pulsesink
+</code></pre>
+<pre><code>gst-launch-1.0 giosrc location=http://domain.com/music.mp3 ! mpegaudioparse ! mpg123audiodec ! audioconvert ! audioresample ! pulsesink
+</code></pre>
+<p>Use GIO to play an mp3 file located on an SMB server:</p>
+<pre><code>gst-launch-1.0 giosrc location=smb://computer/music.mp3 ! mpegaudioparse ! mpg123audiodec ! audioconvert ! audioresample ! pulsesink
+</code></pre>
+<h3 id="format-conversion">Format conversion</h3>
+<p>Convert an mp3 music file to an Ogg Vorbis file:</p>
+<pre><code>gst-launch-1.0 filesrc location=music.mp3 ! mpegaudioparse ! mpg123audiodec ! audioconvert ! vorbisenc ! oggmux ! filesink location=music.ogg
+</code></pre>
+<p>Convert to the FLAC format:</p>
+<pre><code>gst-launch-1.0 filesrc location=music.mp3 ! mpegaudioparse ! mpg123audiodec ! audioconvert ! flacenc ! filesink location=test.flac
+</code></pre>
+<h3 id="other">Other</h3>
+<p>Play a .WAV file that contains raw audio data (PCM):</p>
+<pre><code>gst-launch-1.0 filesrc location=music.wav ! wavparse ! audioconvert ! audioresample ! pulsesink
+</code></pre>
+<p>Convert a .WAV file containing raw audio data into an Ogg Vorbis or mp3 file:</p>
+<pre><code>gst-launch-1.0 filesrc location=music.wav ! wavparse ! audioconvert ! vorbisenc ! oggmux ! filesink location=music.ogg
+</code></pre>
+<pre><code>gst-launch-1.0 filesrc location=music.wav ! wavparse ! audioconvert ! lamemp3enc ! xingmux ! id3v2mux ! filesink location=music.mp3
+</code></pre>
+<p>Rip all tracks from CD and convert them into a single mp3 file:</p>
+<pre><code>gst-launch-1.0 cdparanoiasrc mode=continuous ! audioconvert ! lamemp3enc ! mpegaudioparse ! xingmux ! id3v2mux ! filesink location=cd.mp3
+</code></pre>
+<p>Rip track 5 from the CD and converts it into a single mp3 file:</p>
+<pre><code>gst-launch-1.0 cdparanoiasrc track=5 ! audioconvert ! lamemp3enc ! mpegaudioparse ! xingmux ! id3v2mux ! filesink location=track5.mp3
+</code></pre>
+<p>Using <code>gst-inspect-1.0</code>, it is possible to discover settings like
+the above for "cdparanoiasrc" that will tell it to rip the entire CD or
+only tracks of it. Alternatively, you can use an URI and <code>gst-launch-1.0</code>
+will find an element (such as cdparanoia) that supports that protocol
+for you, e.g.:</p>
+<pre><code>gst-launch-1.0 cdda://5 ! lamemp3enc vbr=new vbr-quality=6 ! xingmux ! id3v2mux ! filesink location=track5.mp3
+</code></pre>
+<p>Record sound from your audio input and encode it into an ogg file:</p>
+<pre><code>gst-launch-1.0 pulsesrc ! audioconvert ! vorbisenc ! oggmux ! filesink location=input.ogg
+</code></pre>
+<h3 id="video">Video</h3>
+<p><strong>Note:</strong> For audio/video playback it's best to use the <code>playbin3</code> or
+<code>uridecodebin3</code> elements, these are just example pipelines.</p>
+<p>Display only the video portion of an MPEG-2 video file, outputting to an X
+display window:</p>
+<pre><code>gst-launch-1.0 filesrc location=JB_FF9_TheGravityOfLove.mpg ! mpegdemux ! mpegvideoparse ! mpeg2dec ! videoconvert ! xvimagesink
+</code></pre>
+<p>Display the video portion of a .vob file (used on DVDs), outputting to an SDL
+window:</p>
+<pre><code>gst-launch-1.0 filesrc location=flflfj.vob ! dvddemux ! mpegvideoparse ! mpeg2dec ! videoconvert ! sdlvideosink
+</code></pre>
+<p>Play both video and audio portions of an MPEG movie:</p>
+<pre><code>gst-launch-1.0 filesrc location=movie.mpg ! dvddemux name=demuxer  \
+\
+demuxer. ! queue ! mpegvideoparse ! mpeg2dec ! videoconvert ! sdlvideosink \
+demuxer. ! queue ! mpegaudioparse ! mpg123audiodec ! audioconvert ! audioresample ! pulsesink
+</code></pre>
+<p>Play an AVI movie with an external text subtitle stream:</p>
+<p>This example shows how to refer to specific pads by name if an
+element (here: textoverlay) has multiple sink or source pads:</p>
+<pre><code>gst-launch-1.0 textoverlay name=overlay ! videoconvert ! videoscale ! autovideosink \
+filesrc location=movie.avi ! decodebin3 !  videoconvert ! overlay.video_sink \
+filesrc location=movie.srt ! subparse ! overlay.text_sink
+</code></pre>
+<p>Play an AVI movie with an external text subtitle stream using playbin:</p>
+<pre><code>gst-launch-1.0 playbin3 uri=&lt;file:///path/to/movie.avi&gt; suburi=&lt;file:///path/to/movie.srt&gt;
+</code></pre>
+<h3 id="network-streaming">Network streaming</h3>
+<p>Stream video using RTP and network elements</p>
+<p>This command would be run on the transmitter:</p>
+<pre><code>gst-launch-1.0 v4l2src ! queue ! videoconvert ! x264enc tune=zerolatency key-int-max=15 ! video/x-h264,profile=main ! rtph264pay pt=96 config-interval=-1 ! udpsink host=192.168.1.1 port=5000
+</code></pre>
+<p>Use this command on the receiver:</p>
+<pre><code>gst-launch-1.0 udpsrc port=5000 ! application/x-rtp,clock-rate=90000,payload=96 ! rtpjitterbuffer ! rtph264depay ! h264parse ! avdec_h264 ! videoconvert ! xvimagesink
+</code></pre>
+<h3 id="diagnostic">Diagnostic</h3>
+<p>Generate a null stream and ignore it (and print out details):</p>
+<pre><code>gst-launch-1.0 -v fakesrc num-buffers=16 ! fakesink silent=false
+</code></pre>
+<p>Generate a pure sine tone to test the audio output:</p>
+<pre><code>gst-launch-1.0 audiotestsrc ! audioconvert ! audioresample ! osssink
+</code></pre>
+<p>Generate a familiar test pattern to test the video output:</p>
+<pre><code>gst-launch-1.0 videotestsrc ! ximagesink
+</code></pre>
+<pre><code>gst-launch-1.0 videotestsrc ! xvimagesink
+</code></pre>
+<h3 id="automatic-linking">Automatic linking</h3>
+<p>You can use the "decodebin3" element to automatically select the right
+elements to get a working pipeline.</p>
+<p>Play any supported audio format:</p>
+<pre><code>gst-launch-1.0 filesrc location=musicfile ! decodebin3 ! audioconvert ! audioresample ! pulsesink
+</code></pre>
+<p>Play any supported video format with video and audio output. Threads are used
+automatically:</p>
+<pre><code>gst-launch-1.0 filesrc location=videofile ! decodebin name=decoder decoder. ! queue ! audioconvert ! audioresample ! pulsesink   decoder. !  videoconvert ! xvimagesink
+</code></pre>
+<p>You can also support different inputs by using an URI and uridecodebin3, e.g.:</p>
+<pre><code>gst-launch-1.0 uridecodebin3 uri=file:///path/to/video.mp4 name=decoder decoder. ! queue ! audioconvert ! audioresample ! pulsesink   decoder. !  videoconvert ! xvimagesink
+</code></pre>
+<pre><code>gst-launch-1.0 uridecodebin3 uri=https://gstreamer.freedesktop.org/data/media/sintel_trailer-480p.webm name=decoder decoder. ! queue ! audioconvert ! audioresample ! pulsesink   decoder. !  videoconvert ! xvimagesink
+</code></pre>
+<p>To make the above even easier, you can use the playbin element:</p>
+<pre><code>gst-launch-1.0 playbin3 uri=file:///home/joe/foo.avi
+</code></pre>
+<pre><code>gst-launch-1.0 playbin3 uri=https://gstreamer.freedesktop.org/data/media/sintel_trailer-480p.webm
+</code></pre>
+<h3 id="filtered-connections">Filtered connections</h3>
+<p>These examples show you how to use filtered caps.</p>
+<p>Show a test image and use the YUY2 or YV12 video format for this:</p>
+<pre><code>gst-launch-1.0 videotestsrc ! 'video/x-raw,format=YUY2;video/x-raw,format=YV12' ! xvimagesink
+</code></pre>
+<p>or</p>
+<pre><code>gst-launch-1.0 v4l2src ! image/jpeg ! queue ! decodebin3 ! videoconvert ! autovideosink
+</code></pre>
+<p>Record audio and write it to a .wav file. Force usage of signed 16 to 32 bit
+samples and a sample rate between 32kHz and 64KHz:</p>
+<pre><code>gst-launch-1.0 pulsesrc !  'audio/x-raw,rate=[32000,64000],format={S16LE,S24LE,S32LE}' ! wavenc ! filesink location=recording.wav
+</code></pre>
+<h2 id="environment-variables">Environment Variables</h2>
+<p><code>GST_DEBUG</code>: Comma-separated list of debug categories and levels, e.g:</p>
+<pre><code>GST_DEBUG=totem:4,typefind:5
+</code></pre>
+<p><code>*</code> is allowed as a wildcard as part of debug category names (e.g.
+<code>GST_DEBUG=*sink:6,*audio*:6</code>). It is also possible to specify the log level
+by name (1=ERROR, 2=WARN, 3=FIXME, 4=INFO, 5=DEBUG, 6=LOG, 7=TRACE, 9=MEMDUMP),
+e.g. <code>GST_DEBUG=*audio*:LOG</code>.</p>
+<p><code>GST_DEBUG_NO_COLOR</code>: When this environment variable is set, coloured debug
+output is disabled. This might come handy when saving the debug output to a
+file.</p>
+<p><code>GST_DEBUG_DUMP_DOT_DIR</code>: When set to a filesystem path, store 'dot' files of
+pipeline graphs there.</p>
+<p>These can then later be converted into an image using the 'dot' utility from
+the graphviz set of tools, like this: <code>dot foo.dot -Tsvg -o foo.svg</code> (png or jpg
+are also possible as output format). There is also a utility called <code>xdot</code>
+which allows you to view the .dot file directly without converting it first.</p>
+<p>When the pipeline changes state through NULL to PLAYING and back to NULL, a
+dot file is generated on each state change. To write a snapshot of the
+pipeline state, send a SIGHUP to the process or use the pipeline_snapshot
+tracer from the GStreamer Rust plugins.</p>
+<p><code>GST_REGISTRY</code>: Path of the plugin registry file. The default is
+<code>~/.cache/gstreamer-1.0/registry-CPU.xml</code> where CPU is the machine/cpu type
+GStreamer was compiled for, e.g. 'x86_64', etc.
+Check the output of <code>uname -i</code> and <code>uname -m</code> for details.</p>
+<p><code>GST_REGISTRY_UPDATE</code>: Set to "no" to force GStreamer to assume that no plugins
+have changed, have been added or have been removed. This will make GStreamer
+skip the initial check to determine whether a rebuild of the registry cache is
+required or not. This may be useful in embedded environments where the installed
+plugins never change. Do not use this option in any other setup.</p>
+<p><code>GST_PLUGIN_PATH</code>: Specifies a list of directories to scan for additional
+plugins. These take precedence over the system plugins.</p>
+<p><code>GST_PLUGIN_SYSTEM_PATH</code>: Specifies a list of plugins that are always loaded by
+default. If not set, this defaults to the system-installed path, and the plugins
+installed in the user's home directory</p>
+<p><code>GST_DEBUG_FILE</code>: Set this variable to a file path to redirect all GStreamer
+debug messages to this file. If left unset, debug messages will be output
+to the standard error output.</p>
+<p><code>ORC_CODE</code>: Useful Orc environment variable. Set <code>ORC_CODE=debug</code> to enable
+debuggers such as gdb to create useful backtraces from Orc-generated code.  Set
+<code>ORC_CODE=backup</code> or <code>ORC_CODE=emulate</code> if you suspect Orc's SIMD code
+generator is producing incorrect code.  (Quite a few important
+GStreamer plugins like videotestsrc, audioconvert or audioresample use Orc).</p>
+<p><code>G_DEBUG</code>: This is a useful GLib environment variable. Set
+<code>G_DEBUG=fatal_warnings</code> to make GStreamer programs abort when a critical
+warning such as an assertion failure occurs. This is useful if you want to find
+out which part of the code caused that warning to be triggered and under what
+circumstances. Simply set <code>G_DEBUG</code> as mentioned above and run the program under
+gdb (or let it core dump). Then get a stack trace in the usual way.</p>
+
+    </div>
+        
+
+
+
+
+		
+	</div>
+	<div id="search_results">
+		<p>The results of the search are</p>
+	</div>
+	<div id="footer">
+		    
+
+	</div>
+</div>
+
+<div id="toc-column">
+	
+		<div class="edit-button">
+		<a href="https://gitlab.freedesktop.org/gstreamer/gst-docs//edit/master/subprojects/gst-docs/markdown/tools/gst-launch.md" data-hotdoc-role="edit-button">Edit on GitLab</a>
+
+	</div>
+		<div id="toc-wrapper">
+		<nav id="toc"></nav>
+	</div>
+</div>
+</div>
+</main>
+
+
+<script src="assets/js/navbar_offset_scroller.js"></script>
+</body>
+</html>

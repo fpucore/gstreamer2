@@ -1,0 +1,2077 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<base href="..">
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<title>amfh265enc</title>
+
+<link rel="stylesheet" href="assets/css/dark-frontend.css" type="text/css" title="dark">
+<link rel="alternate stylesheet" href="assets/css/light-frontend.css" type="text/css" title="light">
+<link rel="stylesheet" href="assets/css/bootstrap-toc.min.css" type="text/css">
+<link rel="stylesheet" href="assets/css/jquery.mCustomScrollbar.min.css">
+<link rel="stylesheet" href="assets/js/search/enable_search.css" type="text/css">
+
+<link rel="stylesheet" href="assets/css/extra_frontend.css" type="text/css">
+<link rel="stylesheet" href="assets/css/devhelp.css" type="text/css">
+
+<link rel="stylesheet" href="assets/css/prism-tomorrow.css" type="text/css" title="dark">
+
+<link rel="alternate stylesheet" href="assets/css/prism.css" type="text/css" title="light">
+
+<script src="assets/js/mustache.min.js"></script>
+<script src="assets/js/jquery.js"></script>
+<script src="assets/js/bootstrap.js"></script>
+<script src="assets/js/scrollspy.js"></script>
+<script src="assets/js/typeahead.jquery.min.js"></script>
+<script src="assets/js/search.js"></script>
+<script src="assets/js/compare-versions.js"></script>
+<script src="assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="assets/js/bootstrap-toc.min.js"></script>
+<script src="assets/js/jquery.touchSwipe.min.js"></script>
+<script src="assets/js/anchor.min.js"></script>
+<script src="assets/js/tag_filtering.js"></script>
+<script src="assets/js/language_switching.js"></script>
+<script src="assets/js/styleswitcher.js"></script>
+
+<script src="assets/js/lines_around_headings.js"></script>
+
+<script src="assets/js/prism-core.js"></script>
+<script src="assets/js/prism-autoloader.js"></script>
+<script src="assets/js/prism_autoloader_path_override.js"></script>
+<script src="assets/js/trie.js"></script>
+
+<!-- generic -->
+<link rel="icon" type="image/png" href="assets/images/favicon-16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="assets/images/favicon-32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="assets/images/favicon-57.png" sizes="57x57">
+<link rel="icon" type="image/png" href="assets/images/favicon-64.png" sizes="64x64">
+<link rel="icon" type="image/png" href="assets/images/favicon-76.png" sizes="76x76">
+<link rel="icon" type="image/png" href="assets/images/favicon-96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="assets/images/favicon-128.png" sizes="128x128">
+<link rel="icon" type="image/png" href="assets/images/favicon-192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="assets/images/favicon-228.png" sizes="228x228">
+
+<!-- Android -->
+<link rel="shortcut icon" sizes="196x196" href="assets/images/favicon-196.png">
+
+<!-- iOS -->
+<link rel="apple-touch-icon" href="assets/images/favicon-120.png" sizes="120x120">
+<link rel="apple-touch-icon" href="assets/images/favicon-152.png" sizes="152x152">
+<link rel="apple-touch-icon" href="assets/images/favicon-180.png" sizes="180x180">
+
+</head>
+
+<body class="no-script
+">
+
+<script>
+$('body').removeClass('no-script');
+</script>
+
+<nav class="navbar navbar-fixed-top navbar-default" id="topnav">
+	<div class="container-fluid">
+		<div class="navbar-right">
+			<a id="toc-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-wrapper" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<span title="light mode switch" class="glyphicon glyphicon-sunglasses pull-right" id="lightmode-icon"></span>
+			<form class="navbar-form pull-right" id="navbar-search-form">
+                               <div class="form-group has-feedback">
+                                       <input type="text" class="form-control input-sm" name="search" id="sidenav-lookup-field" placeholder="search" disabled>
+				       <span class="glyphicon glyphicon-search form-control-feedback" id="search-mgn-glass"></span>
+                               </div>
+                        </form>
+		</div>
+		<div class="navbar-header">
+			<a id="sidenav-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<a id="home-link" href="index.html" class="hotdoc-navbar-brand">
+				<img src="assets/images/gstreamer-logo.svg" alt="Home">
+			</a>
+		</div>
+		<div class="navbar-collapse collapse" id="navbar-wrapper">
+			<ul class="nav navbar-nav" id="menu">
+				
+<li class="dropdown">
+    <a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        API References<span class="caret"></span>
+    </a>
+	<ul class="dropdown-menu" id="modules-menu">
+					<li>
+				<a href="gstreamer/gi-index.html">GStreamer core</a>
+			</li>
+					<li>
+				<a href="libs.html">GStreamer Libraries</a>
+			</li>
+					<li>
+				<a href="plugins_doc.html">GStreamer Plugins</a>
+			</li>
+		</ul>
+</li>
+
+<li>
+    <a href="application-development/index.html">Application manual</a>
+</li>
+
+
+<li>
+    <a href="tutorials/index.html">Tutorials</a>
+</li>
+
+			</ul>
+			<div class="hidden-xs hidden-sm navbar-text navbar-center">
+							</div>
+		</div>
+	</div>
+</nav>
+
+<main>
+<div data-extension="gst-extension" data-hotdoc-in-toplevel="False" data-hotdoc-project="amfcodec" data-hotdoc-ref="amfh265enc.html" class="page_container" id="page-wrapper" data-hotdoc-meta-gi-languages="['c', 'javascript', 'python']">
+<script src="assets/js/utils.js"></script>
+
+<div class="panel panel-collapse oc-collapsed" id="sidenav" data-hotdoc-role="navigation">
+	<script src="assets/js/full-width.js"></script>
+  <div id="sitenav-wrapper">
+    <iframe src="hotdoc-sitemap.html" id="sitenav-frame"></iframe>
+  </div>
+</div>
+
+<div id="body">
+	<div id="main">
+				    <div id="page-description" data-hotdoc-role="main">
+        <h1 id="amfh265enc-page">amfh265enc</h1>
+<p>amfh265enc element encodes raw video stream into compressed H.265 bitstream
+via AMD AMF API.</p>
+<h2 id="example-launch-line">Example launch line</h2>
+<pre><code>gst-launch-1.0 videotestsrc num-buffers=100 ! amfh265enc ! h265parse ! mp4mux ! filesink location=encoded.mp4
+</code></pre>
+
+    </div>
+        
+        
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.22;" id="amfh265enc">
+	
+        
+
+        <h2>Hierarchy</h2>
+            <div class="hierarchy_container">
+                <div class="hierarchy_details">
+<pre>
+<a title="GObject" href="https://docs.gtk.org/gobject/class.Object.html" data-gi-href-javascript="https://docs.gtk.org/gobject/class.Object.html" data-gi-title-javascript="GObject.Object" data-gi-href-python="https://docs.gtk.org/gobject/class.Object.html" data-gi-title-python="GObject.Object">GObject</a>
+    <span class="lineart">╰──</span><a title="GInitiallyUnowned" href="https://docs.gtk.org/gobject/class.InitiallyUnowned.html" data-gi-href-javascript="https://docs.gtk.org/gobject/class.InitiallyUnowned.html" data-gi-title-javascript="GObject.InitiallyUnowned" data-gi-href-python="https://docs.gtk.org/gobject/class.InitiallyUnowned.html" data-gi-title-python="GObject.InitiallyUnowned">GInitiallyUnowned</a>
+        <span class="lineart">╰──</span><a title="GstObject" href="gstreamer/gstobject.html#GstObject" data-gi-href-javascript="gstreamer/gstobject.html#GstObject" data-gi-title-javascript="Gst.Object" data-gi-href-python="gstreamer/gstobject.html#GstObject" data-gi-title-python="Gst.Object">GstObject</a>
+            <span class="lineart">╰──</span><a title="GstElement" href="gstreamer/gstelement.html#GstElement" data-gi-href-javascript="gstreamer/gstelement.html#GstElement" data-gi-title-javascript="Gst.Element" data-gi-href-python="gstreamer/gstelement.html#GstElement" data-gi-title-python="Gst.Element">GstElement</a>
+                <span class="lineart">╰──</span><a title="GstVideoEncoder" href="video/gstvideoencoder.html#GstVideoEncoder" data-gi-href-javascript="video/gstvideoencoder.html#GstVideoEncoder" data-gi-title-javascript="GstVideo.VideoEncoder" data-gi-href-python="video/gstvideoencoder.html#GstVideoEncoder" data-gi-title-python="GstVideo.VideoEncoder">GstVideoEncoder</a>
+                    <span class="lineart">╰──</span><a title="GstAmfEncoder" href="amfcodec/GstAmfEncoder.html#GstAmfEncoder">GstAmfEncoder</a>
+                        <span class="lineart">╰──</span>amfh265enc
+</pre>
+
+</div>
+
+            </div>
+            <h2>Implemented interfaces</h2>
+            <div>
+                <pre>
+<a title="GstPreset" href="gstreamer/gstpreset.html#GstPreset" data-gi-href-javascript="gstreamer/gstpreset.html#GstPreset" data-gi-title-javascript="Gst.Preset" data-gi-href-python="gstreamer/gstpreset.html#GstPreset" data-gi-title-python="Gst.Preset">GstPreset</a>
+</pre>
+            </div>
+        <h2 class="symbol_section">Factory details</h2>
+        <div class="symbol-detail">
+            <p><b>Authors:</b> – Seungha Yang <seungha@centricular.com></seungha@centricular.com></p>
+            <p><b>Classification:</b> – <code>Codec/Encoder/Video/Hardware</code></p>
+            <p><b>Rank</b> – primary</p>
+            <p><b>Plugin</b> – amfcodec</p>
+            <p><b>Package</b> – GStreamer Bad Plug-ins</p>
+        </div>
+
+</div>
+
+
+            <h2 class="symbol_section">Pad Templates</h2>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstAmfH265Enc!sink">
+	
+
+
+
+        <h3><span><code>sink</code></span></h3>
+
+
+        <div>
+            
+            <pre class="language-yaml"><code class="language-yaml">video/x-raw(memory:D3D11Memory):
+         format: { NV12, P010_10LE }
+          width: [ 128, 4096 ]
+         height: [ 128, 4096 ]
+video/x-raw:
+         format: { NV12, P010_10LE }
+          width: [ 128, 4096 ]
+         height: [ 128, 4096 ]
+</code></pre>
+            <div class="symbol-detail">
+                <p><b>Presence</b> – <i>always</i></p>
+                <p><b>Direction</b> – <i>sink</i></p>
+                    <p><b>Object type</b> – <a title="GstPad" href="gstreamer/gstpad.html#GstPad" data-gi-href-javascript="gstreamer/gstpad.html#GstPad" data-gi-title-javascript="Gst.Pad" data-gi-href-python="gstreamer/gstpad.html#GstPad" data-gi-title-python="Gst.Pad">GstPad</a></p>
+            </div>
+        </div>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstAmfH265Enc!src">
+	
+
+
+
+        <h3><span><code>src</code></span></h3>
+
+
+        <div>
+            
+            <pre class="language-yaml"><code class="language-yaml">video/x-h265:
+          width: [ 128, 4096 ]
+         height: [ 128, 4096 ]
+        profile: { (string)main, (string)main-10 }
+  stream-format: byte-stream
+      alignment: au
+</code></pre>
+            <div class="symbol-detail">
+                <p><b>Presence</b> – <i>always</i></p>
+                <p><b>Direction</b> – <i>src</i></p>
+                    <p><b>Object type</b> – <a title="GstPad" href="gstreamer/gstpad.html#GstPad" data-gi-href-javascript="gstreamer/gstpad.html#GstPad" data-gi-title-javascript="Gst.Pad" data-gi-href-python="gstreamer/gstpad.html#GstPad" data-gi-title-python="Gst.Pad">GstPad</a></p>
+            </div>
+        </div>
+
+
+
+<hr>
+
+</div>
+
+
+            <h2 class="symbol_section">Properties</h2>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="amfh265enc:adapter-luid">
+	
+
+
+
+<h3 data-hotdoc-id="amfh265enc:adapter-luid">
+	<i>adapter-luid</i>
+</h3>
+
+
+<pre class="property_signature">
+“adapter-luid” <span class="type"><a title="gint64" href="https://docs.gtk.org/glib/types.html#gint64" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">gint64</a></span>
+</pre>
+
+<p>DXGI Adapter LUID (Locally Unique Identifier) of associated GPU</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+</p>
+<p>
+	Default value :	0
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="amfh265enc:aud">
+	
+
+
+
+<h3 data-hotdoc-id="amfh265enc:aud">
+	<i>aud</i>
+</h3>
+
+
+<pre class="property_signature">
+“aud” <span class="type"><a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#bool" data-gi-title-python="bool">gboolean</a></span>
+</pre>
+
+<p>Use AU (Access Unit) delimiter</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	true
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="amfh265enc:bitrate">
+	
+
+
+
+<h3 data-hotdoc-id="amfh265enc:bitrate">
+	<i>bitrate</i>
+</h3>
+
+
+<pre class="property_signature">
+“bitrate” <span class="type"><a title="guint" href="https://docs.gtk.org/glib/types.html#guint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">guint</a></span>
+</pre>
+
+<p>Target bitrate in kbit/sec (0: USAGE default)</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	0
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="amfh265enc:gop-size">
+	
+
+
+
+<h3 data-hotdoc-id="amfh265enc:gop-size">
+	<i>gop-size</i>
+</h3>
+
+
+<pre class="property_signature">
+“gop-size” <span class="type"><a title="guint" href="https://docs.gtk.org/glib/types.html#guint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">guint</a></span>
+</pre>
+
+<p>Number of pictures within a GOP</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	30
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="amfh265enc:max-bitrate">
+	
+
+
+
+<h3 data-hotdoc-id="amfh265enc:max-bitrate">
+	<i>max-bitrate</i>
+</h3>
+
+
+<pre class="property_signature">
+“max-bitrate” <span class="type"><a title="guint" href="https://docs.gtk.org/glib/types.html#guint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">guint</a></span>
+</pre>
+
+<p>Maximum bitrate in kbit/sec (0: USAGE default)</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	0
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="amfh265enc:max-qp-i">
+	
+
+
+
+<h3 data-hotdoc-id="amfh265enc:max-qp-i">
+	<i>max-qp-i</i>
+</h3>
+
+
+<pre class="property_signature">
+“max-qp-i” <span class="type"><a title="gint" href="https://docs.gtk.org/glib/types.html#gint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">gint</a></span>
+</pre>
+
+<p>Maximum allowed QP value for I frames (-1: USAGE default)</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	-1
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="amfh265enc:max-qp-p">
+	
+
+
+
+<h3 data-hotdoc-id="amfh265enc:max-qp-p">
+	<i>max-qp-p</i>
+</h3>
+
+
+<pre class="property_signature">
+“max-qp-p” <span class="type"><a title="gint" href="https://docs.gtk.org/glib/types.html#gint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">gint</a></span>
+</pre>
+
+<p>Maximum allowed QP value for P frames (-1: USAGE default)</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	-1
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="amfh265enc:min-qp-i">
+	
+
+
+
+<h3 data-hotdoc-id="amfh265enc:min-qp-i">
+	<i>min-qp-i</i>
+</h3>
+
+
+<pre class="property_signature">
+“min-qp-i” <span class="type"><a title="gint" href="https://docs.gtk.org/glib/types.html#gint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">gint</a></span>
+</pre>
+
+<p>Minimum allowed QP value for I frames (-1: USAGE default)</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	-1
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="amfh265enc:min-qp-p">
+	
+
+
+
+<h3 data-hotdoc-id="amfh265enc:min-qp-p">
+	<i>min-qp-p</i>
+</h3>
+
+
+<pre class="property_signature">
+“min-qp-p” <span class="type"><a title="gint" href="https://docs.gtk.org/glib/types.html#gint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">gint</a></span>
+</pre>
+
+<p>Minimum allowed QP value for P frames (-1: USAGE default)</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	-1
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.24;" id="amfh265enc:pa-activity-type">
+	
+
+
+
+<h3 data-hotdoc-id="amfh265enc:pa-activity-type">
+	<i>pa-activity-type</i>
+</h3>
+
+
+<pre class="property_signature">
+“pa-activity-type” <span class="type"><a title="GstAmfEncPAActivityType" href="amfcodec/amfh265enc.html#GstAmfEncPAActivityType">GstAmfEncPAActivityType</a> <span class="pointer-token">*</span></span>
+</pre>
+
+<p>Set the type of activity analysis for pre-analysis</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	y (0)
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.24;" id="amfh265enc:pa-caq-strength">
+	
+
+
+
+<h3 data-hotdoc-id="amfh265enc:pa-caq-strength">
+	<i>pa-caq-strength</i>
+</h3>
+
+
+<pre class="property_signature">
+“pa-caq-strength” <span class="type"><a title="GstAmfEncPACAQStrength" href="amfcodec/amfh265enc.html#GstAmfEncPACAQStrength">GstAmfEncPACAQStrength</a> <span class="pointer-token">*</span></span>
+</pre>
+
+<p>Content Adaptive Quantization strength for pre-analysis</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	medium (1)
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.24;" id="amfh265enc:pa-frame-sad">
+	
+
+
+
+<h3 data-hotdoc-id="amfh265enc:pa-frame-sad">
+	<i>pa-frame-sad</i>
+</h3>
+
+
+<pre class="property_signature">
+“pa-frame-sad” <span class="type"><a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#bool" data-gi-title-python="bool">gboolean</a></span>
+</pre>
+
+<p>Enable Frame SAD algorithm</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	true
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.24;" id="amfh265enc:pa-hqmb-mode">
+	
+
+
+
+<h3 data-hotdoc-id="amfh265enc:pa-hqmb-mode">
+	<i>pa-hqmb-mode</i>
+</h3>
+
+
+<pre class="property_signature">
+“pa-hqmb-mode” <span class="type"><a title="GstAmfEncPAHQMBMode" href="amfcodec/amfh265enc.html#GstAmfEncPAHQMBMode">GstAmfEncPAHQMBMode</a> <span class="pointer-token">*</span></span>
+</pre>
+
+<p>Set the PA high motion quality boost mode</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	none (0)
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.24;" id="amfh265enc:pa-initial-qp">
+	
+
+
+
+<h3 data-hotdoc-id="amfh265enc:pa-initial-qp">
+	<i>pa-initial-qp</i>
+</h3>
+
+
+<pre class="property_signature">
+“pa-initial-qp” <span class="type"><a title="guint" href="https://docs.gtk.org/glib/types.html#guint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">guint</a></span>
+</pre>
+
+<p>Pre-analysis initial QP</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	0
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.24;" id="amfh265enc:pa-lookahead-buffer-depth">
+	
+
+
+
+<h3 data-hotdoc-id="amfh265enc:pa-lookahead-buffer-depth">
+	<i>pa-lookahead-buffer-depth</i>
+</h3>
+
+
+<pre class="property_signature">
+“pa-lookahead-buffer-depth” <span class="type"><a title="guint" href="https://docs.gtk.org/glib/types.html#guint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">guint</a></span>
+</pre>
+
+<p>Pre-analysis lookahead buffer depth</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	0
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.24;" id="amfh265enc:pa-ltr">
+	
+
+
+
+<h3 data-hotdoc-id="amfh265enc:pa-ltr">
+	<i>pa-ltr</i>
+</h3>
+
+
+<pre class="property_signature">
+“pa-ltr” <span class="type"><a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#bool" data-gi-title-python="bool">gboolean</a></span>
+</pre>
+
+<p>Enable long term reference frame management</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	false
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.24;" id="amfh265enc:pa-max-qp">
+	
+
+
+
+<h3 data-hotdoc-id="amfh265enc:pa-max-qp">
+	<i>pa-max-qp</i>
+</h3>
+
+
+<pre class="property_signature">
+“pa-max-qp” <span class="type"><a title="guint" href="https://docs.gtk.org/glib/types.html#guint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">guint</a></span>
+</pre>
+
+<p>Pre-analysis max QP</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	35
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.24;" id="amfh265enc:pa-paq-mode">
+	
+
+
+
+<h3 data-hotdoc-id="amfh265enc:pa-paq-mode">
+	<i>pa-paq-mode</i>
+</h3>
+
+
+<pre class="property_signature">
+“pa-paq-mode” <span class="type"><a title="GstAmfEncPAPAQMode" href="amfcodec/amfh265enc.html#GstAmfEncPAPAQMode">GstAmfEncPAPAQMode</a> <span class="pointer-token">*</span></span>
+</pre>
+
+<p>Set the perceptual adaptive quantization mode</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	none (0)
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.24;" id="amfh265enc:pa-scene-change-detection">
+	
+
+
+
+<h3 data-hotdoc-id="amfh265enc:pa-scene-change-detection">
+	<i>pa-scene-change-detection</i>
+</h3>
+
+
+<pre class="property_signature">
+“pa-scene-change-detection” <span class="type"><a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#bool" data-gi-title-python="bool">gboolean</a></span>
+</pre>
+
+<p>Enable scene change detection for pre-analysis</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	true
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.24;" id="amfh265enc:pa-scene-change-detection-sensitivity">
+	
+
+
+
+<h3 data-hotdoc-id="amfh265enc:pa-scene-change-detection-sensitivity">
+	<i>pa-scene-change-detection-sensitivity</i>
+</h3>
+
+
+<pre class="property_signature">
+“pa-scene-change-detection-sensitivity” <span class="type"><a title="GstAmfEncPASceneChangeDetectionSensitivity" href="amfcodec/amfh265enc.html#GstAmfEncPASceneChangeDetectionSensitivity">GstAmfEncPASceneChangeDetectionSensitivity</a> <span class="pointer-token">*</span></span>
+</pre>
+
+<p>Pre-analysis scene change detection sensitivity</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	medium (1)
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.24;" id="amfh265enc:pa-static-scene-detection">
+	
+
+
+
+<h3 data-hotdoc-id="amfh265enc:pa-static-scene-detection">
+	<i>pa-static-scene-detection</i>
+</h3>
+
+
+<pre class="property_signature">
+“pa-static-scene-detection” <span class="type"><a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#bool" data-gi-title-python="bool">gboolean</a></span>
+</pre>
+
+<p>Enable static scene detection for pre-analysis</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	false
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.24;" id="amfh265enc:pa-static-scene-detection-sensitivity">
+	
+
+
+
+<h3 data-hotdoc-id="amfh265enc:pa-static-scene-detection-sensitivity">
+	<i>pa-static-scene-detection-sensitivity</i>
+</h3>
+
+
+<pre class="property_signature">
+“pa-static-scene-detection-sensitivity” <span class="type"><a title="GstAmfEncPAStaticSceneDetectionSensitivity" href="amfcodec/amfh265enc.html#GstAmfEncPAStaticSceneDetectionSensitivity">GstAmfEncPAStaticSceneDetectionSensitivity</a> <span class="pointer-token">*</span></span>
+</pre>
+
+<p>Pre-analysis static scene detection sensitivity</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	high (2)
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.24;" id="amfh265enc:pa-taq-mode">
+	
+
+
+
+<h3 data-hotdoc-id="amfh265enc:pa-taq-mode">
+	<i>pa-taq-mode</i>
+</h3>
+
+
+<pre class="property_signature">
+“pa-taq-mode” <span class="type"><a title="GstAmfEncPATAQMode" href="amfcodec/amfh265enc.html#GstAmfEncPATAQMode">GstAmfEncPATAQMode</a> <span class="pointer-token">*</span></span>
+</pre>
+
+<p>Set the temporal adaptive quantization mode</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	none (0)
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.24;" id="amfh265enc:pre-analysis">
+	
+
+
+
+<h3 data-hotdoc-id="amfh265enc:pre-analysis">
+	<i>pre-analysis</i>
+</h3>
+
+
+<pre class="property_signature">
+“pre-analysis” <span class="type"><a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#bool" data-gi-title-python="bool">gboolean</a></span>
+</pre>
+
+<p>Enable the pre-analysis module</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	false
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.24;" id="amfh265enc:pre-encode">
+	
+
+
+
+<h3 data-hotdoc-id="amfh265enc:pre-encode">
+	<i>pre-encode</i>
+</h3>
+
+
+<pre class="property_signature">
+“pre-encode” <span class="type"><a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#bool" data-gi-title-python="bool">gboolean</a></span>
+</pre>
+
+<p>Enable pre-encode assisted rate control</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	false
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="amfh265enc:preset">
+	
+
+
+
+<h3 data-hotdoc-id="amfh265enc:preset">
+	<i>preset</i>
+</h3>
+
+
+<pre class="property_signature">
+“preset” <span class="type"><a title="Amf-h265enc-preset" href="amfcodec/amfh265enc.html#GstAmfH265EncPreset">Amf-h265enc-preset</a> <span class="pointer-token">*</span></span>
+</pre>
+
+<p>Preset</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	default (-1)
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="amfh265enc:qp-i">
+	
+
+
+
+<h3 data-hotdoc-id="amfh265enc:qp-i">
+	<i>qp-i</i>
+</h3>
+
+
+<pre class="property_signature">
+“qp-i” <span class="type"><a title="guint" href="https://docs.gtk.org/glib/types.html#guint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">guint</a></span>
+</pre>
+
+<p>Constant QP for I frames</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	26
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="amfh265enc:qp-p">
+	
+
+
+
+<h3 data-hotdoc-id="amfh265enc:qp-p">
+	<i>qp-p</i>
+</h3>
+
+
+<pre class="property_signature">
+“qp-p” <span class="type"><a title="guint" href="https://docs.gtk.org/glib/types.html#guint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">guint</a></span>
+</pre>
+
+<p>Constant QP for P frames</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	26
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="amfh265enc:rate-control">
+	
+
+
+
+<h3 data-hotdoc-id="amfh265enc:rate-control">
+	<i>rate-control</i>
+</h3>
+
+
+<pre class="property_signature">
+“rate-control” <span class="type"><a title="Amf-h265enc-rate-control" href="amfcodec/amfh265enc.html#GstAmfH265EncRateControl">Amf-h265enc-rate-control</a> <span class="pointer-token">*</span></span>
+</pre>
+
+<p>Rate Control Method</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	default (-1)
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="amfh265enc:ref-frames">
+	
+
+
+
+<h3 data-hotdoc-id="amfh265enc:ref-frames">
+	<i>ref-frames</i>
+</h3>
+
+
+<pre class="property_signature">
+“ref-frames” <span class="type"><a title="guint" href="https://docs.gtk.org/glib/types.html#guint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">guint</a></span>
+</pre>
+
+<p>Number of reference frames</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	1
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.24;" id="amfh265enc:smart-access-video">
+	
+
+
+
+<h3 data-hotdoc-id="amfh265enc:smart-access-video">
+	<i>smart-access-video</i>
+</h3>
+
+
+<pre class="property_signature">
+“smart-access-video” <span class="type"><a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#bool" data-gi-title-python="bool">gboolean</a></span>
+</pre>
+
+<p>Enable AMF SmartAccess Video feature</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	false
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="amfh265enc:usage">
+	
+
+
+
+<h3 data-hotdoc-id="amfh265enc:usage">
+	<i>usage</i>
+</h3>
+
+
+<pre class="property_signature">
+“usage” <span class="type"><a title="Amf-h265enc-usage" href="amfcodec/amfh265enc.html#GstAmfH265EncUsage">Amf-h265enc-usage</a> <span class="pointer-token">*</span></span>
+</pre>
+
+<p>Target usage</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	transcoding (0)
+</p>
+
+
+
+<hr>
+
+</div>
+
+
+            <h2 class="symbol_section">Named constants</h2>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.24;" id="GstAmfEncPAActivityType">
+	
+
+
+
+<h3 data-hotdoc-id="GstAmfEncPAActivityType">
+	<i>GstAmfEncPAActivityType</i>
+</h3>
+
+
+<p>Determines whether activity analysis is performed on the Luma component
+only (Y) or on both Luma and Chroma (YUV).</p>
+
+
+
+
+	<div class="members-container">
+		<h4>Members</h4>
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstAmfEncPAActivityType::y">
+        <code>y</code> (<i>0</i>) – Luma (Y) component only
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstAmfEncPAActivityType::yuv">
+        <code>yuv</code> (<i>1</i>) – Luma and Chroma components (YUV)
+        </div>
+    
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.24;" id="GstAmfEncPACAQStrength">
+	
+
+
+
+<h3 data-hotdoc-id="GstAmfEncPACAQStrength">
+	<i>GstAmfEncPACAQStrength</i>
+</h3>
+
+
+<p>Content Adaptive Quantization strength. Stronger CAQ strength means larger
+variation in block level QP assignment.</p>
+
+
+
+
+	<div class="members-container">
+		<h4>Members</h4>
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstAmfEncPACAQStrength::low">
+        <code>low</code> (<i>0</i>) – Low
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstAmfEncPACAQStrength::medium">
+        <code>medium</code> (<i>1</i>) – Medium
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstAmfEncPACAQStrength::high">
+        <code>high</code> (<i>2</i>) – High
+        </div>
+    
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.24;" id="GstAmfEncPAHQMBMode">
+	
+
+
+
+<h3 data-hotdoc-id="GstAmfEncPAHQMBMode">
+	<i>GstAmfEncPAHQMBMode</i>
+</h3>
+
+
+<p>Sets the PA high motion quality boost (HQMB) mode to help the encoder in motion search.</p>
+
+
+
+
+	<div class="members-container">
+		<h4>Members</h4>
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstAmfEncPAHQMBMode::none">
+        <code>none</code> (<i>0</i>) – None
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstAmfEncPAHQMBMode::auto">
+        <code>auto</code> (<i>1</i>) – Auto
+        </div>
+    
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.24;" id="GstAmfEncPAPAQMode">
+	
+
+
+
+<h3 data-hotdoc-id="GstAmfEncPAPAQMode">
+	<i>GstAmfEncPAPAQMode</i>
+</h3>
+
+
+<p>Sets the perceptual adaptive quantization mode.</p>
+
+
+
+
+	<div class="members-container">
+		<h4>Members</h4>
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstAmfEncPAPAQMode::none">
+        <code>none</code> (<i>0</i>) – None
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstAmfEncPAPAQMode::caq">
+        <code>caq</code> (<i>1</i>) – Content Adaptive Quantization (CAQ) mode
+        </div>
+    
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.24;" id="GstAmfEncPASceneChangeDetectionSensitivity">
+	
+
+
+
+<h3 data-hotdoc-id="GstAmfEncPASceneChangeDetectionSensitivity">
+	<i>GstAmfEncPASceneChangeDetectionSensitivity</i>
+</h3>
+
+
+<p>Sensitivity of scene change detection. The higher the sensitivity, the more
+restrictive it is to detect a scene change. This parameter takes effect
+only when AMF_PA_LOOKAHEAH_BUFFER_DEPTH is set to 0.</p>
+
+
+
+
+	<div class="members-container">
+		<h4>Members</h4>
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstAmfEncPASceneChangeDetectionSensitivity::low">
+        <code>low</code> (<i>0</i>) – Low
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstAmfEncPASceneChangeDetectionSensitivity::medium">
+        <code>medium</code> (<i>1</i>) – Medium
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstAmfEncPASceneChangeDetectionSensitivity::high">
+        <code>high</code> (<i>2</i>) – High
+        </div>
+    
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.24;" id="GstAmfEncPAStaticSceneDetectionSensitivity">
+	
+
+
+
+<h3 data-hotdoc-id="GstAmfEncPAStaticSceneDetectionSensitivity">
+	<i>GstAmfEncPAStaticSceneDetectionSensitivity</i>
+</h3>
+
+
+<p>Sensitivity of static scene detection. The higher the sensitivity, the more
+restrictive it is to detect a static scene.</p>
+
+
+
+
+	<div class="members-container">
+		<h4>Members</h4>
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstAmfEncPAStaticSceneDetectionSensitivity::low">
+        <code>low</code> (<i>0</i>) – Low
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstAmfEncPAStaticSceneDetectionSensitivity::medium">
+        <code>medium</code> (<i>1</i>) – Medium
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstAmfEncPAStaticSceneDetectionSensitivity::high">
+        <code>high</code> (<i>2</i>) – High
+        </div>
+    
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.24;" id="GstAmfEncPATAQMode">
+	
+
+
+
+<h3 data-hotdoc-id="GstAmfEncPATAQMode">
+	<i>GstAmfEncPATAQMode</i>
+</h3>
+
+
+<p>Sets the temporal adaptive quantization mode. MODE_1 is suitable for non-gaming
+applications whereas MODE_2 is suitable for gaming applications.</p>
+
+
+
+
+	<div class="members-container">
+		<h4>Members</h4>
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstAmfEncPATAQMode::none">
+        <code>none</code> (<i>0</i>) – None
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstAmfEncPATAQMode::mode1">
+        <code>mode1</code> (<i>1</i>) – Mode_1 is suitable for non-gaming applications
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstAmfEncPATAQMode::mode2">
+        <code>mode2</code> (<i>2</i>) – Mode_2 is suitable for gaming applications
+        </div>
+    
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.22;" id="GstAmfH265EncPreset">
+	
+
+
+
+<h3 data-hotdoc-id="GstAmfH265EncPreset">
+	<i>Amf-h265enc-preset</i>
+</h3>
+
+
+<p>Encoding quality presets</p>
+
+
+
+
+	<div class="members-container">
+		<h4>Members</h4>
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstAmfH265EncPreset::default">
+        <code>default</code> (<i>-1</i>) – Default, depends on USAGE
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstAmfH265EncPreset::quality">
+        <code>quality</code> (<i>0</i>) – Quality
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstAmfH265EncPreset::balanced">
+        <code>balanced</code> (<i>5</i>) – Balanced
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstAmfH265EncPreset::speed">
+        <code>speed</code> (<i>10</i>) – Speed
+        </div>
+    
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.22
+		</p>
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.22;" id="GstAmfH265EncRateControl">
+	
+
+
+
+<h3 data-hotdoc-id="GstAmfH265EncRateControl">
+	<i>Amf-h265enc-rate-control</i>
+</h3>
+
+
+<p>Rate control methods</p>
+
+
+
+
+	<div class="members-container">
+		<h4>Members</h4>
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstAmfH265EncRateControl::default">
+        <code>default</code> (<i>-1</i>) – Default, depends on Usage
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstAmfH265EncRateControl::cqp">
+        <code>cqp</code> (<i>0</i>) – Constant QP
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstAmfH265EncRateControl::lcvbr">
+        <code>lcvbr</code> (<i>1</i>) – Latency Constrained VBR
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstAmfH265EncRateControl::vbr">
+        <code>vbr</code> (<i>2</i>) – Peak Constrained VBR
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstAmfH265EncRateControl::cbr">
+        <code>cbr</code> (<i>3</i>) – Constant Bitrate
+        </div>
+    
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.22
+		</p>
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.22;" id="GstAmfH265EncUsage">
+	
+
+
+
+<h3 data-hotdoc-id="GstAmfH265EncUsage">
+	<i>Amf-h265enc-usage</i>
+</h3>
+
+
+<p>Encoder usages</p>
+
+
+
+
+	<div class="members-container">
+		<h4>Members</h4>
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstAmfH265EncUsage::transcoding">
+        <code>transcoding</code> (<i>0</i>) – Transcoding
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstAmfH265EncUsage::ultra-low-latency">
+        <code>ultra-low-latency</code> (<i>1</i>) – Ultra Low Latency
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstAmfH265EncUsage::low-latency">
+        <code>low-latency</code> (<i>2</i>) – Low Latency
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstAmfH265EncUsage::webcam">
+        <code>webcam</code> (<i>3</i>) – Webcam
+        </div>
+    
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.22
+		</p>
+
+<hr>
+
+</div>
+
+
+
+
+
+
+		
+	</div>
+	<div id="search_results">
+		<p>The results of the search are</p>
+	</div>
+	<div id="footer">
+		    
+
+	</div>
+</div>
+
+<div id="toc-column">
+	
+		<div class="edit-button">
+		
+
+	</div>
+		<div id="toc-wrapper">
+		<nav id="toc"></nav>
+	</div>
+</div>
+</div>
+</main>
+
+
+<script src="assets/js/navbar_offset_scroller.js"></script>
+</body>
+</html>

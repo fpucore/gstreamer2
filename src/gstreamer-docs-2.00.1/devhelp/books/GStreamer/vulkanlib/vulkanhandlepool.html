@@ -1,0 +1,1749 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<base href="..">
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<title>GstVulkanHandlePool</title>
+
+<link rel="stylesheet" href="assets/css/dark-frontend.css" type="text/css" title="dark">
+<link rel="alternate stylesheet" href="assets/css/light-frontend.css" type="text/css" title="light">
+<link rel="stylesheet" href="assets/css/bootstrap-toc.min.css" type="text/css">
+<link rel="stylesheet" href="assets/css/jquery.mCustomScrollbar.min.css">
+<link rel="stylesheet" href="assets/js/search/enable_search.css" type="text/css">
+
+<link rel="stylesheet" href="assets/css/extra_frontend.css" type="text/css">
+<link rel="stylesheet" href="assets/css/devhelp.css" type="text/css">
+
+<link rel="stylesheet" href="assets/css/prism-tomorrow.css" type="text/css" title="dark">
+
+<link rel="alternate stylesheet" href="assets/css/prism.css" type="text/css" title="light">
+
+<script src="assets/js/mustache.min.js"></script>
+<script src="assets/js/jquery.js"></script>
+<script src="assets/js/bootstrap.js"></script>
+<script src="assets/js/scrollspy.js"></script>
+<script src="assets/js/typeahead.jquery.min.js"></script>
+<script src="assets/js/search.js"></script>
+<script src="assets/js/compare-versions.js"></script>
+<script src="assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="assets/js/bootstrap-toc.min.js"></script>
+<script src="assets/js/jquery.touchSwipe.min.js"></script>
+<script src="assets/js/anchor.min.js"></script>
+<script src="assets/js/tag_filtering.js"></script>
+<script src="assets/js/language_switching.js"></script>
+<script src="assets/js/styleswitcher.js"></script>
+
+<script src="assets/js/lines_around_headings.js"></script>
+
+<script src="assets/js/prism-core.js"></script>
+<script src="assets/js/prism-autoloader.js"></script>
+<script src="assets/js/prism_autoloader_path_override.js"></script>
+<script src="assets/js/trie.js"></script>
+
+<!-- generic -->
+<link rel="icon" type="image/png" href="assets/images/favicon-16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="assets/images/favicon-32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="assets/images/favicon-57.png" sizes="57x57">
+<link rel="icon" type="image/png" href="assets/images/favicon-64.png" sizes="64x64">
+<link rel="icon" type="image/png" href="assets/images/favicon-76.png" sizes="76x76">
+<link rel="icon" type="image/png" href="assets/images/favicon-96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="assets/images/favicon-128.png" sizes="128x128">
+<link rel="icon" type="image/png" href="assets/images/favicon-192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="assets/images/favicon-228.png" sizes="228x228">
+
+<!-- Android -->
+<link rel="shortcut icon" sizes="196x196" href="assets/images/favicon-196.png">
+
+<!-- iOS -->
+<link rel="apple-touch-icon" href="assets/images/favicon-120.png" sizes="120x120">
+<link rel="apple-touch-icon" href="assets/images/favicon-152.png" sizes="152x152">
+<link rel="apple-touch-icon" href="assets/images/favicon-180.png" sizes="180x180">
+
+</head>
+
+<body class="no-script
+">
+
+<script>
+$('body').removeClass('no-script');
+</script>
+
+<nav class="navbar navbar-fixed-top navbar-default" id="topnav">
+	<div class="container-fluid">
+		<div class="navbar-right">
+			<a id="toc-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-wrapper" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<span title="light mode switch" class="glyphicon glyphicon-sunglasses pull-right" id="lightmode-icon"></span>
+			<form class="navbar-form pull-right" id="navbar-search-form">
+                               <div class="form-group has-feedback">
+                                       <input type="text" class="form-control input-sm" name="search" id="sidenav-lookup-field" placeholder="search" disabled>
+				       <span class="glyphicon glyphicon-search form-control-feedback" id="search-mgn-glass"></span>
+                               </div>
+                        </form>
+		</div>
+		<div class="navbar-header">
+			<a id="sidenav-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<a id="home-link" href="index.html" class="hotdoc-navbar-brand">
+				<img src="assets/images/gstreamer-logo.svg" alt="Home">
+			</a>
+		</div>
+		<div class="navbar-collapse collapse" id="navbar-wrapper">
+			<ul class="nav navbar-nav" id="menu">
+				
+<li class="dropdown">
+    <a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        API References<span class="caret"></span>
+    </a>
+	<ul class="dropdown-menu" id="modules-menu">
+					<li>
+				<a href="gstreamer/gi-index.html">GStreamer core</a>
+			</li>
+					<li>
+				<a href="libs.html">GStreamer Libraries</a>
+			</li>
+					<li>
+				<a href="plugins_doc.html">GStreamer Plugins</a>
+			</li>
+		</ul>
+</li>
+
+<li>
+    <a href="application-development/index.html">Application manual</a>
+</li>
+
+
+<li>
+    <a href="tutorials/index.html">Tutorials</a>
+</li>
+
+			</ul>
+			<div class="hidden-xs hidden-sm navbar-text navbar-center">
+							</div>
+		</div>
+	</div>
+</nav>
+
+<main>
+<div data-extension="gi-extension" data-hotdoc-in-toplevel="False" data-hotdoc-project="vulkanlib" data-hotdoc-ref="vulkanhandlepool.html" class="page_container" id="page-wrapper" data-hotdoc-meta-gi-languages="['c', 'javascript', 'python']" data-hotdoc-meta-gi-language="c">
+<script src="assets/js/utils.js"></script>
+
+<div class="panel panel-collapse oc-collapsed" id="sidenav" data-hotdoc-role="navigation">
+	<script src="assets/js/full-width.js"></script>
+  <div id="sitenav-wrapper">
+    <iframe src="hotdoc-sitemap.html" id="sitenav-frame"></iframe>
+  </div>
+</div>
+
+<div id="body">
+	<div id="main">
+				    <div id="page-description" data-hotdoc-role="main">
+        <h1 id="gstvulkanhandlepool-page">GstVulkanHandlePool</h1>
+<p><a href="vulkanlib/vulkanhandlepool.html#GstVulkanHandlePool" data-gi-href-javascript="vulkanlib/vulkanhandlepool.html#GstVulkanHandlePool" data-gi-title-javascript="GstVulkan.VulkanHandlePool" data-gi-href-python="vulkanlib/vulkanhandlepool.html#GstVulkanHandlePool" data-gi-title-python="GstVulkan.VulkanHandlePool">GstVulkanHandlePool</a> holds a number of handles that are pooled together.</p>
+
+    </div>
+        
+        
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.18;" id="GstVulkanHandlePool">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h2 data-hotdoc-id="GstVulkanHandlePool">
+	<i>GstVulkanHandlePool</i>
+</h2>
+
+
+<div class="hierarchy_container">
+	<div class="hierarchy_details">
+<pre>
+<a title="GObject" href="https://docs.gtk.org/gobject/class.Object.html">GObject</a>
+    <span class="lineart">╰──</span><a title="GInitiallyUnowned" href="https://docs.gtk.org/gobject/class.InitiallyUnowned.html">GInitiallyUnowned</a>
+        <span class="lineart">╰──</span><a title="GstObject" href="gstreamer/gstobject.html#GstObject">GstObject</a>
+            <span class="lineart">╰──</span>GstVulkanHandlePool
+                <span class="lineart">╰──</span><a title="GstVulkanDescriptorCache" href="vulkanlib/vkdescriptorcache.html#GstVulkanDescriptorCache">GstVulkanDescriptorCache</a>
+                <span class="lineart">╰──</span><a title="GstVulkanFenceCache" href="vulkanlib/vkfence.html#GstVulkanFenceCache">GstVulkanFenceCache</a>
+                <span class="lineart">╰──</span><a title="GstVulkanTrashList" href="vulkanlib/vktrash.html#GstVulkanTrashList">GstVulkanTrashList</a>
+</pre>
+
+</div>
+
+</div>
+
+
+
+
+	<div class="members-container">
+		<h3>Members</h3>
+					
+<div class="symbol-detail" data-hotdoc-id="GstVulkanHandlePool.parent">
+	<div>
+		<i><em><code>parent</code></em></i>
+		(<a title="GstObject" href="gstreamer/gstobject.html#GstObject">GstObject</a>)
+		–
+	</div>
+			<p>the parent <a href="gstreamer/gstobject.html#GstObject">GstObject</a></p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVulkanHandlePool.device">
+	<div>
+		<i><em><code>device</code></em></i>
+		(<a title="GstVulkanDevice" href="vulkanlib/vkdevice.html#GstVulkanDevice">GstVulkanDevice</a> *)
+		–
+	</div>
+			<p>the <a href="vulkanlib/vkdevice.html#GstVulkanDevice">GstVulkanDevice</a> handles are allocated from</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVulkanHandlePool.outstanding">
+	<div>
+		<i><em><code>outstanding</code></em></i>
+		(<a title="GPtrArray" href="https://docs.gtk.org/glib/struct.PtrArray.html">GPtrArray</a> *)
+		–
+	</div>
+			<p>the collection of outstanding handles</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVulkanHandlePool.available">
+	<div>
+		<i><em><code>available</code></em></i>
+		(<a title="GPtrArray" href="https://docs.gtk.org/glib/struct.PtrArray.html">GPtrArray</a> *)
+		–
+	</div>
+			<p>the collection of allocated and available handles</p>
+
+	</div>
+
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+<h3>Class structure</h3>
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstVulkanHandlePoolClass">
+	<i>GstVulkanHandlePoolClass</i>
+</h4>
+
+
+
+
+
+	<div class="members-container">
+		<h5>Fields</h5>
+					
+<div class="symbol-detail" data-hotdoc-id="GstVulkanHandlePoolClass.parent">
+	<div>
+		<i><em><code>parent</code></em></i>
+		(<a title="GstObjectClass" href="GstObjectClass">GstObjectClass</a>)
+		–
+	</div>
+			<p>the parent <a href="GstObjectClass">GstObjectClass</a></p>
+
+	</div>
+
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3>
+	GstVulkan.VulkanHandlePoolClass
+</h3>
+
+
+
+
+
+	<div class="members-container">
+		<h5>Attributes</h5>
+					
+<div class="symbol-detail" data-hotdoc-id="GstVulkanHandlePoolClass.parent">
+	<div>
+		<i><em><code>parent</code></em></i>
+		(<a title="Gst.ObjectClass" href="GstObjectClass">Gst.ObjectClass</a>)
+		–
+	</div>
+			<p>the parent <a href="GstObjectClass">Gst.ObjectClass</a></p>
+
+	</div>
+
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3>
+	GstVulkan.VulkanHandlePoolClass
+</h3>
+
+
+
+
+
+	<div class="members-container">
+		<h5>Attributes</h5>
+					
+<div class="symbol-detail" data-hotdoc-id="GstVulkanHandlePoolClass.parent">
+	<div>
+		<i><em><code>parent</code></em></i>
+		(<a title="Gst.ObjectClass" href="GstObjectClass">Gst.ObjectClass</a>)
+		–
+	</div>
+			<p>the parent <a href="GstObjectClass">Gst.ObjectClass</a></p>
+
+	</div>
+
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h2 data-hotdoc-id="GstVulkanHandlePool">
+	<i>GstVulkan.VulkanHandlePool</i>
+</h2>
+
+
+<div class="hierarchy_container">
+	<div class="hierarchy_details">
+<pre>
+<a title="GObject.Object" href="https://docs.gtk.org/gobject/class.Object.html">GObject.Object</a>
+    <span class="lineart">╰──</span><a title="GObject.InitiallyUnowned" href="https://docs.gtk.org/gobject/class.InitiallyUnowned.html">GObject.InitiallyUnowned</a>
+        <span class="lineart">╰──</span><a title="Gst.Object" href="gstreamer/gstobject.html#GstObject">Gst.Object</a>
+            <span class="lineart">╰──</span>GstVulkan.VulkanHandlePool
+                <span class="lineart">╰──</span><a title="GstVulkan.VulkanDescriptorCache" href="vulkanlib/vkdescriptorcache.html#GstVulkanDescriptorCache">GstVulkan.VulkanDescriptorCache</a>
+                <span class="lineart">╰──</span><a title="GstVulkan.VulkanFenceCache" href="vulkanlib/vkfence.html#GstVulkanFenceCache">GstVulkan.VulkanFenceCache</a>
+                <span class="lineart">╰──</span><a title="GstVulkan.VulkanTrashList" href="vulkanlib/vktrash.html#GstVulkanTrashList">GstVulkan.VulkanTrashList</a>
+</pre>
+
+</div>
+
+</div>
+
+
+
+
+	<div class="members-container">
+		<h3>Members</h3>
+					
+<div class="symbol-detail" data-hotdoc-id="GstVulkanHandlePool.parent">
+	<div>
+		<i><em><code>parent</code></em></i>
+		(<a title="Gst.Object" href="gstreamer/gstobject.html#GstObject">Gst.Object</a>)
+		–
+	</div>
+			<p>the parent <a href="gstreamer/gstobject.html#GstObject">Gst.Object</a></p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVulkanHandlePool.device">
+	<div>
+		<i><em><code>device</code></em></i>
+		(<a title="GstVulkan.VulkanDevice" href="vulkanlib/vkdevice.html#GstVulkanDevice">GstVulkan.VulkanDevice</a>)
+		–
+	</div>
+			<p>the <a href="vulkanlib/vkdevice.html#GstVulkanDevice">GstVulkan.VulkanDevice</a> handles are allocated from</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVulkanHandlePool.outstanding">
+	<div>
+		<i><em><code>outstanding</code></em></i>
+		([ <a title="Object" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a> ])
+		–
+	</div>
+			<p>the collection of outstanding handles</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVulkanHandlePool.available">
+	<div>
+		<i><em><code>available</code></em></i>
+		([ <a title="Object" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a> ])
+		–
+	</div>
+			<p>the collection of allocated and available handles</p>
+
+	</div>
+
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h2 data-hotdoc-id="GstVulkanHandlePool">
+	<i>GstVulkan.VulkanHandlePool</i>
+</h2>
+
+
+<div class="hierarchy_container">
+	<div class="hierarchy_details">
+<pre>
+<a title="GObject.Object" href="https://docs.gtk.org/gobject/class.Object.html">GObject.Object</a>
+    <span class="lineart">╰──</span><a title="GObject.InitiallyUnowned" href="https://docs.gtk.org/gobject/class.InitiallyUnowned.html">GObject.InitiallyUnowned</a>
+        <span class="lineart">╰──</span><a title="Gst.Object" href="gstreamer/gstobject.html#GstObject">Gst.Object</a>
+            <span class="lineart">╰──</span>GstVulkan.VulkanHandlePool
+                <span class="lineart">╰──</span><a title="GstVulkan.VulkanDescriptorCache" href="vulkanlib/vkdescriptorcache.html#GstVulkanDescriptorCache">GstVulkan.VulkanDescriptorCache</a>
+                <span class="lineart">╰──</span><a title="GstVulkan.VulkanFenceCache" href="vulkanlib/vkfence.html#GstVulkanFenceCache">GstVulkan.VulkanFenceCache</a>
+                <span class="lineart">╰──</span><a title="GstVulkan.VulkanTrashList" href="vulkanlib/vktrash.html#GstVulkanTrashList">GstVulkan.VulkanTrashList</a>
+</pre>
+
+</div>
+
+</div>
+
+
+
+
+	<div class="members-container">
+		<h3>Members</h3>
+					
+<div class="symbol-detail" data-hotdoc-id="GstVulkanHandlePool.parent">
+	<div>
+		<i><em><code>parent</code></em></i>
+		(<a title="Gst.Object" href="gstreamer/gstobject.html#GstObject">Gst.Object</a>)
+		–
+	</div>
+			<p>the parent <a href="gstreamer/gstobject.html#GstObject">Gst.Object</a></p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVulkanHandlePool.device">
+	<div>
+		<i><em><code>device</code></em></i>
+		(<a title="GstVulkan.VulkanDevice" href="vulkanlib/vkdevice.html#GstVulkanDevice">GstVulkan.VulkanDevice</a>)
+		–
+	</div>
+			<p>the <a href="vulkanlib/vkdevice.html#GstVulkanDevice">GstVulkan.VulkanDevice</a> handles are allocated from</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVulkanHandlePool.outstanding">
+	<div>
+		<i><em><code>outstanding</code></em></i>
+		([ <a title="object" href="https://docs.python.org/3/library/functions.html#object">object</a> ])
+		–
+	</div>
+			<p>the collection of outstanding handles</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstVulkanHandlePool.available">
+	<div>
+		<i><em><code>available</code></em></i>
+		([ <a title="object" href="https://docs.python.org/3/library/functions.html#object">object</a> ])
+		–
+	</div>
+			<p>the collection of allocated and available handles</p>
+
+	</div>
+
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+
+            <h3 class="symbol_section">Methods</h3>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_vulkan_handle_pool_acquire">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_vulkan_handle_pool_acquire">
+	<i>gst_vulkan_handle_pool_acquire</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gpointer" href="https://docs.gtk.org/glib/types.html#gpointer">gpointer</a>
+gst_vulkan_handle_pool_acquire (<a title="GstVulkanHandlePool" href="vulkanlib/vulkanhandlepool.html#GstVulkanHandlePool">GstVulkanHandlePool</a> * pool,
+                                <a title="GError" href="https://docs.gtk.org/glib/struct.Error.html">GError</a> ** error)</pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>pool</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>error</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_vulkan_handle_pool_acquire">
+	<i>GstVulkan.VulkanHandlePool.prototype.acquire</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstVulkan.VulkanHandlePool.prototype.acquire(): {
+    // javascript wrapper for 'gst_vulkan_handle_pool_acquire'
+}</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>pool</code></em></i>
+<span>(</span><a title="GstVulkan.VulkanHandlePool" href="vulkanlib/vulkanhandlepool.html#GstVulkanHandlePool">GstVulkan.VulkanHandlePool</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Object" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a><span>)</span>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_vulkan_handle_pool_acquire">
+	<i>GstVulkan.VulkanHandlePool.acquire</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>@raises(<a href="https://developer.gnome.org/glib/stable/glib-Error-Reporting.html">GLib.GError</a>)
+def GstVulkan.VulkanHandlePool.acquire (self):
+    #python wrapper for 'gst_vulkan_handle_pool_acquire'</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>pool</code></em></i>
+<span>(</span><a title="GstVulkan.VulkanHandlePool" href="vulkanlib/vulkanhandlepool.html#GstVulkanHandlePool">GstVulkan.VulkanHandlePool</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="object" href="https://docs.python.org/3/library/functions.html#object">object</a><span>)</span>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_vulkan_handle_pool_alloc">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_vulkan_handle_pool_alloc">
+	<i>gst_vulkan_handle_pool_alloc</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gpointer" href="https://docs.gtk.org/glib/types.html#gpointer">gpointer</a>
+gst_vulkan_handle_pool_alloc (<a title="GstVulkanHandlePool" href="vulkanlib/vulkanhandlepool.html#GstVulkanHandlePool">GstVulkanHandlePool</a> * pool,
+                              <a title="GError" href="https://docs.gtk.org/glib/struct.Error.html">GError</a> ** error)</pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>pool</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>error</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_vulkan_handle_pool_alloc">
+	<i>GstVulkan.VulkanHandlePool.prototype.alloc</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstVulkan.VulkanHandlePool.prototype.alloc(): {
+    // javascript wrapper for 'gst_vulkan_handle_pool_alloc'
+}</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>pool</code></em></i>
+<span>(</span><a title="GstVulkan.VulkanHandlePool" href="vulkanlib/vulkanhandlepool.html#GstVulkanHandlePool">GstVulkan.VulkanHandlePool</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Object" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a><span>)</span>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_vulkan_handle_pool_alloc">
+	<i>GstVulkan.VulkanHandlePool.alloc</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>@raises(<a href="https://developer.gnome.org/glib/stable/glib-Error-Reporting.html">GLib.GError</a>)
+def GstVulkan.VulkanHandlePool.alloc (self):
+    #python wrapper for 'gst_vulkan_handle_pool_alloc'</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>pool</code></em></i>
+<span>(</span><a title="GstVulkan.VulkanHandlePool" href="vulkanlib/vulkanhandlepool.html#GstVulkanHandlePool">GstVulkan.VulkanHandlePool</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="object" href="https://docs.python.org/3/library/functions.html#object">object</a><span>)</span>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_vulkan_handle_pool_release">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_vulkan_handle_pool_release">
+	<i>gst_vulkan_handle_pool_release</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+gst_vulkan_handle_pool_release (<a title="GstVulkanHandlePool" href="vulkanlib/vulkanhandlepool.html#GstVulkanHandlePool">GstVulkanHandlePool</a> * pool,
+                                <a title="gpointer" href="https://docs.gtk.org/glib/types.html#gpointer">gpointer</a> handle)</pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>pool</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>handle</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_vulkan_handle_pool_release">
+	<i>GstVulkan.VulkanHandlePool.prototype.release</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstVulkan.VulkanHandlePool.prototype.release(handle: <a title="Object" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>): {
+    // javascript wrapper for 'gst_vulkan_handle_pool_release'
+}</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>pool</code></em></i>
+<span>(</span><a title="GstVulkan.VulkanHandlePool" href="vulkanlib/vulkanhandlepool.html#GstVulkanHandlePool">GstVulkan.VulkanHandlePool</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>handle</code></em></i>
+<span>(</span><a title="Object" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_vulkan_handle_pool_release">
+	<i>GstVulkan.VulkanHandlePool.release</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstVulkan.VulkanHandlePool.release (self, handle):
+    #python wrapper for 'gst_vulkan_handle_pool_release'</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>pool</code></em></i>
+<span>(</span><a title="GstVulkan.VulkanHandlePool" href="vulkanlib/vulkanhandlepool.html#GstVulkanHandlePool">GstVulkan.VulkanHandlePool</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>handle</code></em></i>
+<span>(</span><a title="object" href="https://docs.python.org/3/library/functions.html#object">object</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+
+            <h3 class="symbol_section">Virtual Methods</h3>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstVulkanHandlePoolClass::acquire">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstVulkanHandlePoolClass::acquire">
+	<i>acquire</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gpointer" href="https://docs.gtk.org/glib/types.html#gpointer">gpointer</a>
+acquire (<a title="GstVulkanHandlePool" href="vulkanlib/vulkanhandlepool.html#GstVulkanHandlePool">GstVulkanHandlePool</a> * pool,
+         <a title="GError" href="https://docs.gtk.org/glib/struct.Error.html">GError</a> ** error)</pre>
+
+<p>acquire a handle for usage</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>pool</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>error</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GstVulkanHandlePoolClass::acquire">
+	<i>vfunc_acquire</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function vfunc_acquire(pool: <a title="GstVulkan.VulkanHandlePool" href="vulkanlib/vulkanhandlepool.html#GstVulkanHandlePool">GstVulkan.VulkanHandlePool</a>): {
+    // javascript implementation of the 'acquire' virtual method
+}</code></pre>
+
+<p>acquire a handle for usage</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>pool</code></em></i>
+<span>(</span><a title="GstVulkan.VulkanHandlePool" href="vulkanlib/vulkanhandlepool.html#GstVulkanHandlePool">GstVulkan.VulkanHandlePool</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Object" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a><span>)</span>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GstVulkanHandlePoolClass::acquire">
+	<i>do_acquire</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def do_acquire (pool):
+    #python implementation of the 'acquire' virtual method</code></pre>
+
+<p>acquire a handle for usage</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>pool</code></em></i>
+<span>(</span><a title="GstVulkan.VulkanHandlePool" href="vulkanlib/vulkanhandlepool.html#GstVulkanHandlePool">GstVulkan.VulkanHandlePool</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="object" href="https://docs.python.org/3/library/functions.html#object">object</a><span>)</span>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstVulkanHandlePoolClass::alloc">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstVulkanHandlePoolClass::alloc">
+	<i>alloc</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gpointer" href="https://docs.gtk.org/glib/types.html#gpointer">gpointer</a>
+alloc (<a title="GstVulkanHandlePool" href="vulkanlib/vulkanhandlepool.html#GstVulkanHandlePool">GstVulkanHandlePool</a> * pool,
+       <a title="GError" href="https://docs.gtk.org/glib/struct.Error.html">GError</a> ** error)</pre>
+
+<p>allocate a new handle</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>pool</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>error</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GstVulkanHandlePoolClass::alloc">
+	<i>vfunc_alloc</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function vfunc_alloc(pool: <a title="GstVulkan.VulkanHandlePool" href="vulkanlib/vulkanhandlepool.html#GstVulkanHandlePool">GstVulkan.VulkanHandlePool</a>): {
+    // javascript implementation of the 'alloc' virtual method
+}</code></pre>
+
+<p>allocate a new handle</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>pool</code></em></i>
+<span>(</span><a title="GstVulkan.VulkanHandlePool" href="vulkanlib/vulkanhandlepool.html#GstVulkanHandlePool">GstVulkan.VulkanHandlePool</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Object" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a><span>)</span>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GstVulkanHandlePoolClass::alloc">
+	<i>do_alloc</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def do_alloc (pool):
+    #python implementation of the 'alloc' virtual method</code></pre>
+
+<p>allocate a new handle</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>pool</code></em></i>
+<span>(</span><a title="GstVulkan.VulkanHandlePool" href="vulkanlib/vulkanhandlepool.html#GstVulkanHandlePool">GstVulkan.VulkanHandlePool</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="object" href="https://docs.python.org/3/library/functions.html#object">object</a><span>)</span>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstVulkanHandlePoolClass::free">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstVulkanHandlePoolClass::free">
+	<i>free</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+free (<a title="GstVulkanHandlePool" href="vulkanlib/vulkanhandlepool.html#GstVulkanHandlePool">GstVulkanHandlePool</a> * pool,
+      <a title="gpointer" href="https://docs.gtk.org/glib/types.html#gpointer">gpointer</a> handle)</pre>
+
+<p>free a handle</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>pool</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>handle</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GstVulkanHandlePoolClass::free">
+	<i>vfunc_free</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function vfunc_free(pool: <a title="GstVulkan.VulkanHandlePool" href="vulkanlib/vulkanhandlepool.html#GstVulkanHandlePool">GstVulkan.VulkanHandlePool</a>, handle: <a title="Object" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>): {
+    // javascript implementation of the 'free' virtual method
+}</code></pre>
+
+<p>free a handle</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>pool</code></em></i>
+<span>(</span><a title="GstVulkan.VulkanHandlePool" href="vulkanlib/vulkanhandlepool.html#GstVulkanHandlePool">GstVulkan.VulkanHandlePool</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>handle</code></em></i>
+<span>(</span><a title="Object" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GstVulkanHandlePoolClass::free">
+	<i>do_free</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def do_free (pool, handle):
+    #python implementation of the 'free' virtual method</code></pre>
+
+<p>free a handle</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>pool</code></em></i>
+<span>(</span><a title="GstVulkan.VulkanHandlePool" href="vulkanlib/vulkanhandlepool.html#GstVulkanHandlePool">GstVulkan.VulkanHandlePool</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>handle</code></em></i>
+<span>(</span><a title="object" href="https://docs.python.org/3/library/functions.html#object">object</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstVulkanHandlePoolClass::release">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstVulkanHandlePoolClass::release">
+	<i>release</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+release (<a title="GstVulkanHandlePool" href="vulkanlib/vulkanhandlepool.html#GstVulkanHandlePool">GstVulkanHandlePool</a> * pool,
+         <a title="gpointer" href="https://docs.gtk.org/glib/types.html#gpointer">gpointer</a> handle)</pre>
+
+<p>release a handle for possible reuse at the next call to <em>acquire</em></p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>pool</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>handle</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GstVulkanHandlePoolClass::release">
+	<i>vfunc_release</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function vfunc_release(pool: <a title="GstVulkan.VulkanHandlePool" href="vulkanlib/vulkanhandlepool.html#GstVulkanHandlePool">GstVulkan.VulkanHandlePool</a>, handle: <a title="Object" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>): {
+    // javascript implementation of the 'release' virtual method
+}</code></pre>
+
+<p>release a handle for possible reuse at the next call to <em>acquire</em></p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>pool</code></em></i>
+<span>(</span><a title="GstVulkan.VulkanHandlePool" href="vulkanlib/vulkanhandlepool.html#GstVulkanHandlePool">GstVulkan.VulkanHandlePool</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>handle</code></em></i>
+<span>(</span><a title="Object" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GstVulkanHandlePoolClass::release">
+	<i>do_release</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def do_release (pool, handle):
+    #python implementation of the 'release' virtual method</code></pre>
+
+<p>release a handle for possible reuse at the next call to <em>acquire</em></p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>pool</code></em></i>
+<span>(</span><a title="GstVulkan.VulkanHandlePool" href="vulkanlib/vulkanhandlepool.html#GstVulkanHandlePool">GstVulkan.VulkanHandlePool</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>handle</code></em></i>
+<span>(</span><a title="object" href="https://docs.python.org/3/library/functions.html#object">object</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+
+        
+
+            <h2 class="symbol_section">Function Macros</h2>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.18;" id="GST_VULKAN_HANDLE_POOL_CAST">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_VULKAN_HANDLE_POOL_CAST">
+	<i>GST_VULKAN_HANDLE_POOL_CAST</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_VULKAN_HANDLE_POOL_CAST(o)         ((GstVulkanHandlePool *) o)
+</pre>
+
+
+
+
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+
+
+
+
+
+		
+	</div>
+	<div id="search_results">
+		<p>The results of the search are</p>
+	</div>
+	<div id="footer">
+		    
+
+	</div>
+</div>
+
+<div id="toc-column">
+	
+		<div class="edit-button">
+		
+
+	</div>
+		<div id="toc-wrapper">
+		<nav id="toc"></nav>
+	</div>
+</div>
+</div>
+</main>
+
+
+<script src="assets/js/navbar_offset_scroller.js"></script>
+</body>
+</html>

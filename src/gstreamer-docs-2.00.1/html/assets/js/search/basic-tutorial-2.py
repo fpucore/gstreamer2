@@ -1,0 +1,1 @@
+urls_downloaded_cb({"token":"basic-tutorial-2.py","urls":[{"url":"tutorials/basic/concepts.html#manual-hello-world","node_type":"p","page":"Basic tutorial 2: GStreamer concepts","sections":["Basic tutorial 2: GStreamer concepts","Manual Hello World"],"context":{"gi-language":["default"]}}]});

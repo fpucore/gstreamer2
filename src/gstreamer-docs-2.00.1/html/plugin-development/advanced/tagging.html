@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<base href="../..">
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<title>Tagging (Metadata and Streaminfo)</title>
+
+<link rel="stylesheet" href="assets/css/dark-frontend.css" type="text/css" title="dark">
+<link rel="alternate stylesheet" href="assets/css/light-frontend.css" type="text/css" title="light">
+<link rel="stylesheet" href="assets/css/bootstrap-toc.min.css" type="text/css">
+<link rel="stylesheet" href="assets/css/jquery.mCustomScrollbar.min.css">
+<link rel="stylesheet" href="assets/js/search/enable_search.css" type="text/css">
+
+<link rel="stylesheet" href="assets/css/extra_frontend.css" type="text/css">
+<link rel="stylesheet" href="assets/css/devhelp.css" type="text/css">
+
+<link rel="stylesheet" href="assets/css/prism-tomorrow.css" type="text/css" title="dark">
+
+<link rel="alternate stylesheet" href="assets/css/prism.css" type="text/css" title="light">
+
+<script src="assets/js/mustache.min.js"></script>
+<script src="assets/js/jquery.js"></script>
+<script src="assets/js/bootstrap.js"></script>
+<script src="assets/js/scrollspy.js"></script>
+<script src="assets/js/typeahead.jquery.min.js"></script>
+<script src="assets/js/search.js"></script>
+<script src="assets/js/compare-versions.js"></script>
+<script src="assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="assets/js/bootstrap-toc.min.js"></script>
+<script src="assets/js/jquery.touchSwipe.min.js"></script>
+<script src="assets/js/anchor.min.js"></script>
+<script src="assets/js/tag_filtering.js"></script>
+<script src="assets/js/language_switching.js"></script>
+<script src="assets/js/styleswitcher.js"></script>
+
+<script src="assets/js/lines_around_headings.js"></script>
+
+<script src="assets/js/prism-core.js"></script>
+<script src="assets/js/prism-autoloader.js"></script>
+<script src="assets/js/prism_autoloader_path_override.js"></script>
+<script src="assets/js/trie.js"></script>
+
+<!-- generic -->
+<link rel="icon" type="image/png" href="assets/images/favicon-16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="assets/images/favicon-32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="assets/images/favicon-57.png" sizes="57x57">
+<link rel="icon" type="image/png" href="assets/images/favicon-64.png" sizes="64x64">
+<link rel="icon" type="image/png" href="assets/images/favicon-76.png" sizes="76x76">
+<link rel="icon" type="image/png" href="assets/images/favicon-96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="assets/images/favicon-128.png" sizes="128x128">
+<link rel="icon" type="image/png" href="assets/images/favicon-192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="assets/images/favicon-228.png" sizes="228x228">
+
+<!-- Android -->
+<link rel="shortcut icon" sizes="196x196" href="assets/images/favicon-196.png">
+
+<!-- iOS -->
+<link rel="apple-touch-icon" href="assets/images/favicon-120.png" sizes="120x120">
+<link rel="apple-touch-icon" href="assets/images/favicon-152.png" sizes="152x152">
+<link rel="apple-touch-icon" href="assets/images/favicon-180.png" sizes="180x180">
+
+</head>
+
+<body class="no-script
+">
+
+<script>
+$('body').removeClass('no-script');
+</script>
+
+<nav class="navbar navbar-fixed-top navbar-default" id="topnav">
+	<div class="container-fluid">
+		<div class="navbar-right">
+			<a id="toc-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-wrapper" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<span title="light mode switch" class="glyphicon glyphicon-sunglasses pull-right" id="lightmode-icon"></span>
+			<form class="navbar-form pull-right" id="navbar-search-form">
+                               <div class="form-group has-feedback">
+                                       <input type="text" class="form-control input-sm" name="search" id="sidenav-lookup-field" placeholder="search" disabled>
+				       <span class="glyphicon glyphicon-search form-control-feedback" id="search-mgn-glass"></span>
+                               </div>
+                        </form>
+		</div>
+		<div class="navbar-header">
+			<a id="sidenav-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<a id="home-link" href="index.html" class="hotdoc-navbar-brand">
+				<img src="assets/images/gstreamer-logo.svg" alt="Home">
+			</a>
+		</div>
+		<div class="navbar-collapse collapse" id="navbar-wrapper">
+			<ul class="nav navbar-nav" id="menu">
+				
+<li class="dropdown">
+    <a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        API References<span class="caret"></span>
+    </a>
+	<ul class="dropdown-menu" id="modules-menu">
+					<li>
+				<a href="gstreamer/gi-index.html">GStreamer core</a>
+			</li>
+					<li>
+				<a href="libs.html">GStreamer Libraries</a>
+			</li>
+					<li>
+				<a href="plugins_doc.html">GStreamer Plugins</a>
+			</li>
+		</ul>
+</li>
+
+<li>
+    <a href="application-development/index.html">Application manual</a>
+</li>
+
+
+<li>
+    <a href="tutorials/index.html">Tutorials</a>
+</li>
+
+			</ul>
+			<div class="hidden-xs hidden-sm navbar-text navbar-center">
+							</div>
+		</div>
+	</div>
+</nav>
+
+<main>
+<div data-extension="gi-extension" data-hotdoc-in-toplevel="True" data-hotdoc-project="GStreamer" data-hotdoc-ref="plugin-development/advanced/tagging.html" class="page_container" id="page-wrapper" data-hotdoc-meta-gi-languages="['c', 'javascript', 'python']" data-hotdoc-meta-gi-language="c">
+<script src="assets/js/utils.js"></script>
+
+<div class="panel panel-collapse oc-collapsed" id="sidenav" data-hotdoc-role="navigation">
+	<script src="assets/js/full-width.js"></script>
+  <div id="sitenav-wrapper">
+    <iframe src="hotdoc-sitemap.html" id="sitenav-frame"></iframe>
+  </div>
+</div>
+
+<div id="body">
+	<div id="main">
+				    <div id="page-description" data-hotdoc-role="main">
+        <h1 id="tagging-metadata-and-streaminfo">Tagging (Metadata and Streaminfo)</h1>
+<h2 id="overview">Overview</h2>
+<p>Tags are pieces of information stored in a stream that are not the
+content itself, but they rather <em>describe</em> the content. Most media
+container formats support tagging in one way or another. Ogg uses
+VorbisComment for this, MP3 uses ID3, AVI and WAV use RIFF's INFO list
+chunk, etc. GStreamer provides a general way for elements to read tags
+from the stream and expose this to the user. The tags (at least the
+metadata) will be part of the stream inside the pipeline. The
+consequence of this is that transcoding of files from one format to
+another will automatically preserve tags, as long as the input and
+output format elements both support tagging.</p>
+<p>Tags are separated in two categories in GStreamer, even though
+applications won't notice anything of this. The first are called
+<em>metadata</em>, the second are called <em>streaminfo</em>. Metadata are tags that
+describe the non-technical parts of stream content. They can be changed
+without needing to re-encode the stream completely. Examples are
+“author”, “title” or “album”. The container format might still need
+to be re-written for the tags to fit in, though. Streaminfo, on the
+other hand, are tags that describe the stream contents technically. To
+change them, the stream needs to be re-encoded. Examples are “codec” or
+“bitrate”. Note that some container formats (like ID3) store various
+streaminfo tags as metadata in the file container, which means that they
+can be changed so that they don't match the content in the file any
+more. Still, they are called metadata because <em>technically</em>, they can be
+changed without re-encoding the whole stream, even though that makes
+them invalid. Files with such metadata tags will have the same tag
+twice: once as metadata, once as streaminfo.</p>
+<p>There is no special name for tag reading elements in GStreamer. There
+are specialised elements (e.g. id3demux) that do nothing besides tag
+reading, but any GStreamer element may extract tags while processing
+data, and most decoders, demuxers and parsers do.</p>
+<p>A tag writer is called
+<a href="gstreamer/gsttagsetter.html#GstTagSetter" data-gi-href-javascript="gstreamer/gsttagsetter.html#GstTagSetter" data-gi-title-javascript="Gst.TagSetter" data-gi-href-python="gstreamer/gsttagsetter.html#GstTagSetter" data-gi-title-python="Gst.TagSetter"><code>TagSetter</code></a>. An element
+supporting both can be used in a tag editor for quick tag changing
+(note: in-place tag editing is still poorly supported at the time of
+writing and usually requires tag extraction/stripping and remuxing of
+the stream with new tags).</p>
+<h2 id="reading-tags-from-streams">Reading Tags from Streams</h2>
+<p>The basic object for tags is a <a href="gstreamer/gsttaglist.html#GstTagList" data-gi-href-javascript="gstreamer/gsttaglist.html#GstTagList" data-gi-title-javascript="Gst.TagList" data-gi-href-python="gstreamer/gsttaglist.html#GstTagList" data-gi-title-python="Gst.TagList"><code>GstTagList</code></a>. An element that is reading
+tags from a stream should create an empty taglist and fill this with
+individual tags. Empty tag lists can be created with <code>gst_tag_list_new ()</code>. Then, the element can fill the list using <code>gst_tag_list_add ()</code> or <code>gst_tag_list_add_values ()</code>. Note that elements often read
+metadata as strings, but the values in the taglist might not necessarily
+be strings - they need to be of the type the tag was registered as (the
+API documentation for each predefined tag should contain the type). Be
+sure to use functions like <code>gst_value_transform ()</code> to make sure that
+your data is of the right type. After data reading, you can send the
+tags downstream with the TAG event. When the TAG event reaches the sink,
+it will post the TAG message on the pipeline's GstBus for the
+application to pick up.</p>
+<p>We currently require the core to know the GType of tags before they are
+being used, so all tags must be registered first. You can add new tags
+to the list of known tags using <code>gst_tag_register ()</code>. If you think the
+tag will be useful in more cases than just your own element, it might be
+a good idea to add it to <code>gsttag.c</code> instead. That's up to you to decide.
+If you want to do it in your own element, it's easiest to register the
+tag in one of your class init functions, preferably <code>_class_init ()</code>.</p>
+<pre><code class="language-c">
+static void
+gst_my_filter_class_init (GstMyFilterClass *klass)
+{
+[..]
+  gst_tag_register ("my_tag_name", GST_TAG_FLAG_META,
+            G_TYPE_STRING,
+            _("my own tag"),
+            _("a tag that is specific to my own element"),
+            NULL);
+[..]
+}
+
+
+</code></pre>
+<h2 id="writing-tags-to-streams">Writing Tags to Streams</h2>
+<p>Tag writers are the opposite of tag readers. Tag writers only take
+metadata tags into account, since that's the only type of tags that have
+to be written into a stream. Tag writers can receive tags in three ways:
+internal, application and pipeline. Internal tags are tags read by the
+element itself, which means that the tag writer is - in that case - a
+tag reader, too. Application tags are tags provided to the element via
+the TagSetter interface (which is just a layer). Pipeline tags are tags
+provided to the element from within the pipeline. The element receives
+such tags via the <code>GST_EVENT_TAG</code> event, which means that tags writers
+should implement an event handler. The tag writer is responsible for
+combining all these three into one list and writing them to the output
+stream.</p>
+<p>The example below will receive tags from both application and pipeline,
+combine them and write them to the output stream. It implements the tag
+setter so applications can set tags, and retrieves pipeline tags from
+incoming events.</p>
+<p>Warning, this example is outdated and doesn't work with the 1.0 version
+of GStreamer anymore.</p>
+<pre><code class="language-c">
+GType
+gst_my_filter_get_type (void)
+{
+[..]
+    static const GInterfaceInfo tag_setter_info = {
+      NULL,
+      NULL,
+      NULL
+    };
+[..]
+    g_type_add_interface_static (my_filter_type,
+                 GST_TYPE_TAG_SETTER,
+                 &amp;tag_setter_info);
+[..]
+}
+
+static void
+gst_my_filter_init (GstMyFilter *filter)
+{
+[..]
+}
+
+/*
+ * Write one tag.
+ */
+
+static void
+gst_my_filter_write_tag (const GstTagList *taglist,
+             const gchar      *tagname,
+             gpointer          data)
+{
+  GstMyFilter *filter = GST_MY_FILTER (data);
+  GstBuffer *buffer;
+  guint num_values = gst_tag_list_get_tag_size (list, tag_name), n;
+  const GValue *from;
+  GValue to = { 0 };
+
+  g_value_init (&amp;to, G_TYPE_STRING);
+
+  for (n = 0; n &lt; num_values; n++) {
+    guint8 * data;
+    gsize size;
+
+    from = gst_tag_list_get_value_index (taglist, tagname, n);
+    g_value_transform (from, &amp;to);
+
+    data = g_strdup_printf ("%s:%s", tagname,
+        g_value_get_string (&amp;to));
+    size = strlen (data);
+
+    buf = gst_buffer_new_wrapped (data, size);
+    gst_pad_push (filter-&gt;srcpad, buf);
+  }
+
+  g_value_unset (&amp;to);
+}
+
+static void
+gst_my_filter_task_func (GstElement *element)
+{
+  GstMyFilter *filter = GST_MY_FILTER (element);
+  GstTagSetter *tagsetter = GST_TAG_SETTER (element);
+  GstData *data;
+  GstEvent *event;
+  gboolean eos = FALSE;
+  GstTagList *taglist = gst_tag_list_new ();
+
+  while (!eos) {
+    data = gst_pad_pull (filter-&gt;sinkpad);
+
+    /* We're not very much interested in data right now */
+    if (GST_IS_BUFFER (data))
+      gst_buffer_unref (GST_BUFFER (data));
+    event = GST_EVENT (data);
+
+    switch (GST_EVENT_TYPE (event)) {
+      case GST_EVENT_TAG:
+        gst_tag_list_insert (taglist, gst_event_tag_get_list (event),
+                 GST_TAG_MERGE_PREPEND);
+        gst_event_unref (event);
+        break;
+      case GST_EVENT_EOS:
+        eos = TRUE;
+        gst_event_unref (event);
+        break;
+      default:
+        gst_pad_event_default (filter-&gt;sinkpad, event);
+        break;
+    }
+  }
+
+  /* merge tags with the ones retrieved from the application */
+  if ((gst_tag_setter_get_tag_list (tagsetter)) {
+    gst_tag_list_insert (taglist,
+             gst_tag_setter_get_tag_list (tagsetter),
+             gst_tag_setter_get_tag_merge_mode (tagsetter));
+  }
+
+  /* write tags */
+  gst_tag_list_foreach (taglist, gst_my_filter_write_tag, filter);
+
+  /* signal EOS */
+  gst_pad_push (filter-&gt;srcpad, gst_event_new (GST_EVENT_EOS));
+}
+
+
+</code></pre>
+<p>Note that normally elements would not read the full stream before
+processing tags. Rather, they would read from each sinkpad until they've
+received data (since tags usually come in before the first data buffer)
+and process that.</p>
+
+    </div>
+        
+
+
+
+
+		
+	</div>
+	<div id="search_results">
+		<p>The results of the search are</p>
+	</div>
+	<div id="footer">
+		    
+
+	</div>
+</div>
+
+<div id="toc-column">
+	
+		<div class="edit-button">
+		<a href="https://gitlab.freedesktop.org/gstreamer/gst-docs//edit/master/subprojects/gst-docs/markdown/plugin-development/advanced/tagging.md" data-hotdoc-role="edit-button">Edit on GitLab</a>
+
+	</div>
+		<div id="toc-wrapper">
+		<nav id="toc"></nav>
+	</div>
+</div>
+</div>
+</main>
+
+
+<script src="assets/js/navbar_offset_scroller.js"></script>
+</body>
+</html>

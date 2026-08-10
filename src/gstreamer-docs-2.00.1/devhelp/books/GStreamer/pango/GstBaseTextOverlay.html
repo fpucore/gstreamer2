@@ -1,0 +1,1719 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<base href="..">
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<title>GstBaseTextOverlay</title>
+
+<link rel="stylesheet" href="assets/css/dark-frontend.css" type="text/css" title="dark">
+<link rel="alternate stylesheet" href="assets/css/light-frontend.css" type="text/css" title="light">
+<link rel="stylesheet" href="assets/css/bootstrap-toc.min.css" type="text/css">
+<link rel="stylesheet" href="assets/css/jquery.mCustomScrollbar.min.css">
+<link rel="stylesheet" href="assets/js/search/enable_search.css" type="text/css">
+
+<link rel="stylesheet" href="assets/css/extra_frontend.css" type="text/css">
+<link rel="stylesheet" href="assets/css/devhelp.css" type="text/css">
+
+<link rel="stylesheet" href="assets/css/prism-tomorrow.css" type="text/css" title="dark">
+
+<link rel="alternate stylesheet" href="assets/css/prism.css" type="text/css" title="light">
+
+<script src="assets/js/mustache.min.js"></script>
+<script src="assets/js/jquery.js"></script>
+<script src="assets/js/bootstrap.js"></script>
+<script src="assets/js/scrollspy.js"></script>
+<script src="assets/js/typeahead.jquery.min.js"></script>
+<script src="assets/js/search.js"></script>
+<script src="assets/js/compare-versions.js"></script>
+<script src="assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="assets/js/bootstrap-toc.min.js"></script>
+<script src="assets/js/jquery.touchSwipe.min.js"></script>
+<script src="assets/js/anchor.min.js"></script>
+<script src="assets/js/tag_filtering.js"></script>
+<script src="assets/js/language_switching.js"></script>
+<script src="assets/js/styleswitcher.js"></script>
+
+<script src="assets/js/lines_around_headings.js"></script>
+
+<script src="assets/js/prism-core.js"></script>
+<script src="assets/js/prism-autoloader.js"></script>
+<script src="assets/js/prism_autoloader_path_override.js"></script>
+<script src="assets/js/trie.js"></script>
+
+<!-- generic -->
+<link rel="icon" type="image/png" href="assets/images/favicon-16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="assets/images/favicon-32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="assets/images/favicon-57.png" sizes="57x57">
+<link rel="icon" type="image/png" href="assets/images/favicon-64.png" sizes="64x64">
+<link rel="icon" type="image/png" href="assets/images/favicon-76.png" sizes="76x76">
+<link rel="icon" type="image/png" href="assets/images/favicon-96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="assets/images/favicon-128.png" sizes="128x128">
+<link rel="icon" type="image/png" href="assets/images/favicon-192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="assets/images/favicon-228.png" sizes="228x228">
+
+<!-- Android -->
+<link rel="shortcut icon" sizes="196x196" href="assets/images/favicon-196.png">
+
+<!-- iOS -->
+<link rel="apple-touch-icon" href="assets/images/favicon-120.png" sizes="120x120">
+<link rel="apple-touch-icon" href="assets/images/favicon-152.png" sizes="152x152">
+<link rel="apple-touch-icon" href="assets/images/favicon-180.png" sizes="180x180">
+
+</head>
+
+<body class="no-script
+">
+
+<script>
+$('body').removeClass('no-script');
+</script>
+
+<nav class="navbar navbar-fixed-top navbar-default" id="topnav">
+	<div class="container-fluid">
+		<div class="navbar-right">
+			<a id="toc-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-wrapper" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<span title="light mode switch" class="glyphicon glyphicon-sunglasses pull-right" id="lightmode-icon"></span>
+			<form class="navbar-form pull-right" id="navbar-search-form">
+                               <div class="form-group has-feedback">
+                                       <input type="text" class="form-control input-sm" name="search" id="sidenav-lookup-field" placeholder="search" disabled>
+				       <span class="glyphicon glyphicon-search form-control-feedback" id="search-mgn-glass"></span>
+                               </div>
+                        </form>
+		</div>
+		<div class="navbar-header">
+			<a id="sidenav-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<a id="home-link" href="index.html" class="hotdoc-navbar-brand">
+				<img src="assets/images/gstreamer-logo.svg" alt="Home">
+			</a>
+		</div>
+		<div class="navbar-collapse collapse" id="navbar-wrapper">
+			<ul class="nav navbar-nav" id="menu">
+				
+<li class="dropdown">
+    <a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        API References<span class="caret"></span>
+    </a>
+	<ul class="dropdown-menu" id="modules-menu">
+					<li>
+				<a href="gstreamer/gi-index.html">GStreamer core</a>
+			</li>
+					<li>
+				<a href="libs.html">GStreamer Libraries</a>
+			</li>
+					<li>
+				<a href="plugins_doc.html">GStreamer Plugins</a>
+			</li>
+		</ul>
+</li>
+
+<li>
+    <a href="application-development/index.html">Application manual</a>
+</li>
+
+
+<li>
+    <a href="tutorials/index.html">Tutorials</a>
+</li>
+
+			</ul>
+			<div class="hidden-xs hidden-sm navbar-text navbar-center">
+							</div>
+		</div>
+	</div>
+</nav>
+
+<main>
+<div data-extension="gst-extension" data-hotdoc-in-toplevel="False" data-hotdoc-project="pango" data-hotdoc-ref="GstBaseTextOverlay.html" class="page_container" id="page-wrapper" data-hotdoc-meta-gi-languages="['c', 'javascript', 'python']">
+<script src="assets/js/utils.js"></script>
+
+<div class="panel panel-collapse oc-collapsed" id="sidenav" data-hotdoc-role="navigation">
+	<script src="assets/js/full-width.js"></script>
+  <div id="sitenav-wrapper">
+    <iframe src="hotdoc-sitemap.html" id="sitenav-frame"></iframe>
+  </div>
+</div>
+
+<div id="body">
+	<div id="main">
+				    <div id="page-description" data-hotdoc-role="main">
+    </div>
+        
+        
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstBaseTextOverlay">
+	
+
+
+
+<h2 data-hotdoc-id="GstBaseTextOverlay">
+	<i>GstBaseTextOverlay</i>
+</h2>
+
+
+<div class="hierarchy_container">
+	<div class="hierarchy_details">
+<pre>
+<a title="GObject" href="https://docs.gtk.org/gobject/class.Object.html" data-gi-href-javascript="https://docs.gtk.org/gobject/class.Object.html" data-gi-title-javascript="GObject.Object" data-gi-href-python="https://docs.gtk.org/gobject/class.Object.html" data-gi-title-python="GObject.Object">GObject</a>
+    <span class="lineart">╰──</span><a title="GInitiallyUnowned" href="https://docs.gtk.org/gobject/class.InitiallyUnowned.html" data-gi-href-javascript="https://docs.gtk.org/gobject/class.InitiallyUnowned.html" data-gi-title-javascript="GObject.InitiallyUnowned" data-gi-href-python="https://docs.gtk.org/gobject/class.InitiallyUnowned.html" data-gi-title-python="GObject.InitiallyUnowned">GInitiallyUnowned</a>
+        <span class="lineart">╰──</span><a title="GstObject" href="gstreamer/gstobject.html#GstObject" data-gi-href-javascript="gstreamer/gstobject.html#GstObject" data-gi-title-javascript="Gst.Object" data-gi-href-python="gstreamer/gstobject.html#GstObject" data-gi-title-python="Gst.Object">GstObject</a>
+            <span class="lineart">╰──</span><a title="GstElement" href="gstreamer/gstelement.html#GstElement" data-gi-href-javascript="gstreamer/gstelement.html#GstElement" data-gi-title-javascript="Gst.Element" data-gi-href-python="gstreamer/gstelement.html#GstElement" data-gi-title-python="Gst.Element">GstElement</a>
+                <span class="lineart">╰──</span>GstBaseTextOverlay
+</pre>
+
+</div>
+
+</div>
+
+<div class="class_details">
+	<p>Opaque textoverlay object structure</p>
+
+</div>
+
+
+
+
+
+
+<hr>
+
+</div>
+
+
+            <h3 class="symbol_section">Properties</h3>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstBaseTextOverlay:auto-resize">
+	
+
+
+
+<h4 data-hotdoc-id="GstBaseTextOverlay:auto-resize">
+	<i>auto-resize</i>
+</h4>
+
+
+<pre class="property_signature">
+“auto-resize” <span class="type"><a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#bool" data-gi-title-python="bool">gboolean</a></span>
+</pre>
+
+<p>Automatically adjust font size to screen-size.</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	true
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstBaseTextOverlay:color">
+	
+
+
+
+<h4 data-hotdoc-id="GstBaseTextOverlay:color">
+	<i>color</i>
+</h4>
+
+
+<pre class="property_signature">
+“color” <span class="type"><a title="guint" href="https://docs.gtk.org/glib/types.html#guint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">guint</a></span>
+</pre>
+
+<p>Color of the rendered text.</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	-1
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstBaseTextOverlay:deltax">
+	
+
+
+
+<h4 data-hotdoc-id="GstBaseTextOverlay:deltax">
+	<i>deltax</i>
+</h4>
+
+
+<pre class="property_signature">
+“deltax” <span class="type"><a title="gint" href="https://docs.gtk.org/glib/types.html#gint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">gint</a></span>
+</pre>
+
+<p>Shift X position to the left or to the right. Unit is pixels.</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	0
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstBaseTextOverlay:deltay">
+	
+
+
+
+<h4 data-hotdoc-id="GstBaseTextOverlay:deltay">
+	<i>deltay</i>
+</h4>
+
+
+<pre class="property_signature">
+“deltay” <span class="type"><a title="gint" href="https://docs.gtk.org/glib/types.html#gint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">gint</a></span>
+</pre>
+
+<p>Shift Y position up or down. Unit is pixels.</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	0
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.6;" id="GstBaseTextOverlay:draw-outline">
+	
+
+
+
+<h4 data-hotdoc-id="GstBaseTextOverlay:draw-outline">
+	<i>draw-outline</i>
+</h4>
+
+
+<pre class="property_signature">
+“draw-outline” <span class="type"><a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#bool" data-gi-title-python="bool">gboolean</a></span>
+</pre>
+
+<p>If set, an outline is drawn.</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	true
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.6
+		</p>
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.6;" id="GstBaseTextOverlay:draw-shadow">
+	
+
+
+
+<h4 data-hotdoc-id="GstBaseTextOverlay:draw-shadow">
+	<i>draw-shadow</i>
+</h4>
+
+
+<pre class="property_signature">
+“draw-shadow” <span class="type"><a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#bool" data-gi-title-python="bool">gboolean</a></span>
+</pre>
+
+<p>If set, a text shadow is drawn.</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	true
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.6
+		</p>
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstBaseTextOverlay:font-desc">
+	
+
+
+
+<h4 data-hotdoc-id="GstBaseTextOverlay:font-desc">
+	<i>font-desc</i>
+</h4>
+
+
+<pre class="property_signature">
+“font-desc” <span class="type"><a title="gchararray" href="https://web.mit.edu/barnowl/share/gtk-doc/html/gobject/gobject-Standard-Parameter-and-Value-Types.html#gchararray" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" data-gi-title-javascript="String" data-gi-href-python="https://docs.python.org/3/library/functions.html#func-str" data-gi-title-python="str">gchararray</a></span>
+</pre>
+
+<p>Pango font description of font to be used for rendering. See documentation of pango_font_description_from_string for syntax.</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstBaseTextOverlay:halignment">
+	
+
+
+
+<h4 data-hotdoc-id="GstBaseTextOverlay:halignment">
+	<i>halignment</i>
+</h4>
+
+
+<pre class="property_signature">
+“halignment” <span class="type"><a title="Base-text-overlay-halign" href="pango/GstBaseTextOverlay.html#GstBaseTextOverlayHAlign">Base-text-overlay-halign</a> <span class="pointer-token">*</span></span>
+</pre>
+
+<p>Horizontal alignment of the text</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	center (1)
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstBaseTextOverlay:line-alignment">
+	
+
+
+
+<h4 data-hotdoc-id="GstBaseTextOverlay:line-alignment">
+	<i>line-alignment</i>
+</h4>
+
+
+<pre class="property_signature">
+“line-alignment” <span class="type"><a title="Base-text-overlay-line-align" href="pango/GstBaseTextOverlay.html#GstBaseTextOverlayLineAlign">Base-text-overlay-line-align</a> <span class="pointer-token">*</span></span>
+</pre>
+
+<p>Alignment of text lines relative to each other (for multi-line text)</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	center (1)
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstBaseTextOverlay:outline-color">
+	
+
+
+
+<h4 data-hotdoc-id="GstBaseTextOverlay:outline-color">
+	<i>outline-color</i>
+</h4>
+
+
+<pre class="property_signature">
+“outline-color” <span class="type"><a title="guint" href="https://docs.gtk.org/glib/types.html#guint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">guint</a></span>
+</pre>
+
+<p>Color to use for outline the text (big-endian ARGB).</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	-16777216
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.26;" id="GstBaseTextOverlay:response-time-compensation">
+	
+
+
+
+<h4 data-hotdoc-id="GstBaseTextOverlay:response-time-compensation">
+	<i>response-time-compensation</i>
+</h4>
+
+
+<pre class="property_signature">
+“response-time-compensation” <span class="type"><a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#bool" data-gi-title-python="bool">gboolean</a></span>
+</pre>
+
+<p>Compensate for display response time by doing a second text render in
+a slightly different (sequential and non-overlapping) place every frame.</p>
+<p>On all current displays, after a pixel is told to show a different color
+value, there is a "response time" after which the transition from the
+previous color to the new color is complete. On some displays this can
+take tens of milliseconds to complete, causing the previous frame's text
+render to overlap with the current frame's text render.</p>
+<p>This makes text renders that have the same position but change contents
+every frame impossible to use on displays with bad response times, such
+as when using clockoverlay and timeoverlay.</p>
+<p>Note that this is different from display lag/latency, which is an
+inherent property of the display and cannot be compensated for.</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	false
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.26
+		</p>
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.14;" id="GstBaseTextOverlay:scale-mode">
+	
+
+
+
+<h4 data-hotdoc-id="GstBaseTextOverlay:scale-mode">
+	<i>scale-mode</i>
+</h4>
+
+
+<pre class="property_signature">
+“scale-mode” <span class="type"><a title="Base-text-overlay-scale-mode" href="pango/GstBaseTextOverlay.html#GstBaseTextOverlayScaleMode">Base-text-overlay-scale-mode</a> <span class="pointer-token">*</span></span>
+</pre>
+
+<p>Scale text to compensate for and avoid distortion by subsequent video scaling</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	none (0)
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.14
+		</p>
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.14;" id="GstBaseTextOverlay:scale-pixel-aspect-ratio">
+	
+
+
+
+<h4 data-hotdoc-id="GstBaseTextOverlay:scale-pixel-aspect-ratio">
+	<i>scale-pixel-aspect-ratio</i>
+</h4>
+
+
+<pre class="property_signature">
+“scale-pixel-aspect-ratio” <span class="type"><a title="GstFraction" href="gstreamer/gstvalue.html#GstFraction" data-gi-href-javascript="gstreamer/gstvalue.html#GstFraction" data-gi-title-javascript="Gst.Fraction" data-gi-href-python="gstreamer/gstvalue.html#GstFraction" data-gi-title-python="Gst.Fraction">GstFraction</a> <span class="pointer-token">*</span></span>
+</pre>
+
+<p>Video scaling pixel-aspect-ratio to compensate for in user scale-mode.</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	1/1
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.14
+		</p>
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstBaseTextOverlay:shaded-background">
+	
+
+
+
+<h4 data-hotdoc-id="GstBaseTextOverlay:shaded-background">
+	<i>shaded-background</i>
+</h4>
+
+
+<pre class="property_signature">
+“shaded-background” <span class="type"><a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#bool" data-gi-title-python="bool">gboolean</a></span>
+</pre>
+
+<p>Whether to shade the background under the text area</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	false
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstBaseTextOverlay:shading-value">
+	
+
+
+
+<h4 data-hotdoc-id="GstBaseTextOverlay:shading-value">
+	<i>shading-value</i>
+</h4>
+
+
+<pre class="property_signature">
+“shading-value” <span class="type"><a title="guint" href="https://docs.gtk.org/glib/types.html#guint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">guint</a></span>
+</pre>
+
+<p>Shading value to apply if shaded-background is true</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	80
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstBaseTextOverlay:silent">
+	
+
+
+
+<h4 data-hotdoc-id="GstBaseTextOverlay:silent">
+	<i>silent</i>
+</h4>
+
+
+<pre class="property_signature">
+“silent” <span class="type"><a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#bool" data-gi-title-python="bool">gboolean</a></span>
+</pre>
+
+<p>If set, no text is rendered. Useful to switch off text rendering
+temporarily without removing the textoverlay element from the pipeline.</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	false
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstBaseTextOverlay:text">
+	
+
+
+
+<h4 data-hotdoc-id="GstBaseTextOverlay:text">
+	<i>text</i>
+</h4>
+
+
+<pre class="property_signature">
+“text” <span class="type"><a title="gchararray" href="https://web.mit.edu/barnowl/share/gtk-doc/html/gobject/gobject-Standard-Parameter-and-Value-Types.html#gchararray" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" data-gi-title-javascript="String" data-gi-href-python="https://docs.python.org/3/library/functions.html#func-str" data-gi-title-python="str">gchararray</a></span>
+</pre>
+
+<p>Text to be display.</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstBaseTextOverlay:text-height">
+	
+
+
+
+<h4 data-hotdoc-id="GstBaseTextOverlay:text-height">
+	<i>text-height</i>
+</h4>
+
+
+<pre class="property_signature">
+“text-height” <span class="type"><a title="guint" href="https://docs.gtk.org/glib/types.html#guint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">guint</a></span>
+</pre>
+
+<p>Resulting height of font rendering.</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+</p>
+<p>
+	Default value :	1
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstBaseTextOverlay:text-width">
+	
+
+
+
+<h4 data-hotdoc-id="GstBaseTextOverlay:text-width">
+	<i>text-width</i>
+</h4>
+
+
+<pre class="property_signature">
+“text-width” <span class="type"><a title="guint" href="https://docs.gtk.org/glib/types.html#guint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">guint</a></span>
+</pre>
+
+<p>Resulting width of font rendering.</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+</p>
+<p>
+	Default value :	1
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstBaseTextOverlay:text-x">
+	
+
+
+
+<h4 data-hotdoc-id="GstBaseTextOverlay:text-x">
+	<i>text-x</i>
+</h4>
+
+
+<pre class="property_signature">
+“text-x” <span class="type"><a title="gint" href="https://docs.gtk.org/glib/types.html#gint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">gint</a></span>
+</pre>
+
+<p>Resulting X position of font rendering.</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+</p>
+<p>
+	Default value :	0
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstBaseTextOverlay:text-y">
+	
+
+
+
+<h4 data-hotdoc-id="GstBaseTextOverlay:text-y">
+	<i>text-y</i>
+</h4>
+
+
+<pre class="property_signature">
+“text-y” <span class="type"><a title="gint" href="https://docs.gtk.org/glib/types.html#gint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">gint</a></span>
+</pre>
+
+<p>Resulting Y position of font rendering.</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+</p>
+<p>
+	Default value :	0
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstBaseTextOverlay:valignment">
+	
+
+
+
+<h4 data-hotdoc-id="GstBaseTextOverlay:valignment">
+	<i>valignment</i>
+</h4>
+
+
+<pre class="property_signature">
+“valignment” <span class="type"><a title="Base-text-overlay-valign" href="pango/GstBaseTextOverlay.html#GstBaseTextOverlayVAlign">Base-text-overlay-valign</a> <span class="pointer-token">*</span></span>
+</pre>
+
+<p>Vertical alignment of the text</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	baseline (0)
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstBaseTextOverlay:vertical-render">
+	
+
+
+
+<h4 data-hotdoc-id="GstBaseTextOverlay:vertical-render">
+	<i>vertical-render</i>
+</h4>
+
+
+<pre class="property_signature">
+“vertical-render” <span class="type"><a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#bool" data-gi-title-python="bool">gboolean</a></span>
+</pre>
+
+<p>Vertical Render.</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	false
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstBaseTextOverlay:wait-text">
+	
+
+
+
+<h4 data-hotdoc-id="GstBaseTextOverlay:wait-text">
+	<i>wait-text</i>
+</h4>
+
+
+<pre class="property_signature">
+“wait-text” <span class="type"><a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#bool" data-gi-title-python="bool">gboolean</a></span>
+</pre>
+
+<p>If set, the video will block until a subtitle is received on the text pad.
+If video and subtitles are sent in sync, like from the same demuxer, this
+property should be set.</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	true
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstBaseTextOverlay:wrap-mode">
+	
+
+
+
+<h4 data-hotdoc-id="GstBaseTextOverlay:wrap-mode">
+	<i>wrap-mode</i>
+</h4>
+
+
+<pre class="property_signature">
+“wrap-mode” <span class="type"><a title="Base-text-overlay-wrap-mode" href="pango/GstBaseTextOverlay.html#GstBaseTextOverlayWrapMode">Base-text-overlay-wrap-mode</a> <span class="pointer-token">*</span></span>
+</pre>
+
+<p>Whether to wrap the text and if so how.</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	wordchar (2)
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.8;" id="GstBaseTextOverlay:x-absolute">
+	
+
+
+
+<h4 data-hotdoc-id="GstBaseTextOverlay:x-absolute">
+	<i>x-absolute</i>
+</h4>
+
+
+<pre class="property_signature">
+“x-absolute” <span class="type"><a title="gdouble" href="https://docs.gtk.org/glib/types.html#gdouble" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#float" data-gi-title-python="float">gdouble</a></span>
+</pre>
+
+<p>Horizontal position of the rendered text when using absolute alignment.</p>
+<p>Maps the text area to be exactly inside of video canvas for [0, 0] - [1, 1]:</p>
+<p>[0, 0]: Top-Lefts of video and text are aligned
+[0.5, 0.5]: Centers are aligned
+[1, 1]: Bottom-Rights are aligned</p>
+<p>Values beyond [0, 0] - [1, 1] place the text outside of the video canvas.</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	0.5
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.8
+		</p>
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstBaseTextOverlay:xpad">
+	
+
+
+
+<h4 data-hotdoc-id="GstBaseTextOverlay:xpad">
+	<i>xpad</i>
+</h4>
+
+
+<pre class="property_signature">
+“xpad” <span class="type"><a title="gint" href="https://docs.gtk.org/glib/types.html#gint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">gint</a></span>
+</pre>
+
+<p>Horizontal paddding when using left/right alignment</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	25
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstBaseTextOverlay:xpos">
+	
+
+
+
+<h4 data-hotdoc-id="GstBaseTextOverlay:xpos">
+	<i>xpos</i>
+</h4>
+
+
+<pre class="property_signature">
+“xpos” <span class="type"><a title="gdouble" href="https://docs.gtk.org/glib/types.html#gdouble" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#float" data-gi-title-python="float">gdouble</a></span>
+</pre>
+
+<p>Horizontal position of the rendered text when using positioned alignment.</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	0.5
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.8;" id="GstBaseTextOverlay:y-absolute">
+	
+
+
+
+<h4 data-hotdoc-id="GstBaseTextOverlay:y-absolute">
+	<i>y-absolute</i>
+</h4>
+
+
+<pre class="property_signature">
+“y-absolute” <span class="type"><a title="gdouble" href="https://docs.gtk.org/glib/types.html#gdouble" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#float" data-gi-title-python="float">gdouble</a></span>
+</pre>
+
+<p>See x-absolute.</p>
+<p>Vertical position of the rendered text when using absolute alignment.</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	0.5
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.8
+		</p>
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstBaseTextOverlay:ypad">
+	
+
+
+
+<h4 data-hotdoc-id="GstBaseTextOverlay:ypad">
+	<i>ypad</i>
+</h4>
+
+
+<pre class="property_signature">
+“ypad” <span class="type"><a title="gint" href="https://docs.gtk.org/glib/types.html#gint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">gint</a></span>
+</pre>
+
+<p>Vertical padding when using top/bottom alignment</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	25
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstBaseTextOverlay:ypos">
+	
+
+
+
+<h4 data-hotdoc-id="GstBaseTextOverlay:ypos">
+	<i>ypos</i>
+</h4>
+
+
+<pre class="property_signature">
+“ypos” <span class="type"><a title="gdouble" href="https://docs.gtk.org/glib/types.html#gdouble" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#float" data-gi-title-python="float">gdouble</a></span>
+</pre>
+
+<p>Vertical position of the rendered text when using positioned alignment.</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	0.5
+</p>
+
+
+
+<hr>
+
+</div>
+
+
+            <h3 class="symbol_section">Named constants</h3>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstBaseTextOverlayHAlign">
+	
+
+
+
+<h4 data-hotdoc-id="GstBaseTextOverlayHAlign">
+	<i>Base-text-overlay-halign</i>
+</h4>
+
+
+<p>Horizontal alignment of the text.</p>
+
+
+
+
+	<div class="members-container">
+		<h5>Members</h5>
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstBaseTextOverlayHAlign::left">
+        <code>left</code> (<i>0</i>) – left
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstBaseTextOverlayHAlign::center">
+        <code>center</code> (<i>1</i>) – center
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstBaseTextOverlayHAlign::right">
+        <code>right</code> (<i>2</i>) – right
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstBaseTextOverlayHAlign::Absolute position clamped to canvas">
+        <code>Absolute position clamped to canvas</code> (<i>4</i>) – position
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstBaseTextOverlayHAlign::Absolute position">
+        <code>Absolute position</code> (<i>5</i>) – absolute
+        </div>
+    
+			</div>
+
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstBaseTextOverlayLineAlign">
+	
+
+
+
+<h4 data-hotdoc-id="GstBaseTextOverlayLineAlign">
+	<i>Base-text-overlay-line-align</i>
+</h4>
+
+
+<p>Alignment of text lines relative to each other</p>
+
+
+
+
+	<div class="members-container">
+		<h5>Members</h5>
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstBaseTextOverlayLineAlign::left">
+        <code>left</code> (<i>0</i>) – left
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstBaseTextOverlayLineAlign::center">
+        <code>center</code> (<i>1</i>) – center
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstBaseTextOverlayLineAlign::right">
+        <code>right</code> (<i>2</i>) – right
+        </div>
+    
+			</div>
+
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstBaseTextOverlayScaleMode">
+	
+
+
+
+<h4 data-hotdoc-id="GstBaseTextOverlayScaleMode">
+	<i>Base-text-overlay-scale-mode</i>
+</h4>
+
+
+<p>Scale text to compensate for and avoid aspect distortion by subsequent
+scaling of video</p>
+
+
+
+
+	<div class="members-container">
+		<h5>Members</h5>
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstBaseTextOverlayScaleMode::none">
+        <code>none</code> (<i>0</i>) – none
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstBaseTextOverlayScaleMode::par">
+        <code>par</code> (<i>1</i>) – par
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstBaseTextOverlayScaleMode::display">
+        <code>display</code> (<i>2</i>) – display
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstBaseTextOverlayScaleMode::user">
+        <code>user</code> (<i>3</i>) – user
+        </div>
+    
+			</div>
+
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstBaseTextOverlayVAlign">
+	
+
+
+
+<h4 data-hotdoc-id="GstBaseTextOverlayVAlign">
+	<i>Base-text-overlay-valign</i>
+</h4>
+
+
+<p>Vertical alignment of the text.</p>
+
+
+
+
+	<div class="members-container">
+		<h5>Members</h5>
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstBaseTextOverlayVAlign::baseline">
+        <code>baseline</code> (<i>0</i>) – baseline
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstBaseTextOverlayVAlign::bottom">
+        <code>bottom</code> (<i>1</i>) – bottom
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstBaseTextOverlayVAlign::top">
+        <code>top</code> (<i>2</i>) – top
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstBaseTextOverlayVAlign::Absolute position clamped to canvas">
+        <code>Absolute position clamped to canvas</code> (<i>3</i>) – position
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstBaseTextOverlayVAlign::center">
+        <code>center</code> (<i>4</i>) – center
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstBaseTextOverlayVAlign::Absolute position">
+        <code>Absolute position</code> (<i>5</i>) – absolute
+        </div>
+    
+			</div>
+
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstBaseTextOverlayWrapMode">
+	
+
+
+
+<h4 data-hotdoc-id="GstBaseTextOverlayWrapMode">
+	<i>Base-text-overlay-wrap-mode</i>
+</h4>
+
+
+<p>Whether to wrap the text and if so how.</p>
+
+
+
+
+	<div class="members-container">
+		<h5>Members</h5>
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstBaseTextOverlayWrapMode::none">
+        <code>none</code> (<i>-1</i>) – none
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstBaseTextOverlayWrapMode::word">
+        <code>word</code> (<i>0</i>) – word
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstBaseTextOverlayWrapMode::char">
+        <code>char</code> (<i>1</i>) – char
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstBaseTextOverlayWrapMode::wordchar">
+        <code>wordchar</code> (<i>2</i>) – wordchar
+        </div>
+    
+			</div>
+
+
+
+
+<hr>
+
+</div>
+
+
+
+
+
+
+		
+	</div>
+	<div id="search_results">
+		<p>The results of the search are</p>
+	</div>
+	<div id="footer">
+		    
+
+	</div>
+</div>
+
+<div id="toc-column">
+	
+		<div class="edit-button">
+		
+
+	</div>
+		<div id="toc-wrapper">
+		<nav id="toc"></nav>
+	</div>
+</div>
+</div>
+</main>
+
+
+<script src="assets/js/navbar_offset_scroller.js"></script>
+</body>
+</html>

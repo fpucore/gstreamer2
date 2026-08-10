@@ -1,0 +1,3432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<base href="..">
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<title>GstStreams</title>
+
+<link rel="stylesheet" href="assets/css/dark-frontend.css" type="text/css" title="dark">
+<link rel="alternate stylesheet" href="assets/css/light-frontend.css" type="text/css" title="light">
+<link rel="stylesheet" href="assets/css/bootstrap-toc.min.css" type="text/css">
+<link rel="stylesheet" href="assets/css/jquery.mCustomScrollbar.min.css">
+<link rel="stylesheet" href="assets/js/search/enable_search.css" type="text/css">
+
+<link rel="stylesheet" href="assets/css/extra_frontend.css" type="text/css">
+<link rel="stylesheet" href="assets/css/devhelp.css" type="text/css">
+
+<link rel="stylesheet" href="assets/css/prism-tomorrow.css" type="text/css" title="dark">
+
+<link rel="alternate stylesheet" href="assets/css/prism.css" type="text/css" title="light">
+
+<script src="assets/js/mustache.min.js"></script>
+<script src="assets/js/jquery.js"></script>
+<script src="assets/js/bootstrap.js"></script>
+<script src="assets/js/scrollspy.js"></script>
+<script src="assets/js/typeahead.jquery.min.js"></script>
+<script src="assets/js/search.js"></script>
+<script src="assets/js/compare-versions.js"></script>
+<script src="assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="assets/js/bootstrap-toc.min.js"></script>
+<script src="assets/js/jquery.touchSwipe.min.js"></script>
+<script src="assets/js/anchor.min.js"></script>
+<script src="assets/js/tag_filtering.js"></script>
+<script src="assets/js/language_switching.js"></script>
+<script src="assets/js/styleswitcher.js"></script>
+
+<script src="assets/js/lines_around_headings.js"></script>
+
+<script src="assets/js/prism-core.js"></script>
+<script src="assets/js/prism-autoloader.js"></script>
+<script src="assets/js/prism_autoloader_path_override.js"></script>
+<script src="assets/js/trie.js"></script>
+
+<!-- generic -->
+<link rel="icon" type="image/png" href="assets/images/favicon-16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="assets/images/favicon-32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="assets/images/favicon-57.png" sizes="57x57">
+<link rel="icon" type="image/png" href="assets/images/favicon-64.png" sizes="64x64">
+<link rel="icon" type="image/png" href="assets/images/favicon-76.png" sizes="76x76">
+<link rel="icon" type="image/png" href="assets/images/favicon-96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="assets/images/favicon-128.png" sizes="128x128">
+<link rel="icon" type="image/png" href="assets/images/favicon-192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="assets/images/favicon-228.png" sizes="228x228">
+
+<!-- Android -->
+<link rel="shortcut icon" sizes="196x196" href="assets/images/favicon-196.png">
+
+<!-- iOS -->
+<link rel="apple-touch-icon" href="assets/images/favicon-120.png" sizes="120x120">
+<link rel="apple-touch-icon" href="assets/images/favicon-152.png" sizes="152x152">
+<link rel="apple-touch-icon" href="assets/images/favicon-180.png" sizes="180x180">
+
+</head>
+
+<body class="no-script
+">
+
+<script>
+$('body').removeClass('no-script');
+</script>
+
+<nav class="navbar navbar-fixed-top navbar-default" id="topnav">
+	<div class="container-fluid">
+		<div class="navbar-right">
+			<a id="toc-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-wrapper" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<span title="light mode switch" class="glyphicon glyphicon-sunglasses pull-right" id="lightmode-icon"></span>
+			<form class="navbar-form pull-right" id="navbar-search-form">
+                               <div class="form-group has-feedback">
+                                       <input type="text" class="form-control input-sm" name="search" id="sidenav-lookup-field" placeholder="search" disabled>
+				       <span class="glyphicon glyphicon-search form-control-feedback" id="search-mgn-glass"></span>
+                               </div>
+                        </form>
+		</div>
+		<div class="navbar-header">
+			<a id="sidenav-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<a id="home-link" href="index.html" class="hotdoc-navbar-brand">
+				<img src="assets/images/gstreamer-logo.svg" alt="Home">
+			</a>
+		</div>
+		<div class="navbar-collapse collapse" id="navbar-wrapper">
+			<ul class="nav navbar-nav" id="menu">
+				
+<li class="dropdown">
+    <a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        API References<span class="caret"></span>
+    </a>
+	<ul class="dropdown-menu" id="modules-menu">
+					<li>
+				<a href="gstreamer/gi-index.html">GStreamer core</a>
+			</li>
+					<li>
+				<a href="libs.html">GStreamer Libraries</a>
+			</li>
+					<li>
+				<a href="plugins_doc.html">GStreamer Plugins</a>
+			</li>
+		</ul>
+</li>
+
+<li>
+    <a href="application-development/index.html">Application manual</a>
+</li>
+
+
+<li>
+    <a href="tutorials/index.html">Tutorials</a>
+</li>
+
+			</ul>
+			<div class="hidden-xs hidden-sm navbar-text navbar-center">
+							</div>
+		</div>
+	</div>
+</nav>
+
+<main>
+<div data-extension="gi-extension" data-hotdoc-in-toplevel="False" data-hotdoc-project="gstreamer" data-hotdoc-ref="gststreams.html" class="page_container" id="page-wrapper" data-hotdoc-meta-gi-languages="['c', 'javascript', 'python']" data-hotdoc-meta-gi-language="c">
+<script src="assets/js/utils.js"></script>
+
+<div class="panel panel-collapse oc-collapsed" id="sidenav" data-hotdoc-role="navigation">
+	<script src="assets/js/full-width.js"></script>
+  <div id="sitenav-wrapper">
+    <iframe src="hotdoc-sitemap.html" id="sitenav-frame"></iframe>
+  </div>
+</div>
+
+<div id="body">
+	<div id="main">
+				    <div id="page-description" data-hotdoc-role="main">
+        <h1 id="gststreams-page">GstStreams</h1>
+<p>A <a href="gstreamer/gststreams.html#GstStream" data-gi-href-javascript="gstreamer/gststreams.html#GstStream" data-gi-title-javascript="Gst.Stream" data-gi-href-python="gstreamer/gststreams.html#GstStream" data-gi-title-python="Gst.Stream">GstStream</a> is a high-level object defining a stream of data which is, or
+can be, present in a <a href="gstreamer/gstpipeline.html#GstPipeline" data-gi-href-javascript="gstreamer/gstpipeline.html#GstPipeline" data-gi-title-javascript="Gst.Pipeline" data-gi-href-python="gstreamer/gstpipeline.html#GstPipeline" data-gi-title-python="Gst.Pipeline">GstPipeline</a>.</p>
+<p>It is defined by a unique identifier, a "Stream ID". A <a href="gstreamer/gststreams.html#GstStream" data-gi-href-javascript="gstreamer/gststreams.html#GstStream" data-gi-title-javascript="Gst.Stream" data-gi-href-python="gstreamer/gststreams.html#GstStream" data-gi-title-python="Gst.Stream">GstStream</a> does not
+automatically imply the stream is present within a pipeline or element.</p>
+<p>Any element that can introduce new streams in a pipeline should create the
+appropriate <a href="gstreamer/gststreams.html#GstStream" data-gi-href-javascript="gstreamer/gststreams.html#GstStream" data-gi-title-javascript="Gst.Stream" data-gi-href-python="gstreamer/gststreams.html#GstStream" data-gi-title-python="Gst.Stream">GstStream</a> object, and can convey that object via the
+<a href="gstreamer/gstevent.html#GST_EVENT_STREAM_START" data-gi-href-javascript="gstreamer/gstevent.html#GST_EVENT_STREAM_START" data-gi-title-javascript="Gst.EventType.STREAM_START" data-gi-href-python="gstreamer/gstevent.html#GST_EVENT_STREAM_START" data-gi-title-python="Gst.EventType.STREAM_START">GST_EVENT_STREAM_START</a> event and/or the <a href="gstreamer/gststreamcollection.html#GstStreamCollection" data-gi-href-javascript="gstreamer/gststreamcollection.html#GstStreamCollection" data-gi-title-javascript="Gst.StreamCollection" data-gi-href-python="gstreamer/gststreamcollection.html#GstStreamCollection" data-gi-title-python="Gst.StreamCollection">GstStreamCollection</a>.</p>
+<p>Elements that do not modify the nature of the stream can add extra information
+on it (such as enrich the <a href="gstreamer/gstcaps.html#GstCaps" data-gi-href-javascript="gstreamer/gstcaps.html#GstCaps" data-gi-title-javascript="Gst.Caps" data-gi-href-python="gstreamer/gstcaps.html#GstCaps" data-gi-title-python="Gst.Caps">GstCaps</a>, or <a href="gstreamer/gsttaglist.html#GstTagList" data-gi-href-javascript="gstreamer/gsttaglist.html#GstTagList" data-gi-title-javascript="Gst.TagList" data-gi-href-python="gstreamer/gsttaglist.html#GstTagList" data-gi-title-python="Gst.TagList">GstTagList</a>). This is typically done
+by parsing elements.</p>
+
+    </div>
+        
+        
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.10;" id="GstStream">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h2 data-hotdoc-id="GstStream">
+	<i>GstStream</i>
+</h2>
+
+
+<div class="hierarchy_container">
+	<div class="hierarchy_details">
+<pre>
+<a title="GObject" href="https://docs.gtk.org/gobject/class.Object.html">GObject</a>
+    <span class="lineart">╰──</span><a title="GInitiallyUnowned" href="https://docs.gtk.org/gobject/class.InitiallyUnowned.html">GInitiallyUnowned</a>
+        <span class="lineart">╰──</span><a title="GstObject" href="gstreamer/gstobject.html#GstObject">GstObject</a>
+            <span class="lineart">╰──</span>GstStream
+</pre>
+
+</div>
+
+</div>
+
+<div class="class_details">
+	<p>A high-level object representing a single stream. It might be backed, or
+not, by an actual flow of data in a pipeline (#GstPad).</p>
+<p>A <a href="gstreamer/gststreams.html#GstStream">GstStream</a> does not care about data changes (such as decoding, encoding,
+parsing,...) as long as the underlying data flow corresponds to the same
+high-level flow (ex: a certain audio track).</p>
+<p>A <a href="gstreamer/gststreams.html#GstStream">GstStream</a> contains all the information pertinent to a stream, such as
+stream-id, tags, caps, type, ...</p>
+<p>Elements can subclass a <a href="gstreamer/gststreams.html#GstStream">GstStream</a> for internal usage (to contain information
+pertinent to streams of data).</p>
+
+</div>
+
+
+
+	<div class="members-container">
+		<h3>Members</h3>
+					
+<div class="symbol-detail" data-hotdoc-id="GstStream.stream_id">
+	<div>
+		<i><em><code>stream_id</code></em></i>
+		(const <a title="gchar" href="https://docs.gtk.org/glib/types.html#gchar">gchar</a> *)
+		–
+	</div>
+			<p>The Stream Identifier for this <a href="gstreamer/gststreams.html#GstStream">GstStream</a></p>
+
+	</div>
+
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.10
+		</p>
+
+<hr>
+<h3>Class structure</h3>
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstStreamClass">
+	<i>GstStreamClass</i>
+</h4>
+
+
+<p>GstStream class structure</p>
+
+
+
+
+	<div class="members-container">
+		<h5>Fields</h5>
+					
+<div class="symbol-detail" data-hotdoc-id="GstStreamClass.parent_class">
+	<div>
+		<i><em><code>parent_class</code></em></i>
+		(<a title="GstObjectClass" href="GstObjectClass">GstObjectClass</a>)
+		–
+	</div>
+			<p>the parent class structure</p>
+
+	</div>
+
+			</div>
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3>
+	Gst.StreamClass
+</h3>
+
+
+<p>GstStream class structure</p>
+
+
+
+
+	<div class="members-container">
+		<h5>Attributes</h5>
+					
+<div class="symbol-detail" data-hotdoc-id="GstStreamClass.parent_class">
+	<div>
+		<i><em><code>parent_class</code></em></i>
+		(<a title="Gst.ObjectClass" href="GstObjectClass">Gst.ObjectClass</a>)
+		–
+	</div>
+			<p>the parent class structure</p>
+
+	</div>
+
+			</div>
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3>
+	Gst.StreamClass
+</h3>
+
+
+<p>GstStream class structure</p>
+
+
+
+
+	<div class="members-container">
+		<h5>Attributes</h5>
+					
+<div class="symbol-detail" data-hotdoc-id="GstStreamClass.parent_class">
+	<div>
+		<i><em><code>parent_class</code></em></i>
+		(<a title="Gst.ObjectClass" href="GstObjectClass">Gst.ObjectClass</a>)
+		–
+	</div>
+			<p>the parent class structure</p>
+
+	</div>
+
+			</div>
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h2 data-hotdoc-id="GstStream">
+	<i>Gst.Stream</i>
+</h2>
+
+
+<div class="hierarchy_container">
+	<div class="hierarchy_details">
+<pre>
+<a title="GObject.Object" href="https://docs.gtk.org/gobject/class.Object.html">GObject.Object</a>
+    <span class="lineart">╰──</span><a title="GObject.InitiallyUnowned" href="https://docs.gtk.org/gobject/class.InitiallyUnowned.html">GObject.InitiallyUnowned</a>
+        <span class="lineart">╰──</span><a title="Gst.Object" href="gstreamer/gstobject.html#GstObject">Gst.Object</a>
+            <span class="lineart">╰──</span>Gst.Stream
+</pre>
+
+</div>
+
+</div>
+
+<div class="class_details">
+	<p>A high-level object representing a single stream. It might be backed, or
+not, by an actual flow of data in a pipeline (#GstPad).</p>
+<p>A <a href="gstreamer/gststreams.html#GstStream">Gst.Stream</a> does not care about data changes (such as decoding, encoding,
+parsing,...) as long as the underlying data flow corresponds to the same
+high-level flow (ex: a certain audio track).</p>
+<p>A <a href="gstreamer/gststreams.html#GstStream">Gst.Stream</a> contains all the information pertinent to a stream, such as
+stream-id, tags, caps, type, ...</p>
+<p>Elements can subclass a <a href="gstreamer/gststreams.html#GstStream">Gst.Stream</a> for internal usage (to contain information
+pertinent to streams of data).</p>
+
+</div>
+
+
+
+	<div class="members-container">
+		<h3>Members</h3>
+					
+<div class="symbol-detail" data-hotdoc-id="GstStream.stream_id">
+	<div>
+		<i><em><code>stream_id</code></em></i>
+		(<a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)
+		–
+	</div>
+			<p>The Stream Identifier for this <a href="gstreamer/gststreams.html#GstStream">Gst.Stream</a></p>
+
+	</div>
+
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.10
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h2 data-hotdoc-id="GstStream">
+	<i>Gst.Stream</i>
+</h2>
+
+
+<div class="hierarchy_container">
+	<div class="hierarchy_details">
+<pre>
+<a title="GObject.Object" href="https://docs.gtk.org/gobject/class.Object.html">GObject.Object</a>
+    <span class="lineart">╰──</span><a title="GObject.InitiallyUnowned" href="https://docs.gtk.org/gobject/class.InitiallyUnowned.html">GObject.InitiallyUnowned</a>
+        <span class="lineart">╰──</span><a title="Gst.Object" href="gstreamer/gstobject.html#GstObject">Gst.Object</a>
+            <span class="lineart">╰──</span>Gst.Stream
+</pre>
+
+</div>
+
+</div>
+
+<div class="class_details">
+	<p>A high-level object representing a single stream. It might be backed, or
+not, by an actual flow of data in a pipeline (#GstPad).</p>
+<p>A <a href="gstreamer/gststreams.html#GstStream">Gst.Stream</a> does not care about data changes (such as decoding, encoding,
+parsing,...) as long as the underlying data flow corresponds to the same
+high-level flow (ex: a certain audio track).</p>
+<p>A <a href="gstreamer/gststreams.html#GstStream">Gst.Stream</a> contains all the information pertinent to a stream, such as
+stream-id, tags, caps, type, ...</p>
+<p>Elements can subclass a <a href="gstreamer/gststreams.html#GstStream">Gst.Stream</a> for internal usage (to contain information
+pertinent to streams of data).</p>
+
+</div>
+
+
+
+	<div class="members-container">
+		<h3>Members</h3>
+					
+<div class="symbol-detail" data-hotdoc-id="GstStream.stream_id">
+	<div>
+		<i><em><code>stream_id</code></em></i>
+		(<a title="str" href="https://docs.python.org/3/library/functions.html#func-str">str</a>)
+		–
+	</div>
+			<p>The Stream Identifier for this <a href="gstreamer/gststreams.html#GstStream">Gst.Stream</a></p>
+
+	</div>
+
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.10
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+
+            <h3 class="symbol_section">Constructors</h3>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.10;" id="gst_stream_new">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_stream_new">
+	<i>gst_stream_new</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GstStream" href="gstreamer/gststreams.html#GstStream">GstStream</a> *
+gst_stream_new (const <a title="gchar" href="https://docs.gtk.org/glib/types.html#gchar">gchar</a> * stream_id,
+                <a title="GstCaps" href="gstreamer/gstcaps.html#GstCaps">GstCaps</a> * caps,
+                <a title="GstStreamType" href="gstreamer/gststreams.html#GstStreamType">GstStreamType</a> type,
+                <a title="GstStreamFlags" href="gstreamer/gstevent.html#GstStreamFlags">GstStreamFlags</a> flags)</pre>
+
+<p>Create a new <a href="gstreamer/gststreams.html#GstStream">GstStream</a> for the given <em>stream_id</em>, <em>caps</em>, <em>type</em>
+and <em>flags</em></p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>stream_id</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="NULL is OK, both for passing and returning"><span class="acronym">allow-none</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>the id for the new stream. If <a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#NULL:CAPS">NULL</a>,
+a new one will be automatically generated</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>caps</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="NULL is OK, both for passing and returning"><span class="acronym">allow-none</span></abbr>]</span><span class="annotation">[<abbr title="Don't free data after the code is done"><span class="acronym">transfer: none</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>the <a href="gstreamer/gstcaps.html#GstCaps">GstCaps</a> of the stream</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>type</code></em></i>
+–
+</div>
+<p>the <a href="gstreamer/gststreams.html#GstStreamType">GstStreamType</a> of the stream</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>flags</code></em></i>
+–
+</div>
+<p>the <a href="gstreamer/gstevent.html#GstStreamFlags">GstStreamFlags</a> of the stream</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span>
+<span class="annotation">[<abbr title="Free data after the code is done"><span class="acronym">transfer: full</span></abbr>]</span><span>)</span>
+–
+			</div>
+							<p>The new <a href="gstreamer/gststreams.html#GstStream">GstStream</a></p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.10
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_stream_new">
+	<i>Gst.Stream.prototype.new</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function Gst.Stream.prototype.new(stream_id: <a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>, caps: <a title="Gst.Caps" href="gstreamer/gstcaps.html#GstCaps">Gst.Caps</a>, type: <a title="Gst.StreamType" href="gstreamer/gststreams.html#GstStreamType">Gst.StreamType</a>, flags: <a title="Gst.StreamFlags" href="gstreamer/gstevent.html#GstStreamFlags">Gst.StreamFlags</a>): {
+    // javascript wrapper for 'gst_stream_new'
+}</code></pre>
+
+<p>Create a new <a href="gstreamer/gststreams.html#GstStream">Gst.Stream</a> for the given <em>stream_id</em>, <em>caps</em>, <em>type</em>
+and <em>flags</em></p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>stream_id</code></em></i>
+<span>(</span><a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a><span>)</span>
+–
+</div>
+<p>the id for the new stream. If <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null">null</a>,
+a new one will be automatically generated</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>caps</code></em></i>
+<span>(</span><a title="Gst.Caps" href="gstreamer/gstcaps.html#GstCaps">Gst.Caps</a><span>)</span>
+–
+</div>
+<p>the <a href="gstreamer/gstcaps.html#GstCaps">Gst.Caps</a> of the stream</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>type</code></em></i>
+<span>(</span><a title="Gst.StreamType" href="gstreamer/gststreams.html#GstStreamType">Gst.StreamType</a><span>)</span>
+–
+</div>
+<p>the <a href="gstreamer/gststreams.html#GstStreamType">Gst.StreamType</a> of the stream</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>flags</code></em></i>
+<span>(</span><a title="Gst.StreamFlags" href="gstreamer/gstevent.html#GstStreamFlags">Gst.StreamFlags</a><span>)</span>
+–
+</div>
+<p>the <a href="gstreamer/gstevent.html#GstStreamFlags">Gst.StreamFlags</a> of the stream</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Gst.Stream" href="gstreamer/gststreams.html#GstStream">Gst.Stream</a><span>)</span>
+–
+			</div>
+							<p>The new <a href="gstreamer/gststreams.html#GstStream">Gst.Stream</a></p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.10
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_stream_new">
+	<i>Gst.Stream.new</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def Gst.Stream.new (stream_id, caps, type, flags):
+    #python wrapper for 'gst_stream_new'</code></pre>
+
+<p>Create a new <a href="gstreamer/gststreams.html#GstStream">Gst.Stream</a> for the given <em>stream_id</em>, <em>caps</em>, <em>type</em>
+and <em>flags</em></p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>stream_id</code></em></i>
+<span>(</span><a title="str" href="https://docs.python.org/3/library/functions.html#func-str">str</a><span>)</span>
+–
+</div>
+<p>the id for the new stream. If <a href="https://docs.python.org/3/library/constants.html#None">None</a>,
+a new one will be automatically generated</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>caps</code></em></i>
+<span>(</span><a title="Gst.Caps" href="gstreamer/gstcaps.html#GstCaps">Gst.Caps</a><span>)</span>
+–
+</div>
+<p>the <a href="gstreamer/gstcaps.html#GstCaps">Gst.Caps</a> of the stream</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>type</code></em></i>
+<span>(</span><a title="Gst.StreamType" href="gstreamer/gststreams.html#GstStreamType">Gst.StreamType</a><span>)</span>
+–
+</div>
+<p>the <a href="gstreamer/gststreams.html#GstStreamType">Gst.StreamType</a> of the stream</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>flags</code></em></i>
+<span>(</span><a title="Gst.StreamFlags" href="gstreamer/gstevent.html#GstStreamFlags">Gst.StreamFlags</a><span>)</span>
+–
+</div>
+<p>the <a href="gstreamer/gstevent.html#GstStreamFlags">Gst.StreamFlags</a> of the stream</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Gst.Stream" href="gstreamer/gststreams.html#GstStream">Gst.Stream</a><span>)</span>
+–
+			</div>
+							<p>The new <a href="gstreamer/gststreams.html#GstStream">Gst.Stream</a></p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.10
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+
+            <h3 class="symbol_section">Methods</h3>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.10;" id="gst_stream_get_caps">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_stream_get_caps">
+	<i>gst_stream_get_caps</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GstCaps" href="gstreamer/gstcaps.html#GstCaps">GstCaps</a> *
+gst_stream_get_caps (<a title="GstStream" href="gstreamer/gststreams.html#GstStream">GstStream</a> * stream)</pre>
+
+<p>Retrieve the caps for <em>stream</em>, if any</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>stream</code></em></i>
+–
+</div>
+<p>a <a href="gstreamer/gststreams.html#GstStream">GstStream</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span>
+<span class="annotation">[<abbr title="Free data after the code is done"><span class="acronym">transfer: full</span></abbr>]</span><span class="annotation">[<abbr title="NULL may be passed to the value"><span class="acronym">nullable</span></abbr>]</span><span>)</span>
+–
+			</div>
+							<p>The <a href="gstreamer/gstcaps.html#GstCaps">GstCaps</a> for <em>stream</em></p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.10
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_stream_get_caps">
+	<i>Gst.Stream.prototype.get_caps</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function Gst.Stream.prototype.get_caps(): {
+    // javascript wrapper for 'gst_stream_get_caps'
+}</code></pre>
+
+<p>Retrieve the caps for <em>stream</em>, if any</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>stream</code></em></i>
+<span>(</span><a title="Gst.Stream" href="gstreamer/gststreams.html#GstStream">Gst.Stream</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gststreams.html#GstStream">Gst.Stream</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Gst.Caps" href="gstreamer/gstcaps.html#GstCaps">Gst.Caps</a><span>)</span>
+–
+			</div>
+							<p>The <a href="gstreamer/gstcaps.html#GstCaps">Gst.Caps</a> for <em>stream</em></p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.10
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_stream_get_caps">
+	<i>Gst.Stream.get_caps</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def Gst.Stream.get_caps (self):
+    #python wrapper for 'gst_stream_get_caps'</code></pre>
+
+<p>Retrieve the caps for <em>stream</em>, if any</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>stream</code></em></i>
+<span>(</span><a title="Gst.Stream" href="gstreamer/gststreams.html#GstStream">Gst.Stream</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gststreams.html#GstStream">Gst.Stream</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Gst.Caps" href="gstreamer/gstcaps.html#GstCaps">Gst.Caps</a><span>)</span>
+–
+			</div>
+							<p>The <a href="gstreamer/gstcaps.html#GstCaps">Gst.Caps</a> for <em>stream</em></p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.10
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.10;" id="gst_stream_get_stream_flags">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_stream_get_stream_flags">
+	<i>gst_stream_get_stream_flags</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GstStreamFlags" href="gstreamer/gstevent.html#GstStreamFlags">GstStreamFlags</a>
+gst_stream_get_stream_flags (<a title="GstStream" href="gstreamer/gststreams.html#GstStream">GstStream</a> * stream)</pre>
+
+<p>Retrieve the current stream flags for <em>stream</em></p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>stream</code></em></i>
+–
+</div>
+<p>a <a href="gstreamer/gststreams.html#GstStream">GstStream</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p>The <a href="gstreamer/gstevent.html#GstStreamFlags">GstStreamFlags</a> for <em>stream</em></p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.10
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_stream_get_stream_flags">
+	<i>Gst.Stream.prototype.get_stream_flags</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function Gst.Stream.prototype.get_stream_flags(): {
+    // javascript wrapper for 'gst_stream_get_stream_flags'
+}</code></pre>
+
+<p>Retrieve the current stream flags for <em>stream</em></p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>stream</code></em></i>
+<span>(</span><a title="Gst.Stream" href="gstreamer/gststreams.html#GstStream">Gst.Stream</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gststreams.html#GstStream">Gst.Stream</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Gst.StreamFlags" href="gstreamer/gstevent.html#GstStreamFlags">Gst.StreamFlags</a><span>)</span>
+–
+			</div>
+							<p>The <a href="gstreamer/gstevent.html#GstStreamFlags">Gst.StreamFlags</a> for <em>stream</em></p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.10
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_stream_get_stream_flags">
+	<i>Gst.Stream.get_stream_flags</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def Gst.Stream.get_stream_flags (self):
+    #python wrapper for 'gst_stream_get_stream_flags'</code></pre>
+
+<p>Retrieve the current stream flags for <em>stream</em></p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>stream</code></em></i>
+<span>(</span><a title="Gst.Stream" href="gstreamer/gststreams.html#GstStream">Gst.Stream</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gststreams.html#GstStream">Gst.Stream</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Gst.StreamFlags" href="gstreamer/gstevent.html#GstStreamFlags">Gst.StreamFlags</a><span>)</span>
+–
+			</div>
+							<p>The <a href="gstreamer/gstevent.html#GstStreamFlags">Gst.StreamFlags</a> for <em>stream</em></p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.10
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.10;" id="gst_stream_get_stream_id">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_stream_get_stream_id">
+	<i>gst_stream_get_stream_id</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+const <a title="gchar" href="https://docs.gtk.org/glib/types.html#gchar">gchar</a> *
+gst_stream_get_stream_id (<a title="GstStream" href="gstreamer/gststreams.html#GstStream">GstStream</a> * stream)</pre>
+
+<p>Returns the stream ID of <em>stream</em>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>stream</code></em></i>
+–
+</div>
+<p>a <a href="gstreamer/gststreams.html#GstStream">GstStream</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span>
+<span class="annotation">[<abbr title="Don't free data after the code is done"><span class="acronym">transfer: none</span></abbr>]</span><span class="annotation">[<abbr title="NULL may be passed to the value"><span class="acronym">nullable</span></abbr>]</span><span>)</span>
+–
+			</div>
+							<p>the stream ID of <em>stream</em>. Only valid
+during the lifetime of <em>stream</em>.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.10
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_stream_get_stream_id">
+	<i>Gst.Stream.prototype.get_stream_id</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function Gst.Stream.prototype.get_stream_id(): {
+    // javascript wrapper for 'gst_stream_get_stream_id'
+}</code></pre>
+
+<p>Returns the stream ID of <em>stream</em>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>stream</code></em></i>
+<span>(</span><a title="Gst.Stream" href="gstreamer/gststreams.html#GstStream">Gst.Stream</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gststreams.html#GstStream">Gst.Stream</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a><span>)</span>
+–
+			</div>
+							<p>the stream ID of <em>stream</em>. Only valid
+during the lifetime of <em>stream</em>.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.10
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_stream_get_stream_id">
+	<i>Gst.Stream.get_stream_id</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def Gst.Stream.get_stream_id (self):
+    #python wrapper for 'gst_stream_get_stream_id'</code></pre>
+
+<p>Returns the stream ID of <em>stream</em>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>stream</code></em></i>
+<span>(</span><a title="Gst.Stream" href="gstreamer/gststreams.html#GstStream">Gst.Stream</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gststreams.html#GstStream">Gst.Stream</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="str" href="https://docs.python.org/3/library/functions.html#func-str">str</a><span>)</span>
+–
+			</div>
+							<p>the stream ID of <em>stream</em>. Only valid
+during the lifetime of <em>stream</em>.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.10
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.10;" id="gst_stream_get_stream_type">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_stream_get_stream_type">
+	<i>gst_stream_get_stream_type</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GstStreamType" href="gstreamer/gststreams.html#GstStreamType">GstStreamType</a>
+gst_stream_get_stream_type (<a title="GstStream" href="gstreamer/gststreams.html#GstStream">GstStream</a> * stream)</pre>
+
+<p>Retrieve the stream type for <em>stream</em></p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>stream</code></em></i>
+–
+</div>
+<p>a <a href="gstreamer/gststreams.html#GstStream">GstStream</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p>The <a href="gstreamer/gststreams.html#GstStreamType">GstStreamType</a> for <em>stream</em></p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.10
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_stream_get_stream_type">
+	<i>Gst.Stream.prototype.get_stream_type</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function Gst.Stream.prototype.get_stream_type(): {
+    // javascript wrapper for 'gst_stream_get_stream_type'
+}</code></pre>
+
+<p>Retrieve the stream type for <em>stream</em></p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>stream</code></em></i>
+<span>(</span><a title="Gst.Stream" href="gstreamer/gststreams.html#GstStream">Gst.Stream</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gststreams.html#GstStream">Gst.Stream</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Gst.StreamType" href="gstreamer/gststreams.html#GstStreamType">Gst.StreamType</a><span>)</span>
+–
+			</div>
+							<p>The <a href="gstreamer/gststreams.html#GstStreamType">Gst.StreamType</a> for <em>stream</em></p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.10
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_stream_get_stream_type">
+	<i>Gst.Stream.get_stream_type</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def Gst.Stream.get_stream_type (self):
+    #python wrapper for 'gst_stream_get_stream_type'</code></pre>
+
+<p>Retrieve the stream type for <em>stream</em></p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>stream</code></em></i>
+<span>(</span><a title="Gst.Stream" href="gstreamer/gststreams.html#GstStream">Gst.Stream</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gststreams.html#GstStream">Gst.Stream</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Gst.StreamType" href="gstreamer/gststreams.html#GstStreamType">Gst.StreamType</a><span>)</span>
+–
+			</div>
+							<p>The <a href="gstreamer/gststreams.html#GstStreamType">Gst.StreamType</a> for <em>stream</em></p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.10
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.10;" id="gst_stream_get_tags">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_stream_get_tags">
+	<i>gst_stream_get_tags</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GstTagList" href="gstreamer/gsttaglist.html#GstTagList">GstTagList</a> *
+gst_stream_get_tags (<a title="GstStream" href="gstreamer/gststreams.html#GstStream">GstStream</a> * stream)</pre>
+
+<p>Retrieve the tags for <em>stream</em>, if any</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>stream</code></em></i>
+–
+</div>
+<p>a <a href="gstreamer/gststreams.html#GstStream">GstStream</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span>
+<span class="annotation">[<abbr title="Free data after the code is done"><span class="acronym">transfer: full</span></abbr>]</span><span class="annotation">[<abbr title="NULL may be passed to the value"><span class="acronym">nullable</span></abbr>]</span><span>)</span>
+–
+			</div>
+							<p>The <a href="gstreamer/gsttaglist.html#GstTagList">GstTagList</a> for <em>stream</em></p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.10
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_stream_get_tags">
+	<i>Gst.Stream.prototype.get_tags</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function Gst.Stream.prototype.get_tags(): {
+    // javascript wrapper for 'gst_stream_get_tags'
+}</code></pre>
+
+<p>Retrieve the tags for <em>stream</em>, if any</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>stream</code></em></i>
+<span>(</span><a title="Gst.Stream" href="gstreamer/gststreams.html#GstStream">Gst.Stream</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gststreams.html#GstStream">Gst.Stream</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Gst.TagList" href="gstreamer/gsttaglist.html#GstTagList">Gst.TagList</a><span>)</span>
+–
+			</div>
+							<p>The <a href="gstreamer/gsttaglist.html#GstTagList">Gst.TagList</a> for <em>stream</em></p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.10
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_stream_get_tags">
+	<i>Gst.Stream.get_tags</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def Gst.Stream.get_tags (self):
+    #python wrapper for 'gst_stream_get_tags'</code></pre>
+
+<p>Retrieve the tags for <em>stream</em>, if any</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>stream</code></em></i>
+<span>(</span><a title="Gst.Stream" href="gstreamer/gststreams.html#GstStream">Gst.Stream</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gststreams.html#GstStream">Gst.Stream</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Gst.TagList" href="gstreamer/gsttaglist.html#GstTagList">Gst.TagList</a><span>)</span>
+–
+			</div>
+							<p>The <a href="gstreamer/gsttaglist.html#GstTagList">Gst.TagList</a> for <em>stream</em></p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.10
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.10;" id="gst_stream_set_caps">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_stream_set_caps">
+	<i>gst_stream_set_caps</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+gst_stream_set_caps (<a title="GstStream" href="gstreamer/gststreams.html#GstStream">GstStream</a> * stream,
+                     <a title="GstCaps" href="gstreamer/gstcaps.html#GstCaps">GstCaps</a> * caps)</pre>
+
+<p>Set the caps for the <a href="gstreamer/gststreams.html#GstStream">GstStream</a></p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>stream</code></em></i>
+–
+</div>
+<p>a <a href="gstreamer/gststreams.html#GstStream">GstStream</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>caps</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="Don't free data after the code is done"><span class="acronym">transfer: none</span></abbr>]</span><span class="annotation">[<abbr title="NULL is OK, both for passing and returning"><span class="acronym">allow-none</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gstcaps.html#GstCaps">GstCaps</a></p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.10
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_stream_set_caps">
+	<i>Gst.Stream.prototype.set_caps</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function Gst.Stream.prototype.set_caps(caps: <a title="Gst.Caps" href="gstreamer/gstcaps.html#GstCaps">Gst.Caps</a>): {
+    // javascript wrapper for 'gst_stream_set_caps'
+}</code></pre>
+
+<p>Set the caps for the <a href="gstreamer/gststreams.html#GstStream">Gst.Stream</a></p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>stream</code></em></i>
+<span>(</span><a title="Gst.Stream" href="gstreamer/gststreams.html#GstStream">Gst.Stream</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gststreams.html#GstStream">Gst.Stream</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>caps</code></em></i>
+<span>(</span><a title="Gst.Caps" href="gstreamer/gstcaps.html#GstCaps">Gst.Caps</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gstcaps.html#GstCaps">Gst.Caps</a></p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.10
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_stream_set_caps">
+	<i>Gst.Stream.set_caps</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def Gst.Stream.set_caps (self, caps):
+    #python wrapper for 'gst_stream_set_caps'</code></pre>
+
+<p>Set the caps for the <a href="gstreamer/gststreams.html#GstStream">Gst.Stream</a></p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>stream</code></em></i>
+<span>(</span><a title="Gst.Stream" href="gstreamer/gststreams.html#GstStream">Gst.Stream</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gststreams.html#GstStream">Gst.Stream</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>caps</code></em></i>
+<span>(</span><a title="Gst.Caps" href="gstreamer/gstcaps.html#GstCaps">Gst.Caps</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gstcaps.html#GstCaps">Gst.Caps</a></p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.10
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.10;" id="gst_stream_set_stream_flags">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_stream_set_stream_flags">
+	<i>gst_stream_set_stream_flags</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+gst_stream_set_stream_flags (<a title="GstStream" href="gstreamer/gststreams.html#GstStream">GstStream</a> * stream,
+                             <a title="GstStreamFlags" href="gstreamer/gstevent.html#GstStreamFlags">GstStreamFlags</a> flags)</pre>
+
+<p>Set the <em>flags</em> for the <em>stream</em>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>stream</code></em></i>
+–
+</div>
+<p>a <a href="gstreamer/gststreams.html#GstStream">GstStream</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>flags</code></em></i>
+–
+</div>
+<p>the flags to set on <em>stream</em></p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.10
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_stream_set_stream_flags">
+	<i>Gst.Stream.prototype.set_stream_flags</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function Gst.Stream.prototype.set_stream_flags(flags: <a title="Gst.StreamFlags" href="gstreamer/gstevent.html#GstStreamFlags">Gst.StreamFlags</a>): {
+    // javascript wrapper for 'gst_stream_set_stream_flags'
+}</code></pre>
+
+<p>Set the <em>flags</em> for the <em>stream</em>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>stream</code></em></i>
+<span>(</span><a title="Gst.Stream" href="gstreamer/gststreams.html#GstStream">Gst.Stream</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gststreams.html#GstStream">Gst.Stream</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>flags</code></em></i>
+<span>(</span><a title="Gst.StreamFlags" href="gstreamer/gstevent.html#GstStreamFlags">Gst.StreamFlags</a><span>)</span>
+–
+</div>
+<p>the flags to set on <em>stream</em></p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.10
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_stream_set_stream_flags">
+	<i>Gst.Stream.set_stream_flags</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def Gst.Stream.set_stream_flags (self, flags):
+    #python wrapper for 'gst_stream_set_stream_flags'</code></pre>
+
+<p>Set the <em>flags</em> for the <em>stream</em>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>stream</code></em></i>
+<span>(</span><a title="Gst.Stream" href="gstreamer/gststreams.html#GstStream">Gst.Stream</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gststreams.html#GstStream">Gst.Stream</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>flags</code></em></i>
+<span>(</span><a title="Gst.StreamFlags" href="gstreamer/gstevent.html#GstStreamFlags">Gst.StreamFlags</a><span>)</span>
+–
+</div>
+<p>the flags to set on <em>stream</em></p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.10
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.10;" id="gst_stream_set_stream_type">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_stream_set_stream_type">
+	<i>gst_stream_set_stream_type</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+gst_stream_set_stream_type (<a title="GstStream" href="gstreamer/gststreams.html#GstStream">GstStream</a> * stream,
+                            <a title="GstStreamType" href="gstreamer/gststreams.html#GstStreamType">GstStreamType</a> stream_type)</pre>
+
+<p>Set the stream type of <em>stream</em></p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>stream</code></em></i>
+–
+</div>
+<p>a <a href="gstreamer/gststreams.html#GstStream">GstStream</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>stream_type</code></em></i>
+–
+</div>
+<p>the type to set on <em>stream</em></p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.10
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_stream_set_stream_type">
+	<i>Gst.Stream.prototype.set_stream_type</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function Gst.Stream.prototype.set_stream_type(stream_type: <a title="Gst.StreamType" href="gstreamer/gststreams.html#GstStreamType">Gst.StreamType</a>): {
+    // javascript wrapper for 'gst_stream_set_stream_type'
+}</code></pre>
+
+<p>Set the stream type of <em>stream</em></p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>stream</code></em></i>
+<span>(</span><a title="Gst.Stream" href="gstreamer/gststreams.html#GstStream">Gst.Stream</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gststreams.html#GstStream">Gst.Stream</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>stream_type</code></em></i>
+<span>(</span><a title="Gst.StreamType" href="gstreamer/gststreams.html#GstStreamType">Gst.StreamType</a><span>)</span>
+–
+</div>
+<p>the type to set on <em>stream</em></p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.10
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_stream_set_stream_type">
+	<i>Gst.Stream.set_stream_type</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def Gst.Stream.set_stream_type (self, stream_type):
+    #python wrapper for 'gst_stream_set_stream_type'</code></pre>
+
+<p>Set the stream type of <em>stream</em></p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>stream</code></em></i>
+<span>(</span><a title="Gst.Stream" href="gstreamer/gststreams.html#GstStream">Gst.Stream</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gststreams.html#GstStream">Gst.Stream</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>stream_type</code></em></i>
+<span>(</span><a title="Gst.StreamType" href="gstreamer/gststreams.html#GstStreamType">Gst.StreamType</a><span>)</span>
+–
+</div>
+<p>the type to set on <em>stream</em></p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.10
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.10;" id="gst_stream_set_tags">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_stream_set_tags">
+	<i>gst_stream_set_tags</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+gst_stream_set_tags (<a title="GstStream" href="gstreamer/gststreams.html#GstStream">GstStream</a> * stream,
+                     <a title="GstTagList" href="gstreamer/gsttaglist.html#GstTagList">GstTagList</a> * tags)</pre>
+
+<p>Set the tags for the <a href="gstreamer/gststreams.html#GstStream">GstStream</a></p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>stream</code></em></i>
+–
+</div>
+<p>a <a href="gstreamer/gststreams.html#GstStream">GstStream</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>tags</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="Don't free data after the code is done"><span class="acronym">transfer: none</span></abbr>]</span><span class="annotation">[<abbr title="NULL is OK, both for passing and returning"><span class="acronym">allow-none</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gsttaglist.html#GstTagList">GstTagList</a></p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.10
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_stream_set_tags">
+	<i>Gst.Stream.prototype.set_tags</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function Gst.Stream.prototype.set_tags(tags: <a title="Gst.TagList" href="gstreamer/gsttaglist.html#GstTagList">Gst.TagList</a>): {
+    // javascript wrapper for 'gst_stream_set_tags'
+}</code></pre>
+
+<p>Set the tags for the <a href="gstreamer/gststreams.html#GstStream">Gst.Stream</a></p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>stream</code></em></i>
+<span>(</span><a title="Gst.Stream" href="gstreamer/gststreams.html#GstStream">Gst.Stream</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gststreams.html#GstStream">Gst.Stream</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>tags</code></em></i>
+<span>(</span><a title="Gst.TagList" href="gstreamer/gsttaglist.html#GstTagList">Gst.TagList</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gsttaglist.html#GstTagList">Gst.TagList</a></p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.10
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_stream_set_tags">
+	<i>Gst.Stream.set_tags</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def Gst.Stream.set_tags (self, tags):
+    #python wrapper for 'gst_stream_set_tags'</code></pre>
+
+<p>Set the tags for the <a href="gstreamer/gststreams.html#GstStream">Gst.Stream</a></p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>stream</code></em></i>
+<span>(</span><a title="Gst.Stream" href="gstreamer/gststreams.html#GstStream">Gst.Stream</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gststreams.html#GstStream">Gst.Stream</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>tags</code></em></i>
+<span>(</span><a title="Gst.TagList" href="gstreamer/gsttaglist.html#GstTagList">Gst.TagList</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gsttaglist.html#GstTagList">Gst.TagList</a></p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.10
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+
+            <h3 class="symbol_section">Properties</h3>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstStream:caps">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstStream:caps">
+	<i>caps</i>
+</h4>
+
+
+<pre class="property_signature">
+“caps” <span class="type"><a title="GstCaps" href="gstreamer/gstcaps.html#GstCaps">GstCaps</a> *</span>
+</pre>
+
+<p>The <a href="gstreamer/gstcaps.html#GstCaps">GstCaps</a> of the <a href="gstreamer/gststreams.html#GstStream">GstStream</a>.</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GstStream:caps">
+	<i>caps</i>
+</h4>
+
+
+<pre class="property_signature">
+“caps” <span class="type"><a title="Gst.Caps" href="gstreamer/gstcaps.html#GstCaps">Gst.Caps</a></span>
+</pre>
+
+<p>The <a href="gstreamer/gstcaps.html#GstCaps">Gst.Caps</a> of the <a href="gstreamer/gststreams.html#GstStream">Gst.Stream</a>.</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GstStream:caps">
+	<i>caps</i>
+</h4>
+
+
+<pre class="property_signature">
+“self.props.caps” <span class="type"><a title="Gst.Caps" href="gstreamer/gstcaps.html#GstCaps">Gst.Caps</a></span>
+</pre>
+
+<p>The <a href="gstreamer/gstcaps.html#GstCaps">Gst.Caps</a> of the <a href="gstreamer/gststreams.html#GstStream">Gst.Stream</a>.</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstStream:stream-flags">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstStream:stream-flags">
+	<i>stream-flags</i>
+</h4>
+
+
+<pre class="property_signature">
+“stream-flags” <span class="type"><a title="GstStreamFlags" href="gstreamer/gstevent.html#GstStreamFlags">GstStreamFlags</a> *</span>
+</pre>
+
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+				/		
+				Construct
+			
+</p>
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GstStream:stream-flags">
+	<i>stream-flags</i>
+</h4>
+
+
+<pre class="property_signature">
+“stream-flags” <span class="type"><a title="Gst.StreamFlags" href="gstreamer/gstevent.html#GstStreamFlags">Gst.StreamFlags</a></span>
+</pre>
+
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+				/		
+				Construct
+			
+</p>
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GstStream:stream-flags">
+	<i>stream_flags</i>
+</h4>
+
+
+<pre class="property_signature">
+“self.props.stream_flags” <span class="type"><a title="Gst.StreamFlags" href="gstreamer/gstevent.html#GstStreamFlags">Gst.StreamFlags</a></span>
+</pre>
+
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+				/		
+				Construct
+			
+</p>
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstStream:stream-id">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstStream:stream-id">
+	<i>stream-id</i>
+</h4>
+
+
+<pre class="property_signature">
+“stream-id” <span class="type"><a title="gchar" href="https://docs.gtk.org/glib/types.html#gchar">gchar</a> *</span>
+</pre>
+
+<p>The unique identifier of the <a href="gstreamer/gststreams.html#GstStream">GstStream</a>. Can only be set at construction
+time.</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+				/		
+				Construct Only
+			
+</p>
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GstStream:stream-id">
+	<i>stream-id</i>
+</h4>
+
+
+<pre class="property_signature">
+“stream-id” <span class="type"><a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></span>
+</pre>
+
+<p>The unique identifier of the <a href="gstreamer/gststreams.html#GstStream">Gst.Stream</a>. Can only be set at construction
+time.</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+				/		
+				Construct Only
+			
+</p>
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GstStream:stream-id">
+	<i>stream_id</i>
+</h4>
+
+
+<pre class="property_signature">
+“self.props.stream_id” <span class="type"><a title="str" href="https://docs.python.org/3/library/functions.html#func-str">str</a></span>
+</pre>
+
+<p>The unique identifier of the <a href="gstreamer/gststreams.html#GstStream">Gst.Stream</a>. Can only be set at construction
+time.</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+				/		
+				Construct Only
+			
+</p>
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstStream:stream-type">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstStream:stream-type">
+	<i>stream-type</i>
+</h4>
+
+
+<pre class="property_signature">
+“stream-type” <span class="type"><a title="GstStreamType" href="gstreamer/gststreams.html#GstStreamType">GstStreamType</a> *</span>
+</pre>
+
+<p>The <a href="gstreamer/gststreams.html#GstStreamType">GstStreamType</a> of the <a href="gstreamer/gststreams.html#GstStream">GstStream</a>. Can only be set at construction time.</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+				/		
+				Construct
+			
+</p>
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GstStream:stream-type">
+	<i>stream-type</i>
+</h4>
+
+
+<pre class="property_signature">
+“stream-type” <span class="type"><a title="Gst.StreamType" href="gstreamer/gststreams.html#GstStreamType">Gst.StreamType</a></span>
+</pre>
+
+<p>The <a href="gstreamer/gststreams.html#GstStreamType">Gst.StreamType</a> of the <a href="gstreamer/gststreams.html#GstStream">Gst.Stream</a>. Can only be set at construction time.</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+				/		
+				Construct
+			
+</p>
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GstStream:stream-type">
+	<i>stream_type</i>
+</h4>
+
+
+<pre class="property_signature">
+“self.props.stream_type” <span class="type"><a title="Gst.StreamType" href="gstreamer/gststreams.html#GstStreamType">Gst.StreamType</a></span>
+</pre>
+
+<p>The <a href="gstreamer/gststreams.html#GstStreamType">Gst.StreamType</a> of the <a href="gstreamer/gststreams.html#GstStream">Gst.Stream</a>. Can only be set at construction time.</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+				/		
+				Construct
+			
+</p>
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstStream:tags">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstStream:tags">
+	<i>tags</i>
+</h4>
+
+
+<pre class="property_signature">
+“tags” <span class="type"><a title="GstTagList" href="gstreamer/gsttaglist.html#GstTagList">GstTagList</a> *</span>
+</pre>
+
+<p>The <a href="gstreamer/gsttaglist.html#GstTagList">GstTagList</a> of the <a href="gstreamer/gststreams.html#GstStream">GstStream</a>.</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GstStream:tags">
+	<i>tags</i>
+</h4>
+
+
+<pre class="property_signature">
+“tags” <span class="type"><a title="Gst.TagList" href="gstreamer/gsttaglist.html#GstTagList">Gst.TagList</a></span>
+</pre>
+
+<p>The <a href="gstreamer/gsttaglist.html#GstTagList">Gst.TagList</a> of the <a href="gstreamer/gststreams.html#GstStream">Gst.Stream</a>.</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GstStream:tags">
+	<i>tags</i>
+</h4>
+
+
+<pre class="property_signature">
+“self.props.tags” <span class="type"><a title="Gst.TagList" href="gstreamer/gsttaglist.html#GstTagList">Gst.TagList</a></span>
+</pre>
+
+<p>The <a href="gstreamer/gsttaglist.html#GstTagList">Gst.TagList</a> of the <a href="gstreamer/gststreams.html#GstStream">Gst.Stream</a>.</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+
+        
+
+            <h2 class="symbol_section">Functions</h2>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.10;" id="gst_stream_type_get_name">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="gst_stream_type_get_name">
+	<i>gst_stream_type_get_name</i>
+</h3>
+
+
+
+
+<pre class="c-prototype language-c">
+const <a title="gchar" href="https://docs.gtk.org/glib/types.html#gchar">gchar</a> *
+gst_stream_type_get_name (<a title="GstStreamType" href="gstreamer/gststreams.html#GstStreamType">GstStreamType</a> stype)</pre>
+
+<p>Get a descriptive string for a given <a href="gstreamer/gststreams.html#GstStreamType">GstStreamType</a></p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>stype</code></em></i>
+–
+</div>
+<p>a <a href="gstreamer/gststreams.html#GstStreamType">GstStreamType</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p>A string describing the stream type</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.10
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3 data-hotdoc-id="gst_stream_type_get_name">
+	<i>Gst.prototype.stream_type_get_name</i>
+</h3>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function Gst.prototype.stream_type_get_name(stype: <a title="Gst.StreamType" href="gstreamer/gststreams.html#GstStreamType">Gst.StreamType</a>): {
+    // javascript wrapper for 'gst_stream_type_get_name'
+}</code></pre>
+
+<p>Get a descriptive string for a given <a href="gstreamer/gststreams.html#GstStreamType">Gst.StreamType</a></p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>stype</code></em></i>
+<span>(</span><a title="Gst.StreamType" href="gstreamer/gststreams.html#GstStreamType">Gst.StreamType</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gststreams.html#GstStreamType">Gst.StreamType</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a><span>)</span>
+–
+			</div>
+							<p>A string describing the stream type</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.10
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3 data-hotdoc-id="gst_stream_type_get_name">
+	<i>Gst.stream_type_get_name</i>
+</h3>
+
+
+<pre class="python-prototype language-python">
+<code>def Gst.stream_type_get_name (stype):
+    #python wrapper for 'gst_stream_type_get_name'</code></pre>
+
+<p>Get a descriptive string for a given <a href="gstreamer/gststreams.html#GstStreamType">Gst.StreamType</a></p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>stype</code></em></i>
+<span>(</span><a title="Gst.StreamType" href="gstreamer/gststreams.html#GstStreamType">Gst.StreamType</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gststreams.html#GstStreamType">Gst.StreamType</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="str" href="https://docs.python.org/3/library/functions.html#func-str">str</a><span>)</span>
+–
+			</div>
+							<p>A string describing the stream type</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.10
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+
+            <h2 class="symbol_section">Function Macros</h2>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GST_STREAM_CAST">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_STREAM_CAST">
+	<i>GST_STREAM_CAST</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_STREAM_CAST(obj)        ((GstStream*)(obj))
+</pre>
+
+
+
+
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+
+            <h2 class="symbol_section">Enumerations</h2>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.10;" id="GstStreamType">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GstStreamType">
+	<i>GstStreamType</i>
+</h3>
+
+
+<p><a href="gstreamer/gststreams.html#GstStreamType">GstStreamType</a> describes a high level classification set for
+flows of data in <a href="gstreamer/gststreams.html#GstStream">GstStream</a> objects.</p>
+<p>Note that this is a flag, and therefore users should not assume it
+will be a single value. Do not use the equality operator for checking
+whether a stream is of a certain type.</p>
+
+
+
+
+	<div class="members-container">
+		<h5>Members</h5>
+					
+<div class="symbol-detail" data-hotdoc-id="GST_STREAM_TYPE_UNKNOWN">
+	<div>
+		<i><em><code>GST_STREAM_TYPE_UNKNOWN</code></em></i>
+		(<span class="value">1</span>)
+		–
+	</div>
+			<p>The stream is of unknown (unclassified) type.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_STREAM_TYPE_AUDIO">
+	<div>
+		<i><em><code>GST_STREAM_TYPE_AUDIO</code></em></i>
+		(<span class="value">2</span>)
+		–
+	</div>
+			<p>The stream is of audio data</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_STREAM_TYPE_VIDEO">
+	<div>
+		<i><em><code>GST_STREAM_TYPE_VIDEO</code></em></i>
+		(<span class="value">4</span>)
+		–
+	</div>
+			<p>The stream carries video data</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_STREAM_TYPE_CONTAINER">
+	<div>
+		<i><em><code>GST_STREAM_TYPE_CONTAINER</code></em></i>
+		(<span class="value">8</span>)
+		–
+	</div>
+			<p>The stream is a muxed container type</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_STREAM_TYPE_TEXT">
+	<div>
+		<i><em><code>GST_STREAM_TYPE_TEXT</code></em></i>
+		(<span class="value">16</span>)
+		–
+	</div>
+			<p>The stream contains subtitle / subpicture data.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_STREAM_TYPE_METADATA">
+	<div>
+		<i><em><code>GST_STREAM_TYPE_METADATA</code></em></i>
+		(<span class="value">32</span>)
+		–
+	</div>
+			<p>The stream contains metadata.</p>
+
+		(Since: 1.28)
+</div>
+
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.10
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3 data-hotdoc-id="GstStreamType">
+	<i>Gst.StreamType</i>
+</h3>
+
+
+<p><a href="gstreamer/gststreams.html#GstStreamType">Gst.StreamType</a> describes a high level classification set for
+flows of data in <a href="gstreamer/gststreams.html#GstStream">Gst.Stream</a> objects.</p>
+<p>Note that this is a flag, and therefore users should not assume it
+will be a single value. Do not use the equality operator for checking
+whether a stream is of a certain type.</p>
+
+
+
+
+	<div class="members-container">
+		<h5>Members</h5>
+					
+<div class="symbol-detail" data-hotdoc-id="GST_STREAM_TYPE_UNKNOWN">
+	<div>
+		<i><em><code>Gst.StreamType.UNKNOWN</code></em></i>
+		(<span class="value">1</span>)
+		–
+	</div>
+			<p>The stream is of unknown (unclassified) type.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_STREAM_TYPE_AUDIO">
+	<div>
+		<i><em><code>Gst.StreamType.AUDIO</code></em></i>
+		(<span class="value">2</span>)
+		–
+	</div>
+			<p>The stream is of audio data</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_STREAM_TYPE_VIDEO">
+	<div>
+		<i><em><code>Gst.StreamType.VIDEO</code></em></i>
+		(<span class="value">4</span>)
+		–
+	</div>
+			<p>The stream carries video data</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_STREAM_TYPE_CONTAINER">
+	<div>
+		<i><em><code>Gst.StreamType.CONTAINER</code></em></i>
+		(<span class="value">8</span>)
+		–
+	</div>
+			<p>The stream is a muxed container type</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_STREAM_TYPE_TEXT">
+	<div>
+		<i><em><code>Gst.StreamType.TEXT</code></em></i>
+		(<span class="value">16</span>)
+		–
+	</div>
+			<p>The stream contains subtitle / subpicture data.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_STREAM_TYPE_METADATA">
+	<div>
+		<i><em><code>Gst.StreamType.METADATA</code></em></i>
+		(<span class="value">32</span>)
+		–
+	</div>
+			<p>The stream contains metadata.</p>
+
+		(Since: 1.28)
+</div>
+
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.10
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3 data-hotdoc-id="GstStreamType">
+	<i>Gst.StreamType</i>
+</h3>
+
+
+<p><a href="gstreamer/gststreams.html#GstStreamType">Gst.StreamType</a> describes a high level classification set for
+flows of data in <a href="gstreamer/gststreams.html#GstStream">Gst.Stream</a> objects.</p>
+<p>Note that this is a flag, and therefore users should not assume it
+will be a single value. Do not use the equality operator for checking
+whether a stream is of a certain type.</p>
+
+
+
+
+	<div class="members-container">
+		<h5>Members</h5>
+					
+<div class="symbol-detail" data-hotdoc-id="GST_STREAM_TYPE_UNKNOWN">
+	<div>
+		<i><em><code>Gst.StreamType.UNKNOWN</code></em></i>
+		(<span class="value">1</span>)
+		–
+	</div>
+			<p>The stream is of unknown (unclassified) type.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_STREAM_TYPE_AUDIO">
+	<div>
+		<i><em><code>Gst.StreamType.AUDIO</code></em></i>
+		(<span class="value">2</span>)
+		–
+	</div>
+			<p>The stream is of audio data</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_STREAM_TYPE_VIDEO">
+	<div>
+		<i><em><code>Gst.StreamType.VIDEO</code></em></i>
+		(<span class="value">4</span>)
+		–
+	</div>
+			<p>The stream carries video data</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_STREAM_TYPE_CONTAINER">
+	<div>
+		<i><em><code>Gst.StreamType.CONTAINER</code></em></i>
+		(<span class="value">8</span>)
+		–
+	</div>
+			<p>The stream is a muxed container type</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_STREAM_TYPE_TEXT">
+	<div>
+		<i><em><code>Gst.StreamType.TEXT</code></em></i>
+		(<span class="value">16</span>)
+		–
+	</div>
+			<p>The stream contains subtitle / subpicture data.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_STREAM_TYPE_METADATA">
+	<div>
+		<i><em><code>Gst.StreamType.METADATA</code></em></i>
+		(<span class="value">32</span>)
+		–
+	</div>
+			<p>The stream contains metadata.</p>
+
+		(Since: 1.28)
+</div>
+
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.10
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+
+
+
+
+
+		
+	</div>
+	<div id="search_results">
+		<p>The results of the search are</p>
+	</div>
+	<div id="footer">
+		    
+
+	</div>
+</div>
+
+<div id="toc-column">
+	
+		<div class="edit-button">
+		
+
+	</div>
+		<div id="toc-wrapper">
+		<nav id="toc"></nav>
+	</div>
+</div>
+</div>
+</main>
+
+
+<script src="assets/js/navbar_offset_scroller.js"></script>
+</body>
+</html>

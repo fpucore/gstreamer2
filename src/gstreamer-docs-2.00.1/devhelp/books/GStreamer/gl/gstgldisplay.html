@@ -1,0 +1,5334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<base href="..">
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<title>GstGLDisplay</title>
+
+<link rel="stylesheet" href="assets/css/dark-frontend.css" type="text/css" title="dark">
+<link rel="alternate stylesheet" href="assets/css/light-frontend.css" type="text/css" title="light">
+<link rel="stylesheet" href="assets/css/bootstrap-toc.min.css" type="text/css">
+<link rel="stylesheet" href="assets/css/jquery.mCustomScrollbar.min.css">
+<link rel="stylesheet" href="assets/js/search/enable_search.css" type="text/css">
+
+<link rel="stylesheet" href="assets/css/extra_frontend.css" type="text/css">
+<link rel="stylesheet" href="assets/css/devhelp.css" type="text/css">
+
+<link rel="stylesheet" href="assets/css/prism-tomorrow.css" type="text/css" title="dark">
+
+<link rel="alternate stylesheet" href="assets/css/prism.css" type="text/css" title="light">
+
+<script src="assets/js/mustache.min.js"></script>
+<script src="assets/js/jquery.js"></script>
+<script src="assets/js/bootstrap.js"></script>
+<script src="assets/js/scrollspy.js"></script>
+<script src="assets/js/typeahead.jquery.min.js"></script>
+<script src="assets/js/search.js"></script>
+<script src="assets/js/compare-versions.js"></script>
+<script src="assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="assets/js/bootstrap-toc.min.js"></script>
+<script src="assets/js/jquery.touchSwipe.min.js"></script>
+<script src="assets/js/anchor.min.js"></script>
+<script src="assets/js/tag_filtering.js"></script>
+<script src="assets/js/language_switching.js"></script>
+<script src="assets/js/styleswitcher.js"></script>
+
+<script src="assets/js/lines_around_headings.js"></script>
+
+<script src="assets/js/prism-core.js"></script>
+<script src="assets/js/prism-autoloader.js"></script>
+<script src="assets/js/prism_autoloader_path_override.js"></script>
+<script src="assets/js/trie.js"></script>
+
+<!-- generic -->
+<link rel="icon" type="image/png" href="assets/images/favicon-16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="assets/images/favicon-32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="assets/images/favicon-57.png" sizes="57x57">
+<link rel="icon" type="image/png" href="assets/images/favicon-64.png" sizes="64x64">
+<link rel="icon" type="image/png" href="assets/images/favicon-76.png" sizes="76x76">
+<link rel="icon" type="image/png" href="assets/images/favicon-96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="assets/images/favicon-128.png" sizes="128x128">
+<link rel="icon" type="image/png" href="assets/images/favicon-192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="assets/images/favicon-228.png" sizes="228x228">
+
+<!-- Android -->
+<link rel="shortcut icon" sizes="196x196" href="assets/images/favicon-196.png">
+
+<!-- iOS -->
+<link rel="apple-touch-icon" href="assets/images/favicon-120.png" sizes="120x120">
+<link rel="apple-touch-icon" href="assets/images/favicon-152.png" sizes="152x152">
+<link rel="apple-touch-icon" href="assets/images/favicon-180.png" sizes="180x180">
+
+</head>
+
+<body class="no-script
+">
+
+<script>
+$('body').removeClass('no-script');
+</script>
+
+<nav class="navbar navbar-fixed-top navbar-default" id="topnav">
+	<div class="container-fluid">
+		<div class="navbar-right">
+			<a id="toc-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-wrapper" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<span title="light mode switch" class="glyphicon glyphicon-sunglasses pull-right" id="lightmode-icon"></span>
+			<form class="navbar-form pull-right" id="navbar-search-form">
+                               <div class="form-group has-feedback">
+                                       <input type="text" class="form-control input-sm" name="search" id="sidenav-lookup-field" placeholder="search" disabled>
+				       <span class="glyphicon glyphicon-search form-control-feedback" id="search-mgn-glass"></span>
+                               </div>
+                        </form>
+		</div>
+		<div class="navbar-header">
+			<a id="sidenav-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<a id="home-link" href="index.html" class="hotdoc-navbar-brand">
+				<img src="assets/images/gstreamer-logo.svg" alt="Home">
+			</a>
+		</div>
+		<div class="navbar-collapse collapse" id="navbar-wrapper">
+			<ul class="nav navbar-nav" id="menu">
+				
+<li class="dropdown">
+    <a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        API References<span class="caret"></span>
+    </a>
+	<ul class="dropdown-menu" id="modules-menu">
+					<li>
+				<a href="gstreamer/gi-index.html">GStreamer core</a>
+			</li>
+					<li>
+				<a href="libs.html">GStreamer Libraries</a>
+			</li>
+					<li>
+				<a href="plugins_doc.html">GStreamer Plugins</a>
+			</li>
+		</ul>
+</li>
+
+<li>
+    <a href="application-development/index.html">Application manual</a>
+</li>
+
+
+<li>
+    <a href="tutorials/index.html">Tutorials</a>
+</li>
+
+			</ul>
+			<div class="hidden-xs hidden-sm navbar-text navbar-center">
+							</div>
+		</div>
+	</div>
+</nav>
+
+<main>
+<div data-extension="gi-extension" data-hotdoc-in-toplevel="False" data-hotdoc-project="gl" data-hotdoc-ref="gstgldisplay.html" class="page_container" id="page-wrapper" data-hotdoc-meta-gi-languages="['c', 'javascript', 'python']" data-hotdoc-meta-gi-language="c">
+<script src="assets/js/utils.js"></script>
+
+<div class="panel panel-collapse oc-collapsed" id="sidenav" data-hotdoc-role="navigation">
+	<script src="assets/js/full-width.js"></script>
+  <div id="sitenav-wrapper">
+    <iframe src="hotdoc-sitemap.html" id="sitenav-frame"></iframe>
+  </div>
+</div>
+
+<div id="body">
+	<div id="main">
+				    <div id="page-description" data-hotdoc-role="main">
+        <h1 id="gstgldisplay-page">GstGLDisplay</h1>
+<p><a href="gl/gstgldisplay.html#GstGLDisplay" data-gi-href-javascript="gl/gstgldisplay.html#GstGLDisplay" data-gi-title-javascript="GstGL.GLDisplay" data-gi-href-python="gl/gstgldisplay.html#GstGLDisplay" data-gi-title-python="GstGL.GLDisplay">GstGLDisplay</a> represents a connection to the underlying windowing system.
+Elements are required to make use of <a href="gstreamer/gstcontext.html#GstContext" data-gi-href-javascript="gstreamer/gstcontext.html#GstContext" data-gi-title-javascript="Gst.Context" data-gi-href-python="gstreamer/gstcontext.html#GstContext" data-gi-title-python="Gst.Context">GstContext</a> to share and propagate
+a <a href="gl/gstgldisplay.html#GstGLDisplay" data-gi-href-javascript="gl/gstgldisplay.html#GstGLDisplay" data-gi-title-javascript="GstGL.GLDisplay" data-gi-href-python="gl/gstgldisplay.html#GstGLDisplay" data-gi-title-python="GstGL.GLDisplay">GstGLDisplay</a>.</p>
+<p>There are a number of environment variables that influence the choice of
+platform and window system specific functionality.</p>
+<ul>
+<li>GST_GL_WINDOW influences the window system to use.  Common values are
+'x11', 'wayland', 'surfaceless', 'win32' or 'cocoa'.</li>
+<li>GST_GL_PLATFORM influences the OpenGL platform to use.  Common values are
+'egl', 'glx', 'wgl' or 'cgl'.</li>
+<li>GST_GL_API influences the OpenGL API requested by the OpenGL platform.
+Common values are 'opengl', 'opengl3' and 'gles2'.</li>
+</ul>
+<blockquote>
+<p>Certain window systems require a special function to be called to
+initialize threading support.  As this GStreamer GL library does not preclude
+concurrent access to the windowing system, it is strongly advised that
+applications ensure that threading support has been initialized before any
+other toolkit/library functionality is accessed.  Failure to do so could
+result in sudden application abortion during execution.  The most notably
+example of such a function is X11's XInitThreads().</p>
+</blockquote>
+
+    </div>
+        
+        
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstGLDisplay">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h2 data-hotdoc-id="GstGLDisplay">
+	<i>GstGLDisplay</i>
+</h2>
+
+
+<div class="hierarchy_container">
+	<div class="hierarchy_details">
+<pre>
+<a title="GObject" href="https://docs.gtk.org/gobject/class.Object.html">GObject</a>
+    <span class="lineart">╰──</span><a title="GInitiallyUnowned" href="https://docs.gtk.org/gobject/class.InitiallyUnowned.html">GInitiallyUnowned</a>
+        <span class="lineart">╰──</span><a title="GstObject" href="gstreamer/gstobject.html#GstObject">GstObject</a>
+            <span class="lineart">╰──</span>GstGLDisplay
+</pre>
+
+</div>
+
+</div>
+
+<div class="class_details">
+	<p>The contents of a <a href="gl/gstgldisplay.html#GstGLDisplay">GstGLDisplay</a> are private and should only be accessed
+through the provided API</p>
+
+</div>
+
+
+
+
+
+
+<hr>
+<h3>Class structure</h3>
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstGLDisplayClass">
+	<i>GstGLDisplayClass</i>
+</h4>
+
+
+
+
+
+	<div class="members-container">
+		<h5>Fields</h5>
+					
+<div class="symbol-detail" data-hotdoc-id="GstGLDisplayClass.object_class">
+	<div>
+		<i><em><code>object_class</code></em></i>
+		(<a title="GstObjectClass" href="GstObjectClass">GstObjectClass</a>)
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+			</div>
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3>
+	GstGL.GLDisplayClass
+</h3>
+
+
+
+
+
+	<div class="members-container">
+		<h5>Attributes</h5>
+					
+<div class="symbol-detail" data-hotdoc-id="GstGLDisplayClass.object_class">
+	<div>
+		<i><em><code>object_class</code></em></i>
+		(<a title="Gst.ObjectClass" href="GstObjectClass">Gst.ObjectClass</a>)
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+			</div>
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3>
+	GstGL.GLDisplayClass
+</h3>
+
+
+
+
+
+	<div class="members-container">
+		<h5>Attributes</h5>
+					
+<div class="symbol-detail" data-hotdoc-id="GstGLDisplayClass.object_class">
+	<div>
+		<i><em><code>object_class</code></em></i>
+		(<a title="Gst.ObjectClass" href="GstObjectClass">Gst.ObjectClass</a>)
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+			</div>
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h2 data-hotdoc-id="GstGLDisplay">
+	<i>GstGL.GLDisplay</i>
+</h2>
+
+
+<div class="hierarchy_container">
+	<div class="hierarchy_details">
+<pre>
+<a title="GObject.Object" href="https://docs.gtk.org/gobject/class.Object.html">GObject.Object</a>
+    <span class="lineart">╰──</span><a title="GObject.InitiallyUnowned" href="https://docs.gtk.org/gobject/class.InitiallyUnowned.html">GObject.InitiallyUnowned</a>
+        <span class="lineart">╰──</span><a title="Gst.Object" href="gstreamer/gstobject.html#GstObject">Gst.Object</a>
+            <span class="lineart">╰──</span>GstGL.GLDisplay
+</pre>
+
+</div>
+
+</div>
+
+<div class="class_details">
+	<p>The contents of a <a href="gl/gstgldisplay.html#GstGLDisplay">GstGL.GLDisplay</a> are private and should only be accessed
+through the provided API</p>
+
+</div>
+
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h2 data-hotdoc-id="GstGLDisplay">
+	<i>GstGL.GLDisplay</i>
+</h2>
+
+
+<div class="hierarchy_container">
+	<div class="hierarchy_details">
+<pre>
+<a title="GObject.Object" href="https://docs.gtk.org/gobject/class.Object.html">GObject.Object</a>
+    <span class="lineart">╰──</span><a title="GObject.InitiallyUnowned" href="https://docs.gtk.org/gobject/class.InitiallyUnowned.html">GObject.InitiallyUnowned</a>
+        <span class="lineart">╰──</span><a title="Gst.Object" href="gstreamer/gstobject.html#GstObject">Gst.Object</a>
+            <span class="lineart">╰──</span>GstGL.GLDisplay
+</pre>
+
+</div>
+
+</div>
+
+<div class="class_details">
+	<p>The contents of a <a href="gl/gstgldisplay.html#GstGLDisplay">GstGL.GLDisplay</a> are private and should only be accessed
+through the provided API</p>
+
+</div>
+
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+
+            <h3 class="symbol_section">Constructors</h3>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.4;" id="gst_gl_display_new">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_gl_display_new">
+	<i>gst_gl_display_new</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GstGLDisplay" href="gl/gstgldisplay.html#GstGLDisplay">GstGLDisplay</a> *
+gst_gl_display_new ()</pre>
+
+
+
+
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span>
+<span class="annotation">[<abbr title="Free data after the code is done"><span class="acronym">transfer: full</span></abbr>]</span><span>)</span>
+–
+			</div>
+							<p>a new <a href="gl/gstgldisplay.html#GstGLDisplay">GstGLDisplay</a></p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.4
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_gl_display_new">
+	<i>GstGL.GLDisplay.prototype.new</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstGL.GLDisplay.prototype.new(): {
+    // javascript wrapper for 'gst_gl_display_new'
+}</code></pre>
+
+
+
+
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GstGL.GLDisplay" href="gl/gstgldisplay.html#GstGLDisplay">GstGL.GLDisplay</a><span>)</span>
+–
+			</div>
+							<p>a new <a href="gl/gstgldisplay.html#GstGLDisplay">GstGL.GLDisplay</a></p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.4
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_gl_display_new">
+	<i>GstGL.GLDisplay.new</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstGL.GLDisplay.new ():
+    #python wrapper for 'gst_gl_display_new'</code></pre>
+
+
+
+
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GstGL.GLDisplay" href="gl/gstgldisplay.html#GstGLDisplay">GstGL.GLDisplay</a><span>)</span>
+–
+			</div>
+							<p>a new <a href="gl/gstgldisplay.html#GstGLDisplay">GstGL.GLDisplay</a></p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.4
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.20;" id="gst_gl_display_new_with_type">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_gl_display_new_with_type">
+	<i>gst_gl_display_new_with_type</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GstGLDisplay" href="gl/gstgldisplay.html#GstGLDisplay">GstGLDisplay</a> *
+gst_gl_display_new_with_type (<a title="GstGLDisplayType" href="gl/gstgldisplay.html#GstGLDisplayType">GstGLDisplayType</a> type)</pre>
+
+<p>Will always return a <a href="gl/gstgldisplay.html#GstGLDisplay">GstGLDisplay</a> of a single type.  This differs from
+<a href="gl/gstgldisplay.html#gst_gl_display_new">gst_gl_display_new</a> and the seemingly equivalent call
+gst_gl_display_new_with_type (GST_GL_DISPLAY_TYPE_ANY) in that the latter
+may return NULL.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>type</code></em></i>
+–
+</div>
+<p><a href="gl/gstgldisplay.html#GstGLDisplayType">GstGLDisplayType</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span>
+<span class="annotation">[<abbr title="Free data after the code is done"><span class="acronym">transfer: full</span></abbr>]</span><span class="annotation">[<abbr title="NULL may be passed to the value"><span class="acronym">nullable</span></abbr>]</span><span>)</span>
+–
+			</div>
+							<p>a new <a href="gl/gstgldisplay.html#GstGLDisplay">GstGLDisplay</a> or <a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#NULL:CAPS">NULL</a> if <em>type</em> is
+not supported</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_gl_display_new_with_type">
+	<i>GstGL.GLDisplay.prototype.new_with_type</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstGL.GLDisplay.prototype.new_with_type(type: <a title="GstGL.GLDisplayType" href="gl/gstgldisplay.html#GstGLDisplayType">GstGL.GLDisplayType</a>): {
+    // javascript wrapper for 'gst_gl_display_new_with_type'
+}</code></pre>
+
+<p>Will always return a <a href="gl/gstgldisplay.html#GstGLDisplay">GstGL.GLDisplay</a> of a single type.  This differs from
+<a href="gl/gstgldisplay.html#gst_gl_display_new">GstGL.GLDisplay.prototype.new</a> and the seemingly equivalent call
+gst_gl_display_new_with_type (GST_GL_DISPLAY_TYPE_ANY) in that the latter
+may return NULL.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>type</code></em></i>
+<span>(</span><a title="GstGL.GLDisplayType" href="gl/gstgldisplay.html#GstGLDisplayType">GstGL.GLDisplayType</a><span>)</span>
+–
+</div>
+<p><a href="gl/gstgldisplay.html#GstGLDisplayType">GstGL.GLDisplayType</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GstGL.GLDisplay" href="gl/gstgldisplay.html#GstGLDisplay">GstGL.GLDisplay</a><span>)</span>
+–
+			</div>
+							<p>a new <a href="gl/gstgldisplay.html#GstGLDisplay">GstGL.GLDisplay</a> or <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null">null</a> if <em>type</em> is
+not supported</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_gl_display_new_with_type">
+	<i>GstGL.GLDisplay.new_with_type</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstGL.GLDisplay.new_with_type (type):
+    #python wrapper for 'gst_gl_display_new_with_type'</code></pre>
+
+<p>Will always return a <a href="gl/gstgldisplay.html#GstGLDisplay">GstGL.GLDisplay</a> of a single type.  This differs from
+<a href="gl/gstgldisplay.html#gst_gl_display_new">GstGL.GLDisplay.new</a> and the seemingly equivalent call
+gst_gl_display_new_with_type (GST_GL_DISPLAY_TYPE_ANY) in that the latter
+may return NULL.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>type</code></em></i>
+<span>(</span><a title="GstGL.GLDisplayType" href="gl/gstgldisplay.html#GstGLDisplayType">GstGL.GLDisplayType</a><span>)</span>
+–
+</div>
+<p><a href="gl/gstgldisplay.html#GstGLDisplayType">GstGL.GLDisplayType</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GstGL.GLDisplay" href="gl/gstgldisplay.html#GstGLDisplay">GstGL.GLDisplay</a><span>)</span>
+–
+			</div>
+							<p>a new <a href="gl/gstgldisplay.html#GstGLDisplay">GstGL.GLDisplay</a> or <a href="https://docs.python.org/3/library/constants.html#None">None</a> if <em>type</em> is
+not supported</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.20
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+
+            <h3 class="symbol_section">Methods</h3>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.6;" id="gst_gl_display_add_context">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_gl_display_add_context">
+	<i>gst_gl_display_add_context</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a>
+gst_gl_display_add_context (<a title="GstGLDisplay" href="gl/gstgldisplay.html#GstGLDisplay">GstGLDisplay</a> * display,
+                            <a title="GstGLContext" href="gl/gstglcontext.html#GstGLContext">GstGLContext</a> * context)</pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>display</code></em></i>
+–
+</div>
+<p>a <a href="gl/gstgldisplay.html#GstGLDisplay">GstGLDisplay</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>context</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="Don't free data after the code is done"><span class="acronym">transfer: none</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>a <a href="gl/gstglcontext.html#GstGLContext">GstGLContext</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p>whether <em>context</em> was successfully added. <a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#FALSE:CAPS">FALSE</a> may be returned
+if there already exists another context for <em>context</em>'s active thread.</p>
+<p>Must be called with the object lock held.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.6
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_gl_display_add_context">
+	<i>GstGL.GLDisplay.prototype.add_context</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstGL.GLDisplay.prototype.add_context(context: <a title="GstGL.GLContext" href="gl/gstglcontext.html#GstGLContext">GstGL.GLContext</a>): {
+    // javascript wrapper for 'gst_gl_display_add_context'
+}</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>display</code></em></i>
+<span>(</span><a title="GstGL.GLDisplay" href="gl/gstgldisplay.html#GstGLDisplay">GstGL.GLDisplay</a><span>)</span>
+–
+</div>
+<p>a <a href="gl/gstgldisplay.html#GstGLDisplay">GstGL.GLDisplay</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>context</code></em></i>
+<span>(</span><a title="GstGL.GLContext" href="gl/gstglcontext.html#GstGLContext">GstGL.GLContext</a><span>)</span>
+–
+</div>
+<p>a <a href="gl/gstglcontext.html#GstGLContext">GstGL.GLContext</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+			</div>
+							<p>whether <em>context</em> was successfully added. <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">false</a> may be returned
+if there already exists another context for <em>context</em>'s active thread.</p>
+<p>Must be called with the object lock held.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.6
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_gl_display_add_context">
+	<i>GstGL.GLDisplay.add_context</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstGL.GLDisplay.add_context (self, context):
+    #python wrapper for 'gst_gl_display_add_context'</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>display</code></em></i>
+<span>(</span><a title="GstGL.GLDisplay" href="gl/gstgldisplay.html#GstGLDisplay">GstGL.GLDisplay</a><span>)</span>
+–
+</div>
+<p>a <a href="gl/gstgldisplay.html#GstGLDisplay">GstGL.GLDisplay</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>context</code></em></i>
+<span>(</span><a title="GstGL.GLContext" href="gl/gstglcontext.html#GstGLContext">GstGL.GLContext</a><span>)</span>
+–
+</div>
+<p>a <a href="gl/gstglcontext.html#GstGLContext">GstGL.GLContext</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a><span>)</span>
+–
+			</div>
+							<p>whether <em>context</em> was successfully added. <a href="https://docs.python.org/3/library/constants.html#False">False</a> may be returned
+if there already exists another context for <em>context</em>'s active thread.</p>
+<p>Must be called with the object lock held.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.6
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.6;" id="gst_gl_display_create_context">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_gl_display_create_context">
+	<i>gst_gl_display_create_context</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a>
+gst_gl_display_create_context (<a title="GstGLDisplay" href="gl/gstgldisplay.html#GstGLDisplay">GstGLDisplay</a> * display,
+                               <a title="GstGLContext" href="gl/gstglcontext.html#GstGLContext">GstGLContext</a> * other_context,
+                               <a title="GstGLContext" href="gl/gstglcontext.html#GstGLContext">GstGLContext</a> ** p_context,
+                               <a title="GError" href="https://docs.gtk.org/glib/struct.Error.html">GError</a> ** error)</pre>
+
+<p>It requires the display's object lock to be held.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>display</code></em></i>
+–
+</div>
+<p>a <a href="gl/gstgldisplay.html#GstGLDisplay">GstGLDisplay</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>other_context</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="Don't free data after the code is done"><span class="acronym">transfer: none</span></abbr>]</span><span class="annotation">[<abbr title="NULL may be passed to the value"><span class="acronym">nullable</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>other <a href="gl/gstglcontext.html#GstGLContext">GstGLContext</a> to share resources with.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>p_context</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="Free data after the code is done"><span class="acronym">transfer: full</span></abbr>]</span><span class="annotation">[<abbr title="Parameter for returning results"><span class="acronym">out</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>resulting <a href="gl/gstglcontext.html#GstGLContext">GstGLContext</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>error</code></em></i>
+–
+</div>
+<p>resulting <a href="https://docs.gtk.org/glib/struct.Error.html">GError</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p>whether a new context could be created.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.6
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_gl_display_create_context">
+	<i>GstGL.GLDisplay.prototype.create_context</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstGL.GLDisplay.prototype.create_context(other_context: <a title="GstGL.GLContext" href="gl/gstglcontext.html#GstGLContext">GstGL.GLContext</a>): {
+    // javascript wrapper for 'gst_gl_display_create_context'
+}</code></pre>
+
+<p>It requires the display's object lock to be held.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>display</code></em></i>
+<span>(</span><a title="GstGL.GLDisplay" href="gl/gstgldisplay.html#GstGLDisplay">GstGL.GLDisplay</a><span>)</span>
+–
+</div>
+<p>a <a href="gl/gstgldisplay.html#GstGLDisplay">GstGL.GLDisplay</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>other_context</code></em></i>
+<span>(</span><a title="GstGL.GLContext" href="gl/gstglcontext.html#GstGLContext">GstGL.GLContext</a><span>)</span>
+–
+</div>
+<p>other <a href="gl/gstglcontext.html#GstGLContext">GstGL.GLContext</a> to share resources with.</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<p><b>Returns a tuple made of:</b></p>
+				
+<div class="symbol-detail">
+	<div>
+		<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>
+<span>)</span>
+–
+	</div>
+			<p>whether a new context could be created.</p>
+
+	</div>
+
+				
+<div class="symbol-detail">
+	<div>
+				<i><em><code>p_context</code></em></i>
+		<span>(</span><a title="GstGL.GLContext" href="gl/gstglcontext.html#GstGLContext">GstGL.GLContext</a>
+<span>)</span>
+–
+	</div>
+			<p>whether a new context could be created.</p>
+
+	</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.6
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_gl_display_create_context">
+	<i>GstGL.GLDisplay.create_context</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>@raises(<a href="https://developer.gnome.org/glib/stable/glib-Error-Reporting.html">GLib.GError</a>)
+def GstGL.GLDisplay.create_context (self, other_context):
+    #python wrapper for 'gst_gl_display_create_context'</code></pre>
+
+<p>It requires the display's object lock to be held.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>display</code></em></i>
+<span>(</span><a title="GstGL.GLDisplay" href="gl/gstgldisplay.html#GstGLDisplay">GstGL.GLDisplay</a><span>)</span>
+–
+</div>
+<p>a <a href="gl/gstgldisplay.html#GstGLDisplay">GstGL.GLDisplay</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>other_context</code></em></i>
+<span>(</span><a title="GstGL.GLContext" href="gl/gstglcontext.html#GstGLContext">GstGL.GLContext</a><span>)</span>
+–
+</div>
+<p>other <a href="gl/gstglcontext.html#GstGLContext">GstGL.GLContext</a> to share resources with.</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<p><b>Returns a tuple made of:</b></p>
+				
+<div class="symbol-detail">
+	<div>
+		<span>(</span><a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a>
+<span>)</span>
+–
+	</div>
+			<p>whether a new context could be created.</p>
+
+	</div>
+
+				
+<div class="symbol-detail">
+	<div>
+				<i><em><code>p_context</code></em></i>
+		<span>(</span><a title="GstGL.GLContext" href="gl/gstglcontext.html#GstGLContext">GstGL.GLContext</a>
+<span>)</span>
+–
+	</div>
+			<p>whether a new context could be created.</p>
+
+	</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.6
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_gl_display_create_window">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_gl_display_create_window">
+	<i>gst_gl_display_create_window</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GstGLWindow" href="gl/gstglwindow.html#GstGLWindow">GstGLWindow</a> *
+gst_gl_display_create_window (<a title="GstGLDisplay" href="gl/gstgldisplay.html#GstGLDisplay">GstGLDisplay</a> * display)</pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>display</code></em></i>
+–
+</div>
+<p>a <a href="gl/gstgldisplay.html#GstGLDisplay">GstGLDisplay</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span>
+<span class="annotation">[<abbr title="Free data after the code is done"><span class="acronym">transfer: full</span></abbr>]</span><span class="annotation">[<abbr title="NULL may be passed to the value"><span class="acronym">nullable</span></abbr>]</span><span>)</span>
+–
+			</div>
+							<p>a new <a href="gl/gstglwindow.html#GstGLWindow">GstGLWindow</a> for <em>display</em> or <a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#NULL:CAPS">NULL</a>.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_gl_display_create_window">
+	<i>GstGL.GLDisplay.prototype.create_window</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstGL.GLDisplay.prototype.create_window(): {
+    // javascript wrapper for 'gst_gl_display_create_window'
+}</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>display</code></em></i>
+<span>(</span><a title="GstGL.GLDisplay" href="gl/gstgldisplay.html#GstGLDisplay">GstGL.GLDisplay</a><span>)</span>
+–
+</div>
+<p>a <a href="gl/gstgldisplay.html#GstGLDisplay">GstGL.GLDisplay</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GstGL.GLWindow" href="gl/gstglwindow.html#GstGLWindow">GstGL.GLWindow</a><span>)</span>
+–
+			</div>
+							<p>a new <a href="gl/gstglwindow.html#GstGLWindow">GstGL.GLWindow</a> for <em>display</em> or <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null">null</a>.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_gl_display_create_window">
+	<i>GstGL.GLDisplay.create_window</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstGL.GLDisplay.create_window (self):
+    #python wrapper for 'gst_gl_display_create_window'</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>display</code></em></i>
+<span>(</span><a title="GstGL.GLDisplay" href="gl/gstgldisplay.html#GstGLDisplay">GstGL.GLDisplay</a><span>)</span>
+–
+</div>
+<p>a <a href="gl/gstgldisplay.html#GstGLDisplay">GstGL.GLDisplay</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GstGL.GLWindow" href="gl/gstglwindow.html#GstGLWindow">GstGL.GLWindow</a><span>)</span>
+–
+			</div>
+							<p>a new <a href="gl/gstglwindow.html#GstGLWindow">GstGL.GLWindow</a> for <em>display</em> or <a href="https://docs.python.org/3/library/constants.html#None">None</a>.</p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.24;" id="gst_gl_display_ensure_context">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_gl_display_ensure_context">
+	<i>gst_gl_display_ensure_context</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a>
+gst_gl_display_ensure_context (<a title="GstGLDisplay" href="gl/gstgldisplay.html#GstGLDisplay">GstGLDisplay</a> * display,
+                               <a title="GstGLContext" href="gl/gstglcontext.html#GstGLContext">GstGLContext</a> * other_context,
+                               <a title="GstGLContext" href="gl/gstglcontext.html#GstGLContext">GstGLContext</a> ** context,
+                               <a title="GError" href="https://docs.gtk.org/glib/struct.Error.html">GError</a> ** error)</pre>
+
+<p>Ensures that the display has a valid GL context for the current thread. If
+<em>context</em> already contains a valid context, this does nothing.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>display</code></em></i>
+–
+</div>
+<p>a <a href="gl/gstgldisplay.html#GstGLDisplay">GstGLDisplay</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>other_context</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="Don't free data after the code is done"><span class="acronym">transfer: none</span></abbr>]</span><span class="annotation">[<abbr title="NULL may be passed to the value"><span class="acronym">nullable</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>other <a href="gl/gstglcontext.html#GstGLContext">GstGLContext</a> to share resources with.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>context</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="Parameter for input and for returning results"><span class="acronym">inout</span></abbr>]</span><span class="annotation">[<abbr title="Free data after the code is done"><span class="acronym">transfer: full</span></abbr>]</span><span class="annotation">[<abbr title="NULL may be passed to the value"><span class="acronym">nullable</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>the resulting <a href="gl/gstglcontext.html#GstGLContext">GstGLContext</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>error</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="Parameter for returning results"><span class="acronym">out</span></abbr>]</span><span class="annotation">[<abbr title="Free data after the code is done"><span class="acronym">transfer: full</span></abbr>]</span><span class="annotation">[<abbr title="NULL may be passed to the value"><span class="acronym">nullable</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>possible error</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p>wether <em>context</em> contains a valid context.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_gl_display_ensure_context">
+	<i>GstGL.GLDisplay.prototype.ensure_context</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstGL.GLDisplay.prototype.ensure_context(other_context: <a title="GstGL.GLContext" href="gl/gstglcontext.html#GstGLContext">GstGL.GLContext</a>, context: <a title="GstGL.GLContext" href="gl/gstglcontext.html#GstGLContext">GstGL.GLContext</a>): {
+    // javascript wrapper for 'gst_gl_display_ensure_context'
+}</code></pre>
+
+<p>Ensures that the display has a valid GL context for the current thread. If
+<em>context</em> already contains a valid context, this does nothing.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>display</code></em></i>
+<span>(</span><a title="GstGL.GLDisplay" href="gl/gstgldisplay.html#GstGLDisplay">GstGL.GLDisplay</a><span>)</span>
+–
+</div>
+<p>a <a href="gl/gstgldisplay.html#GstGLDisplay">GstGL.GLDisplay</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>other_context</code></em></i>
+<span>(</span><a title="GstGL.GLContext" href="gl/gstglcontext.html#GstGLContext">GstGL.GLContext</a><span>)</span>
+–
+</div>
+<p>other <a href="gl/gstglcontext.html#GstGLContext">GstGL.GLContext</a> to share resources with.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>context</code></em></i>
+<span>(</span><a title="GstGL.GLContext" href="gl/gstglcontext.html#GstGLContext">GstGL.GLContext</a><span>)</span>
+–
+</div>
+<p>the resulting <a href="gl/gstglcontext.html#GstGLContext">GstGL.GLContext</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<p><b>Returns a tuple made of:</b></p>
+				
+<div class="symbol-detail">
+	<div>
+		<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>
+<span>)</span>
+–
+	</div>
+			<p>wether <em>context</em> contains a valid context.</p>
+
+	</div>
+
+				
+<div class="symbol-detail">
+	<div>
+				<i><em><code>context</code></em></i>
+		<span>(</span><a title="GstGL.GLContext" href="gl/gstglcontext.html#GstGLContext">GstGL.GLContext</a>
+<span>)</span>
+–
+	</div>
+			<p>wether <em>context</em> contains a valid context.</p>
+
+	</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_gl_display_ensure_context">
+	<i>GstGL.GLDisplay.ensure_context</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>@raises(<a href="https://developer.gnome.org/glib/stable/glib-Error-Reporting.html">GLib.GError</a>)
+def GstGL.GLDisplay.ensure_context (self, other_context, context):
+    #python wrapper for 'gst_gl_display_ensure_context'</code></pre>
+
+<p>Ensures that the display has a valid GL context for the current thread. If
+<em>context</em> already contains a valid context, this does nothing.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>display</code></em></i>
+<span>(</span><a title="GstGL.GLDisplay" href="gl/gstgldisplay.html#GstGLDisplay">GstGL.GLDisplay</a><span>)</span>
+–
+</div>
+<p>a <a href="gl/gstgldisplay.html#GstGLDisplay">GstGL.GLDisplay</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>other_context</code></em></i>
+<span>(</span><a title="GstGL.GLContext" href="gl/gstglcontext.html#GstGLContext">GstGL.GLContext</a><span>)</span>
+–
+</div>
+<p>other <a href="gl/gstglcontext.html#GstGLContext">GstGL.GLContext</a> to share resources with.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>context</code></em></i>
+<span>(</span><a title="GstGL.GLContext" href="gl/gstglcontext.html#GstGLContext">GstGL.GLContext</a><span>)</span>
+–
+</div>
+<p>the resulting <a href="gl/gstglcontext.html#GstGLContext">GstGL.GLContext</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<p><b>Returns a tuple made of:</b></p>
+				
+<div class="symbol-detail">
+	<div>
+		<span>(</span><a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a>
+<span>)</span>
+–
+	</div>
+			<p>wether <em>context</em> contains a valid context.</p>
+
+	</div>
+
+				
+<div class="symbol-detail">
+	<div>
+				<i><em><code>context</code></em></i>
+		<span>(</span><a title="GstGL.GLContext" href="gl/gstglcontext.html#GstGLContext">GstGL.GLContext</a>
+<span>)</span>
+–
+	</div>
+			<p>wether <em>context</em> contains a valid context.</p>
+
+	</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_gl_display_filter_gl_api">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_gl_display_filter_gl_api">
+	<i>gst_gl_display_filter_gl_api</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+gst_gl_display_filter_gl_api (<a title="GstGLDisplay" href="gl/gstgldisplay.html#GstGLDisplay">GstGLDisplay</a> * display,
+                              <a title="GstGLAPI" href="gl/gstglapi.html#GstGLAPI">GstGLAPI</a> gl_api)</pre>
+
+<p>limit the use of OpenGL to the requested <em>gl_api</em>.  This is intended to allow
+application and elements to request a specific set of OpenGL API's based on
+what they support.  See <a href="gl/gstglcontext.html#gst_gl_context_get_gl_api">gst_gl_context_get_gl_api</a> for the retrieving the
+API supported by a <a href="gl/gstglcontext.html#GstGLContext">GstGLContext</a>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>display</code></em></i>
+–
+</div>
+<p>a <a href="gl/gstgldisplay.html#GstGLDisplay">GstGLDisplay</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>gl_api</code></em></i>
+–
+</div>
+<p>a <a href="gl/gstglapi.html#GstGLAPI">GstGLAPI</a> to filter with</p>
+
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_gl_display_filter_gl_api">
+	<i>GstGL.GLDisplay.prototype.filter_gl_api</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstGL.GLDisplay.prototype.filter_gl_api(gl_api: <a title="GstGL.GLAPI" href="gl/gstglapi.html#GstGLAPI">GstGL.GLAPI</a>): {
+    // javascript wrapper for 'gst_gl_display_filter_gl_api'
+}</code></pre>
+
+<p>limit the use of OpenGL to the requested <em>gl_api</em>.  This is intended to allow
+application and elements to request a specific set of OpenGL API's based on
+what they support.  See <a href="gl/gstglcontext.html#gst_gl_context_get_gl_api">GstGL.GLContext.prototype.get_gl_api</a> for the retrieving the
+API supported by a <a href="gl/gstglcontext.html#GstGLContext">GstGL.GLContext</a>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>display</code></em></i>
+<span>(</span><a title="GstGL.GLDisplay" href="gl/gstgldisplay.html#GstGLDisplay">GstGL.GLDisplay</a><span>)</span>
+–
+</div>
+<p>a <a href="gl/gstgldisplay.html#GstGLDisplay">GstGL.GLDisplay</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>gl_api</code></em></i>
+<span>(</span><a title="GstGL.GLAPI" href="gl/gstglapi.html#GstGLAPI">GstGL.GLAPI</a><span>)</span>
+–
+</div>
+<p>a <a href="gl/gstglapi.html#GstGLAPI">GstGL.GLAPI</a> to filter with</p>
+
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_gl_display_filter_gl_api">
+	<i>GstGL.GLDisplay.filter_gl_api</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstGL.GLDisplay.filter_gl_api (self, gl_api):
+    #python wrapper for 'gst_gl_display_filter_gl_api'</code></pre>
+
+<p>limit the use of OpenGL to the requested <em>gl_api</em>.  This is intended to allow
+application and elements to request a specific set of OpenGL API's based on
+what they support.  See <a href="gl/gstglcontext.html#gst_gl_context_get_gl_api">GstGL.GLContext.get_gl_api</a> for the retrieving the
+API supported by a <a href="gl/gstglcontext.html#GstGLContext">GstGL.GLContext</a>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>display</code></em></i>
+<span>(</span><a title="GstGL.GLDisplay" href="gl/gstgldisplay.html#GstGLDisplay">GstGL.GLDisplay</a><span>)</span>
+–
+</div>
+<p>a <a href="gl/gstgldisplay.html#GstGLDisplay">GstGL.GLDisplay</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>gl_api</code></em></i>
+<span>(</span><a title="GstGL.GLAPI" href="gl/gstglapi.html#GstGLAPI">GstGL.GLAPI</a><span>)</span>
+–
+</div>
+<p>a <a href="gl/gstglapi.html#GstGLAPI">GstGL.GLAPI</a> to filter with</p>
+
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.12;deprecated:1.18;" id="gst_gl_display_find_window">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_gl_display_find_window">
+	<i>gst_gl_display_find_window</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GstGLWindow" href="gl/gstglwindow.html#GstGLWindow">GstGLWindow</a> *
+gst_gl_display_find_window (<a title="GstGLDisplay" href="gl/gstgldisplay.html#GstGLDisplay">GstGLDisplay</a> * display,
+                            <a title="gpointer" href="https://docs.gtk.org/glib/types.html#gpointer">gpointer</a> data,
+                            <a title="GCompareFunc" href="https://docs.gtk.org/glib/callback.CompareFunc.html">GCompareFunc</a> compare_func)</pre>
+
+<p>Execute <em>compare_func</em> over the list of windows stored by <em>display</em>.  The
+first argument to <em>compare_func</em> is the <a href="gl/gstglwindow.html#GstGLWindow">GstGLWindow</a> being checked and the
+second argument is <em>data</em>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>display</code></em></i>
+–
+</div>
+<p>a <a href="gl/gstgldisplay.html#GstGLDisplay">GstGLDisplay</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>data</code></em></i>
+–
+</div>
+<p>some data to pass to <em>compare_func</em></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>compare_func</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="The callback is valid only during the call to the method"><span class="acronym">scope call</span></abbr>]</span><span class="annotation">[<abbr title="This parameter is a closure for callbacks, many bindings can pass NULL to data"><span class="acronym">closure</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>a comparison function to run</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span>
+<span class="annotation">[<abbr title="Don't free data after the code is done"><span class="acronym">transfer: none</span></abbr>]</span><span class="annotation">[<abbr title="NULL may be passed to the value"><span class="acronym">nullable</span></abbr>]</span><span>)</span>
+–
+			</div>
+							<p>The first <a href="gl/gstglwindow.html#GstGLWindow">GstGLWindow</a> that causes a match
+from <em>compare_func</em></p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.12
+		</p>
+	<p>
+	<b>deprecated</b>			: 1.18: Use gst_gl_display_retrieve_window() instead.
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_gl_display_find_window">
+	<i>GstGL.GLDisplay.prototype.find_window</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstGL.GLDisplay.prototype.find_window(data: <a title="Object" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>, compare_func: <a title="GLib.CompareFunc" href="https://docs.gtk.org/glib/callback.CompareFunc.html">GLib.CompareFunc</a>): {
+    // javascript wrapper for 'gst_gl_display_find_window'
+}</code></pre>
+
+<p>Execute <em>compare_func</em> over the list of windows stored by <em>display</em>.  The
+first argument to <em>compare_func</em> is the <a href="gl/gstglwindow.html#GstGLWindow">GstGL.GLWindow</a> being checked and the
+second argument is <em>data</em>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>display</code></em></i>
+<span>(</span><a title="GstGL.GLDisplay" href="gl/gstgldisplay.html#GstGLDisplay">GstGL.GLDisplay</a><span>)</span>
+–
+</div>
+<p>a <a href="gl/gstgldisplay.html#GstGLDisplay">GstGL.GLDisplay</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>data</code></em></i>
+<span>(</span><a title="Object" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a><span>)</span>
+–
+</div>
+<p>some data to pass to <em>compare_func</em></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>compare_func</code></em></i>
+<span>(</span><a title="GLib.CompareFunc" href="https://docs.gtk.org/glib/callback.CompareFunc.html">GLib.CompareFunc</a><span>)</span>
+–
+</div>
+<p>a comparison function to run</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GstGL.GLWindow" href="gl/gstglwindow.html#GstGLWindow">GstGL.GLWindow</a><span>)</span>
+–
+			</div>
+							<p>The first <a href="gl/gstglwindow.html#GstGLWindow">GstGL.GLWindow</a> that causes a match
+from <em>compare_func</em></p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.12
+		</p>
+	<p>
+	<b>deprecated</b>			: 1.18: Use gst_gl_display_retrieve_window() instead.
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_gl_display_find_window">
+	<i>GstGL.GLDisplay.find_window</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstGL.GLDisplay.find_window (self, *data, compare_func):
+    #python wrapper for 'gst_gl_display_find_window'</code></pre>
+
+<p>Execute <em>compare_func</em> over the list of windows stored by <em>display</em>.  The
+first argument to <em>compare_func</em> is the <a href="gl/gstglwindow.html#GstGLWindow">GstGL.GLWindow</a> being checked and the
+second argument is <em>data</em>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>display</code></em></i>
+<span>(</span><a title="GstGL.GLDisplay" href="gl/gstgldisplay.html#GstGLDisplay">GstGL.GLDisplay</a><span>)</span>
+–
+</div>
+<p>a <a href="gl/gstgldisplay.html#GstGLDisplay">GstGL.GLDisplay</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>data</code></em></i>
+<span>(</span><a title="variadic" href="https://docs.python.org/dev/tutorial/controlflow.html#arbitrary-argument-lists">variadic</a><span>)</span>
+–
+</div>
+<p>some data to pass to <em>compare_func</em></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>compare_func</code></em></i>
+<span>(</span><a title="GLib.CompareFunc" href="https://docs.gtk.org/glib/callback.CompareFunc.html">GLib.CompareFunc</a><span>)</span>
+–
+</div>
+<p>a comparison function to run</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GstGL.GLWindow" href="gl/gstglwindow.html#GstGLWindow">GstGL.GLWindow</a><span>)</span>
+–
+			</div>
+							<p>The first <a href="gl/gstglwindow.html#GstGLWindow">GstGL.GLWindow</a> that causes a match
+from <em>compare_func</em></p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.12
+		</p>
+	<p>
+	<b>deprecated</b>			: 1.18: Use gst_gl_display_retrieve_window() instead.
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_gl_display_get_gl_api">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_gl_display_get_gl_api">
+	<i>gst_gl_display_get_gl_api</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GstGLAPI" href="gl/gstglapi.html#GstGLAPI">GstGLAPI</a>
+gst_gl_display_get_gl_api (<a title="GstGLDisplay" href="gl/gstgldisplay.html#GstGLDisplay">GstGLDisplay</a> * display)</pre>
+
+<p>see <a href="gl/gstgldisplay.html#gst_gl_display_filter_gl_api">gst_gl_display_filter_gl_api</a> for what the returned value represents</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>display</code></em></i>
+–
+</div>
+<p>a <a href="gl/gstgldisplay.html#GstGLDisplay">GstGLDisplay</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p>the <a href="gl/gstglapi.html#GstGLAPI">GstGLAPI</a> configured for <em>display</em></p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_gl_display_get_gl_api">
+	<i>GstGL.GLDisplay.prototype.get_gl_api</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstGL.GLDisplay.prototype.get_gl_api(): {
+    // javascript wrapper for 'gst_gl_display_get_gl_api'
+}</code></pre>
+
+<p>see <a href="gl/gstgldisplay.html#gst_gl_display_filter_gl_api">GstGL.GLDisplay.prototype.filter_gl_api</a> for what the returned value represents</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>display</code></em></i>
+<span>(</span><a title="GstGL.GLDisplay" href="gl/gstgldisplay.html#GstGLDisplay">GstGL.GLDisplay</a><span>)</span>
+–
+</div>
+<p>a <a href="gl/gstgldisplay.html#GstGLDisplay">GstGL.GLDisplay</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GstGL.GLAPI" href="gl/gstglapi.html#GstGLAPI">GstGL.GLAPI</a><span>)</span>
+–
+			</div>
+							<p>the <a href="gl/gstglapi.html#GstGLAPI">GstGL.GLAPI</a> configured for <em>display</em></p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_gl_display_get_gl_api">
+	<i>GstGL.GLDisplay.get_gl_api</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstGL.GLDisplay.get_gl_api (self):
+    #python wrapper for 'gst_gl_display_get_gl_api'</code></pre>
+
+<p>see <a href="gl/gstgldisplay.html#gst_gl_display_filter_gl_api">GstGL.GLDisplay.filter_gl_api</a> for what the returned value represents</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>display</code></em></i>
+<span>(</span><a title="GstGL.GLDisplay" href="gl/gstgldisplay.html#GstGLDisplay">GstGL.GLDisplay</a><span>)</span>
+–
+</div>
+<p>a <a href="gl/gstgldisplay.html#GstGLDisplay">GstGL.GLDisplay</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GstGL.GLAPI" href="gl/gstglapi.html#GstGLAPI">GstGL.GLAPI</a><span>)</span>
+–
+			</div>
+							<p>the <a href="gl/gstglapi.html#GstGLAPI">GstGL.GLAPI</a> configured for <em>display</em></p>
+
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_gl_display_get_gl_api_unlocked">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_gl_display_get_gl_api_unlocked">
+	<i>gst_gl_display_get_gl_api_unlocked</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GstGLAPI" href="gl/gstglapi.html#GstGLAPI">GstGLAPI</a>
+gst_gl_display_get_gl_api_unlocked (<a title="GstGLDisplay" href="gl/gstgldisplay.html#GstGLDisplay">GstGLDisplay</a> * display)</pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>display</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_gl_display_get_gl_api_unlocked">
+	<i>GstGL.GLDisplay.prototype.get_gl_api_unlocked</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstGL.GLDisplay.prototype.get_gl_api_unlocked(): {
+    // javascript wrapper for 'gst_gl_display_get_gl_api_unlocked'
+}</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>display</code></em></i>
+<span>(</span><a title="GstGL.GLDisplay" href="gl/gstgldisplay.html#GstGLDisplay">GstGL.GLDisplay</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GstGL.GLAPI" href="gl/gstglapi.html#GstGLAPI">GstGL.GLAPI</a><span>)</span>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_gl_display_get_gl_api_unlocked">
+	<i>GstGL.GLDisplay.get_gl_api_unlocked</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstGL.GLDisplay.get_gl_api_unlocked (self):
+    #python wrapper for 'gst_gl_display_get_gl_api_unlocked'</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>display</code></em></i>
+<span>(</span><a title="GstGL.GLDisplay" href="gl/gstgldisplay.html#GstGLDisplay">GstGL.GLDisplay</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GstGL.GLAPI" href="gl/gstglapi.html#GstGLAPI">GstGL.GLAPI</a><span>)</span>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.6;" id="gst_gl_display_get_gl_context_for_thread">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_gl_display_get_gl_context_for_thread">
+	<i>gst_gl_display_get_gl_context_for_thread</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GstGLContext" href="gl/gstglcontext.html#GstGLContext">GstGLContext</a> *
+gst_gl_display_get_gl_context_for_thread (<a title="GstGLDisplay" href="gl/gstgldisplay.html#GstGLDisplay">GstGLDisplay</a> * display,
+                                          <a title="GThread" href="https://docs.gtk.org/glib/struct.Thread.html">GThread</a> * thread)</pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>display</code></em></i>
+–
+</div>
+<p>a <a href="gl/gstgldisplay.html#GstGLDisplay">GstGLDisplay</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>thread</code></em></i>
+–
+</div>
+<p>a <a href="https://docs.gtk.org/glib/struct.Thread.html">GThread</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span>
+<span class="annotation">[<abbr title="Free data after the code is done"><span class="acronym">transfer: full</span></abbr>]</span><span class="annotation">[<abbr title="NULL may be passed to the value"><span class="acronym">nullable</span></abbr>]</span><span>)</span>
+–
+			</div>
+							<p>the <a href="gl/gstglcontext.html#GstGLContext">GstGLContext</a> current on <em>thread</em> or <a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#NULL:CAPS">NULL</a></p>
+<p>Must be called with the object lock held.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.6
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_gl_display_get_gl_context_for_thread">
+	<i>GstGL.GLDisplay.prototype.get_gl_context_for_thread</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstGL.GLDisplay.prototype.get_gl_context_for_thread(thread: <a title="GThread (not introspectable)" href="https://docs.gtk.org/glib/struct.Thread.html">GThread (not introspectable)</a>): {
+    // javascript wrapper for 'gst_gl_display_get_gl_context_for_thread'
+}</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>display</code></em></i>
+<span>(</span><a title="GstGL.GLDisplay" href="gl/gstgldisplay.html#GstGLDisplay">GstGL.GLDisplay</a><span>)</span>
+–
+</div>
+<p>a <a href="gl/gstgldisplay.html#GstGLDisplay">GstGL.GLDisplay</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>thread</code></em></i>
+<span>(</span><a title="GThread (not introspectable)" href="https://docs.gtk.org/glib/struct.Thread.html">GThread (not introspectable)</a><span>)</span>
+–
+</div>
+<p>a <a href="https://docs.gtk.org/glib/struct.Thread.html">GThread (not introspectable)</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GstGL.GLContext" href="gl/gstglcontext.html#GstGLContext">GstGL.GLContext</a><span>)</span>
+–
+			</div>
+							<p>the <a href="gl/gstglcontext.html#GstGLContext">GstGL.GLContext</a> current on <em>thread</em> or <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null">null</a></p>
+<p>Must be called with the object lock held.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.6
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_gl_display_get_gl_context_for_thread">
+	<i>GstGL.GLDisplay.get_gl_context_for_thread</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstGL.GLDisplay.get_gl_context_for_thread (self, thread):
+    #python wrapper for 'gst_gl_display_get_gl_context_for_thread'</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>display</code></em></i>
+<span>(</span><a title="GstGL.GLDisplay" href="gl/gstgldisplay.html#GstGLDisplay">GstGL.GLDisplay</a><span>)</span>
+–
+</div>
+<p>a <a href="gl/gstgldisplay.html#GstGLDisplay">GstGL.GLDisplay</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>thread</code></em></i>
+<span>(</span><a title="GThread (not introspectable)" href="https://docs.gtk.org/glib/struct.Thread.html">GThread (not introspectable)</a><span>)</span>
+–
+</div>
+<p>a <a href="https://docs.gtk.org/glib/struct.Thread.html">GThread (not introspectable)</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GstGL.GLContext" href="gl/gstglcontext.html#GstGLContext">GstGL.GLContext</a><span>)</span>
+–
+			</div>
+							<p>the <a href="gl/gstglcontext.html#GstGLContext">GstGL.GLContext</a> current on <em>thread</em> or <a href="https://docs.python.org/3/library/constants.html#None">None</a></p>
+<p>Must be called with the object lock held.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.6
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.4;" id="gst_gl_display_get_handle">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_gl_display_get_handle">
+	<i>gst_gl_display_get_handle</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="guintptr" href="https://docs.gtk.org/glib/types.html#guintptr">guintptr</a>
+gst_gl_display_get_handle (<a title="GstGLDisplay" href="gl/gstgldisplay.html#GstGLDisplay">GstGLDisplay</a> * display)</pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>display</code></em></i>
+–
+</div>
+<p>a <a href="gl/gstgldisplay.html#GstGLDisplay">GstGLDisplay</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p>the native handle for the display</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.4
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_gl_display_get_handle">
+	<i>GstGL.GLDisplay.prototype.get_handle</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstGL.GLDisplay.prototype.get_handle(): {
+    // javascript wrapper for 'gst_gl_display_get_handle'
+}</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>display</code></em></i>
+<span>(</span><a title="GstGL.GLDisplay" href="gl/gstgldisplay.html#GstGLDisplay">GstGL.GLDisplay</a><span>)</span>
+–
+</div>
+<p>a <a href="gl/gstgldisplay.html#GstGLDisplay">GstGL.GLDisplay</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+			</div>
+							<p>the native handle for the display</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.4
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_gl_display_get_handle">
+	<i>GstGL.GLDisplay.get_handle</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstGL.GLDisplay.get_handle (self):
+    #python wrapper for 'gst_gl_display_get_handle'</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>display</code></em></i>
+<span>(</span><a title="GstGL.GLDisplay" href="gl/gstgldisplay.html#GstGLDisplay">GstGL.GLDisplay</a><span>)</span>
+–
+</div>
+<p>a <a href="gl/gstgldisplay.html#GstGLDisplay">GstGL.GLDisplay</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+			</div>
+							<p>the native handle for the display</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.4
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.4;" id="gst_gl_display_get_handle_type">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_gl_display_get_handle_type">
+	<i>gst_gl_display_get_handle_type</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GstGLDisplayType" href="gl/gstgldisplay.html#GstGLDisplayType">GstGLDisplayType</a>
+gst_gl_display_get_handle_type (<a title="GstGLDisplay" href="gl/gstgldisplay.html#GstGLDisplay">GstGLDisplay</a> * display)</pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>display</code></em></i>
+–
+</div>
+<p>a <a href="gl/gstgldisplay.html#GstGLDisplay">GstGLDisplay</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p>the <a href="gl/gstgldisplay.html#GstGLDisplayType">GstGLDisplayType</a> of <em>display</em></p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.4
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_gl_display_get_handle_type">
+	<i>GstGL.GLDisplay.prototype.get_handle_type</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstGL.GLDisplay.prototype.get_handle_type(): {
+    // javascript wrapper for 'gst_gl_display_get_handle_type'
+}</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>display</code></em></i>
+<span>(</span><a title="GstGL.GLDisplay" href="gl/gstgldisplay.html#GstGLDisplay">GstGL.GLDisplay</a><span>)</span>
+–
+</div>
+<p>a <a href="gl/gstgldisplay.html#GstGLDisplay">GstGL.GLDisplay</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GstGL.GLDisplayType" href="gl/gstgldisplay.html#GstGLDisplayType">GstGL.GLDisplayType</a><span>)</span>
+–
+			</div>
+							<p>the <a href="gl/gstgldisplay.html#GstGLDisplayType">GstGL.GLDisplayType</a> of <em>display</em></p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.4
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_gl_display_get_handle_type">
+	<i>GstGL.GLDisplay.get_handle_type</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstGL.GLDisplay.get_handle_type (self):
+    #python wrapper for 'gst_gl_display_get_handle_type'</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>display</code></em></i>
+<span>(</span><a title="GstGL.GLDisplay" href="gl/gstgldisplay.html#GstGLDisplay">GstGL.GLDisplay</a><span>)</span>
+–
+</div>
+<p>a <a href="gl/gstgldisplay.html#GstGLDisplay">GstGL.GLDisplay</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GstGL.GLDisplayType" href="gl/gstgldisplay.html#GstGLDisplayType">GstGL.GLDisplayType</a><span>)</span>
+–
+			</div>
+							<p>the <a href="gl/gstgldisplay.html#GstGLDisplayType">GstGL.GLDisplayType</a> of <em>display</em></p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.4
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.18;" id="gst_gl_display_remove_context">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_gl_display_remove_context">
+	<i>gst_gl_display_remove_context</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+gst_gl_display_remove_context (<a title="GstGLDisplay" href="gl/gstgldisplay.html#GstGLDisplay">GstGLDisplay</a> * display,
+                               <a title="GstGLContext" href="gl/gstglcontext.html#GstGLContext">GstGLContext</a> * context)</pre>
+
+<p>Must be called with the object lock held.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>display</code></em></i>
+–
+</div>
+<p>a <a href="gl/gstgldisplay.html#GstGLDisplay">GstGLDisplay</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>context</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="Don't free data after the code is done"><span class="acronym">transfer: none</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>the <a href="gl/gstglcontext.html#GstGLContext">GstGLContext</a> to remove</p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_gl_display_remove_context">
+	<i>GstGL.GLDisplay.prototype.remove_context</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstGL.GLDisplay.prototype.remove_context(context: <a title="GstGL.GLContext" href="gl/gstglcontext.html#GstGLContext">GstGL.GLContext</a>): {
+    // javascript wrapper for 'gst_gl_display_remove_context'
+}</code></pre>
+
+<p>Must be called with the object lock held.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>display</code></em></i>
+<span>(</span><a title="GstGL.GLDisplay" href="gl/gstgldisplay.html#GstGLDisplay">GstGL.GLDisplay</a><span>)</span>
+–
+</div>
+<p>a <a href="gl/gstgldisplay.html#GstGLDisplay">GstGL.GLDisplay</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>context</code></em></i>
+<span>(</span><a title="GstGL.GLContext" href="gl/gstglcontext.html#GstGLContext">GstGL.GLContext</a><span>)</span>
+–
+</div>
+<p>the <a href="gl/gstglcontext.html#GstGLContext">GstGL.GLContext</a> to remove</p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_gl_display_remove_context">
+	<i>GstGL.GLDisplay.remove_context</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstGL.GLDisplay.remove_context (self, context):
+    #python wrapper for 'gst_gl_display_remove_context'</code></pre>
+
+<p>Must be called with the object lock held.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>display</code></em></i>
+<span>(</span><a title="GstGL.GLDisplay" href="gl/gstgldisplay.html#GstGLDisplay">GstGL.GLDisplay</a><span>)</span>
+–
+</div>
+<p>a <a href="gl/gstgldisplay.html#GstGLDisplay">GstGL.GLDisplay</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>context</code></em></i>
+<span>(</span><a title="GstGL.GLContext" href="gl/gstglcontext.html#GstGLContext">GstGL.GLContext</a><span>)</span>
+–
+</div>
+<p>the <a href="gl/gstglcontext.html#GstGLContext">GstGL.GLContext</a> to remove</p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.12;" id="gst_gl_display_remove_window">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_gl_display_remove_window">
+	<i>gst_gl_display_remove_window</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a>
+gst_gl_display_remove_window (<a title="GstGLDisplay" href="gl/gstgldisplay.html#GstGLDisplay">GstGLDisplay</a> * display,
+                              <a title="GstGLWindow" href="gl/gstglwindow.html#GstGLWindow">GstGLWindow</a> * window)</pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>display</code></em></i>
+–
+</div>
+<p>a <a href="gl/gstgldisplay.html#GstGLDisplay">GstGLDisplay</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>window</code></em></i>
+–
+</div>
+<p>a <a href="gl/gstglwindow.html#GstGLWindow">GstGLWindow</a> to remove</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p>if <em>window</em> could be removed from <em>display</em></p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.12
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_gl_display_remove_window">
+	<i>GstGL.GLDisplay.prototype.remove_window</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstGL.GLDisplay.prototype.remove_window(window: <a title="GstGL.GLWindow" href="gl/gstglwindow.html#GstGLWindow">GstGL.GLWindow</a>): {
+    // javascript wrapper for 'gst_gl_display_remove_window'
+}</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>display</code></em></i>
+<span>(</span><a title="GstGL.GLDisplay" href="gl/gstgldisplay.html#GstGLDisplay">GstGL.GLDisplay</a><span>)</span>
+–
+</div>
+<p>a <a href="gl/gstgldisplay.html#GstGLDisplay">GstGL.GLDisplay</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>window</code></em></i>
+<span>(</span><a title="GstGL.GLWindow" href="gl/gstglwindow.html#GstGLWindow">GstGL.GLWindow</a><span>)</span>
+–
+</div>
+<p>a <a href="gl/gstglwindow.html#GstGLWindow">GstGL.GLWindow</a> to remove</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+			</div>
+							<p>if <em>window</em> could be removed from <em>display</em></p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.12
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_gl_display_remove_window">
+	<i>GstGL.GLDisplay.remove_window</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstGL.GLDisplay.remove_window (self, window):
+    #python wrapper for 'gst_gl_display_remove_window'</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>display</code></em></i>
+<span>(</span><a title="GstGL.GLDisplay" href="gl/gstgldisplay.html#GstGLDisplay">GstGL.GLDisplay</a><span>)</span>
+–
+</div>
+<p>a <a href="gl/gstgldisplay.html#GstGLDisplay">GstGL.GLDisplay</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>window</code></em></i>
+<span>(</span><a title="GstGL.GLWindow" href="gl/gstglwindow.html#GstGLWindow">GstGL.GLWindow</a><span>)</span>
+–
+</div>
+<p>a <a href="gl/gstglwindow.html#GstGLWindow">GstGL.GLWindow</a> to remove</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a><span>)</span>
+–
+			</div>
+							<p>if <em>window</em> could be removed from <em>display</em></p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.12
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.18;" id="gst_gl_display_retrieve_window">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_gl_display_retrieve_window">
+	<i>gst_gl_display_retrieve_window</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GstGLWindow" href="gl/gstglwindow.html#GstGLWindow">GstGLWindow</a> *
+gst_gl_display_retrieve_window (<a title="GstGLDisplay" href="gl/gstgldisplay.html#GstGLDisplay">GstGLDisplay</a> * display,
+                                <a title="gpointer" href="https://docs.gtk.org/glib/types.html#gpointer">gpointer</a> data,
+                                <a title="GCompareFunc" href="https://docs.gtk.org/glib/callback.CompareFunc.html">GCompareFunc</a> compare_func)</pre>
+
+<p>Execute <em>compare_func</em> over the list of windows stored by <em>display</em>.  The
+first argument to <em>compare_func</em> is the <a href="gl/gstglwindow.html#GstGLWindow">GstGLWindow</a> being checked and the
+second argument is <em>data</em>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>display</code></em></i>
+–
+</div>
+<p>a <a href="gl/gstgldisplay.html#GstGLDisplay">GstGLDisplay</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>data</code></em></i>
+–
+</div>
+<p>some data to pass to <em>compare_func</em></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>compare_func</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="The callback is valid only during the call to the method"><span class="acronym">scope call</span></abbr>]</span><span class="annotation">[<abbr title="This parameter is a closure for callbacks, many bindings can pass NULL to data"><span class="acronym">closure</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>a comparison function to run</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span>
+<span class="annotation">[<abbr title="Free data after the code is done"><span class="acronym">transfer: full</span></abbr>]</span><span class="annotation">[<abbr title="NULL may be passed to the value"><span class="acronym">nullable</span></abbr>]</span><span>)</span>
+–
+			</div>
+							<p>The first <a href="gl/gstglwindow.html#GstGLWindow">GstGLWindow</a> that causes a match
+from <em>compare_func</em></p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_gl_display_retrieve_window">
+	<i>GstGL.GLDisplay.prototype.retrieve_window</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstGL.GLDisplay.prototype.retrieve_window(data: <a title="Object" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>, compare_func: <a title="GLib.CompareFunc" href="https://docs.gtk.org/glib/callback.CompareFunc.html">GLib.CompareFunc</a>): {
+    // javascript wrapper for 'gst_gl_display_retrieve_window'
+}</code></pre>
+
+<p>Execute <em>compare_func</em> over the list of windows stored by <em>display</em>.  The
+first argument to <em>compare_func</em> is the <a href="gl/gstglwindow.html#GstGLWindow">GstGL.GLWindow</a> being checked and the
+second argument is <em>data</em>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>display</code></em></i>
+<span>(</span><a title="GstGL.GLDisplay" href="gl/gstgldisplay.html#GstGLDisplay">GstGL.GLDisplay</a><span>)</span>
+–
+</div>
+<p>a <a href="gl/gstgldisplay.html#GstGLDisplay">GstGL.GLDisplay</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>data</code></em></i>
+<span>(</span><a title="Object" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a><span>)</span>
+–
+</div>
+<p>some data to pass to <em>compare_func</em></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>compare_func</code></em></i>
+<span>(</span><a title="GLib.CompareFunc" href="https://docs.gtk.org/glib/callback.CompareFunc.html">GLib.CompareFunc</a><span>)</span>
+–
+</div>
+<p>a comparison function to run</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GstGL.GLWindow" href="gl/gstglwindow.html#GstGLWindow">GstGL.GLWindow</a><span>)</span>
+–
+			</div>
+							<p>The first <a href="gl/gstglwindow.html#GstGLWindow">GstGL.GLWindow</a> that causes a match
+from <em>compare_func</em></p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_gl_display_retrieve_window">
+	<i>GstGL.GLDisplay.retrieve_window</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstGL.GLDisplay.retrieve_window (self, *data, compare_func):
+    #python wrapper for 'gst_gl_display_retrieve_window'</code></pre>
+
+<p>Execute <em>compare_func</em> over the list of windows stored by <em>display</em>.  The
+first argument to <em>compare_func</em> is the <a href="gl/gstglwindow.html#GstGLWindow">GstGL.GLWindow</a> being checked and the
+second argument is <em>data</em>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>display</code></em></i>
+<span>(</span><a title="GstGL.GLDisplay" href="gl/gstgldisplay.html#GstGLDisplay">GstGL.GLDisplay</a><span>)</span>
+–
+</div>
+<p>a <a href="gl/gstgldisplay.html#GstGLDisplay">GstGL.GLDisplay</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>data</code></em></i>
+<span>(</span><a title="variadic" href="https://docs.python.org/dev/tutorial/controlflow.html#arbitrary-argument-lists">variadic</a><span>)</span>
+–
+</div>
+<p>some data to pass to <em>compare_func</em></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>compare_func</code></em></i>
+<span>(</span><a title="GLib.CompareFunc" href="https://docs.gtk.org/glib/callback.CompareFunc.html">GLib.CompareFunc</a><span>)</span>
+–
+</div>
+<p>a comparison function to run</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GstGL.GLWindow" href="gl/gstglwindow.html#GstGLWindow">GstGL.GLWindow</a><span>)</span>
+–
+			</div>
+							<p>The first <a href="gl/gstglwindow.html#GstGLWindow">GstGL.GLWindow</a> that causes a match
+from <em>compare_func</em></p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+
+            <h3 class="symbol_section">Signals</h3>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstGLDisplay::create-context">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstGLDisplay::create-context">
+	<i>create-context</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GstGLContext" href="gl/gstglcontext.html#GstGLContext">GstGLContext</a> *
+create_context_callback (<a title="GstGLDisplay" href="gl/gstgldisplay.html#GstGLDisplay">GstGLDisplay</a> * self,
+                         <a title="GstGLContext" href="gl/gstglcontext.html#GstGLContext">GstGLContext</a> * context,
+                         <a title="gpointer" href="https://docs.gtk.org/glib/types.html#gpointer">gpointer</a> user_data)</pre>
+
+<p>Overrides the <em>GstGLContext</em> creation mechanism.
+It can be called in any thread and it is emitted with
+display's object lock held.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>context</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="Don't free data after the code is done"><span class="acronym">transfer: none</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>other context to share resources with.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>user_data</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span>
+<span class="annotation">[<abbr title="Free data after the code is done"><span class="acronym">transfer: full</span></abbr>]</span><span class="annotation">[<abbr title="NULL may be passed to the value"><span class="acronym">nullable</span></abbr>]</span><span>)</span>
+–
+			</div>
+							<p>the new context.</p>
+
+					</div>
+	</div>
+
+
+<p>
+	<b>Flags:</b>	
+	
+		
+				<a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS">Run Last</a>
+			
+</p>
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GstGLDisplay::create-context">
+	<i>create-context</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function create_context_callback(self: <a title="GstGL.GLDisplay" href="gl/gstgldisplay.html#GstGLDisplay">GstGL.GLDisplay</a>, context: <a title="GstGL.GLContext" href="gl/gstglcontext.html#GstGLContext">GstGL.GLContext</a>, user_data: <a title="Object" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>): {
+    // javascript callback for the 'create-context' signal
+}</code></pre>
+
+<p>Overrides the <em>GstGLContext</em> creation mechanism.
+It can be called in any thread and it is emitted with
+display's object lock held.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+<span>(</span><a title="GstGL.GLDisplay" href="gl/gstgldisplay.html#GstGLDisplay">GstGL.GLDisplay</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>context</code></em></i>
+<span>(</span><a title="GstGL.GLContext" href="gl/gstglcontext.html#GstGLContext">GstGL.GLContext</a><span>)</span>
+–
+</div>
+<p>other context to share resources with.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>user_data</code></em></i>
+<span>(</span><a title="Object" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GstGL.GLContext" href="gl/gstglcontext.html#GstGLContext">GstGL.GLContext</a><span>)</span>
+–
+			</div>
+							<p>the new context.</p>
+
+					</div>
+	</div>
+
+
+<p>
+	<b>Flags:</b>	
+	
+		
+				<a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS">Run Last</a>
+			
+</p>
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GstGLDisplay::create-context">
+	<i>create-context</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def create_context_callback (self, context, *user_data):
+    #python callback for the 'create-context' signal</code></pre>
+
+<p>Overrides the <em>GstGLContext</em> creation mechanism.
+It can be called in any thread and it is emitted with
+display's object lock held.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+<span>(</span><a title="GstGL.GLDisplay" href="gl/gstgldisplay.html#GstGLDisplay">GstGL.GLDisplay</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>context</code></em></i>
+<span>(</span><a title="GstGL.GLContext" href="gl/gstglcontext.html#GstGLContext">GstGL.GLContext</a><span>)</span>
+–
+</div>
+<p>other context to share resources with.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>user_data</code></em></i>
+<span>(</span><a title="variadic" href="https://docs.python.org/dev/tutorial/controlflow.html#arbitrary-argument-lists">variadic</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GstGL.GLContext" href="gl/gstglcontext.html#GstGLContext">GstGL.GLContext</a><span>)</span>
+–
+			</div>
+							<p>the new context.</p>
+
+					</div>
+	</div>
+
+
+<p>
+	<b>Flags:</b>	
+	
+		
+				<a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS">Run Last</a>
+			
+</p>
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+
+            <h3 class="symbol_section">Virtual Methods</h3>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstGLDisplayClass::create_window">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstGLDisplayClass::create_window">
+	<i>create_window</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GstGLWindow" href="gl/gstglwindow.html#GstGLWindow">GstGLWindow</a> *
+create_window (<a title="GstGLDisplay" href="gl/gstgldisplay.html#GstGLDisplay">GstGLDisplay</a> * display)</pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>display</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GstGLDisplayClass::create_window">
+	<i>vfunc_create_window</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function vfunc_create_window(display: <a title="GstGL.GLDisplay" href="gl/gstgldisplay.html#GstGLDisplay">GstGL.GLDisplay</a>): {
+    // javascript implementation of the 'create_window' virtual method
+}</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>display</code></em></i>
+<span>(</span><a title="GstGL.GLDisplay" href="gl/gstgldisplay.html#GstGLDisplay">GstGL.GLDisplay</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GstGL.GLWindow" href="gl/gstglwindow.html#GstGLWindow">GstGL.GLWindow</a><span>)</span>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GstGLDisplayClass::create_window">
+	<i>do_create_window</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def do_create_window (display):
+    #python implementation of the 'create_window' virtual method</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>display</code></em></i>
+<span>(</span><a title="GstGL.GLDisplay" href="gl/gstgldisplay.html#GstGLDisplay">GstGL.GLDisplay</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GstGL.GLWindow" href="gl/gstglwindow.html#GstGLWindow">GstGL.GLWindow</a><span>)</span>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstGLDisplayClass::get_handle">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstGLDisplayClass::get_handle">
+	<i>get_handle</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="guintptr" href="https://docs.gtk.org/glib/types.html#guintptr">guintptr</a>
+get_handle (<a title="GstGLDisplay" href="gl/gstgldisplay.html#GstGLDisplay">GstGLDisplay</a> * display)</pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>display</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GstGLDisplayClass::get_handle">
+	<i>vfunc_get_handle</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function vfunc_get_handle(display: <a title="GstGL.GLDisplay" href="gl/gstgldisplay.html#GstGLDisplay">GstGL.GLDisplay</a>): {
+    // javascript implementation of the 'get_handle' virtual method
+}</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>display</code></em></i>
+<span>(</span><a title="GstGL.GLDisplay" href="gl/gstgldisplay.html#GstGLDisplay">GstGL.GLDisplay</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GstGLDisplayClass::get_handle">
+	<i>do_get_handle</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def do_get_handle (display):
+    #python implementation of the 'get_handle' virtual method</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>display</code></em></i>
+<span>(</span><a title="GstGL.GLDisplay" href="gl/gstgldisplay.html#GstGLDisplay">GstGL.GLDisplay</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+
+        
+
+            <h2 class="symbol_section">Functions</h2>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.4;" id="gst_context_get_gl_display">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="gst_context_get_gl_display">
+	<i>gst_context_get_gl_display</i>
+</h3>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a>
+gst_context_get_gl_display (<a title="GstContext" href="gstreamer/gstcontext.html#GstContext">GstContext</a> * context,
+                            <a title="GstGLDisplay" href="gl/gstgldisplay.html#GstGLDisplay">GstGLDisplay</a> ** display)</pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>context</code></em></i>
+–
+</div>
+<p>a <a href="gstreamer/gstcontext.html#GstContext">GstContext</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>display</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="Parameter for returning results"><span class="acronym">out</span></abbr>]</span><span class="annotation">[<abbr title="NULL may be passed instead of a pointer to a location"><span class="acronym">optional</span></abbr>]</span><span class="annotation">[<abbr title="NULL may be passed to the value"><span class="acronym">nullable</span></abbr>]</span><span class="annotation">[<abbr title="Free data after the code is done"><span class="acronym">transfer: full</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>resulting <a href="gl/gstgldisplay.html#GstGLDisplay">GstGLDisplay</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p>Whether <em>display</em> was in <em>context</em></p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.4
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3 data-hotdoc-id="gst_context_get_gl_display">
+	<i>GstGL.prototype.context_get_gl_display</i>
+</h3>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstGL.prototype.context_get_gl_display(context: <a title="Gst.Context" href="gstreamer/gstcontext.html#GstContext">Gst.Context</a>): {
+    // javascript wrapper for 'gst_context_get_gl_display'
+}</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>context</code></em></i>
+<span>(</span><a title="Gst.Context" href="gstreamer/gstcontext.html#GstContext">Gst.Context</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gstcontext.html#GstContext">Gst.Context</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<p><b>Returns a tuple made of:</b></p>
+				
+<div class="symbol-detail">
+	<div>
+		<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>
+<span>)</span>
+–
+	</div>
+			<p>Whether <em>display</em> was in <em>context</em></p>
+
+	</div>
+
+				
+<div class="symbol-detail">
+	<div>
+				<i><em><code>display</code></em></i>
+		<span>(</span><a title="GstGL.GLDisplay" href="gl/gstgldisplay.html#GstGLDisplay">GstGL.GLDisplay</a>
+<span>)</span>
+–
+	</div>
+			<p>Whether <em>display</em> was in <em>context</em></p>
+
+	</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.4
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3 data-hotdoc-id="gst_context_get_gl_display">
+	<i>GstGL.context_get_gl_display</i>
+</h3>
+
+
+<pre class="python-prototype language-python">
+<code>def GstGL.context_get_gl_display (context):
+    #python wrapper for 'gst_context_get_gl_display'</code></pre>
+
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>context</code></em></i>
+<span>(</span><a title="Gst.Context" href="gstreamer/gstcontext.html#GstContext">Gst.Context</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gstcontext.html#GstContext">Gst.Context</a></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<p><b>Returns a tuple made of:</b></p>
+				
+<div class="symbol-detail">
+	<div>
+		<span>(</span><a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a>
+<span>)</span>
+–
+	</div>
+			<p>Whether <em>display</em> was in <em>context</em></p>
+
+	</div>
+
+				
+<div class="symbol-detail">
+	<div>
+				<i><em><code>display</code></em></i>
+		<span>(</span><a title="GstGL.GLDisplay" href="gl/gstgldisplay.html#GstGLDisplay">GstGL.GLDisplay</a>
+<span>)</span>
+–
+	</div>
+			<p>Whether <em>display</em> was in <em>context</em></p>
+
+	</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.4
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.4;" id="gst_context_set_gl_display">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="gst_context_set_gl_display">
+	<i>gst_context_set_gl_display</i>
+</h3>
+
+
+
+
+<pre class="c-prototype language-c">
+gst_context_set_gl_display (<a title="GstContext" href="gstreamer/gstcontext.html#GstContext">GstContext</a> * context,
+                            <a title="GstGLDisplay" href="gl/gstgldisplay.html#GstGLDisplay">GstGLDisplay</a> * display)</pre>
+
+<p>Sets <em>display</em> on <em>context</em></p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>context</code></em></i>
+–
+</div>
+<p>a <a href="gstreamer/gstcontext.html#GstContext">GstContext</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>display</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="Don't free data after the code is done"><span class="acronym">transfer: none</span></abbr>]</span><span class="annotation">[<abbr title="NULL may be passed to the value"><span class="acronym">nullable</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>resulting <a href="gl/gstgldisplay.html#GstGLDisplay">GstGLDisplay</a></p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.4
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3 data-hotdoc-id="gst_context_set_gl_display">
+	<i>GstGL.prototype.context_set_gl_display</i>
+</h3>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstGL.prototype.context_set_gl_display(context: <a title="Gst.Context" href="gstreamer/gstcontext.html#GstContext">Gst.Context</a>, display: <a title="GstGL.GLDisplay" href="gl/gstgldisplay.html#GstGLDisplay">GstGL.GLDisplay</a>): {
+    // javascript wrapper for 'gst_context_set_gl_display'
+}</code></pre>
+
+<p>Sets <em>display</em> on <em>context</em></p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>context</code></em></i>
+<span>(</span><a title="Gst.Context" href="gstreamer/gstcontext.html#GstContext">Gst.Context</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gstcontext.html#GstContext">Gst.Context</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>display</code></em></i>
+<span>(</span><a title="GstGL.GLDisplay" href="gl/gstgldisplay.html#GstGLDisplay">GstGL.GLDisplay</a><span>)</span>
+–
+</div>
+<p>resulting <a href="gl/gstgldisplay.html#GstGLDisplay">GstGL.GLDisplay</a></p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.4
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3 data-hotdoc-id="gst_context_set_gl_display">
+	<i>GstGL.context_set_gl_display</i>
+</h3>
+
+
+<pre class="python-prototype language-python">
+<code>def GstGL.context_set_gl_display (context, display):
+    #python wrapper for 'gst_context_set_gl_display'</code></pre>
+
+<p>Sets <em>display</em> on <em>context</em></p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>context</code></em></i>
+<span>(</span><a title="Gst.Context" href="gstreamer/gstcontext.html#GstContext">Gst.Context</a><span>)</span>
+–
+</div>
+<p>a <a href="gstreamer/gstcontext.html#GstContext">Gst.Context</a></p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>display</code></em></i>
+<span>(</span><a title="GstGL.GLDisplay" href="gl/gstgldisplay.html#GstGLDisplay">GstGL.GLDisplay</a><span>)</span>
+–
+</div>
+<p>resulting <a href="gl/gstgldisplay.html#GstGLDisplay">GstGL.GLDisplay</a></p>
+
+</div>
+
+			</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.4
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+
+            <h2 class="symbol_section">Function Macros</h2>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GST_GL_DISPLAY_CAST">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_GL_DISPLAY_CAST">
+	<i>GST_GL_DISPLAY_CAST</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_GL_DISPLAY_CAST(obj)        ((GstGLDisplay*)(obj))
+</pre>
+
+
+
+
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_gl_display_lock">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="gst_gl_display_lock">
+	<i>gst_gl_display_lock</i>
+</h3>
+
+
+<pre class="raw_code">
+#define gst_gl_display_lock(display)        GST_OBJECT_LOCK (display)
+</pre>
+
+
+
+
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="gst_gl_display_unlock">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="gst_gl_display_unlock">
+	<i>gst_gl_display_unlock</i>
+</h3>
+
+
+<pre class="raw_code">
+#define gst_gl_display_unlock(display)      GST_OBJECT_UNLOCK (display)
+</pre>
+
+
+
+
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+</div>
+<div class="gi-symbol gi-symbol-python">
+</div>
+
+</div>
+
+
+            <h2 class="symbol_section">Enumerations</h2>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstGLDisplayType">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GstGLDisplayType">
+	<i>GstGLDisplayType</i>
+</h3>
+
+
+
+
+
+	<div class="members-container">
+		<h5>Members</h5>
+					
+<div class="symbol-detail" data-hotdoc-id="GST_GL_DISPLAY_TYPE_NONE">
+	<div>
+		<i><em><code>GST_GL_DISPLAY_TYPE_NONE</code></em></i>
+		(<span class="value">0</span>)
+		–
+	</div>
+			<p>no display type</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_GL_DISPLAY_TYPE_X11">
+	<div>
+		<i><em><code>GST_GL_DISPLAY_TYPE_X11</code></em></i>
+		(<span class="value">1</span>)
+		–
+	</div>
+			<p>X11 display</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_GL_DISPLAY_TYPE_WAYLAND">
+	<div>
+		<i><em><code>GST_GL_DISPLAY_TYPE_WAYLAND</code></em></i>
+		(<span class="value">2</span>)
+		–
+	</div>
+			<p>Wayland display</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_GL_DISPLAY_TYPE_COCOA">
+	<div>
+		<i><em><code>GST_GL_DISPLAY_TYPE_COCOA</code></em></i>
+		(<span class="value">4</span>)
+		–
+	</div>
+			<p>Cocoa display</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_GL_DISPLAY_TYPE_WIN32">
+	<div>
+		<i><em><code>GST_GL_DISPLAY_TYPE_WIN32</code></em></i>
+		(<span class="value">8</span>)
+		–
+	</div>
+			<p>Win32 display</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_GL_DISPLAY_TYPE_DISPMANX">
+	<div>
+		<i><em><code>GST_GL_DISPLAY_TYPE_DISPMANX</code></em></i>
+		(<span class="value">16</span>)
+		–
+	</div>
+			<p>Dispmanx display</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_GL_DISPLAY_TYPE_EGL">
+	<div>
+		<i><em><code>GST_GL_DISPLAY_TYPE_EGL</code></em></i>
+		(<span class="value">32</span>)
+		–
+	</div>
+			<p>EGL display</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_GL_DISPLAY_TYPE_VIV_FB">
+	<div>
+		<i><em><code>GST_GL_DISPLAY_TYPE_VIV_FB</code></em></i>
+		(<span class="value">64</span>)
+		–
+	</div>
+			<p>Vivante Framebuffer display</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_GL_DISPLAY_TYPE_GBM">
+	<div>
+		<i><em><code>GST_GL_DISPLAY_TYPE_GBM</code></em></i>
+		(<span class="value">128</span>)
+		–
+	</div>
+			<p>Mesa3D GBM display</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_GL_DISPLAY_TYPE_EGL_DEVICE">
+	<div>
+		<i><em><code>GST_GL_DISPLAY_TYPE_EGL_DEVICE</code></em></i>
+		(<span class="value">256</span>)
+		–
+	</div>
+			<p>EGLDevice display.</p>
+
+		(Since: 1.18)
+</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_GL_DISPLAY_TYPE_EAGL">
+	<div>
+		<i><em><code>GST_GL_DISPLAY_TYPE_EAGL</code></em></i>
+		(<span class="value">512</span>)
+		–
+	</div>
+			<p>EAGL display.</p>
+
+		(Since: 1.20)
+</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_GL_DISPLAY_TYPE_WINRT">
+	<div>
+		<i><em><code>GST_GL_DISPLAY_TYPE_WINRT</code></em></i>
+		(<span class="value">1024</span>)
+		–
+	</div>
+			<p>WinRT display.</p>
+
+		(Since: 1.20)
+</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_GL_DISPLAY_TYPE_ANDROID">
+	<div>
+		<i><em><code>GST_GL_DISPLAY_TYPE_ANDROID</code></em></i>
+		(<span class="value">2048</span>)
+		–
+	</div>
+			<p>Android display.</p>
+
+		(Since: 1.20)
+</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_GL_DISPLAY_TYPE_EGL_SURFACELESS">
+	<div>
+		<i><em><code>GST_GL_DISPLAY_TYPE_EGL_SURFACELESS</code></em></i>
+		(<span class="value">4096</span>)
+		–
+	</div>
+			<p>Mesa3D surfaceless display using the EGL_PLATFORM_SURFACELESS_MESA
+extension.</p>
+
+		(Since: 1.24)
+</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_GL_DISPLAY_TYPE_ANY">
+	<div>
+		<i><em><code>GST_GL_DISPLAY_TYPE_ANY</code></em></i>
+		(<span class="value">4294967295</span>)
+		–
+	</div>
+			<p>any display type</p>
+
+	</div>
+
+			</div>
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3 data-hotdoc-id="GstGLDisplayType">
+	<i>GstGL.GLDisplayType</i>
+</h3>
+
+
+
+
+
+	<div class="members-container">
+		<h5>Members</h5>
+					
+<div class="symbol-detail" data-hotdoc-id="GST_GL_DISPLAY_TYPE_NONE">
+	<div>
+		<i><em><code>GstGL.GLDisplayType.NONE</code></em></i>
+		(<span class="value">0</span>)
+		–
+	</div>
+			<p>no display type</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_GL_DISPLAY_TYPE_X11">
+	<div>
+		<i><em><code>GstGL.GLDisplayType.X11</code></em></i>
+		(<span class="value">1</span>)
+		–
+	</div>
+			<p>X11 display</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_GL_DISPLAY_TYPE_WAYLAND">
+	<div>
+		<i><em><code>GstGL.GLDisplayType.WAYLAND</code></em></i>
+		(<span class="value">2</span>)
+		–
+	</div>
+			<p>Wayland display</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_GL_DISPLAY_TYPE_COCOA">
+	<div>
+		<i><em><code>GstGL.GLDisplayType.COCOA</code></em></i>
+		(<span class="value">4</span>)
+		–
+	</div>
+			<p>Cocoa display</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_GL_DISPLAY_TYPE_WIN32">
+	<div>
+		<i><em><code>GstGL.GLDisplayType.WIN32</code></em></i>
+		(<span class="value">8</span>)
+		–
+	</div>
+			<p>Win32 display</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_GL_DISPLAY_TYPE_DISPMANX">
+	<div>
+		<i><em><code>GstGL.GLDisplayType.DISPMANX</code></em></i>
+		(<span class="value">16</span>)
+		–
+	</div>
+			<p>Dispmanx display</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_GL_DISPLAY_TYPE_EGL">
+	<div>
+		<i><em><code>GstGL.GLDisplayType.EGL</code></em></i>
+		(<span class="value">32</span>)
+		–
+	</div>
+			<p>EGL display</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_GL_DISPLAY_TYPE_VIV_FB">
+	<div>
+		<i><em><code>GstGL.GLDisplayType.VIV_FB</code></em></i>
+		(<span class="value">64</span>)
+		–
+	</div>
+			<p>Vivante Framebuffer display</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_GL_DISPLAY_TYPE_GBM">
+	<div>
+		<i><em><code>GstGL.GLDisplayType.GBM</code></em></i>
+		(<span class="value">128</span>)
+		–
+	</div>
+			<p>Mesa3D GBM display</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_GL_DISPLAY_TYPE_EGL_DEVICE">
+	<div>
+		<i><em><code>GstGL.GLDisplayType.EGL_DEVICE</code></em></i>
+		(<span class="value">256</span>)
+		–
+	</div>
+			<p>EGLDevice display.</p>
+
+		(Since: 1.18)
+</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_GL_DISPLAY_TYPE_EAGL">
+	<div>
+		<i><em><code>GstGL.GLDisplayType.EAGL</code></em></i>
+		(<span class="value">512</span>)
+		–
+	</div>
+			<p>EAGL display.</p>
+
+		(Since: 1.20)
+</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_GL_DISPLAY_TYPE_WINRT">
+	<div>
+		<i><em><code>GstGL.GLDisplayType.WINRT</code></em></i>
+		(<span class="value">1024</span>)
+		–
+	</div>
+			<p>WinRT display.</p>
+
+		(Since: 1.20)
+</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_GL_DISPLAY_TYPE_ANDROID">
+	<div>
+		<i><em><code>GstGL.GLDisplayType.ANDROID</code></em></i>
+		(<span class="value">2048</span>)
+		–
+	</div>
+			<p>Android display.</p>
+
+		(Since: 1.20)
+</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_GL_DISPLAY_TYPE_EGL_SURFACELESS">
+	<div>
+		<i><em><code>GstGL.GLDisplayType.EGL_SURFACELESS</code></em></i>
+		(<span class="value">4096</span>)
+		–
+	</div>
+			<p>Mesa3D surfaceless display using the EGL_PLATFORM_SURFACELESS_MESA
+extension.</p>
+
+		(Since: 1.24)
+</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_GL_DISPLAY_TYPE_ANY">
+	<div>
+		<i><em><code>GstGL.GLDisplayType.ANY</code></em></i>
+		(<span class="value">4294967295</span>)
+		–
+	</div>
+			<p>any display type</p>
+
+	</div>
+
+			</div>
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3 data-hotdoc-id="GstGLDisplayType">
+	<i>GstGL.GLDisplayType</i>
+</h3>
+
+
+
+
+
+	<div class="members-container">
+		<h5>Members</h5>
+					
+<div class="symbol-detail" data-hotdoc-id="GST_GL_DISPLAY_TYPE_NONE">
+	<div>
+		<i><em><code>GstGL.GLDisplayType.NONE</code></em></i>
+		(<span class="value">0</span>)
+		–
+	</div>
+			<p>no display type</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_GL_DISPLAY_TYPE_X11">
+	<div>
+		<i><em><code>GstGL.GLDisplayType.X11</code></em></i>
+		(<span class="value">1</span>)
+		–
+	</div>
+			<p>X11 display</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_GL_DISPLAY_TYPE_WAYLAND">
+	<div>
+		<i><em><code>GstGL.GLDisplayType.WAYLAND</code></em></i>
+		(<span class="value">2</span>)
+		–
+	</div>
+			<p>Wayland display</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_GL_DISPLAY_TYPE_COCOA">
+	<div>
+		<i><em><code>GstGL.GLDisplayType.COCOA</code></em></i>
+		(<span class="value">4</span>)
+		–
+	</div>
+			<p>Cocoa display</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_GL_DISPLAY_TYPE_WIN32">
+	<div>
+		<i><em><code>GstGL.GLDisplayType.WIN32</code></em></i>
+		(<span class="value">8</span>)
+		–
+	</div>
+			<p>Win32 display</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_GL_DISPLAY_TYPE_DISPMANX">
+	<div>
+		<i><em><code>GstGL.GLDisplayType.DISPMANX</code></em></i>
+		(<span class="value">16</span>)
+		–
+	</div>
+			<p>Dispmanx display</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_GL_DISPLAY_TYPE_EGL">
+	<div>
+		<i><em><code>GstGL.GLDisplayType.EGL</code></em></i>
+		(<span class="value">32</span>)
+		–
+	</div>
+			<p>EGL display</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_GL_DISPLAY_TYPE_VIV_FB">
+	<div>
+		<i><em><code>GstGL.GLDisplayType.VIV_FB</code></em></i>
+		(<span class="value">64</span>)
+		–
+	</div>
+			<p>Vivante Framebuffer display</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_GL_DISPLAY_TYPE_GBM">
+	<div>
+		<i><em><code>GstGL.GLDisplayType.GBM</code></em></i>
+		(<span class="value">128</span>)
+		–
+	</div>
+			<p>Mesa3D GBM display</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_GL_DISPLAY_TYPE_EGL_DEVICE">
+	<div>
+		<i><em><code>GstGL.GLDisplayType.EGL_DEVICE</code></em></i>
+		(<span class="value">256</span>)
+		–
+	</div>
+			<p>EGLDevice display.</p>
+
+		(Since: 1.18)
+</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_GL_DISPLAY_TYPE_EAGL">
+	<div>
+		<i><em><code>GstGL.GLDisplayType.EAGL</code></em></i>
+		(<span class="value">512</span>)
+		–
+	</div>
+			<p>EAGL display.</p>
+
+		(Since: 1.20)
+</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_GL_DISPLAY_TYPE_WINRT">
+	<div>
+		<i><em><code>GstGL.GLDisplayType.WINRT</code></em></i>
+		(<span class="value">1024</span>)
+		–
+	</div>
+			<p>WinRT display.</p>
+
+		(Since: 1.20)
+</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_GL_DISPLAY_TYPE_ANDROID">
+	<div>
+		<i><em><code>GstGL.GLDisplayType.ANDROID</code></em></i>
+		(<span class="value">2048</span>)
+		–
+	</div>
+			<p>Android display.</p>
+
+		(Since: 1.20)
+</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_GL_DISPLAY_TYPE_EGL_SURFACELESS">
+	<div>
+		<i><em><code>GstGL.GLDisplayType.EGL_SURFACELESS</code></em></i>
+		(<span class="value">4096</span>)
+		–
+	</div>
+			<p>Mesa3D surfaceless display using the EGL_PLATFORM_SURFACELESS_MESA
+extension.</p>
+
+		(Since: 1.24)
+</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_GL_DISPLAY_TYPE_ANY">
+	<div>
+		<i><em><code>GstGL.GLDisplayType.ANY</code></em></i>
+		(<span class="value">4294967295</span>)
+		–
+	</div>
+			<p>any display type</p>
+
+	</div>
+
+			</div>
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+
+            <h2 class="symbol_section">Constants</h2>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GST_GL_DISPLAY_CONTEXT_TYPE">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GST_GL_DISPLAY_CONTEXT_TYPE">
+	<i>GST_GL_DISPLAY_CONTEXT_TYPE</i>
+</h3>
+
+
+<pre class="raw_code">
+#define GST_GL_DISPLAY_CONTEXT_TYPE "gst.gl.GLDisplay"
+</pre>
+
+<p>The name used in <a href="gstreamer/gstcontext.html#GstContext">GstContext</a> queries for requesting a <a href="gl/gstgldisplay.html#GstGLDisplay">GstGLDisplay</a></p>
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3 data-hotdoc-id="GST_GL_DISPLAY_CONTEXT_TYPE">
+	<i>GstGL.GL_DISPLAY_CONTEXT_TYPE</i>
+</h3>
+
+
+<p>The name used in <a href="gstreamer/gstcontext.html#GstContext">Gst.Context</a> queries for requesting a <a href="gl/gstgldisplay.html#GstGLDisplay">GstGL.GLDisplay</a></p>
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3 data-hotdoc-id="GST_GL_DISPLAY_CONTEXT_TYPE">
+	<i>GstGL.GL_DISPLAY_CONTEXT_TYPE</i>
+</h3>
+
+
+<p>The name used in <a href="gstreamer/gstcontext.html#GstContext">Gst.Context</a> queries for requesting a <a href="gl/gstgldisplay.html#GstGLDisplay">GstGL.GLDisplay</a></p>
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+
+
+
+
+
+		
+	</div>
+	<div id="search_results">
+		<p>The results of the search are</p>
+	</div>
+	<div id="footer">
+		    
+
+	</div>
+</div>
+
+<div id="toc-column">
+	
+		<div class="edit-button">
+		
+
+	</div>
+		<div id="toc-wrapper">
+		<nav id="toc"></nav>
+	</div>
+</div>
+</div>
+</main>
+
+
+<script src="assets/js/navbar_offset_scroller.js"></script>
+</body>
+</html>

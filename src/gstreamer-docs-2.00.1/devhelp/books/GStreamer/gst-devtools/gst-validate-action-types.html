@@ -1,0 +1,2285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<base href="..">
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<title>GstValidate action types</title>
+
+<link rel="stylesheet" href="assets/css/dark-frontend.css" type="text/css" title="dark">
+<link rel="alternate stylesheet" href="assets/css/light-frontend.css" type="text/css" title="light">
+<link rel="stylesheet" href="assets/css/bootstrap-toc.min.css" type="text/css">
+<link rel="stylesheet" href="assets/css/jquery.mCustomScrollbar.min.css">
+<link rel="stylesheet" href="assets/js/search/enable_search.css" type="text/css">
+
+<link rel="stylesheet" href="assets/css/extra_frontend.css" type="text/css">
+<link rel="stylesheet" href="assets/css/devhelp.css" type="text/css">
+
+<link rel="stylesheet" href="assets/css/prism-tomorrow.css" type="text/css" title="dark">
+
+<link rel="alternate stylesheet" href="assets/css/prism.css" type="text/css" title="light">
+
+<script src="assets/js/mustache.min.js"></script>
+<script src="assets/js/jquery.js"></script>
+<script src="assets/js/bootstrap.js"></script>
+<script src="assets/js/scrollspy.js"></script>
+<script src="assets/js/typeahead.jquery.min.js"></script>
+<script src="assets/js/search.js"></script>
+<script src="assets/js/compare-versions.js"></script>
+<script src="assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="assets/js/bootstrap-toc.min.js"></script>
+<script src="assets/js/jquery.touchSwipe.min.js"></script>
+<script src="assets/js/anchor.min.js"></script>
+<script src="assets/js/tag_filtering.js"></script>
+<script src="assets/js/language_switching.js"></script>
+<script src="assets/js/styleswitcher.js"></script>
+
+<script src="assets/js/lines_around_headings.js"></script>
+
+<script src="assets/js/prism-core.js"></script>
+<script src="assets/js/prism-autoloader.js"></script>
+<script src="assets/js/prism_autoloader_path_override.js"></script>
+<script src="assets/js/trie.js"></script>
+
+<!-- generic -->
+<link rel="icon" type="image/png" href="assets/images/favicon-16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="assets/images/favicon-32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="assets/images/favicon-57.png" sizes="57x57">
+<link rel="icon" type="image/png" href="assets/images/favicon-64.png" sizes="64x64">
+<link rel="icon" type="image/png" href="assets/images/favicon-76.png" sizes="76x76">
+<link rel="icon" type="image/png" href="assets/images/favicon-96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="assets/images/favicon-128.png" sizes="128x128">
+<link rel="icon" type="image/png" href="assets/images/favicon-192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="assets/images/favicon-228.png" sizes="228x228">
+
+<!-- Android -->
+<link rel="shortcut icon" sizes="196x196" href="assets/images/favicon-196.png">
+
+<!-- iOS -->
+<link rel="apple-touch-icon" href="assets/images/favicon-120.png" sizes="120x120">
+<link rel="apple-touch-icon" href="assets/images/favicon-152.png" sizes="152x152">
+<link rel="apple-touch-icon" href="assets/images/favicon-180.png" sizes="180x180">
+
+</head>
+
+<body class="no-script
+">
+
+<script>
+$('body').removeClass('no-script');
+</script>
+
+<nav class="navbar navbar-fixed-top navbar-default" id="topnav">
+	<div class="container-fluid">
+		<div class="navbar-right">
+			<a id="toc-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-wrapper" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<span title="light mode switch" class="glyphicon glyphicon-sunglasses pull-right" id="lightmode-icon"></span>
+			<form class="navbar-form pull-right" id="navbar-search-form">
+                               <div class="form-group has-feedback">
+                                       <input type="text" class="form-control input-sm" name="search" id="sidenav-lookup-field" placeholder="search" disabled>
+				       <span class="glyphicon glyphicon-search form-control-feedback" id="search-mgn-glass"></span>
+                               </div>
+                        </form>
+		</div>
+		<div class="navbar-header">
+			<a id="sidenav-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<a id="home-link" href="index.html" class="hotdoc-navbar-brand">
+				<img src="assets/images/gstreamer-logo.svg" alt="Home">
+			</a>
+		</div>
+		<div class="navbar-collapse collapse" id="navbar-wrapper">
+			<ul class="nav navbar-nav" id="menu">
+				
+<li class="dropdown">
+    <a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        API References<span class="caret"></span>
+    </a>
+	<ul class="dropdown-menu" id="modules-menu">
+					<li>
+				<a href="gstreamer/gi-index.html">GStreamer core</a>
+			</li>
+					<li>
+				<a href="libs.html">GStreamer Libraries</a>
+			</li>
+					<li>
+				<a href="plugins_doc.html">GStreamer Plugins</a>
+			</li>
+		</ul>
+</li>
+
+<li>
+    <a href="application-development/index.html">Application manual</a>
+</li>
+
+
+<li>
+    <a href="tutorials/index.html">Tutorials</a>
+</li>
+
+			</ul>
+			<div class="hidden-xs hidden-sm navbar-text navbar-center">
+							</div>
+		</div>
+	</div>
+</nav>
+
+<main>
+<div data-extension="core" data-hotdoc-in-toplevel="False" data-hotdoc-project="gst-devtools" data-hotdoc-ref="gst-validate-action-types.html" class="page_container" id="page-wrapper" data-hotdoc-meta-gi-languages="['c', 'javascript', 'python']">
+<script src="assets/js/utils.js"></script>
+
+<div class="panel panel-collapse oc-collapsed" id="sidenav" data-hotdoc-role="navigation">
+	<script src="assets/js/full-width.js"></script>
+  <div id="sitenav-wrapper">
+    <iframe src="hotdoc-sitemap.html" id="sitenav-frame"></iframe>
+  </div>
+</div>
+
+<div id="body">
+	<div id="main">
+				    <div id="page-description" data-hotdoc-role="main">
+        <h1 id="gstvalidate-action-types">GstValidate action types</h1>
+<h2 id="meta">meta</h2>
+<pre><code class="language-validate-scenario">meta,
+    [allow-errors=(boolean)],
+    [base-time=(double or string (GstClockTime))],
+    [configs=({GstStructure as string})],
+    [duration=(double, int)],
+    [expected-issues=({GstStructure as string})],
+    [handles-states=(boolean)],
+    [ignore-eos=(boolean)],
+    [is-config=(boolean)],
+    [max-dropped=(int)],
+    [max-latency=(double, int)],
+    [min-audio-track=(int)],
+    [min-media-duration=(double)],
+    [min-video-track=(int)],
+    [need-clock-sync=(boolean)],
+    [pipeline-name=(string)],
+    [reverse-playback=(boolean)],
+    [seek=(boolean)],
+    [start-time=(double or string (GstClockTime))],
+    [summary=(string)],
+    [use-system-clock=(bool)];
+</code></pre>
+<p>Scenario metadata.</p>
+<p>NOTE: it used to be called "description"</p>
+<p><strong>Implementer namespace</strong>: core</p>
+<ul>
+<li>Is config action (meaning it will be executing right at the beginning of the execution of the pipeline)</li>
+</ul>
+<h3 id="parameters">Parameters</h3>
+<h4 id="allowerrors-optional">
+<code>allow-errors</code> (<em>optional</em>)</h4>
+<p>Ignore error messages and keep executing the
+scenario when it happens. By default a 'stop' action is generated on ERROR messages</p>
+<p><strong>Possible types</strong>: <code>boolean</code></p>
+<p><strong>Default</strong>: false</p>
+<hr>
+<h4 id="basetime-optional">
+<code>base-time</code> (<em>optional</em>)</h4>
+<p>The <code>base-time</code> fields lets you set the Pipeline base-time as defined in <a href="gstreamer/gstelement.html#gst_element_set_base_time" data-gi-href-javascript="gstreamer/gstelement.html#gst_element_set_base_time" data-gi-title-javascript="Gst.Element.prototype.set_base_time" data-gi-href-python="gstreamer/gstelement.html#gst_element_set_base_time" data-gi-title-python="Gst.Element.set_base_time">gst_element_set_base_time</a>.</p>
+<p><strong>Possible types</strong>: <code>double or string (GstClockTime)</code></p>
+<p><strong>Default</strong>: None</p>
+<hr>
+<h4 id="configs-optional">
+<code>configs</code> (<em>optional</em>)</h4>
+<p>The <code>configs</code> field is an array of structures containing the same content as
+usual <a href="gst-devtools/gst-validate-config.html">configs</a> files.</p>
+<p>For example:</p>
+<pre><code class="language-yaml">configs = {
+    # Set videotestsrc0 pattern value to `blue`
+    "core, action=set-property, target-element-name=videotestsrc0, property-name=pattern, property-value=blue",
+    "$(validateflow), pad=sink1:sink, caps-properties={ width, height };",
+}
+</code></pre>
+<p>Note: Since this is GstStructure syntax, we need to have the structures in the
+array as strings/within quotes.</p>
+<p><strong>Warning</strong>: This field is validate only for <a href="gst-devtools/gst-validate-test-file.html"><code>.validatetest</code></a> files, and not <code>.scenario</code>.</p>
+<p><strong>Possible types</strong>: <code>{GstStructure as string}</code></p>
+<p><strong>Default</strong>: {}</p>
+<hr>
+<h4 id="duration-optional">
+<code>duration</code> (<em>optional</em>)</h4>
+<p>Lets the user know the time the scenario needs to be fully executed</p>
+<p><strong>Possible types</strong>: <code>double, int</code></p>
+<p><strong>Default</strong>: infinite (GST_CLOCK_TIME_NONE)</p>
+<hr>
+<h4 id="expectedissues-optional">
+<code>expected-issues</code> (<em>optional</em>)</h4>
+<p>The <code>expected-issues</code> field is an array of <code>expected-issue</code> structures containing
+information about issues to expect (which can be known bugs or not).</p>
+<p>Use <code>gst-validate-1.0 --print-issue-types</code> to print information about all issue types.</p>
+<p>For example:</p>
+<pre><code class="language-yaml">expected-issues = {
+    "expected-issue, issue-id=scenario::not-ended",
+}
+</code></pre>
+<p>Note: Since this is <a href="gstreamer/gststructure.html#GstStructure" data-gi-href-javascript="gstreamer/gststructure.html#GstStructure" data-gi-title-javascript="Gst.Structure" data-gi-href-python="gstreamer/gststructure.html#GstStructure" data-gi-title-python="Gst.Structure"><code>GstStructure</code></a> syntax, we need to have the structures in the
+array as strings/within quotes.</p>
+<p><strong>Each issue has the following fields</strong>:</p>
+<ul>
+<li>
+<code>issue-id</code>: (string): Issue ID - Mandatory if <code>summary</code> is not provided.</li>
+<li>
+<code>summary</code>: (string): Summary - Mandatory if <code>issue-id</code> is not provided.</li>
+<li>
+<code>details</code>: Regex string to match the issue details <code>detected-on</code>: (string):
+The name of the element the issue happened on <code>level</code>: (string):
+Issue level</li>
+<li>
+<code>sometimes</code>: (boolean): Default: <code>false</code> -  Whether the issue happens only
+sometimes if <code>false</code> and the issue doesn't happen, an error will
+be issued.</li>
+<li>
+<code>issue-url</code>: (string): The url of the issue in the bug tracker if the issue is
+a bug.</li>
+</ul>
+<p><strong>Warning</strong>: This field is validate only for <a href="gst-devtools/gst-validate-test-file.html"><code>.validatetest</code></a> files, and not <code>.scenario</code>.</p>
+<p><strong>Possible types</strong>: <code>{GstStructure as string}</code></p>
+<p><strong>Default</strong>: {}</p>
+<hr>
+<h4 id="handlesstates-optional">
+<code>handles-states</code> (<em>optional</em>)</h4>
+<p>Whether the scenario handles pipeline state changes from the beginning
+in that case the application should not set the state of the pipeline to anything
+and the scenario action will be executed from the beginning</p>
+<p><strong>Possible types</strong>: <code>boolean</code></p>
+<p><strong>Default</strong>: false</p>
+<hr>
+<h4 id="ignoreeos-optional">
+<code>ignore-eos</code> (<em>optional</em>)</h4>
+<p>Ignore EOS and keep executing the scenario when it happens.
+By default a 'stop' action is generated one EOS</p>
+<p><strong>Possible types</strong>: <code>boolean</code></p>
+<p><strong>Default</strong>: false</p>
+<hr>
+<h4 id="isconfig-optional">
+<code>is-config</code> (<em>optional</em>)</h4>
+<p>Whether the scenario is a config only scenario</p>
+<p><strong>Possible types</strong>: <code>boolean</code></p>
+<p><strong>Default</strong>: false</p>
+<hr>
+<h4 id="maxdropped-optional">
+<code>max-dropped</code> (<em>optional</em>)</h4>
+<p>The maximum number of buffers which can be dropped by the QoS system allowed for this pipeline.
+It can be overridden using core configuration, like for example by defining the env variable GST_VALIDATE_CONFIG=core,max-dropped=100</p>
+<p><strong>Possible types</strong>: <code>int</code></p>
+<p><strong>Default</strong>: infinite (-1)</p>
+<hr>
+<h4 id="maxlatency-optional">
+<code>max-latency</code> (<em>optional</em>)</h4>
+<p>The maximum latency in nanoseconds allowed for this pipeline.
+It can be overridden using core configuration, like for example by defining the env variable GST_VALIDATE_CONFIG=core,max-latency=33000000</p>
+<p><strong>Possible types</strong>: <code>double, int</code></p>
+<p><strong>Default</strong>: infinite (GST_CLOCK_TIME_NONE)</p>
+<hr>
+<h4 id="minaudiotrack-optional">
+<code>min-audio-track</code> (<em>optional</em>)</h4>
+<p>Lets the user know the minimum number of audio tracks the stream needs to contain
+for the scenario to be usable</p>
+<p><strong>Possible types</strong>: <code>int</code></p>
+<p><strong>Default</strong>: 0</p>
+<hr>
+<h4 id="minmediaduration-optional">
+<code>min-media-duration</code> (<em>optional</em>)</h4>
+<p>Lets the user know the minimum duration of the stream for the scenario
+to be usable</p>
+<p><strong>Possible types</strong>: <code>double</code></p>
+<p><strong>Default</strong>: 0.0</p>
+<hr>
+<h4 id="minvideotrack-optional">
+<code>min-video-track</code> (<em>optional</em>)</h4>
+<p>Lets the user know the minimum number of video tracks the stream needs to contain
+for the scenario to be usable</p>
+<p><strong>Possible types</strong>: <code>int</code></p>
+<p><strong>Default</strong>: 0</p>
+<hr>
+<h4 id="needclocksync-optional">
+<code>need-clock-sync</code> (<em>optional</em>)</h4>
+<p>Whether the scenario needs the execution to be synchronized with the pipeline's
+clock. Letting the user know if it can be used with a 'fakesink sync=false' sink</p>
+<p><strong>Possible types</strong>: <code>boolean</code></p>
+<p><strong>Default</strong>: true if some action requires a playback-time false otherwise</p>
+<hr>
+<h4 id="pipelinename-optional">
+<code>pipeline-name</code> (<em>optional</em>)</h4>
+<p>The name of the GstPipeline on which the scenario should be executed.
+It has the same effect as setting the pipeline using pipeline_name-&gt;scenario_name.</p>
+<p><strong>Possible types</strong>: <code>string</code></p>
+<p><strong>Default</strong>: NULL</p>
+<hr>
+<h4 id="reverseplayback-optional">
+<code>reverse-playback</code> (<em>optional</em>)</h4>
+<p>Whether the scenario plays the stream backward</p>
+<p><strong>Possible types</strong>: <code>boolean</code></p>
+<p><strong>Default</strong>: false</p>
+<hr>
+<h4 id="seek-optional">
+<code>seek</code> (<em>optional</em>)</h4>
+<p>Whether the scenario executes seek actions or not</p>
+<p><strong>Possible types</strong>: <code>boolean</code></p>
+<p><strong>Default</strong>: false</p>
+<hr>
+<h4 id="starttime-optional">
+<code>start-time</code> (<em>optional</em>)</h4>
+<p>The <code>start-time</code> fields lets you set the Pipeline start-time as defined in <a href="gstreamer/gstelement.html#gst_element_set_start_time" data-gi-href-javascript="gstreamer/gstelement.html#gst_element_set_start_time" data-gi-title-javascript="Gst.Element.prototype.set_start_time" data-gi-href-python="gstreamer/gstelement.html#gst_element_set_start_time" data-gi-title-python="Gst.Element.set_start_time">gst_element_set_start_time</a>.</p>
+<p><strong>Possible types</strong>: <code>double or string (GstClockTime)</code></p>
+<p><strong>Default</strong>: None</p>
+<hr>
+<h4 id="summary-optional">
+<code>summary</code> (<em>optional</em>)</h4>
+<p>A human readable summary of what the test/scenario does</p>
+<p><strong>Possible types</strong>: <code>string</code></p>
+<p><strong>Default</strong>: 'Nothing'</p>
+<hr>
+<h4 id="usesystemclock-optional">
+<code>use-system-clock</code> (<em>optional</em>)</h4>
+<p>The <code>use-system-clock</code> fields lets you force the Pipeline to use the
+<a href="gstreamer/gstsystemclock.html#GstSystemClock" data-gi-href-javascript="gstreamer/gstsystemclock.html#GstSystemClock" data-gi-title-javascript="Gst.SystemClock" data-gi-href-python="gstreamer/gstsystemclock.html#GstSystemClock" data-gi-title-python="Gst.SystemClock"><code>GstSystemClock</code></a></p>
+<p><strong>Possible types</strong>: <code>bool</code></p>
+<p><strong>Default</strong>: false</p>
+<hr>
+<h2 id="seek">seek</h2>
+<pre><code class="language-validate-scenario">seek,
+    flags=(string describing the GstSeekFlags to set),
+    start=(double or string (GstClockTime)),
+    [rate=(double)],
+    [start_type=(string)],
+    [stop=(double or string (GstClockTime))],
+    [stop_type=(string)],
+    [playback-time=(double,string)];
+</code></pre>
+<p>Seeks into the stream. This is an example of a seek happening when the stream reaches 5 seconds
+or 1 eighth of its duration and seeks to 10s or 2 eighths of its duration:</p>
+<pre><code>  seek, playback-time="min(5.0, (duration/8))", start="min(10, 2*(duration/8))", flags=accurate+flush
+</code></pre>
+<p><strong>Implementer namespace</strong>: core</p>
+<h3 id="parameters1">Parameters</h3>
+<h4 id="flags-mandatory">
+<code>flags</code> (<em>mandatory</em>)</h4>
+<p>The GstSeekFlags to use</p>
+<p><strong>Possible types</strong>: <code>string describing the GstSeekFlags to set</code></p>
+<hr>
+<h4 id="start-mandatory">
+<code>start</code> (<em>mandatory</em>)</h4>
+<p>The starting value of the seek</p>
+<p><strong>Possible variables</strong>:</p>
+<ul>
+<li>
+<p><code>position</code>: The current position in the stream</p>
+</li>
+<li>
+<p><code>duration</code>: The duration of the stream</p>
+</li>
+</ul>
+<p><strong>Possible types</strong>: <code>double or string (GstClockTime)</code></p>
+<hr>
+<h4 id="rate-optional">
+<code>rate</code> (<em>optional</em>)</h4>
+<p>The rate value of the seek</p>
+<p><strong>Possible types</strong>: <code>double</code></p>
+<p><strong>Default</strong>: 1.0</p>
+<hr>
+<h4 id="start_type-optional">
+<code>start_type</code> (<em>optional</em>)</h4>
+<p>The GstSeekType to use for the start of the seek, in:
+[none, set, end]</p>
+<p><strong>Possible types</strong>: <code>string</code></p>
+<p><strong>Default</strong>: set</p>
+<hr>
+<h4 id="stop-optional">
+<code>stop</code> (<em>optional</em>)</h4>
+<p>The stop value of the seek</p>
+<p><strong>Possible variables</strong>:</p>
+<ul>
+<li>
+<p><code>position</code>: The current position in the stream</p>
+</li>
+<li>
+<p><code>duration</code>: The duration of the stream</p>
+</li>
+</ul>
+<p><strong>Possible types</strong>: <code>double or string (GstClockTime)</code></p>
+<p><strong>Default</strong>: GST_CLOCK_TIME_NONE</p>
+<hr>
+<h4 id="stop_type-optional">
+<code>stop_type</code> (<em>optional</em>)</h4>
+<p>The GstSeekType to use for the stop of the seek, in:
+[none, set, end]</p>
+<p><strong>Possible types</strong>: <code>string</code></p>
+<p><strong>Default</strong>: set</p>
+<hr>
+<h4 id="playbacktime-optional">
+<code>playback-time</code> (<em>optional</em>)</h4>
+<p>The playback time at which the action will be executed</p>
+<p><strong>Possible variables</strong>:</p>
+<ul>
+<li>
+<p><code>position</code>: The current position in the stream</p>
+</li>
+<li>
+<p><code>duration</code>: The duration of the stream</p>
+</li>
+</ul>
+<p><strong>Possible types</strong>: <code>double,string</code></p>
+<p><strong>Default</strong>: 0.0</p>
+<hr>
+<h4 id="onmessage-optional">
+<code>on-message</code> (<em>optional</em>)</h4>
+<p>Specify on what message type the action will be executed.
+If both 'playback-time' and 'on-message' is specified, the action will be executed
+on whatever happens first.</p>
+<p><strong>Possible types</strong>: <code>string</code></p>
+<p><strong>Default</strong>: (null)</p>
+<hr>
+<h2 id="pause">pause</h2>
+<pre><code class="language-validate-scenario">pause,
+    [duration=(double or string (GstClockTime))],
+    [playback-time=(double,string)];
+</code></pre>
+<p>Sets pipeline to PAUSED. You can add a 'duration'
+parameter so the pipeline goes back to playing after that duration
+(in second)</p>
+<p><strong>Implementer namespace</strong>: core</p>
+<h3 id="parameters2">Parameters</h3>
+<h4 id="duration-optional1">
+<code>duration</code> (<em>optional</em>)</h4>
+<p>The duration during which the stream will be paused</p>
+<p><strong>Possible types</strong>: <code>double or string (GstClockTime)</code></p>
+<p><strong>Default</strong>: 0.0</p>
+<hr>
+<h4 id="playbacktime-optional1">
+<code>playback-time</code> (<em>optional</em>)</h4>
+<p>The playback time at which the action will be executed</p>
+<p><strong>Possible variables</strong>:</p>
+<ul>
+<li>
+<p><code>position</code>: The current position in the stream</p>
+</li>
+<li>
+<p><code>duration</code>: The duration of the stream</p>
+</li>
+</ul>
+<p><strong>Possible types</strong>: <code>double,string</code></p>
+<p><strong>Default</strong>: 0.0</p>
+<hr>
+<h4 id="onmessage-optional1">
+<code>on-message</code> (<em>optional</em>)</h4>
+<p>Specify on what message type the action will be executed.
+If both 'playback-time' and 'on-message' is specified, the action will be executed
+on whatever happens first.</p>
+<p><strong>Possible types</strong>: <code>string</code></p>
+<p><strong>Default</strong>: (null)</p>
+<hr>
+<h2 id="play">play</h2>
+<pre><code class="language-validate-scenario">play,
+    [playback-time=(double,string)];
+</code></pre>
+<p>Sets the pipeline state to PLAYING</p>
+<p><strong>Implementer namespace</strong>: core</p>
+<h3 id="parameters3">Parameters</h3>
+<h4 id="playbacktime-optional2">
+<code>playback-time</code> (<em>optional</em>)</h4>
+<p>The playback time at which the action will be executed</p>
+<p><strong>Possible variables</strong>:</p>
+<ul>
+<li>
+<p><code>position</code>: The current position in the stream</p>
+</li>
+<li>
+<p><code>duration</code>: The duration of the stream</p>
+</li>
+</ul>
+<p><strong>Possible types</strong>: <code>double,string</code></p>
+<p><strong>Default</strong>: 0.0</p>
+<hr>
+<h4 id="onmessage-optional2">
+<code>on-message</code> (<em>optional</em>)</h4>
+<p>Specify on what message type the action will be executed.
+If both 'playback-time' and 'on-message' is specified, the action will be executed
+on whatever happens first.</p>
+<p><strong>Possible types</strong>: <code>string</code></p>
+<p><strong>Default</strong>: (null)</p>
+<hr>
+<h2 id="stop">stop</h2>
+<pre><code class="language-validate-scenario">stop,
+    [playback-time=(double,string)];
+</code></pre>
+<p>Stops the execution of the scenario. It will post a 'request-state' message on the bus with NULL as a requested state and the application is responsible for stopping itself. If you override that action type, make sure to link up.</p>
+<p><strong>Implementer namespace</strong>: core</p>
+<h3 id="parameters4">Parameters</h3>
+<h4 id="playbacktime-optional3">
+<code>playback-time</code> (<em>optional</em>)</h4>
+<p>The playback time at which the action will be executed</p>
+<p><strong>Possible variables</strong>:</p>
+<ul>
+<li>
+<p><code>position</code>: The current position in the stream</p>
+</li>
+<li>
+<p><code>duration</code>: The duration of the stream</p>
+</li>
+</ul>
+<p><strong>Possible types</strong>: <code>double,string</code></p>
+<p><strong>Default</strong>: 0.0</p>
+<hr>
+<h4 id="onmessage-optional3">
+<code>on-message</code> (<em>optional</em>)</h4>
+<p>Specify on what message type the action will be executed.
+If both 'playback-time' and 'on-message' is specified, the action will be executed
+on whatever happens first.</p>
+<p><strong>Possible types</strong>: <code>string</code></p>
+<p><strong>Default</strong>: (null)</p>
+<hr>
+<h2 id="eos">eos</h2>
+<pre><code class="language-validate-scenario">eos,
+    [playback-time=(double,string)];
+</code></pre>
+<p>Sends an EOS event to the pipeline</p>
+<p><strong>Implementer namespace</strong>: core</p>
+<h3 id="parameters5">Parameters</h3>
+<h4 id="playbacktime-optional4">
+<code>playback-time</code> (<em>optional</em>)</h4>
+<p>The playback time at which the action will be executed</p>
+<p><strong>Possible variables</strong>:</p>
+<ul>
+<li>
+<p><code>position</code>: The current position in the stream</p>
+</li>
+<li>
+<p><code>duration</code>: The duration of the stream</p>
+</li>
+</ul>
+<p><strong>Possible types</strong>: <code>double,string</code></p>
+<p><strong>Default</strong>: 0.0</p>
+<hr>
+<h4 id="onmessage-optional4">
+<code>on-message</code> (<em>optional</em>)</h4>
+<p>Specify on what message type the action will be executed.
+If both 'playback-time' and 'on-message' is specified, the action will be executed
+on whatever happens first.</p>
+<p><strong>Possible types</strong>: <code>string</code></p>
+<p><strong>Default</strong>: (null)</p>
+<hr>
+<h2 id="selectstreams">select-streams</h2>
+<pre><code class="language-validate-scenario">select-streams,
+    indexes=([int]),
+    [playback-time=(double,string)];
+</code></pre>
+<p>Select the stream on next <code>GST_STREAM_COLLECTION</code> message on the bus.</p>
+<p><strong>Implementer namespace</strong>: core</p>
+<h3 id="parameters6">Parameters</h3>
+<h4 id="indexes-mandatory">
+<code>indexes</code> (<em>mandatory</em>)</h4>
+<p>Indexes of the streams in the StreamCollection to select</p>
+<p><strong>Possible types</strong>: <code>[int]</code></p>
+<hr>
+<h4 id="playbacktime-optional5">
+<code>playback-time</code> (<em>optional</em>)</h4>
+<p>The playback time at which the action will be executed</p>
+<p><strong>Possible variables</strong>:</p>
+<ul>
+<li>
+<p><code>position</code>: The current position in the stream</p>
+</li>
+<li>
+<p><code>duration</code>: The duration of the stream</p>
+</li>
+</ul>
+<p><strong>Possible types</strong>: <code>double,string</code></p>
+<p><strong>Default</strong>: 0.0</p>
+<hr>
+<h4 id="onmessage-optional5">
+<code>on-message</code> (<em>optional</em>)</h4>
+<p>Specify on what message type the action will be executed.
+If both 'playback-time' and 'on-message' is specified, the action will be executed
+on whatever happens first.</p>
+<p><strong>Possible types</strong>: <code>string</code></p>
+<p><strong>Default</strong>: (null)</p>
+<hr>
+<h2 id="switchtrack">switch-track</h2>
+<pre><code class="language-validate-scenario">switch-track,
+    [index=(string: to switch track relatively
+int: To use the actual index to use)],
+    [type=(string)],
+    [playback-time=(double,string)];
+</code></pre>
+<p>The 'switch-track' command can be used to switch tracks.</p>
+<p><strong>Implementer namespace</strong>: core</p>
+<h3 id="parameters7">Parameters</h3>
+<h4 id="index-optional">
+<code>index</code> (<em>optional</em>)</h4>
+<p>Selects which track of this type to use: it can be either a number,
+which will be the Nth track of the given type, or a number with a '+' or
+'-' prefix, which means a relative change (eg, '+1' means 'next track',
+'-1' means 'previous track')</p>
+<p><strong>Possible types</strong>: <code>string: to switch track relatively int: To use the actual index to use</code></p>
+<p><strong>Default</strong>: +1</p>
+<hr>
+<h4 id="type-optional">
+<code>type</code> (<em>optional</em>)</h4>
+<p>Selects which track type to change (can be 'audio', 'video', or 'text').</p>
+<p><strong>Possible types</strong>: <code>string</code></p>
+<p><strong>Default</strong>: audio</p>
+<hr>
+<h4 id="playbacktime-optional6">
+<code>playback-time</code> (<em>optional</em>)</h4>
+<p>The playback time at which the action will be executed</p>
+<p><strong>Possible variables</strong>:</p>
+<ul>
+<li>
+<p><code>position</code>: The current position in the stream</p>
+</li>
+<li>
+<p><code>duration</code>: The duration of the stream</p>
+</li>
+</ul>
+<p><strong>Possible types</strong>: <code>double,string</code></p>
+<p><strong>Default</strong>: 0.0</p>
+<hr>
+<h4 id="onmessage-optional6">
+<code>on-message</code> (<em>optional</em>)</h4>
+<p>Specify on what message type the action will be executed.
+If both 'playback-time' and 'on-message' is specified, the action will be executed
+on whatever happens first.</p>
+<p><strong>Possible types</strong>: <code>string</code></p>
+<p><strong>Default</strong>: (null)</p>
+<hr>
+<h2 id="wait">wait</h2>
+<pre><code class="language-validate-scenario">wait,
+    [check=(structure)],
+    [duration=(double or string (GstClockTime))],
+    [expected-values=(structure)],
+    [message-type=(string)],
+    [non-blocking=(string)],
+    [on-clock=(boolean)],
+    [property-name=(string)],
+    [property-value=(string)],
+    [signal-name=(string)],
+    [subpipeline-done=(string)],
+    [target-element-factory-name=(string)],
+    [target-element-name=(string)],
+    [playback-time=(double,string)];
+</code></pre>
+<p>Waits for signal 'signal-name', message 'message-type', or during 'duration' seconds</p>
+<p><strong>Implementer namespace</strong>: core</p>
+<h3 id="parameters8">Parameters</h3>
+<h4 id="check-optional">
+<code>check</code> (<em>optional</em>)</h4>
+<p>The check action to execute when non blocking signal is received</p>
+<p><strong>Possible types</strong>: <code>structure</code></p>
+<p><strong>Default</strong>: (null)</p>
+<hr>
+<h4 id="duration-optional2">
+<code>duration</code> (<em>optional</em>)</h4>
+<p>the duration while no other action will be executed</p>
+<p><strong>Possible types</strong>: <code>double or string (GstClockTime)</code></p>
+<p><strong>Default</strong>: (null)</p>
+<hr>
+<h4 id="expectedvalues-optional">
+<code>expected-values</code> (<em>optional</em>)</h4>
+<p>Expected values in the message structure (valid only when <code>message-type</code>). Example: wait, on-client=true, message-type=buffering, expected-values=[values, buffer-percent=100]</p>
+<p><strong>Possible types</strong>: <code>structure</code></p>
+<p><strong>Default</strong>: (null)</p>
+<hr>
+<h4 id="messagetype-optional">
+<code>message-type</code> (<em>optional</em>)</h4>
+<p>The name of the message type to wait for (on @target-element-name if specified)</p>
+<p><strong>Possible types</strong>: <code>string</code></p>
+<p><strong>Default</strong>: (null)</p>
+<hr>
+<h4 id="nonblocking-optional">
+<code>non-blocking</code> (<em>optional</em>)</h4>
+<p><strong>Only for signals</strong>.Make the action non blocking meaning that next actions will be
+executed without waiting for the signal to be emitted.</p>
+<p><strong>Possible types</strong>: <code>string</code></p>
+<p><strong>Default</strong>: (null)</p>
+<hr>
+<h4 id="onclock-optional">
+<code>on-clock</code> (<em>optional</em>)</h4>
+<p>Wait until the test clock gets a new pending entry.
+See #gst_test_clock_wait_for_next_pending_id.</p>
+<p><strong>Possible types</strong>: <code>boolean</code></p>
+<p><strong>Default</strong>: (null)</p>
+<hr>
+<h4 id="propertyname-optional">
+<code>property-name</code> (<em>optional</em>)</h4>
+<p>The name of the property to wait for value to be set to what is specified by @property-value.</p>
+<p><strong>Possible types</strong>: <code>string</code></p>
+<p><strong>Default</strong>: (null)</p>
+<hr>
+<h4 id="propertyvalue-optional">
+<code>property-value</code> (<em>optional</em>)</h4>
+<p>The value of the property to be waiting.
+Example:
+<code>wait, property-name=current-uri, property-value=file:///some/value.mp4, target-element-name=uridecodebin</code></p>
+<p><strong>Possible types</strong>: <code>string</code></p>
+<p><strong>Default</strong>: (null)</p>
+<hr>
+<h4 id="signalname-optional">
+<code>signal-name</code> (<em>optional</em>)</h4>
+<p>The name of the signal to wait for on @target-element-name. To ensure that the signal is executed without blocking while waiting for it you can set the field 'non-blocking=true'.</p>
+<p><strong>Possible types</strong>: <code>string</code></p>
+<p><strong>Default</strong>: (null)</p>
+<hr>
+<h4 id="subpipelinedone-optional">
+<code>subpipeline-done</code> (<em>optional</em>)</h4>
+<p>Waits that the subpipeline with that name is done</p>
+<p><strong>Possible types</strong>: <code>string</code></p>
+<p><strong>Default</strong>: (null)</p>
+<hr>
+<h4 id="targetelementfactoryname-optional">
+<code>target-element-factory-name</code> (<em>optional</em>)</h4>
+<p>The name factory for which to wait @signal-name on</p>
+<p><strong>Possible types</strong>: <code>string</code></p>
+<p><strong>Default</strong>: (null)</p>
+<hr>
+<h4 id="targetelementname-optional">
+<code>target-element-name</code> (<em>optional</em>)</h4>
+<p>The name of the GstElement to wait @signal-name on.</p>
+<p><strong>Possible types</strong>: <code>string</code></p>
+<p><strong>Default</strong>: (null)</p>
+<hr>
+<h4 id="playbacktime-optional7">
+<code>playback-time</code> (<em>optional</em>)</h4>
+<p>The playback time at which the action will be executed</p>
+<p><strong>Possible variables</strong>:</p>
+<ul>
+<li>
+<p><code>position</code>: The current position in the stream</p>
+</li>
+<li>
+<p><code>duration</code>: The duration of the stream</p>
+</li>
+</ul>
+<p><strong>Possible types</strong>: <code>double,string</code></p>
+<p><strong>Default</strong>: 0.0</p>
+<hr>
+<h4 id="onmessage-optional7">
+<code>on-message</code> (<em>optional</em>)</h4>
+<p>Specify on what message type the action will be executed.
+If both 'playback-time' and 'on-message' is specified, the action will be executed
+on whatever happens first.</p>
+<p><strong>Possible types</strong>: <code>string</code></p>
+<p><strong>Default</strong>: (null)</p>
+<hr>
+<h2 id="dotpipeline">dot-pipeline</h2>
+<pre><code class="language-validate-scenario">dot-pipeline,
+    [playback-time=(double,string)];
+</code></pre>
+<p>Dots the pipeline (the 'name' property will be used in the dot filename).
+For more information have a look at the GST_DEBUG_BIN_TO_DOT_FILE documentation.
+Note that the GST_DEBUG_DUMP_DOT_DIR env variable needs to be set</p>
+<p><strong>Implementer namespace</strong>: core</p>
+<h3 id="parameters9">Parameters</h3>
+<h4 id="playbacktime-optional8">
+<code>playback-time</code> (<em>optional</em>)</h4>
+<p>The playback time at which the action will be executed</p>
+<p><strong>Possible variables</strong>:</p>
+<ul>
+<li>
+<p><code>position</code>: The current position in the stream</p>
+</li>
+<li>
+<p><code>duration</code>: The duration of the stream</p>
+</li>
+</ul>
+<p><strong>Possible types</strong>: <code>double,string</code></p>
+<p><strong>Default</strong>: 0.0</p>
+<hr>
+<h4 id="onmessage-optional8">
+<code>on-message</code> (<em>optional</em>)</h4>
+<p>Specify on what message type the action will be executed.
+If both 'playback-time' and 'on-message' is specified, the action will be executed
+on whatever happens first.</p>
+<p><strong>Possible types</strong>: <code>string</code></p>
+<p><strong>Default</strong>: (null)</p>
+<hr>
+<h2 id="setrank">set-rank</h2>
+<pre><code class="language-validate-scenario">set-rank,
+    name=(string),
+    rank=(string, int);
+</code></pre>
+<p>Changes the ranking of a particular plugin feature(s)</p>
+<p><strong>Implementer namespace</strong>: core</p>
+<ul>
+<li>Is config action (meaning it will be executing right at the beginning of the execution of the pipeline)</li>
+</ul>
+<h3 id="parameters10">Parameters</h3>
+<h4 id="name-mandatory">
+<code>name</code> (<em>mandatory</em>)</h4>
+<p>The name of a GstFeature or GstPlugin</p>
+<p><strong>Possible types</strong>: <code>string</code></p>
+<hr>
+<h4 id="rank-mandatory">
+<code>rank</code> (<em>mandatory</em>)</h4>
+<p>The GstRank to set on @name</p>
+<p><strong>Possible types</strong>: <code>string, int</code></p>
+<hr>
+<h2 id="removefeature">remove-feature</h2>
+<pre><code class="language-validate-scenario">remove-feature,
+    name=(string);
+</code></pre>
+<p>Remove a plugin feature(s) or a plugin from the registry</p>
+<p><strong>Implementer namespace</strong>: core</p>
+<ul>
+<li>Is config action (meaning it will be executing right at the beginning of the execution of the pipeline)</li>
+</ul>
+<h3 id="parameters11">Parameters</h3>
+<h4 id="name-mandatory1">
+<code>name</code> (<em>mandatory</em>)</h4>
+<p>The name of a GstFeature or GstPlugin to remove</p>
+<p><strong>Possible types</strong>: <code>string</code></p>
+<hr>
+<h2 id="setfeaturerank">set-feature-rank</h2>
+<pre><code class="language-validate-scenario">set-feature-rank,
+    feature-name=(string),
+    rank=(string, int);
+</code></pre>
+<p>Changes the ranking of a particular plugin feature</p>
+<p><strong>Implementer namespace</strong>: core</p>
+<ul>
+<li>Is config action (meaning it will be executing right at the beginning of the execution of the pipeline)</li>
+</ul>
+<h3 id="parameters12">Parameters</h3>
+<h4 id="featurename-mandatory">
+<code>feature-name</code> (<em>mandatory</em>)</h4>
+<p>The name of a GstFeature</p>
+<p><strong>Possible types</strong>: <code>string</code></p>
+<hr>
+<h4 id="rank-mandatory1">
+<code>rank</code> (<em>mandatory</em>)</h4>
+<p>The GstRank to set on @feature-name</p>
+<p><strong>Possible types</strong>: <code>string, int</code></p>
+<hr>
+<h2 id="setstate">set-state</h2>
+<pre><code class="language-validate-scenario">set-state,
+    state=(string),
+    [playback-time=(double,string)];
+</code></pre>
+<p>Changes the state of the pipeline to any GstState</p>
+<p><strong>Implementer namespace</strong>: core</p>
+<h3 id="parameters13">Parameters</h3>
+<h4 id="state-mandatory">
+<code>state</code> (<em>mandatory</em>)</h4>
+<p>A GstState as a string, should be in:
+* ['null', 'ready', 'paused', 'playing']</p>
+<p><strong>Possible types</strong>: <code>string</code></p>
+<hr>
+<h4 id="playbacktime-optional9">
+<code>playback-time</code> (<em>optional</em>)</h4>
+<p>The playback time at which the action will be executed</p>
+<p><strong>Possible variables</strong>:</p>
+<ul>
+<li>
+<p><code>position</code>: The current position in the stream</p>
+</li>
+<li>
+<p><code>duration</code>: The duration of the stream</p>
+</li>
+</ul>
+<p><strong>Possible types</strong>: <code>double,string</code></p>
+<p><strong>Default</strong>: 0.0</p>
+<hr>
+<h4 id="onmessage-optional9">
+<code>on-message</code> (<em>optional</em>)</h4>
+<p>Specify on what message type the action will be executed.
+If both 'playback-time' and 'on-message' is specified, the action will be executed
+on whatever happens first.</p>
+<p><strong>Possible types</strong>: <code>string</code></p>
+<p><strong>Default</strong>: (null)</p>
+<hr>
+<h2 id="setvars">set-vars</h2>
+<pre><code class="language-validate-scenario">set-vars,
+    [playback-time=(double,string)];
+</code></pre>
+<p>Define vars to be used in other actions.
+For example you can define vars for buffer checksum to be used in the "check-last-sample" action type as follow:</p>
+<pre><code> set-vars, frame1=SomeRandomHash1,frame2=Anotherhash...
+ check-last-sample, checksum=frame1
+</code></pre>
+<p><strong>Implementer namespace</strong>: core</p>
+<h3 id="parameters14">Parameters</h3>
+<h4 id="playbacktime-optional10">
+<code>playback-time</code> (<em>optional</em>)</h4>
+<p>The playback time at which the action will be executed</p>
+<p><strong>Possible variables</strong>:</p>
+<ul>
+<li>
+<p><code>position</code>: The current position in the stream</p>
+</li>
+<li>
+<p><code>duration</code>: The duration of the stream</p>
+</li>
+</ul>
+<p><strong>Possible types</strong>: <code>double,string</code></p>
+<p><strong>Default</strong>: 0.0</p>
+<hr>
+<h4 id="onmessage-optional10">
+<code>on-message</code> (<em>optional</em>)</h4>
+<p>Specify on what message type the action will be executed.
+If both 'playback-time' and 'on-message' is specified, the action will be executed
+on whatever happens first.</p>
+<p><strong>Possible types</strong>: <code>string</code></p>
+<p><strong>Default</strong>: (null)</p>
+<hr>
+<h2 id="settimedvalueproperties">set-timed-value-properties</h2>
+<pre><code class="language-validate-scenario">set-timed-value-properties,
+    timestamp=(string or float (GstClockTime)),
+    [binding-type=(string)],
+    [interpolation-mode=(string)],
+    [source-type=(string)],
+    [playback-time=(double,string)];
+</code></pre>
+<p>Sets GstTimedValue on pads on elements properties using GstControlBindings
+and GstControlSource as defined in the parameters.
+The properties values to set will be defined as:</p>
+<pre><code>element-name.padname::property-name=new-value
+</code></pre>
+<blockquote>
+<p>NOTE: <code>.padname</code> is not needed if setting a property on an element</p>
+</blockquote>
+<p>This action also adds necessary control source/control bindings.</p>
+<p><strong>Implementer namespace</strong>: core</p>
+<h3 id="parameters15">Parameters</h3>
+<h4 id="timestamp-mandatory">
+<code>timestamp</code> (<em>mandatory</em>)</h4>
+<p>The timestamp of the keyframe</p>
+<p><strong>Possible types</strong>: <code>string or float (GstClockTime)</code></p>
+<hr>
+<h4 id="bindingtype-optional">
+<code>binding-type</code> (<em>optional</em>)</h4>
+<p>The name of the type of binding to use</p>
+<p><strong>Possible types</strong>: <code>string</code></p>
+<p><strong>Default</strong>: direct</p>
+<hr>
+<h4 id="interpolationmode-optional">
+<code>interpolation-mode</code> (<em>optional</em>)</h4>
+<p>The name of the GstInterpolationMode to set on the source</p>
+<p><strong>Possible types</strong>: <code>string</code></p>
+<p><strong>Default</strong>: linear</p>
+<hr>
+<h4 id="sourcetype-optional">
+<code>source-type</code> (<em>optional</em>)</h4>
+<p>The name of the type of ControlSource to use</p>
+<p><strong>Possible types</strong>: <code>string</code></p>
+<p><strong>Default</strong>: GstInterpolationControlSource</p>
+<hr>
+<h4 id="playbacktime-optional11">
+<code>playback-time</code> (<em>optional</em>)</h4>
+<p>The playback time at which the action will be executed</p>
+<p><strong>Possible variables</strong>:</p>
+<ul>
+<li>
+<p><code>position</code>: The current position in the stream</p>
+</li>
+<li>
+<p><code>duration</code>: The duration of the stream</p>
+</li>
+</ul>
+<p><strong>Possible types</strong>: <code>double,string</code></p>
+<p><strong>Default</strong>: 0.0</p>
+<hr>
+<h4 id="onmessage-optional11">
+<code>on-message</code> (<em>optional</em>)</h4>
+<p>Specify on what message type the action will be executed.
+If both 'playback-time' and 'on-message' is specified, the action will be executed
+on whatever happens first.</p>
+<p><strong>Possible types</strong>: <code>string</code></p>
+<p><strong>Default</strong>: (null)</p>
+<hr>
+<h2 id="checkproperties">check-properties</h2>
+<pre><code class="language-validate-scenario">check-properties,
+    [playback-time=(double,string)];
+</code></pre>
+<p>Check elements and pads properties values.
+The properties values to check will be defined as:</p>
+<pre><code>element-name.padname::property-name
+</code></pre>
+<blockquote>
+<p>NOTE: <code>.padname</code> is not needed if checking an element property</p>
+</blockquote>
+<p><strong>Implementer namespace</strong>: core</p>
+<h3 id="parameters16">Parameters</h3>
+<h4 id="playbacktime-optional12">
+<code>playback-time</code> (<em>optional</em>)</h4>
+<p>The playback time at which the action will be executed</p>
+<p><strong>Possible variables</strong>:</p>
+<ul>
+<li>
+<p><code>position</code>: The current position in the stream</p>
+</li>
+<li>
+<p><code>duration</code>: The duration of the stream</p>
+</li>
+</ul>
+<p><strong>Possible types</strong>: <code>double,string</code></p>
+<p><strong>Default</strong>: 0.0</p>
+<hr>
+<h4 id="onmessage-optional12">
+<code>on-message</code> (<em>optional</em>)</h4>
+<p>Specify on what message type the action will be executed.
+If both 'playback-time' and 'on-message' is specified, the action will be executed
+on whatever happens first.</p>
+<p><strong>Possible types</strong>: <code>string</code></p>
+<p><strong>Default</strong>: (null)</p>
+<hr>
+<h2 id="setproperties">set-properties</h2>
+<pre><code class="language-validate-scenario">set-properties,
+    [playback-time=(double,string)];
+</code></pre>
+<p>Set elements and pads properties values.
+The properties values to set will be defined as:</p>
+<pre><code>    element-name.padname::property-name
+</code></pre>
+<blockquote>
+<p>NOTE: <code>.padname</code> is not needed if set an element property</p>
+</blockquote>
+<p><strong>Implementer namespace</strong>: core</p>
+<h3 id="parameters17">Parameters</h3>
+<h4 id="playbacktime-optional13">
+<code>playback-time</code> (<em>optional</em>)</h4>
+<p>The playback time at which the action will be executed</p>
+<p><strong>Possible variables</strong>:</p>
+<ul>
+<li>
+<p><code>position</code>: The current position in the stream</p>
+</li>
+<li>
+<p><code>duration</code>: The duration of the stream</p>
+</li>
+</ul>
+<p><strong>Possible types</strong>: <code>double,string</code></p>
+<p><strong>Default</strong>: 0.0</p>
+<hr>
+<h4 id="onmessage-optional13">
+<code>on-message</code> (<em>optional</em>)</h4>
+<p>Specify on what message type the action will be executed.
+If both 'playback-time' and 'on-message' is specified, the action will be executed
+on whatever happens first.</p>
+<p><strong>Possible types</strong>: <code>string</code></p>
+<p><strong>Default</strong>: (null)</p>
+<hr>
+<h2 id="setproperty">set-property</h2>
+<pre><code class="language-validate-scenario">set-property,
+    property-name=(string),
+    property-value=(The same type of @property-name),
+    [on-all-instances=(boolean)],
+    [target-element-factory-name=(string)],
+    [target-element-klass=(string)],
+    [target-element-name=(string)],
+    [playback-time=(double,string)];
+</code></pre>
+<p>Sets a property of an element or klass of elements in the pipeline.
+Besides property-name and value, either 'target-element-name' or
+'target-element-klass' needs to be defined</p>
+<p><strong>Implementer namespace</strong>: core</p>
+<h3 id="parameters18">Parameters</h3>
+<h4 id="propertyname-mandatory">
+<code>property-name</code> (<em>mandatory</em>)</h4>
+<p>The name of the property to set on @target-element-name</p>
+<p><strong>Possible types</strong>: <code>string</code></p>
+<hr>
+<h4 id="propertyvalue-mandatory">
+<code>property-value</code> (<em>mandatory</em>)</h4>
+<p>The value of @property-name to be set on the element</p>
+<p><strong>Possible types</strong>: <code>The same type of @property-name</code></p>
+<hr>
+<h4 id="onallinstances-optional">
+<code>on-all-instances</code> (<em>optional</em>)</h4>
+<p>Whether to set property on all instances matching the requirements</p>
+<p><strong>Possible types</strong>: <code>boolean</code></p>
+<p><strong>Default</strong>: (null)</p>
+<hr>
+<h4 id="targetelementfactoryname-optional1">
+<code>target-element-factory-name</code> (<em>optional</em>)</h4>
+<p>The name factory for which to set a property on built elements</p>
+<p><strong>Possible types</strong>: <code>string</code></p>
+<p><strong>Default</strong>: (null)</p>
+<hr>
+<h4 id="targetelementklass-optional">
+<code>target-element-klass</code> (<em>optional</em>)</h4>
+<p>The klass of the GstElements to set a property on</p>
+<p><strong>Possible types</strong>: <code>string</code></p>
+<p><strong>Default</strong>: (null)</p>
+<hr>
+<h4 id="targetelementname-optional1">
+<code>target-element-name</code> (<em>optional</em>)</h4>
+<p>The name of the GstElement to set a property on</p>
+<p><strong>Possible types</strong>: <code>string</code></p>
+<p><strong>Default</strong>: (null)</p>
+<hr>
+<h4 id="playbacktime-optional14">
+<code>playback-time</code> (<em>optional</em>)</h4>
+<p>The playback time at which the action will be executed</p>
+<p><strong>Possible variables</strong>:</p>
+<ul>
+<li>
+<p><code>position</code>: The current position in the stream</p>
+</li>
+<li>
+<p><code>duration</code>: The duration of the stream</p>
+</li>
+</ul>
+<p><strong>Possible types</strong>: <code>double,string</code></p>
+<p><strong>Default</strong>: 0.0</p>
+<hr>
+<h4 id="onmessage-optional14">
+<code>on-message</code> (<em>optional</em>)</h4>
+<p>Specify on what message type the action will be executed.
+If both 'playback-time' and 'on-message' is specified, the action will be executed
+on whatever happens first.</p>
+<p><strong>Possible types</strong>: <code>string</code></p>
+<p><strong>Default</strong>: (null)</p>
+<hr>
+<pre><code> optional                   : Don't raise an error if this action hasn't been executed or failed
+                              ### Possible types:
+                                boolean
+                              Default: false
+</code></pre>
+<h2 id="checkproperty">check-property</h2>
+<pre><code class="language-validate-scenario">check-property,
+    property-name=(string),
+    property-value=(The same type of @property-name),
+    [target-element-factory-name=(string)],
+    [target-element-klass=(string)],
+    [target-element-name=(string)],
+    [playback-time=(double,string)];
+</code></pre>
+<p>Check the value of property of an element or klass of elements in the pipeline.
+Besides property-name and value, either 'target-element-name' or
+'target-element-klass' needs to be defined</p>
+<p><strong>Implementer namespace</strong>: core</p>
+<h3 id="parameters19">Parameters</h3>
+<h4 id="propertyname-mandatory1">
+<code>property-name</code> (<em>mandatory</em>)</h4>
+<p>The name of the property to set on @target-element-name</p>
+<p><strong>Possible types</strong>: <code>string</code></p>
+<hr>
+<h4 id="propertyvalue-mandatory1">
+<code>property-value</code> (<em>mandatory</em>)</h4>
+<p>The expected value of @property-name</p>
+<p><strong>Possible types</strong>: <code>The same type of @property-name</code></p>
+<hr>
+<h4 id="targetelementfactoryname-optional2">
+<code>target-element-factory-name</code> (<em>optional</em>)</h4>
+<p>The name factory for which to check a property value on built elements</p>
+<p><strong>Possible types</strong>: <code>string</code></p>
+<p><strong>Default</strong>: (null)</p>
+<hr>
+<h4 id="targetelementklass-optional1">
+<code>target-element-klass</code> (<em>optional</em>)</h4>
+<p>The klass of the GstElements to check a property on</p>
+<p><strong>Possible types</strong>: <code>string</code></p>
+<p><strong>Default</strong>: (null)</p>
+<hr>
+<h4 id="targetelementname-optional2">
+<code>target-element-name</code> (<em>optional</em>)</h4>
+<p>The name of the GstElement to check a property value</p>
+<p><strong>Possible types</strong>: <code>string</code></p>
+<p><strong>Default</strong>: (null)</p>
+<hr>
+<h4 id="playbacktime-optional15">
+<code>playback-time</code> (<em>optional</em>)</h4>
+<p>The playback time at which the action will be executed</p>
+<p><strong>Possible variables</strong>:</p>
+<ul>
+<li>
+<p><code>position</code>: The current position in the stream</p>
+</li>
+<li>
+<p><code>duration</code>: The duration of the stream</p>
+</li>
+</ul>
+<p><strong>Possible types</strong>: <code>double,string</code></p>
+<p><strong>Default</strong>: 0.0</p>
+<hr>
+<h4 id="onmessage-optional15">
+<code>on-message</code> (<em>optional</em>)</h4>
+<p>Specify on what message type the action will be executed.
+If both 'playback-time' and 'on-message' is specified, the action will be executed
+on whatever happens first.</p>
+<p><strong>Possible types</strong>: <code>string</code></p>
+<p><strong>Default</strong>: (null)</p>
+<hr>
+<h2 id="setdebugthreshold">set-debug-threshold</h2>
+<pre><code class="language-validate-scenario">set-debug-threshold,
+    debug-threshold=(string),
+    [playback-time=(double,string)];
+</code></pre>
+<p>Sets the debug level to be used, same format as
+setting the GST_DEBUG env variable</p>
+<p><strong>Implementer namespace</strong>: core</p>
+<h3 id="parameters20">Parameters</h3>
+<h4 id="debugthreshold-mandatory">
+<code>debug-threshold</code> (<em>mandatory</em>)</h4>
+<p>String defining debug threshold
+See gst_debug_set_threshold_from_string</p>
+<p><strong>Possible types</strong>: <code>string</code></p>
+<hr>
+<h4 id="playbacktime-optional16">
+<code>playback-time</code> (<em>optional</em>)</h4>
+<p>The playback time at which the action will be executed</p>
+<p><strong>Possible variables</strong>:</p>
+<ul>
+<li>
+<p><code>position</code>: The current position in the stream</p>
+</li>
+<li>
+<p><code>duration</code>: The duration of the stream</p>
+</li>
+</ul>
+<p><strong>Possible types</strong>: <code>double,string</code></p>
+<p><strong>Default</strong>: 0.0</p>
+<hr>
+<h4 id="onmessage-optional16">
+<code>on-message</code> (<em>optional</em>)</h4>
+<p>Specify on what message type the action will be executed.
+If both 'playback-time' and 'on-message' is specified, the action will be executed
+on whatever happens first.</p>
+<p><strong>Possible types</strong>: <code>string</code></p>
+<p><strong>Default</strong>: (null)</p>
+<hr>
+<h2 id="emitsignal">emit-signal</h2>
+<pre><code class="language-validate-scenario">emit-signal,
+    signal-name=(string),
+    target-element-name=(string),
+    [params=(ValueArray)],
+    [playback-time=(double,string)];
+</code></pre>
+<p>Emits a signal to an element in the pipeline</p>
+<p><strong>Implementer namespace</strong>: core</p>
+<h3 id="parameters21">Parameters</h3>
+<h4 id="signalname-mandatory">
+<code>signal-name</code> (<em>mandatory</em>)</h4>
+<p>The name of the signal to emit on @target-element-name</p>
+<p><strong>Possible types</strong>: <code>string</code></p>
+<hr>
+<h4 id="targetelementname-mandatory">
+<code>target-element-name</code> (<em>mandatory</em>)</h4>
+<p>The name of the GstElement to emit a signal on</p>
+<p><strong>Possible types</strong>: <code>string</code></p>
+<hr>
+<h4 id="params-optional">
+<code>params</code> (<em>optional</em>)</h4>
+<p>The signal parameters</p>
+<p><strong>Possible types</strong>: <code>ValueArray</code></p>
+<p><strong>Default</strong>: (null)</p>
+<hr>
+<h4 id="playbacktime-optional17">
+<code>playback-time</code> (<em>optional</em>)</h4>
+<p>The playback time at which the action will be executed</p>
+<p><strong>Possible variables</strong>:</p>
+<ul>
+<li>
+<p><code>position</code>: The current position in the stream</p>
+</li>
+<li>
+<p><code>duration</code>: The duration of the stream</p>
+</li>
+</ul>
+<p><strong>Possible types</strong>: <code>double,string</code></p>
+<p><strong>Default</strong>: 0.0</p>
+<hr>
+<h4 id="onmessage-optional17">
+<code>on-message</code> (<em>optional</em>)</h4>
+<p>Specify on what message type the action will be executed.
+If both 'playback-time' and 'on-message' is specified, the action will be executed
+on whatever happens first.</p>
+<p><strong>Possible types</strong>: <code>string</code></p>
+<p><strong>Default</strong>: (null)</p>
+<hr>
+<h2 id="appsrcpush">appsrc-push</h2>
+<pre><code class="language-validate-scenario">appsrc-push,
+    target-element-name=(string),
+    [caps=(caps)],
+    [dts=(GstClockTime)],
+    [duration=(GstClockTime)],
+    [file-name=(string)],
+    [fill-mode=(string)],
+    [from-appsink=(string)],
+    [offset=(uint64)],
+    [pts=(GstClockTime)],
+    [segment=((GstStructure)segment,[start=(GstClockTime)][stop=(GstClockTime)][base=(GstClockTime)][offset=(GstClockTime)][time=(GstClockTime)][postion=(GstClockTime)][duration=(GstClockTime)])],
+    [size=(uint64)],
+    [playback-time=(double,string)];
+</code></pre>
+<p>Queues a sample in an appsrc. If the pipeline state allows flow of buffers,  the next action is not run until the buffer has been pushed.</p>
+<p><strong>Implementer namespace</strong>: core</p>
+<h3 id="parameters22">Parameters</h3>
+<h4 id="targetelementname-mandatory1">
+<code>target-element-name</code> (<em>mandatory</em>)</h4>
+<p>The name of the appsrc to push data on</p>
+<p><strong>Possible types</strong>: <code>string</code></p>
+<hr>
+<h4 id="caps-optional">
+<code>caps</code> (<em>optional</em>)</h4>
+<p>Caps for the buffer to be pushed</p>
+<p><strong>Possible types</strong>: <code>caps</code></p>
+<p><strong>Default</strong>: (null)</p>
+<hr>
+<h4 id="dts-optional">
+<code>dts</code> (<em>optional</em>)</h4>
+<p>Buffer DTS</p>
+<p><strong>Possible types</strong>: <code>GstClockTime</code></p>
+<p><strong>Default</strong>: (null)</p>
+<hr>
+<h4 id="duration-optional3">
+<code>duration</code> (<em>optional</em>)</h4>
+<p>Buffer duration</p>
+<p><strong>Possible types</strong>: <code>GstClockTime</code></p>
+<p><strong>Default</strong>: (null)</p>
+<hr>
+<h4 id="filename-optional">
+<code>file-name</code> (<em>optional</em>)</h4>
+<p>Relative path to a file whose contents will be pushed as a buffer</p>
+<p><strong>Possible types</strong>: <code>string</code></p>
+<p><strong>Default</strong>: (null)</p>
+<hr>
+<h4 id="fillmode-optional">
+<code>fill-mode</code> (<em>optional</em>)</h4>
+<p>How to fill the buffer, possible values:</p>
+<ul>
+<li>
+<code>nothing</code>: Leave data as malloc)</li>
+<li>
+<code>zero</code>: Fill buffers with zeros</li>
+<li>
+<code>counter</code>: Buffers are filled with an ever increasing counter</li>
+<li>
+<code>file</code>: Read data from file</li>
+</ul>
+<p><strong>Possible types</strong>: <code>string</code></p>
+<p><strong>Default</strong>: file</p>
+<hr>
+<h4 id="fromappsink-optional">
+<code>from-appsink</code> (<em>optional</em>)</h4>
+<p>Pull sample from another appsink, if appsink is in another pipeline, use the <code>other-pipeline-name/target-element-name</code> synthax</p>
+<p><strong>Possible types</strong>: <code>string</code></p>
+<p><strong>Default</strong>: (null)</p>
+<hr>
+<h4 id="offset-optional">
+<code>offset</code> (<em>optional</em>)</h4>
+<p>Offset within the file where the buffer will start</p>
+<p><strong>Possible types</strong>: <code>uint64</code></p>
+<p><strong>Default</strong>: (null)</p>
+<hr>
+<h4 id="pts-optional">
+<code>pts</code> (<em>optional</em>)</h4>
+<p>Buffer PTS</p>
+<p><strong>Possible types</strong>: <code>GstClockTime</code></p>
+<p><strong>Default</strong>: (null)</p>
+<hr>
+<h4 id="segment-optional">
+<code>segment</code> (<em>optional</em>)</h4>
+<p>The GstSegment to configure as part of the sample</p>
+<p><strong>Possible types</strong>: <code>(GstStructure)segment,[start=(GstClockTime)][stop=(GstClockTime)][base=(GstClockTime)][offset=(GstClockTime)][time=(GstClockTime)][postion=(GstClockTime)][duration=(GstClockTime)]</code></p>
+<p><strong>Default</strong>: (null)</p>
+<hr>
+<h4 id="size-optional">
+<code>size</code> (<em>optional</em>)</h4>
+<p>Number of bytes from the file that will be pushed as a buffer</p>
+<p><strong>Possible types</strong>: <code>uint64</code></p>
+<p><strong>Default</strong>: (null)</p>
+<hr>
+<h4 id="playbacktime-optional18">
+<code>playback-time</code> (<em>optional</em>)</h4>
+<p>The playback time at which the action will be executed</p>
+<p><strong>Possible variables</strong>:</p>
+<ul>
+<li>
+<p><code>position</code>: The current position in the stream</p>
+</li>
+<li>
+<p><code>duration</code>: The duration of the stream</p>
+</li>
+</ul>
+<p><strong>Possible types</strong>: <code>double,string</code></p>
+<p><strong>Default</strong>: 0.0</p>
+<hr>
+<h4 id="onmessage-optional18">
+<code>on-message</code> (<em>optional</em>)</h4>
+<p>Specify on what message type the action will be executed.
+If both 'playback-time' and 'on-message' is specified, the action will be executed
+on whatever happens first.</p>
+<p><strong>Possible types</strong>: <code>string</code></p>
+<p><strong>Default</strong>: (null)</p>
+<hr>
+<h2 id="appsrceos">appsrc-eos</h2>
+<pre><code class="language-validate-scenario">appsrc-eos,
+    target-element-name=(string),
+    [playback-time=(double,string)];
+</code></pre>
+<p>queues a eos event in an appsrc.</p>
+<p><strong>Implementer namespace</strong>: core</p>
+<h3 id="parameters23">Parameters</h3>
+<h4 id="targetelementname-mandatory2">
+<code>target-element-name</code> (<em>mandatory</em>)</h4>
+<p>the name of the appsrc to emit eos on</p>
+<p><strong>Possible types</strong>: <code>string</code></p>
+<hr>
+<h4 id="playbacktime-optional19">
+<code>playback-time</code> (<em>optional</em>)</h4>
+<p>The playback time at which the action will be executed</p>
+<p><strong>Possible variables</strong>:</p>
+<ul>
+<li>
+<p><code>position</code>: The current position in the stream</p>
+</li>
+<li>
+<p><code>duration</code>: The duration of the stream</p>
+</li>
+</ul>
+<p><strong>Possible types</strong>: <code>double,string</code></p>
+<p><strong>Default</strong>: 0.0</p>
+<hr>
+<h4 id="onmessage-optional19">
+<code>on-message</code> (<em>optional</em>)</h4>
+<p>Specify on what message type the action will be executed.
+If both 'playback-time' and 'on-message' is specified, the action will be executed
+on whatever happens first.</p>
+<p><strong>Possible types</strong>: <code>string</code></p>
+<p><strong>Default</strong>: (null)</p>
+<hr>
+<h2 id="appsinkforwardtoappsrc">appsink-forward-to-appsrc</h2>
+<pre><code class="language-validate-scenario">appsink-forward-to-appsrc,
+    sink=(string),
+    src=(string),
+    [forward-eos=(bool)],
+    [playback-time=(double,string)];
+</code></pre>
+<p>queues a eos event in an appsrc.</p>
+<p><strong>Implementer namespace</strong>: core</p>
+<h3 id="parameters24">Parameters</h3>
+<h4 id="sink-mandatory">
+<code>sink</code> (<em>mandatory</em>)</h4>
+<p>the name of the appsink to forward samples/events from</p>
+<p><strong>Possible types</strong>: <code>string</code></p>
+<hr>
+<h4 id="src-mandatory">
+<code>src</code> (<em>mandatory</em>)</h4>
+<p>the name of the appsrc to forward samples/events to</p>
+<p><strong>Possible types</strong>: <code>string</code></p>
+<hr>
+<h4 id="forwardeos-optional">
+<code>forward-eos</code> (<em>optional</em>)</h4>
+<p>Wether to forward EOS or not</p>
+<p><strong>Possible types</strong>: <code>bool</code></p>
+<p><strong>Default</strong>: true</p>
+<hr>
+<h4 id="playbacktime-optional20">
+<code>playback-time</code> (<em>optional</em>)</h4>
+<p>The playback time at which the action will be executed</p>
+<p><strong>Possible variables</strong>:</p>
+<ul>
+<li>
+<p><code>position</code>: The current position in the stream</p>
+</li>
+<li>
+<p><code>duration</code>: The duration of the stream</p>
+</li>
+</ul>
+<p><strong>Possible types</strong>: <code>double,string</code></p>
+<p><strong>Default</strong>: 0.0</p>
+<hr>
+<h4 id="onmessage-optional20">
+<code>on-message</code> (<em>optional</em>)</h4>
+<p>Specify on what message type the action will be executed.
+If both 'playback-time' and 'on-message' is specified, the action will be executed
+on whatever happens first.</p>
+<p><strong>Possible types</strong>: <code>string</code></p>
+<p><strong>Default</strong>: (null)</p>
+<hr>
+<h2 id="flush">flush</h2>
+<pre><code class="language-validate-scenario">flush,
+    target-element-name=(string),
+    [reset-time=(boolean)],
+    [playback-time=(double,string)];
+</code></pre>
+<p>Sends FLUSH_START and FLUSH_STOP events.</p>
+<p><strong>Implementer namespace</strong>: core</p>
+<h3 id="parameters25">Parameters</h3>
+<h4 id="targetelementname-mandatory3">
+<code>target-element-name</code> (<em>mandatory</em>)</h4>
+<p>The name of the appsrc to flush on</p>
+<p><strong>Possible types</strong>: <code>string</code></p>
+<hr>
+<h4 id="resettime-optional">
+<code>reset-time</code> (<em>optional</em>)</h4>
+<p>Whether the flush should reset running time</p>
+<p><strong>Possible types</strong>: <code>boolean</code></p>
+<p><strong>Default</strong>: TRUE</p>
+<hr>
+<h4 id="playbacktime-optional21">
+<code>playback-time</code> (<em>optional</em>)</h4>
+<p>The playback time at which the action will be executed</p>
+<p><strong>Possible variables</strong>:</p>
+<ul>
+<li>
+<p><code>position</code>: The current position in the stream</p>
+</li>
+<li>
+<p><code>duration</code>: The duration of the stream</p>
+</li>
+</ul>
+<p><strong>Possible types</strong>: <code>double,string</code></p>
+<p><strong>Default</strong>: 0.0</p>
+<hr>
+<h4 id="onmessage-optional21">
+<code>on-message</code> (<em>optional</em>)</h4>
+<p>Specify on what message type the action will be executed.
+If both 'playback-time' and 'on-message' is specified, the action will be executed
+on whatever happens first.</p>
+<p><strong>Possible types</strong>: <code>string</code></p>
+<p><strong>Default</strong>: (null)</p>
+<hr>
+<h2 id="disableplugin">disable-plugin</h2>
+<pre><code class="language-validate-scenario">disable-plugin,
+    plugin-name=(string),
+    [as-config=(boolean)],
+    [playback-time=(double,string)];
+</code></pre>
+<p>Disables a GstPlugin</p>
+<p><strong>Implementer namespace</strong>: core</p>
+<h3 id="parameters26">Parameters</h3>
+<h4 id="pluginname-mandatory">
+<code>plugin-name</code> (<em>mandatory</em>)</h4>
+<p>The name of the GstPlugin to disable</p>
+<p><strong>Possible types</strong>: <code>string</code></p>
+<hr>
+<h4 id="asconfig-optional">
+<code>as-config</code> (<em>optional</em>)</h4>
+<p>Execute action as a config action (meaning when loading the scenario)</p>
+<p><strong>Possible types</strong>: <code>boolean</code></p>
+<p><strong>Default</strong>: false</p>
+<hr>
+<h4 id="playbacktime-optional22">
+<code>playback-time</code> (<em>optional</em>)</h4>
+<p>The playback time at which the action will be executed</p>
+<p><strong>Possible variables</strong>:</p>
+<ul>
+<li>
+<p><code>position</code>: The current position in the stream</p>
+</li>
+<li>
+<p><code>duration</code>: The duration of the stream</p>
+</li>
+</ul>
+<p><strong>Possible types</strong>: <code>double,string</code></p>
+<p><strong>Default</strong>: 0.0</p>
+<hr>
+<h4 id="onmessage-optional22">
+<code>on-message</code> (<em>optional</em>)</h4>
+<p>Specify on what message type the action will be executed.
+If both 'playback-time' and 'on-message' is specified, the action will be executed
+on whatever happens first.</p>
+<p><strong>Possible types</strong>: <code>string</code></p>
+<p><strong>Default</strong>: (null)</p>
+<hr>
+<h2 id="checklastsample">check-last-sample</h2>
+<pre><code class="language-validate-scenario">check-last-sample,
+    [checksum=(string)],
+    [sink-factory-name=(string)],
+    [sink-name=(string)],
+    [sinkpad-caps=(string)],
+    [timecode-frame-number=(string)],
+    [playback-time=(double,string)];
+</code></pre>
+<p>Checks the last-sample checksum or frame number (set on its  GstVideoTimeCodeMeta) on declared Sink element. This allows checking the checksum of a buffer after a 'seek' or after a GESTimeline 'commit' for example</p>
+<p><strong>Implementer namespace</strong>: core</p>
+<h3 id="parameters27">Parameters</h3>
+<h4 id="checksum-optional">
+<code>checksum</code> (<em>optional</em>)</h4>
+<p>The reference checksum of the buffer.</p>
+<p><strong>Possible types</strong>: <code>string</code></p>
+<p><strong>Default</strong>: (null)</p>
+<hr>
+<h4 id="sinkfactoryname-optional">
+<code>sink-factory-name</code> (<em>optional</em>)</h4>
+<p>The name of the factory of the sink element to check sample on.</p>
+<p><strong>Possible types</strong>: <code>string</code></p>
+<p><strong>Default</strong>: (null)</p>
+<hr>
+<h4 id="sinkname-optional">
+<code>sink-name</code> (<em>optional</em>)</h4>
+<p>The name of the sink element to check sample on.</p>
+<p><strong>Possible types</strong>: <code>string</code></p>
+<p><strong>Default</strong>: (null)</p>
+<hr>
+<h4 id="sinkpadcaps-optional">
+<code>sinkpad-caps</code> (<em>optional</em>)</h4>
+<p>The caps (as string) of the sink to check.</p>
+<p><strong>Possible types</strong>: <code>string</code></p>
+<p><strong>Default</strong>: (null)</p>
+<hr>
+<h4 id="timecodeframenumber-optional">
+<code>timecode-frame-number</code> (<em>optional</em>)</h4>
+<p>The frame number of the buffer as specified on its GstVideoTimeCodeMeta</p>
+<p><strong>Possible types</strong>: <code>string</code></p>
+<p><strong>Default</strong>: (null)</p>
+<hr>
+<h4 id="playbacktime-optional23">
+<code>playback-time</code> (<em>optional</em>)</h4>
+<p>The playback time at which the action will be executed</p>
+<p><strong>Possible variables</strong>:</p>
+<ul>
+<li>
+<p><code>position</code>: The current position in the stream</p>
+</li>
+<li>
+<p><code>duration</code>: The duration of the stream</p>
+</li>
+</ul>
+<p><strong>Possible types</strong>: <code>double,string</code></p>
+<p><strong>Default</strong>: 0.0</p>
+<hr>
+<h4 id="onmessage-optional23">
+<code>on-message</code> (<em>optional</em>)</h4>
+<p>Specify on what message type the action will be executed.
+If both 'playback-time' and 'on-message' is specified, the action will be executed
+on whatever happens first.</p>
+<p><strong>Possible types</strong>: <code>string</code></p>
+<p><strong>Default</strong>: (null)</p>
+<hr>
+<h2 id="crankclock">crank-clock</h2>
+<pre><code class="language-validate-scenario">crank-clock,
+    [expected-elapsed-time=(GstClockTime)],
+    [expected-time=(GstClockTime)],
+    [playback-time=(double,string)];
+</code></pre>
+<p>Crank the clock, possibly checking how much time was supposed to be waited on the clock and/or the clock running time after the crank. Using one <code>crank-clock</code> action in a scenario implies that the scenario is driving the  clock and a #GstTestClock will be used. The user will need to crank it the number of  time required (using the <code>repeat</code> parameter comes handy here).</p>
+<p><strong>Implementer namespace</strong>: core</p>
+<h3 id="parameters28">Parameters</h3>
+<h4 id="expectedelapsedtime-optional">
+<code>expected-elapsed-time</code> (<em>optional</em>)</h4>
+<p>Check time elapsed during the clock cranking</p>
+<p><strong>Possible types</strong>: <code>GstClockTime</code></p>
+<p><strong>Default</strong>: (null)</p>
+<hr>
+<h4 id="expectedtime-optional">
+<code>expected-time</code> (<em>optional</em>)</h4>
+<p>Expected clock time after cranking</p>
+<p><strong>Possible types</strong>: <code>GstClockTime</code></p>
+<p><strong>Default</strong>: (null)</p>
+<hr>
+<h4 id="playbacktime-optional24">
+<code>playback-time</code> (<em>optional</em>)</h4>
+<p>The playback time at which the action will be executed</p>
+<p><strong>Possible variables</strong>:</p>
+<ul>
+<li>
+<p><code>position</code>: The current position in the stream</p>
+</li>
+<li>
+<p><code>duration</code>: The duration of the stream</p>
+</li>
+</ul>
+<p><strong>Possible types</strong>: <code>double,string</code></p>
+<p><strong>Default</strong>: 0.0</p>
+<hr>
+<h4 id="onmessage-optional24">
+<code>on-message</code> (<em>optional</em>)</h4>
+<p>Specify on what message type the action will be executed.
+If both 'playback-time' and 'on-message' is specified, the action will be executed
+on whatever happens first.</p>
+<p><strong>Possible types</strong>: <code>string</code></p>
+<p><strong>Default</strong>: (null)</p>
+<hr>
+<h2 id="videorequestkeyunit">video-request-key-unit</h2>
+<pre><code class="language-validate-scenario">video-request-key-unit,
+    direction=(string),
+    [all-headers=(boolean)],
+    [count=(int)],
+    [pad=(string)],
+    [running-time=(double or string)],
+    [srcpad=(string)],
+    [target-element-factory-name=(string)],
+    [target-element-klass=(string)],
+    [target-element-name=(string)],
+    [playback-time=(double,string)];
+</code></pre>
+<p>Request a video key unit</p>
+<p><strong>Implementer namespace</strong>: core</p>
+<h3 id="parameters29">Parameters</h3>
+<h4 id="direction-mandatory">
+<code>direction</code> (<em>mandatory</em>)</h4>
+<p>The direction for the event to travel, should be in</p>
+<ul>
+<li>[upstream, downstream]</li>
+</ul>
+<p><strong>Possible types</strong>: <code>string</code></p>
+<hr>
+<h4 id="allheaders-optional">
+<code>all-headers</code> (<em>optional</em>)</h4>
+<p>TRUE to produce headers when starting a new key unit</p>
+<p><strong>Possible types</strong>: <code>boolean</code></p>
+<p><strong>Default</strong>: FALSE</p>
+<hr>
+<h4 id="count-optional">
+<code>count</code> (<em>optional</em>)</h4>
+<p>integer that can be used to number key units</p>
+<p><strong>Possible types</strong>: <code>int</code></p>
+<p><strong>Default</strong>: 0</p>
+<hr>
+<h4 id="pad-optional">
+<code>pad</code> (<em>optional</em>)</h4>
+<p>The name of the GstPad to send a send force-key-unit to</p>
+<p><strong>Possible types</strong>: <code>string</code></p>
+<p><strong>Default</strong>: sink</p>
+<hr>
+<h4 id="runningtime-optional">
+<code>running-time</code> (<em>optional</em>)</h4>
+<p>The running_time can be set to request a new key unit at a specific running_time.
+If not set, GST_CLOCK_TIME_NONE will be used so upstream elements will produce a new key unit as soon as possible.</p>
+<p><strong>Possible variables</strong>:</p>
+<ul>
+<li>
+<p>position: The current position in the stream</p>
+</li>
+<li>
+<p>duration: The duration of the stream</p>
+</li>
+</ul>
+<p><strong>Possible types</strong>: <code>double or string</code></p>
+<p><strong>Default</strong>: (null)</p>
+<hr>
+<h4 id="srcpad-optional">
+<code>srcpad</code> (<em>optional</em>)</h4>
+<p>The name of the GstPad to send a send force-key-unit to</p>
+<p><strong>Possible types</strong>: <code>string</code></p>
+<p><strong>Default</strong>: src</p>
+<hr>
+<h4 id="targetelementfactoryname-optional3">
+<code>target-element-factory-name</code> (<em>optional</em>)</h4>
+<p>The factory name of the GstElements to send a send force-key-unit to</p>
+<p><strong>Possible types</strong>: <code>string</code></p>
+<p><strong>Default</strong>: (null)</p>
+<hr>
+<h4 id="targetelementklass-optional2">
+<code>target-element-klass</code> (<em>optional</em>)</h4>
+<p>The klass of the GstElements to send a send force-key-unit to</p>
+<p><strong>Possible types</strong>: <code>string</code></p>
+<p><strong>Default</strong>: Video/Encoder</p>
+<hr>
+<h4 id="targetelementname-optional3">
+<code>target-element-name</code> (<em>optional</em>)</h4>
+<p>The name of the GstElement to send a send force-key-unit to</p>
+<p><strong>Possible types</strong>: <code>string</code></p>
+<p><strong>Default</strong>: (null)</p>
+<hr>
+<h4 id="playbacktime-optional25">
+<code>playback-time</code> (<em>optional</em>)</h4>
+<p>The playback time at which the action will be executed</p>
+<p><strong>Possible variables</strong>:</p>
+<ul>
+<li>
+<p><code>position</code>: The current position in the stream</p>
+</li>
+<li>
+<p><code>duration</code>: The duration of the stream</p>
+</li>
+</ul>
+<p><strong>Possible types</strong>: <code>double,string</code></p>
+<p><strong>Default</strong>: 0.0</p>
+<hr>
+<h4 id="onmessage-optional25">
+<code>on-message</code> (<em>optional</em>)</h4>
+<p>Specify on what message type the action will be executed.
+If both 'playback-time' and 'on-message' is specified, the action will be executed
+on whatever happens first.</p>
+<p><strong>Possible types</strong>: <code>string</code></p>
+<p><strong>Default</strong>: (null)</p>
+<hr>
+<h2 id="checkposition">check-position</h2>
+<pre><code class="language-validate-scenario">check-position,
+    expected-position=(GstClockTime),
+    [playback-time=(double,string)];
+</code></pre>
+<p>Check current pipeline position.</p>
+<p><strong>Implementer namespace</strong>: core</p>
+<h3 id="parameters30">Parameters</h3>
+<h4 id="expectedposition-mandatory">
+<code>expected-position</code> (<em>mandatory</em>)</h4>
+<p>The expected pipeline position</p>
+<p><strong>Possible types</strong>: <code>GstClockTime</code></p>
+<hr>
+<h4 id="playbacktime-optional26">
+<code>playback-time</code> (<em>optional</em>)</h4>
+<p>The playback time at which the action will be executed</p>
+<p><strong>Possible variables</strong>:</p>
+<ul>
+<li>
+<p><code>position</code>: The current position in the stream</p>
+</li>
+<li>
+<p><code>duration</code>: The duration of the stream</p>
+</li>
+</ul>
+<p><strong>Possible types</strong>: <code>double,string</code></p>
+<p><strong>Default</strong>: 0.0</p>
+<hr>
+<h4 id="onmessage-optional26">
+<code>on-message</code> (<em>optional</em>)</h4>
+<p>Specify on what message type the action will be executed.
+If both 'playback-time' and 'on-message' is specified, the action will be executed
+on whatever happens first.</p>
+<p><strong>Possible types</strong>: <code>string</code></p>
+<p><strong>Default</strong>: (null)</p>
+<hr>
+<h2 id="checkcurrentpadcaps">check-current-pad-caps</h2>
+<pre><code class="language-validate-scenario">check-current-pad-caps,
+    [comparison-type=(string in [intersect, equal])],
+    [expected-caps=(caps,structure)],
+    [pad=(string)],
+    [target-element-factory-name=(string)],
+    [target-element-klass=(string)],
+    [target-element-name=(string)],
+    [playback-time=(double,string)];
+</code></pre>
+<p>Check currently set caps on a particular pad.</p>
+<p><strong>Implementer namespace</strong>: core</p>
+<h3 id="parameters31">Parameters</h3>
+<h4 id="comparisontype-optional">
+<code>comparison-type</code> (<em>optional</em>)</h4>
+<p><strong>No description</strong></p>
+<p><strong>Possible types</strong>: <code>string in [intersect, equal]</code></p>
+<p><strong>Default</strong>: (null)</p>
+<hr>
+<h4 id="expectedcaps-optional">
+<code>expected-caps</code> (<em>optional</em>)</h4>
+<p>The expected caps. If not present, expected no caps to be set</p>
+<p><strong>Possible types</strong>: <code>caps,structure</code></p>
+<p><strong>Default</strong>: (null)</p>
+<hr>
+<h4 id="pad-optional1">
+<code>pad</code> (<em>optional</em>)</h4>
+<p>The name of the GstPad to get pad from</p>
+<p><strong>Possible types</strong>: <code>string</code></p>
+<p><strong>Default</strong>: (null)</p>
+<hr>
+<h4 id="targetelementfactoryname-optional4">
+<code>target-element-factory-name</code> (<em>optional</em>)</h4>
+<p>The factory name of the GstElements to get pad from</p>
+<p><strong>Possible types</strong>: <code>string</code></p>
+<p><strong>Default</strong>: (null)</p>
+<hr>
+<h4 id="targetelementklass-optional3">
+<code>target-element-klass</code> (<em>optional</em>)</h4>
+<p>The klass of the GstElements to get pad from</p>
+<p><strong>Possible types</strong>: <code>string</code></p>
+<p><strong>Default</strong>: (null)</p>
+<hr>
+<h4 id="targetelementname-optional4">
+<code>target-element-name</code> (<em>optional</em>)</h4>
+<p>The name of the GstElement to send a send force-key-unit to</p>
+<p><strong>Possible types</strong>: <code>string</code></p>
+<p><strong>Default</strong>: (null)</p>
+<hr>
+<h4 id="playbacktime-optional27">
+<code>playback-time</code> (<em>optional</em>)</h4>
+<p>The playback time at which the action will be executed</p>
+<p><strong>Possible variables</strong>:</p>
+<ul>
+<li>
+<p><code>position</code>: The current position in the stream</p>
+</li>
+<li>
+<p><code>duration</code>: The duration of the stream</p>
+</li>
+</ul>
+<p><strong>Possible types</strong>: <code>double,string</code></p>
+<p><strong>Default</strong>: 0.0</p>
+<hr>
+<h4 id="onmessage-optional27">
+<code>on-message</code> (<em>optional</em>)</h4>
+<p>Specify on what message type the action will be executed.
+If both 'playback-time' and 'on-message' is specified, the action will be executed
+on whatever happens first.</p>
+<p><strong>Possible types</strong>: <code>string</code></p>
+<p><strong>Default</strong>: (null)</p>
+<hr>
+<h2 id="runcommand">run-command</h2>
+<pre><code class="language-validate-scenario">run-command,
+    argv=((string){array,}),
+    [env=(structure)],
+    [playback-time=(double,string)];
+</code></pre>
+<p>Run an external command.</p>
+<p><strong>Implementer namespace</strong>: core</p>
+<h3 id="parameters32">Parameters</h3>
+<h4 id="argv-mandatory">
+<code>argv</code> (<em>mandatory</em>)</h4>
+<p>The subprocess arguments, include the program name itself</p>
+<p><strong>Possible types</strong>: <code>(string){array,}</code></p>
+<hr>
+<h4 id="env-optional">
+<code>env</code> (<em>optional</em>)</h4>
+<p>Extra environment variables to set</p>
+<p><strong>Possible types</strong>: <code>structure</code></p>
+<p><strong>Default</strong>: (null)</p>
+<hr>
+<h4 id="playbacktime-optional28">
+<code>playback-time</code> (<em>optional</em>)</h4>
+<p>The playback time at which the action will be executed</p>
+<p><strong>Possible variables</strong>:</p>
+<ul>
+<li>
+<p><code>position</code>: The current position in the stream</p>
+</li>
+<li>
+<p><code>duration</code>: The duration of the stream</p>
+</li>
+</ul>
+<p><strong>Possible types</strong>: <code>double,string</code></p>
+<p><strong>Default</strong>: 0.0</p>
+<hr>
+<h4 id="onmessage-optional28">
+<code>on-message</code> (<em>optional</em>)</h4>
+<p>Specify on what message type the action will be executed.
+If both 'playback-time' and 'on-message' is specified, the action will be executed
+on whatever happens first.</p>
+<p><strong>Possible types</strong>: <code>string</code></p>
+<p><strong>Default</strong>: (null)</p>
+<hr>
+<pre><code> optional                   : Don't raise an error if this action hasn't been executed or failed
+                              ### Possible types:
+                                boolean
+                              Default: false
+</code></pre>
+<h2 id="foreach">foreach</h2>
+<pre><code class="language-validate-scenario">foreach,
+    actions=({array of [structures]}),
+    [playback-time=(double,string)];
+</code></pre>
+<p>Run actions defined in the <code>actions</code> array the number of times specified
+with an iterator parameter passed in. The iterator can be
+a range like: <code>i=[start, end, step]</code> or array of values
+such as: <code>values=&lt;value1, value2&gt;</code>.
+One and only one iterator field is supported as parameter.</p>
+<p><strong>Implementer namespace</strong>: core</p>
+<h3 id="parameters33">Parameters</h3>
+<h4 id="actions-mandatory">
+<code>actions</code> (<em>mandatory</em>)</h4>
+<p>The array of actions to repeat</p>
+<p><strong>Possible types</strong>: <code>{array of [structures]}</code></p>
+<hr>
+<h4 id="playbacktime-optional29">
+<code>playback-time</code> (<em>optional</em>)</h4>
+<p>The playback time at which the action will be executed</p>
+<p><strong>Possible variables</strong>:</p>
+<ul>
+<li>
+<p><code>position</code>: The current position in the stream</p>
+</li>
+<li>
+<p><code>duration</code>: The duration of the stream</p>
+</li>
+</ul>
+<p><strong>Possible types</strong>: <code>double,string</code></p>
+<p><strong>Default</strong>: 0.0</p>
+<hr>
+<h4 id="onmessage-optional29">
+<code>on-message</code> (<em>optional</em>)</h4>
+<p>Specify on what message type the action will be executed.
+If both 'playback-time' and 'on-message' is specified, the action will be executed
+on whatever happens first.</p>
+<p><strong>Possible types</strong>: <code>string</code></p>
+<p><strong>Default</strong>: (null)</p>
+<hr>
+<h2 id="runonsubpipeline">run-on-sub-pipeline</h2>
+<pre><code class="language-validate-scenario">run-on-sub-pipeline,
+    pipeline-name=((string)),
+    [action=([structures])],
+    [playback-time=(double,string)];
+</code></pre>
+<p>Execute @action on a sub scenario/pipeline.</p>
+<p><strong>Implementer namespace</strong>: core</p>
+<h3 id="parameters34">Parameters</h3>
+<h4 id="pipelinename-mandatory">
+<code>pipeline-name</code> (<em>mandatory</em>)</h4>
+<p>The name of the sub scenario pipeline</p>
+<p><strong>Possible types</strong>: <code>(string)</code></p>
+<hr>
+<h4 id="action-optional">
+<code>action</code> (<em>optional</em>)</h4>
+<p>The action to execute on @pipeline-name</p>
+<p><strong>Possible types</strong>: <code>[structures]</code></p>
+<p><strong>Default</strong>: (null)</p>
+<hr>
+<h4 id="playbacktime-optional30">
+<code>playback-time</code> (<em>optional</em>)</h4>
+<p>The playback time at which the action will be executed</p>
+<p><strong>Possible variables</strong>:</p>
+<ul>
+<li>
+<p><code>position</code>: The current position in the stream</p>
+</li>
+<li>
+<p><code>duration</code>: The duration of the stream</p>
+</li>
+</ul>
+<p><strong>Possible types</strong>: <code>double,string</code></p>
+<p><strong>Default</strong>: 0.0</p>
+<hr>
+<h4 id="onmessage-optional30">
+<code>on-message</code> (<em>optional</em>)</h4>
+<p>Specify on what message type the action will be executed.
+If both 'playback-time' and 'on-message' is specified, the action will be executed
+on whatever happens first.</p>
+<p><strong>Possible types</strong>: <code>string</code></p>
+<p><strong>Default</strong>: (null)</p>
+<hr>
+<h2 id="createsubpipeline">create-sub-pipeline</h2>
+<pre><code class="language-validate-scenario">create-sub-pipeline,
+    desc=(string),
+    [name=((string))],
+    [scenario=({array of [structures]})],
+    [playback-time=(double,string)];
+</code></pre>
+<p>Start another pipeline potentially running a scenario on it.
+When a scenario is specified, and while the sub pipeline is running
+it will be possible to execute actions from the main scenario on that pipeline
+using the <code>run-on-sub-pipeline</code> action type.</p>
+<p><strong>Implementer namespace</strong>: core</p>
+<h3 id="parameters35">Parameters</h3>
+<h4 id="desc-mandatory">
+<code>desc</code> (<em>mandatory</em>)</h4>
+<p>Pipeline description as passed to gst_parse_launch()</p>
+<p><strong>Possible types</strong>: <code>string</code></p>
+<hr>
+<h4 id="name-optional">
+<code>name</code> (<em>optional</em>)</h4>
+<p>The name of the new pipeline</p>
+<p><strong>Possible types</strong>: <code>(string)</code></p>
+<p><strong>Default</strong>: (null)</p>
+<hr>
+<h4 id="scenario-optional">
+<code>scenario</code> (<em>optional</em>)</h4>
+<p>Array of action and metadatas to run on the new pipeline</p>
+<p><strong>Possible types</strong>: <code>{array of [structures]}</code></p>
+<p><strong>Default</strong>: (null)</p>
+<hr>
+<h4 id="playbacktime-optional31">
+<code>playback-time</code> (<em>optional</em>)</h4>
+<p>The playback time at which the action will be executed</p>
+<p><strong>Possible variables</strong>:</p>
+<ul>
+<li>
+<p><code>position</code>: The current position in the stream</p>
+</li>
+<li>
+<p><code>duration</code>: The duration of the stream</p>
+</li>
+</ul>
+<p><strong>Possible types</strong>: <code>double,string</code></p>
+<p><strong>Default</strong>: 0.0</p>
+<hr>
+<h4 id="onmessage-optional31">
+<code>on-message</code> (<em>optional</em>)</h4>
+<p>Specify on what message type the action will be executed.
+If both 'playback-time' and 'on-message' is specified, the action will be executed
+on whatever happens first.</p>
+<p><strong>Possible types</strong>: <code>string</code></p>
+<p><strong>Default</strong>: (null)</p>
+<hr>
+<h2 id="corruptsocketrecv">corrupt-socket-recv</h2>
+<pre><code class="language-validate-scenario">corrupt-socket-recv,
+    errno=(string),
+    port=(int),
+    [times=(int)],
+    [playback-time=(double,string)];
+</code></pre>
+<p>corrupt the next socket receive</p>
+<p><strong>Implementer namespace</strong>: validatefaultinjection</p>
+<h3 id="parameters36">Parameters</h3>
+<h4 id="errno-mandatory">
+<code>errno</code> (<em>mandatory</em>)</h4>
+<p>errno to set when failing</p>
+<p><strong>Possible types</strong>: <code>string</code></p>
+<hr>
+<h4 id="port-mandatory">
+<code>port</code> (<em>mandatory</em>)</h4>
+<p>The port the socket to be corrupted listens on</p>
+<p><strong>Possible types</strong>: <code>int</code></p>
+<hr>
+<h4 id="times-optional">
+<code>times</code> (<em>optional</em>)</h4>
+<p>Number of times to corrupt recv, default is one</p>
+<p><strong>Possible types</strong>: <code>int</code></p>
+<p><strong>Default</strong>: 1</p>
+<hr>
+<h4 id="playbacktime-optional32">
+<code>playback-time</code> (<em>optional</em>)</h4>
+<p>The playback time at which the action will be executed</p>
+<p><strong>Possible variables</strong>:</p>
+<ul>
+<li>
+<p><code>position</code>: The current position in the stream</p>
+</li>
+<li>
+<p><code>duration</code>: The duration of the stream</p>
+</li>
+</ul>
+<p><strong>Possible types</strong>: <code>double,string</code></p>
+<p><strong>Default</strong>: 0.0</p>
+<hr>
+<h4 id="onmessage-optional32">
+<code>on-message</code> (<em>optional</em>)</h4>
+<p>Specify on what message type the action will be executed.
+If both 'playback-time' and 'on-message' is specified, the action will be executed
+on whatever happens first.</p>
+<p><strong>Possible types</strong>: <code>string</code></p>
+<p><strong>Default</strong>: (null)</p>
+<hr>
+<h2 id="gtkputevent">gtk-put-event</h2>
+<pre><code class="language-validate-scenario">gtk-put-event,
+    [keys=(string)],
+    [string=(string)],
+    [type=(string)],
+    [widget-name=(string)],
+    [playback-time=(double,string)];
+</code></pre>
+<p>Put a GdkEvent on the event list using gdk_put_event</p>
+<p><strong>Implementer namespace</strong>: validategtk</p>
+<h3 id="parameters37">Parameters</h3>
+<h4 id="keys-optional">
+<code>keys</code> (<em>optional</em>)</h4>
+<p>The keyboard keys to be used for the event, parsed with gtk_accelerator_parse_with_keycode, so refer to its documentation for more information</p>
+<p><strong>Possible types</strong>: <code>string</code></p>
+<p><strong>Default</strong>: (null)</p>
+<hr>
+<h4 id="string-optional">
+<code>string</code> (<em>optional</em>)</h4>
+<p>The string to be 'written' by the keyboard sending KEY_PRESS GdkEvents</p>
+<p><strong>Possible types</strong>: <code>string</code></p>
+<p><strong>Default</strong>: (null)</p>
+<hr>
+<h4 id="type-optional1">
+<code>type</code> (<em>optional</em>)</h4>
+<p>The event type to get executed. the string should look like the ones in GdkEventType but without the leading 'GDK_'. It is not mandatory as it can be computed from other present fields (e.g, an action with 'keys' will consider the type as 'key_pressed' by default).</p>
+<p><strong>Possible types</strong>: <code>string</code></p>
+<p><strong>Default</strong>: (null)</p>
+<hr>
+<h4 id="widgetname-optional">
+<code>widget-name</code> (<em>optional</em>)</h4>
+<p>The name of the target GdkWidget of the GdkEvent. That widget has to contain a GdkWindow. If not specified, the event will be sent to the first toplevel window</p>
+<p><strong>Possible types</strong>: <code>string</code></p>
+<p><strong>Default</strong>: (null)</p>
+<hr>
+<h4 id="playbacktime-optional33">
+<code>playback-time</code> (<em>optional</em>)</h4>
+<p>The playback time at which the action will be executed</p>
+<p><strong>Possible variables</strong>:</p>
+<ul>
+<li>
+<p><code>position</code>: The current position in the stream</p>
+</li>
+<li>
+<p><code>duration</code>: The duration of the stream</p>
+</li>
+</ul>
+<p><strong>Possible types</strong>: <code>double,string</code></p>
+<p><strong>Default</strong>: 0.0</p>
+<hr>
+<h4 id="onmessage-optional33">
+<code>on-message</code> (<em>optional</em>)</h4>
+<p>Specify on what message type the action will be executed.
+If both 'playback-time' and 'on-message' is specified, the action will be executed
+on whatever happens first.</p>
+<p><strong>Possible types</strong>: <code>string</code></p>
+<p><strong>Default</strong>: (null)</p>
+<hr>
+<h2 id="setsubtitle">set-subtitle</h2>
+<pre><code class="language-validate-scenario">set-subtitle,
+    subtitle-file=(string (A URI)),
+    [playback-time=(double,string)];
+</code></pre>
+<p>Action to set a subtitle file to use on a playbin pipeline.
+The subtitles file that will be used should be specified
+relative to the playbin URI in use thanks to the subtitle-file
+action property. You can also specify a folder with subtitle-dir
+For example if playbin.uri='file://some/uri.mov'
+and action looks like 'set-subtitle, subtitle-file=en.srt'
+the subtitle URI will be set to 'file:///some/uri.mov.en.srt'</p>
+<p><strong>Implementer namespace</strong>: validate-launcher</p>
+<h3 id="parameters38">Parameters</h3>
+<h4 id="subtitlefile-mandatory">
+<code>subtitle-file</code> (<em>mandatory</em>)</h4>
+<p>Sets a subtitles file on a playbin pipeline</p>
+<p><strong>Possible types</strong>: <code>string (A URI)</code></p>
+<hr>
+<h4 id="playbacktime-optional34">
+<code>playback-time</code> (<em>optional</em>)</h4>
+<p>The playback time at which the action will be executed</p>
+<p><strong>Possible variables</strong>:</p>
+<ul>
+<li>
+<p><code>position</code>: The current position in the stream</p>
+</li>
+<li>
+<p><code>duration</code>: The duration of the stream</p>
+</li>
+</ul>
+<p><strong>Possible types</strong>: <code>double,string</code></p>
+<p><strong>Default</strong>: 0.0</p>
+<hr>
+<h4 id="onmessage-optional34">
+<code>on-message</code> (<em>optional</em>)</h4>
+<p>Specify on what message type the action will be executed.
+If both 'playback-time' and 'on-message' is specified, the action will be executed
+on whatever happens first.</p>
+<p><strong>Possible types</strong>: <code>string</code></p>
+<p><strong>Default</strong>: (null)</p>
+<hr>
+
+    </div>
+        
+
+
+
+
+		
+	</div>
+	<div id="search_results">
+		<p>The results of the search are</p>
+	</div>
+	<div id="footer">
+		    
+
+	</div>
+</div>
+
+<div id="toc-column">
+	
+		<div class="edit-button">
+		
+
+	</div>
+		<div id="toc-wrapper">
+		<nav id="toc"></nav>
+	</div>
+</div>
+</div>
+</main>
+
+
+<script src="assets/js/navbar_offset_scroller.js"></script>
+</body>
+</html>

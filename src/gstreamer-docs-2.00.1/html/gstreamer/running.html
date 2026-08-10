@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<base href="..">
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<title>Running GStreamer Applications</title>
+
+<link rel="stylesheet" href="assets/css/dark-frontend.css" type="text/css" title="dark">
+<link rel="alternate stylesheet" href="assets/css/light-frontend.css" type="text/css" title="light">
+<link rel="stylesheet" href="assets/css/bootstrap-toc.min.css" type="text/css">
+<link rel="stylesheet" href="assets/css/jquery.mCustomScrollbar.min.css">
+<link rel="stylesheet" href="assets/js/search/enable_search.css" type="text/css">
+
+<link rel="stylesheet" href="assets/css/extra_frontend.css" type="text/css">
+<link rel="stylesheet" href="assets/css/devhelp.css" type="text/css">
+
+<link rel="stylesheet" href="assets/css/prism-tomorrow.css" type="text/css" title="dark">
+
+<link rel="alternate stylesheet" href="assets/css/prism.css" type="text/css" title="light">
+
+<script src="assets/js/mustache.min.js"></script>
+<script src="assets/js/jquery.js"></script>
+<script src="assets/js/bootstrap.js"></script>
+<script src="assets/js/scrollspy.js"></script>
+<script src="assets/js/typeahead.jquery.min.js"></script>
+<script src="assets/js/search.js"></script>
+<script src="assets/js/compare-versions.js"></script>
+<script src="assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="assets/js/bootstrap-toc.min.js"></script>
+<script src="assets/js/jquery.touchSwipe.min.js"></script>
+<script src="assets/js/anchor.min.js"></script>
+<script src="assets/js/tag_filtering.js"></script>
+<script src="assets/js/language_switching.js"></script>
+<script src="assets/js/styleswitcher.js"></script>
+
+<script src="assets/js/lines_around_headings.js"></script>
+
+<script src="assets/js/prism-core.js"></script>
+<script src="assets/js/prism-autoloader.js"></script>
+<script src="assets/js/prism_autoloader_path_override.js"></script>
+<script src="assets/js/trie.js"></script>
+
+<!-- generic -->
+<link rel="icon" type="image/png" href="assets/images/favicon-16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="assets/images/favicon-32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="assets/images/favicon-57.png" sizes="57x57">
+<link rel="icon" type="image/png" href="assets/images/favicon-64.png" sizes="64x64">
+<link rel="icon" type="image/png" href="assets/images/favicon-76.png" sizes="76x76">
+<link rel="icon" type="image/png" href="assets/images/favicon-96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="assets/images/favicon-128.png" sizes="128x128">
+<link rel="icon" type="image/png" href="assets/images/favicon-192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="assets/images/favicon-228.png" sizes="228x228">
+
+<!-- Android -->
+<link rel="shortcut icon" sizes="196x196" href="assets/images/favicon-196.png">
+
+<!-- iOS -->
+<link rel="apple-touch-icon" href="assets/images/favicon-120.png" sizes="120x120">
+<link rel="apple-touch-icon" href="assets/images/favicon-152.png" sizes="152x152">
+<link rel="apple-touch-icon" href="assets/images/favicon-180.png" sizes="180x180">
+
+</head>
+
+<body class="no-script
+">
+
+<script>
+$('body').removeClass('no-script');
+</script>
+
+<nav class="navbar navbar-fixed-top navbar-default" id="topnav">
+	<div class="container-fluid">
+		<div class="navbar-right">
+			<a id="toc-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-wrapper" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<span title="light mode switch" class="glyphicon glyphicon-sunglasses pull-right" id="lightmode-icon"></span>
+			<form class="navbar-form pull-right" id="navbar-search-form">
+                               <div class="form-group has-feedback">
+                                       <input type="text" class="form-control input-sm" name="search" id="sidenav-lookup-field" placeholder="search" disabled>
+				       <span class="glyphicon glyphicon-search form-control-feedback" id="search-mgn-glass"></span>
+                               </div>
+                        </form>
+		</div>
+		<div class="navbar-header">
+			<a id="sidenav-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<a id="home-link" href="index.html" class="hotdoc-navbar-brand">
+				<img src="assets/images/gstreamer-logo.svg" alt="Home">
+			</a>
+		</div>
+		<div class="navbar-collapse collapse" id="navbar-wrapper">
+			<ul class="nav navbar-nav" id="menu">
+				
+<li class="dropdown">
+    <a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        API References<span class="caret"></span>
+    </a>
+	<ul class="dropdown-menu" id="modules-menu">
+					<li>
+				<a href="gstreamer/gi-index.html">GStreamer core</a>
+			</li>
+					<li>
+				<a href="libs.html">GStreamer Libraries</a>
+			</li>
+					<li>
+				<a href="plugins_doc.html">GStreamer Plugins</a>
+			</li>
+		</ul>
+</li>
+
+<li>
+    <a href="application-development/index.html">Application manual</a>
+</li>
+
+
+<li>
+    <a href="tutorials/index.html">Tutorials</a>
+</li>
+
+			</ul>
+			<div class="hidden-xs hidden-sm navbar-text navbar-center">
+							</div>
+		</div>
+	</div>
+</nav>
+
+<main>
+<div data-extension="gi-extension" data-hotdoc-in-toplevel="False" data-hotdoc-project="gstreamer" data-hotdoc-ref="running.html" class="page_container" id="page-wrapper" data-hotdoc-meta-gi-languages="['c', 'javascript', 'python']" data-hotdoc-meta-gi-language="c">
+<script src="assets/js/utils.js"></script>
+
+<div class="panel panel-collapse oc-collapsed" id="sidenav" data-hotdoc-role="navigation">
+	<script src="assets/js/full-width.js"></script>
+  <div id="sitenav-wrapper">
+    <iframe src="hotdoc-sitemap.html" id="sitenav-frame"></iframe>
+  </div>
+</div>
+
+<div id="body">
+	<div id="main">
+				    <div id="page-description" data-hotdoc-role="main">
+        <h1 id="running-and-debugging-gstreamer-applications">Running and debugging GStreamer Applications</h1>
+<h2 id="environment-variables">Environment variables</h2>
+<p>GStreamer inspects a few of environment variables in addition to
+standard variables like LANG, PATH or HOME.</p>
+<p><strong><code>GST_PLUGIN_SYSTEM_PATH</code>, <code>GST_PLUGIN_SYSTEM_PATH_1_0</code>.</strong></p>
+<p>This environment variable can be set to a colon-separated list of paths
+(or semicolon-separated list on Windows). If this variable is not set,
+GStreamer will fill in this list for you with</p>
+<ul>
+<li>
+<p>plug-ins in the user's home directory, or rather the user's "data
+home" directory according to the xdg base dir specification.
+Usually this will be a directory called <code>plugins</code> inside the
+<code>.local/share/gstreamer-GST_API_VERSION</code> directory in the user's
+home directory by default, though this search path may change if the
+XDG_DATA_HOME environment variable is set.</p>
+</li>
+<li>
+<p>plug-ins installed system-wide. On this system, they are stored in
+``.</p>
+</li>
+</ul>
+<p>GStreamer will scan these paths for GStreamer plug-ins. These plug-ins
+will be loaded after the plug-ins in the <code>GST_PLUGIN_PATH</code> variable
+below. The paths are scanned in the given order. This allows a user to
+override system-installed plug-ins with his own versions.</p>
+<p>The <code>GST_PLUGIN_SYSTEM_PATH_1_0</code> variant is useful if both the old
+GStreamer 0.10 version and the new GStreamer 1.0 version need to be
+pointed to new plugin paths. The latter will use the _1_0 variant over
+the non-versioned one if it is set.</p>
+<p>Setting this variable to an empty string will cause GStreamer not to
+scan any system paths at all for plug-ins. This can be useful if you're
+running a development environment (for development purposes) or while
+running testsuites.</p>
+<p><strong><code>GST_PLUGIN_PATH</code>, <code>GST_PLUGIN_PATH_1_0</code>.</strong></p>
+<p>This environment variable can be set to a colon-separated list of paths
+(or a semicolon-separated list on Windows). GStreamer will scan these
+paths for GStreamer plug-ins. These plug-ins will be loaded in addition
+to, and before, the plug-ins in the system paths.</p>
+<p>The GST_PLUGIN_PATH_1_0 variant is useful if both the old GStreamer
+0.10 version and the new GStreamer 1.0 version need to be pointed to new
+plugin paths. The latter will use the <code>_1_0</code> variant over the
+non-versioned one if it is set.</p>
+<p><strong><code>GST_DEBUG</code>.</strong></p>
+<p>If GStreamer has been configured with <code>--enable-gst-debug=yes</code>, this
+variable can be set to a list of debug options, which cause GStreamer to
+print out different types of debugging information to stderr.</p>
+<p>The variable takes a comma-separated list of <code>category_name:level</code>
+pairs to set specific levels for the individual categories. The level
+value ranges from 0 (nothing) to 9 (MEMDUMP).</p>
+<p>1 - <code>ERROR</code></p>
+<p>:   Logs all fatal errors. These are errors that do not allow the core
+or elements to perform the requested action. The application can
+still recover if programmed to handle the conditions that triggered
+the error.</p>
+<p>2 - <code>WARNING</code></p>
+<p>:   Logs all warnings. Typically these are non-fatal, but user-visible
+problems are expected to happen.</p>
+<p>3 - <code>FIXME</code></p>
+<p>:   Logs all fixme messages. Fixme messages are messages that indicate
+that something in the executed code path is not fully implemented or
+handled yet. The purpose of this message is to make it easier to
+spot incomplete/unfinished pieces of code when reading the debug
+log.</p>
+<p>4 - <code>INFO</code></p>
+<p>:   Logs all informational messages. These are typically used for events
+in the system that only happen once, or are important and rare
+enough to be logged at this level.</p>
+<p>5 - <code>DEBUG</code></p>
+<p>:   Logs all debug messages. These are general debug messages for events
+that happen only a limited number of times during an object's
+lifetime; these include setup, teardown, change of parameters, ...</p>
+<p>6 - <code>LOG</code></p>
+<p>:   Logs all log messages. These are messages for events that happen
+repeatedly during an object's lifetime; these include streaming and
+steady-state conditions.</p>
+<p>7 - <code>TRACE</code></p>
+<p>:   Logs all trace messages. These messages for events that happen
+repeatedly during an object's lifetime such as the ref/unref
+cycles.</p>
+<p>9 - <code>MEMDUMP</code></p>
+<p>:   Log all memory dump messages. Memory dump messages are used to log
+(small) chunks of data as memory dumps in the log. They will be
+displayed as hexdump with ASCII characters.</p>
+<p>The category_name can contain "<code>*"</code> as a wildcard.</p>
+<p>For example, setting <code>GST_DEBUG</code> to <code>GST_AUTOPLUG:6,GST_ELEMENT_*:4</code>,
+will cause the <code>GST_AUTOPLUG</code> category to be logged at full <code>LOG</code> level,
+while all categories starting with <code>GST_ELEMENT_</code> will be logged at
+<code>INFO</code> level.</p>
+<p>To get all possible debug output, set <code>GST_DEBUG</code> to <code>*:9</code>. For debugging
+purposes a <code>*:6</code> debug log is usually the most useful, as it contains
+all important information, but hides a lot of noise such as refs/unrefs.
+For bug reporting purposes, a <code>*:6</code> log is also what will be requested
+usually. It's often also worth running with <code>*:3</code> to see if there are
+any non-fatal errors or warnings that might be related to the problem at
+hand.</p>
+<p>Since GStreamer 1.2 it is also possible to specify debug levels by name,
+e.g. <code>GST_DEBUG=*:WARNING,*audio*:LOG</code></p>
+<p>The categories and log levels are evaluated from left to right, with later
+entries overriding any previously-set levels for categories, e.g.
+<code>GST_DEBUG=decodebin:LOG,*:INFO</code> will set the decodebin category back to
+INFO level whereas <code>GST_DEBUG=*:INFO,decodebin:LOG</code> will log everything at
+INFO level apart from decodebin which will be logged at LOG level.</p>
+<p><strong><code>GST_DEBUG_NO_COLOR</code>.</strong></p>
+<p>Set this environment variable to any value ("1" typically) to switch
+off colouring in <code>GST_DEBUG</code> output. This has the same effect as
+specifying the <code>--gst-debug-no-color</code> or <code>--gst-debug-color-mode</code>=off
+command line option to well-behaved GStreamer applications (ie. those
+that pass command-line options correctly to GStreamer). This is
+particularly useful to reduce the size of debug output and also allows
+for the output to be compressed much better than with colours turned on.</p>
+<p>Has the same effect as setting <code>GST_DEBUG_COLOR_MODE</code> environment
+variable to "off".</p>
+<p><strong><code>GST_DEBUG_COLOR_MODE</code>.</strong></p>
+<p>Set this environment variable to change log colouring in <code>GST_DEBUG</code> output.
+Possible values:</p>
+<p><code>on</code>: Enables debug log output coloring. Uses default coloring method for
+current platform. This is the default.</p>
+<p><code>off</code>: Disables debug log output coloring. This has the same effect as
+specifying the <code>--gst-debug-color-mode=off</code> command line option to well-behaved
+GStreamer applications (ie. those that pass command-line options correctly to
+GStreamer). This is particularly useful to reduce the size of debug output and
+also allows for the output to be compressed much better than with colours turned
+on. Has the same effect as setting <code>GST_DEBUG_NO_COLOR</code> environment variable to
+any value.</p>
+<p><code>auto</code>: Same as <code>on</code>.</p>
+<p><code>disable</code>: Same as <code>off</code>.</p>
+<p><code>unix</code>: Enables debug log output coloring and forces the use of UNIX termial
+codes for coloring, even if this method is not normally used on current
+platform. This has the same effect as specifying the
+<code>--gst-debug-color-mode=unix</code> command line option to well-behaved GStreamer
+applications (ie. those that pass command-line options correctly to GStreamer).
+This is particularly useful to dump debug output into a file on non-UNIX
+platforms to be sent to developers who have viewers that support UNIX terminal
+codes.</p>
+<p><strong><code>GST_DEBUG_OPTIONS</code>.</strong></p>
+<p>This environment variable can be used to tweak the behaviour of the
+debugging system. Currently the only options supported are
+"pretty-tags" and "full-tags". In "pretty-tags" mode (the
+default), taglists in the debug log will be serialized so that only the
+first few and last few bytes of a buffer-type tag will be serialized
+into the log, to avoid dumping hundreds of lines of useless output into
+the log in case of large image tags and the like.</p>
+<p><strong><code>GST_DEBUG_DUMP_DOT_DIR</code>.</strong></p>
+<p>Set this environment variable to a path to turn on all
+<code>GST_DEBUG_BIN_TO_DOT_FILE</code> or <code>GST_DEBUG_BIN_TO_DOT_FILE_WITH_TS</code> calls and
+have the dot files in that location.</p>
+<p>This will only work if the application in question makes these calls in
+strategic places (like when the pipeline state changes or an error
+occurs). <code>gst-launch-1,0</code> is one such application.</p>
+<p>When <code>gst-launch-1.0</code> changes state through NULL to PLAYING
+and back to NULL, a dot file is generated on each state change. To have
+<code>gst-launch-1.0</code> write a snapshot of the pipeline state,
+send a SIGHUP to the <code>gst-launch-1.0</code> process.</p>
+<p>These .dot files can then be turned into images using the 'dot'
+utility from the graphviz set of tools, like this:
+<code>dot foo.dot -Tsvg -o foo.svg</code> or <code>dot foo.dot -Tpng -o foo.png</code> or
+<code>dot foo.dot -Tjpg -o foo.jpg</code>.</p>
+<p>There is also a utility called <code>xdot</code> which allows you to view the dot
+file directly without converting it first.</p>
+<p><strong><code>GST_REGISTRY</code>, <code>GST_REGISTRY_1_0</code>.</strong></p>
+<p>Set this environment variable to make GStreamer use a different file for
+the plugin cache / registry than the default one. This is useful when
+operating in a separate environment which should not affect the default
+cache in the user's home directory.</p>
+<p><strong><code>GST_REGISTRY_FORK</code>.</strong></p>
+<p>Set this environment variable to "no" to prevent GStreamer from
+forking on startup in order to update the plugin registry. This is
+useful for debugging purposes, but should not be used under normal
+circumstances, since it means that plugins may be loaded into memory
+even if they are not needed by the application.</p>
+<p><strong><code>GST_REGISTRY_UPDATE</code>.</strong></p>
+<p>Set this environment variable to "no" to prevent GStreamer from
+updating the plugin registry. This is useful for embedded device which
+is not updating the plugins frequently, it will save time when doing
+<code>gst_init()</code>.</p>
+<p><strong><code>GST_REGISTRY_MODE</code>. (Since: 1.20)</strong></p>
+<p>Set this environment variable to make Gstreamer change the file
+permissions of the plugin cache / registry. If not set, default is to
+limit read / write permissions to current user only. Set mode shall
+be from one to four octal digits as used in chmod.</p>
+<p><strong><code>GST_TRACE</code>.</strong></p>
+<p>Enable memory allocation tracing. Most GStreamer objects have support
+for tracing the number of unfreed objects and their memory pointers.</p>
+<p>The variable takes a comma-separated list of tracing options to enable.</p>
+<p>live</p>
+<p>:   Counts all live objects and dumps an overview of the number of
+unfreed objects at program exit.</p>
+<p>mem-live</p>
+<p>:   Keep track of the unfreed memory pointers and dump an overview of
+all unfreed memory at program exit. Together with a level 9 debug
+log this can be used to follow the lifecycle of leaked objects in
+order to track down where they are leaked. This can be useful for
+debugging memory leaks in situations where tools such as valgrind
+are not available, or not an option.</p>
+<p>Use <code>all</code> to enable all tracing flags.</p>
+<p><strong><code>GST_DEBUG_FILE</code>.</strong></p>
+<p>Set this variable to a file path to redirect all GStreamer debug
+messages to this file. If left unset, debug messages with be output unto
+the standard error. The %p pattern is replaced with the PID and the %r
+with a random number.</p>
+<p><strong><code>ORC_CODE</code>.</strong></p>
+<p>Useful Orc environment variable. Set <code>ORC_CODE=debug</code> to enable debuggers
+such as gdb to create useful backtraces from Orc-generated code. Set
+<code>ORC_CODE=backup</code> or <code>ORC_CODE=emulate</code> if you suspect Orc's SIMD code
+generator is producing incorrect code (Quite a few important GStreamer
+plugins like videotestsrc, audioconvert or audioresample use Orc). One
+can also combine flags like <code>ORC_CODE=backup,debug</code>.</p>
+<p><strong><code>G_DEBUG</code>.</strong></p>
+<p>Useful GLib environment variable. Set <code>G_DEBUG=fatal_warnings</code> to make
+GStreamer programs abort when a critical warning such as an assertion
+failure occurs. This is useful if you want to find out which part of the
+code caused that warning to be triggered and under what circumstances.
+Simply set <code>G_DEBUG</code> as mentioned above and run the program in gdb (or
+let it core dump). Then get a stack trace in the usual way.</p>
+<p><strong><code>G_SLICE</code>.</strong></p>
+<p>Useful GLib environment variable. Set <code>G_SLICE=always-malloc</code> when
+running GStreamer programs in valgrind, or debugging memory leaks with
+other tools. See the GLib API reference for more details.</p>
+<p><strong><code>GST_TAG_ENCODING</code>.</strong></p>
+<p>Try this character encoding first for tag-related strings where the
+encoding is not defined and which are not UTF-8 already. By default the
+current locale will be tried (if not UTF-8).</p>
+<p><strong><code>GST_TAG_ID3_ENCODING</code>.</strong></p>
+<p>Try this character encoding first for ID3 tag-related strings where the
+encoding is not defined and which are not UTF-8 already. By default the
+current locale will be tried (if not UTF-8).</p>
+<p><strong><code>GST_TAG_ID3V1_ENCODING</code>.</strong></p>
+<p>Try this character encoding first for ID3v1 tag-related strings where
+the encoding does not look like UTF-8.</p>
+<p><strong><code>GST_GL_WINDOW</code>.</strong></p>
+<p>Influences the window system to use by the GStreamer OpenGL library.
+Common values are 'x11', 'wayland', 'surfaceless', 'win32' or 'cocoa'.</p>
+<p><strong><code>GST_GL_PLATFORM</code>.</strong></p>
+<p>Influences the OpenGL platform to use by the GStreamer OpenGL library.
+Common values are 'egl', 'glx', 'wgl' or 'cgl'.</p>
+<p><strong><code>GST_GL_API</code>.</strong></p>
+<p>Influences the OpenGL API requested by the OpenGL platform. Common
+values are 'opengl' or 'gles2'.</p>
+<p><strong><code>GST_PLUGIN_FEATURE_RANK</code>. (Since: 1.18)</strong></p>
+<p>This environment variable can be used to adjust rank of each plugin feature.</p>
+<p>The variable takes a comma-separated list of <code>plugin_feature:rank</code>
+pairs to set specific ranks for the individual plugin features.
+The rank can be an arbitrary numerical value or one of pre-defined rank values
+from <code>NONE</code>(0) to <code>PRIMARY</code>(256) in case-insensitive manner.
+In addition to the pre-defined rank values, <code>MAX</code> is an acceptable value to set
+higher rank than the rank of other existing plugin features.</p>
+<p>Example: <code>GST_PLUGIN_FEATURE_RANK=foo:PRIMARY,bar:primary,foobar:128</code></p>
+<p>As a result of the above example,
+the <code>foo</code> and<code>bar</code> plugin feature rank values are <code>PRIMARY</code>(256)
+and <code>SECONDARY</code>(128) rank value will be assigned to <code>foobar</code>.</p>
+<p><strong><code>GST_XINITTHREADS</code>.</strong></p>
+<p>Set this variable when using components that rely on X11, such as ximagesrc,
+from gst-launch-1.0 or other command line applications. However, applications
+should not depend on this variable and should make their own <code>XInitThreads()</code>
+call as early as possible.</p>
+
+    </div>
+        
+
+
+
+
+		
+	</div>
+	<div id="search_results">
+		<p>The results of the search are</p>
+	</div>
+	<div id="footer">
+		    
+
+	</div>
+</div>
+
+<div id="toc-column">
+	
+		<div class="edit-button">
+		
+
+	</div>
+		<div id="toc-wrapper">
+		<nav id="toc"></nav>
+	</div>
+</div>
+</div>
+</main>
+
+
+<script src="assets/js/navbar_offset_scroller.js"></script>
+</body>
+</html>

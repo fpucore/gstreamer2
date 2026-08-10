@@ -1,0 +1,1 @@
+urls_downloaded_cb({"token":"GStreamerSurfaceView.java","urls":[{"url":"tutorials/android/video.html#gstreamersurfaceview-a-convenient-surfaceview-wrapper-java-code","node_type":"p","page":"Android tutorial 3: Video","sections":["Android tutorial 3: Video","GStreamerSurfaceView, a convenient SurfaceView wrapper [Java code]"],"context":{"gi-language":["default"]}}]});

@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<base href="..">
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<title>leaks</title>
+
+<link rel="stylesheet" href="assets/css/dark-frontend.css" type="text/css" title="dark">
+<link rel="alternate stylesheet" href="assets/css/light-frontend.css" type="text/css" title="light">
+<link rel="stylesheet" href="assets/css/bootstrap-toc.min.css" type="text/css">
+<link rel="stylesheet" href="assets/css/jquery.mCustomScrollbar.min.css">
+<link rel="stylesheet" href="assets/js/search/enable_search.css" type="text/css">
+
+<link rel="stylesheet" href="assets/css/extra_frontend.css" type="text/css">
+<link rel="stylesheet" href="assets/css/devhelp.css" type="text/css">
+
+<link rel="stylesheet" href="assets/css/prism-tomorrow.css" type="text/css" title="dark">
+
+<link rel="alternate stylesheet" href="assets/css/prism.css" type="text/css" title="light">
+
+<script src="assets/js/mustache.min.js"></script>
+<script src="assets/js/jquery.js"></script>
+<script src="assets/js/bootstrap.js"></script>
+<script src="assets/js/scrollspy.js"></script>
+<script src="assets/js/typeahead.jquery.min.js"></script>
+<script src="assets/js/search.js"></script>
+<script src="assets/js/compare-versions.js"></script>
+<script src="assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="assets/js/bootstrap-toc.min.js"></script>
+<script src="assets/js/jquery.touchSwipe.min.js"></script>
+<script src="assets/js/anchor.min.js"></script>
+<script src="assets/js/tag_filtering.js"></script>
+<script src="assets/js/language_switching.js"></script>
+<script src="assets/js/styleswitcher.js"></script>
+
+<script src="assets/js/lines_around_headings.js"></script>
+
+<script src="assets/js/prism-core.js"></script>
+<script src="assets/js/prism-autoloader.js"></script>
+<script src="assets/js/prism_autoloader_path_override.js"></script>
+<script src="assets/js/trie.js"></script>
+
+<!-- generic -->
+<link rel="icon" type="image/png" href="assets/images/favicon-16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="assets/images/favicon-32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="assets/images/favicon-57.png" sizes="57x57">
+<link rel="icon" type="image/png" href="assets/images/favicon-64.png" sizes="64x64">
+<link rel="icon" type="image/png" href="assets/images/favicon-76.png" sizes="76x76">
+<link rel="icon" type="image/png" href="assets/images/favicon-96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="assets/images/favicon-128.png" sizes="128x128">
+<link rel="icon" type="image/png" href="assets/images/favicon-192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="assets/images/favicon-228.png" sizes="228x228">
+
+<!-- Android -->
+<link rel="shortcut icon" sizes="196x196" href="assets/images/favicon-196.png">
+
+<!-- iOS -->
+<link rel="apple-touch-icon" href="assets/images/favicon-120.png" sizes="120x120">
+<link rel="apple-touch-icon" href="assets/images/favicon-152.png" sizes="152x152">
+<link rel="apple-touch-icon" href="assets/images/favicon-180.png" sizes="180x180">
+
+</head>
+
+<body class="no-script
+">
+
+<script>
+$('body').removeClass('no-script');
+</script>
+
+<nav class="navbar navbar-fixed-top navbar-default" id="topnav">
+	<div class="container-fluid">
+		<div class="navbar-right">
+			<a id="toc-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-wrapper" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<span title="light mode switch" class="glyphicon glyphicon-sunglasses pull-right" id="lightmode-icon"></span>
+			<form class="navbar-form pull-right" id="navbar-search-form">
+                               <div class="form-group has-feedback">
+                                       <input type="text" class="form-control input-sm" name="search" id="sidenav-lookup-field" placeholder="search" disabled>
+				       <span class="glyphicon glyphicon-search form-control-feedback" id="search-mgn-glass"></span>
+                               </div>
+                        </form>
+		</div>
+		<div class="navbar-header">
+			<a id="sidenav-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<a id="home-link" href="index.html" class="hotdoc-navbar-brand">
+				<img src="assets/images/gstreamer-logo.svg" alt="Home">
+			</a>
+		</div>
+		<div class="navbar-collapse collapse" id="navbar-wrapper">
+			<ul class="nav navbar-nav" id="menu">
+				
+<li class="dropdown">
+    <a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        API References<span class="caret"></span>
+    </a>
+	<ul class="dropdown-menu" id="modules-menu">
+					<li>
+				<a href="gstreamer/gi-index.html">GStreamer core</a>
+			</li>
+					<li>
+				<a href="libs.html">GStreamer Libraries</a>
+			</li>
+					<li>
+				<a href="plugins_doc.html">GStreamer Plugins</a>
+			</li>
+		</ul>
+</li>
+
+<li>
+    <a href="application-development/index.html">Application manual</a>
+</li>
+
+
+<li>
+    <a href="tutorials/index.html">Tutorials</a>
+</li>
+
+			</ul>
+			<div class="hidden-xs hidden-sm navbar-text navbar-center">
+							</div>
+		</div>
+	</div>
+</nav>
+
+<main>
+<div data-extension="gst-extension" data-hotdoc-in-toplevel="False" data-hotdoc-project="coretracers" data-hotdoc-ref="leaks.html" class="page_container" id="page-wrapper" data-hotdoc-meta-gi-languages="['c', 'javascript', 'python']">
+<script src="assets/js/utils.js"></script>
+
+<div class="panel panel-collapse oc-collapsed" id="sidenav" data-hotdoc-role="navigation">
+	<script src="assets/js/full-width.js"></script>
+  <div id="sitenav-wrapper">
+    <iframe src="hotdoc-sitemap.html" id="sitenav-frame"></iframe>
+  </div>
+</div>
+
+<div id="body">
+	<div id="main">
+				    <div id="page-description" data-hotdoc-role="main">
+        <h1 id="leaks-page">leaks</h1>
+<p>This tracing module tracks the lifetimes of <a href="gstreamer/gstobject.html#GstObject" data-gi-href-javascript="gstreamer/gstobject.html#GstObject" data-gi-title-javascript="Gst.Object" data-gi-href-python="gstreamer/gstobject.html#GstObject" data-gi-title-python="Gst.Object">GstObject</a> and <a href="gstreamer/gstminiobject.html#GstMiniObject" data-gi-href-javascript="gstreamer/gstminiobject.html#GstMiniObject" data-gi-title-javascript="Gst.MiniObject" data-gi-href-python="gstreamer/gstminiobject.html#GstMiniObject" data-gi-title-python="Gst.MiniObject">GstMiniObject</a>
+objects and prints a list of leaks to the debug log under <code>GST_TRACER:7</code> when
+<a href="gstreamer/gst.html#gst_deinit" data-gi-href-javascript="gstreamer/gst.html#gst_deinit" data-gi-title-javascript="Gst.prototype.deinit" data-gi-href-python="gstreamer/gst.html#gst_deinit" data-gi-title-python="Gst.deinit">gst_deinit</a> is called, and also prints a <a href="https://docs.gtk.org/glib/func.warning.html" data-gi-href-javascript="https://docs.gtk.org/glib/func.warning.html" data-gi-title-javascript="g_warning (not introspectable)" data-gi-href-python="https://docs.gtk.org/glib/func.warning.html" data-gi-title-python="g_warning (not introspectable)">g_warning</a>.</p>
+<p>Starting with GStreamer 1.18, you can also use GObject action signals on the tracer
+object to fetch leak information. Use <a href="gstreamer/gsttracerutils.html#gst_tracing_get_active_tracers" data-gi-href-javascript="gstreamer/gsttracerutils.html#gst_tracing_get_active_tracers" data-gi-title-javascript="Gst.prototype.tracing_get_active_tracers" data-gi-href-python="gstreamer/gsttracerutils.html#gst_tracing_get_active_tracers" data-gi-title-python="Gst.tracing_get_active_tracers">gst_tracing_get_active_tracers</a> to
+get a list of all active tracers and find the right one by name.</p>
+<p>If the <code>GST_LEAKS_TRACER_SIG</code> env variable is defined, you can use the
+following POSIX signals to interact with the leaks tracer:</p>
+<ul>
+<li>SIGUSR1: log alive objects</li>
+<li>SIGUSR2: create a checkpoint and print a list of objects created and
+destroyed since the previous checkpoint.</li>
+</ul>
+<p>You can activate this tracer in the usual way by adding the string 'leaks'
+to the environment variable <code>GST_TRACERS</code>. Such as: <code>GST_TRACERS=leaks</code></p>
+<p>Note that the values are separated by semicolon (<code>;</code>), such as:
+<code>GST_TRACERS=leaks;latency</code>, and multiple instances of the same tracer can be
+active at the same time.</p>
+<p>The tracer properties can also be set to each tracer by passing the object
+properties in the list of parameters to the tracer. This uses the same
+serialization format as <a href="gstreamer/gststructure.html#GstStructure" data-gi-href-javascript="gstreamer/gststructure.html#GstStructure" data-gi-title-javascript="Gst.Structure" data-gi-href-python="gstreamer/gststructure.html#GstStructure" data-gi-title-python="Gst.Structure">GstStructure</a> (without a name).</p>
+<p>Examples:</p>
+<pre><code>GST_TRACERS='leaks(filters="GstEvent,GstMessage",stack-traces-flags=none)'
+</code></pre>
+<pre><code>GST_TRACERS='leaks(filters="GstBuffer",stack-traces-flags=full,check-refs=true);leaks(name=all-leaks)'
+</code></pre>
+
+    </div>
+        
+        
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstLeaksTracer">
+	
+
+
+
+<h2 data-hotdoc-id="GstLeaksTracer">
+	<i>GstLeaksTracer</i>
+</h2>
+
+
+<div class="hierarchy_container">
+	<div class="hierarchy_details">
+<pre>
+<a title="GObject" href="https://docs.gtk.org/gobject/class.Object.html" data-gi-href-javascript="https://docs.gtk.org/gobject/class.Object.html" data-gi-title-javascript="GObject.Object" data-gi-href-python="https://docs.gtk.org/gobject/class.Object.html" data-gi-title-python="GObject.Object">GObject</a>
+    <span class="lineart">╰──</span><a title="GInitiallyUnowned" href="https://docs.gtk.org/gobject/class.InitiallyUnowned.html" data-gi-href-javascript="https://docs.gtk.org/gobject/class.InitiallyUnowned.html" data-gi-title-javascript="GObject.InitiallyUnowned" data-gi-href-python="https://docs.gtk.org/gobject/class.InitiallyUnowned.html" data-gi-title-python="GObject.InitiallyUnowned">GInitiallyUnowned</a>
+        <span class="lineart">╰──</span><a title="GstObject" href="gstreamer/gstobject.html#GstObject" data-gi-href-javascript="gstreamer/gstobject.html#GstObject" data-gi-title-javascript="Gst.Object" data-gi-href-python="gstreamer/gstobject.html#GstObject" data-gi-title-python="Gst.Object">GstObject</a>
+            <span class="lineart">╰──</span><a title="GstTracer" href="gstreamer/gsttracer.html#GstTracer" data-gi-href-javascript="gstreamer/gsttracer.html#GstTracer" data-gi-title-javascript="Gst.Tracer" data-gi-href-python="gstreamer/gsttracer.html#GstTracer" data-gi-title-python="Gst.Tracer">GstTracer</a>
+                <span class="lineart">╰──</span>GstLeaksTracer
+</pre>
+
+</div>
+
+</div>
+
+<div class="class_details">
+	<p>Opaque <a href="coretracers/leaks.html#GstLeaksTracer">GstLeaksTracer</a> data structure</p>
+
+</div>
+
+
+
+
+
+
+<hr>
+
+</div>
+
+
+            <h3 class="symbol_section">Action Signals</h3>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.18;" id="GstLeaksTracer::activity-get-checkpoint">
+	
+
+
+
+<h4 data-hotdoc-id="GstLeaksTracer::activity-get-checkpoint">
+	<i>activity-get-checkpoint</i>
+</h4>
+
+
+
+<pre class="c-prototype language-c">
+g_signal_emit_by_name (leakstracer, "activity-get-checkpoint", &amp;ret);</pre>
+
+<pre class="python-prototype language-python">
+ret = leakstracer.emit ("activity-get-checkpoint")</pre>
+
+<pre class="javascript-prototype language-javascript">
+let ret = leakstracer.emit ("activity-get-checkpoint");</pre>
+
+<p>You must call this after calling <code>activity-start-tracking</code> and you should
+call <code>activity-stop-tracking</code> when you are done tracking.</p>
+<p>Returns a <a href="gstreamer/gststructure.html#GstStructure" data-gi-href-javascript="gstreamer/gststructure.html#GstStructure" data-gi-title-javascript="Gst.Structure" data-gi-href-python="gstreamer/gststructure.html#GstStructure" data-gi-title-python="Gst.Structure">GstStructure</a> with two fields: <code>"objects-created-list"</code> and
+<code>"objects-removed-list"</code>, each of which is a <a href="https://docs.gtk.org/gobject/struct.Value.html" data-gi-href-javascript="https://docs.gtk.org/gobject/struct.Value.html" data-gi-title-javascript="GObject.Value" data-gi-href-python="https://docs.gtk.org/gobject/struct.Value.html" data-gi-title-python="GObject.Value">GValue</a> of type <a href="gstreamer/gstvalue.html#GST_TYPE_LIST" data-gi-href-javascript="gstreamer/gstvalue.html#GST_TYPE_LIST" data-gi-title-javascript="GST_TYPE_LIST (not introspectable)" data-gi-href-python="gstreamer/gstvalue.html#GST_TYPE_LIST" data-gi-title-python="GST_TYPE_LIST (not introspectable)">GST_TYPE_LIST</a>
+containing all objects that were created/removed since the last
+checkpoint, or since tracking started if this is the first checkpoint.</p>
+<p>The list elements are in order of creation/removal. Each list element is
+a <a href="https://docs.gtk.org/gobject/struct.Value.html" data-gi-href-javascript="https://docs.gtk.org/gobject/struct.Value.html" data-gi-title-javascript="GObject.Value" data-gi-href-python="https://docs.gtk.org/gobject/struct.Value.html" data-gi-title-python="GObject.Value">GValue</a> containing a <a href="gstreamer/gststructure.html#GstStructure" data-gi-href-javascript="gstreamer/gststructure.html#GstStructure" data-gi-title-javascript="Gst.Structure" data-gi-href-python="gstreamer/gststructure.html#GstStructure" data-gi-title-python="Gst.Structure">GstStructure</a> with the following fields:</p>
+<p><code>type-name</code>: a string representing the type of the object
+<code>address</code>: a string representing the address of the object; the object
+itself cannot be returned since we don't own it and it may be
+freed at any moment, or it may already have been freed</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>leakstracer</code></em></i>
+<span>(</span><a title="GstElement" href="gstreamer/gstelement.html#GstElement" data-gi-href-javascript="gstreamer/gstelement.html#GstElement" data-gi-title-javascript="Gst.Element" data-gi-href-python="gstreamer/gstelement.html#GstElement" data-gi-title-python="Gst.Element">GstElement</a> <span class="pointer-token">*</span><span>)</span>
+–
+</div>
+<p>the leaks tracer object to emit this signal on</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GstStructure" href="gstreamer/gststructure.html#GstStructure" data-gi-href-javascript="gstreamer/gststructure.html#GstStructure" data-gi-title-javascript="Gst.Structure" data-gi-href-python="gstreamer/gststructure.html#GstStructure" data-gi-title-python="Gst.Structure">GstStructure</a> <span class="pointer-token">*</span><span>)</span>
+–
+			</div>
+							<p>a newly-allocated <a href="gstreamer/gststructure.html#GstStructure" data-gi-href-javascript="gstreamer/gststructure.html#GstStructure" data-gi-title-javascript="Gst.Structure" data-gi-href-python="gstreamer/gststructure.html#GstStructure" data-gi-title-python="Gst.Structure">GstStructure</a></p>
+
+					</div>
+	</div>
+
+
+<p>
+	<b>Flags:</b>	
+	
+		
+				<a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS">Run Last</a>
+			
+				/		
+				<a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-ACTION:CAPS">Action</a>
+			
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.18;" id="GstLeaksTracer::activity-log-checkpoint">
+	
+
+
+
+<h4 data-hotdoc-id="GstLeaksTracer::activity-log-checkpoint">
+	<i>activity-log-checkpoint</i>
+</h4>
+
+
+
+<pre class="c-prototype language-c">
+g_signal_emit_by_name (leakstracer, "activity-log-checkpoint");</pre>
+
+<pre class="python-prototype language-python">
+ret = leakstracer.emit ("activity-log-checkpoint")</pre>
+
+<pre class="javascript-prototype language-javascript">
+let ret = leakstracer.emit ("activity-log-checkpoint");</pre>
+
+<p>You must call this after calling <code>activity-start-tracking</code> and you should
+call <code>activity-stop-tracking</code> when you are done tracking.</p>
+<p>List all objects that were created or removed since the last checkpoint,
+or since tracking started if this is the first checkpoint.</p>
+<p>This action signal is equivalent to <code>activity-get-checkpoint</code> except that
+the checkpoint data will be printed to the debug log under <code>GST_TRACER:7</code>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>leakstracer</code></em></i>
+<span>(</span><a title="GstElement" href="gstreamer/gstelement.html#GstElement" data-gi-href-javascript="gstreamer/gstelement.html#GstElement" data-gi-title-javascript="Gst.Element" data-gi-href-python="gstreamer/gstelement.html#GstElement" data-gi-title-python="Gst.Element">GstElement</a> <span class="pointer-token">*</span><span>)</span>
+–
+</div>
+<p>the leaks tracer object to emit this signal on</p>
+
+</div>
+
+			</div>
+
+
+<p>
+	<b>Flags:</b>	
+	
+		
+				<a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS">Run Last</a>
+			
+				/		
+				<a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-ACTION:CAPS">Action</a>
+			
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.18;" id="GstLeaksTracer::activity-start-tracking">
+	
+
+
+
+<h4 data-hotdoc-id="GstLeaksTracer::activity-start-tracking">
+	<i>activity-start-tracking</i>
+</h4>
+
+
+
+<pre class="c-prototype language-c">
+g_signal_emit_by_name (leakstracer, "activity-start-tracking");</pre>
+
+<pre class="python-prototype language-python">
+ret = leakstracer.emit ("activity-start-tracking")</pre>
+
+<pre class="javascript-prototype language-javascript">
+let ret = leakstracer.emit ("activity-start-tracking");</pre>
+
+<p>Start storing information about all objects that are being created or
+removed. Call <code>stop-tracking</code> to stop.</p>
+<p>NOTE: You do not need to call this to use the *-live-objects action
+signals listed above.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>leakstracer</code></em></i>
+<span>(</span><a title="GstElement" href="gstreamer/gstelement.html#GstElement" data-gi-href-javascript="gstreamer/gstelement.html#GstElement" data-gi-title-javascript="Gst.Element" data-gi-href-python="gstreamer/gstelement.html#GstElement" data-gi-title-python="Gst.Element">GstElement</a> <span class="pointer-token">*</span><span>)</span>
+–
+</div>
+<p>the leaks tracer object to emit this signal on</p>
+
+</div>
+
+			</div>
+
+
+<p>
+	<b>Flags:</b>	
+	
+		
+				<a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS">Run Last</a>
+			
+				/		
+				<a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-ACTION:CAPS">Action</a>
+			
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.18;" id="GstLeaksTracer::activity-stop-tracking">
+	
+
+
+
+<h4 data-hotdoc-id="GstLeaksTracer::activity-stop-tracking">
+	<i>activity-stop-tracking</i>
+</h4>
+
+
+
+<pre class="c-prototype language-c">
+g_signal_emit_by_name (leakstracer, "activity-stop-tracking");</pre>
+
+<pre class="python-prototype language-python">
+ret = leakstracer.emit ("activity-stop-tracking")</pre>
+
+<pre class="javascript-prototype language-javascript">
+let ret = leakstracer.emit ("activity-stop-tracking");</pre>
+
+<p>Stop tracking all objects that are being created or removed, undoes the
+effects of the <code>start-tracking</code> signal.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>leakstracer</code></em></i>
+<span>(</span><a title="GstElement" href="gstreamer/gstelement.html#GstElement" data-gi-href-javascript="gstreamer/gstelement.html#GstElement" data-gi-title-javascript="Gst.Element" data-gi-href-python="gstreamer/gstelement.html#GstElement" data-gi-title-python="Gst.Element">GstElement</a> <span class="pointer-token">*</span><span>)</span>
+–
+</div>
+<p>the leaks tracer object to emit this signal on</p>
+
+</div>
+
+			</div>
+
+
+<p>
+	<b>Flags:</b>	
+	
+		
+				<a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS">Run Last</a>
+			
+				/		
+				<a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-ACTION:CAPS">Action</a>
+			
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.18;" id="GstLeaksTracer::get-live-objects">
+	
+
+
+
+<h4 data-hotdoc-id="GstLeaksTracer::get-live-objects">
+	<i>get-live-objects</i>
+</h4>
+
+
+
+<pre class="c-prototype language-c">
+g_signal_emit_by_name (leakstracer, "get-live-objects", &amp;ret);</pre>
+
+<pre class="python-prototype language-python">
+ret = leakstracer.emit ("get-live-objects")</pre>
+
+<pre class="javascript-prototype language-javascript">
+let ret = leakstracer.emit ("get-live-objects");</pre>
+
+<p>Returns a <a href="gstreamer/gststructure.html#GstStructure" data-gi-href-javascript="gstreamer/gststructure.html#GstStructure" data-gi-title-javascript="Gst.Structure" data-gi-href-python="gstreamer/gststructure.html#GstStructure" data-gi-title-python="Gst.Structure">GstStructure</a> containing a <a href="https://docs.gtk.org/gobject/struct.Value.html" data-gi-href-javascript="https://docs.gtk.org/gobject/struct.Value.html" data-gi-title-javascript="GObject.Value" data-gi-href-python="https://docs.gtk.org/gobject/struct.Value.html" data-gi-title-python="GObject.Value">GValue</a> of type <a href="gstreamer/gstvalue.html#GST_TYPE_LIST" data-gi-href-javascript="gstreamer/gstvalue.html#GST_TYPE_LIST" data-gi-title-javascript="GST_TYPE_LIST (not introspectable)" data-gi-href-python="gstreamer/gstvalue.html#GST_TYPE_LIST" data-gi-title-python="GST_TYPE_LIST (not introspectable)">GST_TYPE_LIST</a> which
+is a list of <a href="gstreamer/gststructure.html#GstStructure" data-gi-href-javascript="gstreamer/gststructure.html#GstStructure" data-gi-title-javascript="Gst.Structure" data-gi-href-python="gstreamer/gststructure.html#GstStructure" data-gi-title-python="Gst.Structure">GstStructure</a> objects containing information about the
+objects that are still alive, which is useful for detecting leaks. Each
+<a href="gstreamer/gststructure.html#GstStructure" data-gi-href-javascript="gstreamer/gststructure.html#GstStructure" data-gi-title-javascript="Gst.Structure" data-gi-href-python="gstreamer/gststructure.html#GstStructure" data-gi-title-python="Gst.Structure">GstStructure</a> object has the following fields:</p>
+<p><code>object</code>: containing the leaked object itself
+<code>ref-count</code>: the current reference count of the object
+<code>trace</code>: the allocation stack trace for the object, only available if the
+<code>stack-traces-flags</code> param is set to <code>full</code>
+<code>ref-infos</code>: a <a href="https://docs.gtk.org/gobject/struct.Value.html" data-gi-href-javascript="https://docs.gtk.org/gobject/struct.Value.html" data-gi-title-javascript="GObject.Value" data-gi-href-python="https://docs.gtk.org/gobject/struct.Value.html" data-gi-title-python="GObject.Value">GValue</a> of type <a href="gstreamer/gstvalue.html#GST_TYPE_LIST" data-gi-href-javascript="gstreamer/gstvalue.html#GST_TYPE_LIST" data-gi-title-javascript="GST_TYPE_LIST (not introspectable)" data-gi-href-python="gstreamer/gstvalue.html#GST_TYPE_LIST" data-gi-title-python="GST_TYPE_LIST (not introspectable)">GST_TYPE_LIST</a> which is a list of
+<a href="gstreamer/gststructure.html#GstStructure" data-gi-href-javascript="gstreamer/gststructure.html#GstStructure" data-gi-title-javascript="Gst.Structure" data-gi-href-python="gstreamer/gststructure.html#GstStructure" data-gi-title-python="Gst.Structure">GstStructure</a> objects containing information about the
+ref/unref history of the object; only available if the
+<code>check-refs</code> param is set to <code>true</code></p>
+<p>Each <code>ref-infos</code> <a href="gstreamer/gststructure.html#GstStructure" data-gi-href-javascript="gstreamer/gststructure.html#GstStructure" data-gi-title-javascript="Gst.Structure" data-gi-href-python="gstreamer/gststructure.html#GstStructure" data-gi-title-python="Gst.Structure">GstStructure</a> has the following fields:</p>
+<p><code>ts</code>: the timestamp for the ref/unref
+<code>desc</code>: either "reffed" or "unreffed"
+<code>ref-count</code>: the reference count after the ref/unref
+<code>trace</code>: the stack trace for the ref/unref</p>
+<p><strong>Notes on usage</strong>: This action signal is supposed to be called at the
+end of an application before it exits, or at the end of an execution run
+when all streaming has stopped and all pipelines have been freed. It is
+assumed that at this point any GStreamer object that is still alive is
+leaked, and there are no legitimate owners any more. As such, ownership
+of the leaked objects is transferred to you then, assuming no other code
+still retrains references to them.</p>
+<p>If that's not the case, and there is code somewhere still holding
+a reference, then the application behaviour is undefined after this
+function is called, since we will have stolen some other code's valid
+reference and when the returned <a href="gstreamer/gststructure.html#GstStructure" data-gi-href-javascript="gstreamer/gststructure.html#GstStructure" data-gi-title-javascript="Gst.Structure" data-gi-href-python="gstreamer/gststructure.html#GstStructure" data-gi-title-python="Gst.Structure">GstStructure</a> is freed that code will be
+holding a reference to an invalid object, which will most likely crash
+sooner or later.</p>
+<p>If you don't want to just check for leaks at the end of a program, the
+activity checkpoint action signals might be a better fit for your use
+case.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>leakstracer</code></em></i>
+<span>(</span><a title="GstElement" href="gstreamer/gstelement.html#GstElement" data-gi-href-javascript="gstreamer/gstelement.html#GstElement" data-gi-title-javascript="Gst.Element" data-gi-href-python="gstreamer/gstelement.html#GstElement" data-gi-title-python="Gst.Element">GstElement</a> <span class="pointer-token">*</span><span>)</span>
+–
+</div>
+<p>the leaks tracer object to emit this signal on</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GstStructure" href="gstreamer/gststructure.html#GstStructure" data-gi-href-javascript="gstreamer/gststructure.html#GstStructure" data-gi-title-javascript="Gst.Structure" data-gi-href-python="gstreamer/gststructure.html#GstStructure" data-gi-title-python="Gst.Structure">GstStructure</a> <span class="pointer-token">*</span><span>)</span>
+–
+			</div>
+							<p>a newly-allocated <a href="gstreamer/gststructure.html#GstStructure" data-gi-href-javascript="gstreamer/gststructure.html#GstStructure" data-gi-title-javascript="Gst.Structure" data-gi-href-python="gstreamer/gststructure.html#GstStructure" data-gi-title-python="Gst.Structure">GstStructure</a></p>
+
+					</div>
+	</div>
+
+
+<p>
+	<b>Flags:</b>	
+	
+		
+				<a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS">Run Last</a>
+			
+				/		
+				<a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-ACTION:CAPS">Action</a>
+			
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.18;" id="GstLeaksTracer::log-live-objects">
+	
+
+
+
+<h4 data-hotdoc-id="GstLeaksTracer::log-live-objects">
+	<i>log-live-objects</i>
+</h4>
+
+
+
+<pre class="c-prototype language-c">
+g_signal_emit_by_name (leakstracer, "log-live-objects");</pre>
+
+<pre class="python-prototype language-python">
+ret = leakstracer.emit ("log-live-objects")</pre>
+
+<pre class="javascript-prototype language-javascript">
+let ret = leakstracer.emit ("log-live-objects");</pre>
+
+<p>Logs all objects that are still alive to the debug log in the same format
+as the logging during <a href="gstreamer/gst.html#gst_deinit" data-gi-href-javascript="gstreamer/gst.html#gst_deinit" data-gi-title-javascript="Gst.prototype.deinit" data-gi-href-python="gstreamer/gst.html#gst_deinit" data-gi-title-python="Gst.deinit">gst_deinit</a>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>leakstracer</code></em></i>
+<span>(</span><a title="GstElement" href="gstreamer/gstelement.html#GstElement" data-gi-href-javascript="gstreamer/gstelement.html#GstElement" data-gi-title-javascript="Gst.Element" data-gi-href-python="gstreamer/gstelement.html#GstElement" data-gi-title-python="Gst.Element">GstElement</a> <span class="pointer-token">*</span><span>)</span>
+–
+</div>
+<p>the leaks tracer object to emit this signal on</p>
+
+</div>
+
+			</div>
+
+
+<p>
+	<b>Flags:</b>	
+	
+		
+				<a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS">Run Last</a>
+			
+				/		
+				<a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-ACTION:CAPS">Action</a>
+			
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.18
+		</p>
+
+<hr>
+
+</div>
+
+
+            <h3 class="symbol_section">Properties</h3>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.26;" id="tracer-leaks:check-refs">
+	
+
+
+
+<h4 data-hotdoc-id="tracer-leaks:check-refs">
+	<i>check-refs</i>
+</h4>
+
+
+<pre class="property_signature">
+“check-refs” <span class="type"><a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#bool" data-gi-title-python="bool">gboolean</a></span>
+</pre>
+
+<p>Whether to record every location where a leaked object was reffed and unreffed.
+When enabled, the tracer will collect stack traces for every ref/unref operation
+on tracked objects.</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+				/		
+				Construct Only
+			
+</p>
+<p>
+	Default value :	false
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.26
+		</p>
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.26;" id="tracer-leaks:filters">
+	
+
+
+
+<h4 data-hotdoc-id="tracer-leaks:filters">
+	<i>filters</i>
+</h4>
+
+
+<pre class="property_signature">
+“filters” <span class="type"><a title="gchararray" href="https://web.mit.edu/barnowl/share/gtk-doc/html/gobject/gobject-Standard-Parameter-and-Value-Types.html#gchararray" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" data-gi-title-javascript="String" data-gi-href-python="https://docs.python.org/3/library/functions.html#func-str" data-gi-title-python="str">gchararray</a></span>
+</pre>
+
+<p>Comma-separated list of GObject types to track. Only objects of these types
+or their subtypes will be monitored for leaks.</p>
+<p>Example: "GstEvent,GstMessage" to only track GstEvent and GstMessage objects.</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+				/		
+				Construct Only
+			
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.26
+		</p>
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.26;" id="tracer-leaks:log-leaks-on-deinit">
+	
+
+
+
+<h4 data-hotdoc-id="tracer-leaks:log-leaks-on-deinit">
+	<i>log-leaks-on-deinit</i>
+</h4>
+
+
+<pre class="property_signature">
+“log-leaks-on-deinit” <span class="type"><a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#bool" data-gi-title-python="bool">gboolean</a></span>
+</pre>
+
+<p>Whether to report all leaks on <a href="gstreamer/gst.html#gst_deinit" data-gi-href-javascript="gstreamer/gst.html#gst_deinit" data-gi-title-javascript="Gst.prototype.deinit" data-gi-href-python="gstreamer/gst.html#gst_deinit" data-gi-title-python="Gst.deinit">gst_deinit</a> by printing them in the debug log.
+When enabled, any detected leaks will be logged under GST_TRACER:7 when the
+GStreamer is being shut down.</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+				/		
+				Construct Only
+			
+</p>
+<p>
+	Default value :	true
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.26
+		</p>
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.26;" id="tracer-leaks:stack-traces-flags">
+	
+
+
+
+<h4 data-hotdoc-id="tracer-leaks:stack-traces-flags">
+	<i>stack-traces-flags</i>
+</h4>
+
+
+<pre class="property_signature">
+“stack-traces-flags” <span class="type">GstLeaksStackTraceFlags<span class="pointer-token">*</span></span>
+</pre>
+
+<p>Stack trace collection mode. Controls whether and how stack traces are collected
+for object allocations and ref/unref operations.</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+				/		
+				Construct Only
+			
+</p>
+<p>
+	Default value :	disabled
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.26
+		</p>
+
+<hr>
+
+</div>
+
+
+
+
+
+
+		
+	</div>
+	<div id="search_results">
+		<p>The results of the search are</p>
+	</div>
+	<div id="footer">
+		    
+
+	</div>
+</div>
+
+<div id="toc-column">
+	
+		<div class="edit-button">
+		
+
+	</div>
+		<div id="toc-wrapper">
+		<nav id="toc"></nav>
+	</div>
+</div>
+</div>
+</main>
+
+
+<script src="assets/js/navbar_offset_scroller.js"></script>
+</body>
+</html>

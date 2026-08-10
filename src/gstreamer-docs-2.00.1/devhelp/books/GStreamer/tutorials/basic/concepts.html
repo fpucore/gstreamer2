@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<base href="../..">
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<title>Basic tutorial 2: GStreamer concepts</title>
+
+<link rel="stylesheet" href="assets/css/dark-frontend.css" type="text/css" title="dark">
+<link rel="alternate stylesheet" href="assets/css/light-frontend.css" type="text/css" title="light">
+<link rel="stylesheet" href="assets/css/bootstrap-toc.min.css" type="text/css">
+<link rel="stylesheet" href="assets/css/jquery.mCustomScrollbar.min.css">
+<link rel="stylesheet" href="assets/js/search/enable_search.css" type="text/css">
+
+<link rel="stylesheet" href="assets/css/extra_frontend.css" type="text/css">
+<link rel="stylesheet" href="assets/css/devhelp.css" type="text/css">
+
+<link rel="stylesheet" href="assets/css/prism-tomorrow.css" type="text/css" title="dark">
+
+<link rel="alternate stylesheet" href="assets/css/prism.css" type="text/css" title="light">
+
+<script src="assets/js/mustache.min.js"></script>
+<script src="assets/js/jquery.js"></script>
+<script src="assets/js/bootstrap.js"></script>
+<script src="assets/js/scrollspy.js"></script>
+<script src="assets/js/typeahead.jquery.min.js"></script>
+<script src="assets/js/search.js"></script>
+<script src="assets/js/compare-versions.js"></script>
+<script src="assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="assets/js/bootstrap-toc.min.js"></script>
+<script src="assets/js/jquery.touchSwipe.min.js"></script>
+<script src="assets/js/anchor.min.js"></script>
+<script src="assets/js/tag_filtering.js"></script>
+<script src="assets/js/language_switching.js"></script>
+<script src="assets/js/styleswitcher.js"></script>
+
+<script src="assets/js/lines_around_headings.js"></script>
+
+<script src="assets/js/prism-core.js"></script>
+<script src="assets/js/prism-autoloader.js"></script>
+<script src="assets/js/prism_autoloader_path_override.js"></script>
+<script src="assets/js/trie.js"></script>
+
+<!-- generic -->
+<link rel="icon" type="image/png" href="assets/images/favicon-16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="assets/images/favicon-32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="assets/images/favicon-57.png" sizes="57x57">
+<link rel="icon" type="image/png" href="assets/images/favicon-64.png" sizes="64x64">
+<link rel="icon" type="image/png" href="assets/images/favicon-76.png" sizes="76x76">
+<link rel="icon" type="image/png" href="assets/images/favicon-96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="assets/images/favicon-128.png" sizes="128x128">
+<link rel="icon" type="image/png" href="assets/images/favicon-192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="assets/images/favicon-228.png" sizes="228x228">
+
+<!-- Android -->
+<link rel="shortcut icon" sizes="196x196" href="assets/images/favicon-196.png">
+
+<!-- iOS -->
+<link rel="apple-touch-icon" href="assets/images/favicon-120.png" sizes="120x120">
+<link rel="apple-touch-icon" href="assets/images/favicon-152.png" sizes="152x152">
+<link rel="apple-touch-icon" href="assets/images/favicon-180.png" sizes="180x180">
+
+</head>
+
+<body class="no-script
+">
+
+<script>
+$('body').removeClass('no-script');
+</script>
+
+<nav class="navbar navbar-fixed-top navbar-default" id="topnav">
+	<div class="container-fluid">
+		<div class="navbar-right">
+			<a id="toc-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-wrapper" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<span title="light mode switch" class="glyphicon glyphicon-sunglasses pull-right" id="lightmode-icon"></span>
+			<form class="navbar-form pull-right" id="navbar-search-form">
+                               <div class="form-group has-feedback">
+                                       <input type="text" class="form-control input-sm" name="search" id="sidenav-lookup-field" placeholder="search" disabled>
+				       <span class="glyphicon glyphicon-search form-control-feedback" id="search-mgn-glass"></span>
+                               </div>
+                        </form>
+		</div>
+		<div class="navbar-header">
+			<a id="sidenav-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<a id="home-link" href="index.html" class="hotdoc-navbar-brand">
+				<img src="assets/images/gstreamer-logo.svg" alt="Home">
+			</a>
+		</div>
+		<div class="navbar-collapse collapse" id="navbar-wrapper">
+			<ul class="nav navbar-nav" id="menu">
+				
+<li class="dropdown">
+    <a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        API References<span class="caret"></span>
+    </a>
+	<ul class="dropdown-menu" id="modules-menu">
+					<li>
+				<a href="gstreamer/gi-index.html">GStreamer core</a>
+			</li>
+					<li>
+				<a href="libs.html">GStreamer Libraries</a>
+			</li>
+					<li>
+				<a href="plugins_doc.html">GStreamer Plugins</a>
+			</li>
+		</ul>
+</li>
+
+<li>
+    <a href="application-development/index.html">Application manual</a>
+</li>
+
+
+<li>
+    <a href="tutorials/index.html">Tutorials</a>
+</li>
+
+			</ul>
+			<div class="hidden-xs hidden-sm navbar-text navbar-center">
+							</div>
+		</div>
+	</div>
+</nav>
+
+<main>
+<div data-extension="gi-extension" data-hotdoc-in-toplevel="True" data-hotdoc-project="GStreamer" data-hotdoc-ref="tutorials/basic/concepts.html" class="page_container" id="page-wrapper" data-hotdoc-meta-gi-languages="['c', 'javascript', 'python']" data-hotdoc-meta-gi-language="c">
+<script src="assets/js/utils.js"></script>
+
+<div class="panel panel-collapse oc-collapsed" id="sidenav" data-hotdoc-role="navigation">
+	<script src="assets/js/full-width.js"></script>
+  <div id="sitenav-wrapper">
+    <iframe src="hotdoc-sitemap.html" id="sitenav-frame"></iframe>
+  </div>
+</div>
+
+<div id="body">
+	<div id="main">
+				    <div id="page-description" data-hotdoc-role="main">
+        <div class="gi-lang-javascript">
+<blockquote>
+<p><img src="tutorials/basic/images/icons/emoticons/warning.svg" alt="Warning" id="warning"> <strong>Please port this tutorial to javascript!</strong></p>
+</blockquote>
+</div> <!-- LANGUAGE -->
+<h1 id="basic-tutorial-2-gstreamer-concepts">Basic tutorial 2: GStreamer concepts</h1>
+<h2 id="goal">Goal</h2>
+<p>The previous tutorial showed how to build a pipeline automatically. Now
+we are going to build a pipeline manually by instantiating each element
+and linking them all together. In the process, we will learn:</p>
+<ul>
+<li>
+<p>What is a GStreamer element and how to create one.</p>
+</li>
+<li>
+<p>How to connect elements to each other.</p>
+</li>
+<li>
+<p>How to customize an element's behavior.</p>
+</li>
+<li>
+<p>How to watch the bus for error conditions and extract information
+from GStreamer messages.</p>
+</li>
+</ul>
+<h2 id="manual-hello-world">Manual Hello World</h2>
+<div class="gi-lang-javascript gi-lang-c">
+<p>Copy this code into a text file named <code>basic-tutorial-2.c</code> (or find it
+in your GStreamer installation).</p>
+<p><strong>basic-tutorial-2.c</strong></p>
+<pre><code class="language-c">#include &lt;gst/gst.h&gt;
+
+#ifdef __APPLE__
+#include &lt;TargetConditionals.h&gt;
+#endif
+
+int
+tutorial_main (int argc, char *argv[])
+{
+  GstElement *pipeline, *source, *sink;
+  GstBus *bus;
+  GstMessage *msg;
+  GstStateChangeReturn ret;
+
+  /* Initialize GStreamer */
+  gst_init (&amp;argc, &amp;argv);
+
+  /* Create the elements */
+  source = gst_element_factory_make ("videotestsrc", "source");
+  sink = gst_element_factory_make ("autovideosink", "sink");
+
+  /* Create the empty pipeline */
+  pipeline = gst_pipeline_new ("test-pipeline");
+
+  if (!pipeline || !source || !sink) {
+    g_printerr ("Not all elements could be created.\n");
+    return -1;
+  }
+
+  /* Build the pipeline */
+  gst_bin_add_many (GST_BIN (pipeline), source, sink, NULL);
+  if (gst_element_link (source, sink) != TRUE) {
+    g_printerr ("Elements could not be linked.\n");
+    gst_object_unref (pipeline);
+    return -1;
+  }
+
+  /* Modify the source's properties */
+  g_object_set (source, "pattern", 0, NULL);
+
+  /* Start playing */
+  ret = gst_element_set_state (pipeline, GST_STATE_PLAYING);
+  if (ret == GST_STATE_CHANGE_FAILURE) {
+    g_printerr ("Unable to set the pipeline to the playing state.\n");
+    gst_object_unref (pipeline);
+    return -1;
+  }
+
+  /* Wait until error or EOS */
+  bus = gst_element_get_bus (pipeline);
+  msg =
+      gst_bus_timed_pop_filtered (bus, GST_CLOCK_TIME_NONE,
+      GST_MESSAGE_ERROR | GST_MESSAGE_EOS);
+
+  /* Parse message */
+  if (msg != NULL) {
+    GError *err;
+    gchar *debug_info;
+
+    switch (GST_MESSAGE_TYPE (msg)) {
+      case GST_MESSAGE_ERROR:
+        gst_message_parse_error (msg, &amp;err, &amp;debug_info);
+        g_printerr ("Error received from element %s: %s\n",
+            GST_OBJECT_NAME (msg-&gt;src), err-&gt;message);
+        g_printerr ("Debugging information: %s\n",
+            debug_info ? debug_info : "none");
+        g_clear_error (&amp;err);
+        g_free (debug_info);
+        break;
+      case GST_MESSAGE_EOS:
+        g_print ("End-Of-Stream reached.\n");
+        break;
+      default:
+        /* We should not reach here because we only asked for ERRORs and EOS */
+        g_printerr ("Unexpected message received.\n");
+        break;
+    }
+    gst_message_unref (msg);
+  }
+
+  /* Free resources */
+  gst_object_unref (bus);
+  gst_element_set_state (pipeline, GST_STATE_NULL);
+  gst_object_unref (pipeline);
+  return 0;
+}
+
+int
+main (int argc, char *argv[])
+{
+#if defined(__APPLE__) &amp;&amp; TARGET_OS_MAC &amp;&amp; !TARGET_OS_IPHONE
+  return gst_macos_main ((GstMainFunc) tutorial_main, argc, argv, NULL);
+#else
+  return tutorial_main (argc, argv);
+#endif
+}
+
+</code></pre>
+<blockquote>
+<p><img src="tutorials/basic/images/icons/emoticons/information.svg" alt="Information" id="information">
+Need help?</p>
+<p>If you need help to compile this code, refer to the <strong>Building the tutorials</strong>  section for your platform: <a href="installing/on-linux.html#InstallingonLinux-Build">Linux</a>, <a href="installing/on-mac-osx.html#InstallingonMacOSX-Build">Mac OS X</a> or <a href="installing/on-windows.html#InstallingonWindows-Build">Windows</a>, or use this specific command on Linux:</p>
+<p><code>gcc basic-tutorial-2.c -o basic-tutorial-2 `pkg-config --cflags --libs gstreamer-1.0`</code></p>
+<p>If you need help to run this code, refer to the <strong>Running the tutorials</strong> section for your platform: <a href="installing/on-linux.html#InstallingonLinux-Run">Linux</a>, <a href="installing/on-mac-osx.html#InstallingonMacOSX-Build">Mac OS X</a>[<a href="installing/on-mac-osx.html#InstallingonMacOSX-Run">2</a>] or <a href="installing/on-windows.html#InstallingonWindows-Run">Windows</a>.</p>
+<p>This tutorial opens a window and displays a test pattern, without audio</p>
+<p>Required libraries: <code>gstreamer-1.0</code></p>
+</blockquote>
+</div> <!-- LANGUAGE -->
+<div class="gi-lang-python">
+<p>Copy this code into a text file named <code>basic-tutorial-2.py</code> (or find it
+in your GStreamer installation).
+<strong>basic-tutorial-2.py</strong></p>
+<pre><code class="language-python">#!/usr/bin/env python3
+import sys
+import gi
+import logging
+
+gi.require_version("GLib", "2.0")
+gi.require_version("GObject", "2.0")
+gi.require_version("Gst", "1.0")
+
+from gi.repository import Gst, GLib, GObject
+
+
+logging.basicConfig(level=logging.DEBUG, format="[%(name)s] [%(levelname)8s] - %(message)s")
+logger = logging.getLogger(__name__)
+
+# Initialize GStreamer
+Gst.init(sys.argv[1:])
+
+# Create the elements
+source = Gst.ElementFactory.make("videotestsrc", "source")
+sink = Gst.ElementFactory.make("autovideosink", "sink")
+
+# Create the empty pipeline
+pipeline = Gst.Pipeline.new("test-pipeline")
+
+if not pipeline or not source or not sink:
+    logger.error("Not all elements could be created.")
+    sys.exit(1)
+
+
+# Build the pipeline
+pipeline.add(source, sink)
+if not source.link(sink):
+    logger.error("Elements could not be linked.")
+    sys.exit(1)
+
+# Modify the source's properties
+source.props.pattern = 0
+# Can alternatively be done using `source.set_property("pattern",0)`
+# or using `Gst.util_set_object_arg(source, "pattern", 0)`
+
+# Start playing
+ret = pipeline.set_state(Gst.State.PLAYING)
+if ret == Gst.StateChangeReturn.FAILURE:
+    logger.error("Unable to set the pipeline to the playing state.")
+    sys.exit(1)
+
+# Wait for EOS or error
+bus = pipeline.get_bus()
+msg = bus.timed_pop_filtered(Gst.CLOCK_TIME_NONE, Gst.MessageType.ERROR | Gst.MessageType.EOS)
+
+# Parse message
+if msg:
+    if msg.type == Gst.MessageType.ERROR:
+        err, debug_info = msg.parse_error()
+        logger.error(f"Error received from element {msg.src.get_name()}: {err.message}")
+        logger.error(f"Debugging information: {debug_info if debug_info else 'none'}")
+    elif msg.type == Gst.MessageType.EOS:
+        logger.info("End-Of-Stream reached.")
+    else:
+        # This should not happen as we only asked for ERRORs and EOS
+        logger.error("Unexpected message received.")
+
+pipeline.set_state(Gst.State.NULL)
+
+</code></pre>
+<p>Then, you can run the file with <code>python3 basic-tutorial-2.py</code></p>
+</div> <!-- LANGUAGE -->
+<h2 id="walkthrough">Walkthrough</h2>
+<p>The <em>elements</em> are GStreamer's basic construction blocks. They process
+the data as it flows <em>downstream</em> from the source elements (data producers)
+to the sink elements (data consumers), passing through filter elements.</p>
+<p><img src="tutorials/basic/images/figure-1.png" alt=""></p>
+<p><strong>Figure 1</strong>. Example pipeline</p>
+<h3 id="element-creation">Element creation</h3>
+<p>We will skip GStreamer initialization, since it is the same as the
+previous tutorial:</p>
+<div class="gi-lang-javascript gi-lang-c">
+<pre><code class="language-c">  /* Create the elements */
+  source = gst_element_factory_make ("videotestsrc", "source");
+  sink = gst_element_factory_make ("autovideosink", "sink");
+
+</code></pre>
+</div> <!-- LANGUAGE -->
+<div class="gi-lang-python">
+<pre><code class="language-python"># Create the elements
+source = Gst.ElementFactory.make("videotestsrc", "source")
+sink = Gst.ElementFactory.make("autovideosink", "sink")
+
+</code></pre>
+</div> <!-- LANGUAGE -->
+<p>As seen in this code, new elements can be created
+with <a href="gstreamer/gstelementfactory.html#gst_element_factory_make" data-gi-href-javascript="gstreamer/gstelementfactory.html#gst_element_factory_make" data-gi-title-javascript="Gst.ElementFactory.prototype.make" data-gi-href-python="gstreamer/gstelementfactory.html#gst_element_factory_make" data-gi-title-python="Gst.ElementFactory.make">gst_element_factory_make</a>(). The first parameter is the type of
+element to create (<a href="tutorials/basic/handy-elements.html">Basic tutorial 14: Handy
+elements</a> shows a
+few common types, and <a href="tutorials/basic/gstreamer-tools.html">Basic tutorial 10: GStreamer
+tools</a> shows how to
+obtain the list of all available types). The second parameter is the
+name we want to give to this particular instance. Naming your elements
+is useful to retrieve them later if you didn't keep a pointer (and for
+more meaningful debug output). If you pass <a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#NULL:CAPS" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null" data-gi-title-javascript="null" data-gi-href-python="https://docs.python.org/3/library/constants.html#None" data-gi-title-python="None">NULL</a> for the name, however,
+GStreamer will provide a unique name for you.</p>
+<p>For this tutorial we create two elements: a <a href="videotestsrc/index.html#videotestsrc">videotestsrc</a> and
+an <a href="autodetect/autovideosink.html#autovideosink">autovideosink</a>. There are no filter elements. Hence, the pipeline would
+look like the following:</p>
+<p><img src="tutorials/basic/images/basic-concepts-pipeline.png" alt=""></p>
+<p><strong>Figure 2</strong>. Pipeline built in this tutorial</p>
+<p><a href="videotestsrc/index.html#videotestsrc">videotestsrc</a> is a source element (it produces data), which creates a
+test video pattern. This element is useful for debugging purposes (and
+tutorials) and is not usually found in real applications.</p>
+<p><a href="autodetect/autovideosink.html#autovideosink">autovideosink</a> is a sink element (it consumes data), which displays on
+a window the images it receives. There exist several video sinks,
+depending on the operating system, with a varying range of capabilities.
+<a href="autodetect/autovideosink.html#autovideosink">autovideosink</a> automatically selects and instantiates the best one, so
+you do not have to worry with the details, and your code is more
+platform-independent.</p>
+<h3 id="pipeline-creation">Pipeline creation</h3>
+<div class="gi-lang-javascript gi-lang-c">
+<pre><code class="language-c">  /* Create the empty pipeline */
+  pipeline = gst_pipeline_new ("test-pipeline");
+
+</code></pre>
+</div> <!-- LANGUAGE -->
+<div class="gi-lang-python">
+<pre><code class="language-python"># Create the empty pipeline
+pipeline = Gst.Pipeline.new("test-pipeline")
+
+</code></pre>
+</div> <!-- LANGUAGE -->
+<p>All elements in GStreamer must typically be contained inside a pipeline
+before they can be used, because it takes care of some clocking and
+messaging functions. We create the pipeline with <a href="gstreamer/gstpipeline.html#gst_pipeline_new" data-gi-href-javascript="gstreamer/gstpipeline.html#gst_pipeline_new" data-gi-title-javascript="Gst.Pipeline.prototype.new" data-gi-href-python="gstreamer/gstpipeline.html#gst_pipeline_new" data-gi-title-python="Gst.Pipeline.new">gst_pipeline_new</a>().</p>
+<div class="gi-lang-javascript gi-lang-c">
+<pre><code class="language-c">  /* Build the pipeline */
+  gst_bin_add_many (GST_BIN (pipeline), source, sink, NULL);
+  if (gst_element_link (source, sink) != TRUE) {
+    g_printerr ("Elements could not be linked.\n");
+    gst_object_unref (pipeline);
+    return -1;
+  }
+
+</code></pre>
+</div> <!-- LANGUAGE -->
+<div class="gi-lang-python">
+<pre><code class="language-python"># Build the pipeline
+pipeline.add(source, sink)
+if not source.link(sink):
+    logger.error("Elements could not be linked.")
+    sys.exit(1)
+
+</code></pre>
+</div> <!-- LANGUAGE -->
+<p>A pipeline is a particular type of <a href="gstreamer/gstbin.html#GstBin" data-gi-href-javascript="gstreamer/gstbin.html#GstBin" data-gi-title-javascript="Gst.Bin" data-gi-href-python="gstreamer/gstbin.html#GstBin" data-gi-title-python="Gst.Bin">bin</a>, which is the element used to
+contain other elements. Therefore all methods which apply to bins also
+apply to pipelines.</p>
+<div class="gi-lang-javascript gi-lang-c">
+<p>In our case, we call <a href="gstreamer/gstbin.html#gst_bin_add_many" data-gi-href-javascript="gstreamer/gstbin.html#gst_bin_add_many" data-gi-title-javascript="gst_bin_add_many (not introspectable)" data-gi-href-python="gstreamer/gstbin.html#gst_bin_add_many" data-gi-title-python="gst_bin_add_many (not introspectable)">gst_bin_add_many</a>() to add the
+elements to the pipeline (mind the cast). This function accepts a list
+of elements to be added, ending with <a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#NULL:CAPS" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null" data-gi-title-javascript="null" data-gi-href-python="https://docs.python.org/3/library/constants.html#None" data-gi-title-python="None">NULL</a>. Individual elements can be
+added with <a href="gstreamer/gstbin.html#gst_bin_add" data-gi-href-javascript="gstreamer/gstbin.html#gst_bin_add" data-gi-title-javascript="Gst.Bin.prototype.add" data-gi-href-python="gstreamer/gstbin.html#gst_bin_add" data-gi-title-python="Gst.Bin.add">gst_bin_add</a>().</p>
+</div> <!-- LANGUAGE -->
+<div class="gi-lang-python">
+<p>In our case, we call <a href="gstreamer/gstbin.html#gst_bin_add" data-gi-href-javascript="gstreamer/gstbin.html#gst_bin_add" data-gi-title-javascript="Gst.Bin.prototype.add" data-gi-href-python="gstreamer/gstbin.html#gst_bin_add" data-gi-title-python="Gst.Bin.add">gst_bin_add</a>() to add elements to the pipeline.
+The function accepts any number of Gst Elements as its arguments</p>
+</div> <!-- LANGUAGE -->
+<p>These elements, however, are not linked with each other yet. For this,
+we need to use <a href="gstreamer/gstelement.html#gst_element_link" data-gi-href-javascript="gstreamer/gstelement.html#gst_element_link" data-gi-title-javascript="Gst.Element.prototype.link" data-gi-href-python="gstreamer/gstelement.html#gst_element_link" data-gi-title-python="Gst.Element.link">gst_element_link</a>(). Its first parameter is the source,
+and the second one the destination. The order counts, because links must
+be established following the data flow (this is, from source elements to
+sink elements). Keep in mind that only elements residing in the same bin
+can be linked together, so remember to add them to the pipeline before
+trying to link them!</p>
+<h3 id="properties">Properties</h3>
+<p>GStreamer elements are all a particular kind of <a href="https://docs.gtk.org/gobject/class.Object.html" data-gi-href-javascript="https://docs.gtk.org/gobject/class.Object.html" data-gi-title-javascript="GObject.Object" data-gi-href-python="https://docs.gtk.org/gobject/class.Object.html" data-gi-title-python="GObject.Object">GObject</a>, which is the
+entity offering <strong>property</strong> facilities.</p>
+<p>Most GStreamer elements have customizable properties: named attributes
+that can be modified to change the element's behavior (writable
+properties) or inquired to find out about the element's internal state
+(readable properties).</p>
+<div class="gi-lang-javascript gi-lang-c">
+<p>Properties are read from with <a href="https://docs.gtk.org/gobject/method.Object.get.html" data-gi-href-javascript="https://docs.gtk.org/gobject/method.Object.get.html" data-gi-title-javascript="g_object_get (not introspectable)" data-gi-href-python="https://docs.gtk.org/gobject/method.Object.get.html" data-gi-title-python="g_object_get (not introspectable)">g_object_get</a>() and written to
+with <a href="https://docs.gtk.org/gobject/method.Object.set.html" data-gi-href-javascript="https://docs.gtk.org/gobject/method.Object.set.html" data-gi-title-javascript="g_object_set (not introspectable)" data-gi-href-python="https://docs.gtk.org/gobject/method.Object.set.html" data-gi-title-python="g_object_set (not introspectable)">g_object_set</a>().</p>
+<p><a href="https://docs.gtk.org/gobject/method.Object.set.html" data-gi-href-javascript="https://docs.gtk.org/gobject/method.Object.set.html" data-gi-title-javascript="g_object_set (not introspectable)" data-gi-href-python="https://docs.gtk.org/gobject/method.Object.set.html" data-gi-title-python="g_object_set (not introspectable)">g_object_set</a>() accepts a <a href="https://web.mit.edu/barnowl/share/gtk-doc/html/glib/glib-Standard-Macros.html#NULL:CAPS" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null" data-gi-title-javascript="null" data-gi-href-python="https://docs.python.org/3/library/constants.html#None" data-gi-title-python="None">NULL</a>-terminated list of property-name,
+property-value pairs, so multiple properties can be changed in one go.</p>
+<p>This is why the property handling methods have the <code>g_</code> prefix.</p>
+</div> <!-- LANGUAGE -->
+<div class="gi-lang-python">
+<p>For understanding how to get and set <a href="https://pygobject.readthedocs.io/en/latest/guide/api/properties.html">properties</a>,
+let us assume we have a Gst Element <code>source</code> with a property <code>pattern</code></p>
+<p>The current state of a property can be fetched by either:</p>
+<ol>
+<li>Accessing the property as an attribute of the <code>props</code> attribute of an
+element. Ex: <code>_ = source.props.pattern</code> to print it on the screen</li>
+<li>Using the <code>get_property</code> method of the element.
+Ex: <code>_ = source.get_property("pattern")</code>
+</li>
+</ol>
+<p>And properties can be set by one of three methods:</p>
+<ol>
+<li>Setting the property as an attribute of the <code>props</code> attribute.
+Ex: <code>source.props.pattern = 1</code> or equivalently <code>source.props.pattern="snow"</code>
+</li>
+<li>Using the <code>set_property</code> method of the element.
+Ex: <code>source.set_property("pattern", 1)</code> or equivalently <code>source.set_property("pattern", "snow")</code>
+</li>
+<li>Using the <code>Gst.util_set_object_arg()</code> method. This mode also allows you to
+pass Gst Caps and other structures. Ex: <code>Gst.util_set_object_arg(source, "pattern", "snow")</code>,
+or equivalently, <code>Gst.util_set_object_arg(source, "pattern", 1)</code>
+</li>
+</ol>
+<p>Note: In all three methods of setting a property, if a string is passed as
+the value to set, it has to be the serialized version of a flag or value
+(using <a href="gstreamer/gstvalue.html#gst_value_serialize" data-gi-href-javascript="gstreamer/gstvalue.html#gst_value_serialize" data-gi-title-javascript="Gst.prototype.value_serialize" data-gi-href-python="gstreamer/gstvalue.html#gst_value_serialize" data-gi-title-python="Gst.value_serialize">gst_value_serialize</a>())</p>
+</div> <!-- LANGUAGE -->
+<p>Coming back to what's in the example above,</p>
+<div class="gi-lang-javascript gi-lang-c">
+<pre><code class="language-c">  /* Modify the source's properties */
+  g_object_set (source, "pattern", 0, NULL);
+
+</code></pre>
+</div> <!-- LANGUAGE -->
+<div class="gi-lang-python">
+<pre><code class="language-python"># Modify the source's properties
+source.props.pattern = 0
+# Can alternatively be done using `source.set_property("pattern",0)`
+# or using `Gst.util_set_object_arg(source, "pattern", 0)`
+
+</code></pre>
+</div> <!-- LANGUAGE -->
+<p>The line of code above changes the “pattern” property of <a href="videotestsrc/index.html#videotestsrc">videotestsrc</a>,
+which controls the type of test video the element outputs. Try different
+values!</p>
+<p>The names and possible values of all the properties an element exposes
+can be found using the gst-inspect-1.0 tool described in <a href="tutorials/basic/gstreamer-tools.html">Basic tutorial 10:
+GStreamer tools</a> or alternatively in the docs for that element
+(<a href="videotestsrc/index.html#GstVideoTestSrcPattern">here</a> in the case of videotestsrc).</p>
+<h3 id="error-checking">Error checking</h3>
+<p>At this point, we have the whole pipeline built and setup, and the rest
+of the tutorial is very similar to the previous one, but we are going to
+add more error checking:</p>
+<div class="gi-lang-javascript gi-lang-c">
+<pre><code class="language-c">  /* Start playing */
+  ret = gst_element_set_state (pipeline, GST_STATE_PLAYING);
+  if (ret == GST_STATE_CHANGE_FAILURE) {
+    g_printerr ("Unable to set the pipeline to the playing state.\n");
+    gst_object_unref (pipeline);
+    return -1;
+  }
+
+</code></pre>
+</div> <!-- LANGUAGE -->
+<div class="gi-lang-python">
+<pre><code class="language-python"># Start playing
+ret = pipeline.set_state(Gst.State.PLAYING)
+if ret == Gst.StateChangeReturn.FAILURE:
+    logger.error("Unable to set the pipeline to the playing state.")
+    sys.exit(1)
+
+</code></pre>
+</div> <!-- LANGUAGE -->
+<p>We call <a href="gstreamer/gstelement.html#gst_element_set_state" data-gi-href-javascript="gstreamer/gstelement.html#gst_element_set_state" data-gi-title-javascript="Gst.Element.prototype.set_state" data-gi-href-python="gstreamer/gstelement.html#gst_element_set_state" data-gi-title-python="Gst.Element.set_state">gst_element_set_state</a>(), but this time we check its return
+value for errors. Changing states is a delicate process and a few more
+details are given in <a href="tutorials/basic/dynamic-pipelines.html">Basic tutorial 3: Dynamic
+pipelines</a>.</p>
+<div class="gi-lang-javascript gi-lang-c">
+<pre><code class="language-c">  /* Wait until error or EOS */
+  bus = gst_element_get_bus (pipeline);
+  msg =
+      gst_bus_timed_pop_filtered (bus, GST_CLOCK_TIME_NONE,
+      GST_MESSAGE_ERROR | GST_MESSAGE_EOS);
+
+  /* Parse message */
+  if (msg != NULL) {
+    GError *err;
+    gchar *debug_info;
+
+    switch (GST_MESSAGE_TYPE (msg)) {
+      case GST_MESSAGE_ERROR:
+        gst_message_parse_error (msg, &amp;err, &amp;debug_info);
+        g_printerr ("Error received from element %s: %s\n",
+            GST_OBJECT_NAME (msg-&gt;src), err-&gt;message);
+        g_printerr ("Debugging information: %s\n",
+            debug_info ? debug_info : "none");
+        g_clear_error (&amp;err);
+        g_free (debug_info);
+        break;
+      case GST_MESSAGE_EOS:
+        g_print ("End-Of-Stream reached.\n");
+        break;
+      default:
+        /* We should not reach here because we only asked for ERRORs and EOS */
+        g_printerr ("Unexpected message received.\n");
+        break;
+    }
+    gst_message_unref (msg);
+  }
+
+</code></pre>
+</div> <!-- LANGUAGE -->
+<div class="gi-lang-python">
+<pre><code class="language-python"># Wait for EOS or error
+bus = pipeline.get_bus()
+msg = bus.timed_pop_filtered(Gst.CLOCK_TIME_NONE, Gst.MessageType.ERROR | Gst.MessageType.EOS)
+
+# Parse message
+if msg:
+    if msg.type == Gst.MessageType.ERROR:
+        err, debug_info = msg.parse_error()
+        logger.error(f"Error received from element {msg.src.get_name()}: {err.message}")
+        logger.error(f"Debugging information: {debug_info if debug_info else 'none'}")
+    elif msg.type == Gst.MessageType.EOS:
+        logger.info("End-Of-Stream reached.")
+    else:
+        # This should not happen as we only asked for ERRORs and EOS
+        logger.error("Unexpected message received.")
+
+</code></pre>
+</div> <!-- LANGUAGE -->
+<p><a href="gstreamer/gstbus.html#gst_bus_timed_pop_filtered" data-gi-href-javascript="gstreamer/gstbus.html#gst_bus_timed_pop_filtered" data-gi-title-javascript="Gst.Bus.prototype.timed_pop_filtered" data-gi-href-python="gstreamer/gstbus.html#gst_bus_timed_pop_filtered" data-gi-title-python="Gst.Bus.timed_pop_filtered">gst_bus_timed_pop_filtered</a>() waits for execution to end and returns
+with a <a href="gstreamer/gstmessage.html#GstMessage" data-gi-href-javascript="gstreamer/gstmessage.html#GstMessage" data-gi-title-javascript="Gst.Message" data-gi-href-python="gstreamer/gstmessage.html#GstMessage" data-gi-title-python="Gst.Message">GstMessage</a> which we previously ignored. We
+asked <a href="gstreamer/gstbus.html#gst_bus_timed_pop_filtered" data-gi-href-javascript="gstreamer/gstbus.html#gst_bus_timed_pop_filtered" data-gi-title-javascript="Gst.Bus.prototype.timed_pop_filtered" data-gi-href-python="gstreamer/gstbus.html#gst_bus_timed_pop_filtered" data-gi-title-python="Gst.Bus.timed_pop_filtered">gst_bus_timed_pop_filtered</a>() to return when GStreamer
+encountered either an error condition or an <a href="gstreamer/gstmessage.html#GST_MESSAGE_EOS" data-gi-href-javascript="gstreamer/gstmessage.html#GST_MESSAGE_EOS" data-gi-title-javascript="Gst.MessageType.EOS" data-gi-href-python="gstreamer/gstmessage.html#GST_MESSAGE_EOS" data-gi-title-python="Gst.MessageType.EOS">EOS</a>, so we need to check
+which one happened, and print a message on screen (Your application will
+probably want to undertake more complex actions).</p>
+<p><a href="gstreamer/gstmessage.html#GstMessage" data-gi-href-javascript="gstreamer/gstmessage.html#GstMessage" data-gi-title-javascript="Gst.Message" data-gi-href-python="gstreamer/gstmessage.html#GstMessage" data-gi-title-python="Gst.Message">GstMessage</a> is a very versatile structure which can deliver virtually
+any kind of information. Fortunately, GStreamer provides a series of
+parsing functions for each kind of message.</p>
+<p>In this case, once we know the message contains an error (by using the
+<a href="gstreamer/gstmessage.html#GST_MESSAGE_TYPE" data-gi-href-javascript="gstreamer/gstmessage.html#GST_MESSAGE_TYPE" data-gi-title-javascript="GST_MESSAGE_TYPE (not introspectable)" data-gi-href-python="gstreamer/gstmessage.html#GST_MESSAGE_TYPE" data-gi-title-python="GST_MESSAGE_TYPE (not introspectable)">GST_MESSAGE_TYPE</a>() macro), we can use
+<a href="gstreamer/gstmessage.html#gst_message_parse_error" data-gi-href-javascript="gstreamer/gstmessage.html#gst_message_parse_error" data-gi-title-javascript="Gst.Message.prototype.parse_error" data-gi-href-python="gstreamer/gstmessage.html#gst_message_parse_error" data-gi-title-python="Gst.Message.parse_error">gst_message_parse_error</a>() which returns a GLib <a href="https://docs.gtk.org/glib/struct.Error.html" data-gi-href-javascript="https://docs.gtk.org/glib/struct.Error.html" data-gi-title-javascript="GError (not introspectable)" data-gi-href-python="https://docs.gtk.org/glib/struct.Error.html" data-gi-title-python="GError (not introspectable)">GError</a> error
+structure and a string useful for debugging. Examine the code to see how
+these are used and freed afterward.</p>
+<h3 id="the-gstreamer-bus">The GStreamer bus</h3>
+<p>At this point it is worth introducing the GStreamer bus a bit more
+formally. It is the object responsible for delivering to the application
+the <a href="gstreamer/gstmessage.html#GstMessage" data-gi-href-javascript="gstreamer/gstmessage.html#GstMessage" data-gi-title-javascript="Gst.Message" data-gi-href-python="gstreamer/gstmessage.html#GstMessage" data-gi-title-python="Gst.Message">GstMessage</a>s generated by the elements, in order and to the
+application thread. This last point is important, because the actual
+streaming of media is done in another thread than the application.</p>
+<p>Messages can be extracted from the bus synchronously with
+<a href="gstreamer/gstbus.html#gst_bus_timed_pop_filtered" data-gi-href-javascript="gstreamer/gstbus.html#gst_bus_timed_pop_filtered" data-gi-title-javascript="Gst.Bus.prototype.timed_pop_filtered" data-gi-href-python="gstreamer/gstbus.html#gst_bus_timed_pop_filtered" data-gi-title-python="Gst.Bus.timed_pop_filtered">gst_bus_timed_pop_filtered</a>() and its siblings, or asynchronously,
+using signals (shown in the next tutorial). Your application should
+always keep an eye on the bus to be notified of errors and other
+playback-related issues.</p>
+<p>The rest of the code is the cleanup sequence, which is the same as
+in <a href="tutorials/basic/hello-world.html">Basic tutorial 1: Hello
+world!</a>.</p>
+<h2 id="exercise">Exercise</h2>
+<p>If you feel like practicing, try this exercise: Add a video filter
+element in between the source and the sink of this pipeline. Use
+<a href="effectv/vertigotv.html#vertigotv">vertigotv</a> for a nice effect. You will need to create it, add it to the
+pipeline, and link it with the other elements.</p>
+<p>Depending on your platform and available plugins, you might get a
+“negotiation” error, because the sink does not understand what the
+filter is producing (more about negotiation in <a href="tutorials/basic/media-formats-and-pad-capabilities.html">Basic tutorial 6: Media
+formats and Pad
+Capabilities</a>).
+In this case, try to add an element called <a href="videoconvertscale/videoconvert.html#videoconvert">videoconvert</a> after the
+filter (this is, build a pipeline of 4 elements. More on
+<a href="videoconvertscale/videoconvert.html#videoconvert">videoconvert</a> in <a href="tutorials/basic/handy-elements.html">Basic tutorial 14: Handy
+elements</a>).</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>This tutorial showed:</p>
+<ul>
+<li>
+<p>How to create elements with <a href="gstreamer/gstelementfactory.html#gst_element_factory_make" data-gi-href-javascript="gstreamer/gstelementfactory.html#gst_element_factory_make" data-gi-title-javascript="Gst.ElementFactory.prototype.make" data-gi-href-python="gstreamer/gstelementfactory.html#gst_element_factory_make" data-gi-title-python="Gst.ElementFactory.make">gst_element_factory_make</a>()</p>
+</li>
+<li>
+<p>How to create an empty pipeline with <a href="gstreamer/gstpipeline.html#gst_pipeline_new" data-gi-href-javascript="gstreamer/gstpipeline.html#gst_pipeline_new" data-gi-title-javascript="Gst.Pipeline.prototype.new" data-gi-href-python="gstreamer/gstpipeline.html#gst_pipeline_new" data-gi-title-python="Gst.Pipeline.new">gst_pipeline_new</a>()</p>
+</li>
+<li>
+<p>How to add elements to the pipeline with <a href="gstreamer/gstbin.html#gst_bin_add_many" data-gi-href-javascript="gstreamer/gstbin.html#gst_bin_add_many" data-gi-title-javascript="gst_bin_add_many (not introspectable)" data-gi-href-python="gstreamer/gstbin.html#gst_bin_add_many" data-gi-title-python="gst_bin_add_many (not introspectable)">gst_bin_add_many</a>()</p>
+</li>
+<li>
+<p>How to link the elements with each other with <a href="gstreamer/gstelement.html#gst_element_link" data-gi-href-javascript="gstreamer/gstelement.html#gst_element_link" data-gi-title-javascript="Gst.Element.prototype.link" data-gi-href-python="gstreamer/gstelement.html#gst_element_link" data-gi-title-python="Gst.Element.link">gst_element_link</a>()</p>
+</li>
+</ul>
+<p>This concludes the first of the two tutorials devoted to basic GStreamer
+concepts. The second one comes next.</p>
+<p>Remember that attached to this page you should find the complete source
+code of the tutorial and any accessory files needed to build it.</p>
+<p>It has been a pleasure having you here, and see you soon!</p>
+
+    </div>
+        
+
+
+
+
+		
+	</div>
+	<div id="search_results">
+		<p>The results of the search are</p>
+	</div>
+	<div id="footer">
+		    
+
+	</div>
+</div>
+
+<div id="toc-column">
+	
+		<div class="edit-button">
+		<a href="https://gitlab.freedesktop.org/gstreamer/gst-docs//edit/master/subprojects/gst-docs/markdown/tutorials/basic/concepts.md" data-hotdoc-role="edit-button">Edit on GitLab</a>
+
+	</div>
+		<div id="toc-wrapper">
+		<nav id="toc"></nav>
+	</div>
+</div>
+</div>
+</main>
+
+
+<script src="assets/js/navbar_offset_scroller.js"></script>
+</body>
+</html>

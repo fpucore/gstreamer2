@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<base href="../..">
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<title>Scheduling</title>
+
+<link rel="stylesheet" href="assets/css/dark-frontend.css" type="text/css" title="dark">
+<link rel="alternate stylesheet" href="assets/css/light-frontend.css" type="text/css" title="light">
+<link rel="stylesheet" href="assets/css/bootstrap-toc.min.css" type="text/css">
+<link rel="stylesheet" href="assets/css/jquery.mCustomScrollbar.min.css">
+<link rel="stylesheet" href="assets/js/search/enable_search.css" type="text/css">
+
+<link rel="stylesheet" href="assets/css/extra_frontend.css" type="text/css">
+<link rel="stylesheet" href="assets/css/devhelp.css" type="text/css">
+
+<link rel="stylesheet" href="assets/css/prism-tomorrow.css" type="text/css" title="dark">
+
+<link rel="alternate stylesheet" href="assets/css/prism.css" type="text/css" title="light">
+
+<script src="assets/js/mustache.min.js"></script>
+<script src="assets/js/jquery.js"></script>
+<script src="assets/js/bootstrap.js"></script>
+<script src="assets/js/scrollspy.js"></script>
+<script src="assets/js/typeahead.jquery.min.js"></script>
+<script src="assets/js/search.js"></script>
+<script src="assets/js/compare-versions.js"></script>
+<script src="assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="assets/js/bootstrap-toc.min.js"></script>
+<script src="assets/js/jquery.touchSwipe.min.js"></script>
+<script src="assets/js/anchor.min.js"></script>
+<script src="assets/js/tag_filtering.js"></script>
+<script src="assets/js/language_switching.js"></script>
+<script src="assets/js/styleswitcher.js"></script>
+
+<script src="assets/js/lines_around_headings.js"></script>
+
+<script src="assets/js/prism-core.js"></script>
+<script src="assets/js/prism-autoloader.js"></script>
+<script src="assets/js/prism_autoloader_path_override.js"></script>
+<script src="assets/js/trie.js"></script>
+
+<!-- generic -->
+<link rel="icon" type="image/png" href="assets/images/favicon-16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="assets/images/favicon-32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="assets/images/favicon-57.png" sizes="57x57">
+<link rel="icon" type="image/png" href="assets/images/favicon-64.png" sizes="64x64">
+<link rel="icon" type="image/png" href="assets/images/favicon-76.png" sizes="76x76">
+<link rel="icon" type="image/png" href="assets/images/favicon-96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="assets/images/favicon-128.png" sizes="128x128">
+<link rel="icon" type="image/png" href="assets/images/favicon-192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="assets/images/favicon-228.png" sizes="228x228">
+
+<!-- Android -->
+<link rel="shortcut icon" sizes="196x196" href="assets/images/favicon-196.png">
+
+<!-- iOS -->
+<link rel="apple-touch-icon" href="assets/images/favicon-120.png" sizes="120x120">
+<link rel="apple-touch-icon" href="assets/images/favicon-152.png" sizes="152x152">
+<link rel="apple-touch-icon" href="assets/images/favicon-180.png" sizes="180x180">
+
+</head>
+
+<body class="no-script
+">
+
+<script>
+$('body').removeClass('no-script');
+</script>
+
+<nav class="navbar navbar-fixed-top navbar-default" id="topnav">
+	<div class="container-fluid">
+		<div class="navbar-right">
+			<a id="toc-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-wrapper" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<span title="light mode switch" class="glyphicon glyphicon-sunglasses pull-right" id="lightmode-icon"></span>
+			<form class="navbar-form pull-right" id="navbar-search-form">
+                               <div class="form-group has-feedback">
+                                       <input type="text" class="form-control input-sm" name="search" id="sidenav-lookup-field" placeholder="search" disabled>
+				       <span class="glyphicon glyphicon-search form-control-feedback" id="search-mgn-glass"></span>
+                               </div>
+                        </form>
+		</div>
+		<div class="navbar-header">
+			<a id="sidenav-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<a id="home-link" href="index.html" class="hotdoc-navbar-brand">
+				<img src="assets/images/gstreamer-logo.svg" alt="Home">
+			</a>
+		</div>
+		<div class="navbar-collapse collapse" id="navbar-wrapper">
+			<ul class="nav navbar-nav" id="menu">
+				
+<li class="dropdown">
+    <a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        API References<span class="caret"></span>
+    </a>
+	<ul class="dropdown-menu" id="modules-menu">
+					<li>
+				<a href="gstreamer/gi-index.html">GStreamer core</a>
+			</li>
+					<li>
+				<a href="libs.html">GStreamer Libraries</a>
+			</li>
+					<li>
+				<a href="plugins_doc.html">GStreamer Plugins</a>
+			</li>
+		</ul>
+</li>
+
+<li>
+    <a href="application-development/index.html">Application manual</a>
+</li>
+
+
+<li>
+    <a href="tutorials/index.html">Tutorials</a>
+</li>
+
+			</ul>
+			<div class="hidden-xs hidden-sm navbar-text navbar-center">
+							</div>
+		</div>
+	</div>
+</nav>
+
+<main>
+<div data-extension="gi-extension" data-hotdoc-in-toplevel="True" data-hotdoc-project="GStreamer" data-hotdoc-ref="additional/design/scheduling.html" class="page_container" id="page-wrapper" data-hotdoc-meta-gi-languages="['c', 'javascript', 'python']" data-hotdoc-meta-gi-language="c">
+<script src="assets/js/utils.js"></script>
+
+<div class="panel panel-collapse oc-collapsed" id="sidenav" data-hotdoc-role="navigation">
+	<script src="assets/js/full-width.js"></script>
+  <div id="sitenav-wrapper">
+    <iframe src="hotdoc-sitemap.html" id="sitenav-frame"></iframe>
+  </div>
+</div>
+
+<div id="body">
+	<div id="main">
+				    <div id="page-description" data-hotdoc-role="main">
+        <h1 id="scheduling">Scheduling</h1>
+<p>The scheduling in GStreamer is based on pads actively pushing
+(producing) data or pulling (consuming) data from other pads.</p>
+<h2 id="pushing">Pushing</h2>
+<p>A pad can produce data and push it to the next pad. A pad that behaves
+this way exposes a loop function that will be repeatedly called until it
+returns false. This loop function is allowed to block whenever it wants.
+When the pad is deactivated the loop function should unblock though.</p>
+<p>A pad operating in the push mode can only produce data to a pad that
+exposes a chain function. This chain function will be called with the
+buffer produced by the pushing pad.</p>
+<p>This method of producing data is called the streaming mode since the
+producer produces a constant stream of data.</p>
+<h2 id="pulling">Pulling</h2>
+<p>Pads that operate in pulling mode can only pull data from a pad that
+exposes the <code>pull_range()</code> function. In this case, the sink pad exposes a
+loop function that will be called repeatedly until the task is stopped.</p>
+<p>After pulling data from the peer pad, the loop function will typically
+call the push function to push the result to the peer sinkpad.</p>
+<h2 id="deciding-the-scheduling-mode">Deciding the scheduling mode</h2>
+<p>When a pad is activated, the <code>_activate()</code> function is called. The pad
+can then choose to activate itself in push or pull mode depending on
+upstream capabilities.</p>
+<p>The GStreamer core will by default activate pads in push mode when there
+is no activate function for the pad.</p>
+<h2 id="the-chain-function">The chain function</h2>
+<p>The chain function will be called when a upstream element performs a
+<code>_push()</code> on the pad. The upstream element can be another chain based
+element or a pushing source.</p>
+<h2 id="the-getrange-function">The getrange function</h2>
+<p>The getrange function is called when a peer pad performs a
+<code>_pull_range()</code> on the pad. This downstream pad can be a pulling element
+or another <code>_pull_range()</code> based element.</p>
+<h2 id="scheduling-query">Scheduling Query</h2>
+<p>A sinkpad can ask the upstream srcpad for its scheduling attributes. It
+does this with the <code>SCHEDULING</code> query.</p>
+<ul>
+<li>
+<p>(out) <strong><code>modes</code></strong>: <code>G_TYPE_ARRAY</code> (default NULL): an array of <code>GST_TYPE_PAD_MODE</code> enums. Contains all the supported scheduling modes.</p>
+</li>
+<li>
+<p>(out) <strong><code>flags</code></strong>, <code>GST_TYPE_SCHEDULING_FLAGS</code> (default 0):</p>
+</li>
+</ul>
+<pre><code class="language-c">typedef enum {
+  GST_SCHEDULING_FLAG_SEEKABLE           = (1 &lt;&lt; 0),
+  GST_SCHEDULING_FLAG_SEQUENTIAL         = (1 &lt;&lt; 1),
+  GST_SCHEDULING_FLAG_BANDWIDTH_LIMITED  = (1 &lt;&lt; 2)
+} GstSchedulingFlags;
+</code></pre>
+<ul>
+<li>
+<ul>
+<li>
+<p><strong><code>_SEEKABLE</code></strong>: the offset of a pull operation can be specified, if this
+flag is false, the offset should be -1.</p>
+</li>
+<li>
+<p><strong><code>_SEQUENTIAL</code></strong>: suggest sequential access to the data. If <code>_SEEKABLE</code>
+is specified, seeks are allowed but should be avoided. This is common for
+network streams.</p>
+</li>
+<li>
+<p><strong><code>_BANDWIDTH_LIMITED</code></strong>: suggest the element supports buffering data for
+downstream to cope with bandwidth limitations. If this flag is on, the
+downstream element might ask for more data than necessary for normal
+playback. This use-case is interesting for on-disk buffering scenarios for
+instance. Seek operations might be slow as well so downstream elements
+should take this into consideration.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>(out) <strong><code>minsize</code></strong>: <code>G_TYPE_INT</code> (default 1): the suggested minimum size of pull requests</p>
+</li>
+<li>
+<p>(out) <strong><code>maxsize</code></strong>: <code>G_TYPE_INT</code> (default -1, unlimited): the suggested maximum size of pull requests</p>
+</li>
+<li>
+<p>(out) <strong><code>align</code></strong>: <code>G_TYPE_INT</code> (default 0): the suggested alignment for the pull requests.</p>
+</li>
+</ul>
+<h2 id="plugin-techniques">Plug-in techniques</h2>
+<h3 id="multisink-elements">Multi-sink elements</h3>
+<p>Elements with multiple sinks can either expose a loop function on each
+of the pads to actively <code>pull_range</code> data or they can expose a chain
+function on each pad.</p>
+<p>Implementing a chain function is usually easy and allows for all
+possible scheduling methods.</p>
+<h1 id="pad-select">Pad select</h1>
+<p>If the chain based sink wants to wait for one of the pads to receive a buffer, just
+implement the action to perform in the chain function. Be aware that the action could
+be performed in different threads and possibly simultaneously so grab the <code>STREAM_LOCK</code>.</p>
+<h1 id="collect-pads">Collect pads</h1>
+<p>If the chain based sink pads all require one buffer before the element can operate on
+the data, collect all the buffers in the chain function and perform the action when
+all chainpads received the buffer.</p>
+<p>In this case you probably also don't want to accept more data on a pad that has a buffer
+queued. This can easily be done with the following code snippet:</p>
+<pre><code class="language-c">static GstFlowReturn _chain (GstPad *pad, GstBuffer *buffer)
+{
+  LOCK (mylock);
+  while (pad-&gt;store != NULL) {
+    WAIT (mycond, mylock);
+  }
+  pad-&gt;store = buffer;
+  SIGNAL (mycond);
+  UNLOCK (mylock);
+
+  return GST_FLOW_OK;
+}
+
+static void _pull (GstPad *pad, GstBuffer **buffer)
+{
+  LOCK (mylock);
+  while (pad-&gt;store == NULL) {
+    WAIT (mycond, mylock);
+  }
+  **buffer = pad-&gt;store;
+  pad-&gt;store = NULL;
+  SIGNAL (mycond);
+  UNLOCK (mylock);
+}
+</code></pre>
+<h2 id="cases">Cases</h2>
+<p>Inside the braces below the pads is stated what function the pad
+support:</p>
+<ul>
+<li>l: exposes a loop function, so it can act as a pushing source.</li>
+<li>g: exposes a getrange function</li>
+<li>c: exposes a chain function</li>
+</ul>
+<p>Following scheduling decisions are made based on the scheduling methods exposed
+by the pads:</p>
+<ul>
+<li>
+<p>(g) - (l): sinkpad will pull data from src</p>
+</li>
+<li>
+<p>(l) - (c): srcpad actively pushes data to sinkpad</p>
+</li>
+<li>
+<p>()  - (c): srcpad will push data to sinkpad.</p>
+</li>
+<li>
+<p>()  - () : not schedulable.</p>
+</li>
+<li>
+<p>()  - (l): not schedulable.</p>
+</li>
+<li>
+<p>(g) - () : not schedulable.</p>
+</li>
+<li>
+<p>(g) - (c): not schedulable.</p>
+</li>
+<li>
+<p>(l) - () : not schedulable.</p>
+</li>
+<li>
+<p>(l) - (l): not schedulable</p>
+</li>
+<li>
+<p>()  - (g): impossible</p>
+</li>
+<li>
+<p>(g) - (g): impossible.</p>
+</li>
+<li>
+<p>(l) - (g): impossible</p>
+</li>
+<li>
+<p>(c) - () : impossible</p>
+</li>
+<li>
+<p>(c) - (g): impossible</p>
+</li>
+<li>
+<p>(c) - (l): impossible</p>
+</li>
+<li>
+<p>(c) - (c): impossible</p>
+</li>
+</ul>
+<pre><code>+---------+    +------------+    +-----------+
+| filesrc |    | mp3decoder |    | audiosink |
+|        src--sink         src--sink         |
++---------+    +------------+    +-----------+
+        (l-g) (c)           ()   (c)
+</code></pre>
+<p>When activating the pads:</p>
+<ul>
+<li>
+<p>audiosink has a chain function and the peer pad has no loop
+function, no scheduling is done.</p>
+</li>
+<li>
+<p>mp3decoder and filesrc expose an (l) - (c) connection, a thread is
+created to call the srcpad loop function.</p>
+</li>
+</ul>
+<pre><code>+---------+    +------------+    +----------+
+| filesrc |    | avidemuxer |    | fakesink |
+|        src--sink         src--sink        |
++---------+    +------------+    +----------+
+        (l-g) (l)          ()   (c)
+</code></pre>
+<ul>
+<li>
+<p>fakesink has a chain function and the peer pad has no loop function,
+no scheduling is done.</p>
+</li>
+<li>
+<p>avidemuxer and filesrc expose an (g) - (l) connection, a thread is
+created to call the sinkpad loop function.</p>
+</li>
+</ul>
+<pre><code>+---------+    +----------+    +------------+    +----------+
+| filesrc |    | identity |    | avidemuxer |    | fakesink |
+|        src--sink       src--sink         src--sink        |
++---------+    +----------+    +------------+    +----------+
+        (l-g) (c)        ()   (l)          ()   (c)
+</code></pre>
+<ul>
+<li>
+<p>fakesink has a chain function and the peer pad has no loop function,
+no scheduling is done.</p>
+</li>
+<li>
+<p>avidemuxer and identity expose no schedulable connection so this
+pipeline is not schedulable.</p>
+</li>
+</ul>
+<pre><code>+---------+    +----------+    +------------+    +----------+
+| filesrc |    | identity |    | avidemuxer |    | fakesink |
+|        src--sink       src--sink         src--sink        |
++---------+    +----------+    +------------+    +----------+
+        (l-g) (c-l)      (g)  (l)          ()   (c)
+</code></pre>
+<ul>
+<li>
+<p>fakesink has a chain function and the peer pad has no loop function,
+no scheduling is done.</p>
+</li>
+<li>
+<p>avidemuxer and identity expose an (g) - (l) connection, a thread is
+created to call the sinkpad loop function.</p>
+</li>
+<li>
+<p>identity knows the srcpad is getrange based and uses the thread from
+avidemux to getrange data from filesrc.</p>
+</li>
+</ul>
+<pre><code>+---------+    +----------+    +------------+    +----------+
+| filesrc |    | identity |    | oggdemuxer |    | fakesink |
+|        src--sink       src--sink         src--sink        |
++---------+    +----------+    +------------+    +----------+
+        (l-g) (c)        ()   (l-c)        ()   (c)
+</code></pre>
+<ul>
+<li>
+<p>fakesink has a chain function and the peer pad has no loop function,
+no scheduling is done.</p>
+</li>
+<li>
+<p>oggdemuxer and identity expose an () - (l-c) connection, oggdemux
+has to operate in chain mode.</p>
+</li>
+<li>
+<p>identity chan only work chain based and so filesrc creates a thread
+to push data to it.</p>
+</li>
+</ul>
+
+    </div>
+        
+
+
+
+
+		
+	</div>
+	<div id="search_results">
+		<p>The results of the search are</p>
+	</div>
+	<div id="footer">
+		    
+
+	</div>
+</div>
+
+<div id="toc-column">
+	
+		<div class="edit-button">
+		<a href="https://gitlab.freedesktop.org/gstreamer/gst-docs//edit/master/subprojects/gst-docs/markdown/additional/design/scheduling.md" data-hotdoc-role="edit-button">Edit on GitLab</a>
+
+	</div>
+		<div id="toc-wrapper">
+		<nav id="toc"></nav>
+	</div>
+</div>
+</div>
+</main>
+
+
+<script src="assets/js/navbar_offset_scroller.js"></script>
+</body>
+</html>

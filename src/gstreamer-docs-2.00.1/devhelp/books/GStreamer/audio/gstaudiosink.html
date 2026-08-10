@@ -1,0 +1,2170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<base href="..">
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<title>GstAudioSink</title>
+
+<link rel="stylesheet" href="assets/css/dark-frontend.css" type="text/css" title="dark">
+<link rel="alternate stylesheet" href="assets/css/light-frontend.css" type="text/css" title="light">
+<link rel="stylesheet" href="assets/css/bootstrap-toc.min.css" type="text/css">
+<link rel="stylesheet" href="assets/css/jquery.mCustomScrollbar.min.css">
+<link rel="stylesheet" href="assets/js/search/enable_search.css" type="text/css">
+
+<link rel="stylesheet" href="assets/css/extra_frontend.css" type="text/css">
+<link rel="stylesheet" href="assets/css/devhelp.css" type="text/css">
+
+<link rel="stylesheet" href="assets/css/prism-tomorrow.css" type="text/css" title="dark">
+
+<link rel="alternate stylesheet" href="assets/css/prism.css" type="text/css" title="light">
+
+<script src="assets/js/mustache.min.js"></script>
+<script src="assets/js/jquery.js"></script>
+<script src="assets/js/bootstrap.js"></script>
+<script src="assets/js/scrollspy.js"></script>
+<script src="assets/js/typeahead.jquery.min.js"></script>
+<script src="assets/js/search.js"></script>
+<script src="assets/js/compare-versions.js"></script>
+<script src="assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="assets/js/bootstrap-toc.min.js"></script>
+<script src="assets/js/jquery.touchSwipe.min.js"></script>
+<script src="assets/js/anchor.min.js"></script>
+<script src="assets/js/tag_filtering.js"></script>
+<script src="assets/js/language_switching.js"></script>
+<script src="assets/js/styleswitcher.js"></script>
+
+<script src="assets/js/lines_around_headings.js"></script>
+
+<script src="assets/js/prism-core.js"></script>
+<script src="assets/js/prism-autoloader.js"></script>
+<script src="assets/js/prism_autoloader_path_override.js"></script>
+<script src="assets/js/trie.js"></script>
+
+<!-- generic -->
+<link rel="icon" type="image/png" href="assets/images/favicon-16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="assets/images/favicon-32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="assets/images/favicon-57.png" sizes="57x57">
+<link rel="icon" type="image/png" href="assets/images/favicon-64.png" sizes="64x64">
+<link rel="icon" type="image/png" href="assets/images/favicon-76.png" sizes="76x76">
+<link rel="icon" type="image/png" href="assets/images/favicon-96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="assets/images/favicon-128.png" sizes="128x128">
+<link rel="icon" type="image/png" href="assets/images/favicon-192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="assets/images/favicon-228.png" sizes="228x228">
+
+<!-- Android -->
+<link rel="shortcut icon" sizes="196x196" href="assets/images/favicon-196.png">
+
+<!-- iOS -->
+<link rel="apple-touch-icon" href="assets/images/favicon-120.png" sizes="120x120">
+<link rel="apple-touch-icon" href="assets/images/favicon-152.png" sizes="152x152">
+<link rel="apple-touch-icon" href="assets/images/favicon-180.png" sizes="180x180">
+
+</head>
+
+<body class="no-script
+">
+
+<script>
+$('body').removeClass('no-script');
+</script>
+
+<nav class="navbar navbar-fixed-top navbar-default" id="topnav">
+	<div class="container-fluid">
+		<div class="navbar-right">
+			<a id="toc-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-wrapper" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<span title="light mode switch" class="glyphicon glyphicon-sunglasses pull-right" id="lightmode-icon"></span>
+			<form class="navbar-form pull-right" id="navbar-search-form">
+                               <div class="form-group has-feedback">
+                                       <input type="text" class="form-control input-sm" name="search" id="sidenav-lookup-field" placeholder="search" disabled>
+				       <span class="glyphicon glyphicon-search form-control-feedback" id="search-mgn-glass"></span>
+                               </div>
+                        </form>
+		</div>
+		<div class="navbar-header">
+			<a id="sidenav-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<a id="home-link" href="index.html" class="hotdoc-navbar-brand">
+				<img src="assets/images/gstreamer-logo.svg" alt="Home">
+			</a>
+		</div>
+		<div class="navbar-collapse collapse" id="navbar-wrapper">
+			<ul class="nav navbar-nav" id="menu">
+				
+<li class="dropdown">
+    <a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        API References<span class="caret"></span>
+    </a>
+	<ul class="dropdown-menu" id="modules-menu">
+					<li>
+				<a href="gstreamer/gi-index.html">GStreamer core</a>
+			</li>
+					<li>
+				<a href="libs.html">GStreamer Libraries</a>
+			</li>
+					<li>
+				<a href="plugins_doc.html">GStreamer Plugins</a>
+			</li>
+		</ul>
+</li>
+
+<li>
+    <a href="application-development/index.html">Application manual</a>
+</li>
+
+
+<li>
+    <a href="tutorials/index.html">Tutorials</a>
+</li>
+
+			</ul>
+			<div class="hidden-xs hidden-sm navbar-text navbar-center">
+							</div>
+		</div>
+	</div>
+</nav>
+
+<main>
+<div data-extension="gi-extension" data-hotdoc-in-toplevel="False" data-hotdoc-project="audio" data-hotdoc-ref="gstaudiosink.html" class="page_container" id="page-wrapper" data-hotdoc-meta-gi-languages="['c', 'javascript', 'python']" data-hotdoc-meta-gi-language="c">
+<script src="assets/js/utils.js"></script>
+
+<div class="panel panel-collapse oc-collapsed" id="sidenav" data-hotdoc-role="navigation">
+	<script src="assets/js/full-width.js"></script>
+  <div id="sitenav-wrapper">
+    <iframe src="hotdoc-sitemap.html" id="sitenav-frame"></iframe>
+  </div>
+</div>
+
+<div id="body">
+	<div id="main">
+				    <div id="page-description" data-hotdoc-role="main">
+        <h1 id="gstaudiosink-page">GstAudioSink</h1>
+<p>This is the most simple base class for audio sinks that only requires
+subclasses to implement a set of simple functions:</p>
+<ul>
+<li>
+<p><code>open()</code> :Open the device.</p>
+</li>
+<li>
+<p><code>prepare()</code> :Configure the device with the specified format.</p>
+</li>
+<li>
+<p><code>write()</code> :Write samples to the device.</p>
+</li>
+<li>
+<p><code>reset()</code> :Unblock writes and flush the device.</p>
+</li>
+<li>
+<p><code>delay()</code> :Get the number of samples written but not yet played
+by the device.</p>
+</li>
+<li>
+<p><code>unprepare()</code> :Undo operations done by prepare.</p>
+</li>
+<li>
+<p><code>close()</code> :Close the device.</p>
+</li>
+</ul>
+<p>All scheduling of samples and timestamps is done in this base class
+together with <a href="audio/gstaudiobasesink.html#GstAudioBaseSink" data-gi-href-javascript="audio/gstaudiobasesink.html#GstAudioBaseSink" data-gi-title-javascript="GstAudio.AudioBaseSink" data-gi-href-python="audio/gstaudiobasesink.html#GstAudioBaseSink" data-gi-title-python="GstAudio.AudioBaseSink">GstAudioBaseSink</a> using a default implementation of a
+<a href="audio/gstaudioringbuffer.html#GstAudioRingBuffer" data-gi-href-javascript="audio/gstaudioringbuffer.html#GstAudioRingBuffer" data-gi-title-javascript="GstAudio.AudioRingBuffer" data-gi-href-python="audio/gstaudioringbuffer.html#GstAudioRingBuffer" data-gi-title-python="GstAudio.AudioRingBuffer">GstAudioRingBuffer</a> that uses threads.</p>
+
+    </div>
+        
+        
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstAudioSink">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h2 data-hotdoc-id="GstAudioSink">
+	<i>GstAudioSink</i>
+</h2>
+
+
+<div class="hierarchy_container">
+	<div class="hierarchy_details">
+<pre>
+<a title="GObject" href="https://docs.gtk.org/gobject/class.Object.html">GObject</a>
+    <span class="lineart">╰──</span><a title="GInitiallyUnowned" href="https://docs.gtk.org/gobject/class.InitiallyUnowned.html">GInitiallyUnowned</a>
+        <span class="lineart">╰──</span><a title="GstObject" href="gstreamer/gstobject.html#GstObject">GstObject</a>
+            <span class="lineart">╰──</span><a title="GstElement" href="gstreamer/gstelement.html#GstElement">GstElement</a>
+                <span class="lineart">╰──</span><a title="GstBaseSink" href="base/gstbasesink.html#GstBaseSink">GstBaseSink</a>
+                    <span class="lineart">╰──</span><a title="GstAudioBaseSink" href="audio/gstaudiobasesink.html#GstAudioBaseSink">GstAudioBaseSink</a>
+                        <span class="lineart">╰──</span>GstAudioSink
+</pre>
+
+</div>
+
+</div>
+
+<div class="class_details">
+	<p>Opaque <a href="audio/gstaudiosink.html#GstAudioSink">GstAudioSink</a>.</p>
+
+</div>
+
+
+
+	<div class="members-container">
+		<h3>Members</h3>
+					
+<div class="symbol-detail" data-hotdoc-id="GstAudioSink.element">
+	<div>
+		<i><em><code>element</code></em></i>
+		(<a title="GstAudioBaseSink" href="audio/gstaudiobasesink.html#GstAudioBaseSink">GstAudioBaseSink</a>)
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+			</div>
+
+
+
+
+<hr>
+<h3>Class structure</h3>
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstAudioSinkClass">
+	<i>GstAudioSinkClass</i>
+</h4>
+
+
+
+
+
+	<div class="members-container">
+		<h5>Fields</h5>
+					
+<div class="symbol-detail" data-hotdoc-id="GstAudioSinkClass.parent_class">
+	<div>
+		<i><em><code>parent_class</code></em></i>
+		(<a title="GstAudioBaseSinkClass" href="GstAudioBaseSinkClass">GstAudioBaseSinkClass</a>)
+		–
+	</div>
+			<p>the parent class structure.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstAudioSinkClass.extension">
+	<div>
+		<i><em><code>extension</code></em></i>
+		(<a title="GstAudioSinkClassExtension" href="audio/gstaudiosink.html#GstAudioSinkClassExtension">GstAudioSinkClassExtension</a> *)
+		–
+	</div>
+			<p>class extension structure. Since: 1.18</p>
+
+	</div>
+
+			</div>
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3>
+	GstAudio.AudioSinkClass
+</h3>
+
+
+
+
+
+	<div class="members-container">
+		<h5>Attributes</h5>
+					
+<div class="symbol-detail" data-hotdoc-id="GstAudioSinkClass.parent_class">
+	<div>
+		<i><em><code>parent_class</code></em></i>
+		(<a title="GstAudio.AudioBaseSinkClass" href="GstAudioBaseSinkClass">GstAudio.AudioBaseSinkClass</a>)
+		–
+	</div>
+			<p>the parent class structure.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstAudioSinkClass.extension">
+	<div>
+		<i><em><code>extension</code></em></i>
+		(<a title="GstAudio.AudioSinkClassExtension" href="audio/gstaudiosink.html#GstAudioSinkClassExtension">GstAudio.AudioSinkClassExtension</a>)
+		–
+	</div>
+			<p>class extension structure. Since: 1.18</p>
+
+	</div>
+
+			</div>
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3>
+	GstAudio.AudioSinkClass
+</h3>
+
+
+
+
+
+	<div class="members-container">
+		<h5>Attributes</h5>
+					
+<div class="symbol-detail" data-hotdoc-id="GstAudioSinkClass.parent_class">
+	<div>
+		<i><em><code>parent_class</code></em></i>
+		(<a title="GstAudio.AudioBaseSinkClass" href="GstAudioBaseSinkClass">GstAudio.AudioBaseSinkClass</a>)
+		–
+	</div>
+			<p>the parent class structure.</p>
+
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstAudioSinkClass.extension">
+	<div>
+		<i><em><code>extension</code></em></i>
+		(<a title="GstAudio.AudioSinkClassExtension" href="audio/gstaudiosink.html#GstAudioSinkClassExtension">GstAudio.AudioSinkClassExtension</a>)
+		–
+	</div>
+			<p>class extension structure. Since: 1.18</p>
+
+	</div>
+
+			</div>
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h2 data-hotdoc-id="GstAudioSink">
+	<i>GstAudio.AudioSink</i>
+</h2>
+
+
+<div class="hierarchy_container">
+	<div class="hierarchy_details">
+<pre>
+<a title="GObject.Object" href="https://docs.gtk.org/gobject/class.Object.html">GObject.Object</a>
+    <span class="lineart">╰──</span><a title="GObject.InitiallyUnowned" href="https://docs.gtk.org/gobject/class.InitiallyUnowned.html">GObject.InitiallyUnowned</a>
+        <span class="lineart">╰──</span><a title="Gst.Object" href="gstreamer/gstobject.html#GstObject">Gst.Object</a>
+            <span class="lineart">╰──</span><a title="Gst.Element" href="gstreamer/gstelement.html#GstElement">Gst.Element</a>
+                <span class="lineart">╰──</span><a title="GstBase.BaseSink" href="base/gstbasesink.html#GstBaseSink">GstBase.BaseSink</a>
+                    <span class="lineart">╰──</span><a title="GstAudio.AudioBaseSink" href="audio/gstaudiobasesink.html#GstAudioBaseSink">GstAudio.AudioBaseSink</a>
+                        <span class="lineart">╰──</span>GstAudio.AudioSink
+</pre>
+
+</div>
+
+</div>
+
+<div class="class_details">
+	<p>Opaque <a href="audio/gstaudiosink.html#GstAudioSink">GstAudio.AudioSink</a>.</p>
+
+</div>
+
+
+
+	<div class="members-container">
+		<h3>Members</h3>
+					
+<div class="symbol-detail" data-hotdoc-id="GstAudioSink.element">
+	<div>
+		<i><em><code>element</code></em></i>
+		(<a title="GstAudio.AudioBaseSink" href="audio/gstaudiobasesink.html#GstAudioBaseSink">GstAudio.AudioBaseSink</a>)
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+			</div>
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h2 data-hotdoc-id="GstAudioSink">
+	<i>GstAudio.AudioSink</i>
+</h2>
+
+
+<div class="hierarchy_container">
+	<div class="hierarchy_details">
+<pre>
+<a title="GObject.Object" href="https://docs.gtk.org/gobject/class.Object.html">GObject.Object</a>
+    <span class="lineart">╰──</span><a title="GObject.InitiallyUnowned" href="https://docs.gtk.org/gobject/class.InitiallyUnowned.html">GObject.InitiallyUnowned</a>
+        <span class="lineart">╰──</span><a title="Gst.Object" href="gstreamer/gstobject.html#GstObject">Gst.Object</a>
+            <span class="lineart">╰──</span><a title="Gst.Element" href="gstreamer/gstelement.html#GstElement">Gst.Element</a>
+                <span class="lineart">╰──</span><a title="GstBase.BaseSink" href="base/gstbasesink.html#GstBaseSink">GstBase.BaseSink</a>
+                    <span class="lineart">╰──</span><a title="GstAudio.AudioBaseSink" href="audio/gstaudiobasesink.html#GstAudioBaseSink">GstAudio.AudioBaseSink</a>
+                        <span class="lineart">╰──</span>GstAudio.AudioSink
+</pre>
+
+</div>
+
+</div>
+
+<div class="class_details">
+	<p>Opaque <a href="audio/gstaudiosink.html#GstAudioSink">GstAudio.AudioSink</a>.</p>
+
+</div>
+
+
+
+	<div class="members-container">
+		<h3>Members</h3>
+					
+<div class="symbol-detail" data-hotdoc-id="GstAudioSink.element">
+	<div>
+		<i><em><code>element</code></em></i>
+		(<a title="GstAudio.AudioBaseSink" href="audio/gstaudiobasesink.html#GstAudioBaseSink">GstAudio.AudioBaseSink</a>)
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+			</div>
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+
+            <h3 class="symbol_section">Virtual Methods</h3>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstAudioSinkClass::close">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstAudioSinkClass::close">
+	<i>close</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a>
+close (<a title="GstAudioSink" href="audio/gstaudiosink.html#GstAudioSink">GstAudioSink</a> * sink)</pre>
+
+<p>Close the device.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>sink</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GstAudioSinkClass::close">
+	<i>vfunc_close</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function vfunc_close(sink: <a title="GstAudio.AudioSink" href="audio/gstaudiosink.html#GstAudioSink">GstAudio.AudioSink</a>): {
+    // javascript implementation of the 'close' virtual method
+}</code></pre>
+
+<p>Close the device.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>sink</code></em></i>
+<span>(</span><a title="GstAudio.AudioSink" href="audio/gstaudiosink.html#GstAudioSink">GstAudio.AudioSink</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GstAudioSinkClass::close">
+	<i>do_close</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def do_close (sink):
+    #python implementation of the 'close' virtual method</code></pre>
+
+<p>Close the device.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>sink</code></em></i>
+<span>(</span><a title="GstAudio.AudioSink" href="audio/gstaudiosink.html#GstAudioSink">GstAudio.AudioSink</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a><span>)</span>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstAudioSinkClass::delay">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstAudioSinkClass::delay">
+	<i>delay</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="guint" href="https://docs.gtk.org/glib/types.html#guint">guint</a>
+delay (<a title="GstAudioSink" href="audio/gstaudiosink.html#GstAudioSink">GstAudioSink</a> * sink)</pre>
+
+<p>Return how many frames are still in the device. Participates in
+computing the time for audio clocks and drives the synchronisation.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>sink</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GstAudioSinkClass::delay">
+	<i>vfunc_delay</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function vfunc_delay(sink: <a title="GstAudio.AudioSink" href="audio/gstaudiosink.html#GstAudioSink">GstAudio.AudioSink</a>): {
+    // javascript implementation of the 'delay' virtual method
+}</code></pre>
+
+<p>Return how many frames are still in the device. Participates in
+computing the time for audio clocks and drives the synchronisation.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>sink</code></em></i>
+<span>(</span><a title="GstAudio.AudioSink" href="audio/gstaudiosink.html#GstAudioSink">GstAudio.AudioSink</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GstAudioSinkClass::delay">
+	<i>do_delay</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def do_delay (sink):
+    #python implementation of the 'delay' virtual method</code></pre>
+
+<p>Return how many frames are still in the device. Participates in
+computing the time for audio clocks and drives the synchronisation.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>sink</code></em></i>
+<span>(</span><a title="GstAudio.AudioSink" href="audio/gstaudiosink.html#GstAudioSink">GstAudio.AudioSink</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstAudioSinkClass::open">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstAudioSinkClass::open">
+	<i>open</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a>
+open (<a title="GstAudioSink" href="audio/gstaudiosink.html#GstAudioSink">GstAudioSink</a> * sink)</pre>
+
+<p>Open the device. No configuration needs to be done at this point.
+This function is also used to check if the device is available.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>sink</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GstAudioSinkClass::open">
+	<i>vfunc_open</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function vfunc_open(sink: <a title="GstAudio.AudioSink" href="audio/gstaudiosink.html#GstAudioSink">GstAudio.AudioSink</a>): {
+    // javascript implementation of the 'open' virtual method
+}</code></pre>
+
+<p>Open the device. No configuration needs to be done at this point.
+This function is also used to check if the device is available.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>sink</code></em></i>
+<span>(</span><a title="GstAudio.AudioSink" href="audio/gstaudiosink.html#GstAudioSink">GstAudio.AudioSink</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GstAudioSinkClass::open">
+	<i>do_open</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def do_open (sink):
+    #python implementation of the 'open' virtual method</code></pre>
+
+<p>Open the device. No configuration needs to be done at this point.
+This function is also used to check if the device is available.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>sink</code></em></i>
+<span>(</span><a title="GstAudio.AudioSink" href="audio/gstaudiosink.html#GstAudioSink">GstAudio.AudioSink</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a><span>)</span>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstAudioSinkClass::pause">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstAudioSinkClass::pause">
+	<i>pause</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+pause (<a title="GstAudioSink" href="audio/gstaudiosink.html#GstAudioSink">GstAudioSink</a> * sink)</pre>
+
+<p>Pause the device and unblock write as fast as possible.
+For retro compatibility, the audio sink will fallback
+to calling reset if this vmethod is not provided. Since: 1.18</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>sink</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GstAudioSinkClass::pause">
+	<i>vfunc_pause</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function vfunc_pause(sink: <a title="GstAudio.AudioSink" href="audio/gstaudiosink.html#GstAudioSink">GstAudio.AudioSink</a>): {
+    // javascript implementation of the 'pause' virtual method
+}</code></pre>
+
+<p>Pause the device and unblock write as fast as possible.
+For retro compatibility, the audio sink will fallback
+to calling reset if this vmethod is not provided. Since: 1.18</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>sink</code></em></i>
+<span>(</span><a title="GstAudio.AudioSink" href="audio/gstaudiosink.html#GstAudioSink">GstAudio.AudioSink</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GstAudioSinkClass::pause">
+	<i>do_pause</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def do_pause (sink):
+    #python implementation of the 'pause' virtual method</code></pre>
+
+<p>Pause the device and unblock write as fast as possible.
+For retro compatibility, the audio sink will fallback
+to calling reset if this vmethod is not provided. Since: 1.18</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>sink</code></em></i>
+<span>(</span><a title="GstAudio.AudioSink" href="audio/gstaudiosink.html#GstAudioSink">GstAudio.AudioSink</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstAudioSinkClass::prepare">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstAudioSinkClass::prepare">
+	<i>prepare</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a>
+prepare (<a title="GstAudioSink" href="audio/gstaudiosink.html#GstAudioSink">GstAudioSink</a> * sink,
+         <a title="GstAudioRingBufferSpec" href="audio/gstaudioringbuffer.html#GstAudioRingBufferSpec">GstAudioRingBufferSpec</a> * spec)</pre>
+
+<p>Prepare the device to operate with the specified parameters.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>sink</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>spec</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GstAudioSinkClass::prepare">
+	<i>vfunc_prepare</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function vfunc_prepare(sink: <a title="GstAudio.AudioSink" href="audio/gstaudiosink.html#GstAudioSink">GstAudio.AudioSink</a>, spec: <a title="GstAudio.AudioRingBufferSpec" href="audio/gstaudioringbuffer.html#GstAudioRingBufferSpec">GstAudio.AudioRingBufferSpec</a>): {
+    // javascript implementation of the 'prepare' virtual method
+}</code></pre>
+
+<p>Prepare the device to operate with the specified parameters.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>sink</code></em></i>
+<span>(</span><a title="GstAudio.AudioSink" href="audio/gstaudiosink.html#GstAudioSink">GstAudio.AudioSink</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>spec</code></em></i>
+<span>(</span><a title="GstAudio.AudioRingBufferSpec" href="audio/gstaudioringbuffer.html#GstAudioRingBufferSpec">GstAudio.AudioRingBufferSpec</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GstAudioSinkClass::prepare">
+	<i>do_prepare</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def do_prepare (sink, spec):
+    #python implementation of the 'prepare' virtual method</code></pre>
+
+<p>Prepare the device to operate with the specified parameters.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>sink</code></em></i>
+<span>(</span><a title="GstAudio.AudioSink" href="audio/gstaudiosink.html#GstAudioSink">GstAudio.AudioSink</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>spec</code></em></i>
+<span>(</span><a title="GstAudio.AudioRingBufferSpec" href="audio/gstaudioringbuffer.html#GstAudioRingBufferSpec">GstAudio.AudioRingBufferSpec</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a><span>)</span>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstAudioSinkClass::reset">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstAudioSinkClass::reset">
+	<i>reset</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+reset (<a title="GstAudioSink" href="audio/gstaudiosink.html#GstAudioSink">GstAudioSink</a> * sink)</pre>
+
+<p>Returns as quickly as possible from a write and flush any pending
+samples from the device.
+This vmethod is deprecated. Please provide pause and stop instead.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>sink</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GstAudioSinkClass::reset">
+	<i>vfunc_reset</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function vfunc_reset(sink: <a title="GstAudio.AudioSink" href="audio/gstaudiosink.html#GstAudioSink">GstAudio.AudioSink</a>): {
+    // javascript implementation of the 'reset' virtual method
+}</code></pre>
+
+<p>Returns as quickly as possible from a write and flush any pending
+samples from the device.
+This vmethod is deprecated. Please provide pause and stop instead.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>sink</code></em></i>
+<span>(</span><a title="GstAudio.AudioSink" href="audio/gstaudiosink.html#GstAudioSink">GstAudio.AudioSink</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GstAudioSinkClass::reset">
+	<i>do_reset</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def do_reset (sink):
+    #python implementation of the 'reset' virtual method</code></pre>
+
+<p>Returns as quickly as possible from a write and flush any pending
+samples from the device.
+This vmethod is deprecated. Please provide pause and stop instead.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>sink</code></em></i>
+<span>(</span><a title="GstAudio.AudioSink" href="audio/gstaudiosink.html#GstAudioSink">GstAudio.AudioSink</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstAudioSinkClass::resume">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstAudioSinkClass::resume">
+	<i>resume</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+resume (<a title="GstAudioSink" href="audio/gstaudiosink.html#GstAudioSink">GstAudioSink</a> * sink)</pre>
+
+<p>Resume the device. Since: 1.18</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>sink</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GstAudioSinkClass::resume">
+	<i>vfunc_resume</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function vfunc_resume(sink: <a title="GstAudio.AudioSink" href="audio/gstaudiosink.html#GstAudioSink">GstAudio.AudioSink</a>): {
+    // javascript implementation of the 'resume' virtual method
+}</code></pre>
+
+<p>Resume the device. Since: 1.18</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>sink</code></em></i>
+<span>(</span><a title="GstAudio.AudioSink" href="audio/gstaudiosink.html#GstAudioSink">GstAudio.AudioSink</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GstAudioSinkClass::resume">
+	<i>do_resume</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def do_resume (sink):
+    #python implementation of the 'resume' virtual method</code></pre>
+
+<p>Resume the device. Since: 1.18</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>sink</code></em></i>
+<span>(</span><a title="GstAudio.AudioSink" href="audio/gstaudiosink.html#GstAudioSink">GstAudio.AudioSink</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstAudioSinkClass::stop">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstAudioSinkClass::stop">
+	<i>stop</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+stop (<a title="GstAudioSink" href="audio/gstaudiosink.html#GstAudioSink">GstAudioSink</a> * sink)</pre>
+
+<p>Stop the device and unblock write as fast as possible.
+Pending samples are flushed from the device.
+For retro compatibility, the audio sink will fallback
+to calling reset if this vmethod is not provided. Since: 1.18</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>sink</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GstAudioSinkClass::stop">
+	<i>vfunc_stop</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function vfunc_stop(sink: <a title="GstAudio.AudioSink" href="audio/gstaudiosink.html#GstAudioSink">GstAudio.AudioSink</a>): {
+    // javascript implementation of the 'stop' virtual method
+}</code></pre>
+
+<p>Stop the device and unblock write as fast as possible.
+Pending samples are flushed from the device.
+For retro compatibility, the audio sink will fallback
+to calling reset if this vmethod is not provided. Since: 1.18</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>sink</code></em></i>
+<span>(</span><a title="GstAudio.AudioSink" href="audio/gstaudiosink.html#GstAudioSink">GstAudio.AudioSink</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GstAudioSinkClass::stop">
+	<i>do_stop</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def do_stop (sink):
+    #python implementation of the 'stop' virtual method</code></pre>
+
+<p>Stop the device and unblock write as fast as possible.
+Pending samples are flushed from the device.
+For retro compatibility, the audio sink will fallback
+to calling reset if this vmethod is not provided. Since: 1.18</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>sink</code></em></i>
+<span>(</span><a title="GstAudio.AudioSink" href="audio/gstaudiosink.html#GstAudioSink">GstAudio.AudioSink</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstAudioSinkClass::unprepare">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstAudioSinkClass::unprepare">
+	<i>unprepare</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a>
+unprepare (<a title="GstAudioSink" href="audio/gstaudiosink.html#GstAudioSink">GstAudioSink</a> * sink)</pre>
+
+<p>Undo operations done in prepare.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>sink</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GstAudioSinkClass::unprepare">
+	<i>vfunc_unprepare</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function vfunc_unprepare(sink: <a title="GstAudio.AudioSink" href="audio/gstaudiosink.html#GstAudioSink">GstAudio.AudioSink</a>): {
+    // javascript implementation of the 'unprepare' virtual method
+}</code></pre>
+
+<p>Undo operations done in prepare.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>sink</code></em></i>
+<span>(</span><a title="GstAudio.AudioSink" href="audio/gstaudiosink.html#GstAudioSink">GstAudio.AudioSink</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GstAudioSinkClass::unprepare">
+	<i>do_unprepare</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def do_unprepare (sink):
+    #python implementation of the 'unprepare' virtual method</code></pre>
+
+<p>Undo operations done in prepare.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>sink</code></em></i>
+<span>(</span><a title="GstAudio.AudioSink" href="audio/gstaudiosink.html#GstAudioSink">GstAudio.AudioSink</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a><span>)</span>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstAudioSinkClass::write">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstAudioSinkClass::write">
+	<i>write</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gint" href="https://docs.gtk.org/glib/types.html#gint">gint</a>
+write (<a title="GstAudioSink" href="audio/gstaudiosink.html#GstAudioSink">GstAudioSink</a> * sink,
+       <a title="gpointer" href="https://docs.gtk.org/glib/types.html#gpointer">gpointer</a> data,
+       <a title="guint" href="https://docs.gtk.org/glib/types.html#guint">guint</a> length)</pre>
+
+<p>Write data to the device.
+This vmethod is allowed to block until all the data is written.
+If such is the case then it is expected that pause, stop and
+reset will unblock the write when called.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>sink</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>data</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>length</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GstAudioSinkClass::write">
+	<i>vfunc_write</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function vfunc_write(sink: <a title="GstAudio.AudioSink" href="audio/gstaudiosink.html#GstAudioSink">GstAudio.AudioSink</a>, data: [ <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a> ], length: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>): {
+    // javascript implementation of the 'write' virtual method
+}</code></pre>
+
+<p>Write data to the device.
+This vmethod is allowed to block until all the data is written.
+If such is the case then it is expected that pause, stop and
+reset will unblock the write when called.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>sink</code></em></i>
+<span>(</span><a title="GstAudio.AudioSink" href="audio/gstaudiosink.html#GstAudioSink">GstAudio.AudioSink</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>data</code></em></i>
+<span>(</span>[ <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a> ]<span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>length</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GstAudioSinkClass::write">
+	<i>do_write</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def do_write (sink, data, length):
+    #python implementation of the 'write' virtual method</code></pre>
+
+<p>Write data to the device.
+This vmethod is allowed to block until all the data is written.
+If such is the case then it is expected that pause, stop and
+reset will unblock the write when called.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>sink</code></em></i>
+<span>(</span><a title="GstAudio.AudioSink" href="audio/gstaudiosink.html#GstAudioSink">GstAudio.AudioSink</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>data</code></em></i>
+<span>(</span>[ <a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a> ]<span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>length</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+			</div>
+							<i>No description available</i>
+					</div>
+	</div>
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+
+        
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstAudioSinkClassExtension">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h2 data-hotdoc-id="GstAudioSinkClassExtension">
+	<i>GstAudioSinkClassExtension</i>
+</h2>
+
+
+
+
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h2 data-hotdoc-id="GstAudioSinkClassExtension">
+	<i>GstAudio.AudioSinkClassExtension</i>
+</h2>
+
+
+
+
+
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h2 data-hotdoc-id="GstAudioSinkClassExtension">
+	<i>GstAudio.AudioSinkClassExtension</i>
+</h2>
+
+
+
+
+
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+
+
+
+
+
+
+		
+	</div>
+	<div id="search_results">
+		<p>The results of the search are</p>
+	</div>
+	<div id="footer">
+		    
+
+	</div>
+</div>
+
+<div id="toc-column">
+	
+		<div class="edit-button">
+		
+
+	</div>
+		<div id="toc-wrapper">
+		<nav id="toc"></nav>
+	</div>
+</div>
+</div>
+</main>
+
+
+<script src="assets/js/navbar_offset_scroller.js"></script>
+</body>
+</html>

@@ -1,0 +1,1720 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<base href="..">
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<title>av1enc</title>
+
+<link rel="stylesheet" href="assets/css/dark-frontend.css" type="text/css" title="dark">
+<link rel="alternate stylesheet" href="assets/css/light-frontend.css" type="text/css" title="light">
+<link rel="stylesheet" href="assets/css/bootstrap-toc.min.css" type="text/css">
+<link rel="stylesheet" href="assets/css/jquery.mCustomScrollbar.min.css">
+<link rel="stylesheet" href="assets/js/search/enable_search.css" type="text/css">
+
+<link rel="stylesheet" href="assets/css/extra_frontend.css" type="text/css">
+<link rel="stylesheet" href="assets/css/devhelp.css" type="text/css">
+
+<link rel="stylesheet" href="assets/css/prism-tomorrow.css" type="text/css" title="dark">
+
+<link rel="alternate stylesheet" href="assets/css/prism.css" type="text/css" title="light">
+
+<script src="assets/js/mustache.min.js"></script>
+<script src="assets/js/jquery.js"></script>
+<script src="assets/js/bootstrap.js"></script>
+<script src="assets/js/scrollspy.js"></script>
+<script src="assets/js/typeahead.jquery.min.js"></script>
+<script src="assets/js/search.js"></script>
+<script src="assets/js/compare-versions.js"></script>
+<script src="assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="assets/js/bootstrap-toc.min.js"></script>
+<script src="assets/js/jquery.touchSwipe.min.js"></script>
+<script src="assets/js/anchor.min.js"></script>
+<script src="assets/js/tag_filtering.js"></script>
+<script src="assets/js/language_switching.js"></script>
+<script src="assets/js/styleswitcher.js"></script>
+
+<script src="assets/js/lines_around_headings.js"></script>
+
+<script src="assets/js/prism-core.js"></script>
+<script src="assets/js/prism-autoloader.js"></script>
+<script src="assets/js/prism_autoloader_path_override.js"></script>
+<script src="assets/js/trie.js"></script>
+
+<!-- generic -->
+<link rel="icon" type="image/png" href="assets/images/favicon-16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="assets/images/favicon-32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="assets/images/favicon-57.png" sizes="57x57">
+<link rel="icon" type="image/png" href="assets/images/favicon-64.png" sizes="64x64">
+<link rel="icon" type="image/png" href="assets/images/favicon-76.png" sizes="76x76">
+<link rel="icon" type="image/png" href="assets/images/favicon-96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="assets/images/favicon-128.png" sizes="128x128">
+<link rel="icon" type="image/png" href="assets/images/favicon-192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="assets/images/favicon-228.png" sizes="228x228">
+
+<!-- Android -->
+<link rel="shortcut icon" sizes="196x196" href="assets/images/favicon-196.png">
+
+<!-- iOS -->
+<link rel="apple-touch-icon" href="assets/images/favicon-120.png" sizes="120x120">
+<link rel="apple-touch-icon" href="assets/images/favicon-152.png" sizes="152x152">
+<link rel="apple-touch-icon" href="assets/images/favicon-180.png" sizes="180x180">
+
+</head>
+
+<body class="no-script
+">
+
+<script>
+$('body').removeClass('no-script');
+</script>
+
+<nav class="navbar navbar-fixed-top navbar-default" id="topnav">
+	<div class="container-fluid">
+		<div class="navbar-right">
+			<a id="toc-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-wrapper" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<span title="light mode switch" class="glyphicon glyphicon-sunglasses pull-right" id="lightmode-icon"></span>
+			<form class="navbar-form pull-right" id="navbar-search-form">
+                               <div class="form-group has-feedback">
+                                       <input type="text" class="form-control input-sm" name="search" id="sidenav-lookup-field" placeholder="search" disabled>
+				       <span class="glyphicon glyphicon-search form-control-feedback" id="search-mgn-glass"></span>
+                               </div>
+                        </form>
+		</div>
+		<div class="navbar-header">
+			<a id="sidenav-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<a id="home-link" href="index.html" class="hotdoc-navbar-brand">
+				<img src="assets/images/gstreamer-logo.svg" alt="Home">
+			</a>
+		</div>
+		<div class="navbar-collapse collapse" id="navbar-wrapper">
+			<ul class="nav navbar-nav" id="menu">
+				
+<li class="dropdown">
+    <a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        API References<span class="caret"></span>
+    </a>
+	<ul class="dropdown-menu" id="modules-menu">
+					<li>
+				<a href="gstreamer/gi-index.html">GStreamer core</a>
+			</li>
+					<li>
+				<a href="libs.html">GStreamer Libraries</a>
+			</li>
+					<li>
+				<a href="plugins_doc.html">GStreamer Plugins</a>
+			</li>
+		</ul>
+</li>
+
+<li>
+    <a href="application-development/index.html">Application manual</a>
+</li>
+
+
+<li>
+    <a href="tutorials/index.html">Tutorials</a>
+</li>
+
+			</ul>
+			<div class="hidden-xs hidden-sm navbar-text navbar-center">
+							</div>
+		</div>
+	</div>
+</nav>
+
+<main>
+<div data-extension="gst-extension" data-hotdoc-in-toplevel="False" data-hotdoc-project="aom" data-hotdoc-ref="av1enc.html" class="page_container" id="page-wrapper" data-hotdoc-meta-gi-languages="['c', 'javascript', 'python']">
+<script src="assets/js/utils.js"></script>
+
+<div class="panel panel-collapse oc-collapsed" id="sidenav" data-hotdoc-role="navigation">
+	<script src="assets/js/full-width.js"></script>
+  <div id="sitenav-wrapper">
+    <iframe src="hotdoc-sitemap.html" id="sitenav-frame"></iframe>
+  </div>
+</div>
+
+<div id="body">
+	<div id="main">
+				    <div id="page-description" data-hotdoc-role="main">
+        <h1 id="av1enc-page">av1enc</h1>
+<p>AV1 Encoder.</p>
+<h2 id="example-launch-line">Example launch line</h2>
+<pre><code class="language-["> gst-launch-1.0 videotestsrc num-buffers=50 ! av1enc ! webmmux ! filesink location=av1.webm
+</code></pre>
+
+    </div>
+        
+        
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="av1enc">
+	
+        
+
+        <h2>Hierarchy</h2>
+            <div class="hierarchy_container">
+                <div class="hierarchy_details">
+<pre>
+<a title="GObject" href="https://docs.gtk.org/gobject/class.Object.html" data-gi-href-javascript="https://docs.gtk.org/gobject/class.Object.html" data-gi-title-javascript="GObject.Object" data-gi-href-python="https://docs.gtk.org/gobject/class.Object.html" data-gi-title-python="GObject.Object">GObject</a>
+    <span class="lineart">╰──</span><a title="GInitiallyUnowned" href="https://docs.gtk.org/gobject/class.InitiallyUnowned.html" data-gi-href-javascript="https://docs.gtk.org/gobject/class.InitiallyUnowned.html" data-gi-title-javascript="GObject.InitiallyUnowned" data-gi-href-python="https://docs.gtk.org/gobject/class.InitiallyUnowned.html" data-gi-title-python="GObject.InitiallyUnowned">GInitiallyUnowned</a>
+        <span class="lineart">╰──</span><a title="GstObject" href="gstreamer/gstobject.html#GstObject" data-gi-href-javascript="gstreamer/gstobject.html#GstObject" data-gi-title-javascript="Gst.Object" data-gi-href-python="gstreamer/gstobject.html#GstObject" data-gi-title-python="Gst.Object">GstObject</a>
+            <span class="lineart">╰──</span><a title="GstElement" href="gstreamer/gstelement.html#GstElement" data-gi-href-javascript="gstreamer/gstelement.html#GstElement" data-gi-title-javascript="Gst.Element" data-gi-href-python="gstreamer/gstelement.html#GstElement" data-gi-title-python="Gst.Element">GstElement</a>
+                <span class="lineart">╰──</span><a title="GstVideoEncoder" href="video/gstvideoencoder.html#GstVideoEncoder" data-gi-href-javascript="video/gstvideoencoder.html#GstVideoEncoder" data-gi-title-javascript="GstVideo.VideoEncoder" data-gi-href-python="video/gstvideoencoder.html#GstVideoEncoder" data-gi-title-python="GstVideo.VideoEncoder">GstVideoEncoder</a>
+                    <span class="lineart">╰──</span>av1enc
+</pre>
+
+</div>
+
+            </div>
+            <h2>Implemented interfaces</h2>
+            <div>
+                <pre>
+<a title="GstPreset" href="gstreamer/gstpreset.html#GstPreset" data-gi-href-javascript="gstreamer/gstpreset.html#GstPreset" data-gi-title-javascript="Gst.Preset" data-gi-href-python="gstreamer/gstpreset.html#GstPreset" data-gi-title-python="Gst.Preset">GstPreset</a>
+</pre>
+            </div>
+        <h2 class="symbol_section">Factory details</h2>
+        <div class="symbol-detail">
+            <p><b>Authors:</b> – Sean DuBois <sean@siobud.com></sean@siobud.com></p>
+            <p><b>Classification:</b> – <code>Codec/Encoder/Video</code></p>
+            <p><b>Rank</b> – primary</p>
+            <p><b>Plugin</b> – aom</p>
+            <p><b>Package</b> – GStreamer Bad Plug-ins</p>
+        </div>
+
+</div>
+
+
+            <h2 class="symbol_section">Pad Templates</h2>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstAV1Enc!sink">
+	
+
+
+
+        <h3><span><code>sink</code></span></h3>
+
+
+        <div>
+            
+            <pre class="language-yaml"><code class="language-yaml">video/x-raw:
+         format: { I420, Y42B, Y444, YV12 }
+      framerate: [ 0/1, 2147483647/1 ]
+          width: [ 4, 65536 ]
+         height: [ 4, 65536 ]
+</code></pre>
+            <div class="symbol-detail">
+                <p><b>Presence</b> – <i>always</i></p>
+                <p><b>Direction</b> – <i>sink</i></p>
+                    <p><b>Object type</b> – <a title="GstPad" href="gstreamer/gstpad.html#GstPad" data-gi-href-javascript="gstreamer/gstpad.html#GstPad" data-gi-title-javascript="Gst.Pad" data-gi-href-python="gstreamer/gstpad.html#GstPad" data-gi-title-python="Gst.Pad">GstPad</a></p>
+            </div>
+        </div>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstAV1Enc!src">
+	
+
+
+
+        <h3><span><code>src</code></span></h3>
+
+
+        <div>
+            
+            <pre class="language-yaml"><code class="language-yaml">video/x-av1:
+  stream-format: obu-stream
+      alignment: tu
+</code></pre>
+            <div class="symbol-detail">
+                <p><b>Presence</b> – <i>always</i></p>
+                <p><b>Direction</b> – <i>src</i></p>
+                    <p><b>Object type</b> – <a title="GstPad" href="gstreamer/gstpad.html#GstPad" data-gi-href-javascript="gstreamer/gstpad.html#GstPad" data-gi-title-javascript="Gst.Pad" data-gi-href-python="gstreamer/gstpad.html#GstPad" data-gi-title-python="Gst.Pad">GstPad</a></p>
+            </div>
+        </div>
+
+
+
+<hr>
+
+</div>
+
+
+            <h2 class="symbol_section">Properties</h2>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="av1enc:buf-initial-sz">
+	
+
+
+
+<h3 data-hotdoc-id="av1enc:buf-initial-sz">
+	<i>buf-initial-sz</i>
+</h3>
+
+
+<pre class="property_signature">
+“buf-initial-sz” <span class="type"><a title="guint" href="https://docs.gtk.org/glib/types.html#guint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">guint</a></span>
+</pre>
+
+<p>Decoder buffer initial size, expressed in units of time (milliseconds)</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	4000
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="av1enc:buf-optimal-sz">
+	
+
+
+
+<h3 data-hotdoc-id="av1enc:buf-optimal-sz">
+	<i>buf-optimal-sz</i>
+</h3>
+
+
+<pre class="property_signature">
+“buf-optimal-sz” <span class="type"><a title="guint" href="https://docs.gtk.org/glib/types.html#guint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">guint</a></span>
+</pre>
+
+<p>Decoder buffer optimal size, expressed in units of time (milliseconds)</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	5000
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="av1enc:buf-sz">
+	
+
+
+
+<h3 data-hotdoc-id="av1enc:buf-sz">
+	<i>buf-sz</i>
+</h3>
+
+
+<pre class="property_signature">
+“buf-sz” <span class="type"><a title="guint" href="https://docs.gtk.org/glib/types.html#guint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">guint</a></span>
+</pre>
+
+<p>Decoder buffer size, expressed in units of time (milliseconds)</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	6000
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="av1enc:cpu-used">
+	
+
+
+
+<h3 data-hotdoc-id="av1enc:cpu-used">
+	<i>cpu-used</i>
+</h3>
+
+
+<pre class="property_signature">
+“cpu-used” <span class="type"><a title="gint" href="https://docs.gtk.org/glib/types.html#gint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">gint</a></span>
+</pre>
+
+<p>CPU Used. A Value greater than 0 will increase encoder speed at the expense of quality.</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	0
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="av1enc:drop-frame">
+	
+
+
+
+<h3 data-hotdoc-id="av1enc:drop-frame">
+	<i>drop-frame</i>
+</h3>
+
+
+<pre class="property_signature">
+“drop-frame” <span class="type"><a title="guint" href="https://docs.gtk.org/glib/types.html#guint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">guint</a></span>
+</pre>
+
+<p>Temporal resampling configuration, drop frames as a strategy to meet its target data rate Set to zero (0) to disable this feature.</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	0
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.22;" id="av1enc:enc-pass">
+	
+
+
+
+<h3 data-hotdoc-id="av1enc:enc-pass">
+	<i>enc-pass</i>
+</h3>
+
+
+<pre class="property_signature">
+“enc-pass” <span class="type"><a title="Av1enc-enc-pass" href="aom/av1enc.html#GstAV1EncEncPass">Av1enc-enc-pass</a> <span class="pointer-token">*</span></span>
+</pre>
+
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	one-pass (0)
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.22
+		</p>
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="av1enc:end-usage">
+	
+
+
+
+<h3 data-hotdoc-id="av1enc:end-usage">
+	<i>end-usage</i>
+</h3>
+
+
+<pre class="property_signature">
+“end-usage” <span class="type"><a title="Av1enc-end-usage-mode" href="aom/av1enc.html#GstAV1EncEndUsageMode">Av1enc-end-usage-mode</a> <span class="pointer-token">*</span></span>
+</pre>
+
+<p>Rate control algorithm to use, indicates the end usage of this stream</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	vbr (0)
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.22;" id="av1enc:keyframe-max-dist">
+	
+
+
+
+<h3 data-hotdoc-id="av1enc:keyframe-max-dist">
+	<i>keyframe-max-dist</i>
+</h3>
+
+
+<pre class="property_signature">
+“keyframe-max-dist” <span class="type"><a title="gint" href="https://docs.gtk.org/glib/types.html#gint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">gint</a></span>
+</pre>
+
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	30
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.22
+		</p>
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.22;" id="av1enc:keyframe-mode">
+	
+
+
+
+<h3 data-hotdoc-id="av1enc:keyframe-mode">
+	<i>keyframe-mode</i>
+</h3>
+
+
+<pre class="property_signature">
+“keyframe-mode” <span class="type"><a title="Av1enc-kfmode" href="aom/av1enc.html#GstAV1EncKFMode">Av1enc-kfmode</a> <span class="pointer-token">*</span></span>
+</pre>
+
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	auto (1)
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.22
+		</p>
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.22;" id="av1enc:lag-in-frames">
+	
+
+
+
+<h3 data-hotdoc-id="av1enc:lag-in-frames">
+	<i>lag-in-frames</i>
+</h3>
+
+
+<pre class="property_signature">
+“lag-in-frames” <span class="type"><a title="guint" href="https://docs.gtk.org/glib/types.html#guint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">guint</a></span>
+</pre>
+
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	0
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.22
+		</p>
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="av1enc:max-quantizer">
+	
+
+
+
+<h3 data-hotdoc-id="av1enc:max-quantizer">
+	<i>max-quantizer</i>
+</h3>
+
+
+<pre class="property_signature">
+“max-quantizer” <span class="type"><a title="guint" href="https://docs.gtk.org/glib/types.html#guint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">guint</a></span>
+</pre>
+
+<p>Maximum (worst quality) quantizer</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	0
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="av1enc:min-quantizer">
+	
+
+
+
+<h3 data-hotdoc-id="av1enc:min-quantizer">
+	<i>min-quantizer</i>
+</h3>
+
+
+<pre class="property_signature">
+“min-quantizer” <span class="type"><a title="guint" href="https://docs.gtk.org/glib/types.html#guint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">guint</a></span>
+</pre>
+
+<p>Minimum (best quality) quantizer</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	0
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="av1enc:overshoot-pct">
+	
+
+
+
+<h3 data-hotdoc-id="av1enc:overshoot-pct">
+	<i>overshoot-pct</i>
+</h3>
+
+
+<pre class="property_signature">
+“overshoot-pct” <span class="type"><a title="guint" href="https://docs.gtk.org/glib/types.html#guint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">guint</a></span>
+</pre>
+
+<p>Rate control adaptation overshoot control</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	25
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="av1enc:resize-denominator">
+	
+
+
+
+<h3 data-hotdoc-id="av1enc:resize-denominator">
+	<i>resize-denominator</i>
+</h3>
+
+
+<pre class="property_signature">
+“resize-denominator” <span class="type"><a title="guint" href="https://docs.gtk.org/glib/types.html#guint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">guint</a></span>
+</pre>
+
+<p>Frame resize denominator, assuming 8 as the numerator</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	8
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="av1enc:resize-kf-denominator">
+	
+
+
+
+<h3 data-hotdoc-id="av1enc:resize-kf-denominator">
+	<i>resize-kf-denominator</i>
+</h3>
+
+
+<pre class="property_signature">
+“resize-kf-denominator” <span class="type"><a title="guint" href="https://docs.gtk.org/glib/types.html#guint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">guint</a></span>
+</pre>
+
+<p>Frame resize keyframe denominator, assuming 8 as the numerator</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	8
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="av1enc:resize-mode">
+	
+
+
+
+<h3 data-hotdoc-id="av1enc:resize-mode">
+	<i>resize-mode</i>
+</h3>
+
+
+<pre class="property_signature">
+“resize-mode” <span class="type"><a title="Av1enc-resize-mode" href="aom/av1enc.html#GstAV1EncResizeMode">Av1enc-resize-mode</a> <span class="pointer-token">*</span></span>
+</pre>
+
+<p>Frame resize mode</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	none (0)
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="av1enc:row-mt">
+	
+
+
+
+<h3 data-hotdoc-id="av1enc:row-mt">
+	<i>row-mt</i>
+</h3>
+
+
+<pre class="property_signature">
+“row-mt” <span class="type"><a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#bool" data-gi-title-python="bool">gboolean</a></span>
+</pre>
+
+<p>Enable row based multi-threading</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	true
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="av1enc:superres-denominator">
+	
+
+
+
+<h3 data-hotdoc-id="av1enc:superres-denominator">
+	<i>superres-denominator</i>
+</h3>
+
+
+<pre class="property_signature">
+“superres-denominator” <span class="type"><a title="guint" href="https://docs.gtk.org/glib/types.html#guint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">guint</a></span>
+</pre>
+
+<p>Frame super-resolution denominator, used only by SUPERRES_FIXED mode</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	8
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="av1enc:superres-kf-denominator">
+	
+
+
+
+<h3 data-hotdoc-id="av1enc:superres-kf-denominator">
+	<i>superres-kf-denominator</i>
+</h3>
+
+
+<pre class="property_signature">
+“superres-kf-denominator” <span class="type"><a title="guint" href="https://docs.gtk.org/glib/types.html#guint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">guint</a></span>
+</pre>
+
+<p>Keyframe super-resolution denominator</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	8
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="av1enc:superres-kf-qthresh">
+	
+
+
+
+<h3 data-hotdoc-id="av1enc:superres-kf-qthresh">
+	<i>superres-kf-qthresh</i>
+</h3>
+
+
+<pre class="property_signature">
+“superres-kf-qthresh” <span class="type"><a title="guint" href="https://docs.gtk.org/glib/types.html#guint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">guint</a></span>
+</pre>
+
+<p>Keyframe super-resolution qindex threshold, used only by SUPERRES_QTHRESH mode</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	63
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="av1enc:superres-mode">
+	
+
+
+
+<h3 data-hotdoc-id="av1enc:superres-mode">
+	<i>superres-mode</i>
+</h3>
+
+
+<pre class="property_signature">
+“superres-mode” <span class="type"><a title="Av1enc-superres-mode" href="aom/av1enc.html#GstAV1EncSuperresMode">Av1enc-superres-mode</a> <span class="pointer-token">*</span></span>
+</pre>
+
+<p>It integrates upscaling after the encode/decode process</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	none (0)
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="av1enc:superres-qthresh">
+	
+
+
+
+<h3 data-hotdoc-id="av1enc:superres-qthresh">
+	<i>superres-qthresh</i>
+</h3>
+
+
+<pre class="property_signature">
+“superres-qthresh” <span class="type"><a title="guint" href="https://docs.gtk.org/glib/types.html#guint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">guint</a></span>
+</pre>
+
+<p>Frame super-resolution qindex threshold, used only by SUPERRES_QTHRESH mode</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	63
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="av1enc:target-bitrate">
+	
+
+
+
+<h3 data-hotdoc-id="av1enc:target-bitrate">
+	<i>target-bitrate</i>
+</h3>
+
+
+<pre class="property_signature">
+“target-bitrate” <span class="type"><a title="guint" href="https://docs.gtk.org/glib/types.html#guint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">guint</a></span>
+</pre>
+
+<p>Target bitrate, in kilobits per second</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	256
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="av1enc:threads">
+	
+
+
+
+<h3 data-hotdoc-id="av1enc:threads">
+	<i>threads</i>
+</h3>
+
+
+<pre class="property_signature">
+“threads” <span class="type"><a title="guint" href="https://docs.gtk.org/glib/types.html#guint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">guint</a></span>
+</pre>
+
+<p>Max number of threads to use encoding, set to 0 determine the approximate number of threads that the system schedule</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	0
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="av1enc:tile-columns">
+	
+
+
+
+<h3 data-hotdoc-id="av1enc:tile-columns">
+	<i>tile-columns</i>
+</h3>
+
+
+<pre class="property_signature">
+“tile-columns” <span class="type"><a title="guint" href="https://docs.gtk.org/glib/types.html#guint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">guint</a></span>
+</pre>
+
+<p>Partition into separate vertical tile columns from image frame which can enable parallel encoding</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	0
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="av1enc:tile-rows">
+	
+
+
+
+<h3 data-hotdoc-id="av1enc:tile-rows">
+	<i>tile-rows</i>
+</h3>
+
+
+<pre class="property_signature">
+“tile-rows” <span class="type"><a title="guint" href="https://docs.gtk.org/glib/types.html#guint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">guint</a></span>
+</pre>
+
+<p>Partition into separate horizontal tile rows from image frame which can enable parallel encoding</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	0
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.26;" id="av1enc:timebase">
+	
+
+
+
+<h3 data-hotdoc-id="av1enc:timebase">
+	<i>timebase</i>
+</h3>
+
+
+<pre class="property_signature">
+“timebase” <span class="type"><a title="GstFraction" href="gstreamer/gstvalue.html#GstFraction" data-gi-href-javascript="gstreamer/gstvalue.html#GstFraction" data-gi-title-javascript="Gst.Fraction" data-gi-href-python="gstreamer/gstvalue.html#GstFraction" data-gi-title-python="Gst.Fraction">GstFraction</a> <span class="pointer-token">*</span></span>
+</pre>
+
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	0/1
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.26
+		</p>
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="av1enc:undershoot-pct">
+	
+
+
+
+<h3 data-hotdoc-id="av1enc:undershoot-pct">
+	<i>undershoot-pct</i>
+</h3>
+
+
+<pre class="property_signature">
+“undershoot-pct” <span class="type"><a title="guint" href="https://docs.gtk.org/glib/types.html#guint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">guint</a></span>
+</pre>
+
+<p>Rate control adaptation undershoot control</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	25
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.22;" id="av1enc:usage-profile">
+	
+
+
+
+<h3 data-hotdoc-id="av1enc:usage-profile">
+	<i>usage-profile</i>
+</h3>
+
+
+<pre class="property_signature">
+“usage-profile” <span class="type"><a title="Av1enc-usage-profile" href="aom/av1enc.html#GstAV1EncUsageProfile">Av1enc-usage-profile</a> <span class="pointer-token">*</span></span>
+</pre>
+
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	good-quality (0)
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.22
+		</p>
+
+<hr>
+
+</div>
+
+
+            <h2 class="symbol_section">Named constants</h2>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.22;" id="GstAV1EncEncPass">
+	
+
+
+
+<h3 data-hotdoc-id="GstAV1EncEncPass">
+	<i>Av1enc-enc-pass</i>
+</h3>
+
+
+
+
+
+	<div class="members-container">
+		<h4>Members</h4>
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstAV1EncEncPass::one-pass">
+        <code>one-pass</code> (<i>0</i>) – Single pass mode
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstAV1EncEncPass::first-pass">
+        <code>first-pass</code> (<i>1</i>) – First pass of multi-pass mode
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstAV1EncEncPass::second-pass">
+        <code>second-pass</code> (<i>2</i>) – Second pass of multi-pass mode
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstAV1EncEncPass::third-pass">
+        <code>third-pass</code> (<i>3</i>) – Third pass of multi-pass mode
+        </div>
+    
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.22
+		</p>
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstAV1EncEndUsageMode">
+	
+
+
+
+<h3 data-hotdoc-id="GstAV1EncEndUsageMode">
+	<i>Av1enc-end-usage-mode</i>
+</h3>
+
+
+<p>Rate control algorithm to use</p>
+
+
+
+
+	<div class="members-container">
+		<h4>Members</h4>
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstAV1EncEndUsageMode::vbr">
+        <code>vbr</code> (<i>0</i>) – Variable Bit Rate Mode
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstAV1EncEndUsageMode::cbr">
+        <code>cbr</code> (<i>1</i>) – Constant Bit Rate Mode
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstAV1EncEndUsageMode::cq">
+        <code>cq</code> (<i>2</i>) – Constrained Quality Mode
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstAV1EncEndUsageMode::q">
+        <code>q</code> (<i>3</i>) – Constant Quality Mode
+        </div>
+    
+			</div>
+
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.22;" id="GstAV1EncKFMode">
+	
+
+
+
+<h3 data-hotdoc-id="GstAV1EncKFMode">
+	<i>Av1enc-kfmode</i>
+</h3>
+
+
+<p>Determines whether keyframes are placed automatically by the encoder</p>
+
+
+
+
+	<div class="members-container">
+		<h4>Members</h4>
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstAV1EncKFMode::auto">
+        <code>auto</code> (<i>1</i>) – Encoder determines optimal keyframe placement automatically
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstAV1EncKFMode::disabled">
+        <code>disabled</code> (<i>0</i>) – Encoder does not place keyframes
+        </div>
+    
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.22
+		</p>
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstAV1EncResizeMode">
+	
+
+
+
+<h3 data-hotdoc-id="GstAV1EncResizeMode">
+	<i>Av1enc-resize-mode</i>
+</h3>
+
+
+<p>Frame resize mode</p>
+
+
+
+
+	<div class="members-container">
+		<h4>Members</h4>
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstAV1EncResizeMode::none">
+        <code>none</code> (<i>0</i>) – No frame resizing allowed
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstAV1EncResizeMode::fixed">
+        <code>fixed</code> (<i>1</i>) – All frames are coded at the specified scale
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstAV1EncResizeMode::random">
+        <code>random</code> (<i>2</i>) – All frames are coded at a random scale
+        </div>
+    
+			</div>
+
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstAV1EncSuperresMode">
+	
+
+
+
+<h3 data-hotdoc-id="GstAV1EncSuperresMode">
+	<i>Av1enc-superres-mode</i>
+</h3>
+
+
+<p>Frame super-resolution mode</p>
+
+
+
+
+	<div class="members-container">
+		<h4>Members</h4>
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstAV1EncSuperresMode::none">
+        <code>none</code> (<i>0</i>) – No frame superres allowed
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstAV1EncSuperresMode::fixed">
+        <code>fixed</code> (<i>1</i>) – All frames are coded at the specified scale and super-resolved
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstAV1EncSuperresMode::random">
+        <code>random</code> (<i>2</i>) – All frames are coded at a random scale and super-resolved
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstAV1EncSuperresMode::qthresh">
+        <code>qthresh</code> (<i>3</i>) – Superres scale for a frame is determined based on q_index
+        </div>
+    
+			</div>
+
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.22;" id="GstAV1EncUsageProfile">
+	
+
+
+
+<h3 data-hotdoc-id="GstAV1EncUsageProfile">
+	<i>Av1enc-usage-profile</i>
+</h3>
+
+
+<p>Usage profile is used to guide the default config for the encoder</p>
+
+
+
+
+	<div class="members-container">
+		<h4>Members</h4>
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstAV1EncUsageProfile::good-quality">
+        <code>good-quality</code> (<i>0</i>) – Good Quality profile
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstAV1EncUsageProfile::realtime">
+        <code>realtime</code> (<i>1</i>) – Realtime profile
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstAV1EncUsageProfile::all-intra">
+        <code>all-intra</code> (<i>2</i>) – All Intra profile
+        </div>
+    
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.22
+		</p>
+
+<hr>
+
+</div>
+
+
+
+
+
+
+		
+	</div>
+	<div id="search_results">
+		<p>The results of the search are</p>
+	</div>
+	<div id="footer">
+		    
+
+	</div>
+</div>
+
+<div id="toc-column">
+	
+		<div class="edit-button">
+		
+
+	</div>
+		<div id="toc-wrapper">
+		<nav id="toc"></nav>
+	</div>
+</div>
+</div>
+</main>
+
+
+<script src="assets/js/navbar_offset_scroller.js"></script>
+</body>
+</html>

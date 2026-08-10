@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<base href="../..">
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<title>SSIM plugin</title>
+
+<link rel="stylesheet" href="assets/css/dark-frontend.css" type="text/css" title="dark">
+<link rel="alternate stylesheet" href="assets/css/light-frontend.css" type="text/css" title="light">
+<link rel="stylesheet" href="assets/css/bootstrap-toc.min.css" type="text/css">
+<link rel="stylesheet" href="assets/css/jquery.mCustomScrollbar.min.css">
+<link rel="stylesheet" href="assets/js/search/enable_search.css" type="text/css">
+
+<link rel="stylesheet" href="assets/css/extra_frontend.css" type="text/css">
+<link rel="stylesheet" href="assets/css/devhelp.css" type="text/css">
+
+<link rel="stylesheet" href="assets/css/prism-tomorrow.css" type="text/css" title="dark">
+
+<link rel="alternate stylesheet" href="assets/css/prism.css" type="text/css" title="light">
+
+<script src="assets/js/mustache.min.js"></script>
+<script src="assets/js/jquery.js"></script>
+<script src="assets/js/bootstrap.js"></script>
+<script src="assets/js/scrollspy.js"></script>
+<script src="assets/js/typeahead.jquery.min.js"></script>
+<script src="assets/js/search.js"></script>
+<script src="assets/js/compare-versions.js"></script>
+<script src="assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="assets/js/bootstrap-toc.min.js"></script>
+<script src="assets/js/jquery.touchSwipe.min.js"></script>
+<script src="assets/js/anchor.min.js"></script>
+<script src="assets/js/tag_filtering.js"></script>
+<script src="assets/js/language_switching.js"></script>
+<script src="assets/js/styleswitcher.js"></script>
+
+<script src="assets/js/lines_around_headings.js"></script>
+
+<script src="assets/js/prism-core.js"></script>
+<script src="assets/js/prism-autoloader.js"></script>
+<script src="assets/js/prism_autoloader_path_override.js"></script>
+<script src="assets/js/trie.js"></script>
+
+<!-- generic -->
+<link rel="icon" type="image/png" href="assets/images/favicon-16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="assets/images/favicon-32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="assets/images/favicon-57.png" sizes="57x57">
+<link rel="icon" type="image/png" href="assets/images/favicon-64.png" sizes="64x64">
+<link rel="icon" type="image/png" href="assets/images/favicon-76.png" sizes="76x76">
+<link rel="icon" type="image/png" href="assets/images/favicon-96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="assets/images/favicon-128.png" sizes="128x128">
+<link rel="icon" type="image/png" href="assets/images/favicon-192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="assets/images/favicon-228.png" sizes="228x228">
+
+<!-- Android -->
+<link rel="shortcut icon" sizes="196x196" href="assets/images/favicon-196.png">
+
+<!-- iOS -->
+<link rel="apple-touch-icon" href="assets/images/favicon-120.png" sizes="120x120">
+<link rel="apple-touch-icon" href="assets/images/favicon-152.png" sizes="152x152">
+<link rel="apple-touch-icon" href="assets/images/favicon-180.png" sizes="180x180">
+
+</head>
+
+<body class="no-script
+">
+
+<script>
+$('body').removeClass('no-script');
+</script>
+
+<nav class="navbar navbar-fixed-top navbar-default" id="topnav">
+	<div class="container-fluid">
+		<div class="navbar-right">
+			<a id="toc-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-wrapper" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<span title="light mode switch" class="glyphicon glyphicon-sunglasses pull-right" id="lightmode-icon"></span>
+			<form class="navbar-form pull-right" id="navbar-search-form">
+                               <div class="form-group has-feedback">
+                                       <input type="text" class="form-control input-sm" name="search" id="sidenav-lookup-field" placeholder="search" disabled>
+				       <span class="glyphicon glyphicon-search form-control-feedback" id="search-mgn-glass"></span>
+                               </div>
+                        </form>
+		</div>
+		<div class="navbar-header">
+			<a id="sidenav-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<a id="home-link" href="index.html" class="hotdoc-navbar-brand">
+				<img src="assets/images/gstreamer-logo.svg" alt="Home">
+			</a>
+		</div>
+		<div class="navbar-collapse collapse" id="navbar-wrapper">
+			<ul class="nav navbar-nav" id="menu">
+				
+<li class="dropdown">
+    <a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        API References<span class="caret"></span>
+    </a>
+	<ul class="dropdown-menu" id="modules-menu">
+					<li>
+				<a href="gstreamer/gi-index.html">GStreamer core</a>
+			</li>
+					<li>
+				<a href="libs.html">GStreamer Libraries</a>
+			</li>
+					<li>
+				<a href="plugins_doc.html">GStreamer Plugins</a>
+			</li>
+		</ul>
+</li>
+
+<li>
+    <a href="application-development/index.html">Application manual</a>
+</li>
+
+
+<li>
+    <a href="tutorials/index.html">Tutorials</a>
+</li>
+
+			</ul>
+			<div class="hidden-xs hidden-sm navbar-text navbar-center">
+							</div>
+		</div>
+	</div>
+</nav>
+
+<main>
+<div data-extension="core" data-hotdoc-in-toplevel="False" data-hotdoc-project="gst-devtools" data-hotdoc-ref="plugins/ssim.html" class="page_container" id="page-wrapper" data-hotdoc-meta-gi-languages="['c', 'javascript', 'python']">
+<script src="assets/js/utils.js"></script>
+
+<div class="panel panel-collapse oc-collapsed" id="sidenav" data-hotdoc-role="navigation">
+	<script src="assets/js/full-width.js"></script>
+  <div id="sitenav-wrapper">
+    <iframe src="hotdoc-sitemap.html" id="sitenav-frame"></iframe>
+  </div>
+</div>
+
+<div id="body">
+	<div id="main">
+				    <div id="page-description" data-hotdoc-role="main">
+        <h1 id="ssim-plugin">SSIM plugin</h1>
+<p>GstValidate plugin to run the ssim algorithm on the buffers flowing in the
+pipeline to find regressions and detect frame corruptions.
+It allows you to generate image files from the buffers flowing in the pipeline
+(either as raw in the many formats supported by GStreamer or as png) and then
+check them against pre generated, reference images.</p>
+<p>The ssim algorithm will set a value of 1.0 when images are perfectly identical,
+and -1.0 if they have nothing in common. By default we consider images as similar
+if they have at least a ssim value of 0.95 but you can override it defining the value
+under which the test will be considered as failed.</p>
+<p>Errors are reported on the GstValidate reporting system. You can also ask
+the plugin to  generate grey scale output images. Those will be named in a way
+that should lets you precisely see where and how the test failed.</p>
+<h1 id="configuration">Configuration</h1>
+<p>The configuration of the plugin is done through a validate configuration file,
+specified with the %GST_VALIDATE_CONFIG environment variable. Each line starting
+with 'ssim,' will configure the ssim plugin. In practice each configuration statement
+will lead to the creation of a #GstValidateOverride object which will then dump
+image files and if wanted compare those with a set of reference images.</p>
+<p>The following parameters can be passed in the configuration file:</p>
+<ul>
+<li>element-classification: The target element classification as define in
+gst_element_class_set_metadata</li>
+<li>output-dir: The directory in which the image files will be saved</li>
+<li>min-avg-priority: (default 0.95): The minimum average similarity
+under which we consider the test as failing</li>
+<li>min-lowest-priority: (default 1): The minimum 'lowest' similarity
+under which we consider the test as failing</li>
+<li>reference-images-dir: Define the directory in which the files to be
+compared can be found</li>
+<li>result-output-dir: The folder in which to store resulting grey scale
+images when the test failed. In that folder you will find images
+with the structural difference between the expected result and the actual
+result.</li>
+<li>output-video-format: The format in which you want the images to be saved</li>
+<li>reference-video-format: The format in which the reference images are stored</li>
+<li>check-recurrence: The recurrence in seconds (as float) the frames should
+be dumped and checked.By default it is GST_CLOCK_TIME_NONE, meaning each
+and every frame is checked. Not that in any case, after a discontinuity
+in the stream (after a seek or a change in the video format for example)
+a check is done. And if recurrence == 0, images will be checked only after
+such discontinuity</li>
+<li>is-config: Property letting the plugin know that the config line is exclusively
+used to configure the following configuration expressions. In practice this
+means that it will change the default values for the other configuration
+expressions.</li>
+<li>framerate: (GstFraction): The framerate to use to compute frame number from
+timestamp, allowing to compare frames by 'frame number' instead of trying to
+match timestamp between reference images and output images.</li>
+</ul>
+<h1 id="example">Example</h1>
+<p>Let's take a special configuration where we want to compare frames that are
+outputted by a video decoder with the ones after a agingtv element we would
+call my_agingtv. We force to check one frame every 5.0 seconds only (with
+check-recurrence=5.0) so the test is fast.</p>
+<p>The configuration file:</p>
+<pre><code class="language-shell"> core, action=set-property, target-element-klass=Sink, property-name=sync, property-value=false
+
+ validatessim, is-config=true, output-video-format="I420", reference-video-format="I420"
+ validatessim, element-classification="Video/Decoder", output-dir=/tmp/test/before-agingtv/
+ validatessim, element-name=my_agingtv, output-dir=/tmp/test/after-agingtv/, \
+       reference-images-dir=/tmp/test/before-agingtv/, \
+       result-output-dir=/tmp/test/failures, check-recurrence=5.0
+</code></pre>
+<p>Save that content in a file called check_agingtv_ssim.config</p>
+<h2 id="launch-the-pipeline">Launch the pipeline</h2>
+<pre><code class="language-shell">   GST_VALIDATE_CONFIG=check_agingtv_ssim.config gst-validate-1.0 uridecodebin uri=file://a/file ! videoconvert ! agingtv name=my_agingtv ! videoconvert ! autovideosink
+</code></pre>
+
+    </div>
+        
+
+
+
+
+		
+	</div>
+	<div id="search_results">
+		<p>The results of the search are</p>
+	</div>
+	<div id="footer">
+		    
+
+	</div>
+</div>
+
+<div id="toc-column">
+	
+		<div class="edit-button">
+		
+
+	</div>
+		<div id="toc-wrapper">
+		<nav id="toc"></nav>
+	</div>
+</div>
+</div>
+</main>
+
+
+<script src="assets/js/navbar_offset_scroller.js"></script>
+</body>
+</html>

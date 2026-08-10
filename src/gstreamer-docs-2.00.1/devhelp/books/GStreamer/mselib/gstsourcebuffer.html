@@ -1,0 +1,5612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<base href="..">
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<title>GstSourceBuffer</title>
+
+<link rel="stylesheet" href="assets/css/dark-frontend.css" type="text/css" title="dark">
+<link rel="alternate stylesheet" href="assets/css/light-frontend.css" type="text/css" title="light">
+<link rel="stylesheet" href="assets/css/bootstrap-toc.min.css" type="text/css">
+<link rel="stylesheet" href="assets/css/jquery.mCustomScrollbar.min.css">
+<link rel="stylesheet" href="assets/js/search/enable_search.css" type="text/css">
+
+<link rel="stylesheet" href="assets/css/extra_frontend.css" type="text/css">
+<link rel="stylesheet" href="assets/css/devhelp.css" type="text/css">
+
+<link rel="stylesheet" href="assets/css/prism-tomorrow.css" type="text/css" title="dark">
+
+<link rel="alternate stylesheet" href="assets/css/prism.css" type="text/css" title="light">
+
+<script src="assets/js/mustache.min.js"></script>
+<script src="assets/js/jquery.js"></script>
+<script src="assets/js/bootstrap.js"></script>
+<script src="assets/js/scrollspy.js"></script>
+<script src="assets/js/typeahead.jquery.min.js"></script>
+<script src="assets/js/search.js"></script>
+<script src="assets/js/compare-versions.js"></script>
+<script src="assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="assets/js/bootstrap-toc.min.js"></script>
+<script src="assets/js/jquery.touchSwipe.min.js"></script>
+<script src="assets/js/anchor.min.js"></script>
+<script src="assets/js/tag_filtering.js"></script>
+<script src="assets/js/language_switching.js"></script>
+<script src="assets/js/styleswitcher.js"></script>
+
+<script src="assets/js/lines_around_headings.js"></script>
+
+<script src="assets/js/prism-core.js"></script>
+<script src="assets/js/prism-autoloader.js"></script>
+<script src="assets/js/prism_autoloader_path_override.js"></script>
+<script src="assets/js/trie.js"></script>
+
+<!-- generic -->
+<link rel="icon" type="image/png" href="assets/images/favicon-16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="assets/images/favicon-32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="assets/images/favicon-57.png" sizes="57x57">
+<link rel="icon" type="image/png" href="assets/images/favicon-64.png" sizes="64x64">
+<link rel="icon" type="image/png" href="assets/images/favicon-76.png" sizes="76x76">
+<link rel="icon" type="image/png" href="assets/images/favicon-96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="assets/images/favicon-128.png" sizes="128x128">
+<link rel="icon" type="image/png" href="assets/images/favicon-192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="assets/images/favicon-228.png" sizes="228x228">
+
+<!-- Android -->
+<link rel="shortcut icon" sizes="196x196" href="assets/images/favicon-196.png">
+
+<!-- iOS -->
+<link rel="apple-touch-icon" href="assets/images/favicon-120.png" sizes="120x120">
+<link rel="apple-touch-icon" href="assets/images/favicon-152.png" sizes="152x152">
+<link rel="apple-touch-icon" href="assets/images/favicon-180.png" sizes="180x180">
+
+</head>
+
+<body class="no-script
+">
+
+<script>
+$('body').removeClass('no-script');
+</script>
+
+<nav class="navbar navbar-fixed-top navbar-default" id="topnav">
+	<div class="container-fluid">
+		<div class="navbar-right">
+			<a id="toc-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-wrapper" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<span title="light mode switch" class="glyphicon glyphicon-sunglasses pull-right" id="lightmode-icon"></span>
+			<form class="navbar-form pull-right" id="navbar-search-form">
+                               <div class="form-group has-feedback">
+                                       <input type="text" class="form-control input-sm" name="search" id="sidenav-lookup-field" placeholder="search" disabled>
+				       <span class="glyphicon glyphicon-search form-control-feedback" id="search-mgn-glass"></span>
+                               </div>
+                        </form>
+		</div>
+		<div class="navbar-header">
+			<a id="sidenav-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<a id="home-link" href="index.html" class="hotdoc-navbar-brand">
+				<img src="assets/images/gstreamer-logo.svg" alt="Home">
+			</a>
+		</div>
+		<div class="navbar-collapse collapse" id="navbar-wrapper">
+			<ul class="nav navbar-nav" id="menu">
+				
+<li class="dropdown">
+    <a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        API References<span class="caret"></span>
+    </a>
+	<ul class="dropdown-menu" id="modules-menu">
+					<li>
+				<a href="gstreamer/gi-index.html">GStreamer core</a>
+			</li>
+					<li>
+				<a href="libs.html">GStreamer Libraries</a>
+			</li>
+					<li>
+				<a href="plugins_doc.html">GStreamer Plugins</a>
+			</li>
+		</ul>
+</li>
+
+<li>
+    <a href="application-development/index.html">Application manual</a>
+</li>
+
+
+<li>
+    <a href="tutorials/index.html">Tutorials</a>
+</li>
+
+			</ul>
+			<div class="hidden-xs hidden-sm navbar-text navbar-center">
+							</div>
+		</div>
+	</div>
+</nav>
+
+<main>
+<div data-extension="gi-extension" data-hotdoc-in-toplevel="False" data-hotdoc-project="mselib" data-hotdoc-ref="gstsourcebuffer.html" class="page_container" id="page-wrapper" data-hotdoc-meta-gi-languages="['c', 'javascript', 'python']" data-hotdoc-meta-gi-language="c">
+<script src="assets/js/utils.js"></script>
+
+<div class="panel panel-collapse oc-collapsed" id="sidenav" data-hotdoc-role="navigation">
+	<script src="assets/js/full-width.js"></script>
+  <div id="sitenav-wrapper">
+    <iframe src="hotdoc-sitemap.html" id="sitenav-frame"></iframe>
+  </div>
+</div>
+
+<div id="body">
+	<div id="main">
+				    <div id="page-description" data-hotdoc-role="main">
+        <h1 id="gstsourcebuffer-page">GstSourceBuffer</h1>
+<p>The Source Buffer is the primary means of data flow between an application
+and the Media Source API. It represents a single timeline of media,
+containing some combination of audio, video, and text tracks.
+An application is responsible for feeding raw data into the Source Buffer
+using <a href="mselib/gstsourcebuffer.html#gst_source_buffer_append_buffer" data-gi-href-javascript="mselib/gstsourcebuffer.html#gst_source_buffer_append_buffer" data-gi-title-javascript="GstMse.SourceBuffer.prototype.append_buffer" data-gi-href-python="mselib/gstsourcebuffer.html#gst_source_buffer_append_buffer" data-gi-title-python="GstMse.SourceBuffer.append_buffer">gst_source_buffer_append_buffer</a> and the Source Buffer will
+asynchronously process the data into tracks of time-coded multimedia samples.</p>
+<p>The application as well as the associated playback component can then select
+to play media from any subset of tracks across all Source Buffers of a Media
+Source.</p>
+<p>A few control points are also provided to customize the behavior.</p>
+<ul>
+<li>
+<p><a href="mselib/gstsourcebuffer.html#GstSourceBuffer:append-mode" data-gi-href-javascript="mselib/gstsourcebuffer.html#GstSourceBuffer:append-mode" data-gi-title-javascript="append-mode" data-gi-href-python="mselib/gstsourcebuffer.html#GstSourceBuffer:append-mode" data-gi-title-python="append_mode">append-mode</a> controls how timestamps of processed samples are
+interpreted. They are either inserted in the timeline directly where the
+decoded media states they should, or inserted directly after the previously
+encountered sample.</p>
+</li>
+<li>
+<p><a href="mselib/gstsourcebuffer.html#GstSourceBuffer:append-window-start" data-gi-href-javascript="mselib/gstsourcebuffer.html#GstSourceBuffer:append-window-start" data-gi-title-javascript="append-window-start" data-gi-href-python="mselib/gstsourcebuffer.html#GstSourceBuffer:append-window-start" data-gi-title-python="append_window_start">append-window-start</a> / <a href="mselib/gstsourcebuffer.html#GstSourceBuffer:append-window-end" data-gi-href-javascript="mselib/gstsourcebuffer.html#GstSourceBuffer:append-window-end" data-gi-title-javascript="append-window-end" data-gi-href-python="mselib/gstsourcebuffer.html#GstSourceBuffer:append-window-end" data-gi-title-python="append_window_end">append-window-end</a>
+control the planned time window where media from appended data can be added
+to the current timeline. Any samples outside that range may be ignored.</p>
+</li>
+<li>
+<p><a href="mselib/gstsourcebuffer.html#GstSourceBuffer:timestamp-offset" data-gi-href-javascript="mselib/gstsourcebuffer.html#GstSourceBuffer:timestamp-offset" data-gi-title-javascript="timestamp-offset" data-gi-href-python="mselib/gstsourcebuffer.html#GstSourceBuffer:timestamp-offset" data-gi-title-python="timestamp_offset">timestamp-offset</a> is added to the start time of any sample
+processed.</p>
+</li>
+</ul>
+
+    </div>
+        
+        
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.24;" id="GstSourceBuffer">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h2 data-hotdoc-id="GstSourceBuffer">
+	<i>GstSourceBuffer</i>
+</h2>
+
+
+<div class="hierarchy_container">
+	<div class="hierarchy_details">
+<pre>
+<a title="GObject" href="https://docs.gtk.org/gobject/class.Object.html">GObject</a>
+    <span class="lineart">╰──</span><a title="GInitiallyUnowned" href="https://docs.gtk.org/gobject/class.InitiallyUnowned.html">GInitiallyUnowned</a>
+        <span class="lineart">╰──</span><a title="GstObject" href="gstreamer/gstobject.html#GstObject">GstObject</a>
+            <span class="lineart">╰──</span>GstSourceBuffer
+</pre>
+
+</div>
+
+</div>
+
+
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+<h3>Class structure</h3>
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstSourceBufferClass">
+	<i>GstSourceBufferClass</i>
+</h4>
+
+
+
+
+
+	<div class="members-container">
+		<h5>Fields</h5>
+					
+<div class="symbol-detail" data-hotdoc-id="GstSourceBufferClass.parent_class">
+	<div>
+		<i><em><code>parent_class</code></em></i>
+		(<a title="GstObjectClass" href="GstObjectClass">GstObjectClass</a>)
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+			</div>
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3>
+	GstMse.SourceBufferClass
+</h3>
+
+
+
+
+
+	<div class="members-container">
+		<h5>Attributes</h5>
+					
+<div class="symbol-detail" data-hotdoc-id="GstSourceBufferClass.parent_class">
+	<div>
+		<i><em><code>parent_class</code></em></i>
+		(<a title="Gst.ObjectClass" href="GstObjectClass">Gst.ObjectClass</a>)
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+			</div>
+
+
+
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3>
+	GstMse.SourceBufferClass
+</h3>
+
+
+
+
+
+	<div class="members-container">
+		<h5>Attributes</h5>
+					
+<div class="symbol-detail" data-hotdoc-id="GstSourceBufferClass.parent_class">
+	<div>
+		<i><em><code>parent_class</code></em></i>
+		(<a title="Gst.ObjectClass" href="GstObjectClass">Gst.ObjectClass</a>)
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+			</div>
+
+
+
+
+<hr>
+
+</div>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h2 data-hotdoc-id="GstSourceBuffer">
+	<i>GstMse.SourceBuffer</i>
+</h2>
+
+
+<div class="hierarchy_container">
+	<div class="hierarchy_details">
+<pre>
+<a title="GObject.Object" href="https://docs.gtk.org/gobject/class.Object.html">GObject.Object</a>
+    <span class="lineart">╰──</span><a title="GObject.InitiallyUnowned" href="https://docs.gtk.org/gobject/class.InitiallyUnowned.html">GObject.InitiallyUnowned</a>
+        <span class="lineart">╰──</span><a title="Gst.Object" href="gstreamer/gstobject.html#GstObject">Gst.Object</a>
+            <span class="lineart">╰──</span>GstMse.SourceBuffer
+</pre>
+
+</div>
+
+</div>
+
+
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h2 data-hotdoc-id="GstSourceBuffer">
+	<i>GstMse.SourceBuffer</i>
+</h2>
+
+
+<div class="hierarchy_container">
+	<div class="hierarchy_details">
+<pre>
+<a title="GObject.Object" href="https://docs.gtk.org/gobject/class.Object.html">GObject.Object</a>
+    <span class="lineart">╰──</span><a title="GObject.InitiallyUnowned" href="https://docs.gtk.org/gobject/class.InitiallyUnowned.html">GObject.InitiallyUnowned</a>
+        <span class="lineart">╰──</span><a title="Gst.Object" href="gstreamer/gstobject.html#GstObject">Gst.Object</a>
+            <span class="lineart">╰──</span>GstMse.SourceBuffer
+</pre>
+
+</div>
+
+</div>
+
+
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+
+            <h3 class="symbol_section">Methods</h3>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.24;" id="gst_source_buffer_abort">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_source_buffer_abort">
+	<i>gst_source_buffer_abort</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a>
+gst_source_buffer_abort (<a title="GstSourceBuffer" href="mselib/gstsourcebuffer.html#GstSourceBuffer">GstSourceBuffer</a> * self,
+                         <a title="GError" href="https://docs.gtk.org/glib/struct.Error.html">GError</a> ** error)</pre>
+
+<p>Attempts to end any processing of the currently pending data and reset the
+media parser.</p>
+<p><a href="https://www.w3.org/TR/media-source-2/#dom-sourcebuffer-abort">Specification</a></p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+–
+</div>
+<p><a href="mselib/gstsourcebuffer.html#GstSourceBuffer">GstSourceBuffer</a> instance</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>error</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="Parameter for returning results"><span class="acronym">out</span></abbr>]</span><span class="annotation">[<abbr title="NULL may be passed instead of a pointer to a location"><span class="acronym">optional</span></abbr>]</span><span class="annotation">[<abbr title="NULL may be passed to the value"><span class="acronym">nullable</span></abbr>]</span><span class="annotation">[<abbr title="Free data after the code is done"><span class="acronym">transfer: full</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>the resulting error or <code>NULL</code></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p><code>TRUE</code> on success, <code>FALSE</code> otherwise</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_source_buffer_abort">
+	<i>GstMse.SourceBuffer.prototype.abort</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstMse.SourceBuffer.prototype.abort(): {
+    // javascript wrapper for 'gst_source_buffer_abort'
+}</code></pre>
+
+<p>Attempts to end any processing of the currently pending data and reset the
+media parser.</p>
+<p><a href="https://www.w3.org/TR/media-source-2/#dom-sourcebuffer-abort">Specification</a></p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+<span>(</span><a title="GstMse.SourceBuffer" href="mselib/gstsourcebuffer.html#GstSourceBuffer">GstMse.SourceBuffer</a><span>)</span>
+–
+</div>
+<p><a href="mselib/gstsourcebuffer.html#GstSourceBuffer">GstMse.SourceBuffer</a> instance</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+			</div>
+							<p><code>TRUE</code> on success, <code>FALSE</code> otherwise</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_source_buffer_abort">
+	<i>GstMse.SourceBuffer.abort</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>@raises(<a href="https://developer.gnome.org/glib/stable/glib-Error-Reporting.html">GLib.GError</a>)
+def GstMse.SourceBuffer.abort (self):
+    #python wrapper for 'gst_source_buffer_abort'</code></pre>
+
+<p>Attempts to end any processing of the currently pending data and reset the
+media parser.</p>
+<p><a href="https://www.w3.org/TR/media-source-2/#dom-sourcebuffer-abort">Specification</a></p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+<span>(</span><a title="GstMse.SourceBuffer" href="mselib/gstsourcebuffer.html#GstSourceBuffer">GstMse.SourceBuffer</a><span>)</span>
+–
+</div>
+<p><a href="mselib/gstsourcebuffer.html#GstSourceBuffer">GstMse.SourceBuffer</a> instance</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a><span>)</span>
+–
+			</div>
+							<p><code>TRUE</code> on success, <code>FALSE</code> otherwise</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.24;" id="gst_source_buffer_append_buffer">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_source_buffer_append_buffer">
+	<i>gst_source_buffer_append_buffer</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a>
+gst_source_buffer_append_buffer (<a title="GstSourceBuffer" href="mselib/gstsourcebuffer.html#GstSourceBuffer">GstSourceBuffer</a> * self,
+                                 <a title="GstBuffer" href="gstreamer/gstbuffer.html#GstBuffer">GstBuffer</a> * buf,
+                                 <a title="GError" href="https://docs.gtk.org/glib/struct.Error.html">GError</a> ** error)</pre>
+
+<p>Schedules the bytes inside <em>buf</em> to be processed by <em>self</em>. When it is possible
+to accept the supplied data, it will be processed asynchronously and fill in
+the track buffers for playback purposes.</p>
+<p><a href="https://www.w3.org/TR/media-source-2/#dom-sourcebuffer-appendbuffer">Specification</a></p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+–
+</div>
+<p><a href="mselib/gstsourcebuffer.html#GstSourceBuffer">GstSourceBuffer</a> instance</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>buf</code></em></i>
+–
+</div>
+<p>(transfer full):The media data to append</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>error</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="Parameter for returning results"><span class="acronym">out</span></abbr>]</span><span class="annotation">[<abbr title="NULL may be passed instead of a pointer to a location"><span class="acronym">optional</span></abbr>]</span><span class="annotation">[<abbr title="NULL may be passed to the value"><span class="acronym">nullable</span></abbr>]</span><span class="annotation">[<abbr title="Free data after the code is done"><span class="acronym">transfer: full</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>the resulting error or <code>NULL</code></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p><code>TRUE</code> on success, <code>FALSE</code> otherwise</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_source_buffer_append_buffer">
+	<i>GstMse.SourceBuffer.prototype.append_buffer</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstMse.SourceBuffer.prototype.append_buffer(buf: <a title="Gst.Buffer" href="gstreamer/gstbuffer.html#GstBuffer">Gst.Buffer</a>): {
+    // javascript wrapper for 'gst_source_buffer_append_buffer'
+}</code></pre>
+
+<p>Schedules the bytes inside <em>buf</em> to be processed by <em>self</em>. When it is possible
+to accept the supplied data, it will be processed asynchronously and fill in
+the track buffers for playback purposes.</p>
+<p><a href="https://www.w3.org/TR/media-source-2/#dom-sourcebuffer-appendbuffer">Specification</a></p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+<span>(</span><a title="GstMse.SourceBuffer" href="mselib/gstsourcebuffer.html#GstSourceBuffer">GstMse.SourceBuffer</a><span>)</span>
+–
+</div>
+<p><a href="mselib/gstsourcebuffer.html#GstSourceBuffer">GstMse.SourceBuffer</a> instance</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>buf</code></em></i>
+<span>(</span><a title="Gst.Buffer" href="gstreamer/gstbuffer.html#GstBuffer">Gst.Buffer</a><span>)</span>
+–
+</div>
+<p>(transfer full):The media data to append</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+			</div>
+							<p><code>TRUE</code> on success, <code>FALSE</code> otherwise</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_source_buffer_append_buffer">
+	<i>GstMse.SourceBuffer.append_buffer</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>@raises(<a href="https://developer.gnome.org/glib/stable/glib-Error-Reporting.html">GLib.GError</a>)
+def GstMse.SourceBuffer.append_buffer (self, buf):
+    #python wrapper for 'gst_source_buffer_append_buffer'</code></pre>
+
+<p>Schedules the bytes inside <em>buf</em> to be processed by <em>self</em>. When it is possible
+to accept the supplied data, it will be processed asynchronously and fill in
+the track buffers for playback purposes.</p>
+<p><a href="https://www.w3.org/TR/media-source-2/#dom-sourcebuffer-appendbuffer">Specification</a></p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+<span>(</span><a title="GstMse.SourceBuffer" href="mselib/gstsourcebuffer.html#GstSourceBuffer">GstMse.SourceBuffer</a><span>)</span>
+–
+</div>
+<p><a href="mselib/gstsourcebuffer.html#GstSourceBuffer">GstMse.SourceBuffer</a> instance</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>buf</code></em></i>
+<span>(</span><a title="Gst.Buffer" href="gstreamer/gstbuffer.html#GstBuffer">Gst.Buffer</a><span>)</span>
+–
+</div>
+<p>(transfer full):The media data to append</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a><span>)</span>
+–
+			</div>
+							<p><code>TRUE</code> on success, <code>FALSE</code> otherwise</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.24;" id="gst_source_buffer_change_content_type">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_source_buffer_change_content_type">
+	<i>gst_source_buffer_change_content_type</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a>
+gst_source_buffer_change_content_type (<a title="GstSourceBuffer" href="mselib/gstsourcebuffer.html#GstSourceBuffer">GstSourceBuffer</a> * self,
+                                       const <a title="gchar" href="https://docs.gtk.org/glib/types.html#gchar">gchar</a> * type,
+                                       <a title="GError" href="https://docs.gtk.org/glib/struct.Error.html">GError</a> ** error)</pre>
+
+<p>Attempts to change the content type of <em>self</em> to <em>type</em>. Any new data appended
+to the Source Buffer must be of the supplied <em>type</em> afterward.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+–
+</div>
+<p><a href="mselib/gstsourcebuffer.html#GstSourceBuffer">GstSourceBuffer</a> instance</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>type</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="Don't free data after the code is done"><span class="acronym">transfer: none</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>the desired content type</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>error</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="Parameter for returning results"><span class="acronym">out</span></abbr>]</span><span class="annotation">[<abbr title="NULL may be passed instead of a pointer to a location"><span class="acronym">optional</span></abbr>]</span><span class="annotation">[<abbr title="NULL may be passed to the value"><span class="acronym">nullable</span></abbr>]</span><span class="annotation">[<abbr title="Free data after the code is done"><span class="acronym">transfer: full</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>the resulting error or <code>NULL</code></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p><code>TRUE</code> on success, <code>FALSE</code> otherwise</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_source_buffer_change_content_type">
+	<i>GstMse.SourceBuffer.prototype.change_content_type</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstMse.SourceBuffer.prototype.change_content_type(type: <a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>): {
+    // javascript wrapper for 'gst_source_buffer_change_content_type'
+}</code></pre>
+
+<p>Attempts to change the content type of <em>self</em> to <em>type</em>. Any new data appended
+to the Source Buffer must be of the supplied <em>type</em> afterward.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+<span>(</span><a title="GstMse.SourceBuffer" href="mselib/gstsourcebuffer.html#GstSourceBuffer">GstMse.SourceBuffer</a><span>)</span>
+–
+</div>
+<p><a href="mselib/gstsourcebuffer.html#GstSourceBuffer">GstMse.SourceBuffer</a> instance</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>type</code></em></i>
+<span>(</span><a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a><span>)</span>
+–
+</div>
+<p>the desired content type</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+			</div>
+							<p><code>TRUE</code> on success, <code>FALSE</code> otherwise</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_source_buffer_change_content_type">
+	<i>GstMse.SourceBuffer.change_content_type</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>@raises(<a href="https://developer.gnome.org/glib/stable/glib-Error-Reporting.html">GLib.GError</a>)
+def GstMse.SourceBuffer.change_content_type (self, type):
+    #python wrapper for 'gst_source_buffer_change_content_type'</code></pre>
+
+<p>Attempts to change the content type of <em>self</em> to <em>type</em>. Any new data appended
+to the Source Buffer must be of the supplied <em>type</em> afterward.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+<span>(</span><a title="GstMse.SourceBuffer" href="mselib/gstsourcebuffer.html#GstSourceBuffer">GstMse.SourceBuffer</a><span>)</span>
+–
+</div>
+<p><a href="mselib/gstsourcebuffer.html#GstSourceBuffer">GstMse.SourceBuffer</a> instance</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>type</code></em></i>
+<span>(</span><a title="str" href="https://docs.python.org/3/library/functions.html#func-str">str</a><span>)</span>
+–
+</div>
+<p>the desired content type</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a><span>)</span>
+–
+			</div>
+							<p><code>TRUE</code> on success, <code>FALSE</code> otherwise</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.24;" id="gst_source_buffer_get_append_mode">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_source_buffer_get_append_mode">
+	<i>gst_source_buffer_get_append_mode</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GstSourceBufferAppendMode" href="mselib/gstsourcebuffer.html#GstSourceBufferAppendMode">GstSourceBufferAppendMode</a>
+gst_source_buffer_get_append_mode (<a title="GstSourceBuffer" href="mselib/gstsourcebuffer.html#GstSourceBuffer">GstSourceBuffer</a> * self)</pre>
+
+<p><a href="https://www.w3.org/TR/media-source-2/#dom-sourcebuffer-mode">Specification</a></p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+–
+</div>
+<p><a href="mselib/gstsourcebuffer.html#GstSourceBuffer">GstSourceBuffer</a> instance</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p>The current <a href="mselib/gstsourcebuffer.html#GstSourceBufferAppendMode">GstSourceBufferAppendMode</a></p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_source_buffer_get_append_mode">
+	<i>GstMse.SourceBuffer.prototype.get_append_mode</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstMse.SourceBuffer.prototype.get_append_mode(): {
+    // javascript wrapper for 'gst_source_buffer_get_append_mode'
+}</code></pre>
+
+<p><a href="https://www.w3.org/TR/media-source-2/#dom-sourcebuffer-mode">Specification</a></p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+<span>(</span><a title="GstMse.SourceBuffer" href="mselib/gstsourcebuffer.html#GstSourceBuffer">GstMse.SourceBuffer</a><span>)</span>
+–
+</div>
+<p><a href="mselib/gstsourcebuffer.html#GstSourceBuffer">GstMse.SourceBuffer</a> instance</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GstMse.SourceBufferAppendMode" href="mselib/gstsourcebuffer.html#GstSourceBufferAppendMode">GstMse.SourceBufferAppendMode</a><span>)</span>
+–
+			</div>
+							<p>The current <a href="mselib/gstsourcebuffer.html#GstSourceBufferAppendMode">GstMse.SourceBufferAppendMode</a></p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_source_buffer_get_append_mode">
+	<i>GstMse.SourceBuffer.get_append_mode</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstMse.SourceBuffer.get_append_mode (self):
+    #python wrapper for 'gst_source_buffer_get_append_mode'</code></pre>
+
+<p><a href="https://www.w3.org/TR/media-source-2/#dom-sourcebuffer-mode">Specification</a></p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+<span>(</span><a title="GstMse.SourceBuffer" href="mselib/gstsourcebuffer.html#GstSourceBuffer">GstMse.SourceBuffer</a><span>)</span>
+–
+</div>
+<p><a href="mselib/gstsourcebuffer.html#GstSourceBuffer">GstMse.SourceBuffer</a> instance</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="GstMse.SourceBufferAppendMode" href="mselib/gstsourcebuffer.html#GstSourceBufferAppendMode">GstMse.SourceBufferAppendMode</a><span>)</span>
+–
+			</div>
+							<p>The current <a href="mselib/gstsourcebuffer.html#GstSourceBufferAppendMode">GstMse.SourceBufferAppendMode</a></p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.24;" id="gst_source_buffer_get_append_window_end">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_source_buffer_get_append_window_end">
+	<i>gst_source_buffer_get_append_window_end</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GstClockTime" href="gstreamer/gstclock.html#GstClockTime">GstClockTime</a>
+gst_source_buffer_get_append_window_end (<a title="GstSourceBuffer" href="mselib/gstsourcebuffer.html#GstSourceBuffer">GstSourceBuffer</a> * self)</pre>
+
+<p>Returns the current append window end time. Any segment processed that starts
+after this value will be ignored.</p>
+<p><a href="https://www.w3.org/TR/media-source-2/#dom-sourcebuffer-appendwindowend">Specification</a></p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+–
+</div>
+<p><a href="mselib/gstsourcebuffer.html#GstSourceBuffer">GstSourceBuffer</a> instance</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p>The current Append Window end time as a <a href="gstreamer/gstclock.html#GstClockTime">GstClockTime</a></p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_source_buffer_get_append_window_end">
+	<i>GstMse.SourceBuffer.prototype.get_append_window_end</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstMse.SourceBuffer.prototype.get_append_window_end(): {
+    // javascript wrapper for 'gst_source_buffer_get_append_window_end'
+}</code></pre>
+
+<p>Returns the current append window end time. Any segment processed that starts
+after this value will be ignored.</p>
+<p><a href="https://www.w3.org/TR/media-source-2/#dom-sourcebuffer-appendwindowend">Specification</a></p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+<span>(</span><a title="GstMse.SourceBuffer" href="mselib/gstsourcebuffer.html#GstSourceBuffer">GstMse.SourceBuffer</a><span>)</span>
+–
+</div>
+<p><a href="mselib/gstsourcebuffer.html#GstSourceBuffer">GstMse.SourceBuffer</a> instance</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+			</div>
+							<p>The current Append Window end time as a <a href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a></p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_source_buffer_get_append_window_end">
+	<i>GstMse.SourceBuffer.get_append_window_end</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstMse.SourceBuffer.get_append_window_end (self):
+    #python wrapper for 'gst_source_buffer_get_append_window_end'</code></pre>
+
+<p>Returns the current append window end time. Any segment processed that starts
+after this value will be ignored.</p>
+<p><a href="https://www.w3.org/TR/media-source-2/#dom-sourcebuffer-appendwindowend">Specification</a></p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+<span>(</span><a title="GstMse.SourceBuffer" href="mselib/gstsourcebuffer.html#GstSourceBuffer">GstMse.SourceBuffer</a><span>)</span>
+–
+</div>
+<p><a href="mselib/gstsourcebuffer.html#GstSourceBuffer">GstMse.SourceBuffer</a> instance</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+			</div>
+							<p>The current Append Window end time as a <a href="https://docs.python.org/3/library/functions.html#int">int</a></p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.24;" id="gst_source_buffer_get_append_window_start">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_source_buffer_get_append_window_start">
+	<i>gst_source_buffer_get_append_window_start</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GstClockTime" href="gstreamer/gstclock.html#GstClockTime">GstClockTime</a>
+gst_source_buffer_get_append_window_start (<a title="GstSourceBuffer" href="mselib/gstsourcebuffer.html#GstSourceBuffer">GstSourceBuffer</a> * self)</pre>
+
+<p>Returns the current append window start time. Any segment processed that ends
+earlier than this value will be ignored.</p>
+<p><a href="https://www.w3.org/TR/media-source-2/#dom-sourcebuffer-appendwindowstart">Specification</a></p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+–
+</div>
+<p><a href="mselib/gstsourcebuffer.html#GstSourceBuffer">GstSourceBuffer</a> instance</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p>The current Append Window start time as a <a href="gstreamer/gstclock.html#GstClockTime">GstClockTime</a></p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_source_buffer_get_append_window_start">
+	<i>GstMse.SourceBuffer.prototype.get_append_window_start</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstMse.SourceBuffer.prototype.get_append_window_start(): {
+    // javascript wrapper for 'gst_source_buffer_get_append_window_start'
+}</code></pre>
+
+<p>Returns the current append window start time. Any segment processed that ends
+earlier than this value will be ignored.</p>
+<p><a href="https://www.w3.org/TR/media-source-2/#dom-sourcebuffer-appendwindowstart">Specification</a></p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+<span>(</span><a title="GstMse.SourceBuffer" href="mselib/gstsourcebuffer.html#GstSourceBuffer">GstMse.SourceBuffer</a><span>)</span>
+–
+</div>
+<p><a href="mselib/gstsourcebuffer.html#GstSourceBuffer">GstMse.SourceBuffer</a> instance</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+			</div>
+							<p>The current Append Window start time as a <a href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a></p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_source_buffer_get_append_window_start">
+	<i>GstMse.SourceBuffer.get_append_window_start</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstMse.SourceBuffer.get_append_window_start (self):
+    #python wrapper for 'gst_source_buffer_get_append_window_start'</code></pre>
+
+<p>Returns the current append window start time. Any segment processed that ends
+earlier than this value will be ignored.</p>
+<p><a href="https://www.w3.org/TR/media-source-2/#dom-sourcebuffer-appendwindowstart">Specification</a></p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+<span>(</span><a title="GstMse.SourceBuffer" href="mselib/gstsourcebuffer.html#GstSourceBuffer">GstMse.SourceBuffer</a><span>)</span>
+–
+</div>
+<p><a href="mselib/gstsourcebuffer.html#GstSourceBuffer">GstMse.SourceBuffer</a> instance</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+			</div>
+							<p>The current Append Window start time as a <a href="https://docs.python.org/3/library/functions.html#int">int</a></p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.24;" id="gst_source_buffer_get_buffered">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_source_buffer_get_buffered">
+	<i>gst_source_buffer_get_buffered</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GArray" href="https://docs.gtk.org/glib/struct.Array.html">GArray</a> *
+gst_source_buffer_get_buffered (<a title="GstSourceBuffer" href="mselib/gstsourcebuffer.html#GstSourceBuffer">GstSourceBuffer</a> * self,
+                                <a title="GError" href="https://docs.gtk.org/glib/struct.Error.html">GError</a> ** error)</pre>
+
+<p>Returns a sequence of <a href="mselib/gstmediasource.html#GstMediaSourceRange">GstMediaSourceRange</a> values representing which segments
+of <em>self</em> are buffered in memory.</p>
+<p><a href="https://www.w3.org/TR/media-source-2/#dom-sourcebuffer-buffered">Specification</a></p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+–
+</div>
+<p><a href="mselib/gstsourcebuffer.html#GstSourceBuffer">GstSourceBuffer</a> instance</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>error</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="Parameter for returning results"><span class="acronym">out</span></abbr>]</span><span class="annotation">[<abbr title="NULL may be passed instead of a pointer to a location"><span class="acronym">optional</span></abbr>]</span><span class="annotation">[<abbr title="NULL may be passed to the value"><span class="acronym">nullable</span></abbr>]</span><span class="annotation">[<abbr title="Free data after the code is done"><span class="acronym">transfer: full</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>the resulting error or <code>NULL</code></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span>
+<span class="annotation">[<abbr title="Free data after the code is done"><span class="acronym">transfer: full</span></abbr>]</span><span class="annotation">[<abbr title="Generic and defining element of containers and arrays"><span class="acronym">element-type</span></abbr> GstMediaSourceRange]</span><span>)</span>
+–
+			</div>
+							<p>a <a href="https://docs.gtk.org/glib/struct.Array.html">GArray</a> of <a href="mselib/gstmediasource.html#GstMediaSourceRange">GstMediaSourceRange</a> values.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_source_buffer_get_buffered">
+	<i>GstMse.SourceBuffer.prototype.get_buffered</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstMse.SourceBuffer.prototype.get_buffered(): {
+    // javascript wrapper for 'gst_source_buffer_get_buffered'
+}</code></pre>
+
+<p>Returns a sequence of <a href="mselib/gstmediasource.html#GstMediaSourceRange">GstMse.MediaSourceRange</a> values representing which segments
+of <em>self</em> are buffered in memory.</p>
+<p><a href="https://www.w3.org/TR/media-source-2/#dom-sourcebuffer-buffered">Specification</a></p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+<span>(</span><a title="GstMse.SourceBuffer" href="mselib/gstsourcebuffer.html#GstSourceBuffer">GstMse.SourceBuffer</a><span>)</span>
+–
+</div>
+<p><a href="mselib/gstsourcebuffer.html#GstSourceBuffer">GstMse.SourceBuffer</a> instance</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span>[ <a title="GstMse.MediaSourceRange" href="mselib/gstmediasource.html#GstMediaSourceRange">GstMse.MediaSourceRange</a> ]<span>)</span>
+–
+			</div>
+							<p>a <a href="https://docs.gtk.org/glib/struct.Array.html">GArray (not introspectable)</a> of <a href="mselib/gstmediasource.html#GstMediaSourceRange">GstMse.MediaSourceRange</a> values.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_source_buffer_get_buffered">
+	<i>GstMse.SourceBuffer.get_buffered</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>@raises(<a href="https://developer.gnome.org/glib/stable/glib-Error-Reporting.html">GLib.GError</a>)
+def GstMse.SourceBuffer.get_buffered (self):
+    #python wrapper for 'gst_source_buffer_get_buffered'</code></pre>
+
+<p>Returns a sequence of <a href="mselib/gstmediasource.html#GstMediaSourceRange">GstMse.MediaSourceRange</a> values representing which segments
+of <em>self</em> are buffered in memory.</p>
+<p><a href="https://www.w3.org/TR/media-source-2/#dom-sourcebuffer-buffered">Specification</a></p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+<span>(</span><a title="GstMse.SourceBuffer" href="mselib/gstsourcebuffer.html#GstSourceBuffer">GstMse.SourceBuffer</a><span>)</span>
+–
+</div>
+<p><a href="mselib/gstsourcebuffer.html#GstSourceBuffer">GstMse.SourceBuffer</a> instance</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span>[ <a title="GstMse.MediaSourceRange" href="mselib/gstmediasource.html#GstMediaSourceRange">GstMse.MediaSourceRange</a> ]<span>)</span>
+–
+			</div>
+							<p>a <a href="https://docs.gtk.org/glib/struct.Array.html">GArray (not introspectable)</a> of <a href="mselib/gstmediasource.html#GstMediaSourceRange">GstMse.MediaSourceRange</a> values.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.24;" id="gst_source_buffer_get_content_type">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_source_buffer_get_content_type">
+	<i>gst_source_buffer_get_content_type</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gchar" href="https://docs.gtk.org/glib/types.html#gchar">gchar</a> *
+gst_source_buffer_get_content_type (<a title="GstSourceBuffer" href="mselib/gstsourcebuffer.html#GstSourceBuffer">GstSourceBuffer</a> * self)</pre>
+
+<p>Returns the current content type of <em>self</em>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+–
+</div>
+<p><a href="mselib/gstsourcebuffer.html#GstSourceBuffer">GstSourceBuffer</a> instance</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span>
+<span class="annotation">[<abbr title="Free data after the code is done"><span class="acronym">transfer: full</span></abbr>]</span><span>)</span>
+–
+			</div>
+							<p>a string representing the content type</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_source_buffer_get_content_type">
+	<i>GstMse.SourceBuffer.prototype.get_content_type</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstMse.SourceBuffer.prototype.get_content_type(): {
+    // javascript wrapper for 'gst_source_buffer_get_content_type'
+}</code></pre>
+
+<p>Returns the current content type of <em>self</em>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+<span>(</span><a title="GstMse.SourceBuffer" href="mselib/gstsourcebuffer.html#GstSourceBuffer">GstMse.SourceBuffer</a><span>)</span>
+–
+</div>
+<p><a href="mselib/gstsourcebuffer.html#GstSourceBuffer">GstMse.SourceBuffer</a> instance</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a><span>)</span>
+–
+			</div>
+							<p>a string representing the content type</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_source_buffer_get_content_type">
+	<i>GstMse.SourceBuffer.get_content_type</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstMse.SourceBuffer.get_content_type (self):
+    #python wrapper for 'gst_source_buffer_get_content_type'</code></pre>
+
+<p>Returns the current content type of <em>self</em>.</p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+<span>(</span><a title="GstMse.SourceBuffer" href="mselib/gstsourcebuffer.html#GstSourceBuffer">GstMse.SourceBuffer</a><span>)</span>
+–
+</div>
+<p><a href="mselib/gstsourcebuffer.html#GstSourceBuffer">GstMse.SourceBuffer</a> instance</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="str" href="https://docs.python.org/3/library/functions.html#func-str">str</a><span>)</span>
+–
+			</div>
+							<p>a string representing the content type</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.24;" id="gst_source_buffer_get_timestamp_offset">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_source_buffer_get_timestamp_offset">
+	<i>gst_source_buffer_get_timestamp_offset</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="GstClockTime" href="gstreamer/gstclock.html#GstClockTime">GstClockTime</a>
+gst_source_buffer_get_timestamp_offset (<a title="GstSourceBuffer" href="mselib/gstsourcebuffer.html#GstSourceBuffer">GstSourceBuffer</a> * self)</pre>
+
+<p><a href="https://www.w3.org/TR/media-source-2/#dom-sourcebuffer-timestampoffset">Specification</a></p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+–
+</div>
+<p><a href="mselib/gstsourcebuffer.html#GstSourceBuffer">GstSourceBuffer</a> instance</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p>The current timestamp offset as a <a href="gstreamer/gstclock.html#GstClockTime">GstClockTime</a></p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_source_buffer_get_timestamp_offset">
+	<i>GstMse.SourceBuffer.prototype.get_timestamp_offset</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstMse.SourceBuffer.prototype.get_timestamp_offset(): {
+    // javascript wrapper for 'gst_source_buffer_get_timestamp_offset'
+}</code></pre>
+
+<p><a href="https://www.w3.org/TR/media-source-2/#dom-sourcebuffer-timestampoffset">Specification</a></p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+<span>(</span><a title="GstMse.SourceBuffer" href="mselib/gstsourcebuffer.html#GstSourceBuffer">GstMse.SourceBuffer</a><span>)</span>
+–
+</div>
+<p><a href="mselib/gstsourcebuffer.html#GstSourceBuffer">GstMse.SourceBuffer</a> instance</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+			</div>
+							<p>The current timestamp offset as a <a href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a></p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_source_buffer_get_timestamp_offset">
+	<i>GstMse.SourceBuffer.get_timestamp_offset</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstMse.SourceBuffer.get_timestamp_offset (self):
+    #python wrapper for 'gst_source_buffer_get_timestamp_offset'</code></pre>
+
+<p><a href="https://www.w3.org/TR/media-source-2/#dom-sourcebuffer-timestampoffset">Specification</a></p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+<span>(</span><a title="GstMse.SourceBuffer" href="mselib/gstsourcebuffer.html#GstSourceBuffer">GstMse.SourceBuffer</a><span>)</span>
+–
+</div>
+<p><a href="mselib/gstsourcebuffer.html#GstSourceBuffer">GstMse.SourceBuffer</a> instance</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+			</div>
+							<p>The current timestamp offset as a <a href="https://docs.python.org/3/library/functions.html#int">int</a></p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.24;" id="gst_source_buffer_get_updating">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_source_buffer_get_updating">
+	<i>gst_source_buffer_get_updating</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a>
+gst_source_buffer_get_updating (<a title="GstSourceBuffer" href="mselib/gstsourcebuffer.html#GstSourceBuffer">GstSourceBuffer</a> * self)</pre>
+
+<p><a href="https://www.w3.org/TR/media-source-2/#dom-sourcebuffer-updating">Specification</a></p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+–
+</div>
+<p><a href="mselib/gstsourcebuffer.html#GstSourceBuffer">GstSourceBuffer</a> instance</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p>Whether <em>self</em> is currently adding or removing media content.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_source_buffer_get_updating">
+	<i>GstMse.SourceBuffer.prototype.get_updating</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstMse.SourceBuffer.prototype.get_updating(): {
+    // javascript wrapper for 'gst_source_buffer_get_updating'
+}</code></pre>
+
+<p><a href="https://www.w3.org/TR/media-source-2/#dom-sourcebuffer-updating">Specification</a></p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+<span>(</span><a title="GstMse.SourceBuffer" href="mselib/gstsourcebuffer.html#GstSourceBuffer">GstMse.SourceBuffer</a><span>)</span>
+–
+</div>
+<p><a href="mselib/gstsourcebuffer.html#GstSourceBuffer">GstMse.SourceBuffer</a> instance</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+			</div>
+							<p>Whether <em>self</em> is currently adding or removing media content.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_source_buffer_get_updating">
+	<i>GstMse.SourceBuffer.get_updating</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def GstMse.SourceBuffer.get_updating (self):
+    #python wrapper for 'gst_source_buffer_get_updating'</code></pre>
+
+<p><a href="https://www.w3.org/TR/media-source-2/#dom-sourcebuffer-updating">Specification</a></p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+<span>(</span><a title="GstMse.SourceBuffer" href="mselib/gstsourcebuffer.html#GstSourceBuffer">GstMse.SourceBuffer</a><span>)</span>
+–
+</div>
+<p><a href="mselib/gstsourcebuffer.html#GstSourceBuffer">GstMse.SourceBuffer</a> instance</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a><span>)</span>
+–
+			</div>
+							<p>Whether <em>self</em> is currently adding or removing media content.</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.24;" id="gst_source_buffer_remove">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_source_buffer_remove">
+	<i>gst_source_buffer_remove</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a>
+gst_source_buffer_remove (<a title="GstSourceBuffer" href="mselib/gstsourcebuffer.html#GstSourceBuffer">GstSourceBuffer</a> * self,
+                          <a title="GstClockTime" href="gstreamer/gstclock.html#GstClockTime">GstClockTime</a> start,
+                          <a title="GstClockTime" href="gstreamer/gstclock.html#GstClockTime">GstClockTime</a> end,
+                          <a title="GError" href="https://docs.gtk.org/glib/struct.Error.html">GError</a> ** error)</pre>
+
+<p>Attempts to remove any parsed data between <em>start</em> and <em>end</em> from <em>self</em>.</p>
+<p><a href="https://www.w3.org/TR/media-source-2/#dom-sourcebuffer-remove">Specification</a></p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+–
+</div>
+<p><a href="mselib/gstsourcebuffer.html#GstSourceBuffer">GstSourceBuffer</a> instance</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>start</code></em></i>
+–
+</div>
+<p>The beginning timestamp of data to remove</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>end</code></em></i>
+–
+</div>
+<p>The end timestamp of data to remove</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>error</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="Parameter for returning results"><span class="acronym">out</span></abbr>]</span><span class="annotation">[<abbr title="NULL may be passed instead of a pointer to a location"><span class="acronym">optional</span></abbr>]</span><span class="annotation">[<abbr title="NULL may be passed to the value"><span class="acronym">nullable</span></abbr>]</span><span class="annotation">[<abbr title="Free data after the code is done"><span class="acronym">transfer: full</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>the resulting error or <code>NULL</code></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p><code>TRUE</code> on success, <code>FALSE</code> otherwise</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_source_buffer_remove">
+	<i>GstMse.SourceBuffer.prototype.remove</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstMse.SourceBuffer.prototype.remove(start: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>, end: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>): {
+    // javascript wrapper for 'gst_source_buffer_remove'
+}</code></pre>
+
+<p>Attempts to remove any parsed data between <em>start</em> and <em>end</em> from <em>self</em>.</p>
+<p><a href="https://www.w3.org/TR/media-source-2/#dom-sourcebuffer-remove">Specification</a></p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+<span>(</span><a title="GstMse.SourceBuffer" href="mselib/gstsourcebuffer.html#GstSourceBuffer">GstMse.SourceBuffer</a><span>)</span>
+–
+</div>
+<p><a href="mselib/gstsourcebuffer.html#GstSourceBuffer">GstMse.SourceBuffer</a> instance</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>start</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>The beginning timestamp of data to remove</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>end</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>The end timestamp of data to remove</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+			</div>
+							<p><code>TRUE</code> on success, <code>FALSE</code> otherwise</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_source_buffer_remove">
+	<i>GstMse.SourceBuffer.remove</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>@raises(<a href="https://developer.gnome.org/glib/stable/glib-Error-Reporting.html">GLib.GError</a>)
+def GstMse.SourceBuffer.remove (self, start, end):
+    #python wrapper for 'gst_source_buffer_remove'</code></pre>
+
+<p>Attempts to remove any parsed data between <em>start</em> and <em>end</em> from <em>self</em>.</p>
+<p><a href="https://www.w3.org/TR/media-source-2/#dom-sourcebuffer-remove">Specification</a></p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+<span>(</span><a title="GstMse.SourceBuffer" href="mselib/gstsourcebuffer.html#GstSourceBuffer">GstMse.SourceBuffer</a><span>)</span>
+–
+</div>
+<p><a href="mselib/gstsourcebuffer.html#GstSourceBuffer">GstMse.SourceBuffer</a> instance</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>start</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<p>The beginning timestamp of data to remove</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>end</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<p>The end timestamp of data to remove</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a><span>)</span>
+–
+			</div>
+							<p><code>TRUE</code> on success, <code>FALSE</code> otherwise</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.24;" id="gst_source_buffer_set_append_mode">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_source_buffer_set_append_mode">
+	<i>gst_source_buffer_set_append_mode</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a>
+gst_source_buffer_set_append_mode (<a title="GstSourceBuffer" href="mselib/gstsourcebuffer.html#GstSourceBuffer">GstSourceBuffer</a> * self,
+                                   <a title="GstSourceBufferAppendMode" href="mselib/gstsourcebuffer.html#GstSourceBufferAppendMode">GstSourceBufferAppendMode</a> mode,
+                                   <a title="GError" href="https://docs.gtk.org/glib/struct.Error.html">GError</a> ** error)</pre>
+
+<p>Changes the Append Mode of <em>self</em>. This influences what timestamps will be
+assigned to media processed by this Source Buffer. In Segment mode, the
+timestamps in each segment determine the position of each sample after it
+is processed. In Sequence mode, the timestamp of each processed sample is
+generated based on the end of the most recently processed segment.</p>
+<p><a href="https://www.w3.org/TR/media-source-2/#dom-sourcebuffer-mode">Specification</a></p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+–
+</div>
+<p><a href="mselib/gstsourcebuffer.html#GstSourceBuffer">GstSourceBuffer</a> instance</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>mode</code></em></i>
+–
+</div>
+<p><a href="mselib/gstsourcebuffer.html#GstSourceBufferAppendMode">GstSourceBufferAppendMode</a> the desired Append Mode</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>error</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="Parameter for returning results"><span class="acronym">out</span></abbr>]</span><span class="annotation">[<abbr title="NULL may be passed instead of a pointer to a location"><span class="acronym">optional</span></abbr>]</span><span class="annotation">[<abbr title="NULL may be passed to the value"><span class="acronym">nullable</span></abbr>]</span><span class="annotation">[<abbr title="Free data after the code is done"><span class="acronym">transfer: full</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>the resulting error or <code>NULL</code></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p><code>TRUE</code> on success, <code>FALSE</code> otherwise</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_source_buffer_set_append_mode">
+	<i>GstMse.SourceBuffer.prototype.set_append_mode</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstMse.SourceBuffer.prototype.set_append_mode(mode: <a title="GstMse.SourceBufferAppendMode" href="mselib/gstsourcebuffer.html#GstSourceBufferAppendMode">GstMse.SourceBufferAppendMode</a>): {
+    // javascript wrapper for 'gst_source_buffer_set_append_mode'
+}</code></pre>
+
+<p>Changes the Append Mode of <em>self</em>. This influences what timestamps will be
+assigned to media processed by this Source Buffer. In Segment mode, the
+timestamps in each segment determine the position of each sample after it
+is processed. In Sequence mode, the timestamp of each processed sample is
+generated based on the end of the most recently processed segment.</p>
+<p><a href="https://www.w3.org/TR/media-source-2/#dom-sourcebuffer-mode">Specification</a></p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+<span>(</span><a title="GstMse.SourceBuffer" href="mselib/gstsourcebuffer.html#GstSourceBuffer">GstMse.SourceBuffer</a><span>)</span>
+–
+</div>
+<p><a href="mselib/gstsourcebuffer.html#GstSourceBuffer">GstMse.SourceBuffer</a> instance</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>mode</code></em></i>
+<span>(</span><a title="GstMse.SourceBufferAppendMode" href="mselib/gstsourcebuffer.html#GstSourceBufferAppendMode">GstMse.SourceBufferAppendMode</a><span>)</span>
+–
+</div>
+<p><a href="mselib/gstsourcebuffer.html#GstSourceBufferAppendMode">GstMse.SourceBufferAppendMode</a> the desired Append Mode</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+			</div>
+							<p><code>TRUE</code> on success, <code>FALSE</code> otherwise</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_source_buffer_set_append_mode">
+	<i>GstMse.SourceBuffer.set_append_mode</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>@raises(<a href="https://developer.gnome.org/glib/stable/glib-Error-Reporting.html">GLib.GError</a>)
+def GstMse.SourceBuffer.set_append_mode (self, mode):
+    #python wrapper for 'gst_source_buffer_set_append_mode'</code></pre>
+
+<p>Changes the Append Mode of <em>self</em>. This influences what timestamps will be
+assigned to media processed by this Source Buffer. In Segment mode, the
+timestamps in each segment determine the position of each sample after it
+is processed. In Sequence mode, the timestamp of each processed sample is
+generated based on the end of the most recently processed segment.</p>
+<p><a href="https://www.w3.org/TR/media-source-2/#dom-sourcebuffer-mode">Specification</a></p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+<span>(</span><a title="GstMse.SourceBuffer" href="mselib/gstsourcebuffer.html#GstSourceBuffer">GstMse.SourceBuffer</a><span>)</span>
+–
+</div>
+<p><a href="mselib/gstsourcebuffer.html#GstSourceBuffer">GstMse.SourceBuffer</a> instance</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>mode</code></em></i>
+<span>(</span><a title="GstMse.SourceBufferAppendMode" href="mselib/gstsourcebuffer.html#GstSourceBufferAppendMode">GstMse.SourceBufferAppendMode</a><span>)</span>
+–
+</div>
+<p><a href="mselib/gstsourcebuffer.html#GstSourceBufferAppendMode">GstMse.SourceBufferAppendMode</a> the desired Append Mode</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a><span>)</span>
+–
+			</div>
+							<p><code>TRUE</code> on success, <code>FALSE</code> otherwise</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.24;" id="gst_source_buffer_set_append_window_end">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_source_buffer_set_append_window_end">
+	<i>gst_source_buffer_set_append_window_end</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a>
+gst_source_buffer_set_append_window_end (<a title="GstSourceBuffer" href="mselib/gstsourcebuffer.html#GstSourceBuffer">GstSourceBuffer</a> * self,
+                                         <a title="GstClockTime" href="gstreamer/gstclock.html#GstClockTime">GstClockTime</a> end,
+                                         <a title="GError" href="https://docs.gtk.org/glib/struct.Error.html">GError</a> ** error)</pre>
+
+<p>Modifies the current append window end of <em>self</em>. If successful, samples
+processed after setting this value that start after this point will be
+ignored.</p>
+<p><a href="https://www.w3.org/TR/media-source-2/#dom-sourcebuffer-appendwindowend">Specification</a></p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+–
+</div>
+<p><a href="mselib/gstsourcebuffer.html#GstSourceBuffer">GstSourceBuffer</a> instance</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>end</code></em></i>
+–
+</div>
+<p>the append window end</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>error</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="Parameter for returning results"><span class="acronym">out</span></abbr>]</span><span class="annotation">[<abbr title="NULL may be passed instead of a pointer to a location"><span class="acronym">optional</span></abbr>]</span><span class="annotation">[<abbr title="NULL may be passed to the value"><span class="acronym">nullable</span></abbr>]</span><span class="annotation">[<abbr title="Free data after the code is done"><span class="acronym">transfer: full</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>the resulting error or <code>NULL</code></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p><code>TRUE</code> on success, <code>FALSE</code> otherwise</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_source_buffer_set_append_window_end">
+	<i>GstMse.SourceBuffer.prototype.set_append_window_end</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstMse.SourceBuffer.prototype.set_append_window_end(end: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>): {
+    // javascript wrapper for 'gst_source_buffer_set_append_window_end'
+}</code></pre>
+
+<p>Modifies the current append window end of <em>self</em>. If successful, samples
+processed after setting this value that start after this point will be
+ignored.</p>
+<p><a href="https://www.w3.org/TR/media-source-2/#dom-sourcebuffer-appendwindowend">Specification</a></p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+<span>(</span><a title="GstMse.SourceBuffer" href="mselib/gstsourcebuffer.html#GstSourceBuffer">GstMse.SourceBuffer</a><span>)</span>
+–
+</div>
+<p><a href="mselib/gstsourcebuffer.html#GstSourceBuffer">GstMse.SourceBuffer</a> instance</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>end</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>the append window end</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+			</div>
+							<p><code>TRUE</code> on success, <code>FALSE</code> otherwise</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_source_buffer_set_append_window_end">
+	<i>GstMse.SourceBuffer.set_append_window_end</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>@raises(<a href="https://developer.gnome.org/glib/stable/glib-Error-Reporting.html">GLib.GError</a>)
+def GstMse.SourceBuffer.set_append_window_end (self, end):
+    #python wrapper for 'gst_source_buffer_set_append_window_end'</code></pre>
+
+<p>Modifies the current append window end of <em>self</em>. If successful, samples
+processed after setting this value that start after this point will be
+ignored.</p>
+<p><a href="https://www.w3.org/TR/media-source-2/#dom-sourcebuffer-appendwindowend">Specification</a></p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+<span>(</span><a title="GstMse.SourceBuffer" href="mselib/gstsourcebuffer.html#GstSourceBuffer">GstMse.SourceBuffer</a><span>)</span>
+–
+</div>
+<p><a href="mselib/gstsourcebuffer.html#GstSourceBuffer">GstMse.SourceBuffer</a> instance</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>end</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<p>the append window end</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a><span>)</span>
+–
+			</div>
+							<p><code>TRUE</code> on success, <code>FALSE</code> otherwise</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.24;" id="gst_source_buffer_set_append_window_start">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_source_buffer_set_append_window_start">
+	<i>gst_source_buffer_set_append_window_start</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a>
+gst_source_buffer_set_append_window_start (<a title="GstSourceBuffer" href="mselib/gstsourcebuffer.html#GstSourceBuffer">GstSourceBuffer</a> * self,
+                                           <a title="GstClockTime" href="gstreamer/gstclock.html#GstClockTime">GstClockTime</a> start,
+                                           <a title="GError" href="https://docs.gtk.org/glib/struct.Error.html">GError</a> ** error)</pre>
+
+<p>Modifies the current append window start of <em>self</em>. If successful, samples
+processed after setting this value that end before this point will be
+ignored.</p>
+<p><a href="https://www.w3.org/TR/media-source-2/#dom-sourcebuffer-appendwindowstart">Specification</a></p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+–
+</div>
+<p><a href="mselib/gstsourcebuffer.html#GstSourceBuffer">GstSourceBuffer</a> instance</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>start</code></em></i>
+–
+</div>
+<p>the append window start</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>error</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="Parameter for returning results"><span class="acronym">out</span></abbr>]</span><span class="annotation">[<abbr title="NULL may be passed instead of a pointer to a location"><span class="acronym">optional</span></abbr>]</span><span class="annotation">[<abbr title="NULL may be passed to the value"><span class="acronym">nullable</span></abbr>]</span><span class="annotation">[<abbr title="Free data after the code is done"><span class="acronym">transfer: full</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>the resulting error or <code>NULL</code></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p><code>TRUE</code> on success, <code>FALSE</code> otherwise</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_source_buffer_set_append_window_start">
+	<i>GstMse.SourceBuffer.prototype.set_append_window_start</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstMse.SourceBuffer.prototype.set_append_window_start(start: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>): {
+    // javascript wrapper for 'gst_source_buffer_set_append_window_start'
+}</code></pre>
+
+<p>Modifies the current append window start of <em>self</em>. If successful, samples
+processed after setting this value that end before this point will be
+ignored.</p>
+<p><a href="https://www.w3.org/TR/media-source-2/#dom-sourcebuffer-appendwindowstart">Specification</a></p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+<span>(</span><a title="GstMse.SourceBuffer" href="mselib/gstsourcebuffer.html#GstSourceBuffer">GstMse.SourceBuffer</a><span>)</span>
+–
+</div>
+<p><a href="mselib/gstsourcebuffer.html#GstSourceBuffer">GstMse.SourceBuffer</a> instance</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>start</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>the append window start</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+			</div>
+							<p><code>TRUE</code> on success, <code>FALSE</code> otherwise</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_source_buffer_set_append_window_start">
+	<i>GstMse.SourceBuffer.set_append_window_start</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>@raises(<a href="https://developer.gnome.org/glib/stable/glib-Error-Reporting.html">GLib.GError</a>)
+def GstMse.SourceBuffer.set_append_window_start (self, start):
+    #python wrapper for 'gst_source_buffer_set_append_window_start'</code></pre>
+
+<p>Modifies the current append window start of <em>self</em>. If successful, samples
+processed after setting this value that end before this point will be
+ignored.</p>
+<p><a href="https://www.w3.org/TR/media-source-2/#dom-sourcebuffer-appendwindowstart">Specification</a></p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+<span>(</span><a title="GstMse.SourceBuffer" href="mselib/gstsourcebuffer.html#GstSourceBuffer">GstMse.SourceBuffer</a><span>)</span>
+–
+</div>
+<p><a href="mselib/gstsourcebuffer.html#GstSourceBuffer">GstMse.SourceBuffer</a> instance</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>start</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<p>the append window start</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a><span>)</span>
+–
+			</div>
+							<p><code>TRUE</code> on success, <code>FALSE</code> otherwise</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.24;" id="gst_source_buffer_set_timestamp_offset">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="gst_source_buffer_set_timestamp_offset">
+	<i>gst_source_buffer_set_timestamp_offset</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+<a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a>
+gst_source_buffer_set_timestamp_offset (<a title="GstSourceBuffer" href="mselib/gstsourcebuffer.html#GstSourceBuffer">GstSourceBuffer</a> * self,
+                                        <a title="GstClockTime" href="gstreamer/gstclock.html#GstClockTime">GstClockTime</a> offset,
+                                        <a title="GError" href="https://docs.gtk.org/glib/struct.Error.html">GError</a> ** error)</pre>
+
+<p>Attempt to set the timestamp offset of <em>self</em>. Any media processed after this
+value is set will have this value added to its start time.</p>
+<p><a href="https://www.w3.org/TR/media-source-2/#dom-sourcebuffer-timestampoffset">Specification</a></p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+–
+</div>
+<p><a href="mselib/gstsourcebuffer.html#GstSourceBuffer">GstSourceBuffer</a> instance</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>offset</code></em></i>
+–
+</div>
+<p>The new timestamp offset</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>error</code></em></i>
+<span>(</span>
+<span class="annotation">[<abbr title="Parameter for returning results"><span class="acronym">out</span></abbr>]</span><span class="annotation">[<abbr title="NULL may be passed instead of a pointer to a location"><span class="acronym">optional</span></abbr>]</span><span class="annotation">[<abbr title="NULL may be passed to the value"><span class="acronym">nullable</span></abbr>]</span><span class="annotation">[<abbr title="Free data after the code is done"><span class="acronym">transfer: full</span></abbr>]</span><span>)</span>
+–
+</div>
+<p>the resulting error or <code>NULL</code></p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+–
+			</div>
+							<p><code>TRUE</code> on success, <code>FALSE</code> otherwise</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="gst_source_buffer_set_timestamp_offset">
+	<i>GstMse.SourceBuffer.prototype.set_timestamp_offset</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function GstMse.SourceBuffer.prototype.set_timestamp_offset(offset: <a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>): {
+    // javascript wrapper for 'gst_source_buffer_set_timestamp_offset'
+}</code></pre>
+
+<p>Attempt to set the timestamp offset of <em>self</em>. Any media processed after this
+value is set will have this value added to its start time.</p>
+<p><a href="https://www.w3.org/TR/media-source-2/#dom-sourcebuffer-timestampoffset">Specification</a></p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+<span>(</span><a title="GstMse.SourceBuffer" href="mselib/gstsourcebuffer.html#GstSourceBuffer">GstMse.SourceBuffer</a><span>)</span>
+–
+</div>
+<p><a href="mselib/gstsourcebuffer.html#GstSourceBuffer">GstMse.SourceBuffer</a> instance</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>offset</code></em></i>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+</div>
+<p>The new timestamp offset</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a><span>)</span>
+–
+			</div>
+							<p><code>TRUE</code> on success, <code>FALSE</code> otherwise</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="gst_source_buffer_set_timestamp_offset">
+	<i>GstMse.SourceBuffer.set_timestamp_offset</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>@raises(<a href="https://developer.gnome.org/glib/stable/glib-Error-Reporting.html">GLib.GError</a>)
+def GstMse.SourceBuffer.set_timestamp_offset (self, offset):
+    #python wrapper for 'gst_source_buffer_set_timestamp_offset'</code></pre>
+
+<p>Attempt to set the timestamp offset of <em>self</em>. Any media processed after this
+value is set will have this value added to its start time.</p>
+<p><a href="https://www.w3.org/TR/media-source-2/#dom-sourcebuffer-timestampoffset">Specification</a></p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+<span>(</span><a title="GstMse.SourceBuffer" href="mselib/gstsourcebuffer.html#GstSourceBuffer">GstMse.SourceBuffer</a><span>)</span>
+–
+</div>
+<p><a href="mselib/gstsourcebuffer.html#GstSourceBuffer">GstMse.SourceBuffer</a> instance</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>offset</code></em></i>
+<span>(</span><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a><span>)</span>
+–
+</div>
+<p>The new timestamp offset</p>
+
+</div>
+
+			</div>
+
+		<div class="return-values-container">
+		<div class="symbol-detail">
+			<div>
+				<b>Returns</b>
+<span>(</span><a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a><span>)</span>
+–
+			</div>
+							<p><code>TRUE</code> on success, <code>FALSE</code> otherwise</p>
+
+					</div>
+	</div>
+
+
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+
+            <h3 class="symbol_section">Signals</h3>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.24;" id="GstSourceBuffer::on-abort">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstSourceBuffer::on-abort">
+	<i>on-abort</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+on_abort_callback (<a title="GstSourceBuffer" href="mselib/gstsourcebuffer.html#GstSourceBuffer">GstSourceBuffer</a> * self,
+                   <a title="gpointer" href="https://docs.gtk.org/glib/types.html#gpointer">gpointer</a> user_data)</pre>
+
+<p>Emitted when <em>self</em> was aborted after a call to <a href="mselib/gstsourcebuffer.html#gst_source_buffer_abort">gst_source_buffer_abort</a>.</p>
+<p><a href="https://www.w3.org/TR/media-source-2/#dom-sourcebuffer-onabort">Specification</a></p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+–
+</div>
+<p>The <a href="mselib/gstsourcebuffer.html#GstSourceBuffer">GstSourceBuffer</a> that has been aborted.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>user_data</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+<p>
+	<b>Flags:</b>	
+	
+		
+				<a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS">Run Last</a>
+			
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GstSourceBuffer::on-abort">
+	<i>on-abort</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function on_abort_callback(self: <a title="GstMse.SourceBuffer" href="mselib/gstsourcebuffer.html#GstSourceBuffer">GstMse.SourceBuffer</a>, user_data: <a title="Object" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>): {
+    // javascript callback for the 'on-abort' signal
+}</code></pre>
+
+<p>Emitted when <em>self</em> was aborted after a call to <a href="mselib/gstsourcebuffer.html#gst_source_buffer_abort">GstMse.SourceBuffer.prototype.abort</a>.</p>
+<p><a href="https://www.w3.org/TR/media-source-2/#dom-sourcebuffer-onabort">Specification</a></p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+<span>(</span><a title="GstMse.SourceBuffer" href="mselib/gstsourcebuffer.html#GstSourceBuffer">GstMse.SourceBuffer</a><span>)</span>
+–
+</div>
+<p>The <a href="mselib/gstsourcebuffer.html#GstSourceBuffer">GstMse.SourceBuffer</a> that has been aborted.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>user_data</code></em></i>
+<span>(</span><a title="Object" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+<p>
+	<b>Flags:</b>	
+	
+		
+				<a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS">Run Last</a>
+			
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GstSourceBuffer::on-abort">
+	<i>on-abort</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def on_abort_callback (self, *user_data):
+    #python callback for the 'on-abort' signal</code></pre>
+
+<p>Emitted when <em>self</em> was aborted after a call to <a href="mselib/gstsourcebuffer.html#gst_source_buffer_abort">GstMse.SourceBuffer.abort</a>.</p>
+<p><a href="https://www.w3.org/TR/media-source-2/#dom-sourcebuffer-onabort">Specification</a></p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+<span>(</span><a title="GstMse.SourceBuffer" href="mselib/gstsourcebuffer.html#GstSourceBuffer">GstMse.SourceBuffer</a><span>)</span>
+–
+</div>
+<p>The <a href="mselib/gstsourcebuffer.html#GstSourceBuffer">GstMse.SourceBuffer</a> that has been aborted.</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>user_data</code></em></i>
+<span>(</span><a title="variadic" href="https://docs.python.org/dev/tutorial/controlflow.html#arbitrary-argument-lists">variadic</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+<p>
+	<b>Flags:</b>	
+	
+		
+				<a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS">Run Last</a>
+			
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.24;" id="GstSourceBuffer::on-error">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstSourceBuffer::on-error">
+	<i>on-error</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+on_error_callback (<a title="GstSourceBuffer" href="mselib/gstsourcebuffer.html#GstSourceBuffer">GstSourceBuffer</a> * self,
+                   <a title="gpointer" href="https://docs.gtk.org/glib/types.html#gpointer">gpointer</a> user_data)</pre>
+
+<p>Emitted when <em>self</em> has encountered an error after a call to
+<a href="mselib/gstsourcebuffer.html#gst_source_buffer_append_buffer">gst_source_buffer_append_buffer</a>.</p>
+<p><a href="https://www.w3.org/TR/media-source-2/#dom-sourcebuffer-onerror">Specification</a></p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+–
+</div>
+<p>The <a href="mselib/gstsourcebuffer.html#GstSourceBuffer">GstSourceBuffer</a> that has encountered an error</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>user_data</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+<p>
+	<b>Flags:</b>	
+	
+		
+				<a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS">Run Last</a>
+			
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GstSourceBuffer::on-error">
+	<i>on-error</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function on_error_callback(self: <a title="GstMse.SourceBuffer" href="mselib/gstsourcebuffer.html#GstSourceBuffer">GstMse.SourceBuffer</a>, user_data: <a title="Object" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>): {
+    // javascript callback for the 'on-error' signal
+}</code></pre>
+
+<p>Emitted when <em>self</em> has encountered an error after a call to
+<a href="mselib/gstsourcebuffer.html#gst_source_buffer_append_buffer">GstMse.SourceBuffer.prototype.append_buffer</a>.</p>
+<p><a href="https://www.w3.org/TR/media-source-2/#dom-sourcebuffer-onerror">Specification</a></p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+<span>(</span><a title="GstMse.SourceBuffer" href="mselib/gstsourcebuffer.html#GstSourceBuffer">GstMse.SourceBuffer</a><span>)</span>
+–
+</div>
+<p>The <a href="mselib/gstsourcebuffer.html#GstSourceBuffer">GstMse.SourceBuffer</a> that has encountered an error</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>user_data</code></em></i>
+<span>(</span><a title="Object" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+<p>
+	<b>Flags:</b>	
+	
+		
+				<a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS">Run Last</a>
+			
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GstSourceBuffer::on-error">
+	<i>on-error</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def on_error_callback (self, *user_data):
+    #python callback for the 'on-error' signal</code></pre>
+
+<p>Emitted when <em>self</em> has encountered an error after a call to
+<a href="mselib/gstsourcebuffer.html#gst_source_buffer_append_buffer">GstMse.SourceBuffer.append_buffer</a>.</p>
+<p><a href="https://www.w3.org/TR/media-source-2/#dom-sourcebuffer-onerror">Specification</a></p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+<span>(</span><a title="GstMse.SourceBuffer" href="mselib/gstsourcebuffer.html#GstSourceBuffer">GstMse.SourceBuffer</a><span>)</span>
+–
+</div>
+<p>The <a href="mselib/gstsourcebuffer.html#GstSourceBuffer">GstMse.SourceBuffer</a> that has encountered an error</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>user_data</code></em></i>
+<span>(</span><a title="variadic" href="https://docs.python.org/dev/tutorial/controlflow.html#arbitrary-argument-lists">variadic</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+<p>
+	<b>Flags:</b>	
+	
+		
+				<a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS">Run Last</a>
+			
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.24;" id="GstSourceBuffer::on-update">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstSourceBuffer::on-update">
+	<i>on-update</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+on_update_callback (<a title="GstSourceBuffer" href="mselib/gstsourcebuffer.html#GstSourceBuffer">GstSourceBuffer</a> * self,
+                    <a title="gpointer" href="https://docs.gtk.org/glib/types.html#gpointer">gpointer</a> user_data)</pre>
+
+<p>Emitted when <em>self</em> has successfully processed data after a call to
+<a href="mselib/gstsourcebuffer.html#gst_source_buffer_append_buffer">gst_source_buffer_append_buffer</a>.</p>
+<p><a href="https://www.w3.org/TR/media-source-2/#dom-sourcebuffer-onupdate">Specification</a></p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+–
+</div>
+<p>The <a href="mselib/gstsourcebuffer.html#GstSourceBuffer">GstSourceBuffer</a> that has just updated</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>user_data</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+<p>
+	<b>Flags:</b>	
+	
+		
+				<a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS">Run Last</a>
+			
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GstSourceBuffer::on-update">
+	<i>on-update</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function on_update_callback(self: <a title="GstMse.SourceBuffer" href="mselib/gstsourcebuffer.html#GstSourceBuffer">GstMse.SourceBuffer</a>, user_data: <a title="Object" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>): {
+    // javascript callback for the 'on-update' signal
+}</code></pre>
+
+<p>Emitted when <em>self</em> has successfully processed data after a call to
+<a href="mselib/gstsourcebuffer.html#gst_source_buffer_append_buffer">GstMse.SourceBuffer.prototype.append_buffer</a>.</p>
+<p><a href="https://www.w3.org/TR/media-source-2/#dom-sourcebuffer-onupdate">Specification</a></p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+<span>(</span><a title="GstMse.SourceBuffer" href="mselib/gstsourcebuffer.html#GstSourceBuffer">GstMse.SourceBuffer</a><span>)</span>
+–
+</div>
+<p>The <a href="mselib/gstsourcebuffer.html#GstSourceBuffer">GstMse.SourceBuffer</a> that has just updated</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>user_data</code></em></i>
+<span>(</span><a title="Object" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+<p>
+	<b>Flags:</b>	
+	
+		
+				<a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS">Run Last</a>
+			
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GstSourceBuffer::on-update">
+	<i>on-update</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def on_update_callback (self, *user_data):
+    #python callback for the 'on-update' signal</code></pre>
+
+<p>Emitted when <em>self</em> has successfully processed data after a call to
+<a href="mselib/gstsourcebuffer.html#gst_source_buffer_append_buffer">GstMse.SourceBuffer.append_buffer</a>.</p>
+<p><a href="https://www.w3.org/TR/media-source-2/#dom-sourcebuffer-onupdate">Specification</a></p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+<span>(</span><a title="GstMse.SourceBuffer" href="mselib/gstsourcebuffer.html#GstSourceBuffer">GstMse.SourceBuffer</a><span>)</span>
+–
+</div>
+<p>The <a href="mselib/gstsourcebuffer.html#GstSourceBuffer">GstMse.SourceBuffer</a> that has just updated</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>user_data</code></em></i>
+<span>(</span><a title="variadic" href="https://docs.python.org/dev/tutorial/controlflow.html#arbitrary-argument-lists">variadic</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+<p>
+	<b>Flags:</b>	
+	
+		
+				<a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS">Run Last</a>
+			
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.24;" id="GstSourceBuffer::on-update-end">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstSourceBuffer::on-update-end">
+	<i>on-update-end</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+on_update_end_callback (<a title="GstSourceBuffer" href="mselib/gstsourcebuffer.html#GstSourceBuffer">GstSourceBuffer</a> * self,
+                        <a title="gpointer" href="https://docs.gtk.org/glib/types.html#gpointer">gpointer</a> user_data)</pre>
+
+<p>Emitted when <em>self</em> is no longer in the updating state after a call to
+<a href="mselib/gstsourcebuffer.html#gst_source_buffer_append_buffer">gst_source_buffer_append_buffer</a>. This can happen after a successful or
+unsuccessful append.</p>
+<p><a href="https://www.w3.org/TR/media-source-2/#dom-sourcebuffer-onupdateend">Specification</a></p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+–
+</div>
+<p>The <a href="mselib/gstsourcebuffer.html#GstSourceBuffer">GstSourceBuffer</a> that is no longer updating</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>user_data</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+<p>
+	<b>Flags:</b>	
+	
+		
+				<a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS">Run Last</a>
+			
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GstSourceBuffer::on-update-end">
+	<i>on-update-end</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function on_update_end_callback(self: <a title="GstMse.SourceBuffer" href="mselib/gstsourcebuffer.html#GstSourceBuffer">GstMse.SourceBuffer</a>, user_data: <a title="Object" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>): {
+    // javascript callback for the 'on-update-end' signal
+}</code></pre>
+
+<p>Emitted when <em>self</em> is no longer in the updating state after a call to
+<a href="mselib/gstsourcebuffer.html#gst_source_buffer_append_buffer">GstMse.SourceBuffer.prototype.append_buffer</a>. This can happen after a successful or
+unsuccessful append.</p>
+<p><a href="https://www.w3.org/TR/media-source-2/#dom-sourcebuffer-onupdateend">Specification</a></p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+<span>(</span><a title="GstMse.SourceBuffer" href="mselib/gstsourcebuffer.html#GstSourceBuffer">GstMse.SourceBuffer</a><span>)</span>
+–
+</div>
+<p>The <a href="mselib/gstsourcebuffer.html#GstSourceBuffer">GstMse.SourceBuffer</a> that is no longer updating</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>user_data</code></em></i>
+<span>(</span><a title="Object" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+<p>
+	<b>Flags:</b>	
+	
+		
+				<a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS">Run Last</a>
+			
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GstSourceBuffer::on-update-end">
+	<i>on-update-end</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def on_update_end_callback (self, *user_data):
+    #python callback for the 'on-update-end' signal</code></pre>
+
+<p>Emitted when <em>self</em> is no longer in the updating state after a call to
+<a href="mselib/gstsourcebuffer.html#gst_source_buffer_append_buffer">GstMse.SourceBuffer.append_buffer</a>. This can happen after a successful or
+unsuccessful append.</p>
+<p><a href="https://www.w3.org/TR/media-source-2/#dom-sourcebuffer-onupdateend">Specification</a></p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+<span>(</span><a title="GstMse.SourceBuffer" href="mselib/gstsourcebuffer.html#GstSourceBuffer">GstMse.SourceBuffer</a><span>)</span>
+–
+</div>
+<p>The <a href="mselib/gstsourcebuffer.html#GstSourceBuffer">GstMse.SourceBuffer</a> that is no longer updating</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>user_data</code></em></i>
+<span>(</span><a title="variadic" href="https://docs.python.org/dev/tutorial/controlflow.html#arbitrary-argument-lists">variadic</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+<p>
+	<b>Flags:</b>	
+	
+		
+				<a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS">Run Last</a>
+			
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.24;" id="GstSourceBuffer::on-update-start">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstSourceBuffer::on-update-start">
+	<i>on-update-start</i>
+</h4>
+
+
+
+
+<pre class="c-prototype language-c">
+on_update_start_callback (<a title="GstSourceBuffer" href="mselib/gstsourcebuffer.html#GstSourceBuffer">GstSourceBuffer</a> * self,
+                          <a title="gpointer" href="https://docs.gtk.org/glib/types.html#gpointer">gpointer</a> user_data)</pre>
+
+<p>Emitted when <em>self</em> has begun to process data after a call to
+<a href="mselib/gstsourcebuffer.html#gst_source_buffer_append_buffer">gst_source_buffer_append_buffer</a>.</p>
+<p><a href="https://www.w3.org/TR/media-source-2/#dom-sourcebuffer-onupdatestart">Specification</a></p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+–
+</div>
+<p>The <a href="mselib/gstsourcebuffer.html#GstSourceBuffer">GstSourceBuffer</a> that has just started updating</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>user_data</code></em></i>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+<p>
+	<b>Flags:</b>	
+	
+		
+				<a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS">Run Last</a>
+			
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GstSourceBuffer::on-update-start">
+	<i>on-update-start</i>
+</h4>
+
+
+<pre class="javascript-prototype language-javascript">
+<code>function on_update_start_callback(self: <a title="GstMse.SourceBuffer" href="mselib/gstsourcebuffer.html#GstSourceBuffer">GstMse.SourceBuffer</a>, user_data: <a title="Object" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>): {
+    // javascript callback for the 'on-update-start' signal
+}</code></pre>
+
+<p>Emitted when <em>self</em> has begun to process data after a call to
+<a href="mselib/gstsourcebuffer.html#gst_source_buffer_append_buffer">GstMse.SourceBuffer.prototype.append_buffer</a>.</p>
+<p><a href="https://www.w3.org/TR/media-source-2/#dom-sourcebuffer-onupdatestart">Specification</a></p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+<span>(</span><a title="GstMse.SourceBuffer" href="mselib/gstsourcebuffer.html#GstSourceBuffer">GstMse.SourceBuffer</a><span>)</span>
+–
+</div>
+<p>The <a href="mselib/gstsourcebuffer.html#GstSourceBuffer">GstMse.SourceBuffer</a> that has just started updating</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>user_data</code></em></i>
+<span>(</span><a title="Object" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+<p>
+	<b>Flags:</b>	
+	
+		
+				<a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS">Run Last</a>
+			
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GstSourceBuffer::on-update-start">
+	<i>on-update-start</i>
+</h4>
+
+
+<pre class="python-prototype language-python">
+<code>def on_update_start_callback (self, *user_data):
+    #python callback for the 'on-update-start' signal</code></pre>
+
+<p>Emitted when <em>self</em> has begun to process data after a call to
+<a href="mselib/gstsourcebuffer.html#gst_source_buffer_append_buffer">GstMse.SourceBuffer.append_buffer</a>.</p>
+<p><a href="https://www.w3.org/TR/media-source-2/#dom-sourcebuffer-onupdatestart">Specification</a></p>
+
+
+
+	<div class="parameters-container">
+		<p><b>Parameters:</b></p>
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>self</code></em></i>
+<span>(</span><a title="GstMse.SourceBuffer" href="mselib/gstsourcebuffer.html#GstSourceBuffer">GstMse.SourceBuffer</a><span>)</span>
+–
+</div>
+<p>The <a href="mselib/gstsourcebuffer.html#GstSourceBuffer">GstMse.SourceBuffer</a> that has just started updating</p>
+
+</div>
+
+					
+<div class="symbol-detail">
+	<div>
+		<i><em><code>user_data</code></em></i>
+<span>(</span><a title="variadic" href="https://docs.python.org/dev/tutorial/controlflow.html#arbitrary-argument-lists">variadic</a><span>)</span>
+–
+</div>
+<i>No description available</i>
+</div>
+
+			</div>
+
+
+<p>
+	<b>Flags:</b>	
+	
+		
+				<a href="https://developer.gnome.org/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS">Run Last</a>
+			
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+
+            <h3 class="symbol_section">Properties</h3>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.24;" id="GstSourceBuffer:append-mode">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstSourceBuffer:append-mode">
+	<i>append-mode</i>
+</h4>
+
+
+<pre class="property_signature">
+“append-mode” <span class="type"><a title="GstSourceBufferAppendMode" href="mselib/gstsourcebuffer.html#GstSourceBufferAppendMode">GstSourceBufferAppendMode</a> *</span>
+</pre>
+
+<p>Affects how timestamps of processed media segments are interpreted.
+In <a href="mselib/gstsourcebuffer.html#GST_SOURCE_BUFFER_APPEND_MODE_SEGMENTS">GST_SOURCE_BUFFER_APPEND_MODE_SEGMENTS</a>, the start timestamp of a
+processed media segment is used directly along with
+<a href="mselib/gstsourcebuffer.html#GstSourceBuffer:timestamp-offset">timestamp-offset</a> .
+In <a href="mselib/gstsourcebuffer.html#GST_SOURCE_BUFFER_APPEND_MODE_SEQUENCE">GST_SOURCE_BUFFER_APPEND_MODE_SEQUENCE</a>, the timestamp of a
+processed media segment is ignored and replaced with the end time of the
+most recently appended segment.</p>
+<p><a href="https://www.w3.org/TR/media-source-2/#dom-sourcebuffer-mode">Specification</a></p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GstSourceBuffer:append-mode">
+	<i>append-mode</i>
+</h4>
+
+
+<pre class="property_signature">
+“append-mode” <span class="type"><a title="GstMse.SourceBufferAppendMode" href="mselib/gstsourcebuffer.html#GstSourceBufferAppendMode">GstMse.SourceBufferAppendMode</a></span>
+</pre>
+
+<p>Affects how timestamps of processed media segments are interpreted.
+In <a href="mselib/gstsourcebuffer.html#GST_SOURCE_BUFFER_APPEND_MODE_SEGMENTS">GstMse.SourceBufferAppendMode.SEGMENTS</a>, the start timestamp of a
+processed media segment is used directly along with
+<a href="mselib/gstsourcebuffer.html#GstSourceBuffer:timestamp-offset">timestamp-offset</a> .
+In <a href="mselib/gstsourcebuffer.html#GST_SOURCE_BUFFER_APPEND_MODE_SEQUENCE">GstMse.SourceBufferAppendMode.SEQUENCE</a>, the timestamp of a
+processed media segment is ignored and replaced with the end time of the
+most recently appended segment.</p>
+<p><a href="https://www.w3.org/TR/media-source-2/#dom-sourcebuffer-mode">Specification</a></p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GstSourceBuffer:append-mode">
+	<i>append_mode</i>
+</h4>
+
+
+<pre class="property_signature">
+“self.props.append_mode” <span class="type"><a title="GstMse.SourceBufferAppendMode" href="mselib/gstsourcebuffer.html#GstSourceBufferAppendMode">GstMse.SourceBufferAppendMode</a></span>
+</pre>
+
+<p>Affects how timestamps of processed media segments are interpreted.
+In <a href="mselib/gstsourcebuffer.html#GST_SOURCE_BUFFER_APPEND_MODE_SEGMENTS">GstMse.SourceBufferAppendMode.SEGMENTS</a>, the start timestamp of a
+processed media segment is used directly along with
+<a href="mselib/gstsourcebuffer.html#GstSourceBuffer:timestamp-offset">timestamp_offset</a> .
+In <a href="mselib/gstsourcebuffer.html#GST_SOURCE_BUFFER_APPEND_MODE_SEQUENCE">GstMse.SourceBufferAppendMode.SEQUENCE</a>, the timestamp of a
+processed media segment is ignored and replaced with the end time of the
+most recently appended segment.</p>
+<p><a href="https://www.w3.org/TR/media-source-2/#dom-sourcebuffer-mode">Specification</a></p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.24;" id="GstSourceBuffer:append-window-end">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstSourceBuffer:append-window-end">
+	<i>append-window-end</i>
+</h4>
+
+
+<pre class="property_signature">
+“append-window-end” <span class="type"><a title="guint64" href="https://docs.gtk.org/glib/types.html#guint64">guint64</a></span>
+</pre>
+
+<p>Any segments processed which have a start time greater than this value will
+be ignored by this Source Buffer.</p>
+<p><a href="https://www.w3.org/TR/media-source-2/#dom-sourcebuffer-appendwindowend">Specification</a></p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GstSourceBuffer:append-window-end">
+	<i>append-window-end</i>
+</h4>
+
+
+<pre class="property_signature">
+“append-window-end” <span class="type"><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a></span>
+</pre>
+
+<p>Any segments processed which have a start time greater than this value will
+be ignored by this Source Buffer.</p>
+<p><a href="https://www.w3.org/TR/media-source-2/#dom-sourcebuffer-appendwindowend">Specification</a></p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GstSourceBuffer:append-window-end">
+	<i>append_window_end</i>
+</h4>
+
+
+<pre class="property_signature">
+“self.props.append_window_end” <span class="type"><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a></span>
+</pre>
+
+<p>Any segments processed which have a start time greater than this value will
+be ignored by this Source Buffer.</p>
+<p><a href="https://www.w3.org/TR/media-source-2/#dom-sourcebuffer-appendwindowend">Specification</a></p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.24;" id="GstSourceBuffer:append-window-start">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstSourceBuffer:append-window-start">
+	<i>append-window-start</i>
+</h4>
+
+
+<pre class="property_signature">
+“append-window-start” <span class="type"><a title="guint64" href="https://docs.gtk.org/glib/types.html#guint64">guint64</a></span>
+</pre>
+
+<p>Any segments processed which end before this value will be ignored by this
+Source Buffer.</p>
+<p><a href="https://www.w3.org/TR/media-source-2/#dom-sourcebuffer-appendwindowstart">Specification</a></p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GstSourceBuffer:append-window-start">
+	<i>append-window-start</i>
+</h4>
+
+
+<pre class="property_signature">
+“append-window-start” <span class="type"><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a></span>
+</pre>
+
+<p>Any segments processed which end before this value will be ignored by this
+Source Buffer.</p>
+<p><a href="https://www.w3.org/TR/media-source-2/#dom-sourcebuffer-appendwindowstart">Specification</a></p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GstSourceBuffer:append-window-start">
+	<i>append_window_start</i>
+</h4>
+
+
+<pre class="property_signature">
+“self.props.append_window_start” <span class="type"><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a></span>
+</pre>
+
+<p>Any segments processed which end before this value will be ignored by this
+Source Buffer.</p>
+<p><a href="https://www.w3.org/TR/media-source-2/#dom-sourcebuffer-appendwindowstart">Specification</a></p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.24;" id="GstSourceBuffer:buffered">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstSourceBuffer:buffered">
+	<i>buffered</i>
+</h4>
+
+
+<pre class="property_signature">
+“buffered” <span class="type"><a title="gpointer" href="https://docs.gtk.org/glib/types.html#gpointer">gpointer</a> *</span>
+</pre>
+
+<p>The set of Time Intervals that have been loaded into the current Source
+Buffer</p>
+<p><a href="https://www.w3.org/TR/media-source-2/#dom-sourcebuffer-buffered">Specification</a></p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GstSourceBuffer:buffered">
+	<i>buffered</i>
+</h4>
+
+
+<pre class="property_signature">
+“buffered” <span class="type">[ <a title="Object" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a> ]</span>
+</pre>
+
+<p>The set of Time Intervals that have been loaded into the current Source
+Buffer</p>
+<p><a href="https://www.w3.org/TR/media-source-2/#dom-sourcebuffer-buffered">Specification</a></p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GstSourceBuffer:buffered">
+	<i>buffered</i>
+</h4>
+
+
+<pre class="property_signature">
+“self.props.buffered” <span class="type">[ <a title="object" href="https://docs.python.org/3/library/functions.html#object">object</a> ]</span>
+</pre>
+
+<p>The set of Time Intervals that have been loaded into the current Source
+Buffer</p>
+<p><a href="https://www.w3.org/TR/media-source-2/#dom-sourcebuffer-buffered">Specification</a></p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.24;" id="GstSourceBuffer:content-type">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstSourceBuffer:content-type">
+	<i>content-type</i>
+</h4>
+
+
+<pre class="property_signature">
+“content-type” <span class="type"><a title="gchar" href="https://docs.gtk.org/glib/types.html#gchar">gchar</a> *</span>
+</pre>
+
+<p>The MIME content-type of the data stream</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+				/		
+				Construct
+			
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GstSourceBuffer:content-type">
+	<i>content-type</i>
+</h4>
+
+
+<pre class="property_signature">
+“content-type” <span class="type"><a title="String" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></span>
+</pre>
+
+<p>The MIME content-type of the data stream</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+				/		
+				Construct
+			
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GstSourceBuffer:content-type">
+	<i>content_type</i>
+</h4>
+
+
+<pre class="property_signature">
+“self.props.content_type” <span class="type"><a title="str" href="https://docs.python.org/3/library/functions.html#func-str">str</a></span>
+</pre>
+
+<p>The MIME content-type of the data stream</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+				/		
+				Construct
+			
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.24;" id="GstSourceBuffer:timestamp-offset">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstSourceBuffer:timestamp-offset">
+	<i>timestamp-offset</i>
+</h4>
+
+
+<pre class="property_signature">
+“timestamp-offset” <span class="type"><a title="gint64" href="https://docs.gtk.org/glib/types.html#gint64">gint64</a></span>
+</pre>
+
+<p>The next media segment appended to the current Source Buffer will have its
+start timestamp increased by this amount.</p>
+<p><a href="https://www.w3.org/TR/media-source-2/#dom-sourcebuffer-timestampoffset">Specification</a></p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GstSourceBuffer:timestamp-offset">
+	<i>timestamp-offset</i>
+</h4>
+
+
+<pre class="property_signature">
+“timestamp-offset” <span class="type"><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a></span>
+</pre>
+
+<p>The next media segment appended to the current Source Buffer will have its
+start timestamp increased by this amount.</p>
+<p><a href="https://www.w3.org/TR/media-source-2/#dom-sourcebuffer-timestampoffset">Specification</a></p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GstSourceBuffer:timestamp-offset">
+	<i>timestamp_offset</i>
+</h4>
+
+
+<pre class="property_signature">
+“self.props.timestamp_offset” <span class="type"><a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a></span>
+</pre>
+
+<p>The next media segment appended to the current Source Buffer will have its
+start timestamp increased by this amount.</p>
+<p><a href="https://www.w3.org/TR/media-source-2/#dom-sourcebuffer-timestampoffset">Specification</a></p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.24;" id="GstSourceBuffer:updating">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h4 data-hotdoc-id="GstSourceBuffer:updating">
+	<i>updating</i>
+</h4>
+
+
+<pre class="property_signature">
+“updating” <span class="type"><a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean">gboolean</a></span>
+</pre>
+
+<p>Whether the current source buffer is still asynchronously processing
+previously issued commands.</p>
+<p><a href="https://www.w3.org/TR/media-source-2/#dom-sourcebuffer-updating">Specification</a></p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h4 data-hotdoc-id="GstSourceBuffer:updating">
+	<i>updating</i>
+</h4>
+
+
+<pre class="property_signature">
+“updating” <span class="type"><a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a></span>
+</pre>
+
+<p>Whether the current source buffer is still asynchronously processing
+previously issued commands.</p>
+<p><a href="https://www.w3.org/TR/media-source-2/#dom-sourcebuffer-updating">Specification</a></p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h4 data-hotdoc-id="GstSourceBuffer:updating">
+	<i>updating</i>
+</h4>
+
+
+<pre class="property_signature">
+“self.props.updating” <span class="type"><a title="bool" href="https://docs.python.org/3/library/functions.html#bool">bool</a></span>
+</pre>
+
+<p>Whether the current source buffer is still asynchronously processing
+previously issued commands.</p>
+<p><a href="https://www.w3.org/TR/media-source-2/#dom-sourcebuffer-updating">Specification</a></p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+</p>
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+
+        
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.24;" id="GstSourceBufferInterval">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h2 data-hotdoc-id="GstSourceBufferInterval">
+	<i>GstSourceBufferInterval</i>
+</h2>
+
+
+
+
+
+
+	<div class="members-container">
+		<h3>Members</h3>
+					
+<div class="symbol-detail" data-hotdoc-id="GstSourceBufferInterval.start">
+	<div>
+		<i><em><code>start</code></em></i>
+		(<a title="GstClockTime" href="gstreamer/gstclock.html#GstClockTime">GstClockTime</a>)
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstSourceBufferInterval.end">
+	<div>
+		<i><em><code>end</code></em></i>
+		(<a title="GstClockTime" href="gstreamer/gstclock.html#GstClockTime">GstClockTime</a>)
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h2 data-hotdoc-id="GstSourceBufferInterval">
+	<i>GstMse.SourceBufferInterval</i>
+</h2>
+
+
+
+
+
+
+	<div class="members-container">
+		<h3>Members</h3>
+					
+<div class="symbol-detail" data-hotdoc-id="GstSourceBufferInterval.start">
+	<div>
+		<i><em><code>start</code></em></i>
+		(<a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>)
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstSourceBufferInterval.end">
+	<div>
+		<i><em><code>end</code></em></i>
+		(<a title="Number" href="https://developer.mozilla.org/en-US/docs/Glossary/Number">Number</a>)
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h2 data-hotdoc-id="GstSourceBufferInterval">
+	<i>GstMse.SourceBufferInterval</i>
+</h2>
+
+
+
+
+
+
+	<div class="members-container">
+		<h3>Members</h3>
+					
+<div class="symbol-detail" data-hotdoc-id="GstSourceBufferInterval.start">
+	<div>
+		<i><em><code>start</code></em></i>
+		(<a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a>)
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GstSourceBufferInterval.end">
+	<div>
+		<i><em><code>end</code></em></i>
+		(<a title="int" href="https://docs.python.org/3/library/functions.html#int">int</a>)
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+
+        
+
+            <h2 class="symbol_section">Enumerations</h2>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.24;" id="GstSourceBufferAppendMode">
+	
+<div class="gi-symbol gi-symbol-c">
+
+
+
+
+<h3 data-hotdoc-id="GstSourceBufferAppendMode">
+	<i>GstSourceBufferAppendMode</i>
+</h3>
+
+
+<p><a href="https://www.w3.org/TR/media-source-2/#dom-appendmode">Specification</a></p>
+
+
+
+
+	<div class="members-container">
+		<h5>Members</h5>
+					
+<div class="symbol-detail" data-hotdoc-id="GST_SOURCE_BUFFER_APPEND_MODE_SEGMENTS">
+	<div>
+		<i><em><code>GST_SOURCE_BUFFER_APPEND_MODE_SEGMENTS</code></em></i>
+		(<span class="value">0</span>)
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_SOURCE_BUFFER_APPEND_MODE_SEQUENCE">
+	<div>
+		<i><em><code>GST_SOURCE_BUFFER_APPEND_MODE_SEQUENCE</code></em></i>
+		(<span class="value">1</span>)
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-javascript">
+
+
+
+
+<h3 data-hotdoc-id="GstSourceBufferAppendMode">
+	<i>GstMse.SourceBufferAppendMode</i>
+</h3>
+
+
+<p><a href="https://www.w3.org/TR/media-source-2/#dom-appendmode">Specification</a></p>
+
+
+
+
+	<div class="members-container">
+		<h5>Members</h5>
+					
+<div class="symbol-detail" data-hotdoc-id="GST_SOURCE_BUFFER_APPEND_MODE_SEGMENTS">
+	<div>
+		<i><em><code>GstMse.SourceBufferAppendMode.SEGMENTS</code></em></i>
+		(<span class="value">0</span>)
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_SOURCE_BUFFER_APPEND_MODE_SEQUENCE">
+	<div>
+		<i><em><code>GstMse.SourceBufferAppendMode.SEQUENCE</code></em></i>
+		(<span class="value">1</span>)
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+<div class="gi-symbol gi-symbol-python">
+
+
+
+
+<h3 data-hotdoc-id="GstSourceBufferAppendMode">
+	<i>GstMse.SourceBufferAppendMode</i>
+</h3>
+
+
+<p><a href="https://www.w3.org/TR/media-source-2/#dom-appendmode">Specification</a></p>
+
+
+
+
+	<div class="members-container">
+		<h5>Members</h5>
+					
+<div class="symbol-detail" data-hotdoc-id="GST_SOURCE_BUFFER_APPEND_MODE_SEGMENTS">
+	<div>
+		<i><em><code>GstMse.SourceBufferAppendMode.SEGMENTS</code></em></i>
+		(<span class="value">0</span>)
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+					
+<div class="symbol-detail" data-hotdoc-id="GST_SOURCE_BUFFER_APPEND_MODE_SEQUENCE">
+	<div>
+		<i><em><code>GstMse.SourceBufferAppendMode.SEQUENCE</code></em></i>
+		(<span class="value">1</span>)
+		–
+	</div>
+			<i>No description available</i>
+	</div>
+
+			</div>
+
+
+
+	<p>
+	<b>Since</b>			: 1.24
+		</p>
+
+<hr>
+
+</div>
+
+</div>
+
+
+
+
+
+
+		
+	</div>
+	<div id="search_results">
+		<p>The results of the search are</p>
+	</div>
+	<div id="footer">
+		    
+
+	</div>
+</div>
+
+<div id="toc-column">
+	
+		<div class="edit-button">
+		
+
+	</div>
+		<div id="toc-wrapper">
+		<nav id="toc"></nav>
+	</div>
+</div>
+</div>
+</main>
+
+
+<script src="assets/js/navbar_offset_scroller.js"></script>
+</body>
+</html>

@@ -1,0 +1,2590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<base href="..">
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<title>rpicamsrc</title>
+
+<link rel="stylesheet" href="assets/css/dark-frontend.css" type="text/css" title="dark">
+<link rel="alternate stylesheet" href="assets/css/light-frontend.css" type="text/css" title="light">
+<link rel="stylesheet" href="assets/css/bootstrap-toc.min.css" type="text/css">
+<link rel="stylesheet" href="assets/css/jquery.mCustomScrollbar.min.css">
+<link rel="stylesheet" href="assets/js/search/enable_search.css" type="text/css">
+
+<link rel="stylesheet" href="assets/css/extra_frontend.css" type="text/css">
+<link rel="stylesheet" href="assets/css/devhelp.css" type="text/css">
+
+<link rel="stylesheet" href="assets/css/prism-tomorrow.css" type="text/css" title="dark">
+
+<link rel="alternate stylesheet" href="assets/css/prism.css" type="text/css" title="light">
+
+<script src="assets/js/mustache.min.js"></script>
+<script src="assets/js/jquery.js"></script>
+<script src="assets/js/bootstrap.js"></script>
+<script src="assets/js/scrollspy.js"></script>
+<script src="assets/js/typeahead.jquery.min.js"></script>
+<script src="assets/js/search.js"></script>
+<script src="assets/js/compare-versions.js"></script>
+<script src="assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="assets/js/bootstrap-toc.min.js"></script>
+<script src="assets/js/jquery.touchSwipe.min.js"></script>
+<script src="assets/js/anchor.min.js"></script>
+<script src="assets/js/tag_filtering.js"></script>
+<script src="assets/js/language_switching.js"></script>
+<script src="assets/js/styleswitcher.js"></script>
+
+<script src="assets/js/lines_around_headings.js"></script>
+
+<script src="assets/js/prism-core.js"></script>
+<script src="assets/js/prism-autoloader.js"></script>
+<script src="assets/js/prism_autoloader_path_override.js"></script>
+<script src="assets/js/trie.js"></script>
+
+<!-- generic -->
+<link rel="icon" type="image/png" href="assets/images/favicon-16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="assets/images/favicon-32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="assets/images/favicon-57.png" sizes="57x57">
+<link rel="icon" type="image/png" href="assets/images/favicon-64.png" sizes="64x64">
+<link rel="icon" type="image/png" href="assets/images/favicon-76.png" sizes="76x76">
+<link rel="icon" type="image/png" href="assets/images/favicon-96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="assets/images/favicon-128.png" sizes="128x128">
+<link rel="icon" type="image/png" href="assets/images/favicon-192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="assets/images/favicon-228.png" sizes="228x228">
+
+<!-- Android -->
+<link rel="shortcut icon" sizes="196x196" href="assets/images/favicon-196.png">
+
+<!-- iOS -->
+<link rel="apple-touch-icon" href="assets/images/favicon-120.png" sizes="120x120">
+<link rel="apple-touch-icon" href="assets/images/favicon-152.png" sizes="152x152">
+<link rel="apple-touch-icon" href="assets/images/favicon-180.png" sizes="180x180">
+
+</head>
+
+<body class="no-script
+">
+
+<script>
+$('body').removeClass('no-script');
+</script>
+
+<nav class="navbar navbar-fixed-top navbar-default" id="topnav">
+	<div class="container-fluid">
+		<div class="navbar-right">
+			<a id="toc-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-wrapper" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<span title="light mode switch" class="glyphicon glyphicon-sunglasses pull-right" id="lightmode-icon"></span>
+			<form class="navbar-form pull-right" id="navbar-search-form">
+                               <div class="form-group has-feedback">
+                                       <input type="text" class="form-control input-sm" name="search" id="sidenav-lookup-field" placeholder="search" disabled>
+				       <span class="glyphicon glyphicon-search form-control-feedback" id="search-mgn-glass"></span>
+                               </div>
+                        </form>
+		</div>
+		<div class="navbar-header">
+			<a id="sidenav-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<a id="home-link" href="index.html" class="hotdoc-navbar-brand">
+				<img src="assets/images/gstreamer-logo.svg" alt="Home">
+			</a>
+		</div>
+		<div class="navbar-collapse collapse" id="navbar-wrapper">
+			<ul class="nav navbar-nav" id="menu">
+				
+<li class="dropdown">
+    <a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        API References<span class="caret"></span>
+    </a>
+	<ul class="dropdown-menu" id="modules-menu">
+					<li>
+				<a href="gstreamer/gi-index.html">GStreamer core</a>
+			</li>
+					<li>
+				<a href="libs.html">GStreamer Libraries</a>
+			</li>
+					<li>
+				<a href="plugins_doc.html">GStreamer Plugins</a>
+			</li>
+		</ul>
+</li>
+
+<li>
+    <a href="application-development/index.html">Application manual</a>
+</li>
+
+
+<li>
+    <a href="tutorials/index.html">Tutorials</a>
+</li>
+
+			</ul>
+			<div class="hidden-xs hidden-sm navbar-text navbar-center">
+							</div>
+		</div>
+	</div>
+</nav>
+
+<main>
+<div data-extension="gst-extension" data-hotdoc-in-toplevel="False" data-hotdoc-project="rpicamsrc" data-hotdoc-ref="index.html" class="page_container" id="page-wrapper" data-hotdoc-meta-gi-languages="['c', 'javascript', 'python']">
+<script src="assets/js/utils.js"></script>
+
+<div class="panel panel-collapse oc-collapsed" id="sidenav" data-hotdoc-role="navigation">
+	<script src="assets/js/full-width.js"></script>
+  <div id="sitenav-wrapper">
+    <iframe src="hotdoc-sitemap.html" id="sitenav-frame"></iframe>
+  </div>
+</div>
+
+<div id="body">
+	<div id="main">
+				    <div id="page-description" data-hotdoc-role="main">
+        <h1 id="rpicamsrc-page">rpicamsrc</h1>
+<p>Source element for capturing video from the Raspberry Pi camera module.</p>
+<p>This element works the same way that the <code>raspivid</code> command-line utility
+does and has a similar feature set.</p>
+<p>The element can output video in form of raw video frames or encoded as
+(M)JPEG or H.264 video. You can use the element properties to fine-tune
+the capture, image processing and encoding parameters.</p>
+<h2 id="example-pipelines">Example pipelines</h2>
+<pre><code class="language-["> gst-launch-1.0 -v rpicamsrc preview=true ! fakesink
+</code></pre>
+<p>should show a preview window on the screen.</p>
+<pre><code class="language-["> gst-launch-1.0 -e rpicamsrc bitrate=1000000 ! h264parse ! matroskamux ! filesink location=test.mkv
+</code></pre>
+<p>should produce a file called test.mkv containing an H.264 video stream. We
+pass -e to gst-launch-1.0 so that the pipeline is finalised properly when
+interrupted with Control-C. This makes sure the Matroska file headers are
+updated when streaming ends.</p>
+<pre><code class="language-["> gst-launch-1.0 -e rpicamsrc bitrate=5000000 num-buffers=500 keyframe-interval=30 ! h264parse ! splitmuxsink location=video%02d.mov max-size-time=10000000000 max-size-bytes=1000000
+</code></pre>
+<p>Records a video stream captured from the Raspberry Pi camera module and
+muxes it into ISO mp4 files, splitting as needed to limit size/duration to
+10 seconds and 1MB maximum size.</p>
+<p>gst-launch-1.0 -e rpicamsrc ! image/jpeg,framerate=1/1 ! multifilesink location=image-%05d.jpg
+]|
+Captures a stream of JPEG images from the Raspberry Pi camera module at
+a rate of 1 frame per second and writes each frame into a new file in the
+current directory, starting with image-00000.jpg, then image-00001.jpg etc.</p>
+
+    </div>
+        
+        
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.18;" id="plugin-rpicamsrc">
+	
+        <div class="base_symbol_container">
+        </div>
+
+</div>
+
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="since:1.18;" id="rpicamsrc">
+	
+        
+
+        <h2>Hierarchy</h2>
+            <div class="hierarchy_container">
+                <div class="hierarchy_details">
+<pre>
+<a title="GObject" href="https://docs.gtk.org/gobject/class.Object.html" data-gi-href-javascript="https://docs.gtk.org/gobject/class.Object.html" data-gi-title-javascript="GObject.Object" data-gi-href-python="https://docs.gtk.org/gobject/class.Object.html" data-gi-title-python="GObject.Object">GObject</a>
+    <span class="lineart">╰──</span><a title="GInitiallyUnowned" href="https://docs.gtk.org/gobject/class.InitiallyUnowned.html" data-gi-href-javascript="https://docs.gtk.org/gobject/class.InitiallyUnowned.html" data-gi-title-javascript="GObject.InitiallyUnowned" data-gi-href-python="https://docs.gtk.org/gobject/class.InitiallyUnowned.html" data-gi-title-python="GObject.InitiallyUnowned">GInitiallyUnowned</a>
+        <span class="lineart">╰──</span><a title="GstObject" href="gstreamer/gstobject.html#GstObject" data-gi-href-javascript="gstreamer/gstobject.html#GstObject" data-gi-title-javascript="Gst.Object" data-gi-href-python="gstreamer/gstobject.html#GstObject" data-gi-title-python="Gst.Object">GstObject</a>
+            <span class="lineart">╰──</span><a title="GstElement" href="gstreamer/gstelement.html#GstElement" data-gi-href-javascript="gstreamer/gstelement.html#GstElement" data-gi-title-javascript="Gst.Element" data-gi-href-python="gstreamer/gstelement.html#GstElement" data-gi-title-python="Gst.Element">GstElement</a>
+                <span class="lineart">╰──</span><a title="GstBaseSrc" href="base/gstbasesrc.html#GstBaseSrc" data-gi-href-javascript="base/gstbasesrc.html#GstBaseSrc" data-gi-title-javascript="GstBase.BaseSrc" data-gi-href-python="base/gstbasesrc.html#GstBaseSrc" data-gi-title-python="GstBase.BaseSrc">GstBaseSrc</a>
+                    <span class="lineart">╰──</span><a title="GstPushSrc" href="base/gstpushsrc.html#GstPushSrc" data-gi-href-javascript="base/gstpushsrc.html#GstPushSrc" data-gi-title-javascript="GstBase.PushSrc" data-gi-href-python="base/gstpushsrc.html#GstPushSrc" data-gi-title-python="GstBase.PushSrc">GstPushSrc</a>
+                        <span class="lineart">╰──</span>rpicamsrc
+</pre>
+
+</div>
+
+            </div>
+            <h2>Implemented interfaces</h2>
+            <div>
+                <pre>
+<a title="GstColorBalance" href="video/gstcolorbalance.html#GstColorBalance" data-gi-href-javascript="video/gstcolorbalance.html#GstColorBalance" data-gi-title-javascript="GstVideo.ColorBalance" data-gi-href-python="video/gstcolorbalance.html#GstColorBalance" data-gi-title-python="GstVideo.ColorBalance">GstColorBalance</a>
+<a title="GstVideoDirection" href="video/gstvideodirection.html#GstVideoDirection" data-gi-href-javascript="video/gstvideodirection.html#GstVideoDirection" data-gi-title-javascript="GstVideo.VideoDirection" data-gi-href-python="video/gstvideodirection.html#GstVideoDirection" data-gi-title-python="GstVideo.VideoDirection">GstVideoDirection</a>
+<a title="GstVideoOrientation" href="video/gstvideoorientation.html#GstVideoOrientation" data-gi-href-javascript="video/gstvideoorientation.html#GstVideoOrientation" data-gi-title-javascript="GstVideo.VideoOrientation" data-gi-href-python="video/gstvideoorientation.html#GstVideoOrientation" data-gi-title-python="GstVideo.VideoOrientation">GstVideoOrientation</a>
+</pre>
+            </div>
+        <h2 class="symbol_section">Factory details</h2>
+        <div class="symbol-detail">
+            <p><b>Authors:</b> – Jan Schmidt <jan@centricular.com></jan@centricular.com></p>
+            <p><b>Classification:</b> – <code>Source/Video</code></p>
+            <p><b>Rank</b> – none</p>
+            <p><b>Plugin</b> – rpicamsrc</p>
+            <p><b>Package</b> – GStreamer Good Plug-ins</p>
+        </div>
+
+</div>
+
+
+            <h2 class="symbol_section">Pad Templates</h2>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstRpiCamSrc!src">
+	
+
+
+
+        <h3><span><code>src</code></span></h3>
+
+
+        <div>
+            
+            <pre class="language-yaml"><code class="language-yaml">video/x-h264:
+          width: [ 1, 2147483647 ]
+         height: [ 1, 2147483647 ]
+      framerate: [ 0/1, 2147483647/1 ]
+  stream-format: byte-stream
+      alignment: nal
+        profile: { (string)constrained-baseline, (string)baseline, (string)main, (string)high }
+image/jpeg:
+          width: [ 1, 2147483647 ]
+         height: [ 1, 2147483647 ]
+      framerate: [ 0/1, 2147483647/1 ]
+video/x-raw:
+         format: { I420, RGB, BGR, RGBA }
+          width: [ 1, 2147483647 ]
+         height: [ 1, 2147483647 ]
+      framerate: [ 0/1, 2147483647/1 ]
+</code></pre>
+            <div class="symbol-detail">
+                <p><b>Presence</b> – <i>always</i></p>
+                <p><b>Direction</b> – <i>src</i></p>
+                    <p><b>Object type</b> – <a title="GstPad" href="gstreamer/gstpad.html#GstPad" data-gi-href-javascript="gstreamer/gstpad.html#GstPad" data-gi-title-javascript="Gst.Pad" data-gi-href-python="gstreamer/gstpad.html#GstPad" data-gi-title-python="Gst.Pad">GstPad</a></p>
+            </div>
+        </div>
+
+
+
+<hr>
+
+</div>
+
+
+            <h2 class="symbol_section">Properties</h2>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="rpicamsrc:annotation-mode">
+	
+
+
+
+<h3 data-hotdoc-id="rpicamsrc:annotation-mode">
+	<i>annotation-mode</i>
+</h3>
+
+
+<pre class="property_signature">
+“annotation-mode” <span class="type"><a title="GstRpiCamSrcAnnotationMode" href="rpicamsrc/index.html#GstRpiCamSrcAnnotationMode">GstRpiCamSrcAnnotationMode</a> <span class="pointer-token">*</span></span>
+</pre>
+
+<p>Flags to control annotation of the output video</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	(none)
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="rpicamsrc:annotation-text">
+	
+
+
+
+<h3 data-hotdoc-id="rpicamsrc:annotation-text">
+	<i>annotation-text</i>
+</h3>
+
+
+<pre class="property_signature">
+“annotation-text” <span class="type"><a title="gchararray" href="https://web.mit.edu/barnowl/share/gtk-doc/html/gobject/gobject-Standard-Parameter-and-Value-Types.html#gchararray" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" data-gi-title-javascript="String" data-gi-href-python="https://docs.python.org/3/library/functions.html#func-str" data-gi-title-python="str">gchararray</a></span>
+</pre>
+
+<p>Text string to annotate onto video when annotation-mode flags include 'custom-text'</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="rpicamsrc:annotation-text-bg-colour">
+	
+
+
+
+<h3 data-hotdoc-id="rpicamsrc:annotation-text-bg-colour">
+	<i>annotation-text-bg-colour</i>
+</h3>
+
+
+<pre class="property_signature">
+“annotation-text-bg-colour” <span class="type"><a title="gint" href="https://docs.gtk.org/glib/types.html#gint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">gint</a></span>
+</pre>
+
+<p>Set the annotation text background colour, as the integer corresponding to a VUY value eg 0x8080FF = 8421631, -1 for default</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	-1
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="rpicamsrc:annotation-text-colour">
+	
+
+
+
+<h3 data-hotdoc-id="rpicamsrc:annotation-text-colour">
+	<i>annotation-text-colour</i>
+</h3>
+
+
+<pre class="property_signature">
+“annotation-text-colour” <span class="type"><a title="gint" href="https://docs.gtk.org/glib/types.html#gint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">gint</a></span>
+</pre>
+
+<p>Set the annotation text colour, as the integer corresponding to a VUY value eg 0x8080FF = 8421631, -1 for default</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	-1
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="rpicamsrc:annotation-text-size">
+	
+
+
+
+<h3 data-hotdoc-id="rpicamsrc:annotation-text-size">
+	<i>annotation-text-size</i>
+</h3>
+
+
+<pre class="property_signature">
+“annotation-text-size” <span class="type"><a title="gint" href="https://docs.gtk.org/glib/types.html#gint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">gint</a></span>
+</pre>
+
+<p>Set the size of annotation text (in pixels) (0 = Auto)</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	0
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="rpicamsrc:awb-gain-blue">
+	
+
+
+
+<h3 data-hotdoc-id="rpicamsrc:awb-gain-blue">
+	<i>awb-gain-blue</i>
+</h3>
+
+
+<pre class="property_signature">
+“awb-gain-blue” <span class="type"><a title="gfloat" href="https://docs.gtk.org/glib/types.html#gfloat" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#float" data-gi-title-python="float">gfloat</a></span>
+</pre>
+
+<p>Manual AWB Gain for blue channel when awb-mode=off</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	0
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="rpicamsrc:awb-gain-red">
+	
+
+
+
+<h3 data-hotdoc-id="rpicamsrc:awb-gain-red">
+	<i>awb-gain-red</i>
+</h3>
+
+
+<pre class="property_signature">
+“awb-gain-red” <span class="type"><a title="gfloat" href="https://docs.gtk.org/glib/types.html#gfloat" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#float" data-gi-title-python="float">gfloat</a></span>
+</pre>
+
+<p>Manual AWB Gain for red channel when awb-mode=off</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	0
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="rpicamsrc:awb-mode">
+	
+
+
+
+<h3 data-hotdoc-id="rpicamsrc:awb-mode">
+	<i>awb-mode</i>
+</h3>
+
+
+<pre class="property_signature">
+“awb-mode” <span class="type"><a title="GstRpiCamSrcAWBMode" href="rpicamsrc/index.html#GstRpiCamSrcAWBMode">GstRpiCamSrcAWBMode</a> <span class="pointer-token">*</span></span>
+</pre>
+
+<p>White Balance mode</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	auto (1)
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="rpicamsrc:bitrate">
+	
+
+
+
+<h3 data-hotdoc-id="rpicamsrc:bitrate">
+	<i>bitrate</i>
+</h3>
+
+
+<pre class="property_signature">
+“bitrate” <span class="type"><a title="gint" href="https://docs.gtk.org/glib/types.html#gint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">gint</a></span>
+</pre>
+
+<p>Bitrate for encoding. 0 for VBR using quantisation-parameter</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	17000000
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="rpicamsrc:brightness">
+	
+
+
+
+<h3 data-hotdoc-id="rpicamsrc:brightness">
+	<i>brightness</i>
+</h3>
+
+
+<pre class="property_signature">
+“brightness” <span class="type"><a title="gint" href="https://docs.gtk.org/glib/types.html#gint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">gint</a></span>
+</pre>
+
+<p>Image capture brightness</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	50
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="rpicamsrc:camera-number">
+	
+
+
+
+<h3 data-hotdoc-id="rpicamsrc:camera-number">
+	<i>camera-number</i>
+</h3>
+
+
+<pre class="property_signature">
+“camera-number” <span class="type"><a title="gint" href="https://docs.gtk.org/glib/types.html#gint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">gint</a></span>
+</pre>
+
+<p>Which camera to use on a multi-camera system - 0 or 1</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	0
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="rpicamsrc:contrast">
+	
+
+
+
+<h3 data-hotdoc-id="rpicamsrc:contrast">
+	<i>contrast</i>
+</h3>
+
+
+<pre class="property_signature">
+“contrast” <span class="type"><a title="gint" href="https://docs.gtk.org/glib/types.html#gint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">gint</a></span>
+</pre>
+
+<p>Image capture contrast</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	0
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="rpicamsrc:drc">
+	
+
+
+
+<h3 data-hotdoc-id="rpicamsrc:drc">
+	<i>drc</i>
+</h3>
+
+
+<pre class="property_signature">
+“drc” <span class="type"><a title="GstRpiCamSrcDRCLevel" href="rpicamsrc/index.html#GstRpiCamSrcDRCLevel">GstRpiCamSrcDRCLevel</a> <span class="pointer-token">*</span></span>
+</pre>
+
+<p>Dynamic Range Control level</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	off (0)
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="rpicamsrc:exposure-compensation">
+	
+
+
+
+<h3 data-hotdoc-id="rpicamsrc:exposure-compensation">
+	<i>exposure-compensation</i>
+</h3>
+
+
+<pre class="property_signature">
+“exposure-compensation” <span class="type"><a title="gint" href="https://docs.gtk.org/glib/types.html#gint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">gint</a></span>
+</pre>
+
+<p>Exposure Value compensation</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	0
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="rpicamsrc:exposure-mode">
+	
+
+
+
+<h3 data-hotdoc-id="rpicamsrc:exposure-mode">
+	<i>exposure-mode</i>
+</h3>
+
+
+<pre class="property_signature">
+“exposure-mode” <span class="type"><a title="GstRpiCamSrcExposureMode" href="rpicamsrc/index.html#GstRpiCamSrcExposureMode">GstRpiCamSrcExposureMode</a> <span class="pointer-token">*</span></span>
+</pre>
+
+<p>Camera exposure mode to use</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	auto (1)
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="rpicamsrc:fullscreen">
+	
+
+
+
+<h3 data-hotdoc-id="rpicamsrc:fullscreen">
+	<i>fullscreen</i>
+</h3>
+
+
+<pre class="property_signature">
+“fullscreen” <span class="type"><a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#bool" data-gi-title-python="bool">gboolean</a></span>
+</pre>
+
+<p>Display preview window full screen</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	true
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="rpicamsrc:hflip">
+	
+
+
+
+<h3 data-hotdoc-id="rpicamsrc:hflip">
+	<i>hflip</i>
+</h3>
+
+
+<pre class="property_signature">
+“hflip” <span class="type"><a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#bool" data-gi-title-python="bool">gboolean</a></span>
+</pre>
+
+<p>Flip capture horizontally</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	false
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="rpicamsrc:image-effect">
+	
+
+
+
+<h3 data-hotdoc-id="rpicamsrc:image-effect">
+	<i>image-effect</i>
+</h3>
+
+
+<pre class="property_signature">
+“image-effect” <span class="type"><a title="GstRpiCamSrcImageEffect" href="rpicamsrc/index.html#GstRpiCamSrcImageEffect">GstRpiCamSrcImageEffect</a> <span class="pointer-token">*</span></span>
+</pre>
+
+<p>Visual FX to apply to the image</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	none (0)
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="rpicamsrc:inline-headers">
+	
+
+
+
+<h3 data-hotdoc-id="rpicamsrc:inline-headers">
+	<i>inline-headers</i>
+</h3>
+
+
+<pre class="property_signature">
+“inline-headers” <span class="type"><a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#bool" data-gi-title-python="bool">gboolean</a></span>
+</pre>
+
+<p>Set to TRUE to insert SPS/PPS before each IDR packet</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	false
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="rpicamsrc:intra-refresh-type">
+	
+
+
+
+<h3 data-hotdoc-id="rpicamsrc:intra-refresh-type">
+	<i>intra-refresh-type</i>
+</h3>
+
+
+<pre class="property_signature">
+“intra-refresh-type” <span class="type"><a title="GstRpiCamSrcIntraRefreshType" href="rpicamsrc/index.html#GstRpiCamSrcIntraRefreshType">GstRpiCamSrcIntraRefreshType</a> <span class="pointer-token">*</span></span>
+</pre>
+
+<p>Type of Intra Refresh to use, -1 to disable intra refresh</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	none (-1)
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="rpicamsrc:iso">
+	
+
+
+
+<h3 data-hotdoc-id="rpicamsrc:iso">
+	<i>iso</i>
+</h3>
+
+
+<pre class="property_signature">
+“iso” <span class="type"><a title="gint" href="https://docs.gtk.org/glib/types.html#gint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">gint</a></span>
+</pre>
+
+<p>ISO value to use (0 = Auto)</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	0
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="rpicamsrc:keyframe-interval">
+	
+
+
+
+<h3 data-hotdoc-id="rpicamsrc:keyframe-interval">
+	<i>keyframe-interval</i>
+</h3>
+
+
+<pre class="property_signature">
+“keyframe-interval” <span class="type"><a title="gint" href="https://docs.gtk.org/glib/types.html#gint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">gint</a></span>
+</pre>
+
+<p>Interval (in frames) between I frames. -1 = automatic, 0 = single-keyframe</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	-1
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="rpicamsrc:metering-mode">
+	
+
+
+
+<h3 data-hotdoc-id="rpicamsrc:metering-mode">
+	<i>metering-mode</i>
+</h3>
+
+
+<pre class="property_signature">
+“metering-mode” <span class="type"><a title="GstRpiCamSrcExposureMeteringMode" href="rpicamsrc/index.html#GstRpiCamSrcExposureMeteringMode">GstRpiCamSrcExposureMeteringMode</a> <span class="pointer-token">*</span></span>
+</pre>
+
+<p>Camera exposure metering mode to use</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	average (0)
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="rpicamsrc:preview">
+	
+
+
+
+<h3 data-hotdoc-id="rpicamsrc:preview">
+	<i>preview</i>
+</h3>
+
+
+<pre class="property_signature">
+“preview” <span class="type"><a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#bool" data-gi-title-python="bool">gboolean</a></span>
+</pre>
+
+<p>Display preview window overlay</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	true
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="rpicamsrc:preview-encoded">
+	
+
+
+
+<h3 data-hotdoc-id="rpicamsrc:preview-encoded">
+	<i>preview-encoded</i>
+</h3>
+
+
+<pre class="property_signature">
+“preview-encoded” <span class="type"><a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#bool" data-gi-title-python="bool">gboolean</a></span>
+</pre>
+
+<p>Display encoder output in the preview</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	true
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="rpicamsrc:preview-h">
+	
+
+
+
+<h3 data-hotdoc-id="rpicamsrc:preview-h">
+	<i>preview-h</i>
+</h3>
+
+
+<pre class="property_signature">
+“preview-h” <span class="type"><a title="gint" href="https://docs.gtk.org/glib/types.html#gint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">gint</a></span>
+</pre>
+
+<p>Height of the preview window (in pixels)</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	768
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="rpicamsrc:preview-opacity">
+	
+
+
+
+<h3 data-hotdoc-id="rpicamsrc:preview-opacity">
+	<i>preview-opacity</i>
+</h3>
+
+
+<pre class="property_signature">
+“preview-opacity” <span class="type"><a title="gint" href="https://docs.gtk.org/glib/types.html#gint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">gint</a></span>
+</pre>
+
+<p>Opacity to use for the preview window</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	255
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="rpicamsrc:preview-w">
+	
+
+
+
+<h3 data-hotdoc-id="rpicamsrc:preview-w">
+	<i>preview-w</i>
+</h3>
+
+
+<pre class="property_signature">
+“preview-w” <span class="type"><a title="gint" href="https://docs.gtk.org/glib/types.html#gint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">gint</a></span>
+</pre>
+
+<p>Width of the preview window (in pixels)</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	1024
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="rpicamsrc:preview-x">
+	
+
+
+
+<h3 data-hotdoc-id="rpicamsrc:preview-x">
+	<i>preview-x</i>
+</h3>
+
+
+<pre class="property_signature">
+“preview-x” <span class="type"><a title="gint" href="https://docs.gtk.org/glib/types.html#gint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">gint</a></span>
+</pre>
+
+<p>Start X coordinate of the preview window (in pixels)</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	0
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="rpicamsrc:preview-y">
+	
+
+
+
+<h3 data-hotdoc-id="rpicamsrc:preview-y">
+	<i>preview-y</i>
+</h3>
+
+
+<pre class="property_signature">
+“preview-y” <span class="type"><a title="gint" href="https://docs.gtk.org/glib/types.html#gint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">gint</a></span>
+</pre>
+
+<p>Start Y coordinate of the preview window (in pixels)</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	0
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="rpicamsrc:quantisation-parameter">
+	
+
+
+
+<h3 data-hotdoc-id="rpicamsrc:quantisation-parameter">
+	<i>quantisation-parameter</i>
+</h3>
+
+
+<pre class="property_signature">
+“quantisation-parameter” <span class="type"><a title="gint" href="https://docs.gtk.org/glib/types.html#gint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">gint</a></span>
+</pre>
+
+<p>Set a Quantisation Parameter approx 10-40 with bitrate=0 for VBR encoding. 0 = off</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	0
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="rpicamsrc:roi-h">
+	
+
+
+
+<h3 data-hotdoc-id="rpicamsrc:roi-h">
+	<i>roi-h</i>
+</h3>
+
+
+<pre class="property_signature">
+“roi-h” <span class="type"><a title="gfloat" href="https://docs.gtk.org/glib/types.html#gfloat" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#float" data-gi-title-python="float">gfloat</a></span>
+</pre>
+
+<p>Normalised region-of-interest H coord</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	1
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="rpicamsrc:roi-w">
+	
+
+
+
+<h3 data-hotdoc-id="rpicamsrc:roi-w">
+	<i>roi-w</i>
+</h3>
+
+
+<pre class="property_signature">
+“roi-w” <span class="type"><a title="gfloat" href="https://docs.gtk.org/glib/types.html#gfloat" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#float" data-gi-title-python="float">gfloat</a></span>
+</pre>
+
+<p>Normalised region-of-interest W coord</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	1
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="rpicamsrc:roi-x">
+	
+
+
+
+<h3 data-hotdoc-id="rpicamsrc:roi-x">
+	<i>roi-x</i>
+</h3>
+
+
+<pre class="property_signature">
+“roi-x” <span class="type"><a title="gfloat" href="https://docs.gtk.org/glib/types.html#gfloat" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#float" data-gi-title-python="float">gfloat</a></span>
+</pre>
+
+<p>Normalised region-of-interest X coord</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	0
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="rpicamsrc:roi-y">
+	
+
+
+
+<h3 data-hotdoc-id="rpicamsrc:roi-y">
+	<i>roi-y</i>
+</h3>
+
+
+<pre class="property_signature">
+“roi-y” <span class="type"><a title="gfloat" href="https://docs.gtk.org/glib/types.html#gfloat" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#float" data-gi-title-python="float">gfloat</a></span>
+</pre>
+
+<p>Normalised region-of-interest Y coord</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	0
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="rpicamsrc:rotation">
+	
+
+
+
+<h3 data-hotdoc-id="rpicamsrc:rotation">
+	<i>rotation</i>
+</h3>
+
+
+<pre class="property_signature">
+“rotation” <span class="type"><a title="gint" href="https://docs.gtk.org/glib/types.html#gint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">gint</a></span>
+</pre>
+
+<p>Rotate captured image (0, 90, 180, 270 degrees)</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	0
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="rpicamsrc:saturation">
+	
+
+
+
+<h3 data-hotdoc-id="rpicamsrc:saturation">
+	<i>saturation</i>
+</h3>
+
+
+<pre class="property_signature">
+“saturation” <span class="type"><a title="gint" href="https://docs.gtk.org/glib/types.html#gint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">gint</a></span>
+</pre>
+
+<p>Image capture saturation</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	0
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="rpicamsrc:sensor-mode">
+	
+
+
+
+<h3 data-hotdoc-id="rpicamsrc:sensor-mode">
+	<i>sensor-mode</i>
+</h3>
+
+
+<pre class="property_signature">
+“sensor-mode” <span class="type"><a title="GstRpiCamSrcSensorMode" href="rpicamsrc/index.html#GstRpiCamSrcSensorMode">GstRpiCamSrcSensorMode</a> <span class="pointer-token">*</span></span>
+</pre>
+
+<p>Manually set the camera sensor mode</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	automatic (0)
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="rpicamsrc:sharpness">
+	
+
+
+
+<h3 data-hotdoc-id="rpicamsrc:sharpness">
+	<i>sharpness</i>
+</h3>
+
+
+<pre class="property_signature">
+“sharpness” <span class="type"><a title="gint" href="https://docs.gtk.org/glib/types.html#gint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">gint</a></span>
+</pre>
+
+<p>Image capture sharpness</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	0
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="rpicamsrc:shutter-speed">
+	
+
+
+
+<h3 data-hotdoc-id="rpicamsrc:shutter-speed">
+	<i>shutter-speed</i>
+</h3>
+
+
+<pre class="property_signature">
+“shutter-speed” <span class="type"><a title="gint" href="https://docs.gtk.org/glib/types.html#gint" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#int" data-gi-title-python="int">gint</a></span>
+</pre>
+
+<p>Set a fixed shutter speed, in microseconds. (0 = Auto)</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	0
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="rpicamsrc:use-stc">
+	
+
+
+
+<h3 data-hotdoc-id="rpicamsrc:use-stc">
+	<i>use-stc</i>
+</h3>
+
+
+<pre class="property_signature">
+“use-stc” <span class="type"><a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#bool" data-gi-title-python="bool">gboolean</a></span>
+</pre>
+
+<p>Use the camera STC for timestamping buffers</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	true
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="rpicamsrc:vflip">
+	
+
+
+
+<h3 data-hotdoc-id="rpicamsrc:vflip">
+	<i>vflip</i>
+</h3>
+
+
+<pre class="property_signature">
+“vflip” <span class="type"><a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#bool" data-gi-title-python="bool">gboolean</a></span>
+</pre>
+
+<p>Flip capture vertically</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	false
+</p>
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="rpicamsrc:video-stabilisation">
+	
+
+
+
+<h3 data-hotdoc-id="rpicamsrc:video-stabilisation">
+	<i>video-stabilisation</i>
+</h3>
+
+
+<pre class="property_signature">
+“video-stabilisation” <span class="type"><a title="gboolean" href="https://docs.gtk.org/glib/types.html#gboolean" data-gi-href-javascript="https://developer.mozilla.org/en-US/docs/Glossary/Number" data-gi-title-javascript="Number" data-gi-href-python="https://docs.python.org/3/library/functions.html#bool" data-gi-title-python="bool">gboolean</a></span>
+</pre>
+
+<p>Enable or disable video stabilisation</p>
+
+
+<p>
+	Flags :	
+	
+		
+				Read
+			
+				/		
+				Write
+			
+</p>
+<p>
+	Default value :	false
+</p>
+
+
+
+<hr>
+
+</div>
+
+
+            <h2 class="symbol_section">Named constants</h2>
+                    
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstRpiCamSrcAWBMode">
+	
+
+
+
+<h3 data-hotdoc-id="GstRpiCamSrcAWBMode">
+	<i>GstRpiCamSrcAWBMode</i>
+</h3>
+
+
+
+
+
+	<div class="members-container">
+		<h4>Members</h4>
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstRpiCamSrcAWBMode::off">
+        <code>off</code> (<i>0</i>) – GST_RPI_CAM_SRC_AWB_MODE_OFF
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstRpiCamSrcAWBMode::auto">
+        <code>auto</code> (<i>1</i>) – GST_RPI_CAM_SRC_AWB_MODE_AUTO
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstRpiCamSrcAWBMode::sunlight">
+        <code>sunlight</code> (<i>2</i>) – GST_RPI_CAM_SRC_AWB_MODE_SUNLIGHT
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstRpiCamSrcAWBMode::cloudy">
+        <code>cloudy</code> (<i>3</i>) – GST_RPI_CAM_SRC_AWB_MODE_CLOUDY
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstRpiCamSrcAWBMode::shade">
+        <code>shade</code> (<i>4</i>) – GST_RPI_CAM_SRC_AWB_MODE_SHADE
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstRpiCamSrcAWBMode::tungsten">
+        <code>tungsten</code> (<i>5</i>) – GST_RPI_CAM_SRC_AWB_MODE_TUNGSTEN
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstRpiCamSrcAWBMode::fluorescent">
+        <code>fluorescent</code> (<i>6</i>) – GST_RPI_CAM_SRC_AWB_MODE_FLUORESCENT
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstRpiCamSrcAWBMode::incandescent">
+        <code>incandescent</code> (<i>7</i>) – GST_RPI_CAM_SRC_AWB_MODE_INCANDESCENT
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstRpiCamSrcAWBMode::flash">
+        <code>flash</code> (<i>8</i>) – GST_RPI_CAM_SRC_AWB_MODE_FLASH
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstRpiCamSrcAWBMode::horizon">
+        <code>horizon</code> (<i>9</i>) – GST_RPI_CAM_SRC_AWB_MODE_HORIZON
+        </div>
+    
+			</div>
+
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstRpiCamSrcAnnotationMode">
+	
+
+
+
+<h3 data-hotdoc-id="GstRpiCamSrcAnnotationMode">
+	<i>GstRpiCamSrcAnnotationMode</i>
+</h3>
+
+
+
+
+
+	<div class="members-container">
+		<h4>Members</h4>
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstRpiCamSrcAnnotationMode::custom-text">
+        <code>custom-text</code> (<i>0x00000001</i>) – GST_RPI_CAM_SRC_ANNOTATION_MODE_CUSTOM_TEXT
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstRpiCamSrcAnnotationMode::text">
+        <code>text</code> (<i>0x00000002</i>) – GST_RPI_CAM_SRC_ANNOTATION_MODE_TEXT
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstRpiCamSrcAnnotationMode::date">
+        <code>date</code> (<i>0x00000004</i>) – GST_RPI_CAM_SRC_ANNOTATION_MODE_DATE
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstRpiCamSrcAnnotationMode::time">
+        <code>time</code> (<i>0x00000008</i>) – GST_RPI_CAM_SRC_ANNOTATION_MODE_TIME
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstRpiCamSrcAnnotationMode::shutter-settings">
+        <code>shutter-settings</code> (<i>0x00000010</i>) – GST_RPI_CAM_SRC_ANNOTATION_MODE_SHUTTER_SETTINGS
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstRpiCamSrcAnnotationMode::caf-settings">
+        <code>caf-settings</code> (<i>0x00000020</i>) – GST_RPI_CAM_SRC_ANNOTATION_MODE_CAF_SETTINGS
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstRpiCamSrcAnnotationMode::gain-settings">
+        <code>gain-settings</code> (<i>0x00000040</i>) – GST_RPI_CAM_SRC_ANNOTATION_MODE_GAIN_SETTINGS
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstRpiCamSrcAnnotationMode::lens-settings">
+        <code>lens-settings</code> (<i>0x00000080</i>) – GST_RPI_CAM_SRC_ANNOTATION_MODE_LENS_SETTINGS
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstRpiCamSrcAnnotationMode::motion-settings">
+        <code>motion-settings</code> (<i>0x00000100</i>) – GST_RPI_CAM_SRC_ANNOTATION_MODE_MOTION_SETTINGS
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstRpiCamSrcAnnotationMode::frame-number">
+        <code>frame-number</code> (<i>0x00000200</i>) – GST_RPI_CAM_SRC_ANNOTATION_MODE_FRAME_NUMBER
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstRpiCamSrcAnnotationMode::black-background">
+        <code>black-background</code> (<i>0x00000400</i>) – GST_RPI_CAM_SRC_ANNOTATION_MODE_BLACK_BACKGROUND
+        </div>
+    
+			</div>
+
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstRpiCamSrcDRCLevel">
+	
+
+
+
+<h3 data-hotdoc-id="GstRpiCamSrcDRCLevel">
+	<i>GstRpiCamSrcDRCLevel</i>
+</h3>
+
+
+
+
+
+	<div class="members-container">
+		<h4>Members</h4>
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstRpiCamSrcDRCLevel::off">
+        <code>off</code> (<i>0</i>) – GST_RPI_CAM_SRC_DRC_LEVEL_OFF
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstRpiCamSrcDRCLevel::low">
+        <code>low</code> (<i>1</i>) – GST_RPI_CAM_SRC_DRC_LEVEL_LOW
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstRpiCamSrcDRCLevel::medium">
+        <code>medium</code> (<i>2</i>) – GST_RPI_CAM_SRC_DRC_LEVEL_MEDIUM
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstRpiCamSrcDRCLevel::high">
+        <code>high</code> (<i>3</i>) – GST_RPI_CAM_SRC_DRC_LEVEL_HIGH
+        </div>
+    
+			</div>
+
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstRpiCamSrcExposureMeteringMode">
+	
+
+
+
+<h3 data-hotdoc-id="GstRpiCamSrcExposureMeteringMode">
+	<i>GstRpiCamSrcExposureMeteringMode</i>
+</h3>
+
+
+
+
+
+	<div class="members-container">
+		<h4>Members</h4>
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstRpiCamSrcExposureMeteringMode::average">
+        <code>average</code> (<i>0</i>) – GST_RPI_CAM_SRC_EXPOSURE_METERING_MODE_AVERAGE
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstRpiCamSrcExposureMeteringMode::spot">
+        <code>spot</code> (<i>1</i>) – GST_RPI_CAM_SRC_EXPOSURE_METERING_MODE_SPOT
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstRpiCamSrcExposureMeteringMode::backlist">
+        <code>backlist</code> (<i>2</i>) – GST_RPI_CAM_SRC_EXPOSURE_METERING_MODE_BACKLIST
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstRpiCamSrcExposureMeteringMode::matrix">
+        <code>matrix</code> (<i>3</i>) – GST_RPI_CAM_SRC_EXPOSURE_METERING_MODE_MATRIX
+        </div>
+    
+			</div>
+
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstRpiCamSrcExposureMode">
+	
+
+
+
+<h3 data-hotdoc-id="GstRpiCamSrcExposureMode">
+	<i>GstRpiCamSrcExposureMode</i>
+</h3>
+
+
+
+
+
+	<div class="members-container">
+		<h4>Members</h4>
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstRpiCamSrcExposureMode::off">
+        <code>off</code> (<i>0</i>) – GST_RPI_CAM_SRC_EXPOSURE_MODE_OFF
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstRpiCamSrcExposureMode::auto">
+        <code>auto</code> (<i>1</i>) – GST_RPI_CAM_SRC_EXPOSURE_MODE_AUTO
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstRpiCamSrcExposureMode::night">
+        <code>night</code> (<i>2</i>) – GST_RPI_CAM_SRC_EXPOSURE_MODE_NIGHT
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstRpiCamSrcExposureMode::nightpreview">
+        <code>nightpreview</code> (<i>3</i>) – GST_RPI_CAM_SRC_EXPOSURE_MODE_NIGHTPREVIEW
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstRpiCamSrcExposureMode::backlight">
+        <code>backlight</code> (<i>4</i>) – GST_RPI_CAM_SRC_EXPOSURE_MODE_BACKLIGHT
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstRpiCamSrcExposureMode::spotlight">
+        <code>spotlight</code> (<i>5</i>) – GST_RPI_CAM_SRC_EXPOSURE_MODE_SPOTLIGHT
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstRpiCamSrcExposureMode::sports">
+        <code>sports</code> (<i>6</i>) – GST_RPI_CAM_SRC_EXPOSURE_MODE_SPORTS
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstRpiCamSrcExposureMode::snow">
+        <code>snow</code> (<i>7</i>) – GST_RPI_CAM_SRC_EXPOSURE_MODE_SNOW
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstRpiCamSrcExposureMode::beach">
+        <code>beach</code> (<i>8</i>) – GST_RPI_CAM_SRC_EXPOSURE_MODE_BEACH
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstRpiCamSrcExposureMode::verylong">
+        <code>verylong</code> (<i>9</i>) – GST_RPI_CAM_SRC_EXPOSURE_MODE_VERYLONG
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstRpiCamSrcExposureMode::fixedfps">
+        <code>fixedfps</code> (<i>10</i>) – GST_RPI_CAM_SRC_EXPOSURE_MODE_FIXEDFPS
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstRpiCamSrcExposureMode::antishake">
+        <code>antishake</code> (<i>11</i>) – GST_RPI_CAM_SRC_EXPOSURE_MODE_ANTISHAKE
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstRpiCamSrcExposureMode::fireworks">
+        <code>fireworks</code> (<i>12</i>) – GST_RPI_CAM_SRC_EXPOSURE_MODE_FIREWORKS
+        </div>
+    
+			</div>
+
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstRpiCamSrcImageEffect">
+	
+
+
+
+<h3 data-hotdoc-id="GstRpiCamSrcImageEffect">
+	<i>GstRpiCamSrcImageEffect</i>
+</h3>
+
+
+
+
+
+	<div class="members-container">
+		<h4>Members</h4>
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstRpiCamSrcImageEffect::none">
+        <code>none</code> (<i>0</i>) – GST_RPI_CAM_SRC_IMAGEFX_NONE
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstRpiCamSrcImageEffect::negative">
+        <code>negative</code> (<i>1</i>) – GST_RPI_CAM_SRC_IMAGEFX_NEGATIVE
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstRpiCamSrcImageEffect::solarize">
+        <code>solarize</code> (<i>2</i>) – GST_RPI_CAM_SRC_IMAGEFX_SOLARIZE
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstRpiCamSrcImageEffect::posterize">
+        <code>posterize</code> (<i>3</i>) – GST_RPI_CAM_SRC_IMAGEFX_POSTERIZE
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstRpiCamSrcImageEffect::whiteboard">
+        <code>whiteboard</code> (<i>4</i>) – GST_RPI_CAM_SRC_IMAGEFX_WHITEBOARD
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstRpiCamSrcImageEffect::blackboard">
+        <code>blackboard</code> (<i>5</i>) – GST_RPI_CAM_SRC_IMAGEFX_BLACKBOARD
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstRpiCamSrcImageEffect::sketch">
+        <code>sketch</code> (<i>6</i>) – GST_RPI_CAM_SRC_IMAGEFX_SKETCH
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstRpiCamSrcImageEffect::denoise">
+        <code>denoise</code> (<i>7</i>) – GST_RPI_CAM_SRC_IMAGEFX_DENOISE
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstRpiCamSrcImageEffect::emboss">
+        <code>emboss</code> (<i>8</i>) – GST_RPI_CAM_SRC_IMAGEFX_EMBOSS
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstRpiCamSrcImageEffect::oilpaint">
+        <code>oilpaint</code> (<i>9</i>) – GST_RPI_CAM_SRC_IMAGEFX_OILPAINT
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstRpiCamSrcImageEffect::hatch">
+        <code>hatch</code> (<i>10</i>) – GST_RPI_CAM_SRC_IMAGEFX_HATCH
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstRpiCamSrcImageEffect::gpen">
+        <code>gpen</code> (<i>11</i>) – GST_RPI_CAM_SRC_IMAGEFX_GPEN
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstRpiCamSrcImageEffect::pastel">
+        <code>pastel</code> (<i>12</i>) – GST_RPI_CAM_SRC_IMAGEFX_PASTEL
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstRpiCamSrcImageEffect::watercolour">
+        <code>watercolour</code> (<i>13</i>) – GST_RPI_CAM_SRC_IMAGEFX_WATERCOLOUR
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstRpiCamSrcImageEffect::film">
+        <code>film</code> (<i>14</i>) – GST_RPI_CAM_SRC_IMAGEFX_FILM
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstRpiCamSrcImageEffect::blur">
+        <code>blur</code> (<i>15</i>) – GST_RPI_CAM_SRC_IMAGEFX_BLUR
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstRpiCamSrcImageEffect::saturation">
+        <code>saturation</code> (<i>16</i>) – GST_RPI_CAM_SRC_IMAGEFX_SATURATION
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstRpiCamSrcImageEffect::colourswap">
+        <code>colourswap</code> (<i>17</i>) – GST_RPI_CAM_SRC_IMAGEFX_COLOURSWAP
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstRpiCamSrcImageEffect::washedout">
+        <code>washedout</code> (<i>18</i>) – GST_RPI_CAM_SRC_IMAGEFX_WASHEDOUT
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstRpiCamSrcImageEffect::posterise">
+        <code>posterise</code> (<i>19</i>) – GST_RPI_CAM_SRC_IMAGEFX_POSTERISE
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstRpiCamSrcImageEffect::colourpoint">
+        <code>colourpoint</code> (<i>20</i>) – GST_RPI_CAM_SRC_IMAGEFX_COLOURPOINT
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstRpiCamSrcImageEffect::colourbalance">
+        <code>colourbalance</code> (<i>21</i>) – GST_RPI_CAM_SRC_IMAGEFX_COLOURBALANCE
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstRpiCamSrcImageEffect::cartoon">
+        <code>cartoon</code> (<i>22</i>) – GST_RPI_CAM_SRC_IMAGEFX_CARTOON
+        </div>
+    
+			</div>
+
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstRpiCamSrcIntraRefreshType">
+	
+
+
+
+<h3 data-hotdoc-id="GstRpiCamSrcIntraRefreshType">
+	<i>GstRpiCamSrcIntraRefreshType</i>
+</h3>
+
+
+
+
+
+	<div class="members-container">
+		<h4>Members</h4>
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstRpiCamSrcIntraRefreshType::none">
+        <code>none</code> (<i>-1</i>) – GST_RPI_CAM_SRC_INTRA_REFRESH_TYPE_NONE
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstRpiCamSrcIntraRefreshType::cyclic">
+        <code>cyclic</code> (<i>0</i>) – GST_RPI_CAM_SRC_INTRA_REFRESH_TYPE_CYCLIC
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstRpiCamSrcIntraRefreshType::adaptive">
+        <code>adaptive</code> (<i>1</i>) – GST_RPI_CAM_SRC_INTRA_REFRESH_TYPE_ADAPTIVE
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstRpiCamSrcIntraRefreshType::both">
+        <code>both</code> (<i>2</i>) – GST_RPI_CAM_SRC_INTRA_REFRESH_TYPE_BOTH
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstRpiCamSrcIntraRefreshType::cyclic-rows">
+        <code>cyclic-rows</code> (<i>2130706433</i>) – GST_RPI_CAM_SRC_INTRA_REFRESH_TYPE_CYCLIC_ROWS
+        </div>
+    
+			</div>
+
+
+
+
+<hr>
+
+</div>
+
+            
+
+<div class="base_symbol_container" data-hotdoc-tags="" id="GstRpiCamSrcSensorMode">
+	
+
+
+
+<h3 data-hotdoc-id="GstRpiCamSrcSensorMode">
+	<i>GstRpiCamSrcSensorMode</i>
+</h3>
+
+
+
+
+
+	<div class="members-container">
+		<h4>Members</h4>
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstRpiCamSrcSensorMode::automatic">
+        <code>automatic</code> (<i>0</i>) – Automatic
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstRpiCamSrcSensorMode::1920x1080">
+        <code>1920x1080</code> (<i>1</i>) – 1920x1080 16:9 1-30fps
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstRpiCamSrcSensorMode::2592x1944-fast">
+        <code>2592x1944-fast</code> (<i>2</i>) – 2592x1944 4:3 1-15fps / 3240x2464 15fps w/ v.2 board
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstRpiCamSrcSensorMode::2592x1944-slow">
+        <code>2592x1944-slow</code> (<i>3</i>) – 2592x1944 4:3 0.1666-1fps / 3240x2464 15fps w/ v.2 board
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstRpiCamSrcSensorMode::1296x972">
+        <code>1296x972</code> (<i>4</i>) – 1296x972 4:3 1-42fps
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstRpiCamSrcSensorMode::1296x730">
+        <code>1296x730</code> (<i>5</i>) – 1296x730 16:9 1-49fps
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstRpiCamSrcSensorMode::640x480-slow">
+        <code>640x480-slow</code> (<i>6</i>) – 640x480 4:3 42.1-60fps
+        </div>
+    
+					
+        <div class="member_details" data-toc-skip="true" data-hotdoc-id="GstRpiCamSrcSensorMode::640x480-fast">
+        <code>640x480-fast</code> (<i>7</i>) – 640x480 4:3 60.1-90fps
+        </div>
+    
+			</div>
+
+
+
+
+<hr>
+
+</div>
+
+
+
+
+
+
+		
+	</div>
+	<div id="search_results">
+		<p>The results of the search are</p>
+	</div>
+	<div id="footer">
+		    
+
+	</div>
+</div>
+
+<div id="toc-column">
+	
+		<div class="edit-button">
+		
+
+	</div>
+		<div id="toc-wrapper">
+		<nav id="toc"></nav>
+	</div>
+</div>
+</div>
+</main>
+
+
+<script src="assets/js/navbar_offset_scroller.js"></script>
+</body>
+</html>

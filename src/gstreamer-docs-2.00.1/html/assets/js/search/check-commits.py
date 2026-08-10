@@ -1,0 +1,1 @@
+urls_downloaded_cb({"token":"check-commits.py","urls":[{"url":"contribute/index.html#precommit","node_type":"p","page":"Contributing to GStreamer","sections":["Contributing to GStreamer","How to Submit Patches","Where to Submit Patches","Coding Style","Pre-commit"],"context":{"gi-language":["default"]}}]});

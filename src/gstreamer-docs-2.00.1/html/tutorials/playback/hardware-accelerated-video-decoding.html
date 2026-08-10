@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<base href="../..">
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<title>Playback tutorial 8: Hardware-accelerated video decoding</title>
+
+<link rel="stylesheet" href="assets/css/dark-frontend.css" type="text/css" title="dark">
+<link rel="alternate stylesheet" href="assets/css/light-frontend.css" type="text/css" title="light">
+<link rel="stylesheet" href="assets/css/bootstrap-toc.min.css" type="text/css">
+<link rel="stylesheet" href="assets/css/jquery.mCustomScrollbar.min.css">
+<link rel="stylesheet" href="assets/js/search/enable_search.css" type="text/css">
+
+<link rel="stylesheet" href="assets/css/extra_frontend.css" type="text/css">
+<link rel="stylesheet" href="assets/css/devhelp.css" type="text/css">
+
+<link rel="stylesheet" href="assets/css/prism-tomorrow.css" type="text/css" title="dark">
+
+<link rel="alternate stylesheet" href="assets/css/prism.css" type="text/css" title="light">
+
+<script src="assets/js/mustache.min.js"></script>
+<script src="assets/js/jquery.js"></script>
+<script src="assets/js/bootstrap.js"></script>
+<script src="assets/js/scrollspy.js"></script>
+<script src="assets/js/typeahead.jquery.min.js"></script>
+<script src="assets/js/search.js"></script>
+<script src="assets/js/compare-versions.js"></script>
+<script src="assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="assets/js/bootstrap-toc.min.js"></script>
+<script src="assets/js/jquery.touchSwipe.min.js"></script>
+<script src="assets/js/anchor.min.js"></script>
+<script src="assets/js/tag_filtering.js"></script>
+<script src="assets/js/language_switching.js"></script>
+<script src="assets/js/styleswitcher.js"></script>
+
+<script src="assets/js/lines_around_headings.js"></script>
+
+<script src="assets/js/prism-core.js"></script>
+<script src="assets/js/prism-autoloader.js"></script>
+<script src="assets/js/prism_autoloader_path_override.js"></script>
+<script src="assets/js/trie.js"></script>
+
+<!-- generic -->
+<link rel="icon" type="image/png" href="assets/images/favicon-16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="assets/images/favicon-32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="assets/images/favicon-57.png" sizes="57x57">
+<link rel="icon" type="image/png" href="assets/images/favicon-64.png" sizes="64x64">
+<link rel="icon" type="image/png" href="assets/images/favicon-76.png" sizes="76x76">
+<link rel="icon" type="image/png" href="assets/images/favicon-96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="assets/images/favicon-128.png" sizes="128x128">
+<link rel="icon" type="image/png" href="assets/images/favicon-192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="assets/images/favicon-228.png" sizes="228x228">
+
+<!-- Android -->
+<link rel="shortcut icon" sizes="196x196" href="assets/images/favicon-196.png">
+
+<!-- iOS -->
+<link rel="apple-touch-icon" href="assets/images/favicon-120.png" sizes="120x120">
+<link rel="apple-touch-icon" href="assets/images/favicon-152.png" sizes="152x152">
+<link rel="apple-touch-icon" href="assets/images/favicon-180.png" sizes="180x180">
+
+</head>
+
+<body class="no-script
+">
+
+<script>
+$('body').removeClass('no-script');
+</script>
+
+<nav class="navbar navbar-fixed-top navbar-default" id="topnav">
+	<div class="container-fluid">
+		<div class="navbar-right">
+			<a id="toc-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-wrapper" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<span title="light mode switch" class="glyphicon glyphicon-sunglasses pull-right" id="lightmode-icon"></span>
+			<form class="navbar-form pull-right" id="navbar-search-form">
+                               <div class="form-group has-feedback">
+                                       <input type="text" class="form-control input-sm" name="search" id="sidenav-lookup-field" placeholder="search" disabled>
+				       <span class="glyphicon glyphicon-search form-control-feedback" id="search-mgn-glass"></span>
+                               </div>
+                        </form>
+		</div>
+		<div class="navbar-header">
+			<a id="sidenav-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<a id="home-link" href="index.html" class="hotdoc-navbar-brand">
+				<img src="assets/images/gstreamer-logo.svg" alt="Home">
+			</a>
+		</div>
+		<div class="navbar-collapse collapse" id="navbar-wrapper">
+			<ul class="nav navbar-nav" id="menu">
+				
+<li class="dropdown">
+    <a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        API References<span class="caret"></span>
+    </a>
+	<ul class="dropdown-menu" id="modules-menu">
+					<li>
+				<a href="gstreamer/gi-index.html">GStreamer core</a>
+			</li>
+					<li>
+				<a href="libs.html">GStreamer Libraries</a>
+			</li>
+					<li>
+				<a href="plugins_doc.html">GStreamer Plugins</a>
+			</li>
+		</ul>
+</li>
+
+<li>
+    <a href="application-development/index.html">Application manual</a>
+</li>
+
+
+<li>
+    <a href="tutorials/index.html">Tutorials</a>
+</li>
+
+			</ul>
+			<div class="hidden-xs hidden-sm navbar-text navbar-center">
+							</div>
+		</div>
+	</div>
+</nav>
+
+<main>
+<div data-extension="gi-extension" data-hotdoc-in-toplevel="True" data-hotdoc-project="GStreamer" data-hotdoc-ref="tutorials/playback/hardware-accelerated-video-decoding.html" class="page_container" id="page-wrapper" data-hotdoc-meta-gi-languages="['c', 'javascript', 'python']" data-hotdoc-meta-gi-language="c">
+<script src="assets/js/utils.js"></script>
+
+<div class="panel panel-collapse oc-collapsed" id="sidenav" data-hotdoc-role="navigation">
+	<script src="assets/js/full-width.js"></script>
+  <div id="sitenav-wrapper">
+    <iframe src="hotdoc-sitemap.html" id="sitenav-frame"></iframe>
+  </div>
+</div>
+
+<div id="body">
+	<div id="main">
+				    <div id="page-description" data-hotdoc-role="main">
+        <h1 id="playback-tutorial-8-hardwareaccelerated-video-decoding">Playback tutorial 8: Hardware-accelerated video decoding</h1>
+<div class="gi-lang-python">
+<blockquote>
+<p><img src="tutorials/playback/images/icons/emoticons/warning.svg" alt="Warning" id="warning"> <strong>Please port this tutorial to python!</strong></p>
+</blockquote>
+</div> <!-- LANGUAGE -->
+<div class="gi-lang-javascript">
+<blockquote>
+<p><img src="tutorials/playback/images/icons/emoticons/warning.svg" alt="Warning" id="warning1"> <strong>Please port this tutorial to javascript!</strong></p>
+</blockquote>
+</div> <!-- LANGUAGE -->
+<h3 id="goal">Goal</h3>
+<p>Hardware-accelerated video decoding has rapidly become a necessity, as
+low-power devices grow more common. This tutorial (more of a lecture,
+actually) gives some background on hardware acceleration and explains
+how does GStreamer benefit from it.</p>
+<p>Sneak peek: if properly setup, you do not need to do anything special to
+activate hardware acceleration; GStreamer automatically takes advantage
+of it.</p>
+<h3 id="introduction">Introduction</h3>
+<p>Video decoding can be an extremely CPU-intensive task, especially for
+higher resolutions like 1080p HDTV. Fortunately, modern graphics cards,
+equipped with programmable GPUs, are able to take care of this job,
+allowing the CPU to concentrate on other duties. Having dedicated
+hardware becomes essential for low-power CPUs which are simply incapable
+of decoding such media fast enough.</p>
+<p>In the current state of things (June 2016) each GPU manufacturer offers
+a different method to access their hardware (a different API), and a
+strong industry standard has not emerged yet.</p>
+<p>As of June 2016, there exist at least 8 different video decoding
+acceleration APIs:</p>
+<ul>
+<li>
+<p><a href="http://en.wikipedia.org/wiki/Video_Acceleration_API">VAAPI</a> (<em>Video
+Acceleration API</em>): Initially designed by
+<a href="http://en.wikipedia.org/wiki/Intel">Intel</a> in 2007, targeted at the X
+Window System on Unix-based operating systems, now open-source. It now
+also supports Wayland through dmabuf. It is currently not limited to
+Intel GPUs as other manufacturers are free to use this API, for example,
+<a href="http://en.wikipedia.org/wiki/Imagination_Technologies">Imagination
+Technologies</a> or
+<a href="http://en.wikipedia.org/wiki/S3_Graphics">S3 Graphics</a>. Accessible to
+GStreamer through <code>va</code> plugin from <code>gst-plugins-bad</code>.</p>
+</li>
+<li>
+<p><a href="http://developer.amd.com/sdks/AMDAPPSDK/assets/OpenVideo_Decode_API.PDF">OVD</a>
+(<em>Open Video Decode</em>): Another API from <a href="http://en.wikipedia.org/wiki/AMD_Graphics">AMD
+Graphics</a>, designed to be a
+platform agnostic method for softrware developers to leverage the
+<a href="http://en.wikipedia.org/wiki/Unified_Video_Decoder">Universal Video
+Decode</a> (UVD)
+hardware inside AMD Radeon graphics cards. Currently unavailable to
+GStreamer .</p>
+</li>
+<li>
+<p><a href="http://en.wikipedia.org/wiki/Distributed_Codec_Engine">DCE</a>
+(<em>Distributed Codec Engine</em>): An open source software library ("libdce")
+and API specification by <a href="http://en.wikipedia.org/wiki/Texas_Instruments">Texas
+Instruments</a>, targeted
+at Linux systems and ARM platforms. Accessible to GStreamer through
+the <a href="https://github.com/robclark/gst-ducati">gstreamer-ducati</a> plugin.</p>
+</li>
+<li>
+<p><a href="https://developer.android.com/reference/android/media/MediaCodec.html">Android
+MediaCodec</a>: This is Android's API to access the device's
+hardware decoder and encoder if available. This is accessible through the
+<code>androidmedia</code> plugin in gst-plugins-bad. This includes both encoding and
+decoding.</p>
+</li>
+<li>
+<p>Apple VideoTool Box Framework: Apple's API to access hardware is available
+through the <code>applemedia</code> plugin which includes both encoding through
+the <code>vtenc</code> element and decoding through the <code>vtdec</code> element.</p>
+</li>
+<li>
+<p>Video4Linux: Recent Linux kernels have a kernel API to expose
+hardware codecs in a standard way, this is now supported by the
+<code>v4l2</code> plugin in <code>gst-plugins-good</code>. This can support both decoding
+and encoding depending on the platform.</p>
+</li>
+</ul>
+<h3 id="inner-workings-of-hardwareaccelerated-video-decoding-plugins">Inner workings of hardware-accelerated video decoding plugins</h3>
+<p>These APIs generally offer a number of functionalities, like video
+decoding, post-processing, or presentation of the decoded
+frames. Correspondingly, plugins generally offer a different GStreamer
+element for each of these functions, so pipelines can be built to
+accommodate any need.</p>
+<p>For example, the <code>va</code> plugin from <code>gst-plugins-bad</code> offers the
+<code>vah264dec</code>, <code>vah264dec</code>, <code>vahav1dec</code>, etc., and <code>vapostproc</code> elements
+that allow hardware-accelerated decoding through VAAPI, upload of raw
+video frames to GPU memory, download of GPU frames to system memory and
+presentation of GPU frames, respectively.</p>
+<p>It is important to distinguish between conventional GStreamer frames,
+which reside in system memory, and frames generated by
+hardware-accelerated APIs. The latter reside in GPU memory and cannot
+be touched by GStreamer. They can usually be downloaded to system
+memory and treated as conventional GStreamer frames when they are
+mapped, but it is far more efficient to leave them in the GPU and
+display them from there.</p>
+<p>GStreamer needs to keep track of where these “hardware buffers” are
+though, so conventional buffers still travel from element to
+element. They look like regular buffers, but mapping their content is
+much slower as it has to be retrieved from the special memory used by
+hardware accelerated elements. This special memory types are
+negotiated using the allocation query mechanism.</p>
+<p>This all means that, if a particular hardware acceleration API is
+present in the system, and the corresponding GStreamer plugin is also
+available, auto-plugging elements like <code>playbin3</code> are free to use
+hardware acceleration to build their pipelines; the application does not
+need to do anything special to enable it. Almost:</p>
+<p>When <code>playbin3</code> has to choose among different equally valid elements,
+like conventional software decoding (through <code>vp8dec</code>, for example) or
+hardware accelerated decoding (through <code>vavp8dec</code>, for example), it uses
+their <em>rank</em> to decide. The rank is a property of each element that
+indicates its priority; <code>playbin3</code> will simply select the element that
+is able to build a complete pipeline and has the highest rank.</p>
+<p>So, whether <code>playbin3</code> will use hardware acceleration or not will depend
+on the relative ranks of all elements capable of dealing with that media
+type. Therefore, the easiest way to make sure hardware acceleration is
+enabled or disabled is by changing the rank of the associated element
+via the environment variable <code>GST_PLUGIN_FEATURE_RANK</code> (see “Running and
+debugging GStreamer Applications” in documentation for more
+information). Another way is by setting the rank in your application as
+shown in this code:</p>
+<pre><code class="language-c">static void enable_factory (const gchar *name, gboolean enable) {
+    GstRegistry *registry = NULL;
+    GstElementFactory *factory = NULL;
+
+    registry = gst_registry_get_default ();
+    if (!registry) return;
+
+    factory = gst_element_factory_find (name);
+    if (!factory) return;
+
+    if (enable) {
+        gst_plugin_feature_set_rank (GST_PLUGIN_FEATURE (factory), GST_RANK_PRIMARY + 1);
+    }
+    else {
+        gst_plugin_feature_set_rank (GST_PLUGIN_FEATURE (factory), GST_RANK_NONE);
+    }
+
+    gst_registry_add_feature (registry, GST_PLUGIN_FEATURE (factory));
+    return;
+}
+</code></pre>
+<p>The first parameter passed to this method is the name of the element to
+modify, for example, <code>vavp9dec</code> or <code>fluvadec</code>.</p>
+<p>The key method is <code>gst_plugin_feature_set_rank()</code>, which will set the
+rank of the requested element factory to the desired level. For
+convenience, ranks are divided in NONE, MARGINAL, SECONDARY and PRIMARY,
+but any number will do. When enabling an element, we set it to
+PRIMARY+1, so it has a higher rank than the rest of elements which
+commonly have PRIMARY rank. Setting an element’s rank to NONE will make
+the auto-plugging mechanism to never select it.</p>
+<blockquote>
+<p><img src="tutorials/playback/images/icons/emoticons/warning.svg" alt="warning" id="warning2"> The GStreamer developers often rank hardware decoders lower than
+the software ones when they are defective. This should act as a warning.</p>
+</blockquote>
+<h2 id="conclusion">Conclusion</h2>
+<p>This tutorial has shown a bit how GStreamer internally manages hardware
+accelerated video decoding. Particularly,</p>
+<ul>
+<li>Applications do not need to do anything special to enable hardware
+acceleration if a suitable API and the corresponding GStreamer
+plugin are available.</li>
+<li>Hardware acceleration can be enabled or disabled by changing the
+rank of the decoding element with <code>GST_PLUGIN_FEATURE_RANK</code>
+environment variable, or using <code>gst_plugin_feature_set_rank()</code> in
+your code.</li>
+</ul>
+<p>It has been a pleasure having you here, and see you soon!</p>
+
+    </div>
+        
+
+
+
+
+		
+	</div>
+	<div id="search_results">
+		<p>The results of the search are</p>
+	</div>
+	<div id="footer">
+		    
+
+	</div>
+</div>
+
+<div id="toc-column">
+	
+		<div class="edit-button">
+		<a href="https://gitlab.freedesktop.org/gstreamer/gst-docs//edit/master/subprojects/gst-docs/markdown/tutorials/playback/hardware-accelerated-video-decoding.md" data-hotdoc-role="edit-button">Edit on GitLab</a>
+
+	</div>
+		<div id="toc-wrapper">
+		<nav id="toc"></nav>
+	</div>
+</div>
+</div>
+</main>
+
+
+<script src="assets/js/navbar_offset_scroller.js"></script>
+</body>
+</html>
