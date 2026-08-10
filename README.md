@@ -38,9 +38,23 @@ neutralizes strict version-checking scripts, and disables Wayland at the compile
 
 ---
 
-## 🚀 Installation
+## 🚀 Build and Installation
 
-If you are running the H-Linux environment, simply execute the orchestrator script. It will automatically apply the `sed` version corrections and launch the build:
+### Requirements
+
+* GNU Operating System / H-Linux instance 🐧
+* H-Linux human command layer 💻
+* H-Linux env library 🔧
+* NLP 🧠
+* makepkg 📦
+* Meson 🏗
+* Ninja 🥷
+* GCC or Clang ⚙
+* ccache 💾
+* All dependencies specified by the included PKGBUILDs
+
+### Install
+
 ```bash
 > gh repo clone fpucore/gstreamer2
 
